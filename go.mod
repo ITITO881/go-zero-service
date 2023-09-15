@@ -1,4 +1,4 @@
-module github.com/go-zero-rpc
+module github.com/ITITO881/go-zero-rpc
 
 go 1.20
 
