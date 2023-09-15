@@ -1,4 +1,5 @@
 module github.com/ITITO881/go-zero-rpc
+//modified module name
 
 go 1.20
 
