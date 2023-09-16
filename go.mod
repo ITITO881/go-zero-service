@@ -1,5 +1,6 @@
 module github.com/ITITO881/go-zero-rpc
 //modified module name
+//add filepool rpc 2023.9.15 18:34
 
 go 1.20
 
