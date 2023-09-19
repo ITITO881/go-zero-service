@@ -19,8 +19,6 @@
 
 # Go workspace file
 *.work
-*.mod
-*.sum
 
 .ieda
 *.iml
