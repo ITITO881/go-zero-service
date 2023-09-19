@@ -18,6 +18,10 @@
 # vendor/
 
 # Go workspace file
-go.work
+*.work
+*.mod
+*.sum
 
 .ieda
+*.iml
+*.xml
