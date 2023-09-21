@@ -1,6 +1,13 @@
 # go-zero-rpc
 
-基于go zero框架的rpc服务  
+基于go zero框架的rpc服务
+
+通过proto文件生成pb文件，指定路径(使用绝对路径)
+
+```
+protoc filename.proto --go_out=D:\aaa_project\goprojects\github.com\ITITO881\go-zero-service\rpc\itopb --go-grpc_out=D:\aaa_project\goprojects\github.com\ITITO881\go-zero-service\rpc\itopb
+```
+
 本地引用  
 生成本地module，添加go.mod文件
 
