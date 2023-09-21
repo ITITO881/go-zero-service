@@ -3,7 +3,6 @@
 // 	protoc-gen-go v1.31.0
 // 	protoc        v3.19.4
 // source: token.proto
-// GenTokenReq add property accessExpire
 
 package tokenpb
 

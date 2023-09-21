@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: filepool.proto
 
-package filepoolpb
+package filepoolitopb
 
 import (
 	context "context"
