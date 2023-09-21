@@ -1,5 +1,6 @@
 module github.com/ITITO881/go-zero-service
 //v0.0.0
+//新增rpc路径
 go 1.20
 
 require (
