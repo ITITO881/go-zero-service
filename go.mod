@@ -1,6 +1,7 @@
 module github.com/ITITO881/go-zero-service
 //v0.0.0
 //新增rpc路径
+//增加公共srcCode和errCode
 go 1.20
 
 require (
