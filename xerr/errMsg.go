@@ -35,6 +35,7 @@ func init() {
 	message[FILEURL_FIELD_IS_NOT_VALID] = "fileUrl字段不合法"
 	message[SOURCE_CODE_IS_NOT_VALID] = "sourceCode不合法"
 	message[MINIO_CLIENT_OPERATE_FAIL] = "minio数据库读写错误"
+	message[MINIO_OBJECT_GET_FAIL] = "minio数据库获取对象数据失败"
 }
 
 func MapErrMsg(errCode uint32) string {

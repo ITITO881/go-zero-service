@@ -19,17 +19,19 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	FilePoolIto_UploadFile_FullMethodName        = "/file_pool.FilePoolIto/UploadFile"
-	FilePoolIto_HashExist_FullMethodName         = "/file_pool.FilePoolIto/HashExist"
-	FilePoolIto_RemoveByHash_FullMethodName      = "/file_pool.FilePoolIto/RemoveByHash"
-	FilePoolIto_FileListPathBySrc_FullMethodName = "/file_pool.FilePoolIto/FileListPathBySrc"
-	FilePoolIto_FilterFiles_FullMethodName       = "/file_pool.FilePoolIto/FilterFiles"
-	FilePoolIto_UpdateFile_FullMethodName        = "/file_pool.FilePoolIto/UpdateFile"
-	FilePoolIto_RemoveByIdentity_FullMethodName  = "/file_pool.FilePoolIto/RemoveByIdentity"
-	FilePoolIto_IdentityExist_FullMethodName     = "/file_pool.FilePoolIto/IdentityExist"
-	FilePoolIto_UserRepoCreate_FullMethodName    = "/file_pool.FilePoolIto/UserRepoCreate"
-	FilePoolIto_IdByUserFile_FullMethodName      = "/file_pool.FilePoolIto/IdByUserFile"
-	FilePoolIto_UpdateUserFile_FullMethodName    = "/file_pool.FilePoolIto/UpdateUserFile"
+	FilePoolIto_UploadFile_FullMethodName             = "/file_pool.FilePoolIto/UploadFile"
+	FilePoolIto_HashExist_FullMethodName              = "/file_pool.FilePoolIto/HashExist"
+	FilePoolIto_RemoveByHash_FullMethodName           = "/file_pool.FilePoolIto/RemoveByHash"
+	FilePoolIto_FileListPathBySrc_FullMethodName      = "/file_pool.FilePoolIto/FileListPathBySrc"
+	FilePoolIto_FilterFiles_FullMethodName            = "/file_pool.FilePoolIto/FilterFiles"
+	FilePoolIto_UpdateFile_FullMethodName             = "/file_pool.FilePoolIto/UpdateFile"
+	FilePoolIto_RemoveByIdentity_FullMethodName       = "/file_pool.FilePoolIto/RemoveByIdentity"
+	FilePoolIto_IdentityExist_FullMethodName          = "/file_pool.FilePoolIto/IdentityExist"
+	FilePoolIto_SpuSkuImageList_FullMethodName        = "/file_pool.FilePoolIto/SpuSkuImageList"
+	FilePoolIto_RetrieveFileByIdentity_FullMethodName = "/file_pool.FilePoolIto/RetrieveFileByIdentity"
+	FilePoolIto_UserRepoCreate_FullMethodName         = "/file_pool.FilePoolIto/UserRepoCreate"
+	FilePoolIto_IdByUserFile_FullMethodName           = "/file_pool.FilePoolIto/IdByUserFile"
+	FilePoolIto_UpdateUserFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateUserFile"
 )
 
 // FilePoolItoClient is the client API for FilePoolIto service.
@@ -52,6 +54,10 @@ type FilePoolItoClient interface {
 	RemoveByIdentity(ctx context.Context, in *RemoveIdentityReq, opts ...grpc.CallOption) (*RemoveIdentityResp, error)
 	// 8. 指定source文件源，文件Identity是否已存在
 	IdentityExist(ctx context.Context, in *IdentityExistReq, opts ...grpc.CallOption) (*IdentityExistResp, error)
+	// 9. 指定 spu 或 spu+sku，查找该产品编码下的 所有 图片的列表
+	SpuSkuImageList(ctx context.Context, in *SpuSkuImageListReq, opts ...grpc.CallOption) (*SpuSkuImageListResp, error)
+	// 10. 指定source文件源，文件Identity，单查文件信息
+	RetrieveFileByIdentity(ctx context.Context, in *IdentityRetrieveReq, opts ...grpc.CallOption) (*IdentityRetrieveResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -140,6 +146,24 @@ func (c *filePoolItoClient) IdentityExist(ctx context.Context, in *IdentityExist
 	return out, nil
 }
 
+func (c *filePoolItoClient) SpuSkuImageList(ctx context.Context, in *SpuSkuImageListReq, opts ...grpc.CallOption) (*SpuSkuImageListResp, error) {
+	out := new(SpuSkuImageListResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_SpuSkuImageList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *filePoolItoClient) RetrieveFileByIdentity(ctx context.Context, in *IdentityRetrieveReq, opts ...grpc.CallOption) (*IdentityRetrieveResp, error) {
+	out := new(IdentityRetrieveResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_RetrieveFileByIdentity_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *filePoolItoClient) UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error) {
 	out := new(UserRepoCreateResp)
 	err := c.cc.Invoke(ctx, FilePoolIto_UserRepoCreate_FullMethodName, in, out, opts...)
@@ -187,6 +211,10 @@ type FilePoolItoServer interface {
 	RemoveByIdentity(context.Context, *RemoveIdentityReq) (*RemoveIdentityResp, error)
 	// 8. 指定source文件源，文件Identity是否已存在
 	IdentityExist(context.Context, *IdentityExistReq) (*IdentityExistResp, error)
+	// 9. 指定 spu 或 spu+sku，查找该产品编码下的 所有 图片的列表
+	SpuSkuImageList(context.Context, *SpuSkuImageListReq) (*SpuSkuImageListResp, error)
+	// 10. 指定source文件源，文件Identity，单查文件信息
+	RetrieveFileByIdentity(context.Context, *IdentityRetrieveReq) (*IdentityRetrieveResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -223,6 +251,12 @@ func (UnimplementedFilePoolItoServer) RemoveByIdentity(context.Context, *RemoveI
 }
 func (UnimplementedFilePoolItoServer) IdentityExist(context.Context, *IdentityExistReq) (*IdentityExistResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IdentityExist not implemented")
+}
+func (UnimplementedFilePoolItoServer) SpuSkuImageList(context.Context, *SpuSkuImageListReq) (*SpuSkuImageListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SpuSkuImageList not implemented")
+}
+func (UnimplementedFilePoolItoServer) RetrieveFileByIdentity(context.Context, *IdentityRetrieveReq) (*IdentityRetrieveResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveFileByIdentity not implemented")
 }
 func (UnimplementedFilePoolItoServer) UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRepoCreate not implemented")
@@ -390,6 +424,42 @@ func _FilePoolIto_IdentityExist_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FilePoolIto_SpuSkuImageList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpuSkuImageListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).SpuSkuImageList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_SpuSkuImageList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).SpuSkuImageList(ctx, req.(*SpuSkuImageListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FilePoolIto_RetrieveFileByIdentity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IdentityRetrieveReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).RetrieveFileByIdentity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_RetrieveFileByIdentity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).RetrieveFileByIdentity(ctx, req.(*IdentityRetrieveReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FilePoolIto_UserRepoCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRepoCreateReq)
 	if err := dec(in); err != nil {
@@ -482,6 +552,14 @@ var FilePoolIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IdentityExist",
 			Handler:    _FilePoolIto_IdentityExist_Handler,
+		},
+		{
+			MethodName: "SpuSkuImageList",
+			Handler:    _FilePoolIto_SpuSkuImageList_Handler,
+		},
+		{
+			MethodName: "RetrieveFileByIdentity",
+			Handler:    _FilePoolIto_RetrieveFileByIdentity_Handler,
 		},
 		{
 			MethodName: "UserRepoCreate",
