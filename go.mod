@@ -4,7 +4,7 @@ module github.com/ITITO881/go-zero-service
 //新增rpc路径
 //增加公共srcCode和errCode
 // add pbmgrito
-// update pbfilepoolito
+// update pbfilepoolito 
 go 1.20
 
 require (
