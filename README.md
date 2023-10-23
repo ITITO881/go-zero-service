@@ -8,7 +8,7 @@
 protoc filename.proto --go_out=D:\aaa_project\goprojects\github.com\ITITO881\go-zero-service\rpc\itopb --go-grpc_out=D:\aaa_project\goprojects\github.com\ITITO881\go-zero-service\rpc\itopb
 ```
 
-指定protoc需import文件的路径(如：google/protobuf/empty.proto)
+指定protoc需import文件的路径(如：google/protobuf/empty.proto，用于python生成的proto文件)
 
 ```
 protoc --proto_path="C:\Users\clark\AppData\Local\Programs\Python\Python311\Lib\site-packages\grpc_tools\_proto" --proto_path=. --go_out=. --go-grpc_out=. manager_ito.proto
