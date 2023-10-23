@@ -29,6 +29,7 @@ const (
 	FilePoolIto_IdentityExist_FullMethodName          = "/file_pool.FilePoolIto/IdentityExist"
 	FilePoolIto_SpuSkuImageList_FullMethodName        = "/file_pool.FilePoolIto/SpuSkuImageList"
 	FilePoolIto_RetrieveFileByIdentity_FullMethodName = "/file_pool.FilePoolIto/RetrieveFileByIdentity"
+	FilePoolIto_UpdateListFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateListFile"
 	FilePoolIto_UserRepoCreate_FullMethodName         = "/file_pool.FilePoolIto/UserRepoCreate"
 	FilePoolIto_IdByUserFile_FullMethodName           = "/file_pool.FilePoolIto/IdByUserFile"
 	FilePoolIto_UpdateUserFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateUserFile"
@@ -58,6 +59,8 @@ type FilePoolItoClient interface {
 	SpuSkuImageList(ctx context.Context, in *SpuSkuImageListReq, opts ...grpc.CallOption) (*SpuSkuImageListResp, error)
 	// 10. 指定source文件源，文件Identity，单查文件信息
 	RetrieveFileByIdentity(ctx context.Context, in *IdentityRetrieveReq, opts ...grpc.CallOption) (*IdentityRetrieveResp, error)
+	// 11. 指定source文件源，文件Identity列表，群更文件
+	UpdateListFile(ctx context.Context, in *UpdateListFileReq, opts ...grpc.CallOption) (*UpdateListFileResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -164,6 +167,15 @@ func (c *filePoolItoClient) RetrieveFileByIdentity(ctx context.Context, in *Iden
 	return out, nil
 }
 
+func (c *filePoolItoClient) UpdateListFile(ctx context.Context, in *UpdateListFileReq, opts ...grpc.CallOption) (*UpdateListFileResp, error) {
+	out := new(UpdateListFileResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_UpdateListFile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *filePoolItoClient) UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error) {
 	out := new(UserRepoCreateResp)
 	err := c.cc.Invoke(ctx, FilePoolIto_UserRepoCreate_FullMethodName, in, out, opts...)
@@ -215,6 +227,8 @@ type FilePoolItoServer interface {
 	SpuSkuImageList(context.Context, *SpuSkuImageListReq) (*SpuSkuImageListResp, error)
 	// 10. 指定source文件源，文件Identity，单查文件信息
 	RetrieveFileByIdentity(context.Context, *IdentityRetrieveReq) (*IdentityRetrieveResp, error)
+	// 11. 指定source文件源，文件Identity列表，群更文件
+	UpdateListFile(context.Context, *UpdateListFileReq) (*UpdateListFileResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -257,6 +271,9 @@ func (UnimplementedFilePoolItoServer) SpuSkuImageList(context.Context, *SpuSkuIm
 }
 func (UnimplementedFilePoolItoServer) RetrieveFileByIdentity(context.Context, *IdentityRetrieveReq) (*IdentityRetrieveResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveFileByIdentity not implemented")
+}
+func (UnimplementedFilePoolItoServer) UpdateListFile(context.Context, *UpdateListFileReq) (*UpdateListFileResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateListFile not implemented")
 }
 func (UnimplementedFilePoolItoServer) UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRepoCreate not implemented")
@@ -460,6 +477,24 @@ func _FilePoolIto_RetrieveFileByIdentity_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FilePoolIto_UpdateListFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateListFileReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).UpdateListFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_UpdateListFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).UpdateListFile(ctx, req.(*UpdateListFileReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FilePoolIto_UserRepoCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRepoCreateReq)
 	if err := dec(in); err != nil {
@@ -560,6 +595,10 @@ var FilePoolIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveFileByIdentity",
 			Handler:    _FilePoolIto_RetrieveFileByIdentity_Handler,
+		},
+		{
+			MethodName: "UpdateListFile",
+			Handler:    _FilePoolIto_UpdateListFile_Handler,
 		},
 		{
 			MethodName: "UserRepoCreate",
