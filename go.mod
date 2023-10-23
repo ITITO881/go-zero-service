@@ -5,6 +5,7 @@ module github.com/ITITO881/go-zero-service
 //增加公共srcCode和errCode
 // add pbmgrito
 // update pbfilepoolito 
+// modified pbplatproductito
 go 1.20
 
 require (
