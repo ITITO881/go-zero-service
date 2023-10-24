@@ -14,6 +14,10 @@ protoc filename.proto --go_out=D:\aaa_project\goprojects\github.com\ITITO881\go-
 protoc --proto_path="C:\Users\clark\AppData\Local\Programs\Python\Python311\Lib\site-packages\grpc_tools\_proto" --proto_path=. --go_out=. --go-grpc_out=. manager_ito.proto
 ```
 
+```
+protoc card_ito.proto --go_out=./ --go-grpc_out=./
+```
+
 本地引用  
 生成本地module，添加go.mod文件
 

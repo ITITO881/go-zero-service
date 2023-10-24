@@ -40,3 +40,7 @@ const (
 	MINIO_CLIENT_OPERATE_FAIL  uint32 = 131023
 	MINIO_OBJECT_GET_FAIL      uint32 = 131024
 )
+
+const (
+	ORM_ERROR uint32 = 200000
+)
