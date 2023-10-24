@@ -6,6 +6,7 @@ module github.com/ITITO881/go-zero-service
 // add pbmgrito
 // update pbfilepoolito 
 // modified pbplatproductito
+// add pbcardito
 go 1.20
 
 require (
