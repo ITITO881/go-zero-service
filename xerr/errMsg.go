@@ -14,6 +14,7 @@ func init() {
 	message[JSCODE_FIELD_REQUIRED] = "JsCode字段必传"
 	message[XORM_FILE_LIST_QUERY_FAIL] = "xorm文件登记数据库列表查询错误"
 	message[XORM_ENGINE_OPERATE_FAIL] = "XORM数据库读写错误"
+	message[XORM_QUERY_EMPTY] = "查询结果为 空"
 
 	/**(客户认证 错误码)**/
 	message[AUTHORIZATION_FIELD_REQUIRED] = "Authorization字段必传"
