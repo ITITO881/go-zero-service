@@ -28,7 +28,7 @@ func init() {
 	srcFlag[WEB_MP_ITO_PRODUCT_MANAGER_SKU] = "文件源：微信小程序，产品管理，SKU"
 
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_HOT_PROPOSE] = "文件源：微信小程序，分类混入列表，热点推荐"
-
+	srcFlag[WEB_MP_ITO_DUAL_MIXIN_PROD] = "文件源：微信小程序，二级分类复合列表，产品页"
 	srcFlag[WEB_MP_ITO_DUAL_BAR_PROD] = "文件源：微信小程序，二级分类，产品页"
 
 	// 2. ITO Web应用，上传文件类型码
