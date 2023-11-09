@@ -8,6 +8,7 @@ module github.com/ITITO881/go-zero-service
 // modified pbplatproductito
 // add pbcardito
 // add xerrCode
+// add sourceCode
 go 1.20
 
 require (
