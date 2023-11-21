@@ -1,6 +1,6 @@
 package desc
 
-/**(�?位代表渠�?后三位代表子渠道)**/
+/**(前3位代表渠道,后三位代表子渠道)**/
 
 const (
 	WEB_MP_ITO_USER_AVATAR         int64 = 100110
@@ -28,11 +28,11 @@ const (
 )
 
 const (
-	/** 1011 开头编码为 SPU图相关子�?**/
+	/** 1011 开头编码为 SPU图相关子类 **/
 	SPU_MAJOR_PIC   string = "spuMajor"
 	SPU_MINOR_PICS  string = "spuMinor"
 	SPU_DETAIL_PICS string = "spuDetail"
-	/**  1012 开头编码为 SKU图相关子�?**/
+	/**  1012 开头编码为 SKU图相关子类 **/
 	SKU_MAJOR_PIC  string = "skuMajor"
 	SKU_THUMB_PICS string = "skuThumb"
 	/** 100180 二级分类 用于区分二级分类 **/
