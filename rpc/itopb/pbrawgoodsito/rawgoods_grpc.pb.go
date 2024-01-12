@@ -4,13 +4,14 @@
 // - protoc             v3.19.4
 // source: rawgoods.proto
 
-package pbrawgoodsito
+package pbRawGoodsIto
 
 import (
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -110,6 +111,705 @@ var ProdPropertiesController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ProdRepairsController_Create_FullMethodName                  = "/product_service.prod_ito.ProdRepairsController/Create"
+	ProdRepairsController_Destroy_FullMethodName                 = "/product_service.prod_ito.ProdRepairsController/Destroy"
+	ProdRepairsController_GetRepairPartsCatChoice_FullMethodName = "/product_service.prod_ito.ProdRepairsController/GetRepairPartsCatChoice"
+	ProdRepairsController_List_FullMethodName                    = "/product_service.prod_ito.ProdRepairsController/List"
+	ProdRepairsController_PartialUpdate_FullMethodName           = "/product_service.prod_ito.ProdRepairsController/PartialUpdate"
+	ProdRepairsController_RepairPartsBulkUpdate_FullMethodName   = "/product_service.prod_ito.ProdRepairsController/RepairPartsBulkUpdate"
+	ProdRepairsController_Retrieve_FullMethodName                = "/product_service.prod_ito.ProdRepairsController/Retrieve"
+	ProdRepairsController_Update_FullMethodName                  = "/product_service.prod_ito.ProdRepairsController/Update"
+)
+
+// ProdRepairsControllerClient is the client API for ProdRepairsController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProdRepairsControllerClient interface {
+	Create(ctx context.Context, in *RepairPartsRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error)
+	Destroy(ctx context.Context, in *RepairPartsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetRepairPartsCatChoice(ctx context.Context, in *RepairPartsCatChoiceRequest, opts ...grpc.CallOption) (*RepairPartsCatChoiceListResponse, error)
+	List(ctx context.Context, in *RepairPartsListRequest, opts ...grpc.CallOption) (*RepairPartsListResponse, error)
+	PartialUpdate(ctx context.Context, in *RepairPartsPartialUpdateRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error)
+	RepairPartsBulkUpdate(ctx context.Context, in *RepairPartsBulkUpdateRequest, opts ...grpc.CallOption) (*RepairPartsBulkUpdateResponse, error)
+	Retrieve(ctx context.Context, in *RepairPartsRetrieveRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error)
+	Update(ctx context.Context, in *RepairPartsRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error)
+}
+
+type prodRepairsControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProdRepairsControllerClient(cc grpc.ClientConnInterface) ProdRepairsControllerClient {
+	return &prodRepairsControllerClient{cc}
+}
+
+func (c *prodRepairsControllerClient) Create(ctx context.Context, in *RepairPartsRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error) {
+	out := new(RepairPartsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) Destroy(ctx context.Context, in *RepairPartsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ProdRepairsController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) GetRepairPartsCatChoice(ctx context.Context, in *RepairPartsCatChoiceRequest, opts ...grpc.CallOption) (*RepairPartsCatChoiceListResponse, error) {
+	out := new(RepairPartsCatChoiceListResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_GetRepairPartsCatChoice_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) List(ctx context.Context, in *RepairPartsListRequest, opts ...grpc.CallOption) (*RepairPartsListResponse, error) {
+	out := new(RepairPartsListResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) PartialUpdate(ctx context.Context, in *RepairPartsPartialUpdateRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error) {
+	out := new(RepairPartsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) RepairPartsBulkUpdate(ctx context.Context, in *RepairPartsBulkUpdateRequest, opts ...grpc.CallOption) (*RepairPartsBulkUpdateResponse, error) {
+	out := new(RepairPartsBulkUpdateResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_RepairPartsBulkUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) Retrieve(ctx context.Context, in *RepairPartsRetrieveRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error) {
+	out := new(RepairPartsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsControllerClient) Update(ctx context.Context, in *RepairPartsRequest, opts ...grpc.CallOption) (*RepairPartsResponse, error) {
+	out := new(RepairPartsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProdRepairsControllerServer is the server API for ProdRepairsController service.
+// All implementations must embed UnimplementedProdRepairsControllerServer
+// for forward compatibility
+type ProdRepairsControllerServer interface {
+	Create(context.Context, *RepairPartsRequest) (*RepairPartsResponse, error)
+	Destroy(context.Context, *RepairPartsDestroyRequest) (*emptypb.Empty, error)
+	GetRepairPartsCatChoice(context.Context, *RepairPartsCatChoiceRequest) (*RepairPartsCatChoiceListResponse, error)
+	List(context.Context, *RepairPartsListRequest) (*RepairPartsListResponse, error)
+	PartialUpdate(context.Context, *RepairPartsPartialUpdateRequest) (*RepairPartsResponse, error)
+	RepairPartsBulkUpdate(context.Context, *RepairPartsBulkUpdateRequest) (*RepairPartsBulkUpdateResponse, error)
+	Retrieve(context.Context, *RepairPartsRetrieveRequest) (*RepairPartsResponse, error)
+	Update(context.Context, *RepairPartsRequest) (*RepairPartsResponse, error)
+	mustEmbedUnimplementedProdRepairsControllerServer()
+}
+
+// UnimplementedProdRepairsControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedProdRepairsControllerServer struct {
+}
+
+func (UnimplementedProdRepairsControllerServer) Create(context.Context, *RepairPartsRequest) (*RepairPartsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) Destroy(context.Context, *RepairPartsDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) GetRepairPartsCatChoice(context.Context, *RepairPartsCatChoiceRequest) (*RepairPartsCatChoiceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRepairPartsCatChoice not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) List(context.Context, *RepairPartsListRequest) (*RepairPartsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) PartialUpdate(context.Context, *RepairPartsPartialUpdateRequest) (*RepairPartsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) RepairPartsBulkUpdate(context.Context, *RepairPartsBulkUpdateRequest) (*RepairPartsBulkUpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RepairPartsBulkUpdate not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) Retrieve(context.Context, *RepairPartsRetrieveRequest) (*RepairPartsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) Update(context.Context, *RepairPartsRequest) (*RepairPartsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedProdRepairsControllerServer) mustEmbedUnimplementedProdRepairsControllerServer() {}
+
+// UnsafeProdRepairsControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProdRepairsControllerServer will
+// result in compilation errors.
+type UnsafeProdRepairsControllerServer interface {
+	mustEmbedUnimplementedProdRepairsControllerServer()
+}
+
+func RegisterProdRepairsControllerServer(s grpc.ServiceRegistrar, srv ProdRepairsControllerServer) {
+	s.RegisterService(&ProdRepairsController_ServiceDesc, srv)
+}
+
+func _ProdRepairsController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).Create(ctx, req.(*RepairPartsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).Destroy(ctx, req.(*RepairPartsDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_GetRepairPartsCatChoice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsCatChoiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).GetRepairPartsCatChoice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_GetRepairPartsCatChoice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).GetRepairPartsCatChoice(ctx, req.(*RepairPartsCatChoiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).List(ctx, req.(*RepairPartsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).PartialUpdate(ctx, req.(*RepairPartsPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_RepairPartsBulkUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsBulkUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).RepairPartsBulkUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_RepairPartsBulkUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).RepairPartsBulkUpdate(ctx, req.(*RepairPartsBulkUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).Retrieve(ctx, req.(*RepairPartsRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RepairPartsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsControllerServer).Update(ctx, req.(*RepairPartsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProdRepairsController_ServiceDesc is the grpc.ServiceDesc for ProdRepairsController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProdRepairsController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "product_service.prod_ito.ProdRepairsController",
+	HandlerType: (*ProdRepairsControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _ProdRepairsController_Create_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _ProdRepairsController_Destroy_Handler,
+		},
+		{
+			MethodName: "GetRepairPartsCatChoice",
+			Handler:    _ProdRepairsController_GetRepairPartsCatChoice_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _ProdRepairsController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _ProdRepairsController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "RepairPartsBulkUpdate",
+			Handler:    _ProdRepairsController_RepairPartsBulkUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _ProdRepairsController_Retrieve_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _ProdRepairsController_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rawgoods.proto",
+}
+
+const (
+	ProdRepairsRelationController_BulkCreate_FullMethodName    = "/product_service.prod_ito.ProdRepairsRelationController/BulkCreate"
+	ProdRepairsRelationController_Create_FullMethodName        = "/product_service.prod_ito.ProdRepairsRelationController/Create"
+	ProdRepairsRelationController_Destroy_FullMethodName       = "/product_service.prod_ito.ProdRepairsRelationController/Destroy"
+	ProdRepairsRelationController_GetProdCode_FullMethodName   = "/product_service.prod_ito.ProdRepairsRelationController/GetProdCode"
+	ProdRepairsRelationController_List_FullMethodName          = "/product_service.prod_ito.ProdRepairsRelationController/List"
+	ProdRepairsRelationController_PartialUpdate_FullMethodName = "/product_service.prod_ito.ProdRepairsRelationController/PartialUpdate"
+	ProdRepairsRelationController_Retrieve_FullMethodName      = "/product_service.prod_ito.ProdRepairsRelationController/Retrieve"
+	ProdRepairsRelationController_Update_FullMethodName        = "/product_service.prod_ito.ProdRepairsRelationController/Update"
+)
+
+// ProdRepairsRelationControllerClient is the client API for ProdRepairsRelationController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProdRepairsRelationControllerClient interface {
+	BulkCreate(ctx context.Context, in *RelProdRepairsBulkCreateListRequest, opts ...grpc.CallOption) (*RelProdRepairsBulkCreateResponse, error)
+	Create(ctx context.Context, in *RelProdRepairsRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
+	Destroy(ctx context.Context, in *RelProdRepairsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetProdCode(ctx context.Context, in *ProductRequest, opts ...grpc.CallOption) (*ProductListResponse, error)
+	List(ctx context.Context, in *RelProdRepairsListRequest, opts ...grpc.CallOption) (*RelProdRepairsListResponse, error)
+	PartialUpdate(ctx context.Context, in *RelProdRepairsPartialUpdateRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
+	Retrieve(ctx context.Context, in *RelProdRepairsRetrieveRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
+	Update(ctx context.Context, in *RelProdRepairsRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
+}
+
+type prodRepairsRelationControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProdRepairsRelationControllerClient(cc grpc.ClientConnInterface) ProdRepairsRelationControllerClient {
+	return &prodRepairsRelationControllerClient{cc}
+}
+
+func (c *prodRepairsRelationControllerClient) BulkCreate(ctx context.Context, in *RelProdRepairsBulkCreateListRequest, opts ...grpc.CallOption) (*RelProdRepairsBulkCreateResponse, error) {
+	out := new(RelProdRepairsBulkCreateResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_BulkCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) Create(ctx context.Context, in *RelProdRepairsRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error) {
+	out := new(RelProdRepairsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) Destroy(ctx context.Context, in *RelProdRepairsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) GetProdCode(ctx context.Context, in *ProductRequest, opts ...grpc.CallOption) (*ProductListResponse, error) {
+	out := new(ProductListResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_GetProdCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) List(ctx context.Context, in *RelProdRepairsListRequest, opts ...grpc.CallOption) (*RelProdRepairsListResponse, error) {
+	out := new(RelProdRepairsListResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) PartialUpdate(ctx context.Context, in *RelProdRepairsPartialUpdateRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error) {
+	out := new(RelProdRepairsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) Retrieve(ctx context.Context, in *RelProdRepairsRetrieveRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error) {
+	out := new(RelProdRepairsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *prodRepairsRelationControllerClient) Update(ctx context.Context, in *RelProdRepairsRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error) {
+	out := new(RelProdRepairsResponse)
+	err := c.cc.Invoke(ctx, ProdRepairsRelationController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProdRepairsRelationControllerServer is the server API for ProdRepairsRelationController service.
+// All implementations must embed UnimplementedProdRepairsRelationControllerServer
+// for forward compatibility
+type ProdRepairsRelationControllerServer interface {
+	BulkCreate(context.Context, *RelProdRepairsBulkCreateListRequest) (*RelProdRepairsBulkCreateResponse, error)
+	Create(context.Context, *RelProdRepairsRequest) (*RelProdRepairsResponse, error)
+	Destroy(context.Context, *RelProdRepairsDestroyRequest) (*emptypb.Empty, error)
+	GetProdCode(context.Context, *ProductRequest) (*ProductListResponse, error)
+	List(context.Context, *RelProdRepairsListRequest) (*RelProdRepairsListResponse, error)
+	PartialUpdate(context.Context, *RelProdRepairsPartialUpdateRequest) (*RelProdRepairsResponse, error)
+	Retrieve(context.Context, *RelProdRepairsRetrieveRequest) (*RelProdRepairsResponse, error)
+	Update(context.Context, *RelProdRepairsRequest) (*RelProdRepairsResponse, error)
+	mustEmbedUnimplementedProdRepairsRelationControllerServer()
+}
+
+// UnimplementedProdRepairsRelationControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedProdRepairsRelationControllerServer struct {
+}
+
+func (UnimplementedProdRepairsRelationControllerServer) BulkCreate(context.Context, *RelProdRepairsBulkCreateListRequest) (*RelProdRepairsBulkCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreate not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) Create(context.Context, *RelProdRepairsRequest) (*RelProdRepairsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) Destroy(context.Context, *RelProdRepairsDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) GetProdCode(context.Context, *ProductRequest) (*ProductListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProdCode not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) List(context.Context, *RelProdRepairsListRequest) (*RelProdRepairsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) PartialUpdate(context.Context, *RelProdRepairsPartialUpdateRequest) (*RelProdRepairsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) Retrieve(context.Context, *RelProdRepairsRetrieveRequest) (*RelProdRepairsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) Update(context.Context, *RelProdRepairsRequest) (*RelProdRepairsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedProdRepairsRelationControllerServer) mustEmbedUnimplementedProdRepairsRelationControllerServer() {
+}
+
+// UnsafeProdRepairsRelationControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProdRepairsRelationControllerServer will
+// result in compilation errors.
+type UnsafeProdRepairsRelationControllerServer interface {
+	mustEmbedUnimplementedProdRepairsRelationControllerServer()
+}
+
+func RegisterProdRepairsRelationControllerServer(s grpc.ServiceRegistrar, srv ProdRepairsRelationControllerServer) {
+	s.RegisterService(&ProdRepairsRelationController_ServiceDesc, srv)
+}
+
+func _ProdRepairsRelationController_BulkCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsBulkCreateListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).BulkCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_BulkCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).BulkCreate(ctx, req.(*RelProdRepairsBulkCreateListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).Create(ctx, req.(*RelProdRepairsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).Destroy(ctx, req.(*RelProdRepairsDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_GetProdCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).GetProdCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_GetProdCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).GetProdCode(ctx, req.(*ProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).List(ctx, req.(*RelProdRepairsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).PartialUpdate(ctx, req.(*RelProdRepairsPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).Retrieve(ctx, req.(*RelProdRepairsRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProdRepairsRelationController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RelProdRepairsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProdRepairsRelationControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProdRepairsRelationController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProdRepairsRelationControllerServer).Update(ctx, req.(*RelProdRepairsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProdRepairsRelationController_ServiceDesc is the grpc.ServiceDesc for ProdRepairsRelationController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProdRepairsRelationController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "product_service.prod_ito.ProdRepairsRelationController",
+	HandlerType: (*ProdRepairsRelationControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BulkCreate",
+			Handler:    _ProdRepairsRelationController_BulkCreate_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _ProdRepairsRelationController_Create_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _ProdRepairsRelationController_Destroy_Handler,
+		},
+		{
+			MethodName: "GetProdCode",
+			Handler:    _ProdRepairsRelationController_GetProdCode_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _ProdRepairsRelationController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _ProdRepairsRelationController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _ProdRepairsRelationController_Retrieve_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _ProdRepairsRelationController_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rawgoods.proto",
+}
+
+const (
 	ProductController_List_FullMethodName = "/product_service.prod_ito.ProductController/List"
 )
 
@@ -193,6 +893,392 @@ var ProductController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _ProductController_List_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rawgoods.proto",
+}
+
+const (
+	WorkshopController_Create_FullMethodName         = "/product_service.prod_ito.WorkshopController/Create"
+	WorkshopController_CreateList_FullMethodName     = "/product_service.prod_ito.WorkshopController/CreateList"
+	WorkshopController_Destroy_FullMethodName        = "/product_service.prod_ito.WorkshopController/Destroy"
+	WorkshopController_FilterRetrieve_FullMethodName = "/product_service.prod_ito.WorkshopController/FilterRetrieve"
+	WorkshopController_List_FullMethodName           = "/product_service.prod_ito.WorkshopController/List"
+	WorkshopController_PartialUpdate_FullMethodName  = "/product_service.prod_ito.WorkshopController/PartialUpdate"
+	WorkshopController_Properties_FullMethodName     = "/product_service.prod_ito.WorkshopController/Properties"
+	WorkshopController_Retrieve_FullMethodName       = "/product_service.prod_ito.WorkshopController/Retrieve"
+	WorkshopController_Update_FullMethodName         = "/product_service.prod_ito.WorkshopController/Update"
+)
+
+// WorkshopControllerClient is the client API for WorkshopController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WorkshopControllerClient interface {
+	Create(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
+	CreateList(ctx context.Context, in *ProdWorkshopListRequest, opts ...grpc.CallOption) (*ProdWorkshopListResponse, error)
+	Destroy(ctx context.Context, in *ProdWorkshopDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	FilterRetrieve(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*ProdWorkshopPartResponse, error)
+	List(ctx context.Context, in *ProdWorkshopPartListRequest, opts ...grpc.CallOption) (*ProdWorkshopPartListResponse, error)
+	PartialUpdate(ctx context.Context, in *ProdWorkshopPartialUpdateRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
+	Properties(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*WorkshopPropertiesListResponse, error)
+	Retrieve(ctx context.Context, in *ProdWorkshopRetrieveRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
+	Update(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
+}
+
+type workshopControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWorkshopControllerClient(cc grpc.ClientConnInterface) WorkshopControllerClient {
+	return &workshopControllerClient{cc}
+}
+
+func (c *workshopControllerClient) Create(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error) {
+	out := new(ProdWorkshopResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) CreateList(ctx context.Context, in *ProdWorkshopListRequest, opts ...grpc.CallOption) (*ProdWorkshopListResponse, error) {
+	out := new(ProdWorkshopListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_CreateList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) Destroy(ctx context.Context, in *ProdWorkshopDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, WorkshopController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) FilterRetrieve(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*ProdWorkshopPartResponse, error) {
+	out := new(ProdWorkshopPartResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_FilterRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) List(ctx context.Context, in *ProdWorkshopPartListRequest, opts ...grpc.CallOption) (*ProdWorkshopPartListResponse, error) {
+	out := new(ProdWorkshopPartListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) PartialUpdate(ctx context.Context, in *ProdWorkshopPartialUpdateRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error) {
+	out := new(ProdWorkshopResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) Properties(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*WorkshopPropertiesListResponse, error) {
+	out := new(WorkshopPropertiesListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_Properties_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) Retrieve(ctx context.Context, in *ProdWorkshopRetrieveRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error) {
+	out := new(ProdWorkshopResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) Update(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error) {
+	out := new(ProdWorkshopResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WorkshopControllerServer is the server API for WorkshopController service.
+// All implementations must embed UnimplementedWorkshopControllerServer
+// for forward compatibility
+type WorkshopControllerServer interface {
+	Create(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error)
+	CreateList(context.Context, *ProdWorkshopListRequest) (*ProdWorkshopListResponse, error)
+	Destroy(context.Context, *ProdWorkshopDestroyRequest) (*emptypb.Empty, error)
+	FilterRetrieve(context.Context, *ProdWorkshopPartRequest) (*ProdWorkshopPartResponse, error)
+	List(context.Context, *ProdWorkshopPartListRequest) (*ProdWorkshopPartListResponse, error)
+	PartialUpdate(context.Context, *ProdWorkshopPartialUpdateRequest) (*ProdWorkshopResponse, error)
+	Properties(context.Context, *ProdWorkshopPartRequest) (*WorkshopPropertiesListResponse, error)
+	Retrieve(context.Context, *ProdWorkshopRetrieveRequest) (*ProdWorkshopResponse, error)
+	Update(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error)
+	mustEmbedUnimplementedWorkshopControllerServer()
+}
+
+// UnimplementedWorkshopControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedWorkshopControllerServer struct {
+}
+
+func (UnimplementedWorkshopControllerServer) Create(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedWorkshopControllerServer) CreateList(context.Context, *ProdWorkshopListRequest) (*ProdWorkshopListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateList not implemented")
+}
+func (UnimplementedWorkshopControllerServer) Destroy(context.Context, *ProdWorkshopDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedWorkshopControllerServer) FilterRetrieve(context.Context, *ProdWorkshopPartRequest) (*ProdWorkshopPartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FilterRetrieve not implemented")
+}
+func (UnimplementedWorkshopControllerServer) List(context.Context, *ProdWorkshopPartListRequest) (*ProdWorkshopPartListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedWorkshopControllerServer) PartialUpdate(context.Context, *ProdWorkshopPartialUpdateRequest) (*ProdWorkshopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedWorkshopControllerServer) Properties(context.Context, *ProdWorkshopPartRequest) (*WorkshopPropertiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Properties not implemented")
+}
+func (UnimplementedWorkshopControllerServer) Retrieve(context.Context, *ProdWorkshopRetrieveRequest) (*ProdWorkshopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedWorkshopControllerServer) Update(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedWorkshopControllerServer) mustEmbedUnimplementedWorkshopControllerServer() {}
+
+// UnsafeWorkshopControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WorkshopControllerServer will
+// result in compilation errors.
+type UnsafeWorkshopControllerServer interface {
+	mustEmbedUnimplementedWorkshopControllerServer()
+}
+
+func RegisterWorkshopControllerServer(s grpc.ServiceRegistrar, srv WorkshopControllerServer) {
+	s.RegisterService(&WorkshopController_ServiceDesc, srv)
+}
+
+func _WorkshopController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).Create(ctx, req.(*ProdWorkshopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_CreateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).CreateList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_CreateList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).CreateList(ctx, req.(*ProdWorkshopListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).Destroy(ctx, req.(*ProdWorkshopDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_FilterRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopPartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).FilterRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_FilterRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).FilterRetrieve(ctx, req.(*ProdWorkshopPartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopPartListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).List(ctx, req.(*ProdWorkshopPartListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).PartialUpdate(ctx, req.(*ProdWorkshopPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_Properties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopPartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).Properties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_Properties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).Properties(ctx, req.(*ProdWorkshopPartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).Retrieve(ctx, req.(*ProdWorkshopRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProdWorkshopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).Update(ctx, req.(*ProdWorkshopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WorkshopController_ServiceDesc is the grpc.ServiceDesc for WorkshopController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WorkshopController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "product_service.prod_ito.WorkshopController",
+	HandlerType: (*WorkshopControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _WorkshopController_Create_Handler,
+		},
+		{
+			MethodName: "CreateList",
+			Handler:    _WorkshopController_CreateList_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _WorkshopController_Destroy_Handler,
+		},
+		{
+			MethodName: "FilterRetrieve",
+			Handler:    _WorkshopController_FilterRetrieve_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _WorkshopController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _WorkshopController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Properties",
+			Handler:    _WorkshopController_Properties_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _WorkshopController_Retrieve_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _WorkshopController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

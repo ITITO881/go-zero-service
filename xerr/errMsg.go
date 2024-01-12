@@ -37,6 +37,30 @@ func init() {
 	message[SOURCE_CODE_IS_NOT_VALID] = "sourceCode不合法"
 	message[MINIO_CLIENT_OPERATE_FAIL] = "minio数据库读写错误"
 	message[MINIO_OBJECT_GET_FAIL] = "minio数据库获取对象数据失败"
+
+	message[REDIS_ERROR] = "redis error"
+
+	message[COUPON_STOCK_NOT_ENOUGH] = "优惠券库存不足"
+	message[ACTIVITY_NOT_AVALIABLE] = "活动已失效"
+	message[ACTIVITY_NOT_STARTED] = "活动尚未开启"
+	message[COUPON_TAKE_LIMIT] = "优惠券领取数量已达上限"
+
+	// 订单 配置表 相关错误
+	message[ORDER_CONF_TRADE_TYPE_FAIL] = "订单类型获取错误"
+	message[ORDER_CONF_STOCK_LIST_FAIL] = "旺店通仓库列表获取错误"
+	message[ORDER_CONF_SHOP_LIST_FAIL] = "旺店通店铺列表获取错误"
+	message[ORDER_CONF_UPDATE_FAIL] = "订单设置更新错误"
+	message[ORDER_CONF_GET_LIST_FAIL] = "订单类型列表查询错误"
+
+	// 订单配置 相关 拒绝原因 相关错误
+	message[REFUND_REASON_TRADE_TYPE_FAIL] = "指定订单类型下 拒绝原因列表查询错误"
+	message[REFUND_REASON_CREATE_FAIL] = "新增 拒绝原因失败"
+	message[REFUND_REASON_UPDATE_FAIL] = "更新 拒绝原因失败"
+	message[REFUND_REASON_DESTROY_FAIL] = "删除 拒绝原因失败"
+	message[REFUND_REASON_CHILDREN_BATCH_UPDATE_FAIL] = "根据父类是否启用，批量更新子类是否启用失败"
+
+	// 订单主表 相关错误
+	message[ORDER_MODEL_OPERATE_FAIL] = "订单主表 操作错误"
 }
 
 func MapErrMsg(errCode uint32) string {

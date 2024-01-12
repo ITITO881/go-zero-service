@@ -1,0 +1,327 @@
+syntax = "proto3";
+
+package card_service.card_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../cardito";
+
+service CardCaresController {
+  rpc Create(CardCaresRequest) returns (CardCaresResponse) {}
+  rpc Destroy(CardCaresDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(CardCaresListRequest) returns (CardCaresListResponse) {}
+  rpc Options(OptionRequest) returns (CardCaresOptionResponse) {}
+  rpc PartialUpdate(CardCaresPartialUpdateRequest) returns (CardCaresResponse) {}
+  rpc Retrieve(CardCaresRetrieveRequest) returns (CardCaresResponse) {}
+  rpc Update(CardCaresRequest) returns (CardCaresResponse) {}
+}
+
+service CardMemberController {
+  rpc Create(CardMemberRequest) returns (CardMemberResponse) {}
+  rpc Destroy(CardMemberDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(CardMemberListRequest) returns (CardMemberListResponse) {}
+  rpc PartialUpdate(CardMemberPartialUpdateRequest) returns (CardMemberResponse) {}
+  rpc Retrieve(CardMemberRetrieveRequest) returns (CardMemberResponse) {}
+  rpc Update(CardMemberRequest) returns (CardMemberResponse) {}
+}
+
+service CardNutController {
+  rpc Create(CardNutRequest) returns (CardNutResponse) {}
+  rpc Destroy(CardNutDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(CardNutListRequest) returns (CardNutListResponse) {}
+  rpc PartialUpdate(CardNutPartialUpdateRequest) returns (CardNutResponse) {}
+  rpc Retrieve(CardNutRetrieveRequest) returns (CardNutResponse) {}
+  rpc Update(CardNutRequest) returns (CardNutResponse) {}
+}
+
+service CardVoucherController {
+  rpc Create(CardVoucherRequest) returns (CardVoucherResponse) {}
+  rpc Destroy(CardVoucherDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(CardVoucherListRequest) returns (CardVoucherListResponse) {}
+  rpc Options(OptionRequest) returns (CardVoucherOptionResponse) {}
+  rpc PartialUpdate(CardVoucherPartialUpdateRequest) returns (CardVoucherResponse) {}
+  rpc Retrieve(CardVoucherRetrieveRequest) returns (CardVoucherResponse) {}
+  rpc Update(CardVoucherRequest) returns (CardVoucherResponse) {}
+}
+
+message CardCaresDestroyRequest {
+  int32 id = 1;
+}
+
+message CardCaresListRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string name = 3;
+  int32 type = 4;
+  optional int32 extend_time_diff = 5;
+  optional int32 active_time_diff = 6;
+  string extend_time_unit = 7;
+  string active_time_unit = 8;
+  int32 is_valid = 9;
+  optional string remark = 10;
+}
+
+message CardCaresListResponse {
+  repeated CardCaresResponse results = 1;
+  int32 count = 2;
+}
+
+message CardCaresOptionResponse {
+  repeated LabelValueResponse time_units = 1;
+  repeated LabelValueResponse status = 2;
+  repeated LabelValueResponse types = 3;
+}
+
+message CardCaresPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string name = 4;
+  int32 type = 5;
+  optional int32 extend_time_diff = 6;
+  optional int32 active_time_diff = 7;
+  string extend_time_unit = 8;
+  string active_time_unit = 9;
+  int32 is_valid = 10;
+  optional string remark = 11;
+}
+
+message CardCaresRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string name = 3;
+  int32 type = 4;
+  optional int32 extend_time_diff = 5;
+  optional int32 active_time_diff = 6;
+  string extend_time_unit = 7;
+  string active_time_unit = 8;
+  int32 is_valid = 9;
+  optional string remark = 10;
+}
+
+message CardCaresResponse {
+  int32 id = 1;
+  optional string name = 2;
+  int32 type = 3;
+  optional int32 extend_time_diff = 4;
+  optional int32 active_time_diff = 5;
+  string extend_time_unit = 6;
+  string active_time_unit = 7;
+  int32 is_valid = 8;
+  optional string remark = 9;
+  string create_time = 10;
+  string update_time = 11;
+}
+
+message CardCaresRetrieveRequest {
+  int32 id = 1;
+}
+
+message CardMemberDestroyRequest {
+  int32 id = 1;
+}
+
+message CardMemberListRequest {
+  int32 id = 1;
+  string name = 2;
+  optional int32 min_point = 3;
+  optional int32 keepalive_point = 4;
+  int32 term = 5;
+  int32 is_valid = 6;
+  optional string description = 11;
+  string filters = 13;
+  optional string remark = 15;
+}
+
+message CardMemberListResponse {
+  repeated CardMemberResponse results = 1;
+  int32 count = 2;
+}
+
+message CardMemberPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  string name = 3;
+  optional int32 min_point = 4;
+  optional int32 keepalive_point = 5;
+  int32 term = 6;
+  int32 is_valid = 7;
+  optional string description = 12;
+  string filters = 14;
+  optional string remark = 16;
+}
+
+message CardMemberRequest {
+  int32 id = 1;
+  string name = 2;
+  optional int32 min_point = 3;
+  optional int32 keepalive_point = 4;
+  int32 term = 5;
+  int32 is_valid = 6;
+  optional string description = 11;
+  string filters = 13;
+  optional string remark = 15;
+}
+
+message CardMemberResponse {
+  int32 id = 1;
+  string name = 2;
+  optional int32 min_point = 3;
+  optional int32 keepalive_point = 4;
+  int32 term = 5;
+  int32 is_valid = 6;
+  optional string description = 11;
+  string create_time = 12;
+  string update_time = 13;
+  optional string remark = 16;
+}
+
+message CardMemberRetrieveRequest {
+  int32 id = 1;
+}
+
+message CardNutDestroyRequest {
+  int32 id = 1;
+}
+
+message CardNutListRequest {
+  int32 id = 1;
+  optional string name = 2;
+  int32 num = 3;
+  int32 is_valid = 4;
+  string filters = 10;
+  optional string remark = 12;
+}
+
+message CardNutListResponse {
+  repeated CardNutResponse results = 1;
+  int32 count = 2;
+}
+
+message CardNutPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string name = 3;
+  int32 num = 4;
+  int32 is_valid = 5;
+  string filters = 11;
+  optional string remark = 13;
+}
+
+message CardNutRequest {
+  int32 id = 1;
+  optional string name = 2;
+  int32 num = 3;
+  int32 is_valid = 4;
+  string filters = 10;
+  optional string remark = 12;
+}
+
+message CardNutResponse {
+  int32 id = 1;
+  optional string name = 2;
+  int32 num = 3;
+  int32 is_valid = 4;
+  string create_time = 9;
+  string update_time = 10;
+  optional string remark = 12;
+}
+
+message CardNutRetrieveRequest {
+  int32 id = 1;
+}
+
+message CardVoucherDestroyRequest {
+  int32 id = 1;
+}
+
+message CardVoucherListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string name = 3;
+  optional int32 meet = 4;
+  int32 meet_type = 5;
+  int32 discount_type = 6;
+  int32 discount_value = 7;
+  optional int32 limit_time = 8;
+  optional string limit_time_unit = 9;
+  int32 is_valid = 10;
+  optional string remark = 11;
+  optional int64 parent = 12;
+  optional string prod_code = 13;
+}
+
+message CardVoucherListResponse {
+  repeated CardVoucherResponse results = 1;
+  int32 count = 2;
+}
+
+message CardVoucherOptionResponse {
+  repeated LabelValueResponse time_units = 1;
+  repeated LabelValueResponse status = 2;
+  repeated LabelValueResponse meet_types = 3;
+  repeated LabelValueResponse discount_types = 4;
+}
+
+message CardVoucherPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string name = 4;
+  optional int32 meet = 5;
+  int32 meet_type = 6;
+  int32 discount_type = 7;
+  int32 discount_value = 8;
+  optional int32 limit_time = 9;
+  optional string limit_time_unit = 10;
+  int32 is_valid = 11;
+  optional string remark = 12;
+  optional int64 parent = 13;
+  optional string prod_code = 14;
+}
+
+message CardVoucherRequest {
+  int32 id = 1;
+  string filters = 2;
+  string name = 3;
+  optional int32 meet = 4;
+  int32 meet_type = 5;
+  int32 discount_type = 6;
+  int32 discount_value = 7;
+  optional int32 limit_time = 8;
+  optional string limit_time_unit = 9;
+  int32 is_valid = 10;
+  optional string remark = 11;
+  optional int64 parent = 12;
+  optional string prod_code = 13;
+}
+
+message CardVoucherResponse {
+  int32 id = 1;
+  string name = 2;
+  optional int32 meet = 3;
+  int32 meet_type = 4;
+  int32 discount_type = 5;
+  int32 discount_value = 6;
+  optional int32 limit_time = 7;
+  optional string limit_time_unit = 8;
+  int32 is_valid = 9;
+  optional string remark = 10;
+  string create_time = 11;
+  string update_time = 12;
+  optional int64 parent = 13;
+  optional string prod_code = 14;
+}
+
+message CardVoucherRetrieveRequest {
+  int32 id = 1;
+}
+
+message LabelValueResponse {
+  string value = 1;
+  string label = 2;
+}
+
+message OptionRequest {
+}
+

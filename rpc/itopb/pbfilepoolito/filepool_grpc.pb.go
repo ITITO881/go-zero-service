@@ -30,6 +30,7 @@ const (
 	FilePoolIto_SpuSkuImageList_FullMethodName        = "/file_pool.FilePoolIto/SpuSkuImageList"
 	FilePoolIto_RetrieveFileByIdentity_FullMethodName = "/file_pool.FilePoolIto/RetrieveFileByIdentity"
 	FilePoolIto_UpdateListFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateListFile"
+	FilePoolIto_SkuProps_FullMethodName               = "/file_pool.FilePoolIto/SkuProps"
 	FilePoolIto_UserRepoCreate_FullMethodName         = "/file_pool.FilePoolIto/UserRepoCreate"
 	FilePoolIto_IdByUserFile_FullMethodName           = "/file_pool.FilePoolIto/IdByUserFile"
 	FilePoolIto_UpdateUserFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateUserFile"
@@ -61,6 +62,8 @@ type FilePoolItoClient interface {
 	RetrieveFileByIdentity(ctx context.Context, in *IdentityRetrieveReq, opts ...grpc.CallOption) (*IdentityRetrieveResp, error)
 	// 11. 指定source文件源，文件Identity列表，群更文件
 	UpdateListFile(ctx context.Context, in *UpdateListFileReq, opts ...grpc.CallOption) (*UpdateListFileResp, error)
+	// 12. 指定Spu，返回该Spu下，所有Sku列表，用于前端SKU组件的组合数据显示
+	SkuProps(ctx context.Context, in *SkuPropsReq, opts ...grpc.CallOption) (*SkuPropsResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -176,6 +179,15 @@ func (c *filePoolItoClient) UpdateListFile(ctx context.Context, in *UpdateListFi
 	return out, nil
 }
 
+func (c *filePoolItoClient) SkuProps(ctx context.Context, in *SkuPropsReq, opts ...grpc.CallOption) (*SkuPropsResp, error) {
+	out := new(SkuPropsResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_SkuProps_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *filePoolItoClient) UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error) {
 	out := new(UserRepoCreateResp)
 	err := c.cc.Invoke(ctx, FilePoolIto_UserRepoCreate_FullMethodName, in, out, opts...)
@@ -229,6 +241,8 @@ type FilePoolItoServer interface {
 	RetrieveFileByIdentity(context.Context, *IdentityRetrieveReq) (*IdentityRetrieveResp, error)
 	// 11. 指定source文件源，文件Identity列表，群更文件
 	UpdateListFile(context.Context, *UpdateListFileReq) (*UpdateListFileResp, error)
+	// 12. 指定Spu，返回该Spu下，所有Sku列表，用于前端SKU组件的组合数据显示
+	SkuProps(context.Context, *SkuPropsReq) (*SkuPropsResp, error)
 	// 1. 新增1条记录
 	UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -274,6 +288,9 @@ func (UnimplementedFilePoolItoServer) RetrieveFileByIdentity(context.Context, *I
 }
 func (UnimplementedFilePoolItoServer) UpdateListFile(context.Context, *UpdateListFileReq) (*UpdateListFileResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateListFile not implemented")
+}
+func (UnimplementedFilePoolItoServer) SkuProps(context.Context, *SkuPropsReq) (*SkuPropsResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SkuProps not implemented")
 }
 func (UnimplementedFilePoolItoServer) UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRepoCreate not implemented")
@@ -495,6 +512,24 @@ func _FilePoolIto_UpdateListFile_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FilePoolIto_SkuProps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SkuPropsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).SkuProps(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_SkuProps_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).SkuProps(ctx, req.(*SkuPropsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FilePoolIto_UserRepoCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRepoCreateReq)
 	if err := dec(in); err != nil {
@@ -599,6 +634,10 @@ var FilePoolIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateListFile",
 			Handler:    _FilePoolIto_UpdateListFile_Handler,
+		},
+		{
+			MethodName: "SkuProps",
+			Handler:    _FilePoolIto_SkuProps_Handler,
 		},
 		{
 			MethodName: "UserRepoCreate",

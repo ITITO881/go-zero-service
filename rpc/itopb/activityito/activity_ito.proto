@@ -1,0 +1,460 @@
+syntax = "proto3";
+
+package activity_service.activity_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../activityito";
+
+service ActivityBrandCaresController {
+  rpc Create(ActivityBrandCaresRequest) returns (ActivityBrandCaresResponse) {}
+  rpc Destroy(ActivityBrandCaresDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ActivityBrandCaresListRequest) returns (ActivityBrandCaresListResponse) {}
+  rpc PartialUpdate(ActivityBrandCaresPartialUpdateRequest) returns (ActivityBrandCaresResponse) {}
+  rpc Retrieve(ActivityBrandCaresRetrieveRequest) returns (ActivityBrandCaresResponse) {}
+  rpc Update(ActivityBrandCaresRequest) returns (ActivityBrandCaresResponse) {}
+}
+
+service ActivityBrandController {
+  rpc Create(ActivityBrandRequest) returns (ActivityBrandResponse) {}
+  rpc Destroy(ActivityBrandDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ActivityBrandListRequest) returns (ActivityBrandListResponse) {}
+  rpc PartialUpdate(ActivityBrandPartialUpdateRequest) returns (ActivityBrandResponse) {}
+  rpc Retrieve(ActivityBrandRetrieveRequest) returns (ActivityBrandResponse) {}
+  rpc Update(ActivityBrandRequest) returns (ActivityBrandResponse) {}
+}
+
+service ActivityBrandNutController {
+  rpc Create(ActivityBrandNutRequest) returns (ActivityBrandNutResponse) {}
+  rpc Destroy(ActivityBrandNutDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ActivityBrandNutListRequest) returns (ActivityBrandNutListResponse) {}
+  rpc PartialUpdate(ActivityBrandNutPartialUpdateRequest) returns (ActivityBrandNutResponse) {}
+  rpc Retrieve(ActivityBrandNutRetrieveRequest) returns (ActivityBrandNutResponse) {}
+  rpc Update(ActivityBrandNutRequest) returns (ActivityBrandNutResponse) {}
+}
+
+service ActivityDiscountController {
+  rpc Create(ActivityDiscountRequest) returns (ActivityDiscountResponse) {}
+  rpc Destroy(ActivityDiscountDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ActivityDiscountListRequest) returns (ActivityDiscountListResponse) {}
+  rpc PartialUpdate(ActivityDiscountPartialUpdateRequest) returns (ActivityDiscountResponse) {}
+  rpc Retrieve(ActivityDiscountRetrieveRequest) returns (ActivityDiscountResponse) {}
+  rpc Update(ActivityDiscountRequest) returns (ActivityDiscountResponse) {}
+  rpc VoucherCreate(ActivityDiscountVoucherRequest) returns (ActivityDiscountVoucherResponse) {}
+  rpc VoucherDestroy(ActivityDiscountVoucherDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc VoucherList(ActivityDiscountVoucherListRequest) returns (ActivityDiscountVoucherListResponse) {}
+  rpc VoucherRecordCreate(ActivityDiscountVoucherRecordRequest) returns (ActivityDiscountVoucherRecordResponse) {}
+  rpc VoucherRecordDestroy(ActivityDiscountVoucherRecordDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc VoucherRecordList(ActivityDiscountVoucherRecordListRequest) returns (ActivityDiscountVoucherRecordListResponse) {}
+  rpc VoucherRecordRetrieve(ActivityDiscountVoucherRecordRetrieveRequest) returns (ActivityDiscountVoucherRecordResponse) {}
+  rpc VoucherRecordUpdate(ActivityDiscountVoucherRecordRequest) returns (ActivityDiscountVoucherRecordResponse) {}
+  rpc VoucherRetrieve(ActivityDiscountVoucherRetrieveRequest) returns (ActivityDiscountVoucherResponse) {}
+  rpc VoucherUpdate(ActivityDiscountVoucherRequest) returns (ActivityDiscountVoucherResponse) {}
+}
+
+message ActivityBrandCaresDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandCaresListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 cares_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int64 activity = 7;
+}
+
+message ActivityBrandCaresListResponse {
+  repeated ActivityBrandCaresResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityBrandCaresPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 cares_id = 4;
+  int32 count = 5;
+  int32 limit = 6;
+  int32 is_valid = 7;
+  int64 activity = 8;
+}
+
+message ActivityBrandCaresRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 cares_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int64 activity = 7;
+}
+
+message ActivityBrandCaresResponse {
+  int32 id = 1;
+  int32 cares_id = 2;
+  int32 count = 3;
+  int32 limit = 4;
+  int32 is_valid = 5;
+  string create_time = 6;
+  string update_time = 7;
+  int64 activity = 8;
+}
+
+message ActivityBrandCaresRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string activity_no = 3;
+  string title = 4;
+  string theme = 5;
+  optional string start_time = 6;
+  optional string end_time = 7;
+  int32 is_valid = 8;
+  optional bool allow_apply = 9;
+  optional string remark = 10;
+  optional string description = 11;
+  optional int32 admin_id = 12;
+  optional string admin_name = 13;
+}
+
+message ActivityBrandListResponse {
+  repeated ActivityBrandResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityBrandNutDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandNutListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 nut_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int64 activity = 7;
+}
+
+message ActivityBrandNutListResponse {
+  repeated ActivityBrandNutResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityBrandNutPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 nut_id = 4;
+  int32 count = 5;
+  int32 limit = 6;
+  int32 is_valid = 7;
+  int64 activity = 8;
+}
+
+message ActivityBrandNutRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 nut_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int64 activity = 7;
+}
+
+message ActivityBrandNutResponse {
+  int32 id = 1;
+  int32 nut_id = 2;
+  int32 count = 3;
+  int32 limit = 4;
+  int32 is_valid = 5;
+  string create_time = 6;
+  string update_time = 7;
+  int64 activity = 8;
+}
+
+message ActivityBrandNutRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string activity_no = 4;
+  string title = 5;
+  string theme = 6;
+  optional string start_time = 7;
+  optional string end_time = 8;
+  int32 is_valid = 9;
+  optional bool allow_apply = 10;
+  optional string remark = 11;
+  optional string description = 12;
+  optional int32 admin_id = 13;
+  optional string admin_name = 14;
+}
+
+message ActivityBrandRequest {
+  int32 id = 1;
+  string filters = 2;
+  string activity_no = 3;
+  string title = 4;
+  string theme = 5;
+  optional string start_time = 6;
+  optional string end_time = 7;
+  int32 is_valid = 8;
+  optional bool allow_apply = 9;
+  optional string remark = 10;
+  optional string description = 11;
+  optional int32 admin_id = 12;
+  optional string admin_name = 13;
+}
+
+message ActivityBrandResponse {
+  int32 id = 1;
+  string activity_no = 2;
+  string title = 3;
+  string theme = 4;
+  optional string start_time = 5;
+  optional string end_time = 6;
+  int32 is_valid = 7;
+  optional bool allow_apply = 8;
+  optional string remark = 9;
+  optional string description = 10;
+  optional int32 admin_id = 11;
+  optional string admin_name = 12;
+  string create_time = 13;
+  string update_time = 14;
+}
+
+message ActivityBrandRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountListRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated int64 overlay = 3;
+  string activity_no = 4;
+  string title = 5;
+  optional string start_time = 6;
+  optional string end_time = 7;
+  int32 is_valid = 8;
+  int32 max_discount_amount = 9;
+  optional string remark = 10;
+  optional string description = 11;
+  bool circle = 12;
+  optional int32 admin_id = 13;
+  optional string admin_name = 14;
+  optional string prod_range = 15;
+}
+
+message ActivityDiscountListResponse {
+  repeated ActivityDiscountResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityDiscountOverlayResponse {
+  int32 id = 1;
+  string activity_no = 2;
+  string title = 3;
+  optional string start_time = 4;
+  optional string end_time = 5;
+  int32 is_valid = 6;
+  int32 max_discount_amount = 7;
+  optional string remark = 8;
+  optional string description = 9;
+  bool circle = 10;
+  optional int32 admin_id = 11;
+  optional string admin_name = 12;
+  string create_time = 13;
+  string update_time = 14;
+  repeated int64 overlay = 15;
+  optional string prod_range = 16;
+}
+
+message ActivityDiscountPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated int64 overlay = 3;
+  repeated string _partial_update_fields = 4;
+  string activity_no = 5;
+  string title = 6;
+  optional string start_time = 7;
+  optional string end_time = 8;
+  int32 is_valid = 9;
+  int32 max_discount_amount = 10;
+  optional string remark = 11;
+  optional string description = 12;
+  bool circle = 13;
+  optional int32 admin_id = 14;
+  optional string admin_name = 15;
+  optional string prod_range = 16;
+}
+
+message ActivityDiscountRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated int64 overlay = 3;
+  string activity_no = 4;
+  string title = 5;
+  optional string start_time = 6;
+  optional string end_time = 7;
+  int32 is_valid = 8;
+  int32 max_discount_amount = 9;
+  optional string remark = 10;
+  optional string description = 11;
+  bool circle = 12;
+  optional int32 admin_id = 13;
+  optional string admin_name = 14;
+  optional string prod_range = 15;
+}
+
+message ActivityDiscountResponse {
+  int32 id = 1;
+  repeated int64 overlay = 2;
+  string activity_no = 3;
+  string title = 4;
+  optional string start_time = 5;
+  optional string end_time = 6;
+  int32 is_valid = 7;
+  int32 max_discount_amount = 8;
+  optional string remark = 9;
+  optional string description = 10;
+  bool circle = 11;
+  optional int32 admin_id = 12;
+  optional string admin_name = 13;
+  string create_time = 14;
+  string update_time = 15;
+  repeated ActivityDiscountOverlayResponse overlay_list = 16;
+  optional string prod_range = 17;
+}
+
+message ActivityDiscountRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountVoucherDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountVoucherListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 voucher_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int32 overlay_count = 7;
+  int64 activity = 8;
+  optional int32 limit_time = 9;
+  optional string limit_time_unit = 10;
+}
+
+message ActivityDiscountVoucherListResponse {
+  repeated ActivityDiscountVoucherResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityDiscountVoucherRecordDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountVoucherRecordListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string voucher_no = 3;
+  optional int32 user_id = 4;
+  int32 status = 5;
+  optional string start_time = 6;
+  optional string expire_time = 7;
+  optional string take_time = 8;
+  optional string used_time = 9;
+  optional string remark = 10;
+  int64 voucher = 11;
+}
+
+message ActivityDiscountVoucherRecordListResponse {
+  repeated ActivityDiscountVoucherRecordResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityDiscountVoucherRecordRequest {
+  int32 id = 1;
+  string filters = 2;
+  string voucher_no = 3;
+  optional int32 user_id = 4;
+  int32 status = 5;
+  optional string start_time = 6;
+  optional string expire_time = 7;
+  optional string take_time = 8;
+  optional string used_time = 9;
+  optional string remark = 10;
+  int64 voucher = 11;
+}
+
+message ActivityDiscountVoucherRecordResponse {
+  int32 id = 1;
+  string voucher_no = 2;
+  optional int32 user_id = 3;
+  int32 status = 4;
+  optional string start_time = 5;
+  optional string expire_time = 6;
+  optional string take_time = 7;
+  optional string used_time = 8;
+  optional string remark = 9;
+  string create_time = 10;
+  string update_time = 11;
+  int64 voucher = 12;
+  ActivityDiscountVoucherResponse discount_voucher = 13;
+}
+
+message ActivityDiscountVoucherRecordRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountVoucherRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 voucher_id = 3;
+  int32 count = 4;
+  int32 limit = 5;
+  int32 is_valid = 6;
+  int32 overlay_count = 7;
+  int64 activity = 8;
+  optional int32 limit_time = 9;
+  optional string limit_time_unit = 10;
+}
+
+message ActivityDiscountVoucherResponse {
+  int32 id = 1;
+  int32 voucher_id = 2;
+  int32 count = 3;
+  int32 limit = 4;
+  int32 is_valid = 5;
+  int32 overlay_count = 6;
+  string create_time = 7;
+  string update_time = 8;
+  int64 activity = 9;
+  optional int32 limit_time = 10;
+  optional string limit_time_unit = 11;
+}
+
+message ActivityDiscountVoucherRetrieveRequest {
+  int32 id = 1;
+}
+
