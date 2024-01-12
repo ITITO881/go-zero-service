@@ -9,6 +9,7 @@ module github.com/ITITO881/go-zero-service
 // add pbcardito
 // add xerrCode
 // add sourceCode
+// add something
 go 1.20
 
 
