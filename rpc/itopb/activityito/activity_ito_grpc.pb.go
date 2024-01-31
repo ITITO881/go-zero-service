@@ -8,7 +8,6 @@ package activityito
 
 import (
 	context "context"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -33,7 +32,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandCaresControllerClient interface {
 	Create(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandCaresDestroyResponse, error)
 	List(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandCaresPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
@@ -57,8 +56,8 @@ func (c *activityBrandCaresControllerClient) Create(ctx context.Context, in *Act
 	return out, nil
 }
 
-func (c *activityBrandCaresControllerClient) Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityBrandCaresControllerClient) Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandCaresDestroyResponse, error) {
+	out := new(ActivityBrandCaresDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandCaresController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -107,7 +106,7 @@ func (c *activityBrandCaresControllerClient) Update(ctx context.Context, in *Act
 // for forward compatibility
 type ActivityBrandCaresControllerServer interface {
 	Create(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error)
-	Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*ActivityBrandCaresDestroyResponse, error)
 	List(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandCaresPartialUpdateRequest) (*ActivityBrandCaresResponse, error)
 	Retrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error)
@@ -122,7 +121,7 @@ type UnimplementedActivityBrandCaresControllerServer struct {
 func (UnimplementedActivityBrandCaresControllerServer) Create(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandCaresControllerServer) Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityBrandCaresControllerServer) Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*ActivityBrandCaresDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandCaresControllerServer) List(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error) {
@@ -309,7 +308,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandControllerClient interface {
 	Create(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandDestroyResponse, error)
 	List(ctx context.Context, in *ActivityBrandListRequest, opts ...grpc.CallOption) (*ActivityBrandListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
@@ -333,8 +332,8 @@ func (c *activityBrandControllerClient) Create(ctx context.Context, in *Activity
 	return out, nil
 }
 
-func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandDestroyResponse, error) {
+	out := new(ActivityBrandDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -383,7 +382,7 @@ func (c *activityBrandControllerClient) Update(ctx context.Context, in *Activity
 // for forward compatibility
 type ActivityBrandControllerServer interface {
 	Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error)
-	Destroy(context.Context, *ActivityBrandDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *ActivityBrandDestroyRequest) (*ActivityBrandDestroyResponse, error)
 	List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error)
 	Retrieve(context.Context, *ActivityBrandRetrieveRequest) (*ActivityBrandResponse, error)
@@ -398,7 +397,7 @@ type UnimplementedActivityBrandControllerServer struct {
 func (UnimplementedActivityBrandControllerServer) Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*ActivityBrandDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error) {
@@ -585,7 +584,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandNutControllerClient interface {
 	Create(ctx context.Context, in *ActivityBrandNutRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandNutDestroyResponse, error)
 	List(ctx context.Context, in *ActivityBrandNutListRequest, opts ...grpc.CallOption) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandNutPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandNutRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
@@ -609,8 +608,8 @@ func (c *activityBrandNutControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandNutDestroyResponse, error) {
+	out := new(ActivityBrandNutDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandNutController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -659,7 +658,7 @@ func (c *activityBrandNutControllerClient) Update(ctx context.Context, in *Activ
 // for forward compatibility
 type ActivityBrandNutControllerServer interface {
 	Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error)
-	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*ActivityBrandNutDestroyResponse, error)
 	List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandNutPartialUpdateRequest) (*ActivityBrandNutResponse, error)
 	Retrieve(context.Context, *ActivityBrandNutRetrieveRequest) (*ActivityBrandNutResponse, error)
@@ -674,7 +673,7 @@ type UnimplementedActivityBrandNutControllerServer struct {
 func (UnimplementedActivityBrandNutControllerServer) Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*ActivityBrandNutDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandNutControllerServer) List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error) {
@@ -848,22 +847,25 @@ var ActivityBrandNutController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ActivityDiscountController_Create_FullMethodName                = "/activity_service.activity_ito.ActivityDiscountController/Create"
-	ActivityDiscountController_Destroy_FullMethodName               = "/activity_service.activity_ito.ActivityDiscountController/Destroy"
-	ActivityDiscountController_List_FullMethodName                  = "/activity_service.activity_ito.ActivityDiscountController/List"
-	ActivityDiscountController_PartialUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/PartialUpdate"
-	ActivityDiscountController_Retrieve_FullMethodName              = "/activity_service.activity_ito.ActivityDiscountController/Retrieve"
-	ActivityDiscountController_Update_FullMethodName                = "/activity_service.activity_ito.ActivityDiscountController/Update"
-	ActivityDiscountController_VoucherCreate_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/VoucherCreate"
-	ActivityDiscountController_VoucherDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityDiscountController/VoucherDestroy"
-	ActivityDiscountController_VoucherList_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherList"
-	ActivityDiscountController_VoucherRecordCreate_FullMethodName   = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordCreate"
-	ActivityDiscountController_VoucherRecordDestroy_FullMethodName  = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordDestroy"
-	ActivityDiscountController_VoucherRecordList_FullMethodName     = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordList"
-	ActivityDiscountController_VoucherRecordRetrieve_FullMethodName = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordRetrieve"
-	ActivityDiscountController_VoucherRecordUpdate_FullMethodName   = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordUpdate"
-	ActivityDiscountController_VoucherRetrieve_FullMethodName       = "/activity_service.activity_ito.ActivityDiscountController/VoucherRetrieve"
-	ActivityDiscountController_VoucherUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/VoucherUpdate"
+	ActivityDiscountController_Create_FullMethodName                  = "/activity_service.activity_ito.ActivityDiscountController/Create"
+	ActivityDiscountController_Destroy_FullMethodName                 = "/activity_service.activity_ito.ActivityDiscountController/Destroy"
+	ActivityDiscountController_List_FullMethodName                    = "/activity_service.activity_ito.ActivityDiscountController/List"
+	ActivityDiscountController_NextSerial_FullMethodName              = "/activity_service.activity_ito.ActivityDiscountController/NextSerial"
+	ActivityDiscountController_Options_FullMethodName                 = "/activity_service.activity_ito.ActivityDiscountController/Options"
+	ActivityDiscountController_PartialUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/PartialUpdate"
+	ActivityDiscountController_Retrieve_FullMethodName                = "/activity_service.activity_ito.ActivityDiscountController/Retrieve"
+	ActivityDiscountController_Update_FullMethodName                  = "/activity_service.activity_ito.ActivityDiscountController/Update"
+	ActivityDiscountController_VoucherCreate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherCreate"
+	ActivityDiscountController_VoucherDestroy_FullMethodName          = "/activity_service.activity_ito.ActivityDiscountController/VoucherDestroy"
+	ActivityDiscountController_VoucherList_FullMethodName             = "/activity_service.activity_ito.ActivityDiscountController/VoucherList"
+	ActivityDiscountController_VoucherRetrieve_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/VoucherRetrieve"
+	ActivityDiscountController_VoucherUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherUpdate"
+	ActivityDiscountController_VoucherRecordCreate_FullMethodName     = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordCreate"
+	ActivityDiscountController_VoucherRecordDestroy_FullMethodName    = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordDestroy"
+	ActivityDiscountController_VoucherRecordList_FullMethodName       = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordList"
+	ActivityDiscountController_VoucherRecordNextSerial_FullMethodName = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordNextSerial"
+	ActivityDiscountController_VoucherRecordRetrieve_FullMethodName   = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordRetrieve"
+	ActivityDiscountController_VoucherRecordUpdate_FullMethodName     = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordUpdate"
 )
 
 // ActivityDiscountControllerClient is the client API for ActivityDiscountController service.
@@ -871,21 +873,26 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityDiscountControllerClient interface {
 	Create(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
-	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountDestroyResponse, error)
 	List(ctx context.Context, in *ActivityDiscountListRequest, opts ...grpc.CallOption) (*ActivityDiscountListResponse, error)
+	NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*ActivityDiscountNextSerialResponse, error)
+	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityDiscountPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Retrieve(ctx context.Context, in *ActivityDiscountRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Update(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
+	// 优惠活动 关联优惠卡子表
 	VoucherCreate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherDestroyResponse, error)
 	VoucherList(ctx context.Context, in *ActivityDiscountVoucherListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherListResponse, error)
-	VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	VoucherRecordList(ctx context.Context, in *ActivityDiscountVoucherRecordListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordListResponse, error)
-	VoucherRecordRetrieve(ctx context.Context, in *ActivityDiscountVoucherRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordUpdate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
 	VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	VoucherUpdate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
+	VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
+	// 优惠活动 关联优惠卡 发卡记录子表
+	VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordDestroyResponse, error)
+	VoucherRecordList(ctx context.Context, in *ActivityDiscountVoucherRecordListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordListResponse, error)
+	VoucherRecordNextSerial(ctx context.Context, in *NextRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
+	VoucherRecordRetrieve(ctx context.Context, in *ActivityDiscountVoucherRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRecordUpdate(ctx context.Context, in *VoucherRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
 }
 
 type activityDiscountControllerClient struct {
@@ -905,8 +912,8 @@ func (c *activityDiscountControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountDestroyResponse, error) {
+	out := new(ActivityDiscountDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -917,6 +924,24 @@ func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *Acti
 func (c *activityDiscountControllerClient) List(ctx context.Context, in *ActivityDiscountListRequest, opts ...grpc.CallOption) (*ActivityDiscountListResponse, error) {
 	out := new(ActivityDiscountListResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*ActivityDiscountNextSerialResponse, error) {
+	out := new(ActivityDiscountNextSerialResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_NextSerial_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error) {
+	out := new(ActVoucherOptionResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_Options_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -959,8 +984,8 @@ func (c *activityDiscountControllerClient) VoucherCreate(ctx context.Context, in
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherDestroyResponse, error) {
+	out := new(ActivityDiscountVoucherDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -977,6 +1002,24 @@ func (c *activityDiscountControllerClient) VoucherList(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *activityDiscountControllerClient) VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
+	out := new(ActivityDiscountVoucherResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
+	out := new(ActivityDiscountVoucherResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *activityDiscountControllerClient) VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error) {
 	out := new(ActivityDiscountVoucherRecordResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordCreate_FullMethodName, in, out, opts...)
@@ -986,8 +1029,8 @@ func (c *activityDiscountControllerClient) VoucherRecordCreate(ctx context.Conte
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordDestroyResponse, error) {
+	out := new(ActivityDiscountVoucherRecordDestroyResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1004,6 +1047,15 @@ func (c *activityDiscountControllerClient) VoucherRecordList(ctx context.Context
 	return out, nil
 }
 
+func (c *activityDiscountControllerClient) VoucherRecordNextSerial(ctx context.Context, in *NextRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordNextSerialResponse, error) {
+	out := new(ActivityDiscountVoucherRecordNextSerialResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordNextSerial_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *activityDiscountControllerClient) VoucherRecordRetrieve(ctx context.Context, in *ActivityDiscountVoucherRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error) {
 	out := new(ActivityDiscountVoucherRecordResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordRetrieve_FullMethodName, in, out, opts...)
@@ -1013,27 +1065,9 @@ func (c *activityDiscountControllerClient) VoucherRecordRetrieve(ctx context.Con
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherRecordUpdate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error) {
+func (c *activityDiscountControllerClient) VoucherRecordUpdate(ctx context.Context, in *VoucherRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error) {
 	out := new(ActivityDiscountVoucherRecordResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordUpdate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityDiscountControllerClient) VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
-	out := new(ActivityDiscountVoucherResponse)
-	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRetrieve_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
-	out := new(ActivityDiscountVoucherResponse)
-	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherUpdate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1045,21 +1079,26 @@ func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in
 // for forward compatibility
 type ActivityDiscountControllerServer interface {
 	Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
-	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*ActivityDiscountDestroyResponse, error)
 	List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error)
+	NextSerial(context.Context, *NextSerialRequest) (*ActivityDiscountNextSerialResponse, error)
+	Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error)
 	PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error)
 	Retrieve(context.Context, *ActivityDiscountRetrieveRequest) (*ActivityDiscountResponse, error)
 	Update(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
+	// 优惠活动 关联优惠卡子表
 	VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*empty.Empty, error)
+	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*ActivityDiscountVoucherDestroyResponse, error)
 	VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error)
-	VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*empty.Empty, error)
-	VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error)
-	VoucherRecordRetrieve(context.Context, *ActivityDiscountVoucherRecordRetrieveRequest) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordUpdate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error)
 	VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error)
-	VoucherUpdate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error)
+	VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error)
+	// 优惠活动 关联优惠卡 发卡记录子表
+	VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*ActivityDiscountVoucherRecordDestroyResponse, error)
+	VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error)
+	VoucherRecordNextSerial(context.Context, *NextRecordRequest) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
+	VoucherRecordRetrieve(context.Context, *ActivityDiscountVoucherRecordRetrieveRequest) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRecordUpdate(context.Context, *VoucherRecordUpdateRequest) (*ActivityDiscountVoucherRecordResponse, error)
 	mustEmbedUnimplementedActivityDiscountControllerServer()
 }
 
@@ -1070,11 +1109,17 @@ type UnimplementedActivityDiscountControllerServer struct {
 func (UnimplementedActivityDiscountControllerServer) Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*ActivityDiscountDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) NextSerial(context.Context, *NextSerialRequest) (*ActivityDiscountNextSerialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NextSerial not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Options not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -1088,32 +1133,35 @@ func (UnimplementedActivityDiscountControllerServer) Update(context.Context, *Ac
 func (UnimplementedActivityDiscountControllerServer) VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*ActivityDiscountVoucherDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherList not implemented")
 }
+func (UnimplementedActivityDiscountControllerServer) VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoucherRetrieve not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoucherUpdate not implemented")
+}
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*ActivityDiscountVoucherRecordDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordList not implemented")
 }
+func (UnimplementedActivityDiscountControllerServer) VoucherRecordNextSerial(context.Context, *NextRecordRequest) (*ActivityDiscountVoucherRecordNextSerialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordNextSerial not implemented")
+}
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordRetrieve(context.Context, *ActivityDiscountVoucherRecordRetrieveRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordRetrieve not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherRecordUpdate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherRecordUpdate(context.Context, *VoucherRecordUpdateRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordUpdate not implemented")
-}
-func (UnimplementedActivityDiscountControllerServer) VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VoucherRetrieve not implemented")
-}
-func (UnimplementedActivityDiscountControllerServer) VoucherUpdate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VoucherUpdate not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) mustEmbedUnimplementedActivityDiscountControllerServer() {
 }
@@ -1179,6 +1227,42 @@ func _ActivityDiscountController_List_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ActivityDiscountControllerServer).List(ctx, req.(*ActivityDiscountListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_NextSerial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextSerialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).NextSerial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_NextSerial_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).NextSerial(ctx, req.(*NextSerialRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_Options_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).Options(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_Options_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).Options(ctx, req.(*OptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1291,6 +1375,42 @@ func _ActivityDiscountController_VoucherList_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ActivityDiscountController_VoucherRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountVoucherRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_VoucherRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, req.(*ActivityDiscountVoucherRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_VoucherUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VoucherUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_VoucherUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, req.(*VoucherUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ActivityDiscountController_VoucherRecordCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ActivityDiscountVoucherRecordRequest)
 	if err := dec(in); err != nil {
@@ -1345,6 +1465,24 @@ func _ActivityDiscountController_VoucherRecordList_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ActivityDiscountController_VoucherRecordNextSerial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).VoucherRecordNextSerial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_VoucherRecordNextSerial_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).VoucherRecordNextSerial(ctx, req.(*NextRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ActivityDiscountController_VoucherRecordRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ActivityDiscountVoucherRecordRetrieveRequest)
 	if err := dec(in); err != nil {
@@ -1364,7 +1502,7 @@ func _ActivityDiscountController_VoucherRecordRetrieve_Handler(srv interface{}, 
 }
 
 func _ActivityDiscountController_VoucherRecordUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityDiscountVoucherRecordRequest)
+	in := new(VoucherRecordUpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1376,43 +1514,7 @@ func _ActivityDiscountController_VoucherRecordUpdate_Handler(srv interface{}, ct
 		FullMethod: ActivityDiscountController_VoucherRecordUpdate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityDiscountControllerServer).VoucherRecordUpdate(ctx, req.(*ActivityDiscountVoucherRecordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityDiscountController_VoucherRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityDiscountVoucherRetrieveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityDiscountController_VoucherRetrieve_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, req.(*ActivityDiscountVoucherRetrieveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityDiscountController_VoucherUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityDiscountVoucherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityDiscountController_VoucherUpdate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, req.(*ActivityDiscountVoucherRequest))
+		return srv.(ActivityDiscountControllerServer).VoucherRecordUpdate(ctx, req.(*VoucherRecordUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1435,6 +1537,14 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _ActivityDiscountController_List_Handler,
+		},
+		{
+			MethodName: "NextSerial",
+			Handler:    _ActivityDiscountController_NextSerial_Handler,
+		},
+		{
+			MethodName: "Options",
+			Handler:    _ActivityDiscountController_Options_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
@@ -1461,6 +1571,14 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ActivityDiscountController_VoucherList_Handler,
 		},
 		{
+			MethodName: "VoucherRetrieve",
+			Handler:    _ActivityDiscountController_VoucherRetrieve_Handler,
+		},
+		{
+			MethodName: "VoucherUpdate",
+			Handler:    _ActivityDiscountController_VoucherUpdate_Handler,
+		},
+		{
 			MethodName: "VoucherRecordCreate",
 			Handler:    _ActivityDiscountController_VoucherRecordCreate_Handler,
 		},
@@ -1473,20 +1591,16 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ActivityDiscountController_VoucherRecordList_Handler,
 		},
 		{
+			MethodName: "VoucherRecordNextSerial",
+			Handler:    _ActivityDiscountController_VoucherRecordNextSerial_Handler,
+		},
+		{
 			MethodName: "VoucherRecordRetrieve",
 			Handler:    _ActivityDiscountController_VoucherRecordRetrieve_Handler,
 		},
 		{
 			MethodName: "VoucherRecordUpdate",
 			Handler:    _ActivityDiscountController_VoucherRecordUpdate_Handler,
-		},
-		{
-			MethodName: "VoucherRetrieve",
-			Handler:    _ActivityDiscountController_VoucherRetrieve_Handler,
-		},
-		{
-			MethodName: "VoucherUpdate",
-			Handler:    _ActivityDiscountController_VoucherUpdate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

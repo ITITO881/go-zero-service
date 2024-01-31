@@ -20,25 +20,45 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	CtmItoOrderController_ChildrenBatchUpdateRefundReason_FullMethodName = "/customer_service.customer_ito.CtmItoOrderController/ChildrenBatchUpdateRefundReason"
+	CtmItoOrderController_CouponOptions_FullMethodName                   = "/customer_service.customer_ito.CtmItoOrderController/CouponOptions"
 	CtmItoOrderController_Create_FullMethodName                          = "/customer_service.customer_ito.CtmItoOrderController/Create"
 	CtmItoOrderController_CreateCoupon_FullMethodName                    = "/customer_service.customer_ito.CtmItoOrderController/CreateCoupon"
+	CtmItoOrderController_CreateGoodsDetail_FullMethodName               = "/customer_service.customer_ito.CtmItoOrderController/CreateGoodsDetail"
+	CtmItoOrderController_CreateInvoiceDetail_FullMethodName             = "/customer_service.customer_ito.CtmItoOrderController/CreateInvoiceDetail"
 	CtmItoOrderController_CreateOrderConf_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/CreateOrderConf"
+	CtmItoOrderController_CreatePayDetail_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/CreatePayDetail"
+	CtmItoOrderController_CreatePromotionDetail_FullMethodName           = "/customer_service.customer_ito.CtmItoOrderController/CreatePromotionDetail"
 	CtmItoOrderController_CreateRefundReason_FullMethodName              = "/customer_service.customer_ito.CtmItoOrderController/CreateRefundReason"
 	CtmItoOrderController_Destroy_FullMethodName                         = "/customer_service.customer_ito.CtmItoOrderController/Destroy"
 	CtmItoOrderController_DestroyCoupon_FullMethodName                   = "/customer_service.customer_ito.CtmItoOrderController/DestroyCoupon"
+	CtmItoOrderController_DestroyGoodsDetail_FullMethodName              = "/customer_service.customer_ito.CtmItoOrderController/DestroyGoodsDetail"
+	CtmItoOrderController_DestroyInvoiceDetail_FullMethodName            = "/customer_service.customer_ito.CtmItoOrderController/DestroyInvoiceDetail"
 	CtmItoOrderController_DestroyOrderConf_FullMethodName                = "/customer_service.customer_ito.CtmItoOrderController/DestroyOrderConf"
+	CtmItoOrderController_DestroyPayDetail_FullMethodName                = "/customer_service.customer_ito.CtmItoOrderController/DestroyPayDetail"
+	CtmItoOrderController_DestroyPromotionDetail_FullMethodName          = "/customer_service.customer_ito.CtmItoOrderController/DestroyPromotionDetail"
 	CtmItoOrderController_DestroyRefundReason_FullMethodName             = "/customer_service.customer_ito.CtmItoOrderController/DestroyRefundReason"
 	CtmItoOrderController_GetCheckListRefundReason_FullMethodName        = "/customer_service.customer_ito.CtmItoOrderController/GetCheckListRefundReason"
 	CtmItoOrderController_List_FullMethodName                            = "/customer_service.customer_ito.CtmItoOrderController/List"
 	CtmItoOrderController_ListCoupon_FullMethodName                      = "/customer_service.customer_ito.CtmItoOrderController/ListCoupon"
+	CtmItoOrderController_ListGoodsDetail_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/ListGoodsDetail"
+	CtmItoOrderController_ListInvoiceDetail_FullMethodName               = "/customer_service.customer_ito.CtmItoOrderController/ListInvoiceDetail"
 	CtmItoOrderController_ListOrderConf_FullMethodName                   = "/customer_service.customer_ito.CtmItoOrderController/ListOrderConf"
+	CtmItoOrderController_ListPayDetail_FullMethodName                   = "/customer_service.customer_ito.CtmItoOrderController/ListPayDetail"
+	CtmItoOrderController_ListPromotionDetail_FullMethodName             = "/customer_service.customer_ito.CtmItoOrderController/ListPromotionDetail"
 	CtmItoOrderController_ListRefundReason_FullMethodName                = "/customer_service.customer_ito.CtmItoOrderController/ListRefundReason"
+	CtmItoOrderController_OnSpuListCustomerCoupon_FullMethodName         = "/customer_service.customer_ito.CtmItoOrderController/OnSpuListCustomerCoupon"
+	CtmItoOrderController_OrderNextTid_FullMethodName                    = "/customer_service.customer_ito.CtmItoOrderController/OrderNextTid"
+	CtmItoOrderController_OrderOptions_FullMethodName                    = "/customer_service.customer_ito.CtmItoOrderController/OrderOptions"
 	CtmItoOrderController_PartialUpdate_FullMethodName                   = "/customer_service.customer_ito.CtmItoOrderController/PartialUpdate"
 	CtmItoOrderController_ReasonTypeOptionsOrderConf_FullMethodName      = "/customer_service.customer_ito.CtmItoOrderController/ReasonTypeOptionsOrderConf"
 	CtmItoOrderController_ReasonTypeOptionsRefundReason_FullMethodName   = "/customer_service.customer_ito.CtmItoOrderController/ReasonTypeOptionsRefundReason"
 	CtmItoOrderController_Retrieve_FullMethodName                        = "/customer_service.customer_ito.CtmItoOrderController/Retrieve"
 	CtmItoOrderController_RetrieveCoupon_FullMethodName                  = "/customer_service.customer_ito.CtmItoOrderController/RetrieveCoupon"
+	CtmItoOrderController_RetrieveGoodsDetail_FullMethodName             = "/customer_service.customer_ito.CtmItoOrderController/RetrieveGoodsDetail"
+	CtmItoOrderController_RetrieveInvoiceDetail_FullMethodName           = "/customer_service.customer_ito.CtmItoOrderController/RetrieveInvoiceDetail"
 	CtmItoOrderController_RetrieveOrderConf_FullMethodName               = "/customer_service.customer_ito.CtmItoOrderController/RetrieveOrderConf"
+	CtmItoOrderController_RetrievePayDetail_FullMethodName               = "/customer_service.customer_ito.CtmItoOrderController/RetrievePayDetail"
+	CtmItoOrderController_RetrievePromotionDetail_FullMethodName         = "/customer_service.customer_ito.CtmItoOrderController/RetrievePromotionDetail"
 	CtmItoOrderController_RetrieveRefundReason_FullMethodName            = "/customer_service.customer_ito.CtmItoOrderController/RetrieveRefundReason"
 	CtmItoOrderController_ShopOptionsWdt_FullMethodName                  = "/customer_service.customer_ito.CtmItoOrderController/ShopOptionsWdt"
 	CtmItoOrderController_StockOptionsWdt_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/StockOptionsWdt"
@@ -47,7 +67,11 @@ const (
 	CtmItoOrderController_TypeOptionsRefundReason_FullMethodName         = "/customer_service.customer_ito.CtmItoOrderController/TypeOptionsRefundReason"
 	CtmItoOrderController_Update_FullMethodName                          = "/customer_service.customer_ito.CtmItoOrderController/Update"
 	CtmItoOrderController_UpdateCoupon_FullMethodName                    = "/customer_service.customer_ito.CtmItoOrderController/UpdateCoupon"
+	CtmItoOrderController_UpdateGoodsDetail_FullMethodName               = "/customer_service.customer_ito.CtmItoOrderController/UpdateGoodsDetail"
+	CtmItoOrderController_UpdateInvoiceDetail_FullMethodName             = "/customer_service.customer_ito.CtmItoOrderController/UpdateInvoiceDetail"
 	CtmItoOrderController_UpdateOrderConf_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/UpdateOrderConf"
+	CtmItoOrderController_UpdatePayDetail_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/UpdatePayDetail"
+	CtmItoOrderController_UpdatePromotionDetail_FullMethodName           = "/customer_service.customer_ito.CtmItoOrderController/UpdatePromotionDetail"
 	CtmItoOrderController_UpdateRefundReason_FullMethodName              = "/customer_service.customer_ito.CtmItoOrderController/UpdateRefundReason"
 )
 
@@ -56,25 +80,45 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CtmItoOrderControllerClient interface {
 	ChildrenBatchUpdateRefundReason(ctx context.Context, in *ChildrenBatchUpdateRequest, opts ...grpc.CallOption) (*ChildrenBatchUpdateResponse, error)
+	CouponOptions(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CtmCouponOptionResponse, error)
 	Create(ctx context.Context, in *CtmOrderRequest, opts ...grpc.CallOption) (*CtmOrderResponse, error)
 	CreateCoupon(ctx context.Context, in *CtmCouponCreateRequest, opts ...grpc.CallOption) (*CtmCouponResponse, error)
+	CreateGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error)
+	CreateInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error)
 	CreateOrderConf(ctx context.Context, in *CtmOrderConfCreateRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error)
+	CreatePayDetail(ctx context.Context, in *CtmOrderPayDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error)
+	CreatePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error)
 	CreateRefundReason(ctx context.Context, in *CtmRefundReasonCreateRequest, opts ...grpc.CallOption) (*CtmRefundReasonResponse, error)
-	Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResponse, error)
-	DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResponse, error)
-	DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResponse, error)
-	DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResponse, error)
+	Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResp, error)
+	DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResp, error)
+	DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailDestroyResp, error)
+	DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceDetailDestroyResp, error)
+	DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResp, error)
+	DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPayDetailDestroyResp, error)
+	DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPromotionDetailDestroyResp, error)
+	DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResp, error)
 	GetCheckListRefundReason(ctx context.Context, in *RefundReasonCheckListRequest, opts ...grpc.CallOption) (*RefundReasonCheckListResponse, error)
 	List(ctx context.Context, in *CtmOrderListRequest, opts ...grpc.CallOption) (*CtmOrderListResponse, error)
 	ListCoupon(ctx context.Context, in *CtmCouponListRequest, opts ...grpc.CallOption) (*CtmCouponListResponse, error)
+	ListGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailListRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailListResponse, error)
+	ListInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailListRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceListResponse, error)
 	ListOrderConf(ctx context.Context, in *CtmOrderConfListRequest, opts ...grpc.CallOption) (*CtmOrderConfListResponse, error)
+	ListPayDetail(ctx context.Context, in *CtmOrderPayDetailListRequest, opts ...grpc.CallOption) (*CtmOrderPayListResponse, error)
+	ListPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailListRequest, opts ...grpc.CallOption) (*CtmOrderPromotionListResponse, error)
 	ListRefundReason(ctx context.Context, in *CtmRefundReasonListRequest, opts ...grpc.CallOption) (*CtmRefundReasonListResponse, error)
+	OnSpuListCustomerCoupon(ctx context.Context, in *OnSpuListCustomerCouponRequest, opts ...grpc.CallOption) (*CtmCouponListResponse, error)
+	OrderNextTid(ctx context.Context, in *OrderNextTidRequest, opts ...grpc.CallOption) (*CtmOrderNextTidResponse, error)
+	OrderOptions(ctx context.Context, in *OrderOptionsRequest, opts ...grpc.CallOption) (*CtmOrderOptionsResponse, error)
 	PartialUpdate(ctx context.Context, in *CtmOrderPartialUpdateRequest, opts ...grpc.CallOption) (*CtmOrderResponse, error)
 	ReasonTypeOptionsOrderConf(ctx context.Context, in *TradeTypeOptionsRequest, opts ...grpc.CallOption) (*TradeTypeOptionListResponse, error)
 	ReasonTypeOptionsRefundReason(ctx context.Context, in *RefundReasonOptionsRequest, opts ...grpc.CallOption) (*RefundReasonOptionListResponse, error)
 	Retrieve(ctx context.Context, in *CtmOrderRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderResponse, error)
 	RetrieveCoupon(ctx context.Context, in *CtmCouponRetrieveRequest, opts ...grpc.CallOption) (*CtmCouponResponse, error)
+	RetrieveGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error)
+	RetrieveInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error)
 	RetrieveOrderConf(ctx context.Context, in *CtmOrderConfRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error)
+	RetrievePayDetail(ctx context.Context, in *CtmOrderPayDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error)
+	RetrievePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error)
 	RetrieveRefundReason(ctx context.Context, in *CtmRefundReasonRetrieveRequest, opts ...grpc.CallOption) (*CtmRefundReasonResponse, error)
 	ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error)
 	StockOptionsWdt(ctx context.Context, in *WdtStockListRequest, opts ...grpc.CallOption) (*WdtStockListResponse, error)
@@ -83,7 +127,11 @@ type CtmItoOrderControllerClient interface {
 	TypeOptionsRefundReason(ctx context.Context, in *ReasonTypeOptionsRequest, opts ...grpc.CallOption) (*ReasonTypeOptionListResponse, error)
 	Update(ctx context.Context, in *CtmOrderRequest, opts ...grpc.CallOption) (*CtmOrderResponse, error)
 	UpdateCoupon(ctx context.Context, in *CtmCouponUpdateRequest, opts ...grpc.CallOption) (*CtmCouponResponse, error)
+	UpdateGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error)
+	UpdateInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error)
 	UpdateOrderConf(ctx context.Context, in *CtmOrderConfUpdateRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error)
+	UpdatePayDetail(ctx context.Context, in *CtmOrderPayDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error)
+	UpdatePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error)
 	UpdateRefundReason(ctx context.Context, in *CtmRefundReasonUpdateRequest, opts ...grpc.CallOption) (*CtmRefundReasonResponse, error)
 }
 
@@ -98,6 +146,15 @@ func NewCtmItoOrderControllerClient(cc grpc.ClientConnInterface) CtmItoOrderCont
 func (c *ctmItoOrderControllerClient) ChildrenBatchUpdateRefundReason(ctx context.Context, in *ChildrenBatchUpdateRequest, opts ...grpc.CallOption) (*ChildrenBatchUpdateResponse, error) {
 	out := new(ChildrenBatchUpdateResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_ChildrenBatchUpdateRefundReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) CouponOptions(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CtmCouponOptionResponse, error) {
+	out := new(CtmCouponOptionResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_CouponOptions_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,9 +179,45 @@ func (c *ctmItoOrderControllerClient) CreateCoupon(ctx context.Context, in *CtmC
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) CreateGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error) {
+	out := new(CtmOrderGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_CreateGoodsDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) CreateInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error) {
+	out := new(CtmOrderInvoiceResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_CreateInvoiceDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) CreateOrderConf(ctx context.Context, in *CtmOrderConfCreateRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error) {
 	out := new(CtmOrderConfResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_CreateOrderConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) CreatePayDetail(ctx context.Context, in *CtmOrderPayDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error) {
+	out := new(CtmOrderPayResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_CreatePayDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) CreatePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error) {
+	out := new(CtmOrderPromotionResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_CreatePromotionDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -140,8 +233,8 @@ func (c *ctmItoOrderControllerClient) CreateRefundReason(ctx context.Context, in
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResponse, error) {
-	out := new(CtmOrderDestroyResponse)
+func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResp, error) {
+	out := new(CtmOrderDestroyResp)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -149,8 +242,8 @@ func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderD
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResponse, error) {
-	out := new(CtmCouponDestroyResponse)
+func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResp, error) {
+	out := new(CtmCouponDestroyResp)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyCoupon_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -158,8 +251,26 @@ func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *Ctm
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResponse, error) {
-	out := new(CtmOrderConfDestroyResponse)
+func (c *ctmItoOrderControllerClient) DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailDestroyResp, error) {
+	out := new(CtmOrderGoodsDetailDestroyResp)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyGoodsDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceDetailDestroyResp, error) {
+	out := new(CtmOrderInvoiceDetailDestroyResp)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyInvoiceDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResp, error) {
+	out := new(CtmOrderConfDestroyResp)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyOrderConf_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -167,8 +278,26 @@ func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResponse, error) {
-	out := new(CtmRefundReasonDestroyResponse)
+func (c *ctmItoOrderControllerClient) DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPayDetailDestroyResp, error) {
+	out := new(CtmOrderPayDetailDestroyResp)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyPayDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPromotionDetailDestroyResp, error) {
+	out := new(CtmOrderPromotionDetailDestroyResp)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyPromotionDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResp, error) {
+	out := new(CtmRefundReasonDestroyResp)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyRefundReason_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -203,6 +332,24 @@ func (c *ctmItoOrderControllerClient) ListCoupon(ctx context.Context, in *CtmCou
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) ListGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailListRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailListResponse, error) {
+	out := new(CtmOrderGoodsDetailListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_ListGoodsDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) ListInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailListRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceListResponse, error) {
+	out := new(CtmOrderInvoiceListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_ListInvoiceDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) ListOrderConf(ctx context.Context, in *CtmOrderConfListRequest, opts ...grpc.CallOption) (*CtmOrderConfListResponse, error) {
 	out := new(CtmOrderConfListResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_ListOrderConf_FullMethodName, in, out, opts...)
@@ -212,9 +359,54 @@ func (c *ctmItoOrderControllerClient) ListOrderConf(ctx context.Context, in *Ctm
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) ListPayDetail(ctx context.Context, in *CtmOrderPayDetailListRequest, opts ...grpc.CallOption) (*CtmOrderPayListResponse, error) {
+	out := new(CtmOrderPayListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_ListPayDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) ListPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailListRequest, opts ...grpc.CallOption) (*CtmOrderPromotionListResponse, error) {
+	out := new(CtmOrderPromotionListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_ListPromotionDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) ListRefundReason(ctx context.Context, in *CtmRefundReasonListRequest, opts ...grpc.CallOption) (*CtmRefundReasonListResponse, error) {
 	out := new(CtmRefundReasonListResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_ListRefundReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) OnSpuListCustomerCoupon(ctx context.Context, in *OnSpuListCustomerCouponRequest, opts ...grpc.CallOption) (*CtmCouponListResponse, error) {
+	out := new(CtmCouponListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_OnSpuListCustomerCoupon_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) OrderNextTid(ctx context.Context, in *OrderNextTidRequest, opts ...grpc.CallOption) (*CtmOrderNextTidResponse, error) {
+	out := new(CtmOrderNextTidResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_OrderNextTid_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) OrderOptions(ctx context.Context, in *OrderOptionsRequest, opts ...grpc.CallOption) (*CtmOrderOptionsResponse, error) {
+	out := new(CtmOrderOptionsResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_OrderOptions_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -266,9 +458,45 @@ func (c *ctmItoOrderControllerClient) RetrieveCoupon(ctx context.Context, in *Ct
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) RetrieveGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error) {
+	out := new(CtmOrderGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_RetrieveGoodsDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) RetrieveInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error) {
+	out := new(CtmOrderInvoiceResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_RetrieveInvoiceDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) RetrieveOrderConf(ctx context.Context, in *CtmOrderConfRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error) {
 	out := new(CtmOrderConfResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_RetrieveOrderConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) RetrievePayDetail(ctx context.Context, in *CtmOrderPayDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error) {
+	out := new(CtmOrderPayResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_RetrievePayDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) RetrievePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailRetrieveRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error) {
+	out := new(CtmOrderPromotionResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_RetrievePromotionDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -347,9 +575,45 @@ func (c *ctmItoOrderControllerClient) UpdateCoupon(ctx context.Context, in *CtmC
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) UpdateGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailResponse, error) {
+	out := new(CtmOrderGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_UpdateGoodsDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) UpdateInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceResponse, error) {
+	out := new(CtmOrderInvoiceResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_UpdateInvoiceDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) UpdateOrderConf(ctx context.Context, in *CtmOrderConfUpdateRequest, opts ...grpc.CallOption) (*CtmOrderConfResponse, error) {
 	out := new(CtmOrderConfResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_UpdateOrderConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) UpdatePayDetail(ctx context.Context, in *CtmOrderPayDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error) {
+	out := new(CtmOrderPayResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_UpdatePayDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoOrderControllerClient) UpdatePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailUpdateRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error) {
+	out := new(CtmOrderPromotionResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_UpdatePromotionDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -370,25 +634,45 @@ func (c *ctmItoOrderControllerClient) UpdateRefundReason(ctx context.Context, in
 // for forward compatibility
 type CtmItoOrderControllerServer interface {
 	ChildrenBatchUpdateRefundReason(context.Context, *ChildrenBatchUpdateRequest) (*ChildrenBatchUpdateResponse, error)
+	CouponOptions(context.Context, *OptionRequest) (*CtmCouponOptionResponse, error)
 	Create(context.Context, *CtmOrderRequest) (*CtmOrderResponse, error)
 	CreateCoupon(context.Context, *CtmCouponCreateRequest) (*CtmCouponResponse, error)
+	CreateGoodsDetail(context.Context, *CtmOrderGoodsDetailCreateRequest) (*CtmOrderGoodsDetailResponse, error)
+	CreateInvoiceDetail(context.Context, *CtmOrderInvoiceDetailCreateRequest) (*CtmOrderInvoiceResponse, error)
 	CreateOrderConf(context.Context, *CtmOrderConfCreateRequest) (*CtmOrderConfResponse, error)
+	CreatePayDetail(context.Context, *CtmOrderPayDetailCreateRequest) (*CtmOrderPayResponse, error)
+	CreatePromotionDetail(context.Context, *CtmOrderPromotionDetailCreateRequest) (*CtmOrderPromotionResponse, error)
 	CreateRefundReason(context.Context, *CtmRefundReasonCreateRequest) (*CtmRefundReasonResponse, error)
-	Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResponse, error)
-	DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResponse, error)
-	DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResponse, error)
-	DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResponse, error)
+	Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResp, error)
+	DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResp, error)
+	DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*CtmOrderGoodsDetailDestroyResp, error)
+	DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*CtmOrderInvoiceDetailDestroyResp, error)
+	DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResp, error)
+	DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*CtmOrderPayDetailDestroyResp, error)
+	DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*CtmOrderPromotionDetailDestroyResp, error)
+	DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResp, error)
 	GetCheckListRefundReason(context.Context, *RefundReasonCheckListRequest) (*RefundReasonCheckListResponse, error)
 	List(context.Context, *CtmOrderListRequest) (*CtmOrderListResponse, error)
 	ListCoupon(context.Context, *CtmCouponListRequest) (*CtmCouponListResponse, error)
+	ListGoodsDetail(context.Context, *CtmOrderGoodsDetailListRequest) (*CtmOrderGoodsDetailListResponse, error)
+	ListInvoiceDetail(context.Context, *CtmOrderInvoiceDetailListRequest) (*CtmOrderInvoiceListResponse, error)
 	ListOrderConf(context.Context, *CtmOrderConfListRequest) (*CtmOrderConfListResponse, error)
+	ListPayDetail(context.Context, *CtmOrderPayDetailListRequest) (*CtmOrderPayListResponse, error)
+	ListPromotionDetail(context.Context, *CtmOrderPromotionDetailListRequest) (*CtmOrderPromotionListResponse, error)
 	ListRefundReason(context.Context, *CtmRefundReasonListRequest) (*CtmRefundReasonListResponse, error)
+	OnSpuListCustomerCoupon(context.Context, *OnSpuListCustomerCouponRequest) (*CtmCouponListResponse, error)
+	OrderNextTid(context.Context, *OrderNextTidRequest) (*CtmOrderNextTidResponse, error)
+	OrderOptions(context.Context, *OrderOptionsRequest) (*CtmOrderOptionsResponse, error)
 	PartialUpdate(context.Context, *CtmOrderPartialUpdateRequest) (*CtmOrderResponse, error)
 	ReasonTypeOptionsOrderConf(context.Context, *TradeTypeOptionsRequest) (*TradeTypeOptionListResponse, error)
 	ReasonTypeOptionsRefundReason(context.Context, *RefundReasonOptionsRequest) (*RefundReasonOptionListResponse, error)
 	Retrieve(context.Context, *CtmOrderRetrieveRequest) (*CtmOrderResponse, error)
 	RetrieveCoupon(context.Context, *CtmCouponRetrieveRequest) (*CtmCouponResponse, error)
+	RetrieveGoodsDetail(context.Context, *CtmOrderGoodsDetailRetrieveRequest) (*CtmOrderGoodsDetailResponse, error)
+	RetrieveInvoiceDetail(context.Context, *CtmOrderInvoiceDetailRetrieveRequest) (*CtmOrderInvoiceResponse, error)
 	RetrieveOrderConf(context.Context, *CtmOrderConfRetrieveRequest) (*CtmOrderConfResponse, error)
+	RetrievePayDetail(context.Context, *CtmOrderPayDetailRetrieveRequest) (*CtmOrderPayResponse, error)
+	RetrievePromotionDetail(context.Context, *CtmOrderPromotionDetailRetrieveRequest) (*CtmOrderPromotionResponse, error)
 	RetrieveRefundReason(context.Context, *CtmRefundReasonRetrieveRequest) (*CtmRefundReasonResponse, error)
 	ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error)
 	StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error)
@@ -397,7 +681,11 @@ type CtmItoOrderControllerServer interface {
 	TypeOptionsRefundReason(context.Context, *ReasonTypeOptionsRequest) (*ReasonTypeOptionListResponse, error)
 	Update(context.Context, *CtmOrderRequest) (*CtmOrderResponse, error)
 	UpdateCoupon(context.Context, *CtmCouponUpdateRequest) (*CtmCouponResponse, error)
+	UpdateGoodsDetail(context.Context, *CtmOrderGoodsDetailUpdateRequest) (*CtmOrderGoodsDetailResponse, error)
+	UpdateInvoiceDetail(context.Context, *CtmOrderInvoiceDetailUpdateRequest) (*CtmOrderInvoiceResponse, error)
 	UpdateOrderConf(context.Context, *CtmOrderConfUpdateRequest) (*CtmOrderConfResponse, error)
+	UpdatePayDetail(context.Context, *CtmOrderPayDetailUpdateRequest) (*CtmOrderPayResponse, error)
+	UpdatePromotionDetail(context.Context, *CtmOrderPromotionDetailUpdateRequest) (*CtmOrderPromotionResponse, error)
 	UpdateRefundReason(context.Context, *CtmRefundReasonUpdateRequest) (*CtmRefundReasonResponse, error)
 	mustEmbedUnimplementedCtmItoOrderControllerServer()
 }
@@ -409,28 +697,55 @@ type UnimplementedCtmItoOrderControllerServer struct {
 func (UnimplementedCtmItoOrderControllerServer) ChildrenBatchUpdateRefundReason(context.Context, *ChildrenBatchUpdateRequest) (*ChildrenBatchUpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChildrenBatchUpdateRefundReason not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) CouponOptions(context.Context, *OptionRequest) (*CtmCouponOptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CouponOptions not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) Create(context.Context, *CtmOrderRequest) (*CtmOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) CreateCoupon(context.Context, *CtmCouponCreateRequest) (*CtmCouponResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCoupon not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) CreateGoodsDetail(context.Context, *CtmOrderGoodsDetailCreateRequest) (*CtmOrderGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGoodsDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) CreateInvoiceDetail(context.Context, *CtmOrderInvoiceDetailCreateRequest) (*CtmOrderInvoiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateInvoiceDetail not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) CreateOrderConf(context.Context, *CtmOrderConfCreateRequest) (*CtmOrderConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrderConf not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) CreatePayDetail(context.Context, *CtmOrderPayDetailCreateRequest) (*CtmOrderPayResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePayDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) CreatePromotionDetail(context.Context, *CtmOrderPromotionDetailCreateRequest) (*CtmOrderPromotionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePromotionDetail not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) CreateRefundReason(context.Context, *CtmRefundReasonCreateRequest) (*CtmRefundReasonResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRefundReason not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResponse, error) {
+func (UnimplementedCtmItoOrderControllerServer) Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResponse, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCoupon not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResponse, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*CtmOrderGoodsDetailDestroyResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyGoodsDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*CtmOrderInvoiceDetailDestroyResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyInvoiceDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyOrderConf not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResponse, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*CtmOrderPayDetailDestroyResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyPayDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*CtmOrderPromotionDetailDestroyResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyPromotionDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyRefundReason not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) GetCheckListRefundReason(context.Context, *RefundReasonCheckListRequest) (*RefundReasonCheckListResponse, error) {
@@ -442,11 +757,32 @@ func (UnimplementedCtmItoOrderControllerServer) List(context.Context, *CtmOrderL
 func (UnimplementedCtmItoOrderControllerServer) ListCoupon(context.Context, *CtmCouponListRequest) (*CtmCouponListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCoupon not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) ListGoodsDetail(context.Context, *CtmOrderGoodsDetailListRequest) (*CtmOrderGoodsDetailListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGoodsDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) ListInvoiceDetail(context.Context, *CtmOrderInvoiceDetailListRequest) (*CtmOrderInvoiceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListInvoiceDetail not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) ListOrderConf(context.Context, *CtmOrderConfListRequest) (*CtmOrderConfListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOrderConf not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) ListPayDetail(context.Context, *CtmOrderPayDetailListRequest) (*CtmOrderPayListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPayDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) ListPromotionDetail(context.Context, *CtmOrderPromotionDetailListRequest) (*CtmOrderPromotionListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPromotionDetail not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) ListRefundReason(context.Context, *CtmRefundReasonListRequest) (*CtmRefundReasonListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRefundReason not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) OnSpuListCustomerCoupon(context.Context, *OnSpuListCustomerCouponRequest) (*CtmCouponListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method OnSpuListCustomerCoupon not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) OrderNextTid(context.Context, *OrderNextTidRequest) (*CtmOrderNextTidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method OrderNextTid not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) OrderOptions(context.Context, *OrderOptionsRequest) (*CtmOrderOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method OrderOptions not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) PartialUpdate(context.Context, *CtmOrderPartialUpdateRequest) (*CtmOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -463,8 +799,20 @@ func (UnimplementedCtmItoOrderControllerServer) Retrieve(context.Context, *CtmOr
 func (UnimplementedCtmItoOrderControllerServer) RetrieveCoupon(context.Context, *CtmCouponRetrieveRequest) (*CtmCouponResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCoupon not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) RetrieveGoodsDetail(context.Context, *CtmOrderGoodsDetailRetrieveRequest) (*CtmOrderGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveGoodsDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) RetrieveInvoiceDetail(context.Context, *CtmOrderInvoiceDetailRetrieveRequest) (*CtmOrderInvoiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveInvoiceDetail not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) RetrieveOrderConf(context.Context, *CtmOrderConfRetrieveRequest) (*CtmOrderConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveOrderConf not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) RetrievePayDetail(context.Context, *CtmOrderPayDetailRetrieveRequest) (*CtmOrderPayResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrievePayDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) RetrievePromotionDetail(context.Context, *CtmOrderPromotionDetailRetrieveRequest) (*CtmOrderPromotionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrievePromotionDetail not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) RetrieveRefundReason(context.Context, *CtmRefundReasonRetrieveRequest) (*CtmRefundReasonResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRefundReason not implemented")
@@ -490,8 +838,20 @@ func (UnimplementedCtmItoOrderControllerServer) Update(context.Context, *CtmOrde
 func (UnimplementedCtmItoOrderControllerServer) UpdateCoupon(context.Context, *CtmCouponUpdateRequest) (*CtmCouponResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCoupon not implemented")
 }
+func (UnimplementedCtmItoOrderControllerServer) UpdateGoodsDetail(context.Context, *CtmOrderGoodsDetailUpdateRequest) (*CtmOrderGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGoodsDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) UpdateInvoiceDetail(context.Context, *CtmOrderInvoiceDetailUpdateRequest) (*CtmOrderInvoiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateInvoiceDetail not implemented")
+}
 func (UnimplementedCtmItoOrderControllerServer) UpdateOrderConf(context.Context, *CtmOrderConfUpdateRequest) (*CtmOrderConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrderConf not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) UpdatePayDetail(context.Context, *CtmOrderPayDetailUpdateRequest) (*CtmOrderPayResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePayDetail not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) UpdatePromotionDetail(context.Context, *CtmOrderPromotionDetailUpdateRequest) (*CtmOrderPromotionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePromotionDetail not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) UpdateRefundReason(context.Context, *CtmRefundReasonUpdateRequest) (*CtmRefundReasonResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRefundReason not implemented")
@@ -523,6 +883,24 @@ func _CtmItoOrderController_ChildrenBatchUpdateRefundReason_Handler(srv interfac
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).ChildrenBatchUpdateRefundReason(ctx, req.(*ChildrenBatchUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_CouponOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).CouponOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_CouponOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).CouponOptions(ctx, req.(*OptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -563,6 +941,42 @@ func _CtmItoOrderController_CreateCoupon_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_CreateGoodsDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderGoodsDetailCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).CreateGoodsDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_CreateGoodsDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).CreateGoodsDetail(ctx, req.(*CtmOrderGoodsDetailCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_CreateInvoiceDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderInvoiceDetailCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).CreateInvoiceDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_CreateInvoiceDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).CreateInvoiceDetail(ctx, req.(*CtmOrderInvoiceDetailCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_CreateOrderConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmOrderConfCreateRequest)
 	if err := dec(in); err != nil {
@@ -577,6 +991,42 @@ func _CtmItoOrderController_CreateOrderConf_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).CreateOrderConf(ctx, req.(*CtmOrderConfCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_CreatePayDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPayDetailCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).CreatePayDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_CreatePayDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).CreatePayDetail(ctx, req.(*CtmOrderPayDetailCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_CreatePromotionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPromotionDetailCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).CreatePromotionDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_CreatePromotionDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).CreatePromotionDetail(ctx, req.(*CtmOrderPromotionDetailCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -635,6 +1085,42 @@ func _CtmItoOrderController_DestroyCoupon_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_DestroyGoodsDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderGoodsDetailDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).DestroyGoodsDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_DestroyGoodsDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).DestroyGoodsDetail(ctx, req.(*CtmOrderGoodsDetailDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_DestroyInvoiceDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderInvoiceDetailDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).DestroyInvoiceDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_DestroyInvoiceDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).DestroyInvoiceDetail(ctx, req.(*CtmOrderInvoiceDetailDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_DestroyOrderConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmOrderConfDestroyRequest)
 	if err := dec(in); err != nil {
@@ -649,6 +1135,42 @@ func _CtmItoOrderController_DestroyOrderConf_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).DestroyOrderConf(ctx, req.(*CtmOrderConfDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_DestroyPayDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPayDetailDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).DestroyPayDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_DestroyPayDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).DestroyPayDetail(ctx, req.(*CtmOrderPayDetailDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_DestroyPromotionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPromotionDetailDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).DestroyPromotionDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_DestroyPromotionDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).DestroyPromotionDetail(ctx, req.(*CtmOrderPromotionDetailDestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -725,6 +1247,42 @@ func _CtmItoOrderController_ListCoupon_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_ListGoodsDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderGoodsDetailListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).ListGoodsDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_ListGoodsDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).ListGoodsDetail(ctx, req.(*CtmOrderGoodsDetailListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_ListInvoiceDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderInvoiceDetailListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).ListInvoiceDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_ListInvoiceDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).ListInvoiceDetail(ctx, req.(*CtmOrderInvoiceDetailListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_ListOrderConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmOrderConfListRequest)
 	if err := dec(in); err != nil {
@@ -743,6 +1301,42 @@ func _CtmItoOrderController_ListOrderConf_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_ListPayDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPayDetailListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).ListPayDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_ListPayDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).ListPayDetail(ctx, req.(*CtmOrderPayDetailListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_ListPromotionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPromotionDetailListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).ListPromotionDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_ListPromotionDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).ListPromotionDetail(ctx, req.(*CtmOrderPromotionDetailListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_ListRefundReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmRefundReasonListRequest)
 	if err := dec(in); err != nil {
@@ -757,6 +1351,60 @@ func _CtmItoOrderController_ListRefundReason_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).ListRefundReason(ctx, req.(*CtmRefundReasonListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_OnSpuListCustomerCoupon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSpuListCustomerCouponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).OnSpuListCustomerCoupon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_OnSpuListCustomerCoupon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).OnSpuListCustomerCoupon(ctx, req.(*OnSpuListCustomerCouponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_OrderNextTid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrderNextTidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).OrderNextTid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_OrderNextTid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).OrderNextTid(ctx, req.(*OrderNextTidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_OrderOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrderOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).OrderOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_OrderOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).OrderOptions(ctx, req.(*OrderOptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -851,6 +1499,42 @@ func _CtmItoOrderController_RetrieveCoupon_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_RetrieveGoodsDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderGoodsDetailRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).RetrieveGoodsDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_RetrieveGoodsDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).RetrieveGoodsDetail(ctx, req.(*CtmOrderGoodsDetailRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_RetrieveInvoiceDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderInvoiceDetailRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).RetrieveInvoiceDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_RetrieveInvoiceDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).RetrieveInvoiceDetail(ctx, req.(*CtmOrderInvoiceDetailRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_RetrieveOrderConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmOrderConfRetrieveRequest)
 	if err := dec(in); err != nil {
@@ -865,6 +1549,42 @@ func _CtmItoOrderController_RetrieveOrderConf_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).RetrieveOrderConf(ctx, req.(*CtmOrderConfRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_RetrievePayDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPayDetailRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).RetrievePayDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_RetrievePayDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).RetrievePayDetail(ctx, req.(*CtmOrderPayDetailRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_RetrievePromotionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPromotionDetailRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).RetrievePromotionDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_RetrievePromotionDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).RetrievePromotionDetail(ctx, req.(*CtmOrderPromotionDetailRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1013,6 +1733,42 @@ func _CtmItoOrderController_UpdateCoupon_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_UpdateGoodsDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderGoodsDetailUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).UpdateGoodsDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_UpdateGoodsDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).UpdateGoodsDetail(ctx, req.(*CtmOrderGoodsDetailUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_UpdateInvoiceDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderInvoiceDetailUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).UpdateInvoiceDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_UpdateInvoiceDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).UpdateInvoiceDetail(ctx, req.(*CtmOrderInvoiceDetailUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_UpdateOrderConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmOrderConfUpdateRequest)
 	if err := dec(in); err != nil {
@@ -1027,6 +1783,42 @@ func _CtmItoOrderController_UpdateOrderConf_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoOrderControllerServer).UpdateOrderConf(ctx, req.(*CtmOrderConfUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_UpdatePayDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPayDetailUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).UpdatePayDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_UpdatePayDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).UpdatePayDetail(ctx, req.(*CtmOrderPayDetailUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoOrderController_UpdatePromotionDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmOrderPromotionDetailUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).UpdatePromotionDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_UpdatePromotionDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).UpdatePromotionDetail(ctx, req.(*CtmOrderPromotionDetailUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1061,6 +1853,10 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_ChildrenBatchUpdateRefundReason_Handler,
 		},
 		{
+			MethodName: "CouponOptions",
+			Handler:    _CtmItoOrderController_CouponOptions_Handler,
+		},
+		{
 			MethodName: "Create",
 			Handler:    _CtmItoOrderController_Create_Handler,
 		},
@@ -1069,8 +1865,24 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_CreateCoupon_Handler,
 		},
 		{
+			MethodName: "CreateGoodsDetail",
+			Handler:    _CtmItoOrderController_CreateGoodsDetail_Handler,
+		},
+		{
+			MethodName: "CreateInvoiceDetail",
+			Handler:    _CtmItoOrderController_CreateInvoiceDetail_Handler,
+		},
+		{
 			MethodName: "CreateOrderConf",
 			Handler:    _CtmItoOrderController_CreateOrderConf_Handler,
+		},
+		{
+			MethodName: "CreatePayDetail",
+			Handler:    _CtmItoOrderController_CreatePayDetail_Handler,
+		},
+		{
+			MethodName: "CreatePromotionDetail",
+			Handler:    _CtmItoOrderController_CreatePromotionDetail_Handler,
 		},
 		{
 			MethodName: "CreateRefundReason",
@@ -1085,8 +1897,24 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_DestroyCoupon_Handler,
 		},
 		{
+			MethodName: "DestroyGoodsDetail",
+			Handler:    _CtmItoOrderController_DestroyGoodsDetail_Handler,
+		},
+		{
+			MethodName: "DestroyInvoiceDetail",
+			Handler:    _CtmItoOrderController_DestroyInvoiceDetail_Handler,
+		},
+		{
 			MethodName: "DestroyOrderConf",
 			Handler:    _CtmItoOrderController_DestroyOrderConf_Handler,
+		},
+		{
+			MethodName: "DestroyPayDetail",
+			Handler:    _CtmItoOrderController_DestroyPayDetail_Handler,
+		},
+		{
+			MethodName: "DestroyPromotionDetail",
+			Handler:    _CtmItoOrderController_DestroyPromotionDetail_Handler,
 		},
 		{
 			MethodName: "DestroyRefundReason",
@@ -1105,12 +1933,40 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_ListCoupon_Handler,
 		},
 		{
+			MethodName: "ListGoodsDetail",
+			Handler:    _CtmItoOrderController_ListGoodsDetail_Handler,
+		},
+		{
+			MethodName: "ListInvoiceDetail",
+			Handler:    _CtmItoOrderController_ListInvoiceDetail_Handler,
+		},
+		{
 			MethodName: "ListOrderConf",
 			Handler:    _CtmItoOrderController_ListOrderConf_Handler,
 		},
 		{
+			MethodName: "ListPayDetail",
+			Handler:    _CtmItoOrderController_ListPayDetail_Handler,
+		},
+		{
+			MethodName: "ListPromotionDetail",
+			Handler:    _CtmItoOrderController_ListPromotionDetail_Handler,
+		},
+		{
 			MethodName: "ListRefundReason",
 			Handler:    _CtmItoOrderController_ListRefundReason_Handler,
+		},
+		{
+			MethodName: "OnSpuListCustomerCoupon",
+			Handler:    _CtmItoOrderController_OnSpuListCustomerCoupon_Handler,
+		},
+		{
+			MethodName: "OrderNextTid",
+			Handler:    _CtmItoOrderController_OrderNextTid_Handler,
+		},
+		{
+			MethodName: "OrderOptions",
+			Handler:    _CtmItoOrderController_OrderOptions_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
@@ -1133,8 +1989,24 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_RetrieveCoupon_Handler,
 		},
 		{
+			MethodName: "RetrieveGoodsDetail",
+			Handler:    _CtmItoOrderController_RetrieveGoodsDetail_Handler,
+		},
+		{
+			MethodName: "RetrieveInvoiceDetail",
+			Handler:    _CtmItoOrderController_RetrieveInvoiceDetail_Handler,
+		},
+		{
 			MethodName: "RetrieveOrderConf",
 			Handler:    _CtmItoOrderController_RetrieveOrderConf_Handler,
+		},
+		{
+			MethodName: "RetrievePayDetail",
+			Handler:    _CtmItoOrderController_RetrievePayDetail_Handler,
+		},
+		{
+			MethodName: "RetrievePromotionDetail",
+			Handler:    _CtmItoOrderController_RetrievePromotionDetail_Handler,
 		},
 		{
 			MethodName: "RetrieveRefundReason",
@@ -1169,8 +2041,24 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_UpdateCoupon_Handler,
 		},
 		{
+			MethodName: "UpdateGoodsDetail",
+			Handler:    _CtmItoOrderController_UpdateGoodsDetail_Handler,
+		},
+		{
+			MethodName: "UpdateInvoiceDetail",
+			Handler:    _CtmItoOrderController_UpdateInvoiceDetail_Handler,
+		},
+		{
 			MethodName: "UpdateOrderConf",
 			Handler:    _CtmItoOrderController_UpdateOrderConf_Handler,
+		},
+		{
+			MethodName: "UpdatePayDetail",
+			Handler:    _CtmItoOrderController_UpdatePayDetail_Handler,
+		},
+		{
+			MethodName: "UpdatePromotionDetail",
+			Handler:    _CtmItoOrderController_UpdatePromotionDetail_Handler,
 		},
 		{
 			MethodName: "UpdateRefundReason",

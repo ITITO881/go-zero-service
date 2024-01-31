@@ -25,6 +25,7 @@ const (
 	PlatProductIto_Delete_FullMethodName   = "/plat_product.PlatProductIto/Delete"
 	PlatProductIto_Update_FullMethodName   = "/plat_product.PlatProductIto/Update"
 	PlatProductIto_Check_FullMethodName    = "/plat_product.PlatProductIto/Check"
+	PlatProductIto_SpuList_FullMethodName  = "/plat_product.PlatProductIto/SpuList"
 )
 
 // PlatProductItoClient is the client API for PlatProductIto service.
@@ -43,6 +44,8 @@ type PlatProductItoClient interface {
 	Update(ctx context.Context, in *UpdateReq, opts ...grpc.CallOption) (*AffectedResp, error)
 	// 6. 属性列表查询，用于下拉选项，及表单去重
 	Check(ctx context.Context, in *CheckReq, opts ...grpc.CallOption) (*CheckResp, error)
+	// 7. SPU全部列表，用于 优惠券的 限定产品绑定
+	SpuList(ctx context.Context, in *SpuNameListReq, opts ...grpc.CallOption) (*SpuNameListResp, error)
 }
 
 type platProductItoClient struct {
@@ -107,6 +110,15 @@ func (c *platProductItoClient) Check(ctx context.Context, in *CheckReq, opts ...
 	return out, nil
 }
 
+func (c *platProductItoClient) SpuList(ctx context.Context, in *SpuNameListReq, opts ...grpc.CallOption) (*SpuNameListResp, error) {
+	out := new(SpuNameListResp)
+	err := c.cc.Invoke(ctx, PlatProductIto_SpuList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PlatProductItoServer is the server API for PlatProductIto service.
 // All implementations must embed UnimplementedPlatProductItoServer
 // for forward compatibility
@@ -123,6 +135,8 @@ type PlatProductItoServer interface {
 	Update(context.Context, *UpdateReq) (*AffectedResp, error)
 	// 6. 属性列表查询，用于下拉选项，及表单去重
 	Check(context.Context, *CheckReq) (*CheckResp, error)
+	// 7. SPU全部列表，用于 优惠券的 限定产品绑定
+	SpuList(context.Context, *SpuNameListReq) (*SpuNameListResp, error)
 	mustEmbedUnimplementedPlatProductItoServer()
 }
 
@@ -147,6 +161,9 @@ func (UnimplementedPlatProductItoServer) Update(context.Context, *UpdateReq) (*A
 }
 func (UnimplementedPlatProductItoServer) Check(context.Context, *CheckReq) (*CheckResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Check not implemented")
+}
+func (UnimplementedPlatProductItoServer) SpuList(context.Context, *SpuNameListReq) (*SpuNameListResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SpuList not implemented")
 }
 func (UnimplementedPlatProductItoServer) mustEmbedUnimplementedPlatProductItoServer() {}
 
@@ -269,6 +286,24 @@ func _PlatProductIto_Check_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PlatProductIto_SpuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpuNameListReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlatProductItoServer).SpuList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlatProductIto_SpuList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlatProductItoServer).SpuList(ctx, req.(*SpuNameListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PlatProductIto_ServiceDesc is the grpc.ServiceDesc for PlatProductIto service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -299,6 +334,10 @@ var PlatProductIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Check",
 			Handler:    _PlatProductIto_Check_Handler,
+		},
+		{
+			MethodName: "SpuList",
+			Handler:    _PlatProductIto_SpuList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

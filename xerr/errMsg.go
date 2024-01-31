@@ -31,6 +31,7 @@ func init() {
 	message[CTM_BASE_USER_CREATE_FAIL] = "微信会员数据库，创建失败"
 	message[CTM_BASE_USER_RETRIEVE_FAIL] = "微信会员数据库，会员信息查询失败"
 	message[CTM_BASE_USER_INFO_UPDATE_FAIL] = "微信会员数据库，会员信息更新失败"
+	message[CTM_BASE_USER_GET_LIST_FAIL] = "微信用户列表 获取失败"
 
 	//	minio客户端相关错误
 	message[FILEURL_FIELD_IS_NOT_VALID] = "fileUrl字段不合法"
@@ -59,8 +60,54 @@ func init() {
 	message[REFUND_REASON_DESTROY_FAIL] = "删除 拒绝原因失败"
 	message[REFUND_REASON_CHILDREN_BATCH_UPDATE_FAIL] = "根据父类是否启用，批量更新子类是否启用失败"
 
+	// 用户 记名 优惠券表 相关错误
+	message[CUSTOMER_COUPON_OPERATE_FAIL] = "用户记名优惠券 操作错误"
+	message[CUSTOMER_COUPON_REDUCE_AMOUNT_MORE_THAN_RAW_PRICE] = "错误：折扣价 高于 原价"
+	message[CUSTOMER_COUPON_DISCOUNT_AMOUNT_PARSE_FAIL] = "优惠券 折扣金额 解析错误"
+	message[CUSTOMER_COUPON_DISCOUNT_PARSE_FAIL] = "优惠券 折扣 解析错误"
+
+	message[CTM_COUPON_CRATE_ITEM_FAIL] = "用户记名优惠券 新增错误"
+
+	message[SPU_COUPON_INFORMATION_ERROR] = "单品级 优惠券信息错误"
+	message[ORDER_COUPON_INFORMATION_ERROR] = "订单级 优惠券信息错误"
+
+	message[ORDER_COUPON_OPERATE_FAIL] = "用户不记名通用优惠券 操作错误"
+	message[ORDER_COUPON_SPLIT_BY_DETAIL_FAIL] = "订单优惠 按明细分摊 操作错误"
+
+	// 不记名 优惠券管理 相关错误
+	message[CARD_COUPON_OPTIONS_GET_FAIL] = "优惠券管理 预定义项 查询错误"
+	message[CARD_COUPON_RPC_GET_LIST_FAIL] = "优惠券RPC 列表查询失败"
+	message[CARD_COUPON_RPC_CREATE_ITEM_FAIL] = "优惠券RPC 新增失败"
+	message[CARD_COUPON_RPC_UPDATE_ITEM_FAIL] = "优惠券RPC 部分更新失败"
+	message[CARD_COUPON_RPC_RETRIEVE_ITEM_FAIL] = "优惠券RPC 单查失败"
+	message[CARD_COUPON_RPC_DESTROY_ITEM_FAIL] = "优惠券RPC 单删失败"
+
+	// 优惠活动管理 相关错误
+	message[ACT_DISCOUNT_OPTIONS_GET_FAIL] = "优惠活动管理 预定义项 查询错误"
+	message[ACT_DISCOUNT_RPC_GET_LIST_FAIL] = "优惠活动RPC 列表查询失败"
+	message[ACT_DISCOUNT_RPC_CREATE_ITEM_FAIL] = "优惠活动RPC 新增失败"
+	message[ACT_DISCOUNT_RPC_UPDATE_ITEM_FAIL] = "优惠活动RPC 部分更新失败"
+	message[ACT_DISCOUNT_RPC_RETRIEVE_ITEM_FAIL] = "优惠活动RPC 单查失败"
+	message[ACT_DISCOUNT_RPC_DESTROY_ITEM_FAIL] = "优惠活动RPC 单删失败"
+
+	// 优惠活动下 优惠券 相关错误
+	message[VOUCHER_IN_ACT_CREATE_ITEM_FAIL] = "优惠活动下 优惠券RPC 新增失败"
+	message[VOUCHER_IN_ACT_GET_LIST_FAIL] = "优惠活动下 优惠券RPC 列表查询失败"
+	message[VOUCHER_IN_ACT_UPDATE_ITEM_FAIL] = "优惠活动下 优惠券RPC 部分更新失败"
+	message[VOUCHER_IN_ACT_RETRIEVE_ITEM_FAIL] = "优惠活动下 优惠券RPC 单查失败"
+	message[VOUCHER_IN_ACT_DESTROY_ITEM_FAIL] = "优惠活动下 优惠券RPC 单删失败"
+
+	// 优惠活动下 优惠券 发卡记录 相关错误
+	message[RECORD_IN_ACT_CREATE_ITEM_FAIL] = "优惠活动下 优惠券发卡记录RPC 新增失败"
+	message[RECORD_IN_ACT_GET_LIST_FAIL] = "优惠活动下 优惠券发卡记录RPC 列表查询失败"
+	message[RECORD_IN_ACT_UPDATE_ITEM_FAIL] = "优惠活动下 优惠券发卡记录RPC 部分更新失败"
+	message[RECORD_IN_ACT_RETRIEVE_ITEM_FAIL] = "优惠活动下 优惠券发卡记录RPC 单查失败"
+	message[RECORD_IN_ACT_DESTROY_ITEM_FAIL] = "优惠活动下 优惠券发卡记录RPC 单删失败"
+
 	// 订单主表 相关错误
 	message[ORDER_MODEL_OPERATE_FAIL] = "订单主表 操作错误"
+	message[ORDER_CONF_MODEL_OPERATION_FAIL] = "订单主表之配置子表 操作错误"
+	message[CTM_BASE_MODEL_OPERATION_FAIL] = "订单基础表 操作错误"
 }
 
 func MapErrMsg(errCode uint32) string {

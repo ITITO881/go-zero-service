@@ -4,11 +4,10 @@
 // - protoc             v3.19.4
 // source: card_ito.proto
 
-package cardito
+package pbcardito
 
 import (
 	context "context"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -34,7 +33,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardCaresControllerClient interface {
 	Create(ctx context.Context, in *CardCaresRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
-	Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*CardCaresDestroyResponse, error)
 	List(ctx context.Context, in *CardCaresListRequest, opts ...grpc.CallOption) (*CardCaresListResponse, error)
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardCaresOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *CardCaresPartialUpdateRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
@@ -59,8 +58,8 @@ func (c *cardCaresControllerClient) Create(ctx context.Context, in *CardCaresReq
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *cardCaresControllerClient) Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*CardCaresDestroyResponse, error) {
+	out := new(CardCaresDestroyResponse)
 	err := c.cc.Invoke(ctx, CardCaresController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -118,7 +117,7 @@ func (c *cardCaresControllerClient) Update(ctx context.Context, in *CardCaresReq
 // for forward compatibility
 type CardCaresControllerServer interface {
 	Create(context.Context, *CardCaresRequest) (*CardCaresResponse, error)
-	Destroy(context.Context, *CardCaresDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *CardCaresDestroyRequest) (*CardCaresDestroyResponse, error)
 	List(context.Context, *CardCaresListRequest) (*CardCaresListResponse, error)
 	Options(context.Context, *OptionRequest) (*CardCaresOptionResponse, error)
 	PartialUpdate(context.Context, *CardCaresPartialUpdateRequest) (*CardCaresResponse, error)
@@ -134,7 +133,7 @@ type UnimplementedCardCaresControllerServer struct {
 func (UnimplementedCardCaresControllerServer) Create(context.Context, *CardCaresRequest) (*CardCaresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCardCaresControllerServer) Destroy(context.Context, *CardCaresDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedCardCaresControllerServer) Destroy(context.Context, *CardCaresDestroyRequest) (*CardCaresDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedCardCaresControllerServer) List(context.Context, *CardCaresListRequest) (*CardCaresListResponse, error) {
@@ -345,7 +344,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardMemberControllerClient interface {
 	Create(ctx context.Context, in *CardMemberRequest, opts ...grpc.CallOption) (*CardMemberResponse, error)
-	Destroy(ctx context.Context, in *CardMemberDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *CardMemberDestroyRequest, opts ...grpc.CallOption) (*CardMemberDestroyResponse, error)
 	List(ctx context.Context, in *CardMemberListRequest, opts ...grpc.CallOption) (*CardMemberListResponse, error)
 	PartialUpdate(ctx context.Context, in *CardMemberPartialUpdateRequest, opts ...grpc.CallOption) (*CardMemberResponse, error)
 	Retrieve(ctx context.Context, in *CardMemberRetrieveRequest, opts ...grpc.CallOption) (*CardMemberResponse, error)
@@ -369,8 +368,8 @@ func (c *cardMemberControllerClient) Create(ctx context.Context, in *CardMemberR
 	return out, nil
 }
 
-func (c *cardMemberControllerClient) Destroy(ctx context.Context, in *CardMemberDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *cardMemberControllerClient) Destroy(ctx context.Context, in *CardMemberDestroyRequest, opts ...grpc.CallOption) (*CardMemberDestroyResponse, error) {
+	out := new(CardMemberDestroyResponse)
 	err := c.cc.Invoke(ctx, CardMemberController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -419,7 +418,7 @@ func (c *cardMemberControllerClient) Update(ctx context.Context, in *CardMemberR
 // for forward compatibility
 type CardMemberControllerServer interface {
 	Create(context.Context, *CardMemberRequest) (*CardMemberResponse, error)
-	Destroy(context.Context, *CardMemberDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *CardMemberDestroyRequest) (*CardMemberDestroyResponse, error)
 	List(context.Context, *CardMemberListRequest) (*CardMemberListResponse, error)
 	PartialUpdate(context.Context, *CardMemberPartialUpdateRequest) (*CardMemberResponse, error)
 	Retrieve(context.Context, *CardMemberRetrieveRequest) (*CardMemberResponse, error)
@@ -434,7 +433,7 @@ type UnimplementedCardMemberControllerServer struct {
 func (UnimplementedCardMemberControllerServer) Create(context.Context, *CardMemberRequest) (*CardMemberResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCardMemberControllerServer) Destroy(context.Context, *CardMemberDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedCardMemberControllerServer) Destroy(context.Context, *CardMemberDestroyRequest) (*CardMemberDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedCardMemberControllerServer) List(context.Context, *CardMemberListRequest) (*CardMemberListResponse, error) {
@@ -620,7 +619,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardNutControllerClient interface {
 	Create(ctx context.Context, in *CardNutRequest, opts ...grpc.CallOption) (*CardNutResponse, error)
-	Destroy(ctx context.Context, in *CardNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *CardNutDestroyRequest, opts ...grpc.CallOption) (*CardNutDestroyResponse, error)
 	List(ctx context.Context, in *CardNutListRequest, opts ...grpc.CallOption) (*CardNutListResponse, error)
 	PartialUpdate(ctx context.Context, in *CardNutPartialUpdateRequest, opts ...grpc.CallOption) (*CardNutResponse, error)
 	Retrieve(ctx context.Context, in *CardNutRetrieveRequest, opts ...grpc.CallOption) (*CardNutResponse, error)
@@ -644,8 +643,8 @@ func (c *cardNutControllerClient) Create(ctx context.Context, in *CardNutRequest
 	return out, nil
 }
 
-func (c *cardNutControllerClient) Destroy(ctx context.Context, in *CardNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *cardNutControllerClient) Destroy(ctx context.Context, in *CardNutDestroyRequest, opts ...grpc.CallOption) (*CardNutDestroyResponse, error) {
+	out := new(CardNutDestroyResponse)
 	err := c.cc.Invoke(ctx, CardNutController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -694,7 +693,7 @@ func (c *cardNutControllerClient) Update(ctx context.Context, in *CardNutRequest
 // for forward compatibility
 type CardNutControllerServer interface {
 	Create(context.Context, *CardNutRequest) (*CardNutResponse, error)
-	Destroy(context.Context, *CardNutDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *CardNutDestroyRequest) (*CardNutDestroyResponse, error)
 	List(context.Context, *CardNutListRequest) (*CardNutListResponse, error)
 	PartialUpdate(context.Context, *CardNutPartialUpdateRequest) (*CardNutResponse, error)
 	Retrieve(context.Context, *CardNutRetrieveRequest) (*CardNutResponse, error)
@@ -709,7 +708,7 @@ type UnimplementedCardNutControllerServer struct {
 func (UnimplementedCardNutControllerServer) Create(context.Context, *CardNutRequest) (*CardNutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCardNutControllerServer) Destroy(context.Context, *CardNutDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedCardNutControllerServer) Destroy(context.Context, *CardNutDestroyRequest) (*CardNutDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedCardNutControllerServer) List(context.Context, *CardNutListRequest) (*CardNutListResponse, error) {
@@ -885,6 +884,7 @@ const (
 	CardVoucherController_Create_FullMethodName        = "/card_service.card_ito.CardVoucherController/Create"
 	CardVoucherController_Destroy_FullMethodName       = "/card_service.card_ito.CardVoucherController/Destroy"
 	CardVoucherController_List_FullMethodName          = "/card_service.card_ito.CardVoucherController/List"
+	CardVoucherController_NextSerial_FullMethodName    = "/card_service.card_ito.CardVoucherController/NextSerial"
 	CardVoucherController_Options_FullMethodName       = "/card_service.card_ito.CardVoucherController/Options"
 	CardVoucherController_PartialUpdate_FullMethodName = "/card_service.card_ito.CardVoucherController/PartialUpdate"
 	CardVoucherController_Retrieve_FullMethodName      = "/card_service.card_ito.CardVoucherController/Retrieve"
@@ -896,8 +896,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardVoucherControllerClient interface {
 	Create(ctx context.Context, in *CardVoucherRequest, opts ...grpc.CallOption) (*CardVoucherResponse, error)
-	Destroy(ctx context.Context, in *CardVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Destroy(ctx context.Context, in *CardVoucherDestroyRequest, opts ...grpc.CallOption) (*CardVoucherDestroyResponse, error)
 	List(ctx context.Context, in *CardVoucherListRequest, opts ...grpc.CallOption) (*CardVoucherListResponse, error)
+	NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*CardVoucherNextSerialResponse, error)
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardVoucherOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *CardVoucherPartialUpdateRequest, opts ...grpc.CallOption) (*CardVoucherResponse, error)
 	Retrieve(ctx context.Context, in *CardVoucherRetrieveRequest, opts ...grpc.CallOption) (*CardVoucherResponse, error)
@@ -921,8 +922,8 @@ func (c *cardVoucherControllerClient) Create(ctx context.Context, in *CardVouche
 	return out, nil
 }
 
-func (c *cardVoucherControllerClient) Destroy(ctx context.Context, in *CardVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *cardVoucherControllerClient) Destroy(ctx context.Context, in *CardVoucherDestroyRequest, opts ...grpc.CallOption) (*CardVoucherDestroyResponse, error) {
+	out := new(CardVoucherDestroyResponse)
 	err := c.cc.Invoke(ctx, CardVoucherController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -933,6 +934,15 @@ func (c *cardVoucherControllerClient) Destroy(ctx context.Context, in *CardVouch
 func (c *cardVoucherControllerClient) List(ctx context.Context, in *CardVoucherListRequest, opts ...grpc.CallOption) (*CardVoucherListResponse, error) {
 	out := new(CardVoucherListResponse)
 	err := c.cc.Invoke(ctx, CardVoucherController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cardVoucherControllerClient) NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*CardVoucherNextSerialResponse, error) {
+	out := new(CardVoucherNextSerialResponse)
+	err := c.cc.Invoke(ctx, CardVoucherController_NextSerial_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -980,8 +990,9 @@ func (c *cardVoucherControllerClient) Update(ctx context.Context, in *CardVouche
 // for forward compatibility
 type CardVoucherControllerServer interface {
 	Create(context.Context, *CardVoucherRequest) (*CardVoucherResponse, error)
-	Destroy(context.Context, *CardVoucherDestroyRequest) (*empty.Empty, error)
+	Destroy(context.Context, *CardVoucherDestroyRequest) (*CardVoucherDestroyResponse, error)
 	List(context.Context, *CardVoucherListRequest) (*CardVoucherListResponse, error)
+	NextSerial(context.Context, *NextSerialRequest) (*CardVoucherNextSerialResponse, error)
 	Options(context.Context, *OptionRequest) (*CardVoucherOptionResponse, error)
 	PartialUpdate(context.Context, *CardVoucherPartialUpdateRequest) (*CardVoucherResponse, error)
 	Retrieve(context.Context, *CardVoucherRetrieveRequest) (*CardVoucherResponse, error)
@@ -996,11 +1007,14 @@ type UnimplementedCardVoucherControllerServer struct {
 func (UnimplementedCardVoucherControllerServer) Create(context.Context, *CardVoucherRequest) (*CardVoucherResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCardVoucherControllerServer) Destroy(context.Context, *CardVoucherDestroyRequest) (*empty.Empty, error) {
+func (UnimplementedCardVoucherControllerServer) Destroy(context.Context, *CardVoucherDestroyRequest) (*CardVoucherDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedCardVoucherControllerServer) List(context.Context, *CardVoucherListRequest) (*CardVoucherListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedCardVoucherControllerServer) NextSerial(context.Context, *NextSerialRequest) (*CardVoucherNextSerialResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NextSerial not implemented")
 }
 func (UnimplementedCardVoucherControllerServer) Options(context.Context, *OptionRequest) (*CardVoucherOptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Options not implemented")
@@ -1077,6 +1091,24 @@ func _CardVoucherController_List_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CardVoucherControllerServer).List(ctx, req.(*CardVoucherListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CardVoucherController_NextSerial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextSerialRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CardVoucherControllerServer).NextSerial(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CardVoucherController_NextSerial_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CardVoucherControllerServer).NextSerial(ctx, req.(*NextSerialRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1171,6 +1203,10 @@ var CardVoucherController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _CardVoucherController_List_Handler,
+		},
+		{
+			MethodName: "NextSerial",
+			Handler:    _CardVoucherController_NextSerial_Handler,
 		},
 		{
 			MethodName: "Options",

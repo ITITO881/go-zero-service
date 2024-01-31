@@ -48,6 +48,11 @@ const (
 	COUPON_ICON string = "icon"
 )
 
+const (
+	/** 微信小程序 订单源 **/
+	WX_ORDER int64 = 102001
+)
+
 const CUSTOMRIZED_PIC_ITO int64 = 200001
 
 /*

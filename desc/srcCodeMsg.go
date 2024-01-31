@@ -49,6 +49,9 @@ func init() {
 	subType[SKU_THUMB_PICS] = "文件源：SKU 缩略图，SKU缩略图可以有多个，但必选先有SKU主图"
 	subType[SUB_TAB_PANE] = "文件源：二级分类列表，子Tab组件的TAB_PANE"
 	subType[SUB_TAB_LIST] = "文件源：二级分类列表，子List图形列表"
+
+	// 4. ITO 小程序订单 源
+	srcFlag[WX_ORDER] = "文件源：微信小程序 订单"
 }
 
 func MapSrcFlag(src int64) (string, error) {

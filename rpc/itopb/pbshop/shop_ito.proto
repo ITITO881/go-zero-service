@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package shopmanage_service.shop_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../pbshop";
+
+service BuShopController {
+  rpc BuBulkUpdate(BuBulkUpdateRequest) returns (BuBulkUpdateResponse) {}
+  rpc Create(BusinessUnitModelRequest) returns (BusinessUnitModelResponse) {}
+  rpc CreateRelation(BuShopCreateRelationRequest) returns (ItoShopsModelListResponse) {}
+  rpc Destroy(BusinessUnitModelDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(BusinessUnitModelListRequest) returns (BusinessUnitModelListResponse) {}
+  rpc PartialUpdate(BusinessUnitModelPartialUpdateRequest) returns (BusinessUnitModelResponse) {}
+  rpc Retrieve(BusinessUnitModelRetrieveRequest) returns (BusinessUnitModelResponse) {}
+  rpc ShopList(ItoShopsModelRequest) returns (ItoShopsModelListResponse) {}
+  rpc Update(BusinessUnitModelRequest) returns (BusinessUnitModelResponse) {}
+}
+
+message BuBulkUpdateRequest {
+  repeated int32 ids = 1;
+  string is_disabled = 2;
+}
+
+message BuBulkUpdateResponse {
+}
+
+message BuShopCreateRelationRequest {
+  int32 sales_bu = 1;
+  repeated int32 shops = 2;
+}
+
+message BusinessUnitModelDestroyRequest {
+  int32 id = 1;
+}
+
+message BusinessUnitModelListRequest {
+  int32 id = 1;
+  string bu_code = 2;
+  string bu_name = 3;
+  optional string remark = 4;
+  bool is_disabled = 5;
+}
+
+message BusinessUnitModelListResponse {
+  repeated BusinessUnitModelResponse results = 1;
+  int32 count = 2;
+}
+
+message BusinessUnitModelPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  string bu_code = 3;
+  string bu_name = 4;
+  optional string remark = 5;
+  bool is_disabled = 6;
+}
+
+message BusinessUnitModelRequest {
+  int32 id = 1;
+  string bu_code = 2;
+  string bu_name = 3;
+  optional string remark = 4;
+  bool is_disabled = 5;
+}
+
+message BusinessUnitModelResponse {
+  int32 id = 1;
+  repeated ItoShopsModelResponse bu_shops = 2;
+  string bu_code = 3;
+  string bu_name = 4;
+  optional string remark = 5;
+  bool is_disabled = 6;
+  string create_time = 7;
+  string update_time = 8;
+}
+
+message BusinessUnitModelRetrieveRequest {
+  int32 id = 1;
+}
+
+message ItoShopsModelListResponse {
+  repeated ItoShopsModelResponse results = 1;
+  int32 count = 2;
+}
+
+message ItoShopsModelRequest {
+  int32 shop_id = 1;
+  string filters = 2;
+  optional string shop_no = 3;
+  optional string shop_name = 4;
+  optional bool is_disabled = 5;
+  optional int64 sales_bu = 6;
+}
+
+message ItoShopsModelResponse {
+  int32 shop_id = 1;
+  optional string shop_no = 2;
+  optional string shop_name = 3;
+  optional bool is_disabled = 8;
+  optional int64 sales_bu = 9;
+}
+

@@ -1,0 +1,828 @@
+syntax = "proto3";
+
+package customer_service.customer_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../pbordersito";
+
+service CtmItoOrderController {
+  rpc ChildrenBatchUpdateRefundReason(ChildrenBatchUpdateRequest) returns (ChildrenBatchUpdateResponse) {}
+  rpc Create(CtmOrderRequest) returns (CtmOrderResponse) {}
+  rpc CreateCoupon(CtmCouponCreateRequest) returns (CtmCouponResponse) {}
+  rpc CreateOrderConf(CtmOrderConfCreateRequest) returns (CtmOrderConfResponse) {}
+  rpc CreateRefundReason(CtmRefundReasonCreateRequest) returns (CtmRefundReasonResponse) {}
+  rpc Destroy(CtmOrderDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyCoupon(CtmCouponDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyOrderConf(CtmOrderConfDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundReason(CtmRefundReasonDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc GetCheckListRefundReason(RefundReasonCheckListRequest) returns (RefundReasonCheckListResponse) {}
+  rpc List(CtmOrderListRequest) returns (CtmOrderListResponse) {}
+  rpc ListCoupon(CtmCouponListRequest) returns (CtmCouponListResponse) {}
+  rpc ListOrderConf(CtmOrderConfListRequest) returns (CtmOrderConfListResponse) {}
+  rpc ListRefundReason(CtmRefundReasonListRequest) returns (CtmRefundReasonListResponse) {}
+  rpc OnSpuListCustomerCoupon(OnSpuListCustomerCouponRequest) returns (CtmCouponListResponse) {}
+  rpc PartialUpdate(CtmOrderPartialUpdateRequest) returns (CtmOrderResponse) {}
+  rpc ReasonTypeOptionsOrderConf(TradeTypeOptionsRequest) returns (TradeTypeOptionListResponse) {}
+  rpc ReasonTypeOptionsRefundReason(RefundReasonOptionsRequest) returns (RefundReasonOptionListResponse) {}
+  rpc Retrieve(CtmOrderRetrieveRequest) returns (CtmOrderResponse) {}
+  rpc RetrieveCoupon(CtmCouponRetrieveRequest) returns (CtmCouponResponse) {}
+  rpc RetrieveOrderConf(CtmOrderConfRetrieveRequest) returns (CtmOrderConfResponse) {}
+  rpc RetrieveRefundReason(CtmRefundReasonRetrieveRequest) returns (CtmRefundReasonResponse) {}
+  rpc ShopOptionsWdt(WdtShopListRequest) returns (WdtShopListResponse) {}
+  rpc StockOptionsWdt(WdtStockListRequest) returns (WdtStockListResponse) {}
+  rpc TradeStatusOptionsOrder(TradeStatusOptionsRequest) returns (TradeStatusOptionsListResponse) {}
+  rpc TradeTypeRefundReason(TradeReasonOptionsRequest) returns (TradeReasonOptionListResponse) {}
+  rpc TypeOptionsRefundReason(ReasonTypeOptionsRequest) returns (ReasonTypeOptionListResponse) {}
+  rpc Update(CtmOrderRequest) returns (CtmOrderResponse) {}
+  rpc UpdateCoupon(CtmCouponUpdateRequest) returns (CtmCouponResponse) {}
+  rpc UpdateOrderConf(CtmOrderConfUpdateRequest) returns (CtmOrderConfResponse) {}
+  rpc UpdateRefundReason(CtmRefundReasonUpdateRequest) returns (CtmRefundReasonResponse) {}
+}
+
+message ChildrenBatchUpdateRequest {
+  int32 id = 1;
+  bool is_valid = 2;
+}
+
+message ChildrenBatchUpdateResponse {
+  int32 affected = 1;
+}
+
+message CtmAddrCreateRequest {
+  int32 id = 1;
+  string province = 2;
+  string city = 3;
+  string district = 4;
+  string addr_detail = 5;
+  optional string addr_tag = 6;
+  optional string zip_code = 7;
+  bool is_default = 8;
+  string receiver = 9;
+  string receiver_mobile = 10;
+  int64 ctm = 11;
+  string filters = 12;
+}
+
+message CtmAddrDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmAddrListRequest {
+  string filters = 2;
+}
+
+message CtmAddrListResponse {
+  repeated CtmAddrResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmAddrResponse {
+  string province = 1;
+  string city = 2;
+  int32 id = 3;
+  string create_time = 4;
+  string update_time = 5;
+  string district = 6;
+  string addr_detail = 7;
+  optional string addr_tag = 8;
+  optional string zip_code = 9;
+  bool is_default = 10;
+  string receiver = 11;
+  string receiver_mobile = 12;
+  int64 ctm = 13;
+}
+
+message CtmAddrRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmAddrUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 3;
+  string province = 4;
+  string city = 5;
+  string district = 6;
+  string addr_detail = 7;
+  optional string addr_tag = 8;
+  optional string zip_code = 9;
+  bool is_default = 10;
+  string receiver = 11;
+  string receiver_mobile = 12;
+  int64 ctm = 13;
+  string filters = 14;
+}
+
+message CtmBaseDestroyRequest {
+  string mp_openId = 1;
+}
+
+message CtmBaseListRequest {
+  int32 id = 1;
+  optional string avatar = 2;
+  optional string name = 3;
+  optional string mobile = 4;
+  optional int32 gender = 5;
+  optional string birthday = 6;
+  optional string describe = 7;
+  optional string dw_memId = 8;
+  optional string platform_name = 9;
+  optional string plat_unionId = 10;
+  string mp_openId = 11;
+  optional string nickname = 12;
+  optional string channel_code = 13;
+  string filters = 14;
+}
+
+message CtmBaseListResponse {
+  repeated CtmBaseResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmBasePartialUpdateRequest {
+  repeated string _partial_update_fields = 2;
+  optional int32 gender = 3;
+  optional string avatar = 4;
+  optional string name = 5;
+  optional string describe = 6;
+  optional string dw_memId = 7;
+  optional string platform_name = 8;
+  string mp_openId = 10;
+  optional string nickname = 11;
+  optional string birthday = 12;
+  optional string plat_unionId = 13;
+  optional string channel_code = 14;
+  optional string mobile = 15;
+  int32 id = 17;
+  string filters = 18;
+}
+
+message CtmBaseRequest {
+  optional int32 gender = 2;
+  optional string avatar = 3;
+  optional string name = 4;
+  optional string describe = 5;
+  optional string dw_memId = 6;
+  optional string platform_name = 7;
+  string mp_openId = 9;
+  optional string nickname = 10;
+  optional string birthday = 11;
+  optional string plat_unionId = 12;
+  optional string channel_code = 13;
+  optional string mobile = 14;
+  int32 id = 16;
+  string filters = 17;
+}
+
+message CtmBaseResponse {
+  string create_time = 2;
+  string update_time = 3;
+  optional int32 gender = 4;
+  optional string avatar = 5;
+  optional string name = 6;
+  optional string birthday = 7;
+  optional string describe = 8;
+  optional string dw_memId = 9;
+  optional string platform_name = 10;
+  optional string plat_unionId = 11;
+  string mp_openId = 12;
+  optional string nickname = 13;
+  optional string channel_code = 14;
+  optional string mobile = 15;
+  int32 id = 17;
+  repeated CtmAddrResponse ctm_addresses = 18;
+  string gender_name = 19;
+}
+
+message CtmBaseRetrieveRequest {
+  string mp_openId = 1;
+}
+
+message CtmCartCreateRequest {
+  int32 id = 1;
+  int32 sku_id = 2;
+  string sku = 3;
+  int32 order_num = 4;
+  string price = 5;
+  int64 ctm = 8;
+  bool is_selected = 9;
+  string attrs_text = 10;
+  string filters = 11;
+  string spu = 12;
+}
+
+message CtmCartDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmCartListRequest {
+  string filters = 2;
+}
+
+message CtmCartListResponse {
+  repeated CtmCartResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmCartResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 sku_id = 4;
+  string sku = 5;
+  int32 order_num = 6;
+  int64 ctm = 7;
+  string price = 8;
+  bool is_selected = 11;
+  string attrs_text = 12;
+  string spu = 13;
+}
+
+message CtmCartRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmCartSelectedAllChangeRequest {
+  bool is_selected = 1;
+  int64 ctm = 2;
+}
+
+message CtmCartUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  int32 sku_id = 3;
+  string sku = 4;
+  int32 order_num = 5;
+  int64 ctm = 6;
+  string price = 7;
+  bool is_selected = 10;
+  string attrs_text = 11;
+  string filters = 12;
+  string spu = 13;
+}
+
+message CtmCouponCreateRequest {
+  int32 id = 1;
+  optional string coupon_sku = 2;
+  string coupon_name = 3;
+  string coupon_code = 4;
+  optional string coupon_intro = 5;
+  optional int32 trigger_amount = 8;
+  optional int32 discount_amount = 9;
+  optional int32 trigger_qty = 10;
+  optional int32 discount = 11;
+  bool can_stack = 12;
+  int32 coupon_status = 13;
+  optional string acquire_time = 14;
+  optional string claim_time = 15;
+  optional string prod_range = 16;
+  optional string start_time = 17;
+  optional string expire_time = 18;
+  int64 ctm = 19;
+  optional int64 order_used = 20;
+  int32 coupon_class = 21;
+  int32 coupon_type = 22;
+  optional bool is_valid = 23;
+}
+
+message CtmCouponDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmCouponListRequest {
+  string filters = 1;
+}
+
+message CtmCouponListResponse {
+  repeated CtmCouponResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmCouponResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string coupon_sku = 4;
+  string coupon_name = 5;
+  string coupon_code = 6;
+  optional string coupon_intro = 7;
+  optional int32 trigger_amount = 10;
+  optional int32 discount_amount = 11;
+  optional int32 trigger_qty = 12;
+  optional int32 discount = 13;
+  bool can_stack = 14;
+  int32 coupon_status = 15;
+  optional string acquire_time = 16;
+  optional string claim_time = 17;
+  optional string prod_range = 18;
+  optional string start_time = 19;
+  optional string expire_time = 20;
+  int64 ctm = 21;
+  optional int64 order_used = 22;
+  int32 coupon_class = 23;
+  int32 coupon_type = 24;
+  optional bool is_valid = 25;
+  string coupon_type_name = 26;
+  string coupon_class_name = 27;
+  string coupon_status_name = 28;
+}
+
+message CtmCouponRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmCouponUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string coupon_sku = 3;
+  string coupon_name = 4;
+  string coupon_code = 5;
+  optional string coupon_intro = 6;
+  optional int32 trigger_amount = 9;
+  optional int32 discount_amount = 10;
+  optional int32 trigger_qty = 11;
+  optional int32 discount = 12;
+  bool can_stack = 13;
+  int32 coupon_status = 14;
+  optional string acquire_time = 15;
+  optional string claim_time = 16;
+  optional string prod_range = 17;
+  optional string start_time = 18;
+  optional string expire_time = 19;
+  int64 ctm = 20;
+  optional int64 order_used = 21;
+  int32 coupon_class = 22;
+  int32 coupon_type = 23;
+  optional bool is_valid = 24;
+}
+
+message CtmDefaultAddrRequest {
+}
+
+message CtmItoChangeSelectedAllCartResponse {
+  int32 affected = 1;
+}
+
+message CtmItoDefaultAddrResponse {
+  int32 id = 1;
+}
+
+message CtmOrderConfCreateRequest {
+  int32 id = 1;
+  string plat_name = 2;
+  int32 trade_type = 3;
+  string shop_no = 4;
+  string shop_name = 5;
+  string warehouse_no = 6;
+  string warehouse_name = 7;
+  int32 user_id = 8;
+  string user_name = 9;
+  int32 confirm_overtime = 10;
+  int32 finish_overtime = 11;
+  int32 expire_time = 12;
+}
+
+message CtmOrderConfDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmOrderConfListRequest {
+}
+
+message CtmOrderConfListResponse {
+  repeated CtmOrderConfResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmOrderConfResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string plat_name = 4;
+  int32 trade_type = 5;
+  string shop_no = 6;
+  string shop_name = 7;
+  string warehouse_no = 8;
+  string warehouse_name = 9;
+  int32 user_id = 10;
+  string user_name = 11;
+  int32 confirm_overtime = 12;
+  int32 finish_overtime = 13;
+  int32 expire_time = 14;
+}
+
+message CtmOrderConfRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmOrderConfUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  string plat_name = 3;
+  int32 trade_type = 4;
+  string shop_no = 5;
+  string shop_name = 6;
+  string warehouse_no = 7;
+  string warehouse_name = 8;
+  int32 user_id = 9;
+  string user_name = 10;
+  int32 confirm_overtime = 11;
+  int32 finish_overtime = 12;
+  int32 expire_time = 13;
+}
+
+message CtmOrderDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmOrderGoodsDetailResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  double share_amount = 9;
+  int32 price_points = 10;
+  int32 price_score = 11;
+  int32 price_badge = 12;
+  int32 price_nut = 13;
+  int32 status = 14;
+  int32 refund_status = 15;
+  string goods_spu = 16;
+  string goods_id = 17;
+  string goods_name = 18;
+  string spec_no = 19;
+  int64 ctm_order = 20;
+  string status_name = 21;
+  string refund_status_name = 22;
+}
+
+message CtmOrderListRequest {
+  int32 id = 1;
+  int32 trade_type = 2;
+  string shop_no = 3;
+  string shop_name = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  string tid = 7;
+  int32 trade_status = 8;
+  int32 pay_status = 9;
+  optional string pay_time = 10;
+  int32 delivery_term = 11;
+  string buyer_nick = 12;
+  optional string buyer_mobile = 13;
+  optional string buyer_message = 14;
+  optional string seller_memo = 15;
+  optional string receiver_name = 16;
+  optional string receiver_province = 17;
+  optional string receiver_city = 18;
+  optional string receiver_district = 19;
+  optional string receiver_address = 20;
+  optional string receiver_mobile = 21;
+  double post_amount = 22;
+  float other_amount = 23;
+  double cod_amount = 24;
+  double ext_cod_fee = 25;
+  float paid = 26;
+  int32 invoice_status = 27;
+  double receivable = 28;
+  double discount = 29;
+  optional string card_no = 30;
+  int32 card_payed = 31;
+  int32 score_payed = 32;
+  int32 badge_payed = 33;
+  int32 nut_payed = 34;
+  optional int64 ctm = 35;
+  optional int64 refund_order = 36;
+  string filters = 37;
+}
+
+message CtmOrderListResponse {
+  repeated CtmOrderResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmOrderPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  int32 trade_type = 3;
+  string shop_no = 4;
+  string shop_name = 5;
+  string warehouse_no = 6;
+  string warehouse_name = 7;
+  string tid = 8;
+  int32 trade_status = 9;
+  int32 pay_status = 10;
+  optional string pay_time = 11;
+  int32 delivery_term = 12;
+  string buyer_nick = 13;
+  optional string buyer_mobile = 14;
+  optional string buyer_message = 15;
+  optional string seller_memo = 16;
+  optional string receiver_name = 17;
+  optional string receiver_province = 18;
+  optional string receiver_city = 19;
+  optional string receiver_district = 20;
+  optional string receiver_address = 21;
+  optional string receiver_mobile = 22;
+  double post_amount = 23;
+  float other_amount = 24;
+  double cod_amount = 25;
+  double ext_cod_fee = 26;
+  float paid = 27;
+  int32 invoice_status = 28;
+  double receivable = 29;
+  double discount = 30;
+  optional string card_no = 31;
+  int32 card_payed = 32;
+  int32 score_payed = 33;
+  int32 badge_payed = 34;
+  int32 nut_payed = 35;
+  optional int64 ctm = 36;
+  optional int64 refund_order = 37;
+  string filters = 38;
+}
+
+message CtmOrderRequest {
+  int32 id = 1;
+  int32 trade_type = 2;
+  string shop_no = 3;
+  string shop_name = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  string tid = 7;
+  int32 trade_status = 8;
+  int32 pay_status = 9;
+  optional string pay_time = 10;
+  int32 delivery_term = 11;
+  string buyer_nick = 12;
+  optional string buyer_mobile = 13;
+  optional string buyer_message = 14;
+  optional string seller_memo = 15;
+  optional string receiver_name = 16;
+  optional string receiver_province = 17;
+  optional string receiver_city = 18;
+  optional string receiver_district = 19;
+  optional string receiver_address = 20;
+  optional string receiver_mobile = 21;
+  double post_amount = 22;
+  float other_amount = 23;
+  double cod_amount = 24;
+  double ext_cod_fee = 25;
+  float paid = 26;
+  int32 invoice_status = 27;
+  double receivable = 28;
+  double discount = 29;
+  optional string card_no = 30;
+  int32 card_payed = 31;
+  int32 score_payed = 32;
+  int32 badge_payed = 33;
+  int32 nut_payed = 34;
+  optional int64 ctm = 35;
+  optional int64 refund_order = 36;
+  string filters = 37;
+}
+
+message CtmOrderResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 trade_type = 4;
+  string shop_no = 5;
+  string shop_name = 6;
+  string warehouse_no = 7;
+  string warehouse_name = 8;
+  string tid = 9;
+  int32 trade_status = 10;
+  int32 pay_status = 11;
+  optional string pay_time = 12;
+  int32 delivery_term = 13;
+  string buyer_nick = 14;
+  optional string buyer_mobile = 15;
+  optional string buyer_message = 16;
+  optional string seller_memo = 17;
+  optional string receiver_name = 18;
+  optional string receiver_province = 19;
+  optional string receiver_city = 20;
+  optional string receiver_district = 21;
+  optional string receiver_address = 22;
+  optional string receiver_mobile = 23;
+  double post_amount = 24;
+  float other_amount = 25;
+  double cod_amount = 26;
+  double ext_cod_fee = 27;
+  float paid = 28;
+  int32 invoice_status = 29;
+  double receivable = 30;
+  double discount = 31;
+  optional string card_no = 32;
+  int32 card_payed = 33;
+  int32 score_payed = 34;
+  int32 badge_payed = 35;
+  int32 nut_payed = 36;
+  optional int64 ctm = 37;
+  optional int64 refund_order = 38;
+  string trade_type_name = 39;
+  string trade_status_name = 40;
+  string pay_status_name = 41;
+  string delivery_term_name = 42;
+  string invoice_status_name = 43;
+  repeated CtmOrderGoodsDetailResponse goods_list = 44;
+}
+
+message CtmOrderRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmRefundReasonChildrenResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  bool is_valid = 8;
+  optional int64 order_config = 9;
+  optional int64 parent = 10;
+}
+
+message CtmRefundReasonCreateRequest {
+  int32 id = 1;
+  int32 type = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional string reason_desc = 5;
+  bool is_valid = 6;
+  optional int64 order_config = 7;
+  optional int64 parent = 8;
+}
+
+message CtmRefundReasonDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmRefundReasonListRequest {
+  string filters = 1;
+}
+
+message CtmRefundReasonListResponse {
+  repeated CtmRefundReasonResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmRefundReasonResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  bool is_valid = 8;
+  optional int64 order_config = 9;
+  optional int64 parent = 10;
+  string type_name = 11;
+  repeated CtmRefundReasonChildrenResponse children = 12;
+}
+
+message CtmRefundReasonRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmRefundReasonUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  int32 type = 3;
+  int32 reason_code = 4;
+  string reason_name = 5;
+  optional string reason_desc = 6;
+  bool is_valid = 7;
+  optional int64 order_config = 8;
+  optional int64 parent = 9;
+}
+
+message OnSpuListCustomerCouponRequest {
+  int64 ctm = 1;
+  string spu_list = 2;
+  string filters = 3;
+}
+
+message ReasonTypeOption {
+  int32 code = 1;
+  string value = 2;
+}
+
+message ReasonTypeOptionListResponse {
+  repeated ReasonTypeOption results = 1;
+  int32 count = 2;
+}
+
+message ReasonTypeOptionsRequest {
+  int32 trade_type = 1;
+}
+
+message RefundReasonCheckListRequest {
+  int64 order_config = 1;
+  int32 type = 2;
+}
+
+message RefundReasonCheckListResponse {
+  string reason_name = 1;
+  string reason_code = 2;
+}
+
+message RefundReasonOption {
+  int32 code = 1;
+  string value = 2;
+}
+
+message RefundReasonOptionListResponse {
+  repeated RefundReasonOption results = 1;
+  int32 count = 2;
+}
+
+message RefundReasonOptionsRequest {
+}
+
+message TradeReasonOption {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  bool is_valid = 8;
+  optional int64 order_config = 9;
+  optional int64 parent = 10;
+  string type_name = 11;
+  repeated CtmRefundReasonChildrenResponse children = 12;
+}
+
+message TradeReasonOptionListResponse {
+  repeated TradeReasonOption results = 1;
+  int32 count = 2;
+}
+
+message TradeReasonOptionsRequest {
+  int32 trade_type = 1;
+  string filters = 2;
+}
+
+message TradeStatusOptions {
+  int32 code = 1;
+  string value = 2;
+}
+
+message TradeStatusOptionsListResponse {
+  repeated TradeStatusOptions results = 1;
+  int32 count = 2;
+}
+
+message TradeStatusOptionsRequest {
+}
+
+message TradeTypeOption {
+  int32 code = 1;
+  string value = 2;
+  int64 id = 3;
+}
+
+message TradeTypeOptionListResponse {
+  repeated TradeTypeOption results = 1;
+  int32 count = 2;
+}
+
+message TradeTypeOptionsRequest {
+}
+
+message WdtShop {
+  string shop_code = 1;
+  string shop_name = 2;
+}
+
+message WdtShopListRequest {
+}
+
+message WdtShopListResponse {
+  repeated WdtShop results = 1;
+  int32 count = 2;
+}
+
+message WdtStock {
+  string stock_code = 1;
+  string stock_name = 2;
+}
+
+message WdtStockListRequest {
+}
+
+message WdtStockListResponse {
+  repeated WdtStock results = 1;
+  int32 count = 2;
+}
+
