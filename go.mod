@@ -11,6 +11,7 @@ module github.com/ITITO881/go-zero-service
 // add sourceCode
 // add something
 // rpc shop_ito & some update
+// rawgoods update
 go 1.20
 
 
