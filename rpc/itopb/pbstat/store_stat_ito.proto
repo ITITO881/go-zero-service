@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package store_service.store_stat_ito;
+
+option go_package = "../pbstat";
+
+service StatHmxSalesController {
+  rpc List(StatHmxSalesListRequest) returns (StatHmxSalesListResponse) {}
+  rpc TradeDetails(StoreTradesRequest) returns (StoreTradesListResponse) {}
+}
+
+message StatHmxSalesListRequest {
+  optional string stat_month = 1;
+  optional string trade_date = 2;
+  float retail_amount = 3;
+  int32 num = 4;
+  optional string col_name = 5;
+  optional string filters = 6;
+  float discount_amount = 7;
+}
+
+message StatHmxSalesListResponse {
+  repeated StatHmxSalesResponse results = 1;
+  int32 count = 2;
+}
+
+message StatHmxSalesResponse {
+  optional string stat_month = 1;
+  optional string trade_date = 2;
+  float retail_amount = 3;
+  int32 num = 4;
+  optional string col_name = 5;
+  float discount_amount = 6;
+}
+
+message StoreTradesListResponse {
+  repeated StoreTradesResponse results = 1;
+  int32 count = 2;
+}
+
+message StoreTradesRequest {
+  optional string filters = 1;
+}
+
+message StoreTradesResponse {
+  int32 id = 1;
+  repeated TradeEmployeesResponse trade_employees = 2;
+  repeated TradeDetailsResponse trade_details = 3;
+  string created = 4;
+  string tid = 5;
+  string trade_date = 6;
+  string store_no = 7;
+  string store_name = 8;
+}
+
+message TradeDetailsResponse {
+  int32 id = 1;
+  optional string prod_code = 2;
+  optional string spec_code = 3;
+  optional string prod_name = 4;
+  float retail_price = 5;
+  float retail_amount = 6;
+  int32 num = 7;
+  string status = 8;
+  optional string style = 9;
+  int64 trade = 10;
+}
+
+message TradeEmployeesResponse {
+  int32 id = 1;
+  string employee_no = 2;
+  string employee_name = 3;
+  float share_percent = 4;
+  int64 trade = 5;
+}
+

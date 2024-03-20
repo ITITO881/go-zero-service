@@ -1,7 +1,9 @@
 package convert
 
 import (
+	"encoding/json"
 	"reflect"
+	"strconv"
 	"strings"
 )
 
@@ -9,7 +11,7 @@ type ReflectTag struct {
 	Value interface{}
 }
 
-func (c ReflectTag) FindKes(tag string) []string {
+func (c ReflectTag) FindKeys(tag string) []string {
 	rType := reflect.TypeOf(c.Value).Elem()
 	rValue := reflect.ValueOf(c.Value).Elem()
 	count := rType.NumField()
@@ -30,4 +32,29 @@ func (c ReflectTag) FindKes(tag string) []string {
 		}
 	}
 	return partialFields
+}
+
+func (c ReflectTag) GetFilterData(tag string) string {
+	reqValue := reflect.ValueOf(c.Value).Elem()
+	reqType := reqValue.Type()
+	filterData := make(map[string]string)
+	for i := 0; i < reqType.NumField(); i++ {
+		// 仅处理可选的 筛选参数
+		if reqValue.Field(i).Kind() == reflect.Ptr {
+			fTag := strings.Split(reqType.Field(i).Tag.Get(tag), ",")[0]
+			if fTag == "" {
+				continue
+			}
+			if reqValue.Field(i).Elem().Kind() == reflect.String {
+				filterData[fTag] = reqValue.Field(i).Elem().String()
+			} else if reqValue.Field(i).Elem().Kind() == reflect.Int32 || reqValue.Field(i).Elem().Kind() == reflect.Int64 {
+				filterData[fTag] = strconv.FormatInt(reqValue.Field(i).Elem().Int(), 10)
+			} else if reqValue.Field(i).Elem().Kind() == reflect.Bool {
+				bJson, _ := json.Marshal(reqValue.Field(i).Elem().Bool())
+				filterData[fTag] = string(bJson)
+			}
+		}
+	}
+	data, _ := json.Marshal(filterData)
+	return string(data)
 }

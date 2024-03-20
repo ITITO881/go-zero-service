@@ -1,0 +1,1620 @@
+syntax = "proto3";
+
+package customer_service.customer_ito;
+option go_package = "../pbServiceIto";
+
+import "google/protobuf/empty.proto";
+
+service CtmItoServiceController {
+  rpc BulkCreateGoodsDeliver(BulkCreateGoodsDeliverListRequest) returns (ServiceGoodsDeliverListResponse) {}
+  rpc BulkCreateGoodsReturn(BulkCreateGoodsReturnListRequest) returns (ServiceGoodsReturnListResponse) {}
+  rpc Create(CtmServiceRequest) returns (CtmServiceResponse) {}
+  rpc CreateGoodsDeliver(CreateGoodsDeliverRequest) returns (ServiceGoodsDeliverResponse) {}
+  rpc CreateGoodsInvoice(CreateGoodsInvoiceRequest) returns (ServiceGoodsInvoiceResponse) {}
+  rpc CreateGoodsPay(CreateGoodsPayRequest) returns (ServiceGoodsPayResponse) {}
+  rpc CreateGoodsReturn(CreateGoodsReturnRequest) returns (ServiceGoodsReturnResponse) {}
+  rpc CreateObjectComplain(CreateObjectComplainRequest) returns (ObjectComplainResponse) {}
+  rpc CreateObjectFeedback(CreateObjectFeedbackRequest) returns (ObjectFeedbackResponse) {}
+  rpc CreateObjectRepair(CreateObjectRepairRequest) returns (ObjectRepairResponse) {}
+  rpc CreateObjectSwap(CreateObjectSwapRequest) returns (ObjectSwapResponse) {}
+  rpc CreateObjectTailor(CreateObjectTailorRequest) returns (ObjectTailorResponse) {}
+  rpc CreateObjectTradeIn(CreateObjectTradeInRequest) returns (ObjectTradeInResponse) {}
+  rpc Destroy(CtmServiceDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyGoodsDeliver(DestroyGoodsDeliverRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyGoodsInvoice(DestroyGoodsInvoiceRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyGoodsPay(DestroyGoodsPayRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyGoodsReturn(DestroyGoodsReturnRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectComplain(DestroyObjectComplainRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectFeedback(DestroyObjectFeedbackRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectRepair(DestroyObjectRepairRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectSwap(DestroyObjectSwapRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectTailor(DestroyObjectTailorRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectTradeIn(DestroyObjectTradeInRequest) returns (google.protobuf.Empty) {}
+  rpc List(CtmServiceListRequest) returns (CtmServiceListResponse) {}
+  rpc ListGoodsDeliver(ListGoodsDeliverRequest) returns (ServiceGoodsDeliverListResponse) {}
+  rpc ListGoodsInvoice(ListGoodsInvoiceRequest) returns (ServiceGoodsInvoiceListResponse) {}
+  rpc ListGoodsPay(ListGoodsPayRequest) returns (ServiceGoodsPayListResponse) {}
+  rpc ListGoodsReturn(ListGoodsReturnRequest) returns (ServiceGoodsReturnListResponse) {}
+  rpc ListObjectComplain(ListObjectComplainRequest) returns (ObjectComplainListResponse) {}
+  rpc ListObjectFeedback(ListObjectFeedbackRequest) returns (ObjectFeedbackListResponse) {}
+  rpc ListObjectRepair(ListObjectRepairRequest) returns (ObjectRepairListResponse) {}
+  rpc ListObjectSwap(ListObjectSwapRequest) returns (ObjectSwapListResponse) {}
+  rpc ListObjectTailor(ListObjectTailorRequest) returns (ObjectTailorListResponse) {}
+  rpc ListObjectTradeIn(ListObjectTradeInRequest) returns (ObjectTradeInListResponse) {}
+  rpc PartialUpdate(CtmServicePartialUpdateRequest) returns (CtmServiceResponse) {}
+  rpc Retrieve(CtmServiceRetrieveRequest) returns (CtmServiceResponse) {}
+  rpc RetrieveGoodsDeliver(RetrieveGoodsDeliverRequest) returns (ServiceGoodsDeliverResponse) {}
+  rpc RetrieveGoodsInvoice(RetrieveGoodsInvoiceRequest) returns (ServiceGoodsInvoiceResponse) {}
+  rpc RetrieveGoodsPay(RetrieveGoodsPayRequest) returns (ServiceGoodsPayResponse) {}
+  rpc RetrieveGoodsReturn(RetrieveGoodsReturnRequest) returns (ServiceGoodsReturnResponse) {}
+  rpc RetrieveObjectComplain(RetrieveObjectComplainRequest) returns (ObjectComplainResponse) {}
+  rpc RetrieveObjectFeedback(RetrieveObjectFeedbackRequest) returns (ObjectFeedbackResponse) {}
+  rpc RetrieveObjectRepair(RetrieveObjectRepairRequest) returns (ObjectRepairResponse) {}
+  rpc RetrieveObjectSwap(RetrieveObjectSwapRequest) returns (ObjectSwapResponse) {}
+  rpc RetrieveObjectTailor(RetrieveObjectTailorRequest) returns (ObjectTailorResponse) {}
+  rpc RetrieveObjectTradeIn(RetrieveObjectTradeInRequest) returns (ObjectTradeInResponse) {}
+  rpc ServiceNextSid(ServiceNextSidRequest) returns (ServiceNextSidResponse) {}
+  rpc ServiceOptions(ServiceOptionsRequest) returns (ServiceOptionsResponse) {}
+  rpc ServiceStatusCount(ServiceStatusCountRequest) returns (ServiceStatusCountListResponse) {}
+  rpc Update(CtmServiceRequest) returns (CtmServiceResponse) {}
+  rpc UpdateGoodsDeliver(UpdateGoodsDeliverRequest) returns (ServiceGoodsDeliverResponse) {}
+  rpc UpdateGoodsInvoice(UpdateGoodsInvoiceRequest) returns (ServiceGoodsInvoiceResponse) {}
+  rpc UpdateGoodsPay(UpdateGoodsPayRequest) returns (ServiceGoodsPayResponse) {}
+  rpc UpdateGoodsReturn(UpdateGoodsReturnRequest) returns (ServiceGoodsReturnResponse) {}
+  rpc UpdateObjectComplain(UpdateObjectComplainRequest) returns (ObjectComplainResponse) {}
+  rpc UpdateObjectFeedback(UpdateObjectFeedbackRequest) returns (ObjectFeedbackResponse) {}
+  rpc UpdateObjectRepair(UpdateObjectRepairRequest) returns (ObjectRepairResponse) {}
+  rpc UpdateObjectSwap(UpdateObjectSwapRequest) returns (ObjectSwapResponse) {}
+  rpc UpdateObjectTailor(UpdateObjectTailorRequest) returns (ObjectTailorResponse) {}
+  rpc UpdateObjectTradeIn(UpdateObjectTradeInRequest) returns (ObjectTradeInResponse) {}
+}
+
+message BulkCreateGoodsDeliverListRequest {
+  repeated BulkCreateGoodsDeliverRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  optional string goods_no = 20;
+  string spec_no = 21;
+  optional string spec_name = 22;
+  optional string rfid_code = 23;
+  optional string security_code = 24;
+  optional int64 ctm_refund = 25;
+  optional int64 ctm_service = 26;
+  optional int64 refund_orders = 27;
+}
+
+message BulkCreateGoodsReturnListRequest {
+  repeated BulkCreateGoodsReturnRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateGoodsReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  bool can_edit = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  int32 num = 12;
+  double price = 13;
+  int64 ctm_service = 14;
+}
+
+message CreateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  string spec_no = 20;
+  optional int64 ctm_refund = 21;
+  optional int64 ctm_service = 22;
+  optional int64 refund_orders = 23;
+  optional string spec_name = 24;
+  optional string rfid_code = 25;
+  optional string security_code = 26;
+  optional string goods_no = 27;
+}
+
+message CreateGoodsInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 31;
+  optional int64 ctm_service = 33;
+  int32 invoice_type = 34;
+  int32 payer_type = 35;
+  optional string payer_name = 36;
+  optional string payer_register_no = 37;
+  optional string payer_phone = 38;
+  optional string payer_email = 39;
+  optional string payer_address = 40;
+  optional string payer_bank = 41;
+  optional string payer_account = 42;
+  optional double invoice_amount = 43;
+  optional string invoice_remark = 44;
+  int32 reason_type = 45;
+  optional string invoice_no = 46;
+  optional string invoice_code = 47;
+  optional int64 parent_invoice = 48;
+}
+
+message CreateGoodsPayRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional int64 ctm_order = 31;
+  optional int64 ctm_refund = 32;
+  optional int64 ctm_service = 33;
+}
+
+message CreateGoodsReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string spec_no = 3;
+  int32 num = 4;
+  double price = 5;
+  int64 ctm_service = 6;
+  bool can_edit = 7;
+  optional string goods_id = 8;
+  optional string goods_name = 9;
+  optional string goods_spu = 10;
+  optional string spec_name = 11;
+  optional string rfid_code = 12;
+  optional string security_code = 13;
+  optional string goods_no = 14;
+}
+
+message CreateObjectComplainRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string platform_order = 7;
+  optional string oms_order = 8;
+  optional string platform_refund = 9;
+  optional string oms_refund = 10;
+  optional string complain_desc = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string parts_code = 16;
+  optional string parts_name = 17;
+  optional string media_path = 18;
+  optional string complain_reasons = 19;
+  optional string spec_name = 20;
+  optional string goods_no = 21;
+}
+
+message CreateObjectFeedbackRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string feedback_desc = 7;
+  optional int64 service_object = 8;
+  optional string goods_id = 9;
+  optional string goods_name = 10;
+  optional string parts_code = 12;
+  optional string parts_name = 13;
+  optional string media_path = 14;
+  optional string feedback_reasons = 15;
+  optional string spec_name = 16;
+  optional string goods_no = 17;
+}
+
+message CreateObjectRepairRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string repair_parts_code = 7;
+  optional string repair_parts_name = 8;
+  optional string repair_desc = 9;
+  optional string media_path = 10;
+  optional int64 service_object = 11;
+  optional string goods_id = 12;
+  optional string goods_name = 13;
+  optional string repair_reasons = 15;
+  optional string spec_name = 16;
+  optional string platform_order = 17;
+  optional string oms_order = 18;
+  optional double out_price = 19;
+  optional double retail_price = 20;
+  optional string goods_no = 21;
+  optional string repair_expired = 22;
+  optional string swap_expired = 23;
+}
+
+message CreateObjectSwapRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string damage_parts_code = 7;
+  optional string damage_parts_name = 8;
+  optional string damage_desc = 9;
+  optional string media_path = 10;
+  optional int64 service_object = 11;
+  optional string goods_id = 12;
+  optional string goods_name = 13;
+  optional string damage_reasons = 15;
+  optional string spec_name = 16;
+  optional string platform_order = 17;
+  optional string oms_order = 18;
+  optional double out_price = 19;
+  optional double retail_price = 20;
+  optional string goods_no = 21;
+  optional string repair_expired = 22;
+  optional string swap_expired = 23;
+}
+
+message CreateObjectTailorRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string platform_order = 7;
+  optional string oms_order = 8;
+  optional string part_id = 9;
+  optional string part_name = 10;
+  optional string remark = 11;
+  optional string text = 12;
+  optional string text_color = 13;
+  optional string text_font = 14;
+  optional string tif_path = 15;
+  optional string img_path = 16;
+  optional bool deletable = 17;
+  optional int64 service_object = 18;
+  optional string goods_id = 19;
+  optional string goods_name = 20;
+  optional string spec_name = 21;
+  optional double out_price = 22;
+  optional double retail_price = 23;
+  optional string goods_no = 24;
+}
+
+message CreateObjectTradeInRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int32 ctm_id = 3;
+  optional string ctm_openId = 4;
+  optional string ctm_nickname = 5;
+  optional string ctm_mobile = 6;
+  optional string ctm_card_no = 7;
+  optional int32 ctm_level = 8;
+  optional string trade_in_brand = 9;
+  optional string trade_in_model = 10;
+  optional string trade_in_desc = 11;
+  optional double trade_in_price = 12;
+  optional int64 service_object = 13;
+  optional string media_path = 14;
+  optional string trade_in_reasons = 15;
+}
+
+message CtmServiceDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmServiceListRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional ObjectRepairRequest repair_content = 3;
+  optional ObjectSwapRequest swap_content = 4;
+  optional ObjectTailorRequest tailor_content = 5;
+  optional ObjectComplainRequest complain_content = 6;
+  optional ObjectFeedbackRequest feedback_content = 7;
+  optional ObjectTradeInRequest trade_in_content = 8;
+  repeated ServiceGoodsReturnRequest return_list = 9;
+  repeated ServiceGoodsDeliverRequest swap_list = 10;
+  optional ServiceGoodsPayRequest pay_content = 11;
+  optional string create_name = 12;
+  optional string approve_time = 13;
+  optional string approve_name = 14;
+  string sid = 15;
+  optional int32 trade_type = 16;
+  optional int32 type = 17;
+  optional int32 create_type = 18;
+  optional int32 service_status = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  optional string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  optional string seller_name = 27;
+  optional string seller_memo = 28;
+  optional string shop_no = 29;
+  optional string shop_name = 30;
+  optional string warehouse_no = 31;
+  optional string warehouse_name = 32;
+  optional string receiver_name = 33;
+  optional string receiver_province = 34;
+  optional string receiver_city = 35;
+  optional string receiver_district = 36;
+  optional string receiver_address = 37;
+  optional string receiver_mobile = 38;
+  optional double post_amount = 39;
+  optional double other_amount = 40;
+  optional double ext_cod_fee = 41;
+  optional double paid = 42;
+  optional double cod_amount = 43;
+  optional double receivable = 44;
+  optional double discount = 45;
+  optional int32 invoice_status = 46;
+  optional string logistics_in_name = 49;
+  optional string logistics_in_code = 50;
+  optional string logistics_in_no = 51;
+  optional string warehouse_in_no = 52;
+  optional string warehouse_in_name = 53;
+  optional int64 ctm = 54;
+  optional ServiceGoodsInvoiceRequest invoice_content = 55;
+  optional string approve_reasons = 56;
+  optional string reject_reasons = 57;
+  optional string cancel_reasons = 58;
+}
+
+message CtmServiceListResponse {
+  repeated CtmServiceResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmServicePartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional ObjectRepairRequest repair_content = 3;
+  optional ObjectSwapRequest swap_content = 4;
+  optional ObjectTailorRequest tailor_content = 5;
+  optional ObjectComplainRequest complain_content = 6;
+  optional ObjectFeedbackRequest feedback_content = 7;
+  optional ObjectTradeInRequest trade_in_content = 8;
+  repeated ServiceGoodsReturnRequest return_list = 9;
+  repeated ServiceGoodsDeliverRequest swap_list = 10;
+  optional ServiceGoodsPayRequest pay_content = 11;
+  repeated string _partial_update_fields = 12;
+  optional string create_name = 13;
+  optional string approve_time = 14;
+  optional string approve_name = 15;
+  string sid = 16;
+  optional int32 trade_type = 17;
+  optional int32 type = 18;
+  optional int32 create_type = 19;
+  optional int32 service_status = 20;
+  optional int32 trade_status = 21;
+  optional int32 pay_status = 22;
+  optional string pay_time = 23;
+  optional int32 delivery_term = 24;
+  optional string buyer_nick = 25;
+  optional string buyer_mobile = 26;
+  optional string buyer_message = 27;
+  optional string seller_name = 28;
+  optional string seller_memo = 29;
+  optional string shop_no = 30;
+  optional string shop_name = 31;
+  optional string warehouse_no = 32;
+  optional string warehouse_name = 33;
+  optional string receiver_name = 34;
+  optional string receiver_province = 35;
+  optional string receiver_city = 36;
+  optional string receiver_district = 37;
+  optional string receiver_address = 38;
+  optional string receiver_mobile = 39;
+  optional double post_amount = 40;
+  optional double other_amount = 41;
+  optional double ext_cod_fee = 42;
+  optional double paid = 43;
+  optional double cod_amount = 44;
+  optional double receivable = 45;
+  optional double discount = 46;
+  optional int32 invoice_status = 47;
+  optional string logistics_in_name = 50;
+  optional string logistics_in_code = 51;
+  optional string logistics_in_no = 52;
+  optional string warehouse_in_no = 53;
+  optional string warehouse_in_name = 54;
+  optional int64 ctm = 55;
+  optional ServiceGoodsInvoiceRequest invoice_content = 56;
+  optional string approve_reasons = 57;
+  optional string reject_reasons = 58;
+  optional string cancel_reasons = 59;
+}
+
+message CtmServiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional ObjectRepairRequest repair_content = 3;
+  optional ObjectSwapRequest swap_content = 4;
+  optional ObjectTailorRequest tailor_content = 5;
+  optional ObjectComplainRequest complain_content = 6;
+  optional ObjectFeedbackRequest feedback_content = 7;
+  optional ObjectTradeInRequest trade_in_content = 8;
+  repeated ServiceGoodsReturnRequest return_list = 9;
+  repeated ServiceGoodsDeliverRequest swap_list = 10;
+  optional ServiceGoodsPayRequest pay_content = 11;
+  optional string create_name = 12;
+  optional string approve_time = 13;
+  optional string approve_name = 14;
+  string sid = 15;
+  optional int32 trade_type = 16;
+  optional int32 type = 17;
+  optional int32 create_type = 18;
+  optional int32 service_status = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  optional string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  optional string seller_name = 27;
+  optional string seller_memo = 28;
+  optional string shop_no = 29;
+  optional string shop_name = 30;
+  optional string warehouse_no = 31;
+  optional string warehouse_name = 32;
+  optional string receiver_name = 33;
+  optional string receiver_province = 34;
+  optional string receiver_city = 35;
+  optional string receiver_district = 36;
+  optional string receiver_address = 37;
+  optional string receiver_mobile = 38;
+  optional double post_amount = 39;
+  optional double other_amount = 40;
+  optional double ext_cod_fee = 41;
+  optional double paid = 42;
+  optional double cod_amount = 43;
+  optional double receivable = 44;
+  optional double discount = 45;
+  optional int32 invoice_status = 46;
+  optional string logistics_in_name = 49;
+  optional string logistics_in_code = 50;
+  optional string logistics_in_no = 51;
+  optional string warehouse_in_no = 52;
+  optional string warehouse_in_name = 53;
+  optional int64 ctm = 54;
+  optional ServiceGoodsInvoiceRequest invoice_content = 55;
+  optional string approve_reasons = 56;
+  optional string reject_reasons = 57;
+  optional string cancel_reasons = 58;
+}
+
+message CtmServiceResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string type_name = 3;
+  string create_type_name = 4;
+  string service_status_name = 5;
+  string invoice_status_name = 6;
+  string ctm_nickname = 7;
+  string ctm_mobile = 8;
+  string ctm_openId = 9;
+  repeated ObjectRepairResponse repair_details = 10;
+  repeated ObjectSwapResponse swap_details = 11;
+  repeated ObjectTailorResponse tailor_details = 12;
+  repeated ObjectComplainResponse complain_details = 13;
+  repeated ObjectFeedbackResponse feedback_details = 14;
+  repeated ObjectTradeInResponse trade_in_details = 15;
+  repeated ServiceGoodsDeliverResponse swap_goods_details = 16;
+  repeated ServiceGoodsReturnResponse return_goods_details = 17;
+  repeated ServiceGoodsPayResponse order_pay_details = 18;
+  string create_time = 19;
+  string update_time = 20;
+  optional string create_name = 21;
+  optional string approve_time = 22;
+  optional string approve_name = 23;
+  string sid = 24;
+  optional int32 trade_type = 25;
+  optional int32 type = 26;
+  optional int32 create_type = 27;
+  optional int32 service_status = 28;
+  optional int32 trade_status = 29;
+  optional int32 pay_status = 30;
+  optional string pay_time = 31;
+  optional int32 delivery_term = 32;
+  optional string buyer_nick = 33;
+  optional string buyer_mobile = 34;
+  optional string buyer_message = 35;
+  optional string seller_name = 36;
+  optional string seller_memo = 37;
+  optional string shop_no = 38;
+  optional string shop_name = 39;
+  optional string warehouse_no = 40;
+  optional string warehouse_name = 41;
+  optional string receiver_name = 42;
+  optional string receiver_province = 43;
+  optional string receiver_city = 44;
+  optional string receiver_district = 45;
+  optional string receiver_address = 46;
+  optional string receiver_mobile = 47;
+  optional double post_amount = 48;
+  optional double other_amount = 49;
+  optional double ext_cod_fee = 50;
+  optional double paid = 51;
+  optional double cod_amount = 52;
+  optional double receivable = 53;
+  optional double discount = 54;
+  optional int32 invoice_status = 55;
+  optional string logistics_in_name = 58;
+  optional string logistics_in_code = 59;
+  optional string logistics_in_no = 60;
+  optional string warehouse_in_no = 61;
+  optional string warehouse_in_name = 62;
+  optional int64 ctm = 63;
+  string pay_status_name = 64;
+  string delivery_term_name = 65;
+  repeated ServiceGoodsInvoiceResponse order_invoice_details = 66;
+  string trade_status_name = 67;
+  optional string approve_reasons = 68;
+  optional string reject_reasons = 69;
+  optional string cancel_reasons = 70;
+}
+
+message CtmServiceRetrieveRequest {
+  int32 id = 1;
+}
+
+message DestroyGoodsDeliverRequest {
+  int32 id = 1;
+}
+
+message DestroyGoodsInvoiceRequest {
+  int32 id = 1;
+}
+
+message DestroyGoodsPayRequest {
+  int32 id = 1;
+}
+
+message DestroyGoodsReturnRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectComplainRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectFeedbackRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectRepairRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectSwapRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectTailorRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectTradeInRequest {
+  int32 id = 1;
+}
+
+message ListGoodsDeliverRequest {
+  string filters = 1;
+}
+
+message ListGoodsInvoiceRequest {
+  string filters = 1;
+}
+
+message ListGoodsPayRequest {
+  string filters = 1;
+}
+
+message ListGoodsReturnRequest {
+  string filters = 1;
+}
+
+message ListObjectComplainRequest {
+  string filters = 1;
+}
+
+message ListObjectFeedbackRequest {
+  string filters = 1;
+}
+
+message ListObjectRepairRequest {
+  string filters = 1;
+}
+
+message ListObjectSwapRequest {
+  string filters = 1;
+}
+
+message ListObjectTailorRequest {
+  string filters = 1;
+}
+
+message ListObjectTradeInRequest {
+  string filters = 1;
+}
+
+message ObjectComplainListResponse {
+  repeated ObjectComplainResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectComplainRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string platform_order = 7;
+  optional string oms_order = 8;
+  optional string platform_refund = 9;
+  optional string oms_refund = 10;
+  optional string complain_desc = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string parts_code = 16;
+  optional string parts_name = 17;
+  optional string media_path = 18;
+  optional string complain_reasons = 19;
+  optional string spec_name = 20;
+  optional string goods_no = 21;
+}
+
+message ObjectComplainResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string platform_order = 8;
+  optional string oms_order = 9;
+  optional string platform_refund = 10;
+  optional string oms_refund = 11;
+  optional string complain_desc = 12;
+  optional int64 service_object = 13;
+  optional string goods_id = 14;
+  optional string goods_name = 15;
+  optional string parts_code = 17;
+  optional string parts_name = 18;
+  optional string media_path = 19;
+  optional string complain_reasons = 20;
+  optional string spec_name = 21;
+  optional string goods_no = 22;
+}
+
+message ObjectFeedbackListResponse {
+  repeated ObjectFeedbackResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectFeedbackRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string feedback_desc = 7;
+  optional int64 service_object = 8;
+  optional string goods_id = 9;
+  optional string goods_name = 10;
+  optional string parts_code = 12;
+  optional string parts_name = 13;
+  optional string media_path = 14;
+  optional string feedback_reasons = 15;
+  optional string spec_name = 16;
+  optional string goods_no = 17;
+}
+
+message ObjectFeedbackResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string feedback_desc = 8;
+  optional int64 service_object = 9;
+  optional string goods_id = 10;
+  optional string goods_name = 11;
+  optional string parts_code = 13;
+  optional string parts_name = 14;
+  optional string media_path = 15;
+  optional string feedback_reasons = 16;
+  optional string spec_name = 17;
+  optional string goods_no = 18;
+}
+
+message ObjectRepairListResponse {
+  repeated ObjectRepairResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectRepairRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string repair_parts_code = 7;
+  optional string repair_parts_name = 8;
+  optional string repair_desc = 9;
+  optional string media_path = 10;
+  optional int64 service_object = 11;
+  optional string goods_id = 12;
+  optional string goods_name = 13;
+  optional string repair_reasons = 15;
+  optional string spec_name = 16;
+  optional string platform_order = 17;
+  optional string oms_order = 18;
+  optional double out_price = 19;
+  optional double retail_price = 20;
+  optional string goods_no = 21;
+  optional string repair_expired = 22;
+  optional string swap_expired = 23;
+}
+
+message ObjectRepairResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string repair_parts_code = 8;
+  optional string repair_parts_name = 9;
+  optional string repair_desc = 10;
+  optional string media_path = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string repair_reasons = 16;
+  optional string spec_name = 17;
+  optional string platform_order = 18;
+  optional string oms_order = 19;
+  optional double out_price = 20;
+  optional double retail_price = 21;
+  optional string goods_no = 22;
+  optional string repair_expired = 23;
+  optional string swap_expired = 24;
+}
+
+message ObjectSwapListResponse {
+  repeated ObjectSwapResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectSwapRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string damage_parts_code = 7;
+  optional string damage_parts_name = 8;
+  optional string damage_desc = 9;
+  optional string media_path = 10;
+  optional int64 service_object = 11;
+  optional string goods_id = 12;
+  optional string goods_name = 13;
+  optional string damage_reasons = 15;
+  optional string spec_name = 16;
+  optional string platform_order = 17;
+  optional string oms_order = 18;
+  optional double out_price = 19;
+  optional double retail_price = 20;
+  optional string goods_no = 21;
+  optional string repair_expired = 22;
+  optional string swap_expired = 23;
+}
+
+message ObjectSwapResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string damage_parts_code = 8;
+  optional string damage_parts_name = 9;
+  optional string damage_desc = 10;
+  optional string media_path = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string damage_reasons = 16;
+  optional string spec_name = 17;
+  optional string platform_order = 18;
+  optional string oms_order = 19;
+  optional double out_price = 20;
+  optional double retail_price = 21;
+  optional string goods_no = 22;
+  optional string repair_expired = 23;
+  optional string swap_expired = 24;
+}
+
+message ObjectTailorListResponse {
+  repeated ObjectTailorResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectTailorRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string spec_no = 4;
+  optional string rfid_code = 5;
+  optional string security_code = 6;
+  optional string platform_order = 7;
+  optional string oms_order = 8;
+  optional string part_id = 9;
+  optional string part_name = 10;
+  optional string remark = 11;
+  optional string text = 12;
+  optional string text_color = 13;
+  optional string text_font = 14;
+  optional string tif_path = 15;
+  optional string img_path = 16;
+  optional bool deletable = 17;
+  optional int64 service_object = 18;
+  optional string goods_id = 19;
+  optional string goods_name = 20;
+  optional string spec_name = 21;
+  optional double out_price = 22;
+  optional double retail_price = 23;
+  optional string goods_no = 24;
+}
+
+message ObjectTailorResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string platform_order = 8;
+  optional string oms_order = 9;
+  optional string part_id = 10;
+  optional string part_name = 11;
+  optional string remark = 12;
+  optional string text = 13;
+  optional string text_color = 14;
+  optional string text_font = 15;
+  optional string tif_path = 16;
+  optional string img_path = 17;
+  optional bool deletable = 18;
+  optional int64 service_object = 19;
+  optional string goods_id = 20;
+  optional string goods_name = 21;
+  optional string spec_name = 22;
+  optional double out_price = 23;
+  optional double retail_price = 24;
+  optional string goods_no = 25;
+}
+
+message ObjectTradeInListResponse {
+  repeated ObjectTradeInResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectTradeInRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int32 ctm_id = 3;
+  optional string ctm_openId = 4;
+  optional string ctm_nickname = 5;
+  optional string ctm_mobile = 6;
+  optional string ctm_card_no = 7;
+  optional int32 ctm_level = 8;
+  optional string trade_in_brand = 9;
+  optional string trade_in_model = 10;
+  optional string trade_in_desc = 11;
+  optional double trade_in_price = 12;
+  optional int64 service_object = 13;
+  optional string media_path = 14;
+  optional string trade_in_reasons = 15;
+}
+
+message ObjectTradeInResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional int32 ctm_id = 4;
+  optional string ctm_openId = 5;
+  optional string ctm_nickname = 6;
+  optional string ctm_mobile = 7;
+  optional string ctm_card_no = 8;
+  optional int32 ctm_level = 9;
+  optional string trade_in_brand = 10;
+  optional string trade_in_model = 11;
+  optional string trade_in_desc = 12;
+  optional double trade_in_price = 13;
+  optional int64 service_object = 14;
+  optional string media_path = 15;
+  optional string trade_in_reasons = 16;
+}
+
+message OptionItemResponse {
+  int32 value = 1;
+  string label = 2;
+}
+
+message RetrieveGoodsDeliverRequest {
+  int32 id = 1;
+}
+
+message RetrieveGoodsInvoiceRequest {
+  int32 id = 1;
+}
+
+message RetrieveGoodsPayRequest {
+  int32 id = 1;
+}
+
+message RetrieveGoodsReturnRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectComplainRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectFeedbackRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectRepairRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectSwapRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectTailorRequest {
+  int32 id = 1;
+}
+
+message RetrieveObjectTradeInRequest {
+  int32 id = 1;
+}
+
+message ServiceGoodsDeliverListResponse {
+  repeated ServiceGoodsDeliverResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  string spec_no = 20;
+  optional int64 ctm_refund = 21;
+  optional int64 ctm_service = 22;
+  optional int64 refund_orders = 23;
+  optional string spec_name = 24;
+  optional string rfid_code = 25;
+  optional string security_code = 26;
+  optional string goods_no = 27;
+}
+
+message ServiceGoodsDeliverResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string refund_status_name = 3;
+  optional int64 ctm_order = 4;
+  string create_time = 5;
+  string update_time = 6;
+  bool can_edit = 7;
+  int32 num = 8;
+  double price = 9;
+  double adjust_amount = 10;
+  double discount = 11;
+  double share_discount = 12;
+  double share_amount = 13;
+  optional double debit_amount = 14;
+  optional int32 price_score = 15;
+  optional int32 price_badge = 16;
+  optional int32 price_nut = 17;
+  optional int32 status = 18;
+  optional int32 refund_status = 19;
+  optional string goods_id = 20;
+  optional string goods_name = 21;
+  optional string goods_spu = 22;
+  string spec_no = 23;
+  optional int64 ctm_refund = 24;
+  optional int64 ctm_service = 25;
+  optional int64 refund_orders = 26;
+  optional string spec_name = 27;
+  optional string rfid_code = 28;
+  optional string security_code = 29;
+  optional string goods_no = 30;
+}
+
+message ServiceGoodsInvoiceChildrenResponse {
+  int32 id = 1;
+  string invoice_type_name = 2;
+  string payer_type_name = 3;
+  string reason_type_name = 4;
+  string create_time = 5;
+  string update_time = 6;
+  int32 invoice_type = 7;
+  int32 payer_type = 8;
+  optional string payer_name = 9;
+  optional string payer_register_no = 10;
+  optional string payer_phone = 11;
+  optional string payer_email = 12;
+  optional string payer_address = 13;
+  optional string payer_bank = 14;
+  optional string payer_account = 15;
+  optional double invoice_amount = 16;
+  optional string invoice_remark = 17;
+  int32 reason_type = 18;
+  optional string invoice_no = 19;
+  optional string invoice_code = 20;
+  optional int64 ctm_order = 21;
+  optional int64 ctm_service = 22;
+  optional int64 parent_invoice = 23;
+}
+
+message ServiceGoodsInvoiceListResponse {
+  repeated ServiceGoodsInvoiceResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceGoodsInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 31;
+  optional int64 ctm_service = 33;
+  int32 invoice_type = 34;
+  int32 payer_type = 35;
+  optional string payer_name = 36;
+  optional string payer_register_no = 37;
+  optional string payer_phone = 38;
+  optional string payer_email = 39;
+  optional string payer_address = 40;
+  optional string payer_bank = 41;
+  optional string payer_account = 42;
+  optional double invoice_amount = 43;
+  optional string invoice_remark = 44;
+  int32 reason_type = 45;
+  optional string invoice_no = 46;
+  optional string invoice_code = 47;
+  optional int64 parent_invoice = 48;
+}
+
+message ServiceGoodsInvoiceResponse {
+  int32 id = 1;
+  string create_time = 4;
+  string update_time = 5;
+  optional int64 ctm_order = 34;
+  optional int64 ctm_service = 36;
+  string invoice_type_name = 37;
+  string payer_type_name = 38;
+  string reason_type_name = 39;
+  repeated ServiceGoodsInvoiceChildrenResponse children = 40;
+  int32 invoice_type = 41;
+  int32 payer_type = 42;
+  optional string payer_name = 43;
+  optional string payer_register_no = 44;
+  optional string payer_phone = 45;
+  optional string payer_email = 46;
+  optional string payer_address = 47;
+  optional string payer_bank = 48;
+  optional string payer_account = 49;
+  optional double invoice_amount = 50;
+  optional string invoice_remark = 51;
+  int32 reason_type = 52;
+  optional string invoice_no = 53;
+  optional string invoice_code = 54;
+  optional int64 parent_invoice = 55;
+}
+
+message ServiceGoodsPayListResponse {
+  repeated ServiceGoodsPayResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceGoodsPayRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional int64 ctm_order = 31;
+  optional int64 ctm_refund = 32;
+  optional int64 ctm_service = 33;
+}
+
+message ServiceGoodsPayResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string trade_status_name = 3;
+  string create_time = 4;
+  string update_time = 5;
+  optional string prepay_id = 6;
+  optional string prepay_expired = 7;
+  optional string trade_type = 8;
+  optional string trade_state = 9;
+  optional string trade_state_desc = 10;
+  optional string transaction_id = 11;
+  optional string app_id = 12;
+  optional string mch_id = 13;
+  string open_id = 14;
+  optional string out_trade_no = 15;
+  optional string attach = 16;
+  optional int32 total = 17;
+  optional int32 payer_total = 18;
+  optional string currency = 19;
+  optional string bank_type = 20;
+  optional string success_time = 21;
+  optional string out_refund_no = 22;
+  optional string reason = 23;
+  optional int32 refund = 24;
+  optional int32 payer_refund = 25;
+  optional int32 settlement_refund = 26;
+  optional int32 settlement_total = 27;
+  optional int32 discount_refund = 28;
+  optional int32 refund_fee = 29;
+  optional string refund_id = 30;
+  optional string channel = 31;
+  optional string user_received_account = 32;
+  optional string status = 33;
+  optional int64 ctm_order = 34;
+  optional int64 ctm_refund = 35;
+  optional int64 ctm_service = 36;
+}
+
+message ServiceGoodsReturnListResponse {
+  repeated ServiceGoodsReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceGoodsReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string spec_no = 3;
+  int32 num = 4;
+  double price = 5;
+  int64 ctm_service = 6;
+  bool can_edit = 7;
+  optional string goods_id = 8;
+  optional string goods_name = 9;
+  optional string goods_spu = 10;
+  optional string spec_name = 11;
+  optional string rfid_code = 12;
+  optional string security_code = 13;
+  optional string goods_no = 14;
+}
+
+message ServiceGoodsReturnResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string spec_no = 4;
+  int32 num = 5;
+  double price = 6;
+  int64 ctm_service = 7;
+  bool can_edit = 8;
+  optional string goods_id = 9;
+  optional string goods_name = 10;
+  optional string goods_spu = 11;
+  optional string spec_name = 12;
+  optional string rfid_code = 13;
+  optional string security_code = 14;
+  optional string goods_no = 15;
+}
+
+message ServiceNextSidRequest {
+}
+
+message ServiceNextSidResponse {
+  string next_sid = 1;
+}
+
+message ServiceOptionsRequest {
+}
+
+message ServiceOptionsResponse {
+  repeated OptionItemResponse trade_type = 1;
+  repeated OptionItemResponse type = 2;
+  repeated OptionItemResponse create_type = 3;
+  repeated OptionItemResponse service_status = 4;
+  repeated OptionItemResponse trade_status = 5;
+  repeated OptionItemResponse pay_status = 6;
+}
+
+message ServiceStatusCountListResponse {
+  repeated ServiceStatusCountResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceStatusCountRequest {
+  int32 trade_type = 1;
+}
+
+message ServiceStatusCountResponse {
+  int32 service_status = 1;
+  int32 count = 2;
+}
+
+message UpdateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_order = 3;
+  repeated string _partial_update_fields = 4;
+  bool can_edit = 5;
+  int32 num = 6;
+  double price = 7;
+  double adjust_amount = 8;
+  double discount = 9;
+  double share_discount = 10;
+  double share_amount = 11;
+  optional double debit_amount = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
+  optional int32 price_nut = 15;
+  optional int32 status = 16;
+  optional int32 refund_status = 17;
+  optional string goods_id = 18;
+  optional string goods_name = 19;
+  optional string goods_spu = 20;
+  string spec_no = 21;
+  optional int64 ctm_refund = 22;
+  optional int64 ctm_service = 23;
+  optional int64 refund_orders = 24;
+  optional string spec_name = 25;
+  optional string rfid_code = 26;
+  optional string security_code = 27;
+  optional string goods_no = 28;
+}
+
+message UpdateGoodsInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 13;
+  int32 invoice_type = 14;
+  int32 payer_type = 15;
+  optional string payer_name = 16;
+  optional string payer_register_no = 17;
+  optional string payer_phone = 18;
+  optional string payer_email = 19;
+  optional string payer_address = 20;
+  optional string payer_bank = 21;
+  optional string payer_account = 22;
+  optional double invoice_amount = 23;
+  optional string invoice_remark = 24;
+  int32 reason_type = 25;
+  optional string invoice_no = 26;
+  optional string invoice_code = 27;
+  optional int64 ctm_order = 28;
+  optional int64 ctm_service = 29;
+  optional int64 parent_invoice = 30;
+}
+
+message UpdateGoodsPayRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string prepay_id = 4;
+  optional string prepay_expired = 5;
+  optional string trade_type = 6;
+  optional string trade_state = 7;
+  optional string trade_state_desc = 8;
+  optional string transaction_id = 9;
+  optional string app_id = 10;
+  optional string mch_id = 11;
+  string open_id = 12;
+  optional string out_trade_no = 13;
+  optional string attach = 14;
+  optional int32 total = 15;
+  optional int32 payer_total = 16;
+  optional string currency = 17;
+  optional string bank_type = 18;
+  optional string success_time = 19;
+  optional string out_refund_no = 20;
+  optional string reason = 21;
+  optional int32 refund = 22;
+  optional int32 payer_refund = 23;
+  optional int32 settlement_refund = 24;
+  optional int32 settlement_total = 25;
+  optional int32 discount_refund = 26;
+  optional int32 refund_fee = 27;
+  optional string refund_id = 28;
+  optional string channel = 29;
+  optional string user_received_account = 30;
+  optional string status = 31;
+  optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
+  optional int64 ctm_service = 34;
+}
+
+message UpdateGoodsReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string spec_no = 4;
+  int32 num = 5;
+  double price = 6;
+  int64 ctm_service = 7;
+  bool can_edit = 8;
+  optional string goods_id = 9;
+  optional string goods_name = 10;
+  optional string goods_spu = 11;
+  optional string spec_name = 12;
+  optional string rfid_code = 13;
+  optional string security_code = 14;
+  optional string goods_no = 15;
+}
+
+message UpdateObjectComplainRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string platform_order = 8;
+  optional string oms_order = 9;
+  optional string platform_refund = 10;
+  optional string oms_refund = 11;
+  optional string complain_desc = 12;
+  optional int64 service_object = 13;
+  optional string goods_id = 14;
+  optional string goods_name = 15;
+  optional string parts_code = 17;
+  optional string parts_name = 18;
+  optional string media_path = 19;
+  optional string complain_reasons = 20;
+  optional string spec_name = 21;
+  optional string goods_no = 22;
+}
+
+message UpdateObjectFeedbackRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string feedback_desc = 8;
+  optional int64 service_object = 9;
+  optional string goods_id = 10;
+  optional string goods_name = 11;
+  optional string parts_code = 13;
+  optional string parts_name = 14;
+  optional string media_path = 15;
+  optional string feedback_reasons = 16;
+  optional string spec_name = 17;
+  optional string goods_no = 18;
+}
+
+message UpdateObjectRepairRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string repair_parts_code = 8;
+  optional string repair_parts_name = 9;
+  optional string repair_desc = 10;
+  optional string media_path = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string repair_reasons = 16;
+  optional string spec_name = 17;
+  optional string platform_order = 18;
+  optional string oms_order = 19;
+  optional double out_price = 20;
+  optional double retail_price = 21;
+  optional string goods_no = 22;
+  optional string repair_expired = 23;
+  optional string swap_expired = 24;
+}
+
+message UpdateObjectSwapRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string repair_parts_code = 8;
+  optional string repair_parts_name = 9;
+  optional string repair_desc = 10;
+  optional string media_path = 11;
+  optional int64 service_object = 12;
+  optional string goods_id = 13;
+  optional string goods_name = 14;
+  optional string repair_reasons = 16;
+  optional string spec_name = 17;
+  optional string platform_order = 18;
+  optional string oms_order = 19;
+  optional double out_price = 20;
+  optional double retail_price = 21;
+  optional string goods_no = 22;
+  optional string repair_expired = 23;
+  optional string swap_expired = 24;
+}
+
+message UpdateObjectTailorRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string spec_no = 5;
+  optional string rfid_code = 6;
+  optional string security_code = 7;
+  optional string platform_order = 8;
+  optional string oms_order = 9;
+  optional string part_id = 10;
+  optional string part_name = 11;
+  optional string remark = 12;
+  optional string text = 13;
+  optional string text_color = 14;
+  optional string text_font = 15;
+  optional string tif_path = 16;
+  optional string img_path = 17;
+  optional bool deletable = 18;
+  optional int64 service_object = 19;
+  optional string goods_id = 20;
+  optional string goods_name = 21;
+  optional string spec_name = 22;
+  optional double out_price = 23;
+  optional double retail_price = 24;
+  optional string goods_no = 25;
+}
+
+message UpdateObjectTradeInRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional int32 ctm_id = 4;
+  optional string ctm_openId = 5;
+  optional string ctm_nickname = 6;
+  optional string ctm_mobile = 7;
+  optional string ctm_card_no = 8;
+  optional int32 ctm_level = 9;
+  optional string trade_in_brand = 10;
+  optional string trade_in_model = 11;
+  optional string trade_in_desc = 12;
+  optional double trade_in_price = 13;
+  optional int64 service_object = 14;
+  optional string media_path = 15;
+  optional string trade_in_reasons = 16;
+}
+

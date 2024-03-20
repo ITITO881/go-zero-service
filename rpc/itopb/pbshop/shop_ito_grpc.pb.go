@@ -404,3 +404,204 @@ var BuShopController_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "shop_ito.proto",
 }
+
+const (
+	HmxTradesController_EmployeeHmx_FullMethodName = "/shopmanage_service.shop_ito.HmxTradesController/EmployeeHmx"
+	HmxTradesController_List_FullMethodName        = "/shopmanage_service.shop_ito.HmxTradesController/List"
+	HmxTradesController_Retrieve_FullMethodName    = "/shopmanage_service.shop_ito.HmxTradesController/Retrieve"
+	HmxTradesController_StoreHmx_FullMethodName    = "/shopmanage_service.shop_ito.HmxTradesController/StoreHmx"
+)
+
+// HmxTradesControllerClient is the client API for HmxTradesController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HmxTradesControllerClient interface {
+	EmployeeHmx(ctx context.Context, in *EmployeeHmxRequest, opts ...grpc.CallOption) (*EmployeesHmxListResponse, error)
+	List(ctx context.Context, in *StoreTradesListRequest, opts ...grpc.CallOption) (*StoreTradesListResponse, error)
+	Retrieve(ctx context.Context, in *StoreTradesRetrieveRequest, opts ...grpc.CallOption) (*StoreTradesResponse, error)
+	StoreHmx(ctx context.Context, in *StoreHmxRequest, opts ...grpc.CallOption) (*StoreHmxListResponse, error)
+}
+
+type hmxTradesControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHmxTradesControllerClient(cc grpc.ClientConnInterface) HmxTradesControllerClient {
+	return &hmxTradesControllerClient{cc}
+}
+
+func (c *hmxTradesControllerClient) EmployeeHmx(ctx context.Context, in *EmployeeHmxRequest, opts ...grpc.CallOption) (*EmployeesHmxListResponse, error) {
+	out := new(EmployeesHmxListResponse)
+	err := c.cc.Invoke(ctx, HmxTradesController_EmployeeHmx_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hmxTradesControllerClient) List(ctx context.Context, in *StoreTradesListRequest, opts ...grpc.CallOption) (*StoreTradesListResponse, error) {
+	out := new(StoreTradesListResponse)
+	err := c.cc.Invoke(ctx, HmxTradesController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hmxTradesControllerClient) Retrieve(ctx context.Context, in *StoreTradesRetrieveRequest, opts ...grpc.CallOption) (*StoreTradesResponse, error) {
+	out := new(StoreTradesResponse)
+	err := c.cc.Invoke(ctx, HmxTradesController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hmxTradesControllerClient) StoreHmx(ctx context.Context, in *StoreHmxRequest, opts ...grpc.CallOption) (*StoreHmxListResponse, error) {
+	out := new(StoreHmxListResponse)
+	err := c.cc.Invoke(ctx, HmxTradesController_StoreHmx_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HmxTradesControllerServer is the server API for HmxTradesController service.
+// All implementations must embed UnimplementedHmxTradesControllerServer
+// for forward compatibility
+type HmxTradesControllerServer interface {
+	EmployeeHmx(context.Context, *EmployeeHmxRequest) (*EmployeesHmxListResponse, error)
+	List(context.Context, *StoreTradesListRequest) (*StoreTradesListResponse, error)
+	Retrieve(context.Context, *StoreTradesRetrieveRequest) (*StoreTradesResponse, error)
+	StoreHmx(context.Context, *StoreHmxRequest) (*StoreHmxListResponse, error)
+	mustEmbedUnimplementedHmxTradesControllerServer()
+}
+
+// UnimplementedHmxTradesControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedHmxTradesControllerServer struct {
+}
+
+func (UnimplementedHmxTradesControllerServer) EmployeeHmx(context.Context, *EmployeeHmxRequest) (*EmployeesHmxListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EmployeeHmx not implemented")
+}
+func (UnimplementedHmxTradesControllerServer) List(context.Context, *StoreTradesListRequest) (*StoreTradesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedHmxTradesControllerServer) Retrieve(context.Context, *StoreTradesRetrieveRequest) (*StoreTradesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedHmxTradesControllerServer) StoreHmx(context.Context, *StoreHmxRequest) (*StoreHmxListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StoreHmx not implemented")
+}
+func (UnimplementedHmxTradesControllerServer) mustEmbedUnimplementedHmxTradesControllerServer() {}
+
+// UnsafeHmxTradesControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HmxTradesControllerServer will
+// result in compilation errors.
+type UnsafeHmxTradesControllerServer interface {
+	mustEmbedUnimplementedHmxTradesControllerServer()
+}
+
+func RegisterHmxTradesControllerServer(s grpc.ServiceRegistrar, srv HmxTradesControllerServer) {
+	s.RegisterService(&HmxTradesController_ServiceDesc, srv)
+}
+
+func _HmxTradesController_EmployeeHmx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmployeeHmxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HmxTradesControllerServer).EmployeeHmx(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HmxTradesController_EmployeeHmx_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HmxTradesControllerServer).EmployeeHmx(ctx, req.(*EmployeeHmxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HmxTradesController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreTradesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HmxTradesControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HmxTradesController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HmxTradesControllerServer).List(ctx, req.(*StoreTradesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HmxTradesController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreTradesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HmxTradesControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HmxTradesController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HmxTradesControllerServer).Retrieve(ctx, req.(*StoreTradesRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HmxTradesController_StoreHmx_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StoreHmxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HmxTradesControllerServer).StoreHmx(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HmxTradesController_StoreHmx_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HmxTradesControllerServer).StoreHmx(ctx, req.(*StoreHmxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HmxTradesController_ServiceDesc is the grpc.ServiceDesc for HmxTradesController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HmxTradesController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "shopmanage_service.shop_ito.HmxTradesController",
+	HandlerType: (*HmxTradesControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "EmployeeHmx",
+			Handler:    _HmxTradesController_EmployeeHmx_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _HmxTradesController_List_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _HmxTradesController_Retrieve_Handler,
+		},
+		{
+			MethodName: "StoreHmx",
+			Handler:    _HmxTradesController_StoreHmx_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "shop_ito.proto",
+}

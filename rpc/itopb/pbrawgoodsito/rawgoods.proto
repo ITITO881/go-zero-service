@@ -28,12 +28,18 @@ service ProdRepairsRelationController {
   rpc GetProdCode(ProductRequest) returns (ProductListResponse) {}
   rpc List(RelProdRepairsListRequest) returns (RelProdRepairsListResponse) {}
   rpc PartialUpdate(RelProdRepairsPartialUpdateRequest) returns (RelProdRepairsResponse) {}
+  rpc ProdSeriesRepairs(ProdSeriesRepairsRequest) returns (ProdSeriesRepairsListResponse) {}
   rpc Retrieve(RelProdRepairsRetrieveRequest) returns (RelProdRepairsResponse) {}
   rpc Update(RelProdRepairsRequest) returns (RelProdRepairsResponse) {}
 }
 
 service ProductController {
+  rpc Create(ProductModelRequest) returns (ProductModelResponse) {}
+  rpc Destroy(ProductModelDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ProductModelListRequest) returns (ProductModelListResponse) {}
+  rpc PartialUpdate(ProductModelPartialUpdateRequest) returns (ProductModelResponse) {}
+  rpc Retrieve(ProductModelRetrieveRequest) returns (ProductModelResponse) {}
+  rpc Update(ProductModelRequest) returns (ProductModelResponse) {}
 }
 
 service WorkshopController {
@@ -45,7 +51,79 @@ service WorkshopController {
   rpc PartialUpdate(ProdWorkshopPartialUpdateRequest) returns (ProdWorkshopResponse) {}
   rpc Properties(ProdWorkshopPartRequest) returns (WorkshopPropertiesListResponse) {}
   rpc Retrieve(ProdWorkshopRetrieveRequest) returns (ProdWorkshopResponse) {}
+  rpc SkuList(ClubProductRequest) returns (ClubProductListResponse) {}
+  rpc SkuRetrieve(ClubProductRetrieveRequest) returns (ClubProductResponse) {}
+  rpc SkuSpareParts(RawSkuSparePartsRequest) returns (RawSkuSparePartsListResponse) {}
+  rpc SpuList(ClubProductSpuRequest) returns (ClubProductSpuListResponse) {}
+  rpc SpuProperties(ProdWorkshopPartRequest) returns (WorkshopSpuListResponse) {}
   rpc Update(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
+}
+
+message ClubProductListResponse {
+  repeated ClubProductResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubProductRequest {
+  string filters = 1;
+}
+
+message ClubProductResponse {
+  int32 id = 1;
+  string prod_cat = 2;
+  string spu_name = 3;
+  string alias = 4;
+  string prod_code = 5;
+  optional string origin_cat = 6;
+  optional string full_name = 7;
+  optional string color = 8;
+  optional string color_rgb = 9;
+  optional string size = 10;
+  optional string stripe = 11;
+  optional string head_img = 12;
+  bool is_valid = 13;
+  bool bindable = 14;
+  bool customizable = 15;
+  int32 renew_time = 16;
+  int32 repair_time = 17;
+  string renew_time_unit = 18;
+  string repair_time_unit = 19;
+  optional int32 sort = 20;
+  string create_time = 21;
+  string update_time = 22;
+  int64 spu = 23;
+}
+
+message ClubProductRetrieveRequest {
+  int32 id = 1;
+}
+
+message ClubProductSpuListResponse {
+  repeated ClubProductSpuResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubProductSpuRequest {
+  string filters = 1;
+}
+
+message ClubProductSpuResponse {
+  int32 id = 1;
+  repeated string color = 2;
+  repeated string color_rgb = 3;
+  repeated string size = 4;
+  repeated string stripe = 5;
+  repeated ClubProductResponse prod_skus = 6;
+  string prod_cat = 7;
+  optional string origin_cat = 8;
+  string spu_name = 9;
+  optional string alias = 10;
+  bool is_valid = 11;
+  bool bindable = 12;
+  bool customizable = 13;
+  int32 sort = 14;
+  string create_time = 15;
+  string update_time = 16;
 }
 
 message ProdPropertiesListRequest {
@@ -60,6 +138,72 @@ message ProdPropertiesResponse {
   string property_id = 2;
   string code = 3;
   string name = 4;
+}
+
+message ProdSeriesRepairsListResponse {
+  repeated ProdSeriesRepairsResponse results = 1;
+  int32 count = 2;
+}
+
+message ProdSeriesRepairsRequest {
+  int32 id = 1;
+  string prod_model = 2;
+  string prod_color = 3;
+  string prod_code = 4;
+  string prod_barcode = 5;
+  optional string prod_hs_code = 6;
+  optional float prod_cost = 7;
+  optional float prod_price = 8;
+  optional float prod_length = 9;
+  optional float prod_width = 10;
+  optional float prod_height = 11;
+  optional float prod_gross_weight = 12;
+  optional string prod_code_style = 13;
+  optional string prod_description = 14;
+  optional string prod_brief = 15;
+  bool is_valid = 16;
+  optional int32 renew = 17;
+  optional int32 repair = 18;
+  int64 prod_brand = 19;
+  int64 prod_cat = 20;
+  int64 prod_ser = 21;
+  int64 prod_size = 22;
+  int64 prod_texture = 23;
+  int64 prod_lining = 24;
+  int64 prod_version = 25;
+  optional string prod_image = 26;
+}
+
+message ProdSeriesRepairsResponse {
+  int32 id = 1;
+  repeated RelProdRepairsResponse rel_repairs = 2;
+  string prod_model = 3;
+  string prod_color = 4;
+  string prod_code = 5;
+  string prod_barcode = 6;
+  optional string prod_hs_code = 7;
+  optional float prod_cost = 8;
+  optional float prod_price = 9;
+  optional float prod_length = 10;
+  optional float prod_width = 11;
+  optional float prod_height = 12;
+  optional float prod_gross_weight = 13;
+  optional string prod_code_style = 14;
+  optional string prod_description = 15;
+  optional string prod_brief = 16;
+  bool is_valid = 17;
+  optional int32 renew = 18;
+  optional int32 repair = 19;
+  string create_time = 20;
+  string update_time = 21;
+  int64 prod_brand = 22;
+  int64 prod_cat = 23;
+  int64 prod_ser = 24;
+  int64 prod_size = 25;
+  int64 prod_texture = 26;
+  int64 prod_lining = 27;
+  int64 prod_version = 28;
+  optional string prod_image = 29;
 }
 
 message ProdSeriesResponse {
@@ -203,12 +347,98 @@ message ProductListResponse {
   int32 count = 2;
 }
 
+message ProductModelDestroyRequest {
+  string prod_code = 1;
+}
+
 message ProductModelListRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  string prod_model = 8;
+  string prod_color = 9;
+  string prod_code = 10;
+  string prod_barcode = 11;
+  optional string prod_hs_code = 12;
+  optional float prod_cost = 13;
+  optional float prod_price = 14;
+  optional float prod_length = 15;
+  optional float prod_width = 16;
+  optional float prod_height = 17;
+  optional float prod_gross_weight = 18;
+  optional string prod_code_style = 19;
+  optional string prod_description = 20;
+  optional string prod_brief = 21;
+  optional int32 renew = 22;
+  optional int32 repair = 23;
+  string filters = 24;
+  optional string prod_image = 25;
 }
 
 message ProductModelListResponse {
   repeated ProductModelResponse results = 1;
   int32 count = 2;
+}
+
+message ProductModelPartialUpdateRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  repeated string _partial_update_fields = 8;
+  string prod_model = 9;
+  string prod_color = 10;
+  string prod_code = 11;
+  string prod_barcode = 12;
+  optional string prod_hs_code = 13;
+  optional float prod_cost = 14;
+  optional float prod_price = 15;
+  optional float prod_length = 16;
+  optional float prod_width = 17;
+  optional float prod_height = 18;
+  optional float prod_gross_weight = 19;
+  optional string prod_code_style = 20;
+  optional string prod_description = 21;
+  optional string prod_brief = 22;
+  optional int32 renew = 23;
+  optional int32 repair = 24;
+  string filters = 25;
+  optional string prod_image = 26;
+}
+
+message ProductModelRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  string prod_model = 8;
+  string prod_color = 9;
+  string prod_code = 10;
+  string prod_barcode = 11;
+  optional string prod_hs_code = 12;
+  optional float prod_cost = 13;
+  optional float prod_price = 14;
+  optional float prod_length = 15;
+  optional float prod_width = 16;
+  optional float prod_height = 17;
+  optional float prod_gross_weight = 18;
+  optional string prod_code_style = 19;
+  optional string prod_description = 20;
+  optional string prod_brief = 21;
+  optional int32 renew = 22;
+  optional int32 repair = 23;
+  string filters = 24;
+  optional string prod_image = 25;
 }
 
 message ProductModelResponse {
@@ -238,6 +468,11 @@ message ProductModelResponse {
   optional string prod_brief = 24;
   optional int32 renew = 25;
   optional int32 repair = 26;
+  optional string prod_image = 27;
+}
+
+message ProductModelRetrieveRequest {
+  string prod_code = 1;
 }
 
 message ProductRequest {
@@ -265,6 +500,7 @@ message ProductRequest {
   int64 prod_size = 22;
   int64 prod_texture = 23;
   int64 prod_lining = 24;
+  optional string prod_image = 25;
 }
 
 message ProductResponse {
@@ -296,6 +532,47 @@ message ProductResponse {
   int64 prod_lining = 26;
   string prod_version = 27;
   string prod_ver_code = 28;
+  optional string prod_image = 29;
+}
+
+message RawSkuSparePartsListResponse {
+  repeated RawSkuSparePartsResponse results = 1;
+  int32 count = 2;
+}
+
+message RawSkuSparePartsRequest {
+  string goods_no = 1;
+  string filters = 2;
+}
+
+message RawSkuSparePartsResponse {
+  string spu = 1;
+  string prod_brand = 2;
+  string prod_cat = 3;
+  string prod_ser = 4;
+  string prod_size = 5;
+  string prod_texture = 6;
+  string prod_lining = 7;
+  string prod_version = 8;
+  string create_time = 9;
+  string update_time = 10;
+  string prod_model = 11;
+  string prod_color = 12;
+  string prod_code = 13;
+  string prod_barcode = 14;
+  optional string prod_hs_code = 15;
+  optional float prod_cost = 16;
+  optional float prod_price = 17;
+  optional float prod_length = 18;
+  optional float prod_width = 19;
+  optional float prod_height = 20;
+  optional float prod_gross_weight = 21;
+  optional string prod_code_style = 22;
+  optional string prod_description = 23;
+  optional string prod_brief = 24;
+  optional int32 renew = 25;
+  optional int32 repair = 26;
+  optional string prod_image = 27;
 }
 
 message RelProdRepairsBulkCreateListRequest {
@@ -352,10 +629,7 @@ message RelProdRepairsResponse {
   int32 id = 1;
   optional int32 parts_num = 2;
   optional string remarks = 3;
-  optional string create_time = 4;
-  optional string update_time = 5;
   ProductResponse prod_parts = 6;
-  ProductResponse prod = 7;
 }
 
 message RelProdRepairsRetrieveRequest {
@@ -435,6 +709,18 @@ message WorkshopPropertiesResponse {
   string col = 1;
   string code = 2;
   string name = 3;
-  optional ProdWorkshopPartResponse spu = 4;
 }
 
+message WorkshopSpuListResponse {
+  repeated WorkshopSpuResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopSpuResponse {
+  string col = 1;
+  string code = 2;
+  repeated WorkshopPropertiesResponse size = 3;
+  repeated WorkshopPropertiesResponse color = 4;
+  string name = 5;
+  ProdWorkshopPartResponse spu = 6;
+}

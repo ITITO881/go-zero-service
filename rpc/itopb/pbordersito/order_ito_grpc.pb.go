@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -62,6 +63,7 @@ const (
 	CtmItoOrderController_RetrieveRefundReason_FullMethodName            = "/customer_service.customer_ito.CtmItoOrderController/RetrieveRefundReason"
 	CtmItoOrderController_ShopOptionsWdt_FullMethodName                  = "/customer_service.customer_ito.CtmItoOrderController/ShopOptionsWdt"
 	CtmItoOrderController_StockOptionsWdt_FullMethodName                 = "/customer_service.customer_ito.CtmItoOrderController/StockOptionsWdt"
+	CtmItoOrderController_TradeStatusCount_FullMethodName                = "/customer_service.customer_ito.CtmItoOrderController/TradeStatusCount"
 	CtmItoOrderController_TradeStatusOptionsOrder_FullMethodName         = "/customer_service.customer_ito.CtmItoOrderController/TradeStatusOptionsOrder"
 	CtmItoOrderController_TradeTypeRefundReason_FullMethodName           = "/customer_service.customer_ito.CtmItoOrderController/TradeTypeRefundReason"
 	CtmItoOrderController_TypeOptionsRefundReason_FullMethodName         = "/customer_service.customer_ito.CtmItoOrderController/TypeOptionsRefundReason"
@@ -89,14 +91,14 @@ type CtmItoOrderControllerClient interface {
 	CreatePayDetail(ctx context.Context, in *CtmOrderPayDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPayResponse, error)
 	CreatePromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailCreateRequest, opts ...grpc.CallOption) (*CtmOrderPromotionResponse, error)
 	CreateRefundReason(ctx context.Context, in *CtmRefundReasonCreateRequest, opts ...grpc.CallOption) (*CtmRefundReasonResponse, error)
-	Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResp, error)
-	DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResp, error)
-	DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailDestroyResp, error)
-	DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceDetailDestroyResp, error)
-	DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResp, error)
-	DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPayDetailDestroyResp, error)
-	DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPromotionDetailDestroyResp, error)
-	DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResp, error)
+	Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCheckListRefundReason(ctx context.Context, in *RefundReasonCheckListRequest, opts ...grpc.CallOption) (*RefundReasonCheckListResponse, error)
 	List(ctx context.Context, in *CtmOrderListRequest, opts ...grpc.CallOption) (*CtmOrderListResponse, error)
 	ListCoupon(ctx context.Context, in *CtmCouponListRequest, opts ...grpc.CallOption) (*CtmCouponListResponse, error)
@@ -122,6 +124,7 @@ type CtmItoOrderControllerClient interface {
 	RetrieveRefundReason(ctx context.Context, in *CtmRefundReasonRetrieveRequest, opts ...grpc.CallOption) (*CtmRefundReasonResponse, error)
 	ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error)
 	StockOptionsWdt(ctx context.Context, in *WdtStockListRequest, opts ...grpc.CallOption) (*WdtStockListResponse, error)
+	TradeStatusCount(ctx context.Context, in *TradeStatusCountRequest, opts ...grpc.CallOption) (*TradeStatusCountListResponse, error)
 	TradeStatusOptionsOrder(ctx context.Context, in *TradeStatusOptionsRequest, opts ...grpc.CallOption) (*TradeStatusOptionsListResponse, error)
 	TradeTypeRefundReason(ctx context.Context, in *TradeReasonOptionsRequest, opts ...grpc.CallOption) (*TradeReasonOptionListResponse, error)
 	TypeOptionsRefundReason(ctx context.Context, in *ReasonTypeOptionsRequest, opts ...grpc.CallOption) (*ReasonTypeOptionListResponse, error)
@@ -233,8 +236,8 @@ func (c *ctmItoOrderControllerClient) CreateRefundReason(ctx context.Context, in
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*CtmOrderDestroyResp, error) {
-	out := new(CtmOrderDestroyResp)
+func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -242,8 +245,8 @@ func (c *ctmItoOrderControllerClient) Destroy(ctx context.Context, in *CtmOrderD
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*CtmCouponDestroyResp, error) {
-	out := new(CtmCouponDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *CtmCouponDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyCoupon_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -251,8 +254,8 @@ func (c *ctmItoOrderControllerClient) DestroyCoupon(ctx context.Context, in *Ctm
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderGoodsDetailDestroyResp, error) {
-	out := new(CtmOrderGoodsDetailDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyGoodsDetail(ctx context.Context, in *CtmOrderGoodsDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyGoodsDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -260,8 +263,8 @@ func (c *ctmItoOrderControllerClient) DestroyGoodsDetail(ctx context.Context, in
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderInvoiceDetailDestroyResp, error) {
-	out := new(CtmOrderInvoiceDetailDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyInvoiceDetail(ctx context.Context, in *CtmOrderInvoiceDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyInvoiceDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -269,8 +272,8 @@ func (c *ctmItoOrderControllerClient) DestroyInvoiceDetail(ctx context.Context, 
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*CtmOrderConfDestroyResp, error) {
-	out := new(CtmOrderConfDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *CtmOrderConfDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyOrderConf_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -278,8 +281,8 @@ func (c *ctmItoOrderControllerClient) DestroyOrderConf(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPayDetailDestroyResp, error) {
-	out := new(CtmOrderPayDetailDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyPayDetail(ctx context.Context, in *CtmOrderPayDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyPayDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -287,8 +290,8 @@ func (c *ctmItoOrderControllerClient) DestroyPayDetail(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*CtmOrderPromotionDetailDestroyResp, error) {
-	out := new(CtmOrderPromotionDetailDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyPromotionDetail(ctx context.Context, in *CtmOrderPromotionDetailDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyPromotionDetail_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -296,8 +299,8 @@ func (c *ctmItoOrderControllerClient) DestroyPromotionDetail(ctx context.Context
 	return out, nil
 }
 
-func (c *ctmItoOrderControllerClient) DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*CtmRefundReasonDestroyResp, error) {
-	out := new(CtmRefundReasonDestroyResp)
+func (c *ctmItoOrderControllerClient) DestroyRefundReason(ctx context.Context, in *CtmRefundReasonDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_DestroyRefundReason_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -530,6 +533,15 @@ func (c *ctmItoOrderControllerClient) StockOptionsWdt(ctx context.Context, in *W
 	return out, nil
 }
 
+func (c *ctmItoOrderControllerClient) TradeStatusCount(ctx context.Context, in *TradeStatusCountRequest, opts ...grpc.CallOption) (*TradeStatusCountListResponse, error) {
+	out := new(TradeStatusCountListResponse)
+	err := c.cc.Invoke(ctx, CtmItoOrderController_TradeStatusCount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoOrderControllerClient) TradeStatusOptionsOrder(ctx context.Context, in *TradeStatusOptionsRequest, opts ...grpc.CallOption) (*TradeStatusOptionsListResponse, error) {
 	out := new(TradeStatusOptionsListResponse)
 	err := c.cc.Invoke(ctx, CtmItoOrderController_TradeStatusOptionsOrder_FullMethodName, in, out, opts...)
@@ -643,14 +655,14 @@ type CtmItoOrderControllerServer interface {
 	CreatePayDetail(context.Context, *CtmOrderPayDetailCreateRequest) (*CtmOrderPayResponse, error)
 	CreatePromotionDetail(context.Context, *CtmOrderPromotionDetailCreateRequest) (*CtmOrderPromotionResponse, error)
 	CreateRefundReason(context.Context, *CtmRefundReasonCreateRequest) (*CtmRefundReasonResponse, error)
-	Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResp, error)
-	DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResp, error)
-	DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*CtmOrderGoodsDetailDestroyResp, error)
-	DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*CtmOrderInvoiceDetailDestroyResp, error)
-	DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResp, error)
-	DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*CtmOrderPayDetailDestroyResp, error)
-	DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*CtmOrderPromotionDetailDestroyResp, error)
-	DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResp, error)
+	Destroy(context.Context, *CtmOrderDestroyRequest) (*emptypb.Empty, error)
+	DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*emptypb.Empty, error)
+	DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*emptypb.Empty, error)
+	DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*emptypb.Empty, error)
+	DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*emptypb.Empty, error)
+	DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*emptypb.Empty, error)
+	DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*emptypb.Empty, error)
+	DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*emptypb.Empty, error)
 	GetCheckListRefundReason(context.Context, *RefundReasonCheckListRequest) (*RefundReasonCheckListResponse, error)
 	List(context.Context, *CtmOrderListRequest) (*CtmOrderListResponse, error)
 	ListCoupon(context.Context, *CtmCouponListRequest) (*CtmCouponListResponse, error)
@@ -676,6 +688,7 @@ type CtmItoOrderControllerServer interface {
 	RetrieveRefundReason(context.Context, *CtmRefundReasonRetrieveRequest) (*CtmRefundReasonResponse, error)
 	ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error)
 	StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error)
+	TradeStatusCount(context.Context, *TradeStatusCountRequest) (*TradeStatusCountListResponse, error)
 	TradeStatusOptionsOrder(context.Context, *TradeStatusOptionsRequest) (*TradeStatusOptionsListResponse, error)
 	TradeTypeRefundReason(context.Context, *TradeReasonOptionsRequest) (*TradeReasonOptionListResponse, error)
 	TypeOptionsRefundReason(context.Context, *ReasonTypeOptionsRequest) (*ReasonTypeOptionListResponse, error)
@@ -724,28 +737,28 @@ func (UnimplementedCtmItoOrderControllerServer) CreatePromotionDetail(context.Co
 func (UnimplementedCtmItoOrderControllerServer) CreateRefundReason(context.Context, *CtmRefundReasonCreateRequest) (*CtmRefundReasonResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRefundReason not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) Destroy(context.Context, *CtmOrderDestroyRequest) (*CtmOrderDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) Destroy(context.Context, *CtmOrderDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*CtmCouponDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyCoupon(context.Context, *CtmCouponDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCoupon not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*CtmOrderGoodsDetailDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyGoodsDetail(context.Context, *CtmOrderGoodsDetailDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyGoodsDetail not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*CtmOrderInvoiceDetailDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyInvoiceDetail(context.Context, *CtmOrderInvoiceDetailDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyInvoiceDetail not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*CtmOrderConfDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyOrderConf(context.Context, *CtmOrderConfDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyOrderConf not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*CtmOrderPayDetailDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyPayDetail(context.Context, *CtmOrderPayDetailDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyPayDetail not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*CtmOrderPromotionDetailDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyPromotionDetail(context.Context, *CtmOrderPromotionDetailDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyPromotionDetail not implemented")
 }
-func (UnimplementedCtmItoOrderControllerServer) DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*CtmRefundReasonDestroyResp, error) {
+func (UnimplementedCtmItoOrderControllerServer) DestroyRefundReason(context.Context, *CtmRefundReasonDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyRefundReason not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) GetCheckListRefundReason(context.Context, *RefundReasonCheckListRequest) (*RefundReasonCheckListResponse, error) {
@@ -822,6 +835,9 @@ func (UnimplementedCtmItoOrderControllerServer) ShopOptionsWdt(context.Context, 
 }
 func (UnimplementedCtmItoOrderControllerServer) StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StockOptionsWdt not implemented")
+}
+func (UnimplementedCtmItoOrderControllerServer) TradeStatusCount(context.Context, *TradeStatusCountRequest) (*TradeStatusCountListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TradeStatusCount not implemented")
 }
 func (UnimplementedCtmItoOrderControllerServer) TradeStatusOptionsOrder(context.Context, *TradeStatusOptionsRequest) (*TradeStatusOptionsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TradeStatusOptionsOrder not implemented")
@@ -1643,6 +1659,24 @@ func _CtmItoOrderController_StockOptionsWdt_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoOrderController_TradeStatusCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TradeStatusCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoOrderControllerServer).TradeStatusCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoOrderController_TradeStatusCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoOrderControllerServer).TradeStatusCount(ctx, req.(*TradeStatusCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoOrderController_TradeStatusOptionsOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TradeStatusOptionsRequest)
 	if err := dec(in); err != nil {
@@ -2021,6 +2055,10 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoOrderController_StockOptionsWdt_Handler,
 		},
 		{
+			MethodName: "TradeStatusCount",
+			Handler:    _CtmItoOrderController_TradeStatusCount_Handler,
+		},
+		{
 			MethodName: "TradeStatusOptionsOrder",
 			Handler:    _CtmItoOrderController_TradeStatusOptionsOrder_Handler,
 		},
@@ -2063,6 +2101,281 @@ var CtmItoOrderController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateRefundReason",
 			Handler:    _CtmItoOrderController_UpdateRefundReason_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "order_ito.proto",
+}
+
+const (
+	UtilsController_Create_FullMethodName        = "/customer_service.customer_ito.UtilsController/Create"
+	UtilsController_Destroy_FullMethodName       = "/customer_service.customer_ito.UtilsController/Destroy"
+	UtilsController_List_FullMethodName          = "/customer_service.customer_ito.UtilsController/List"
+	UtilsController_PartialUpdate_FullMethodName = "/customer_service.customer_ito.UtilsController/PartialUpdate"
+	UtilsController_Retrieve_FullMethodName      = "/customer_service.customer_ito.UtilsController/Retrieve"
+	UtilsController_Update_FullMethodName        = "/customer_service.customer_ito.UtilsController/Update"
+)
+
+// UtilsControllerClient is the client API for UtilsController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UtilsControllerClient interface {
+	Create(ctx context.Context, in *CityCodeRequest, opts ...grpc.CallOption) (*CityCodeResponse, error)
+	Destroy(ctx context.Context, in *CityCodeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *CityCodeListRequest, opts ...grpc.CallOption) (*CityCodeListResponse, error)
+	PartialUpdate(ctx context.Context, in *CityCodePartialUpdateRequest, opts ...grpc.CallOption) (*CityCodeResponse, error)
+	Retrieve(ctx context.Context, in *CityCodeRetrieveRequest, opts ...grpc.CallOption) (*CityCodeResponse, error)
+	Update(ctx context.Context, in *CityCodeRequest, opts ...grpc.CallOption) (*CityCodeResponse, error)
+}
+
+type utilsControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUtilsControllerClient(cc grpc.ClientConnInterface) UtilsControllerClient {
+	return &utilsControllerClient{cc}
+}
+
+func (c *utilsControllerClient) Create(ctx context.Context, in *CityCodeRequest, opts ...grpc.CallOption) (*CityCodeResponse, error) {
+	out := new(CityCodeResponse)
+	err := c.cc.Invoke(ctx, UtilsController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsControllerClient) Destroy(ctx context.Context, in *CityCodeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, UtilsController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsControllerClient) List(ctx context.Context, in *CityCodeListRequest, opts ...grpc.CallOption) (*CityCodeListResponse, error) {
+	out := new(CityCodeListResponse)
+	err := c.cc.Invoke(ctx, UtilsController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsControllerClient) PartialUpdate(ctx context.Context, in *CityCodePartialUpdateRequest, opts ...grpc.CallOption) (*CityCodeResponse, error) {
+	out := new(CityCodeResponse)
+	err := c.cc.Invoke(ctx, UtilsController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsControllerClient) Retrieve(ctx context.Context, in *CityCodeRetrieveRequest, opts ...grpc.CallOption) (*CityCodeResponse, error) {
+	out := new(CityCodeResponse)
+	err := c.cc.Invoke(ctx, UtilsController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsControllerClient) Update(ctx context.Context, in *CityCodeRequest, opts ...grpc.CallOption) (*CityCodeResponse, error) {
+	out := new(CityCodeResponse)
+	err := c.cc.Invoke(ctx, UtilsController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UtilsControllerServer is the server API for UtilsController service.
+// All implementations must embed UnimplementedUtilsControllerServer
+// for forward compatibility
+type UtilsControllerServer interface {
+	Create(context.Context, *CityCodeRequest) (*CityCodeResponse, error)
+	Destroy(context.Context, *CityCodeDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *CityCodeListRequest) (*CityCodeListResponse, error)
+	PartialUpdate(context.Context, *CityCodePartialUpdateRequest) (*CityCodeResponse, error)
+	Retrieve(context.Context, *CityCodeRetrieveRequest) (*CityCodeResponse, error)
+	Update(context.Context, *CityCodeRequest) (*CityCodeResponse, error)
+	mustEmbedUnimplementedUtilsControllerServer()
+}
+
+// UnimplementedUtilsControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedUtilsControllerServer struct {
+}
+
+func (UnimplementedUtilsControllerServer) Create(context.Context, *CityCodeRequest) (*CityCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedUtilsControllerServer) Destroy(context.Context, *CityCodeDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedUtilsControllerServer) List(context.Context, *CityCodeListRequest) (*CityCodeListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedUtilsControllerServer) PartialUpdate(context.Context, *CityCodePartialUpdateRequest) (*CityCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedUtilsControllerServer) Retrieve(context.Context, *CityCodeRetrieveRequest) (*CityCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedUtilsControllerServer) Update(context.Context, *CityCodeRequest) (*CityCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedUtilsControllerServer) mustEmbedUnimplementedUtilsControllerServer() {}
+
+// UnsafeUtilsControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UtilsControllerServer will
+// result in compilation errors.
+type UnsafeUtilsControllerServer interface {
+	mustEmbedUnimplementedUtilsControllerServer()
+}
+
+func RegisterUtilsControllerServer(s grpc.ServiceRegistrar, srv UtilsControllerServer) {
+	s.RegisterService(&UtilsController_ServiceDesc, srv)
+}
+
+func _UtilsController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).Create(ctx, req.(*CityCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodeDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).Destroy(ctx, req.(*CityCodeDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodeListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).List(ctx, req.(*CityCodeListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodePartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).PartialUpdate(ctx, req.(*CityCodePartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodeRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).Retrieve(ctx, req.(*CityCodeRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UtilsController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CityCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UtilsController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsControllerServer).Update(ctx, req.(*CityCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UtilsController_ServiceDesc is the grpc.ServiceDesc for UtilsController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UtilsController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "customer_service.customer_ito.UtilsController",
+	HandlerType: (*UtilsControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _UtilsController_Create_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _UtilsController_Destroy_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _UtilsController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _UtilsController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _UtilsController_Retrieve_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _UtilsController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

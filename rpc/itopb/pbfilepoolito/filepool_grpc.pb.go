@@ -34,6 +34,7 @@ const (
 	FilePoolIto_UserRepoCreate_FullMethodName         = "/file_pool.FilePoolIto/UserRepoCreate"
 	FilePoolIto_IdByUserFile_FullMethodName           = "/file_pool.FilePoolIto/IdByUserFile"
 	FilePoolIto_UpdateUserFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateUserFile"
+	FilePoolIto_DestroyUserFile_FullMethodName        = "/file_pool.FilePoolIto/DestroyUserFile"
 )
 
 // FilePoolItoClient is the client API for FilePoolIto service.
@@ -70,6 +71,8 @@ type FilePoolItoClient interface {
 	IdByUserFile(ctx context.Context, in *IdByUserFileReq, opts ...grpc.CallOption) (*IdByUserFileResp, error)
 	// 3. 指定记录ID，更新该条记录中 的关联文件唯一标识
 	UpdateUserFile(ctx context.Context, in *UpdateFileIdReq, opts ...grpc.CallOption) (*UpdateFileIdResp, error)
+	// 4. 指定user, source，删除其下，指定FileIdentity的文件
+	DestroyUserFile(ctx context.Context, in *DestroyUserFileReq, opts ...grpc.CallOption) (*DestroyUserFileResp, error)
 }
 
 type filePoolItoClient struct {
@@ -215,6 +218,15 @@ func (c *filePoolItoClient) UpdateUserFile(ctx context.Context, in *UpdateFileId
 	return out, nil
 }
 
+func (c *filePoolItoClient) DestroyUserFile(ctx context.Context, in *DestroyUserFileReq, opts ...grpc.CallOption) (*DestroyUserFileResp, error) {
+	out := new(DestroyUserFileResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_DestroyUserFile_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FilePoolItoServer is the server API for FilePoolIto service.
 // All implementations must embed UnimplementedFilePoolItoServer
 // for forward compatibility
@@ -249,6 +261,8 @@ type FilePoolItoServer interface {
 	IdByUserFile(context.Context, *IdByUserFileReq) (*IdByUserFileResp, error)
 	// 3. 指定记录ID，更新该条记录中 的关联文件唯一标识
 	UpdateUserFile(context.Context, *UpdateFileIdReq) (*UpdateFileIdResp, error)
+	// 4. 指定user, source，删除其下，指定FileIdentity的文件
+	DestroyUserFile(context.Context, *DestroyUserFileReq) (*DestroyUserFileResp, error)
 	mustEmbedUnimplementedFilePoolItoServer()
 }
 
@@ -300,6 +314,9 @@ func (UnimplementedFilePoolItoServer) IdByUserFile(context.Context, *IdByUserFil
 }
 func (UnimplementedFilePoolItoServer) UpdateUserFile(context.Context, *UpdateFileIdReq) (*UpdateFileIdResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserFile not implemented")
+}
+func (UnimplementedFilePoolItoServer) DestroyUserFile(context.Context, *DestroyUserFileReq) (*DestroyUserFileResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyUserFile not implemented")
 }
 func (UnimplementedFilePoolItoServer) mustEmbedUnimplementedFilePoolItoServer() {}
 
@@ -584,6 +601,24 @@ func _FilePoolIto_UpdateUserFile_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FilePoolIto_DestroyUserFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyUserFileReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).DestroyUserFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_DestroyUserFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).DestroyUserFile(ctx, req.(*DestroyUserFileReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FilePoolIto_ServiceDesc is the grpc.ServiceDesc for FilePoolIto service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -650,6 +685,10 @@ var FilePoolIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserFile",
 			Handler:    _FilePoolIto_UpdateUserFile_Handler,
+		},
+		{
+			MethodName: "DestroyUserFile",
+			Handler:    _FilePoolIto_DestroyUserFile_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

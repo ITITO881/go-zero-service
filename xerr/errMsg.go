@@ -1,9 +1,11 @@
 package xerr
 
 var message map[uint32]string
+var payState map[string]string
 
 func init() {
 	message = make(map[uint32]string)
+	payState = make(map[string]string)
 	message[OK] = "success"
 
 	/**(API 文件上传 upload服务 相关错误码)**/
@@ -40,6 +42,7 @@ func init() {
 	message[MINIO_OBJECT_GET_FAIL] = "minio数据库获取对象数据失败"
 
 	message[REDIS_ERROR] = "redis error"
+	message[DS_API_ERROR] = "数仓API请求出错"
 
 	message[COUPON_STOCK_NOT_ENOUGH] = "优惠券库存不足"
 	message[ACTIVITY_NOT_AVALIABLE] = "活动已失效"
@@ -108,6 +111,31 @@ func init() {
 	message[ORDER_MODEL_OPERATE_FAIL] = "订单主表 操作错误"
 	message[ORDER_CONF_MODEL_OPERATION_FAIL] = "订单主表之配置子表 操作错误"
 	message[CTM_BASE_MODEL_OPERATION_FAIL] = "订单基础表 操作错误"
+
+	// 用户关联产品 相关错误
+	message[PRODUCT_NOT_EXITS] = "产品不存在"
+	message[PRODUCT_ALREADY_BIND] = "产品已被绑定"
+	message[PRODUCT_NOT_MATCH] = "产品信息不匹配"
+	message[PRODUCT_NOT_SUPPORT_AFTERSALE] = "当前产品不支持售后"
+	message[PRODUCT_ON_AFTERSALE] = "当前产品维修/售后中"
+
+	// 服务单 相关错误
+	message[SERVICE_RPC_FAIL] = "服务单RPC 失败"
+	message[TRADE_TYPE_EMPTY_FAIL] = "服务单 业务类型字段 缺少"
+	message[OBJECT_REPAIR_RPC_FAIL] = "维修单RPC 失败"
+	message[OBJECT_SWAP_RPC_FAIL] = "换货单RPC 失败"
+	message[OBJECT_TAILOR_RPC_FAIL] = "定制单RPC 失败"
+	message[OBJECT_COMPLAIN_RPC_FAIL] = "投诉单RPC 失败"
+	message[OBJECT_FEEDBACK_RPC_FAIL] = "反馈单RPC 失败"
+	message[OBJECT_TRADE_IN_RPC_FAIL] = "以旧换新RPC 失败"
+	message[SERVICE_GOODS_RETURN_RPC_FAIL] = "退货单RPC 失败"
+	message[SERVICE_GOODS_DELIVERY_RPC_FAIL] = "发货单RPC 失败"
+	message[SERVICE_GOODS_PAY_RPC_FAIL] = "支付单RPC 失败"
+
+	message[RPC_PARSE_TO_API_FAIL] = "RPC解析转换API 失败"
+	message[PRODUCT_RAW_QUERY_FAIL] = "产品原始信息 查询失败"
+
+	payState[WX_PAY_DETAIL_NOT_PAY] = "待支付"
 }
 
 func MapErrMsg(errCode uint32) string {

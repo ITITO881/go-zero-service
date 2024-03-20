@@ -18,6 +18,13 @@ service BuShopController {
   rpc Update(BusinessUnitModelRequest) returns (BusinessUnitModelResponse) {}
 }
 
+service HmxTradesController {
+  rpc EmployeeHmx(EmployeeHmxRequest) returns (EmployeesHmxListResponse) {}
+  rpc List(StoreTradesListRequest) returns (StoreTradesListResponse) {}
+  rpc Retrieve(StoreTradesRetrieveRequest) returns (StoreTradesResponse) {}
+  rpc StoreHmx(StoreHmxRequest) returns (StoreHmxListResponse) {}
+}
+
 message BuBulkUpdateRequest {
   repeated int32 ids = 1;
   string is_disabled = 2;
@@ -80,6 +87,18 @@ message BusinessUnitModelRetrieveRequest {
   int32 id = 1;
 }
 
+message EmployeeHmxRequest {
+}
+
+message EmployeesHmxListResponse {
+  repeated EmployeesHmxResponse results = 1;
+}
+
+message EmployeesHmxResponse {
+  string employee_no = 1;
+  string employee_name = 2;
+}
+
 message ItoShopsModelListResponse {
   repeated ItoShopsModelResponse results = 1;
   int32 count = 2;
@@ -100,5 +119,61 @@ message ItoShopsModelResponse {
   optional string shop_name = 3;
   optional bool is_disabled = 8;
   optional int64 sales_bu = 9;
+}
+
+message StoreHmxListResponse {
+  repeated StoreHmxResponse results = 1;
+}
+
+message StoreHmxRequest {
+}
+
+message StoreHmxResponse {
+  string store_no = 1;
+  string store_name = 2;
+  repeated EmployeesHmxResponse employees = 3;
+}
+
+message StoreTradesListRequest {
+}
+
+message StoreTradesListResponse {
+  repeated StoreTradesResponse results = 1;
+}
+
+message StoreTradesResponse {
+  int32 id = 1;
+  TradeEmployeesResponse trade_employee = 2;
+  TradeDetailsResponse trade_details = 3;
+  string tid = 4;
+  string trade_date = 5;
+  string store_no = 6;
+  string store_name = 7;
+  optional string created = 8;
+}
+
+message StoreTradesRetrieveRequest {
+  int32 id = 1;
+}
+
+message TradeDetailsResponse {
+  int32 id = 1;
+  optional string prod_code = 2;
+  string spec_code = 3;
+  optional string prod_name = 4;
+  float retail_price = 5;
+  float retail_amount = 6;
+  int32 num = 7;
+  string status = 8;
+  optional string style = 9;
+  int64 trade = 10;
+}
+
+message TradeEmployeesResponse {
+  int32 id = 1;
+  string employee_no = 2;
+  string employee_name = 3;
+  float share_percent = 4;
+  int64 trade = 5;
 }
 

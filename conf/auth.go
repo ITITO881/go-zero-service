@@ -23,13 +23,13 @@ type RedisConf struct {
 	DB       int
 }
 
-type MinIOClaimConf struct {
-	Endpoint          string
-	AccessKeyID       string
-	SecretAccessKey   string
-	UseSSL            bool
-	BucketName        string
-	UploadContentType string
-	ExpireDuration    int64
-	Location          string
-}
+//type MinIOClaimConf struct {
+//	Endpoint          string
+//	AccessKeyID       string
+//	SecretAccessKey   string
+//	UseSSL            bool
+//	BucketName        string
+//	UploadContentType string
+//	ExpireDuration    int64
+//	Location          string
+//}

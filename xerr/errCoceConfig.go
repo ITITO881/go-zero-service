@@ -4,7 +4,6 @@ package xerr
 const OK uint32 = 0
 
 /**(前3位代表业务,后三位代表具体功能)**/
-
 const (
 	/**(API 文件上传 upload服务 相关错误码)**/
 	XORM_FILE_DB_CREATE_FAIL   uint32 = 135001
@@ -44,8 +43,9 @@ const (
 )
 
 const (
-	ORM_ERROR   uint32 = 200000
-	REDIS_ERROR uint32 = 200100
+	ORM_ERROR    uint32 = 200000
+	REDIS_ERROR  uint32 = 200100
+	DS_API_ERROR uint32 = 200200
 )
 
 const (
@@ -122,8 +122,13 @@ const (
 	CTM_BASE_MODEL_OPERATION_FAIL   uint32 = 140202
 )
 
+// 用户关联产品
 const (
-/**(Python 用户数据库)**/
+	PRODUCT_NOT_EXITS             uint32 = 30000
+	PRODUCT_ALREADY_BIND          uint32 = 30001
+	PRODUCT_NOT_MATCH             uint32 = 30002
+	PRODUCT_NOT_SUPPORT_AFTERSALE uint32 = 30003
+	PRODUCT_ON_AFTERSALE          uint32 = 30004
 )
 
 const (
@@ -133,4 +138,30 @@ const (
 	ORDER_CONF_SHOP_LIST_FAIL  uint32 = 140003
 	ORDER_CONF_UPDATE_FAIL     uint32 = 140004
 	ORDER_CONF_GET_LIST_FAIL   uint32 = 140005
+)
+
+const (
+	ORDER_DAI_FU_KUAN int32 = 10
+	ORDER_DAI_SHEN_HE int32 = 20
+)
+
+const (
+	/** 服务单 Service RPC 相关 */
+	SERVICE_RPC_FAIL                uint32 = 140600
+	TRADE_TYPE_EMPTY_FAIL           uint32 = 140601
+	OBJECT_REPAIR_RPC_FAIL          uint32 = 140610
+	OBJECT_SWAP_RPC_FAIL            uint32 = 140615
+	OBJECT_TAILOR_RPC_FAIL          uint32 = 140620
+	OBJECT_COMPLAIN_RPC_FAIL        uint32 = 140625
+	OBJECT_FEEDBACK_RPC_FAIL        uint32 = 140630
+	OBJECT_TRADE_IN_RPC_FAIL        uint32 = 140635
+	SERVICE_GOODS_RETURN_RPC_FAIL   uint32 = 140640
+	SERVICE_GOODS_DELIVERY_RPC_FAIL uint32 = 140645
+	SERVICE_GOODS_PAY_RPC_FAIL      uint32 = 140650
+	RPC_PARSE_TO_API_FAIL           uint32 = 140655
+	PRODUCT_RAW_QUERY_FAIL          uint32 = 140656
+)
+
+const (
+	WX_PAY_DETAIL_NOT_PAY string = "NOTPAY"
 )

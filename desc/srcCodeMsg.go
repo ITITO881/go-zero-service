@@ -52,6 +52,12 @@ func init() {
 
 	// 4. ITO 小程序订单 源
 	srcFlag[WX_ORDER] = "文件源：微信小程序 订单"
+
+	// 5. ITO 服务单 相关
+	srcFlag[WX_SERVICE_REPAIR_MEDIA] = "文件源：服务单，权益维修图片"
+	srcFlag[WX_SERVICE_SWAP_MEDIA] = "文件源：服务单，权益换新图片"
+	srcFlag[WX_SERVICE_TAILOR_MEDIA] = "文件源：服务单，产品定制图片"
+	srcFlag[WX_SERVICE_TRADE_IN_MEDIA] = "文件源：服务单，以旧换新图片"
 }
 
 func MapSrcFlag(src int64) (string, error) {

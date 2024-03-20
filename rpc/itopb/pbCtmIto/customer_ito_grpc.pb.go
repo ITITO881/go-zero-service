@@ -23,20 +23,30 @@ const (
 	CtmItoController_Create_FullMethodName                = "/customer_service.customer_ito.CtmItoController/Create"
 	CtmItoController_CreateAddr_FullMethodName            = "/customer_service.customer_ito.CtmItoController/CreateAddr"
 	CtmItoController_CreateCart_FullMethodName            = "/customer_service.customer_ito.CtmItoController/CreateCart"
+	CtmItoController_CreateCtmCardCares_FullMethodName    = "/customer_service.customer_ito.CtmItoController/CreateCtmCardCares"
+	CtmItoController_CreateCtmProduct_FullMethodName      = "/customer_service.customer_ito.CtmItoController/CreateCtmProduct"
 	CtmItoController_DefaultAddr_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DefaultAddr"
 	CtmItoController_Destroy_FullMethodName               = "/customer_service.customer_ito.CtmItoController/Destroy"
 	CtmItoController_DestroyAddr_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DestroyAddr"
 	CtmItoController_DestroyCart_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DestroyCart"
+	CtmItoController_DestroyCtmCardCares_FullMethodName   = "/customer_service.customer_ito.CtmItoController/DestroyCtmCardCares"
+	CtmItoController_DestroyCtmProduct_FullMethodName     = "/customer_service.customer_ito.CtmItoController/DestroyCtmProduct"
 	CtmItoController_List_FullMethodName                  = "/customer_service.customer_ito.CtmItoController/List"
 	CtmItoController_ListAddr_FullMethodName              = "/customer_service.customer_ito.CtmItoController/ListAddr"
 	CtmItoController_ListCart_FullMethodName              = "/customer_service.customer_ito.CtmItoController/ListCart"
+	CtmItoController_ListCtmCardCares_FullMethodName      = "/customer_service.customer_ito.CtmItoController/ListCtmCardCares"
+	CtmItoController_ListCtmProduct_FullMethodName        = "/customer_service.customer_ito.CtmItoController/ListCtmProduct"
 	CtmItoController_PartialUpdate_FullMethodName         = "/customer_service.customer_ito.CtmItoController/PartialUpdate"
 	CtmItoController_Retrieve_FullMethodName              = "/customer_service.customer_ito.CtmItoController/Retrieve"
 	CtmItoController_RetrieveAddr_FullMethodName          = "/customer_service.customer_ito.CtmItoController/RetrieveAddr"
 	CtmItoController_RetrieveCart_FullMethodName          = "/customer_service.customer_ito.CtmItoController/RetrieveCart"
+	CtmItoController_RetrieveCtmCardCares_FullMethodName  = "/customer_service.customer_ito.CtmItoController/RetrieveCtmCardCares"
+	CtmItoController_RetrieveCtmProduct_FullMethodName    = "/customer_service.customer_ito.CtmItoController/RetrieveCtmProduct"
 	CtmItoController_Update_FullMethodName                = "/customer_service.customer_ito.CtmItoController/Update"
 	CtmItoController_UpdateAddr_FullMethodName            = "/customer_service.customer_ito.CtmItoController/UpdateAddr"
 	CtmItoController_UpdateCart_FullMethodName            = "/customer_service.customer_ito.CtmItoController/UpdateCart"
+	CtmItoController_UpdateCtmCardCares_FullMethodName    = "/customer_service.customer_ito.CtmItoController/UpdateCtmCardCares"
+	CtmItoController_UpdateCtmProduct_FullMethodName      = "/customer_service.customer_ito.CtmItoController/UpdateCtmProduct"
 )
 
 // CtmItoControllerClient is the client API for CtmItoController service.
@@ -47,20 +57,30 @@ type CtmItoControllerClient interface {
 	Create(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	CreateAddr(ctx context.Context, in *CtmAddrCreateRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
 	CreateCart(ctx context.Context, in *CtmCartCreateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
+	CreateCtmCardCares(ctx context.Context, in *CtmCardCaresCreateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
+	CreateCtmProduct(ctx context.Context, in *CtmProductCreateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
 	DefaultAddr(ctx context.Context, in *CtmDefaultAddrRequest, opts ...grpc.CallOption) (*CtmItoDefaultAddrResponse, error)
 	Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*CtmBaseDestroyResponse, error)
 	DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*CtmAddrDestroyResponse, error)
 	DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*CtmCartDestroyResponse, error)
+	DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmCardCaresResponse, error)
+	DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmProductResponse, error)
 	List(ctx context.Context, in *CtmBaseListRequest, opts ...grpc.CallOption) (*CtmBaseListResponse, error)
 	ListAddr(ctx context.Context, in *CtmAddrListRequest, opts ...grpc.CallOption) (*CtmAddrListResponse, error)
 	ListCart(ctx context.Context, in *CtmCartListRequest, opts ...grpc.CallOption) (*CtmCartListResponse, error)
+	ListCtmCardCares(ctx context.Context, in *CtmCardCaresListRequest, opts ...grpc.CallOption) (*CtmCardCaresListResponse, error)
+	ListCtmProduct(ctx context.Context, in *CtmProductListRequest, opts ...grpc.CallOption) (*CtmProductListResponse, error)
 	PartialUpdate(ctx context.Context, in *CtmBasePartialUpdateRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	Retrieve(ctx context.Context, in *CtmBaseRetrieveRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	RetrieveAddr(ctx context.Context, in *CtmAddrRetrieveRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
 	RetrieveCart(ctx context.Context, in *CtmCartRetrieveRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
+	RetrieveCtmCardCares(ctx context.Context, in *CtmCardCaresRetrieveRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
+	RetrieveCtmProduct(ctx context.Context, in *CtmProductRetrieveRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
 	Update(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	UpdateAddr(ctx context.Context, in *CtmAddrUpdateRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
 	UpdateCart(ctx context.Context, in *CtmCartUpdateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
+	UpdateCtmCardCares(ctx context.Context, in *CtmCardCaresUpdateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
+	UpdateCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
 }
 
 type ctmItoControllerClient struct {
@@ -107,6 +127,24 @@ func (c *ctmItoControllerClient) CreateCart(ctx context.Context, in *CtmCartCrea
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) CreateCtmCardCares(ctx context.Context, in *CtmCardCaresCreateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error) {
+	out := new(CtmCardCaresResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_CreateCtmCardCares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) CreateCtmProduct(ctx context.Context, in *CtmProductCreateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error) {
+	out := new(CtmProductResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_CreateCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) DefaultAddr(ctx context.Context, in *CtmDefaultAddrRequest, opts ...grpc.CallOption) (*CtmItoDefaultAddrResponse, error) {
 	out := new(CtmItoDefaultAddrResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_DefaultAddr_FullMethodName, in, out, opts...)
@@ -143,6 +181,24 @@ func (c *ctmItoControllerClient) DestroyCart(ctx context.Context, in *CtmCartDes
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmCardCaresResponse, error) {
+	out := new(CtmItoDestroyCtmCardCaresResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmCardCares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmProductResponse, error) {
+	out := new(CtmItoDestroyCtmProductResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) List(ctx context.Context, in *CtmBaseListRequest, opts ...grpc.CallOption) (*CtmBaseListResponse, error) {
 	out := new(CtmBaseListResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_List_FullMethodName, in, out, opts...)
@@ -164,6 +220,24 @@ func (c *ctmItoControllerClient) ListAddr(ctx context.Context, in *CtmAddrListRe
 func (c *ctmItoControllerClient) ListCart(ctx context.Context, in *CtmCartListRequest, opts ...grpc.CallOption) (*CtmCartListResponse, error) {
 	out := new(CtmCartListResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_ListCart_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) ListCtmCardCares(ctx context.Context, in *CtmCardCaresListRequest, opts ...grpc.CallOption) (*CtmCardCaresListResponse, error) {
+	out := new(CtmCardCaresListResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_ListCtmCardCares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) ListCtmProduct(ctx context.Context, in *CtmProductListRequest, opts ...grpc.CallOption) (*CtmProductListResponse, error) {
+	out := new(CtmProductListResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_ListCtmProduct_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -206,6 +280,24 @@ func (c *ctmItoControllerClient) RetrieveCart(ctx context.Context, in *CtmCartRe
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) RetrieveCtmCardCares(ctx context.Context, in *CtmCardCaresRetrieveRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error) {
+	out := new(CtmCardCaresResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_RetrieveCtmCardCares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) RetrieveCtmProduct(ctx context.Context, in *CtmProductRetrieveRequest, opts ...grpc.CallOption) (*CtmProductResponse, error) {
+	out := new(CtmProductResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_RetrieveCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) Update(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error) {
 	out := new(CtmBaseResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_Update_FullMethodName, in, out, opts...)
@@ -233,6 +325,24 @@ func (c *ctmItoControllerClient) UpdateCart(ctx context.Context, in *CtmCartUpda
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) UpdateCtmCardCares(ctx context.Context, in *CtmCardCaresUpdateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error) {
+	out := new(CtmCardCaresResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_UpdateCtmCardCares_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) UpdateCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error) {
+	out := new(CtmProductResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_UpdateCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CtmItoControllerServer is the server API for CtmItoController service.
 // All implementations must embed UnimplementedCtmItoControllerServer
 // for forward compatibility
@@ -241,20 +351,30 @@ type CtmItoControllerServer interface {
 	Create(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error)
 	CreateAddr(context.Context, *CtmAddrCreateRequest) (*CtmAddrResponse, error)
 	CreateCart(context.Context, *CtmCartCreateRequest) (*CtmCartResponse, error)
+	CreateCtmCardCares(context.Context, *CtmCardCaresCreateRequest) (*CtmCardCaresResponse, error)
+	CreateCtmProduct(context.Context, *CtmProductCreateRequest) (*CtmProductResponse, error)
 	DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error)
 	Destroy(context.Context, *CtmBaseDestroyRequest) (*CtmBaseDestroyResponse, error)
 	DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*CtmAddrDestroyResponse, error)
 	DestroyCart(context.Context, *CtmCartDestroyRequest) (*CtmCartDestroyResponse, error)
+	DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*CtmItoDestroyCtmCardCaresResponse, error)
+	DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*CtmItoDestroyCtmProductResponse, error)
 	List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error)
 	ListAddr(context.Context, *CtmAddrListRequest) (*CtmAddrListResponse, error)
 	ListCart(context.Context, *CtmCartListRequest) (*CtmCartListResponse, error)
+	ListCtmCardCares(context.Context, *CtmCardCaresListRequest) (*CtmCardCaresListResponse, error)
+	ListCtmProduct(context.Context, *CtmProductListRequest) (*CtmProductListResponse, error)
 	PartialUpdate(context.Context, *CtmBasePartialUpdateRequest) (*CtmBaseResponse, error)
 	Retrieve(context.Context, *CtmBaseRetrieveRequest) (*CtmBaseResponse, error)
 	RetrieveAddr(context.Context, *CtmAddrRetrieveRequest) (*CtmAddrResponse, error)
 	RetrieveCart(context.Context, *CtmCartRetrieveRequest) (*CtmCartResponse, error)
+	RetrieveCtmCardCares(context.Context, *CtmCardCaresRetrieveRequest) (*CtmCardCaresResponse, error)
+	RetrieveCtmProduct(context.Context, *CtmProductRetrieveRequest) (*CtmProductResponse, error)
 	Update(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error)
 	UpdateAddr(context.Context, *CtmAddrUpdateRequest) (*CtmAddrResponse, error)
 	UpdateCart(context.Context, *CtmCartUpdateRequest) (*CtmCartResponse, error)
+	UpdateCtmCardCares(context.Context, *CtmCardCaresUpdateRequest) (*CtmCardCaresResponse, error)
+	UpdateCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error)
 	mustEmbedUnimplementedCtmItoControllerServer()
 }
 
@@ -274,6 +394,12 @@ func (UnimplementedCtmItoControllerServer) CreateAddr(context.Context, *CtmAddrC
 func (UnimplementedCtmItoControllerServer) CreateCart(context.Context, *CtmCartCreateRequest) (*CtmCartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCart not implemented")
 }
+func (UnimplementedCtmItoControllerServer) CreateCtmCardCares(context.Context, *CtmCardCaresCreateRequest) (*CtmCardCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmCardCares not implemented")
+}
+func (UnimplementedCtmItoControllerServer) CreateCtmProduct(context.Context, *CtmProductCreateRequest) (*CtmProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmProduct not implemented")
+}
 func (UnimplementedCtmItoControllerServer) DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DefaultAddr not implemented")
 }
@@ -286,6 +412,12 @@ func (UnimplementedCtmItoControllerServer) DestroyAddr(context.Context, *CtmAddr
 func (UnimplementedCtmItoControllerServer) DestroyCart(context.Context, *CtmCartDestroyRequest) (*CtmCartDestroyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCart not implemented")
 }
+func (UnimplementedCtmItoControllerServer) DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*CtmItoDestroyCtmCardCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmCardCares not implemented")
+}
+func (UnimplementedCtmItoControllerServer) DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*CtmItoDestroyCtmProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmProduct not implemented")
+}
 func (UnimplementedCtmItoControllerServer) List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
@@ -294,6 +426,12 @@ func (UnimplementedCtmItoControllerServer) ListAddr(context.Context, *CtmAddrLis
 }
 func (UnimplementedCtmItoControllerServer) ListCart(context.Context, *CtmCartListRequest) (*CtmCartListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCart not implemented")
+}
+func (UnimplementedCtmItoControllerServer) ListCtmCardCares(context.Context, *CtmCardCaresListRequest) (*CtmCardCaresListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCtmCardCares not implemented")
+}
+func (UnimplementedCtmItoControllerServer) ListCtmProduct(context.Context, *CtmProductListRequest) (*CtmProductListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCtmProduct not implemented")
 }
 func (UnimplementedCtmItoControllerServer) PartialUpdate(context.Context, *CtmBasePartialUpdateRequest) (*CtmBaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -307,6 +445,12 @@ func (UnimplementedCtmItoControllerServer) RetrieveAddr(context.Context, *CtmAdd
 func (UnimplementedCtmItoControllerServer) RetrieveCart(context.Context, *CtmCartRetrieveRequest) (*CtmCartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCart not implemented")
 }
+func (UnimplementedCtmItoControllerServer) RetrieveCtmCardCares(context.Context, *CtmCardCaresRetrieveRequest) (*CtmCardCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmCardCares not implemented")
+}
+func (UnimplementedCtmItoControllerServer) RetrieveCtmProduct(context.Context, *CtmProductRetrieveRequest) (*CtmProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmProduct not implemented")
+}
 func (UnimplementedCtmItoControllerServer) Update(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
@@ -315,6 +459,12 @@ func (UnimplementedCtmItoControllerServer) UpdateAddr(context.Context, *CtmAddrU
 }
 func (UnimplementedCtmItoControllerServer) UpdateCart(context.Context, *CtmCartUpdateRequest) (*CtmCartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCart not implemented")
+}
+func (UnimplementedCtmItoControllerServer) UpdateCtmCardCares(context.Context, *CtmCardCaresUpdateRequest) (*CtmCardCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmCardCares not implemented")
+}
+func (UnimplementedCtmItoControllerServer) UpdateCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmProduct not implemented")
 }
 func (UnimplementedCtmItoControllerServer) mustEmbedUnimplementedCtmItoControllerServer() {}
 
@@ -401,6 +551,42 @@ func _CtmItoController_CreateCart_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_CreateCtmCardCares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmCardCaresCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).CreateCtmCardCares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_CreateCtmCardCares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).CreateCtmCardCares(ctx, req.(*CtmCardCaresCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_CreateCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmProductCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).CreateCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_CreateCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).CreateCtmProduct(ctx, req.(*CtmProductCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_DefaultAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmDefaultAddrRequest)
 	if err := dec(in); err != nil {
@@ -473,6 +659,42 @@ func _CtmItoController_DestroyCart_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_DestroyCtmCardCares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmItoDestroyCtmCardCaresRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).DestroyCtmCardCares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_DestroyCtmCardCares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).DestroyCtmCardCares(ctx, req.(*CtmItoDestroyCtmCardCaresRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_DestroyCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmItoDestroyCtmProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).DestroyCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_DestroyCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).DestroyCtmProduct(ctx, req.(*CtmItoDestroyCtmProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmBaseListRequest)
 	if err := dec(in); err != nil {
@@ -523,6 +745,42 @@ func _CtmItoController_ListCart_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoControllerServer).ListCart(ctx, req.(*CtmCartListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_ListCtmCardCares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmCardCaresListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).ListCtmCardCares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_ListCtmCardCares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).ListCtmCardCares(ctx, req.(*CtmCardCaresListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_ListCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmProductListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).ListCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_ListCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).ListCtmProduct(ctx, req.(*CtmProductListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -599,6 +857,42 @@ func _CtmItoController_RetrieveCart_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_RetrieveCtmCardCares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmCardCaresRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).RetrieveCtmCardCares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_RetrieveCtmCardCares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).RetrieveCtmCardCares(ctx, req.(*CtmCardCaresRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_RetrieveCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmProductRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).RetrieveCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_RetrieveCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).RetrieveCtmProduct(ctx, req.(*CtmProductRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmBaseRequest)
 	if err := dec(in); err != nil {
@@ -653,6 +947,42 @@ func _CtmItoController_UpdateCart_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_UpdateCtmCardCares_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmCardCaresUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).UpdateCtmCardCares(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_UpdateCtmCardCares_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).UpdateCtmCardCares(ctx, req.(*CtmCardCaresUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_UpdateCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmProductUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).UpdateCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_UpdateCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).UpdateCtmProduct(ctx, req.(*CtmProductUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CtmItoController_ServiceDesc is the grpc.ServiceDesc for CtmItoController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -677,6 +1007,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_CreateCart_Handler,
 		},
 		{
+			MethodName: "CreateCtmCardCares",
+			Handler:    _CtmItoController_CreateCtmCardCares_Handler,
+		},
+		{
+			MethodName: "CreateCtmProduct",
+			Handler:    _CtmItoController_CreateCtmProduct_Handler,
+		},
+		{
 			MethodName: "DefaultAddr",
 			Handler:    _CtmItoController_DefaultAddr_Handler,
 		},
@@ -693,6 +1031,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_DestroyCart_Handler,
 		},
 		{
+			MethodName: "DestroyCtmCardCares",
+			Handler:    _CtmItoController_DestroyCtmCardCares_Handler,
+		},
+		{
+			MethodName: "DestroyCtmProduct",
+			Handler:    _CtmItoController_DestroyCtmProduct_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _CtmItoController_List_Handler,
 		},
@@ -703,6 +1049,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListCart",
 			Handler:    _CtmItoController_ListCart_Handler,
+		},
+		{
+			MethodName: "ListCtmCardCares",
+			Handler:    _CtmItoController_ListCtmCardCares_Handler,
+		},
+		{
+			MethodName: "ListCtmProduct",
+			Handler:    _CtmItoController_ListCtmProduct_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
@@ -721,6 +1075,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_RetrieveCart_Handler,
 		},
 		{
+			MethodName: "RetrieveCtmCardCares",
+			Handler:    _CtmItoController_RetrieveCtmCardCares_Handler,
+		},
+		{
+			MethodName: "RetrieveCtmProduct",
+			Handler:    _CtmItoController_RetrieveCtmProduct_Handler,
+		},
+		{
 			MethodName: "Update",
 			Handler:    _CtmItoController_Update_Handler,
 		},
@@ -731,6 +1093,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateCart",
 			Handler:    _CtmItoController_UpdateCart_Handler,
+		},
+		{
+			MethodName: "UpdateCtmCardCares",
+			Handler:    _CtmItoController_UpdateCtmCardCares_Handler,
+		},
+		{
+			MethodName: "UpdateCtmProduct",
+			Handler:    _CtmItoController_UpdateCtmProduct_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

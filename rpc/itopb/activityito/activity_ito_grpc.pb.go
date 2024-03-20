@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,296 +20,40 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ActivityBrandCaresController_Create_FullMethodName        = "/activity_service.activity_ito.ActivityBrandCaresController/Create"
-	ActivityBrandCaresController_Destroy_FullMethodName       = "/activity_service.activity_ito.ActivityBrandCaresController/Destroy"
-	ActivityBrandCaresController_List_FullMethodName          = "/activity_service.activity_ito.ActivityBrandCaresController/List"
-	ActivityBrandCaresController_PartialUpdate_FullMethodName = "/activity_service.activity_ito.ActivityBrandCaresController/PartialUpdate"
-	ActivityBrandCaresController_Retrieve_FullMethodName      = "/activity_service.activity_ito.ActivityBrandCaresController/Retrieve"
-	ActivityBrandCaresController_Update_FullMethodName        = "/activity_service.activity_ito.ActivityBrandCaresController/Update"
-)
-
-// ActivityBrandCaresControllerClient is the client API for ActivityBrandCaresController service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ActivityBrandCaresControllerClient interface {
-	Create(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandCaresDestroyResponse, error)
-	List(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error)
-	PartialUpdate(ctx context.Context, in *ActivityBrandCaresPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-	Retrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-	Update(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-}
-
-type activityBrandCaresControllerClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewActivityBrandCaresControllerClient(cc grpc.ClientConnInterface) ActivityBrandCaresControllerClient {
-	return &activityBrandCaresControllerClient{cc}
-}
-
-func (c *activityBrandCaresControllerClient) Create(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
-	out := new(ActivityBrandCaresResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_Create_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityBrandCaresControllerClient) Destroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandCaresDestroyResponse, error) {
-	out := new(ActivityBrandCaresDestroyResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_Destroy_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityBrandCaresControllerClient) List(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error) {
-	out := new(ActivityBrandCaresListResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_List_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityBrandCaresControllerClient) PartialUpdate(ctx context.Context, in *ActivityBrandCaresPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
-	out := new(ActivityBrandCaresResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_PartialUpdate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityBrandCaresControllerClient) Retrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
-	out := new(ActivityBrandCaresResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_Retrieve_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityBrandCaresControllerClient) Update(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
-	out := new(ActivityBrandCaresResponse)
-	err := c.cc.Invoke(ctx, ActivityBrandCaresController_Update_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ActivityBrandCaresControllerServer is the server API for ActivityBrandCaresController service.
-// All implementations must embed UnimplementedActivityBrandCaresControllerServer
-// for forward compatibility
-type ActivityBrandCaresControllerServer interface {
-	Create(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error)
-	Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*ActivityBrandCaresDestroyResponse, error)
-	List(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error)
-	PartialUpdate(context.Context, *ActivityBrandCaresPartialUpdateRequest) (*ActivityBrandCaresResponse, error)
-	Retrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error)
-	Update(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error)
-	mustEmbedUnimplementedActivityBrandCaresControllerServer()
-}
-
-// UnimplementedActivityBrandCaresControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedActivityBrandCaresControllerServer struct {
-}
-
-func (UnimplementedActivityBrandCaresControllerServer) Create(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) Destroy(context.Context, *ActivityBrandCaresDestroyRequest) (*ActivityBrandCaresDestroyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) List(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) PartialUpdate(context.Context, *ActivityBrandCaresPartialUpdateRequest) (*ActivityBrandCaresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) Retrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) Update(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
-}
-func (UnimplementedActivityBrandCaresControllerServer) mustEmbedUnimplementedActivityBrandCaresControllerServer() {
-}
-
-// UnsafeActivityBrandCaresControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ActivityBrandCaresControllerServer will
-// result in compilation errors.
-type UnsafeActivityBrandCaresControllerServer interface {
-	mustEmbedUnimplementedActivityBrandCaresControllerServer()
-}
-
-func RegisterActivityBrandCaresControllerServer(s grpc.ServiceRegistrar, srv ActivityBrandCaresControllerServer) {
-	s.RegisterService(&ActivityBrandCaresController_ServiceDesc, srv)
-}
-
-func _ActivityBrandCaresController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_Create_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).Create(ctx, req.(*ActivityBrandCaresRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityBrandCaresController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresDestroyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).Destroy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_Destroy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).Destroy(ctx, req.(*ActivityBrandCaresDestroyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityBrandCaresController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).List(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_List_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).List(ctx, req.(*ActivityBrandCaresListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityBrandCaresController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresPartialUpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).PartialUpdate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_PartialUpdate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).PartialUpdate(ctx, req.(*ActivityBrandCaresPartialUpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityBrandCaresController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresRetrieveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).Retrieve(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_Retrieve_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).Retrieve(ctx, req.(*ActivityBrandCaresRetrieveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityBrandCaresController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityBrandCaresRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityBrandCaresControllerServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityBrandCaresController_Update_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityBrandCaresControllerServer).Update(ctx, req.(*ActivityBrandCaresRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ActivityBrandCaresController_ServiceDesc is the grpc.ServiceDesc for ActivityBrandCaresController service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ActivityBrandCaresController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "activity_service.activity_ito.ActivityBrandCaresController",
-	HandlerType: (*ActivityBrandCaresControllerServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Create",
-			Handler:    _ActivityBrandCaresController_Create_Handler,
-		},
-		{
-			MethodName: "Destroy",
-			Handler:    _ActivityBrandCaresController_Destroy_Handler,
-		},
-		{
-			MethodName: "List",
-			Handler:    _ActivityBrandCaresController_List_Handler,
-		},
-		{
-			MethodName: "PartialUpdate",
-			Handler:    _ActivityBrandCaresController_PartialUpdate_Handler,
-		},
-		{
-			MethodName: "Retrieve",
-			Handler:    _ActivityBrandCaresController_Retrieve_Handler,
-		},
-		{
-			MethodName: "Update",
-			Handler:    _ActivityBrandCaresController_Update_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "activity_ito.proto",
-}
-
-const (
-	ActivityBrandController_Create_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/Create"
-	ActivityBrandController_Destroy_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/Destroy"
-	ActivityBrandController_List_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/List"
-	ActivityBrandController_PartialUpdate_FullMethodName = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
-	ActivityBrandController_Retrieve_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/Retrieve"
-	ActivityBrandController_Update_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/Update"
+	ActivityBrandController_CaresCreate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/CaresCreate"
+	ActivityBrandController_CaresDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/CaresDestroy"
+	ActivityBrandController_CaresList_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/CaresList"
+	ActivityBrandController_CaresRecordCreate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/CaresRecordCreate"
+	ActivityBrandController_CaresRecordDestroy_FullMethodName  = "/activity_service.activity_ito.ActivityBrandController/CaresRecordDestroy"
+	ActivityBrandController_CaresRecordList_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/CaresRecordList"
+	ActivityBrandController_CaresRecordRetrieve_FullMethodName = "/activity_service.activity_ito.ActivityBrandController/CaresRecordRetrieve"
+	ActivityBrandController_CaresRecordUpdate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/CaresRecordUpdate"
+	ActivityBrandController_CaresRetrieve_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/CaresRetrieve"
+	ActivityBrandController_CaresUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/CaresUpdate"
+	ActivityBrandController_Create_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Create"
+	ActivityBrandController_Destroy_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/Destroy"
+	ActivityBrandController_List_FullMethodName                = "/activity_service.activity_ito.ActivityBrandController/List"
+	ActivityBrandController_PartialUpdate_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
+	ActivityBrandController_Retrieve_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/Retrieve"
+	ActivityBrandController_Update_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Update"
 )
 
 // ActivityBrandControllerClient is the client API for ActivityBrandController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandControllerClient interface {
+	CaresCreate(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
+	CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CaresList(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error)
+	CaresRecordCreate(ctx context.Context, in *ActivityBrandCaresRecordRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
+	CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CaresRecordList(ctx context.Context, in *ActivityBrandCaresRecordListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordListResponse, error)
+	CaresRecordRetrieve(ctx context.Context, in *ActivityBrandCaresRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
+	CaresRecordUpdate(ctx context.Context, in *ActivityBrandCaresRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
+	CaresRetrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
+	CaresUpdate(ctx context.Context, in *ActivityBrandCaresUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
 	Create(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandDestroyResponse, error)
+	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ActivityBrandListRequest, opts ...grpc.CallOption) (*ActivityBrandListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
@@ -323,6 +68,96 @@ func NewActivityBrandControllerClient(cc grpc.ClientConnInterface) ActivityBrand
 	return &activityBrandControllerClient{cc}
 }
 
+func (c *activityBrandControllerClient) CaresCreate(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
+	out := new(ActivityBrandCaresResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresList(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error) {
+	out := new(ActivityBrandCaresListResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRecordCreate(ctx context.Context, in *ActivityBrandCaresRecordRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error) {
+	out := new(ActivityBrandCaresRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRecordList(ctx context.Context, in *ActivityBrandCaresRecordListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordListResponse, error) {
+	out := new(ActivityBrandCaresRecordListResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRecordRetrieve(ctx context.Context, in *ActivityBrandCaresRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error) {
+	out := new(ActivityBrandCaresRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRecordUpdate(ctx context.Context, in *ActivityBrandCaresRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error) {
+	out := new(ActivityBrandCaresRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresRetrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
+	out := new(ActivityBrandCaresResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) CaresUpdate(ctx context.Context, in *ActivityBrandCaresUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
+	out := new(ActivityBrandCaresResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_CaresUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *activityBrandControllerClient) Create(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error) {
 	out := new(ActivityBrandResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandController_Create_FullMethodName, in, out, opts...)
@@ -332,8 +167,8 @@ func (c *activityBrandControllerClient) Create(ctx context.Context, in *Activity
 	return out, nil
 }
 
-func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandDestroyResponse, error) {
-	out := new(ActivityBrandDestroyResponse)
+func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -381,8 +216,18 @@ func (c *activityBrandControllerClient) Update(ctx context.Context, in *Activity
 // All implementations must embed UnimplementedActivityBrandControllerServer
 // for forward compatibility
 type ActivityBrandControllerServer interface {
+	CaresCreate(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error)
+	CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*emptypb.Empty, error)
+	CaresList(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error)
+	CaresRecordCreate(context.Context, *ActivityBrandCaresRecordRequest) (*ActivityBrandCaresRecordResponse, error)
+	CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*emptypb.Empty, error)
+	CaresRecordList(context.Context, *ActivityBrandCaresRecordListRequest) (*ActivityBrandCaresRecordListResponse, error)
+	CaresRecordRetrieve(context.Context, *ActivityBrandCaresRecordRetrieveRequest) (*ActivityBrandCaresRecordResponse, error)
+	CaresRecordUpdate(context.Context, *ActivityBrandCaresRecordUpdateRequest) (*ActivityBrandCaresRecordResponse, error)
+	CaresRetrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error)
+	CaresUpdate(context.Context, *ActivityBrandCaresUpdateRequest) (*ActivityBrandCaresResponse, error)
 	Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error)
-	Destroy(context.Context, *ActivityBrandDestroyRequest) (*ActivityBrandDestroyResponse, error)
+	Destroy(context.Context, *ActivityBrandDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error)
 	Retrieve(context.Context, *ActivityBrandRetrieveRequest) (*ActivityBrandResponse, error)
@@ -394,10 +239,40 @@ type ActivityBrandControllerServer interface {
 type UnimplementedActivityBrandControllerServer struct {
 }
 
+func (UnimplementedActivityBrandControllerServer) CaresCreate(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresCreate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresDestroy not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresList(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresList not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRecordCreate(context.Context, *ActivityBrandCaresRecordRequest) (*ActivityBrandCaresRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordCreate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordDestroy not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRecordList(context.Context, *ActivityBrandCaresRecordListRequest) (*ActivityBrandCaresRecordListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordList not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRecordRetrieve(context.Context, *ActivityBrandCaresRecordRetrieveRequest) (*ActivityBrandCaresRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordRetrieve not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRecordUpdate(context.Context, *ActivityBrandCaresRecordUpdateRequest) (*ActivityBrandCaresRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordUpdate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresRetrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresRetrieve not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) CaresUpdate(context.Context, *ActivityBrandCaresUpdateRequest) (*ActivityBrandCaresResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CaresUpdate not implemented")
+}
 func (UnimplementedActivityBrandControllerServer) Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*ActivityBrandDestroyResponse, error) {
+func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error) {
@@ -424,6 +299,186 @@ type UnsafeActivityBrandControllerServer interface {
 
 func RegisterActivityBrandControllerServer(s grpc.ServiceRegistrar, srv ActivityBrandControllerServer) {
 	s.RegisterService(&ActivityBrandController_ServiceDesc, srv)
+}
+
+func _ActivityBrandController_CaresCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresCreate(ctx, req.(*ActivityBrandCaresRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresDestroy(ctx, req.(*ActivityBrandCaresDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresList(ctx, req.(*ActivityBrandCaresListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRecordCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRecordCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRecordCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRecordCreate(ctx, req.(*ActivityBrandCaresRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRecordDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRecordDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRecordDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRecordDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRecordDestroy(ctx, req.(*ActivityBrandCaresRecordDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRecordList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRecordListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRecordList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRecordList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRecordList(ctx, req.(*ActivityBrandCaresRecordListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRecordRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRecordRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRecordRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRecordRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRecordRetrieve(ctx, req.(*ActivityBrandCaresRecordRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRecordUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRecordUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRecordUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRecordUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRecordUpdate(ctx, req.(*ActivityBrandCaresRecordUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresRetrieve(ctx, req.(*ActivityBrandCaresRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_CaresUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandCaresUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).CaresUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_CaresUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).CaresUpdate(ctx, req.(*ActivityBrandCaresUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _ActivityBrandController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -542,6 +597,46 @@ var ActivityBrandController_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ActivityBrandControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "CaresCreate",
+			Handler:    _ActivityBrandController_CaresCreate_Handler,
+		},
+		{
+			MethodName: "CaresDestroy",
+			Handler:    _ActivityBrandController_CaresDestroy_Handler,
+		},
+		{
+			MethodName: "CaresList",
+			Handler:    _ActivityBrandController_CaresList_Handler,
+		},
+		{
+			MethodName: "CaresRecordCreate",
+			Handler:    _ActivityBrandController_CaresRecordCreate_Handler,
+		},
+		{
+			MethodName: "CaresRecordDestroy",
+			Handler:    _ActivityBrandController_CaresRecordDestroy_Handler,
+		},
+		{
+			MethodName: "CaresRecordList",
+			Handler:    _ActivityBrandController_CaresRecordList_Handler,
+		},
+		{
+			MethodName: "CaresRecordRetrieve",
+			Handler:    _ActivityBrandController_CaresRecordRetrieve_Handler,
+		},
+		{
+			MethodName: "CaresRecordUpdate",
+			Handler:    _ActivityBrandController_CaresRecordUpdate_Handler,
+		},
+		{
+			MethodName: "CaresRetrieve",
+			Handler:    _ActivityBrandController_CaresRetrieve_Handler,
+		},
+		{
+			MethodName: "CaresUpdate",
+			Handler:    _ActivityBrandController_CaresUpdate_Handler,
+		},
+		{
 			MethodName: "Create",
 			Handler:    _ActivityBrandController_Create_Handler,
 		},
@@ -584,7 +679,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandNutControllerClient interface {
 	Create(ctx context.Context, in *ActivityBrandNutRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandNutDestroyResponse, error)
+	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ActivityBrandNutListRequest, opts ...grpc.CallOption) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandNutPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandNutRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
@@ -608,8 +703,8 @@ func (c *activityBrandNutControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*ActivityBrandNutDestroyResponse, error) {
-	out := new(ActivityBrandNutDestroyResponse)
+func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandNutController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -658,7 +753,7 @@ func (c *activityBrandNutControllerClient) Update(ctx context.Context, in *Activ
 // for forward compatibility
 type ActivityBrandNutControllerServer interface {
 	Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error)
-	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*ActivityBrandNutDestroyResponse, error)
+	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandNutPartialUpdateRequest) (*ActivityBrandNutResponse, error)
 	Retrieve(context.Context, *ActivityBrandNutRetrieveRequest) (*ActivityBrandNutResponse, error)
@@ -673,7 +768,7 @@ type UnimplementedActivityBrandNutControllerServer struct {
 func (UnimplementedActivityBrandNutControllerServer) Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*ActivityBrandNutDestroyResponse, error) {
+func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandNutControllerServer) List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error) {
@@ -858,14 +953,14 @@ const (
 	ActivityDiscountController_VoucherCreate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherCreate"
 	ActivityDiscountController_VoucherDestroy_FullMethodName          = "/activity_service.activity_ito.ActivityDiscountController/VoucherDestroy"
 	ActivityDiscountController_VoucherList_FullMethodName             = "/activity_service.activity_ito.ActivityDiscountController/VoucherList"
-	ActivityDiscountController_VoucherRetrieve_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/VoucherRetrieve"
-	ActivityDiscountController_VoucherUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherUpdate"
 	ActivityDiscountController_VoucherRecordCreate_FullMethodName     = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordCreate"
 	ActivityDiscountController_VoucherRecordDestroy_FullMethodName    = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordDestroy"
 	ActivityDiscountController_VoucherRecordList_FullMethodName       = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordList"
 	ActivityDiscountController_VoucherRecordNextSerial_FullMethodName = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordNextSerial"
 	ActivityDiscountController_VoucherRecordRetrieve_FullMethodName   = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordRetrieve"
 	ActivityDiscountController_VoucherRecordUpdate_FullMethodName     = "/activity_service.activity_ito.ActivityDiscountController/VoucherRecordUpdate"
+	ActivityDiscountController_VoucherRetrieve_FullMethodName         = "/activity_service.activity_ito.ActivityDiscountController/VoucherRetrieve"
+	ActivityDiscountController_VoucherUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherUpdate"
 )
 
 // ActivityDiscountControllerClient is the client API for ActivityDiscountController service.
@@ -873,26 +968,24 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityDiscountControllerClient interface {
 	Create(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
-	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountDestroyResponse, error)
+	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ActivityDiscountListRequest, opts ...grpc.CallOption) (*ActivityDiscountListResponse, error)
 	NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*ActivityDiscountNextSerialResponse, error)
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityDiscountPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Retrieve(ctx context.Context, in *ActivityDiscountRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Update(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
-	// 优惠活动 关联优惠卡子表
 	VoucherCreate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherDestroyResponse, error)
+	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	VoucherList(ctx context.Context, in *ActivityDiscountVoucherListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherListResponse, error)
-	VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	// 优惠活动 关联优惠卡 发卡记录子表
 	VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordDestroyResponse, error)
+	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	VoucherRecordList(ctx context.Context, in *ActivityDiscountVoucherRecordListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordListResponse, error)
 	VoucherRecordNextSerial(ctx context.Context, in *NextRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
 	VoucherRecordRetrieve(ctx context.Context, in *ActivityDiscountVoucherRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
 	VoucherRecordUpdate(ctx context.Context, in *VoucherRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
+	VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
 }
 
 type activityDiscountControllerClient struct {
@@ -912,8 +1005,8 @@ func (c *activityDiscountControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountDestroyResponse, error) {
-	out := new(ActivityDiscountDestroyResponse)
+func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -984,8 +1077,8 @@ func (c *activityDiscountControllerClient) VoucherCreate(ctx context.Context, in
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherDestroyResponse, error) {
-	out := new(ActivityDiscountVoucherDestroyResponse)
+func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1002,24 +1095,6 @@ func (c *activityDiscountControllerClient) VoucherList(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
-	out := new(ActivityDiscountVoucherResponse)
-	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRetrieve_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
-	out := new(ActivityDiscountVoucherResponse)
-	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherUpdate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *activityDiscountControllerClient) VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error) {
 	out := new(ActivityDiscountVoucherRecordResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordCreate_FullMethodName, in, out, opts...)
@@ -1029,8 +1104,8 @@ func (c *activityDiscountControllerClient) VoucherRecordCreate(ctx context.Conte
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordDestroyResponse, error) {
-	out := new(ActivityDiscountVoucherRecordDestroyResponse)
+func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1074,31 +1149,47 @@ func (c *activityDiscountControllerClient) VoucherRecordUpdate(ctx context.Conte
 	return out, nil
 }
 
+func (c *activityDiscountControllerClient) VoucherRetrieve(ctx context.Context, in *ActivityDiscountVoucherRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
+	out := new(ActivityDiscountVoucherResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in *VoucherUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error) {
+	out := new(ActivityDiscountVoucherResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ActivityDiscountControllerServer is the server API for ActivityDiscountController service.
 // All implementations must embed UnimplementedActivityDiscountControllerServer
 // for forward compatibility
 type ActivityDiscountControllerServer interface {
 	Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
-	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*ActivityDiscountDestroyResponse, error)
+	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error)
 	NextSerial(context.Context, *NextSerialRequest) (*ActivityDiscountNextSerialResponse, error)
 	Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error)
 	PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error)
 	Retrieve(context.Context, *ActivityDiscountRetrieveRequest) (*ActivityDiscountResponse, error)
 	Update(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
-	// 优惠活动 关联优惠卡子表
 	VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*ActivityDiscountVoucherDestroyResponse, error)
+	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*emptypb.Empty, error)
 	VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error)
-	VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error)
-	VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error)
-	// 优惠活动 关联优惠卡 发卡记录子表
 	VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*ActivityDiscountVoucherRecordDestroyResponse, error)
+	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*emptypb.Empty, error)
 	VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error)
 	VoucherRecordNextSerial(context.Context, *NextRecordRequest) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
 	VoucherRecordRetrieve(context.Context, *ActivityDiscountVoucherRecordRetrieveRequest) (*ActivityDiscountVoucherRecordResponse, error)
 	VoucherRecordUpdate(context.Context, *VoucherRecordUpdateRequest) (*ActivityDiscountVoucherRecordResponse, error)
+	VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error)
+	VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error)
 	mustEmbedUnimplementedActivityDiscountControllerServer()
 }
 
@@ -1109,7 +1200,7 @@ type UnimplementedActivityDiscountControllerServer struct {
 func (UnimplementedActivityDiscountControllerServer) Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*ActivityDiscountDestroyResponse, error) {
+func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error) {
@@ -1133,22 +1224,16 @@ func (UnimplementedActivityDiscountControllerServer) Update(context.Context, *Ac
 func (UnimplementedActivityDiscountControllerServer) VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*ActivityDiscountVoucherDestroyResponse, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherList not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VoucherRetrieve not implemented")
-}
-func (UnimplementedActivityDiscountControllerServer) VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VoucherUpdate not implemented")
-}
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*ActivityDiscountVoucherRecordDestroyResponse, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error) {
@@ -1162,6 +1247,12 @@ func (UnimplementedActivityDiscountControllerServer) VoucherRecordRetrieve(conte
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordUpdate(context.Context, *VoucherRecordUpdateRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordUpdate not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) VoucherRetrieve(context.Context, *ActivityDiscountVoucherRetrieveRequest) (*ActivityDiscountVoucherResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoucherRetrieve not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) VoucherUpdate(context.Context, *VoucherUpdateRequest) (*ActivityDiscountVoucherResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoucherUpdate not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) mustEmbedUnimplementedActivityDiscountControllerServer() {
 }
@@ -1375,42 +1466,6 @@ func _ActivityDiscountController_VoucherList_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ActivityDiscountController_VoucherRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActivityDiscountVoucherRetrieveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityDiscountController_VoucherRetrieve_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, req.(*ActivityDiscountVoucherRetrieveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityDiscountController_VoucherUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VoucherUpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityDiscountController_VoucherUpdate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, req.(*VoucherUpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ActivityDiscountController_VoucherRecordCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ActivityDiscountVoucherRecordRequest)
 	if err := dec(in); err != nil {
@@ -1519,6 +1574,42 @@ func _ActivityDiscountController_VoucherRecordUpdate_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ActivityDiscountController_VoucherRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountVoucherRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_VoucherRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).VoucherRetrieve(ctx, req.(*ActivityDiscountVoucherRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_VoucherUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VoucherUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_VoucherUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).VoucherUpdate(ctx, req.(*VoucherUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ActivityDiscountController_ServiceDesc is the grpc.ServiceDesc for ActivityDiscountController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1571,14 +1662,6 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ActivityDiscountController_VoucherList_Handler,
 		},
 		{
-			MethodName: "VoucherRetrieve",
-			Handler:    _ActivityDiscountController_VoucherRetrieve_Handler,
-		},
-		{
-			MethodName: "VoucherUpdate",
-			Handler:    _ActivityDiscountController_VoucherUpdate_Handler,
-		},
-		{
 			MethodName: "VoucherRecordCreate",
 			Handler:    _ActivityDiscountController_VoucherRecordCreate_Handler,
 		},
@@ -1601,6 +1684,14 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VoucherRecordUpdate",
 			Handler:    _ActivityDiscountController_VoucherRecordUpdate_Handler,
+		},
+		{
+			MethodName: "VoucherRetrieve",
+			Handler:    _ActivityDiscountController_VoucherRetrieve_Handler,
+		},
+		{
+			MethodName: "VoucherUpdate",
+			Handler:    _ActivityDiscountController_VoucherUpdate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

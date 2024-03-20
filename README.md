@@ -9,9 +9,13 @@ protoc filename.proto --go_out=D:\aaa_project\goprojects\github.com\ITITO881\go-
 ```
 
 指定protoc需import文件的路径(如：google/protobuf/empty.proto，用于python生成的proto文件)
+protoc --proto_path="D:\Python\Python311\Lib\site-packages\grpc_tools\_proto" --proto_path=. --go_out=. --go-grpc_out=.
+manager_ito.proto
+绝对路径：D:\django-service\customer_service\venv\Lib\site-packages\grpc_tools\_proto\google\protobuf\empty.proto
 
 ```
-protoc --proto_path="D:\Python\Python311\Lib\site-packages\grpc_tools\_proto" --proto_path=. --go_out=. --go-grpc_out=. manager_ito.proto
+protoc --proto_path="D:\django-service\customer_service\venv\Lib\site-packages\grpc_tools\_proto" --proto_path=. --go_out=. --go-grpc_out=. manager_ito.proto
+
 ```
 
 ```
