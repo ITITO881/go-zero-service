@@ -1,17 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-//新增rpc路径
-//增加公共srcCode和errCode
-// add pbmgrito
-// update pbfilepoolito 
-// modified pbplatproductito
-// add pbcardito
-// add xerrCode
-// add sourceCode
-// add something
-// rpc shop_ito & some update
-// rawgoods update
+//update rpc file
 go 1.20
 
 
