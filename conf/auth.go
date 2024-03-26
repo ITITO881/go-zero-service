@@ -23,6 +23,13 @@ type RedisConf struct {
 	DB       int
 }
 
+type TokenParam struct {
+	UserId     int32  `json:"userId"`
+	Username   string `json:"username,omitempty"`
+	OpenId     string `json:"openId,omitempty"`
+	UserMobile string `json:"userMobile,omitempty"`
+}
+
 //type MinIOClaimConf struct {
 //	Endpoint          string
 //	AccessKeyID       string

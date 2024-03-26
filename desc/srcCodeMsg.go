@@ -18,6 +18,7 @@ func init() {
 	srcFlag[WEB_MP_ITO_HOT_GRID_HOME] = "文件源：微信小程序，热点，主副图，主页"
 	srcFlag[WEB_MP_ITO_HOT_GRID_PRODUCT] = "文件源：微信小程序，热点，主副图，产品页"
 	srcFlag[WEB_MP_ITO_HOT_GRID_CLUB] = "文件源：微信小程序，热点，主副图，社群页"
+	srcFlag[WEB_MP_ITO_CLUB_GRID_ITOGETHER] = "文件源：微信小程，社区，主副图，ITOgether"
 	srcFlag[WEB_MP_ITO_BAR_CAT_HOME] = "文件源：微信小程序，分类列表，主页"
 	srcFlag[WEB_MP_ITO_BAR_CAT_Prod_CAT] = "文件源：微信小程序，分类列表，卡券"
 	srcFlag[WEB_MP_ITO_BAR_CAT_HOT_PROPOSE] = "文件源：微信小程序，分类列表，热点推荐"
@@ -31,6 +32,8 @@ func init() {
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_PAGE] = "文件源：微信小程序，分类混入列表，页面素材"
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_SWIPER] = "文件源：微信小程序，分类混入列表，轮播素材"
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_PROD] = "文件源：微信小程序，二级分类复合列表，产品页"
+	srcFlag[WEB_MP_ITO_DUAL_MIXIN_SHOP] = "文件源：微信小程序，二级分类复合列表，商城页"
+	srcFlag[WEB_MP_ITO_DUAL_MIXIN_ACTIVITY] = "文件源：微信小程序，二级分类复合列表，活动页"
 	srcFlag[WEB_MP_ITO_DUAL_BAR_PROD] = "文件源：微信小程序，二级分类，产品页"
 
 	srcFlag[WEB_MP_ITO_COUPON_CARES] = "文件源: 售后卡素材"
@@ -53,7 +56,14 @@ func init() {
 	// 4. ITO 小程序订单 源
 	srcFlag[WX_ORDER] = "文件源：微信小程序 订单"
 
-	// 5. ITO 服务单 相关
+	// 5. ITO 商城 源
+	srcFlag[WEB_MP_ITO_SHOP_HOME] = "商城首页"
+	srcFlag[WEB_MP_ITO_SHOP_BAR_CAT_HOME] = "商城首页分类多图"
+
+	// 6. ITO 固定素材 管理 源
+	srcFlag[WEB_MP_ITO_SERVICE_REPAIR_PART] = "服务-维修部位"
+
+	// 7. ITO 服务单 相关
 	srcFlag[WX_SERVICE_REPAIR_MEDIA] = "文件源：服务单，权益维修图片"
 	srcFlag[WX_SERVICE_SWAP_MEDIA] = "文件源：服务单，权益换新图片"
 	srcFlag[WX_SERVICE_TAILOR_MEDIA] = "文件源：服务单，产品定制图片"

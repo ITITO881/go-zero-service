@@ -8,10 +8,10 @@ package activityito
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -34,6 +34,11 @@ const (
 	ActivityBrandController_Destroy_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/Destroy"
 	ActivityBrandController_List_FullMethodName                = "/activity_service.activity_ito.ActivityBrandController/List"
 	ActivityBrandController_PartialUpdate_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
+	ActivityBrandController_RecordCreate_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/RecordCreate"
+	ActivityBrandController_RecordDestroy_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/RecordDestroy"
+	ActivityBrandController_RecordList_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/RecordList"
+	ActivityBrandController_RecordRetrieve_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/RecordRetrieve"
+	ActivityBrandController_RecordUpdate_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/RecordUpdate"
 	ActivityBrandController_Retrieve_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/Retrieve"
 	ActivityBrandController_Update_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Update"
 )
@@ -43,19 +48,24 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandControllerClient interface {
 	CaresCreate(ctx context.Context, in *ActivityBrandCaresRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
-	CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	CaresList(ctx context.Context, in *ActivityBrandCaresListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresListResponse, error)
 	CaresRecordCreate(ctx context.Context, in *ActivityBrandCaresRecordRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
-	CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	CaresRecordList(ctx context.Context, in *ActivityBrandCaresRecordListRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordListResponse, error)
 	CaresRecordRetrieve(ctx context.Context, in *ActivityBrandCaresRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
 	CaresRecordUpdate(ctx context.Context, in *ActivityBrandCaresRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
 	CaresRetrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
 	CaresUpdate(ctx context.Context, in *ActivityBrandCaresUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
 	Create(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	List(ctx context.Context, in *ActivityBrandListRequest, opts ...grpc.CallOption) (*ActivityBrandListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
+	RecordCreate(ctx context.Context, in *ActivityBrandRecordRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error)
+	RecordDestroy(ctx context.Context, in *ActivityBrandRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	RecordList(ctx context.Context, in *ActivityBrandRecordListRequest, opts ...grpc.CallOption) (*ActivityBrandRecordListResponse, error)
+	RecordRetrieve(ctx context.Context, in *ActivityBrandRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error)
+	RecordUpdate(ctx context.Context, in *ActivityBrandRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 	Update(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 }
@@ -77,8 +87,8 @@ func (c *activityBrandControllerClient) CaresCreate(ctx context.Context, in *Act
 	return out, nil
 }
 
-func (c *activityBrandControllerClient) CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityBrandControllerClient) CaresDestroy(ctx context.Context, in *ActivityBrandCaresDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandController_CaresDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -104,8 +114,8 @@ func (c *activityBrandControllerClient) CaresRecordCreate(ctx context.Context, i
 	return out, nil
 }
 
-func (c *activityBrandControllerClient) CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityBrandControllerClient) CaresRecordDestroy(ctx context.Context, in *ActivityBrandCaresRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandController_CaresRecordDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -167,8 +177,8 @@ func (c *activityBrandControllerClient) Create(ctx context.Context, in *Activity
 	return out, nil
 }
 
-func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityBrandControllerClient) Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -188,6 +198,51 @@ func (c *activityBrandControllerClient) List(ctx context.Context, in *ActivityBr
 func (c *activityBrandControllerClient) PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error) {
 	out := new(ActivityBrandResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) RecordCreate(ctx context.Context, in *ActivityBrandRecordRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error) {
+	out := new(ActivityBrandRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_RecordCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) RecordDestroy(ctx context.Context, in *ActivityBrandRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, ActivityBrandController_RecordDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) RecordList(ctx context.Context, in *ActivityBrandRecordListRequest, opts ...grpc.CallOption) (*ActivityBrandRecordListResponse, error) {
+	out := new(ActivityBrandRecordListResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_RecordList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) RecordRetrieve(ctx context.Context, in *ActivityBrandRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error) {
+	out := new(ActivityBrandRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_RecordRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) RecordUpdate(ctx context.Context, in *ActivityBrandRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error) {
+	out := new(ActivityBrandRecordResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_RecordUpdate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -217,19 +272,24 @@ func (c *activityBrandControllerClient) Update(ctx context.Context, in *Activity
 // for forward compatibility
 type ActivityBrandControllerServer interface {
 	CaresCreate(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error)
-	CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*emptypb.Empty, error)
+	CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*empty.Empty, error)
 	CaresList(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error)
 	CaresRecordCreate(context.Context, *ActivityBrandCaresRecordRequest) (*ActivityBrandCaresRecordResponse, error)
-	CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*emptypb.Empty, error)
+	CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*empty.Empty, error)
 	CaresRecordList(context.Context, *ActivityBrandCaresRecordListRequest) (*ActivityBrandCaresRecordListResponse, error)
 	CaresRecordRetrieve(context.Context, *ActivityBrandCaresRecordRetrieveRequest) (*ActivityBrandCaresRecordResponse, error)
 	CaresRecordUpdate(context.Context, *ActivityBrandCaresRecordUpdateRequest) (*ActivityBrandCaresRecordResponse, error)
 	CaresRetrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error)
 	CaresUpdate(context.Context, *ActivityBrandCaresUpdateRequest) (*ActivityBrandCaresResponse, error)
 	Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error)
-	Destroy(context.Context, *ActivityBrandDestroyRequest) (*emptypb.Empty, error)
+	Destroy(context.Context, *ActivityBrandDestroyRequest) (*empty.Empty, error)
 	List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error)
+	RecordCreate(context.Context, *ActivityBrandRecordRequest) (*ActivityBrandRecordResponse, error)
+	RecordDestroy(context.Context, *ActivityBrandRecordDestroyRequest) (*empty.Empty, error)
+	RecordList(context.Context, *ActivityBrandRecordListRequest) (*ActivityBrandRecordListResponse, error)
+	RecordRetrieve(context.Context, *ActivityBrandRecordRetrieveRequest) (*ActivityBrandRecordResponse, error)
+	RecordUpdate(context.Context, *ActivityBrandRecordUpdateRequest) (*ActivityBrandRecordResponse, error)
 	Retrieve(context.Context, *ActivityBrandRetrieveRequest) (*ActivityBrandResponse, error)
 	Update(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error)
 	mustEmbedUnimplementedActivityBrandControllerServer()
@@ -242,7 +302,7 @@ type UnimplementedActivityBrandControllerServer struct {
 func (UnimplementedActivityBrandControllerServer) CaresCreate(context.Context, *ActivityBrandCaresRequest) (*ActivityBrandCaresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CaresCreate not implemented")
 }
-func (UnimplementedActivityBrandControllerServer) CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityBrandControllerServer) CaresDestroy(context.Context, *ActivityBrandCaresDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CaresDestroy not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) CaresList(context.Context, *ActivityBrandCaresListRequest) (*ActivityBrandCaresListResponse, error) {
@@ -251,7 +311,7 @@ func (UnimplementedActivityBrandControllerServer) CaresList(context.Context, *Ac
 func (UnimplementedActivityBrandControllerServer) CaresRecordCreate(context.Context, *ActivityBrandCaresRecordRequest) (*ActivityBrandCaresRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordCreate not implemented")
 }
-func (UnimplementedActivityBrandControllerServer) CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityBrandControllerServer) CaresRecordDestroy(context.Context, *ActivityBrandCaresRecordDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CaresRecordDestroy not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) CaresRecordList(context.Context, *ActivityBrandCaresRecordListRequest) (*ActivityBrandCaresRecordListResponse, error) {
@@ -272,7 +332,7 @@ func (UnimplementedActivityBrandControllerServer) CaresUpdate(context.Context, *
 func (UnimplementedActivityBrandControllerServer) Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityBrandControllerServer) Destroy(context.Context, *ActivityBrandDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error) {
@@ -280,6 +340,21 @@ func (UnimplementedActivityBrandControllerServer) List(context.Context, *Activit
 }
 func (UnimplementedActivityBrandControllerServer) PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) RecordCreate(context.Context, *ActivityBrandRecordRequest) (*ActivityBrandRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordCreate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) RecordDestroy(context.Context, *ActivityBrandRecordDestroyRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordDestroy not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) RecordList(context.Context, *ActivityBrandRecordListRequest) (*ActivityBrandRecordListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordList not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) RecordRetrieve(context.Context, *ActivityBrandRecordRetrieveRequest) (*ActivityBrandRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordRetrieve not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) RecordUpdate(context.Context, *ActivityBrandRecordUpdateRequest) (*ActivityBrandRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordUpdate not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) Retrieve(context.Context, *ActivityBrandRetrieveRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
@@ -553,6 +628,96 @@ func _ActivityBrandController_PartialUpdate_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ActivityBrandController_RecordCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).RecordCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_RecordCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).RecordCreate(ctx, req.(*ActivityBrandRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_RecordDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandRecordDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).RecordDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_RecordDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).RecordDestroy(ctx, req.(*ActivityBrandRecordDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_RecordList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandRecordListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).RecordList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_RecordList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).RecordList(ctx, req.(*ActivityBrandRecordListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_RecordRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandRecordRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).RecordRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_RecordRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).RecordRetrieve(ctx, req.(*ActivityBrandRecordRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_RecordUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandRecordUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).RecordUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_RecordUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).RecordUpdate(ctx, req.(*ActivityBrandRecordUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ActivityBrandController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ActivityBrandRetrieveRequest)
 	if err := dec(in); err != nil {
@@ -653,6 +818,26 @@ var ActivityBrandController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ActivityBrandController_PartialUpdate_Handler,
 		},
 		{
+			MethodName: "RecordCreate",
+			Handler:    _ActivityBrandController_RecordCreate_Handler,
+		},
+		{
+			MethodName: "RecordDestroy",
+			Handler:    _ActivityBrandController_RecordDestroy_Handler,
+		},
+		{
+			MethodName: "RecordList",
+			Handler:    _ActivityBrandController_RecordList_Handler,
+		},
+		{
+			MethodName: "RecordRetrieve",
+			Handler:    _ActivityBrandController_RecordRetrieve_Handler,
+		},
+		{
+			MethodName: "RecordUpdate",
+			Handler:    _ActivityBrandController_RecordUpdate_Handler,
+		},
+		{
 			MethodName: "Retrieve",
 			Handler:    _ActivityBrandController_Retrieve_Handler,
 		},
@@ -679,7 +864,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityBrandNutControllerClient interface {
 	Create(ctx context.Context, in *ActivityBrandNutRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
-	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	List(ctx context.Context, in *ActivityBrandNutListRequest, opts ...grpc.CallOption) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandNutPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
 	Retrieve(ctx context.Context, in *ActivityBrandNutRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
@@ -703,8 +888,8 @@ func (c *activityBrandNutControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityBrandNutControllerClient) Destroy(ctx context.Context, in *ActivityBrandNutDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityBrandNutController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -753,7 +938,7 @@ func (c *activityBrandNutControllerClient) Update(ctx context.Context, in *Activ
 // for forward compatibility
 type ActivityBrandNutControllerServer interface {
 	Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error)
-	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*emptypb.Empty, error)
+	Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*empty.Empty, error)
 	List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandNutPartialUpdateRequest) (*ActivityBrandNutResponse, error)
 	Retrieve(context.Context, *ActivityBrandNutRetrieveRequest) (*ActivityBrandNutResponse, error)
@@ -768,7 +953,7 @@ type UnimplementedActivityBrandNutControllerServer struct {
 func (UnimplementedActivityBrandNutControllerServer) Create(context.Context, *ActivityBrandNutRequest) (*ActivityBrandNutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityBrandNutControllerServer) Destroy(context.Context, *ActivityBrandNutDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityBrandNutControllerServer) List(context.Context, *ActivityBrandNutListRequest) (*ActivityBrandNutListResponse, error) {
@@ -968,7 +1153,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ActivityDiscountControllerClient interface {
 	Create(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
-	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	List(ctx context.Context, in *ActivityDiscountListRequest, opts ...grpc.CallOption) (*ActivityDiscountListResponse, error)
 	NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*ActivityDiscountNextSerialResponse, error)
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error)
@@ -976,10 +1161,10 @@ type ActivityDiscountControllerClient interface {
 	Retrieve(ctx context.Context, in *ActivityDiscountRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Update(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	VoucherCreate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	VoucherList(ctx context.Context, in *ActivityDiscountVoucherListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherListResponse, error)
 	VoucherRecordCreate(ctx context.Context, in *ActivityDiscountVoucherRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	VoucherRecordList(ctx context.Context, in *ActivityDiscountVoucherRecordListRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordListResponse, error)
 	VoucherRecordNextSerial(ctx context.Context, in *NextRecordRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
 	VoucherRecordRetrieve(ctx context.Context, in *ActivityDiscountVoucherRecordRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherRecordResponse, error)
@@ -1005,8 +1190,8 @@ func (c *activityDiscountControllerClient) Create(ctx context.Context, in *Activ
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityDiscountControllerClient) Destroy(ctx context.Context, in *ActivityDiscountDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1077,8 +1262,8 @@ func (c *activityDiscountControllerClient) VoucherCreate(ctx context.Context, in
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityDiscountControllerClient) VoucherDestroy(ctx context.Context, in *ActivityDiscountVoucherDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1104,8 +1289,8 @@ func (c *activityDiscountControllerClient) VoucherRecordCreate(ctx context.Conte
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *activityDiscountControllerClient) VoucherRecordDestroy(ctx context.Context, in *ActivityDiscountVoucherRecordDestroyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_VoucherRecordDestroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1172,7 +1357,7 @@ func (c *activityDiscountControllerClient) VoucherUpdate(ctx context.Context, in
 // for forward compatibility
 type ActivityDiscountControllerServer interface {
 	Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
-	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*emptypb.Empty, error)
+	Destroy(context.Context, *ActivityDiscountDestroyRequest) (*empty.Empty, error)
 	List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error)
 	NextSerial(context.Context, *NextSerialRequest) (*ActivityDiscountNextSerialResponse, error)
 	Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error)
@@ -1180,10 +1365,10 @@ type ActivityDiscountControllerServer interface {
 	Retrieve(context.Context, *ActivityDiscountRetrieveRequest) (*ActivityDiscountResponse, error)
 	Update(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
 	VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error)
-	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*emptypb.Empty, error)
+	VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*empty.Empty, error)
 	VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error)
 	VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error)
-	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*emptypb.Empty, error)
+	VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*empty.Empty, error)
 	VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error)
 	VoucherRecordNextSerial(context.Context, *NextRecordRequest) (*ActivityDiscountVoucherRecordNextSerialResponse, error)
 	VoucherRecordRetrieve(context.Context, *ActivityDiscountVoucherRecordRetrieveRequest) (*ActivityDiscountVoucherRecordResponse, error)
@@ -1200,7 +1385,7 @@ type UnimplementedActivityDiscountControllerServer struct {
 func (UnimplementedActivityDiscountControllerServer) Create(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) Destroy(context.Context, *ActivityDiscountDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) List(context.Context, *ActivityDiscountListRequest) (*ActivityDiscountListResponse, error) {
@@ -1224,7 +1409,7 @@ func (UnimplementedActivityDiscountControllerServer) Update(context.Context, *Ac
 func (UnimplementedActivityDiscountControllerServer) VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherDestroy(context.Context, *ActivityDiscountVoucherDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherList(context.Context, *ActivityDiscountVoucherListRequest) (*ActivityDiscountVoucherListResponse, error) {
@@ -1233,7 +1418,7 @@ func (UnimplementedActivityDiscountControllerServer) VoucherList(context.Context
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordCreate(context.Context, *ActivityDiscountVoucherRecordRequest) (*ActivityDiscountVoucherRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedActivityDiscountControllerServer) VoucherRecordDestroy(context.Context, *ActivityDiscountVoucherRecordDestroyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VoucherRecordDestroy not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) VoucherRecordList(context.Context, *ActivityDiscountVoucherRecordListRequest) (*ActivityDiscountVoucherRecordListResponse, error) {

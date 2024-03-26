@@ -135,6 +135,11 @@ func init() {
 	message[RPC_PARSE_TO_API_FAIL] = "RPC解析转换API 失败"
 	message[PRODUCT_RAW_QUERY_FAIL] = "产品原始信息 查询失败"
 
+	message[WDT_TRADE_PUSH_FAIL] = "旺店通 下推订单推送失败"
+	message[WDT_TRADE_QUERY_FAIL] = "旺店通 查询订单失败"
+	message[WDT_STOCK_IN_PUSH_FAIL] = "旺店通 下推入库单推送失败"
+	message[EXP_CLIENT_QUERY_FAIL] = "快递单号 客户端 查询失败"
+
 	payState[WX_PAY_DETAIL_NOT_PAY] = "待支付"
 }
 

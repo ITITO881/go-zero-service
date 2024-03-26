@@ -21,6 +21,11 @@ service ActivityBrandController {
   rpc Destroy(ActivityBrandDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ActivityBrandListRequest) returns (ActivityBrandListResponse) {}
   rpc PartialUpdate(ActivityBrandPartialUpdateRequest) returns (ActivityBrandResponse) {}
+  rpc RecordCreate(ActivityBrandRecordRequest) returns (ActivityBrandRecordResponse) {}
+  rpc RecordDestroy(ActivityBrandRecordDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc RecordList(ActivityBrandRecordListRequest) returns (ActivityBrandRecordListResponse) {}
+  rpc RecordRetrieve(ActivityBrandRecordRetrieveRequest) returns (ActivityBrandRecordResponse) {}
+  rpc RecordUpdate(ActivityBrandRecordUpdateRequest) returns (ActivityBrandRecordResponse) {}
   rpc Retrieve(ActivityBrandRetrieveRequest) returns (ActivityBrandResponse) {}
   rpc Update(ActivityBrandRequest) returns (ActivityBrandResponse) {}
 }
@@ -249,6 +254,93 @@ message ActivityBrandPartialUpdateRequest {
   optional string description = 12;
   optional int32 admin_id = 13;
   optional string admin_name = 14;
+  int32 type = 15;
+  optional string place = 16;
+}
+
+message ActivityBrandRecordDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandRecordListRequest {
+  string filters = 1;
+}
+
+message ActivityBrandRecordListResponse {
+  repeated ActivityBrandRecordResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityBrandRecordRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 ctm_id = 3;
+  int32 activity_id = 4;
+  optional string name = 5;
+  optional string mobile = 6;
+  optional string province = 7;
+  optional string city = 8;
+  optional string district = 9;
+  optional string addr_detail = 10;
+  optional string apply_desc = 11;
+  int32 status = 12;
+  optional string review_time = 13;
+  optional string sign_time = 14;
+  optional string review_admin = 15;
+  optional string review_desc = 16;
+  optional string remark = 17;
+  optional int64 ctm = 18;
+}
+
+message ActivityBrandRecordResponse {
+  int32 id = 1;
+  int32 ctm_id = 2;
+  string status_name = 3;
+  string nickname = 4;
+  int32 activity_id = 5;
+  ActivityBrandResponse activity = 6;
+  optional string name = 7;
+  optional string mobile = 8;
+  optional string province = 9;
+  optional string city = 10;
+  optional string district = 11;
+  optional string addr_detail = 12;
+  optional string apply_desc = 13;
+  int32 status = 14;
+  optional string review_time = 15;
+  optional string sign_time = 16;
+  optional string review_admin = 17;
+  optional string review_desc = 18;
+  optional string remark = 19;
+  string create_time = 20;
+  string update_time = 21;
+  optional int64 ctm = 22;
+}
+
+message ActivityBrandRecordRetrieveRequest {
+  int32 id = 1;
+}
+
+message ActivityBrandRecordUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 ctm_id = 3;
+  int32 activity_id = 4;
+  repeated string _partial_update_fields = 5;
+  optional string name = 6;
+  optional string mobile = 7;
+  optional string province = 8;
+  optional string city = 9;
+  optional string district = 10;
+  optional string addr_detail = 11;
+  optional string apply_desc = 12;
+  int32 status = 13;
+  optional string review_time = 14;
+  optional string sign_time = 15;
+  optional string review_admin = 16;
+  optional string review_desc = 17;
+  optional string remark = 18;
+  optional int64 ctm = 19;
 }
 
 message ActivityBrandRequest {
@@ -265,6 +357,8 @@ message ActivityBrandRequest {
   optional string description = 11;
   optional int32 admin_id = 12;
   optional string admin_name = 13;
+  int32 type = 14;
+  optional string place = 15;
 }
 
 message ActivityBrandResponse {
@@ -283,6 +377,9 @@ message ActivityBrandResponse {
   string create_time = 13;
   string update_time = 14;
   bool deletable = 15;
+  int32 type = 16;
+  optional string place = 17;
+  string type_name = 18;
 }
 
 message ActivityBrandRetrieveRequest {

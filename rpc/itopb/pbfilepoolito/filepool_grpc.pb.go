@@ -31,6 +31,8 @@ const (
 	FilePoolIto_RetrieveFileByIdentity_FullMethodName = "/file_pool.FilePoolIto/RetrieveFileByIdentity"
 	FilePoolIto_UpdateListFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateListFile"
 	FilePoolIto_SkuProps_FullMethodName               = "/file_pool.FilePoolIto/SkuProps"
+	FilePoolIto_IdExist_FullMethodName                = "/file_pool.FilePoolIto/IdExist"
+	FilePoolIto_UpdateById_FullMethodName             = "/file_pool.FilePoolIto/UpdateById"
 	FilePoolIto_UserRepoCreate_FullMethodName         = "/file_pool.FilePoolIto/UserRepoCreate"
 	FilePoolIto_IdByUserFile_FullMethodName           = "/file_pool.FilePoolIto/IdByUserFile"
 	FilePoolIto_UpdateUserFile_FullMethodName         = "/file_pool.FilePoolIto/UpdateUserFile"
@@ -65,6 +67,10 @@ type FilePoolItoClient interface {
 	UpdateListFile(ctx context.Context, in *UpdateListFileReq, opts ...grpc.CallOption) (*UpdateListFileResp, error)
 	// 12. 指定Spu，返回该Spu下，所有Sku列表，用于前端SKU组件的组合数据显示
 	SkuProps(ctx context.Context, in *SkuPropsReq, opts ...grpc.CallOption) (*SkuPropsResp, error)
+	// 13. 文件Id值是否已存在
+	IdExist(ctx context.Context, in *IdExistReq, opts ...grpc.CallOption) (*IdExistResp, error)
+	// 14. 指定 Id 更新
+	UpdateById(ctx context.Context, in *UpdateByIdReq, opts ...grpc.CallOption) (*FileObj, error)
 	// 1. 新增1条记录
 	UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -191,6 +197,24 @@ func (c *filePoolItoClient) SkuProps(ctx context.Context, in *SkuPropsReq, opts 
 	return out, nil
 }
 
+func (c *filePoolItoClient) IdExist(ctx context.Context, in *IdExistReq, opts ...grpc.CallOption) (*IdExistResp, error) {
+	out := new(IdExistResp)
+	err := c.cc.Invoke(ctx, FilePoolIto_IdExist_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *filePoolItoClient) UpdateById(ctx context.Context, in *UpdateByIdReq, opts ...grpc.CallOption) (*FileObj, error) {
+	out := new(FileObj)
+	err := c.cc.Invoke(ctx, FilePoolIto_UpdateById_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *filePoolItoClient) UserRepoCreate(ctx context.Context, in *UserRepoCreateReq, opts ...grpc.CallOption) (*UserRepoCreateResp, error) {
 	out := new(UserRepoCreateResp)
 	err := c.cc.Invoke(ctx, FilePoolIto_UserRepoCreate_FullMethodName, in, out, opts...)
@@ -255,6 +279,10 @@ type FilePoolItoServer interface {
 	UpdateListFile(context.Context, *UpdateListFileReq) (*UpdateListFileResp, error)
 	// 12. 指定Spu，返回该Spu下，所有Sku列表，用于前端SKU组件的组合数据显示
 	SkuProps(context.Context, *SkuPropsReq) (*SkuPropsResp, error)
+	// 13. 文件Id值是否已存在
+	IdExist(context.Context, *IdExistReq) (*IdExistResp, error)
+	// 14. 指定 Id 更新
+	UpdateById(context.Context, *UpdateByIdReq) (*FileObj, error)
 	// 1. 新增1条记录
 	UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error)
 	// 2. 根据 用户标识 及 文件标识，联合查询，是否该条记录存在于数据库
@@ -305,6 +333,12 @@ func (UnimplementedFilePoolItoServer) UpdateListFile(context.Context, *UpdateLis
 }
 func (UnimplementedFilePoolItoServer) SkuProps(context.Context, *SkuPropsReq) (*SkuPropsResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SkuProps not implemented")
+}
+func (UnimplementedFilePoolItoServer) IdExist(context.Context, *IdExistReq) (*IdExistResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IdExist not implemented")
+}
+func (UnimplementedFilePoolItoServer) UpdateById(context.Context, *UpdateByIdReq) (*FileObj, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateById not implemented")
 }
 func (UnimplementedFilePoolItoServer) UserRepoCreate(context.Context, *UserRepoCreateReq) (*UserRepoCreateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRepoCreate not implemented")
@@ -547,6 +581,42 @@ func _FilePoolIto_SkuProps_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FilePoolIto_IdExist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IdExistReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).IdExist(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_IdExist_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).IdExist(ctx, req.(*IdExistReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FilePoolIto_UpdateById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateByIdReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FilePoolItoServer).UpdateById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FilePoolIto_UpdateById_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FilePoolItoServer).UpdateById(ctx, req.(*UpdateByIdReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FilePoolIto_UserRepoCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRepoCreateReq)
 	if err := dec(in); err != nil {
@@ -673,6 +743,14 @@ var FilePoolIto_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SkuProps",
 			Handler:    _FilePoolIto_SkuProps_Handler,
+		},
+		{
+			MethodName: "IdExist",
+			Handler:    _FilePoolIto_IdExist_Handler,
+		},
+		{
+			MethodName: "UpdateById",
+			Handler:    _FilePoolIto_UpdateById_Handler,
 		},
 		{
 			MethodName: "UserRepoCreate",
