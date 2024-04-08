@@ -9,6 +9,217 @@ service StatHmxSalesController {
   rpc TradeDetails(StoreTradesRequest) returns (StoreTradesListResponse) {}
 }
 
+service StatItoSalesController {
+  rpc List(StatHmxSalesListRequest) returns (StatHmxSalesListResponse) {}
+  rpc TradeDetails(ItoTradesRequest) returns (ItoTradesListResponse) {}
+}
+
+message ItoTradeDetailsResponse {
+  int32 rec_id = 1;
+  optional string stockout_no = 2;
+  optional int32 spec_id = 3;
+  optional int32 platform_id = 4;
+  optional string src_oid = 5;
+  optional string platform_goods_id = 6;
+  optional string platform_spec_id = 7;
+  optional int32 suite_id = 8;
+  optional int32 flag = 9;
+  optional string src_tid = 10;
+  optional int32 gift_type = 11;
+  optional int32 refund_status = 12;
+  optional int32 guarantee_mode = 13;
+  optional int32 delivery_term = 14;
+  optional string bind_oid = 15;
+  optional double num = 16;
+  optional double price = 17;
+  optional double actual_num = 18;
+  optional double refund_num = 19;
+  optional double order_price = 20;
+  optional double share_price = 21;
+  optional double adjust = 22;
+  optional double discount = 23;
+  optional double share_amount = 24;
+  optional double share_post = 25;
+  optional double paid = 26;
+  optional string goods_name = 27;
+  optional string prop2 = 28;
+  optional string barcode = 29;
+  optional int32 goods_id = 30;
+  optional string spec_name = 31;
+  optional string spec_no = 32;
+  optional string spec_code = 33;
+  optional string suite_no = 34;
+  optional string suite_name = 35;
+  optional double suite_num = 36;
+  optional double suite_amount = 37;
+  optional double suite_discount = 38;
+  optional double share_amount2 = 39;
+  optional int32 is_print_suite = 40;
+  optional int32 is_zero_cost = 41;
+  optional int32 stock_reserved = 42;
+  optional int32 is_consigned = 43;
+  optional int32 is_received = 44;
+  optional int32 is_master = 45;
+  optional string api_goods_name = 46;
+  optional string api_spec_name = 47;
+  optional double weight = 48;
+  optional double commission = 49;
+  optional int32 goods_type = 50;
+  optional int32 large_type = 51;
+  optional int32 invoice_type = 52;
+  optional string invoice_content = 53;
+  optional int32 from_mask = 54;
+  optional int32 cid = 55;
+  optional string remark = 56;
+  optional string modified = 57;
+  optional string created = 58;
+  optional double tax_rate = 59;
+  optional int32 base_unit_id = 60;
+  optional string unit_name = 61;
+  optional string pay_id = 62;
+  optional int32 pay_status = 63;
+  optional string pay_time = 64;
+  optional string deal_code = 65;
+  optional int32 trade = 66;
+  optional string goods_no = 67;
+}
+
+message ItoTradesListResponse {
+  repeated ItoTradesResponse results = 1;
+  int32 count = 2;
+}
+
+message ItoTradesRequest {
+  optional string filters = 1;
+}
+
+message ItoTradesResponse {
+  int32 trade_id = 1;
+  repeated ItoTradeDetailsResponse trade_details = 2;
+  string created = 3;
+  optional string trade_no = 4;
+  optional int32 platform_id = 5;
+  optional string shop_name = 6;
+  optional string shop_remark = 7;
+  optional int32 warehouse_type = 8;
+  optional string warehouse_no = 9;
+  optional string src_tids = 10;
+  optional int32 trade_status = 11;
+  optional int32 consign_status = 12;
+  optional int32 trade_type = 13;
+  optional int32 delivery_term = 14;
+  optional int32 freeze_reason = 15;
+  optional int32 refund_status = 16;
+  optional int32 fenxiao_type = 17;
+  optional string fenxiao_nick = 18;
+  optional string trade_time = 19;
+  optional string pay_time = 20;
+  optional string customer_name = 21;
+  optional string customer_no = 22;
+  optional string pay_account = 23;
+  optional string buyer_nick = 24;
+  optional string receiver_name = 25;
+  optional int32 receiver_province = 26;
+  optional int32 receiver_city = 27;
+  optional int32 receiver_district = 28;
+  optional string receiver_address = 29;
+  optional string receiver_mobile = 30;
+  optional string receiver_telno = 31;
+  optional string receiver_zip = 32;
+  optional string receiver_area = 33;
+  optional string receiver_ring = 34;
+  optional string receiver_dtb = 35;
+  optional string to_deliver_time = 36;
+  optional int32 bad_reason = 37;
+  optional int32 logistics_id = 38;
+  optional string logistics_name = 39;
+  optional string logistics_code = 40;
+  optional int32 logistics_type = 41;
+  optional string logistics_no = 42;
+  optional int32 shop_id = 43;
+  optional int32 warehouse_id = 44;
+  optional int32 check_step = 45;
+  optional int32 unmerge_mask = 46;
+  optional string delay_to_time = 47;
+  optional int32 customer_type = 48;
+  optional string customer_id = 49;
+  optional int32 receiver_country = 50;
+  optional string pre_charge_time = 51;
+  optional int32 is_prev_notify = 52;
+  optional int32 note_count = 53;
+  optional int32 buyer_message_count = 54;
+  optional int32 cs_remark_count = 55;
+  optional int32 cs_remark_change_count = 56;
+  optional double discount_change = 57;
+  optional double trade_prepay = 58;
+  optional double pi_amount = 59;
+  optional double other_cost = 60;
+  optional double volume = 61;
+  optional string sales_score = 62;
+  optional int32 flag_id = 63;
+  optional int32 is_sealed = 64;
+  optional int32 gift_mask = 65;
+  optional string split_from_trade_id = 66;
+  optional string logistics_template_id = 67;
+  optional string sendbill_template_id = 68;
+  optional int32 revert_reason = 69;
+  optional int32 cancel_reason = 70;
+  optional int32 is_unpayment_sms = 71;
+  optional string package_id = 72;
+  optional string trade_mask = 73;
+  optional string reserve = 74;
+  optional int32 large_type = 75;
+  optional string buyer_message = 76;
+  optional string cs_remark = 77;
+  optional int32 remark_flag = 78;
+  optional string print_remark = 79;
+  optional int32 goods_type_count = 80;
+  optional double goods_count = 81;
+  optional double goods_amount = 82;
+  optional double post_amount = 83;
+  optional double other_amount = 84;
+  optional double discount = 85;
+  optional double receivable = 86;
+  optional double dap_amount = 87;
+  optional double cod_amount = 88;
+  optional double ext_cod_fee = 89;
+  optional double goods_cost = 90;
+  optional double post_cost = 91;
+  optional double paid = 92;
+  optional double weight = 93;
+  optional double profit = 94;
+  optional double tax = 95;
+  optional double tax_rate = 96;
+  optional double commission = 97;
+  optional int32 invoice_type = 98;
+  optional string invoice_title = 99;
+  optional string invoice_content = 100;
+  optional int32 salesman_id = 101;
+  optional int32 checker_id = 102;
+  optional string fullname = 103;
+  optional string checker_name = 104;
+  optional int32 fchecker_id = 105;
+  optional int32 checkouter_id = 106;
+  optional string stockout_no = 107;
+  optional string flag_name = 108;
+  optional int32 trade_from = 109;
+  optional string single_spec_no = 110;
+  optional double raw_goods_count = 111;
+  optional int32 raw_goods_type_count = 112;
+  optional string currency = 113;
+  optional int32 split_package_num = 114;
+  optional int32 invoice_id = 115;
+  optional int32 version_id = 116;
+  optional string modified = 117;
+  optional int32 id_card_type = 118;
+  optional string id_card = 119;
+  optional int32 color_flag = 120;
+  optional string oaid = 121;
+  int32 valid = 122;
+  optional string consign_time = 123;
+  optional string shop_no = 124;
+}
+
 message StatHmxSalesListRequest {
   optional string stat_month = 1;
   optional string trade_date = 2;
@@ -16,7 +227,7 @@ message StatHmxSalesListRequest {
   int32 num = 4;
   optional string col_name = 5;
   optional string filters = 6;
-  float discount_amount = 7;
+  optional float discount_amount = 7;
 }
 
 message StatHmxSalesListResponse {
@@ -30,7 +241,7 @@ message StatHmxSalesResponse {
   float retail_amount = 3;
   int32 num = 4;
   optional string col_name = 5;
-  float discount_amount = 6;
+  optional float discount_amount = 6;
 }
 
 message StoreTradesListResponse {

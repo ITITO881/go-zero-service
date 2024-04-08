@@ -145,3 +145,131 @@ var StatHmxSalesController_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "store_stat_ito.proto",
 }
+
+const (
+	StatItoSalesController_List_FullMethodName         = "/store_service.store_stat_ito.StatItoSalesController/List"
+	StatItoSalesController_TradeDetails_FullMethodName = "/store_service.store_stat_ito.StatItoSalesController/TradeDetails"
+)
+
+// StatItoSalesControllerClient is the client API for StatItoSalesController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StatItoSalesControllerClient interface {
+	List(ctx context.Context, in *StatHmxSalesListRequest, opts ...grpc.CallOption) (*StatHmxSalesListResponse, error)
+	TradeDetails(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*ItoTradesListResponse, error)
+}
+
+type statItoSalesControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStatItoSalesControllerClient(cc grpc.ClientConnInterface) StatItoSalesControllerClient {
+	return &statItoSalesControllerClient{cc}
+}
+
+func (c *statItoSalesControllerClient) List(ctx context.Context, in *StatHmxSalesListRequest, opts ...grpc.CallOption) (*StatHmxSalesListResponse, error) {
+	out := new(StatHmxSalesListResponse)
+	err := c.cc.Invoke(ctx, StatItoSalesController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statItoSalesControllerClient) TradeDetails(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*ItoTradesListResponse, error) {
+	out := new(ItoTradesListResponse)
+	err := c.cc.Invoke(ctx, StatItoSalesController_TradeDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StatItoSalesControllerServer is the server API for StatItoSalesController service.
+// All implementations must embed UnimplementedStatItoSalesControllerServer
+// for forward compatibility
+type StatItoSalesControllerServer interface {
+	List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error)
+	TradeDetails(context.Context, *ItoTradesRequest) (*ItoTradesListResponse, error)
+	mustEmbedUnimplementedStatItoSalesControllerServer()
+}
+
+// UnimplementedStatItoSalesControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedStatItoSalesControllerServer struct {
+}
+
+func (UnimplementedStatItoSalesControllerServer) List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedStatItoSalesControllerServer) TradeDetails(context.Context, *ItoTradesRequest) (*ItoTradesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TradeDetails not implemented")
+}
+func (UnimplementedStatItoSalesControllerServer) mustEmbedUnimplementedStatItoSalesControllerServer() {
+}
+
+// UnsafeStatItoSalesControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StatItoSalesControllerServer will
+// result in compilation errors.
+type UnsafeStatItoSalesControllerServer interface {
+	mustEmbedUnimplementedStatItoSalesControllerServer()
+}
+
+func RegisterStatItoSalesControllerServer(s grpc.ServiceRegistrar, srv StatItoSalesControllerServer) {
+	s.RegisterService(&StatItoSalesController_ServiceDesc, srv)
+}
+
+func _StatItoSalesController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StatHmxSalesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatItoSalesControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatItoSalesController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatItoSalesControllerServer).List(ctx, req.(*StatHmxSalesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatItoSalesController_TradeDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItoTradesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatItoSalesControllerServer).TradeDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatItoSalesController_TradeDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatItoSalesControllerServer).TradeDetails(ctx, req.(*ItoTradesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StatItoSalesController_ServiceDesc is the grpc.ServiceDesc for StatItoSalesController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StatItoSalesController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "store_service.store_stat_ito.StatItoSalesController",
+	HandlerType: (*StatItoSalesControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "List",
+			Handler:    _StatItoSalesController_List_Handler,
+		},
+		{
+			MethodName: "TradeDetails",
+			Handler:    _StatItoSalesController_TradeDetails_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "store_stat_ito.proto",
+}
