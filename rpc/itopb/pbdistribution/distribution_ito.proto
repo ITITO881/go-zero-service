@@ -1,0 +1,201 @@
+syntax = "proto3";
+
+package distribution_service.distribution_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../pbdistribution";
+
+service DistributionTradesController {
+  rpc Create(StoreTradesRequest) returns (StoreTradesResponse) {}
+  rpc Destroy(StoreTradesDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DistributionNextTid(NextTidRequest) returns (NextTidResponse) {}
+  rpc List(StoreTradesListRequest) returns (StoreTradesListResponse) {}
+  rpc PartialUpdate(StoreTradesPartialUpdateRequest) returns (StoreTradesResponse) {}
+  rpc Retrieve(StoreTradesRetrieveRequest) returns (StoreTradesResponse) {}
+  rpc Update(StoreTradesRequest) returns (StoreTradesResponse) {}
+}
+
+message NextTidRequest {
+  string store_no = 1;
+}
+
+message NextTidResponse {
+  string tid = 1;
+}
+
+message StoreTradesDestroyRequest {
+  int32 id = 1;
+  string edit_user_id = 2;
+  string edit_user = 3;
+}
+
+message StoreTradesListRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated TradeEmployeesRequest trade_employees = 3;
+  repeated TradeDetailsRequest trade_details = 4;
+  string tid = 5;
+  string trade_date = 6;
+  string store_no = 7;
+  string store_name = 8;
+  optional string deleted = 9;
+  optional string customer_name = 10;
+  optional string sex = 11;
+  optional string age = 12;
+  optional string tel = 13;
+  optional int32 receiver_province = 14;
+  optional int32 receiver_city = 15;
+  optional int32 receiver_district = 16;
+  optional string receiver_area = 17;
+  optional string address = 18;
+  optional string remark = 19;
+  optional string trade_from = 20;
+  optional string edit_user_id = 21;
+  optional string edit_user = 22;
+}
+
+message StoreTradesListResponse {
+  repeated StoreTradesResponse results = 1;
+  int32 count = 2;
+}
+
+message StoreTradesPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated TradeEmployeesRequest trade_employees = 3;
+  repeated TradeDetailsRequest trade_details = 4;
+  repeated string _partial_update_fields = 5;
+  string tid = 6;
+  string trade_date = 7;
+  string store_no = 8;
+  string store_name = 9;
+  optional string deleted = 10;
+  optional string customer_name = 11;
+  optional string sex = 12;
+  optional string age = 13;
+  optional string tel = 14;
+  optional int32 receiver_province = 15;
+  optional int32 receiver_city = 16;
+  optional int32 receiver_district = 17;
+  optional string receiver_area = 18;
+  optional string address = 19;
+  optional string remark = 20;
+  optional string trade_from = 21;
+  optional string edit_user_id = 22;
+  optional string edit_user = 23;
+}
+
+message StoreTradesRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated TradeEmployeesRequest trade_employees = 3;
+  repeated TradeDetailsRequest trade_details = 4;
+  string tid = 5;
+  string trade_date = 6;
+  string store_no = 7;
+  string store_name = 8;
+  optional string deleted = 9;
+  optional string customer_name = 10;
+  optional string sex = 11;
+  optional string age = 12;
+  optional string tel = 13;
+  optional int32 receiver_province = 14;
+  optional int32 receiver_city = 15;
+  optional int32 receiver_district = 16;
+  optional string receiver_area = 17;
+  optional string address = 18;
+  optional string remark = 19;
+  optional string trade_from = 20;
+  optional string edit_user_id = 21;
+  optional string edit_user = 22;
+}
+
+message StoreTradesResponse {
+  int32 id = 1;
+  repeated TradeEmployeesResponse trade_employees = 2;
+  repeated TradeDetailsResponse trade_details = 3;
+  string created = 4;
+  string modified = 5;
+  string tid = 6;
+  string trade_date = 7;
+  string store_no = 8;
+  string store_name = 9;
+  optional string deleted = 10;
+  optional string customer_name = 11;
+  optional string sex = 12;
+  optional string age = 13;
+  optional string tel = 14;
+  optional int32 receiver_province = 15;
+  optional int32 receiver_city = 16;
+  optional int32 receiver_district = 17;
+  optional string receiver_area = 18;
+  optional string address = 19;
+  optional string remark = 20;
+  optional string trade_from = 21;
+  optional string edit_user_id = 22;
+  optional string edit_user = 23;
+}
+
+message StoreTradesRetrieveRequest {
+  int32 id = 1;
+}
+
+message TradeDetailsRequest {
+  int32 id = 1;
+  optional string prod_code = 2;
+  optional string spec_code = 3;
+  optional string prod_name = 4;
+  optional string prod_cat = 5;
+  optional string prod_ser = 6;
+  optional string prod_color = 7;
+  optional string prod_size = 8;
+  float retail_price = 9;
+  float retail_amount = 10;
+  optional float share_price = 11;
+  optional float share_amount = 12;
+  optional float discount = 13;
+  int32 num = 14;
+  optional bool is_master = 15;
+  string status = 16;
+  optional string style = 17;
+  optional string remark = 18;
+}
+
+message TradeDetailsResponse {
+  int32 id = 1;
+  optional string prod_code = 2;
+  optional string spec_code = 3;
+  optional string prod_name = 4;
+  optional string prod_cat = 5;
+  optional string prod_ser = 6;
+  optional string prod_color = 7;
+  optional string prod_size = 8;
+  float retail_price = 9;
+  float retail_amount = 10;
+  optional float share_price = 11;
+  optional float share_amount = 12;
+  optional float discount = 13;
+  int32 num = 14;
+  optional bool is_master = 15;
+  string status = 16;
+  optional string style = 17;
+  optional string remark = 18;
+  int64 trade = 19;
+}
+
+message TradeEmployeesRequest {
+  int32 id = 1;
+  string employee_no = 2;
+  string employee_name = 3;
+  float share_percent = 4;
+}
+
+message TradeEmployeesResponse {
+  int32 id = 1;
+  string employee_no = 2;
+  string employee_name = 3;
+  float share_percent = 4;
+  int64 trade = 5;
+}
+

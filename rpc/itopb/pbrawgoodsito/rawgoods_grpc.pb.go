@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: rawgoods.proto
 
-package pbRawGoodsIto
+package pbrawgoodsito
 
 import (
 	context "context"
@@ -1122,26 +1122,46 @@ var ProductController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WorkshopController_Create_FullMethodName         = "/product_service.prod_ito.WorkshopController/Create"
-	WorkshopController_CreateList_FullMethodName     = "/product_service.prod_ito.WorkshopController/CreateList"
-	WorkshopController_Destroy_FullMethodName        = "/product_service.prod_ito.WorkshopController/Destroy"
-	WorkshopController_FilterRetrieve_FullMethodName = "/product_service.prod_ito.WorkshopController/FilterRetrieve"
-	WorkshopController_List_FullMethodName           = "/product_service.prod_ito.WorkshopController/List"
-	WorkshopController_PartialUpdate_FullMethodName  = "/product_service.prod_ito.WorkshopController/PartialUpdate"
-	WorkshopController_Properties_FullMethodName     = "/product_service.prod_ito.WorkshopController/Properties"
-	WorkshopController_Retrieve_FullMethodName       = "/product_service.prod_ito.WorkshopController/Retrieve"
-	WorkshopController_SkuList_FullMethodName        = "/product_service.prod_ito.WorkshopController/SkuList"
-	WorkshopController_SkuRetrieve_FullMethodName    = "/product_service.prod_ito.WorkshopController/SkuRetrieve"
-	WorkshopController_SkuSpareParts_FullMethodName  = "/product_service.prod_ito.WorkshopController/SkuSpareParts"
-	WorkshopController_SpuList_FullMethodName        = "/product_service.prod_ito.WorkshopController/SpuList"
-	WorkshopController_SpuProperties_FullMethodName  = "/product_service.prod_ito.WorkshopController/SpuProperties"
-	WorkshopController_Update_FullMethodName         = "/product_service.prod_ito.WorkshopController/Update"
+	WorkshopController_ClubSkuCreate_FullMethodName      = "/product_service.prod_ito.WorkshopController/ClubSkuCreate"
+	WorkshopController_ClubSkuDestroy_FullMethodName     = "/product_service.prod_ito.WorkshopController/ClubSkuDestroy"
+	WorkshopController_ClubSkuList_FullMethodName        = "/product_service.prod_ito.WorkshopController/ClubSkuList"
+	WorkshopController_ClubSkuRetrieve_FullMethodName    = "/product_service.prod_ito.WorkshopController/ClubSkuRetrieve"
+	WorkshopController_ClubSkuUpdate_FullMethodName      = "/product_service.prod_ito.WorkshopController/ClubSkuUpdate"
+	WorkshopController_ClubSpuCreate_FullMethodName      = "/product_service.prod_ito.WorkshopController/ClubSpuCreate"
+	WorkshopController_ClubSpuDestroy_FullMethodName     = "/product_service.prod_ito.WorkshopController/ClubSpuDestroy"
+	WorkshopController_ClubSpuList_FullMethodName        = "/product_service.prod_ito.WorkshopController/ClubSpuList"
+	WorkshopController_ClubSpuUpdate_FullMethodName      = "/product_service.prod_ito.WorkshopController/ClubSpuUpdate"
+	WorkshopController_ClubSpuValues_FullMethodName      = "/product_service.prod_ito.WorkshopController/ClubSpuValues"
+	WorkshopController_ClubWorkshopList_FullMethodName   = "/product_service.prod_ito.WorkshopController/ClubWorkshopList"
+	WorkshopController_Create_FullMethodName             = "/product_service.prod_ito.WorkshopController/Create"
+	WorkshopController_CreateList_FullMethodName         = "/product_service.prod_ito.WorkshopController/CreateList"
+	WorkshopController_Destroy_FullMethodName            = "/product_service.prod_ito.WorkshopController/Destroy"
+	WorkshopController_FilterRetrieve_FullMethodName     = "/product_service.prod_ito.WorkshopController/FilterRetrieve"
+	WorkshopController_List_FullMethodName               = "/product_service.prod_ito.WorkshopController/List"
+	WorkshopController_PartialUpdate_FullMethodName      = "/product_service.prod_ito.WorkshopController/PartialUpdate"
+	WorkshopController_Properties_FullMethodName         = "/product_service.prod_ito.WorkshopController/Properties"
+	WorkshopController_Retrieve_FullMethodName           = "/product_service.prod_ito.WorkshopController/Retrieve"
+	WorkshopController_SkuSpareParts_FullMethodName      = "/product_service.prod_ito.WorkshopController/SkuSpareParts"
+	WorkshopController_SpuProperties_FullMethodName      = "/product_service.prod_ito.WorkshopController/SpuProperties"
+	WorkshopController_Update_FullMethodName             = "/product_service.prod_ito.WorkshopController/Update"
+	WorkshopController_WorkshopConfigList_FullMethodName = "/product_service.prod_ito.WorkshopController/WorkshopConfigList"
 )
 
 // WorkshopControllerClient is the client API for WorkshopController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WorkshopControllerClient interface {
+	ClubSkuCreate(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductResponse, error)
+	ClubSkuDestroy(ctx context.Context, in *ClubProductDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ClubSkuList(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductListResponse, error)
+	ClubSkuRetrieve(ctx context.Context, in *ClubProductRetrieveRequest, opts ...grpc.CallOption) (*ClubProductResponse, error)
+	ClubSkuUpdate(ctx context.Context, in *ClubProductUpdateRequest, opts ...grpc.CallOption) (*ClubProductResponse, error)
+	ClubSpuCreate(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuResponse, error)
+	ClubSpuDestroy(ctx context.Context, in *ClubProductSpuDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ClubSpuList(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuListResponse, error)
+	ClubSpuUpdate(ctx context.Context, in *ClubProductSpuUpdateRequest, opts ...grpc.CallOption) (*ClubProductSpuResponse, error)
+	ClubSpuValues(ctx context.Context, in *ValuesListRequest, opts ...grpc.CallOption) (*WorkshopClubSpuValuesResponse, error)
+	ClubWorkshopList(ctx context.Context, in *ClubWorkshopRequest, opts ...grpc.CallOption) (*ClubWorkshopListResponse, error)
 	Create(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
 	CreateList(ctx context.Context, in *ProdWorkshopListRequest, opts ...grpc.CallOption) (*ProdWorkshopListResponse, error)
 	Destroy(ctx context.Context, in *ProdWorkshopDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -1150,12 +1170,10 @@ type WorkshopControllerClient interface {
 	PartialUpdate(ctx context.Context, in *ProdWorkshopPartialUpdateRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
 	Properties(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*WorkshopPropertiesListResponse, error)
 	Retrieve(ctx context.Context, in *ProdWorkshopRetrieveRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
-	SkuList(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductListResponse, error)
-	SkuRetrieve(ctx context.Context, in *ClubProductRetrieveRequest, opts ...grpc.CallOption) (*ClubProductResponse, error)
 	SkuSpareParts(ctx context.Context, in *RawSkuSparePartsRequest, opts ...grpc.CallOption) (*RawSkuSparePartsListResponse, error)
-	SpuList(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuListResponse, error)
 	SpuProperties(ctx context.Context, in *ProdWorkshopPartRequest, opts ...grpc.CallOption) (*WorkshopSpuListResponse, error)
 	Update(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error)
+	WorkshopConfigList(ctx context.Context, in *WorkshopConfigRequest, opts ...grpc.CallOption) (*WorkshopConfigListResponse, error)
 }
 
 type workshopControllerClient struct {
@@ -1164,6 +1182,105 @@ type workshopControllerClient struct {
 
 func NewWorkshopControllerClient(cc grpc.ClientConnInterface) WorkshopControllerClient {
 	return &workshopControllerClient{cc}
+}
+
+func (c *workshopControllerClient) ClubSkuCreate(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductResponse, error) {
+	out := new(ClubProductResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSkuCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSkuDestroy(ctx context.Context, in *ClubProductDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSkuDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSkuList(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductListResponse, error) {
+	out := new(ClubProductListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSkuList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSkuRetrieve(ctx context.Context, in *ClubProductRetrieveRequest, opts ...grpc.CallOption) (*ClubProductResponse, error) {
+	out := new(ClubProductResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSkuRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSkuUpdate(ctx context.Context, in *ClubProductUpdateRequest, opts ...grpc.CallOption) (*ClubProductResponse, error) {
+	out := new(ClubProductResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSkuUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSpuCreate(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuResponse, error) {
+	out := new(ClubProductSpuResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSpuCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSpuDestroy(ctx context.Context, in *ClubProductSpuDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSpuDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSpuList(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuListResponse, error) {
+	out := new(ClubProductSpuListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSpuList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSpuUpdate(ctx context.Context, in *ClubProductSpuUpdateRequest, opts ...grpc.CallOption) (*ClubProductSpuResponse, error) {
+	out := new(ClubProductSpuResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSpuUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubSpuValues(ctx context.Context, in *ValuesListRequest, opts ...grpc.CallOption) (*WorkshopClubSpuValuesResponse, error) {
+	out := new(WorkshopClubSpuValuesResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubSpuValues_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *workshopControllerClient) ClubWorkshopList(ctx context.Context, in *ClubWorkshopRequest, opts ...grpc.CallOption) (*ClubWorkshopListResponse, error) {
+	out := new(ClubWorkshopListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_ClubWorkshopList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *workshopControllerClient) Create(ctx context.Context, in *ProdWorkshopRequest, opts ...grpc.CallOption) (*ProdWorkshopResponse, error) {
@@ -1238,36 +1355,9 @@ func (c *workshopControllerClient) Retrieve(ctx context.Context, in *ProdWorksho
 	return out, nil
 }
 
-func (c *workshopControllerClient) SkuList(ctx context.Context, in *ClubProductRequest, opts ...grpc.CallOption) (*ClubProductListResponse, error) {
-	out := new(ClubProductListResponse)
-	err := c.cc.Invoke(ctx, WorkshopController_SkuList_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *workshopControllerClient) SkuRetrieve(ctx context.Context, in *ClubProductRetrieveRequest, opts ...grpc.CallOption) (*ClubProductResponse, error) {
-	out := new(ClubProductResponse)
-	err := c.cc.Invoke(ctx, WorkshopController_SkuRetrieve_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *workshopControllerClient) SkuSpareParts(ctx context.Context, in *RawSkuSparePartsRequest, opts ...grpc.CallOption) (*RawSkuSparePartsListResponse, error) {
 	out := new(RawSkuSparePartsListResponse)
 	err := c.cc.Invoke(ctx, WorkshopController_SkuSpareParts_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *workshopControllerClient) SpuList(ctx context.Context, in *ClubProductSpuRequest, opts ...grpc.CallOption) (*ClubProductSpuListResponse, error) {
-	out := new(ClubProductSpuListResponse)
-	err := c.cc.Invoke(ctx, WorkshopController_SpuList_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1292,10 +1382,30 @@ func (c *workshopControllerClient) Update(ctx context.Context, in *ProdWorkshopR
 	return out, nil
 }
 
+func (c *workshopControllerClient) WorkshopConfigList(ctx context.Context, in *WorkshopConfigRequest, opts ...grpc.CallOption) (*WorkshopConfigListResponse, error) {
+	out := new(WorkshopConfigListResponse)
+	err := c.cc.Invoke(ctx, WorkshopController_WorkshopConfigList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // WorkshopControllerServer is the server API for WorkshopController service.
 // All implementations must embed UnimplementedWorkshopControllerServer
 // for forward compatibility
 type WorkshopControllerServer interface {
+	ClubSkuCreate(context.Context, *ClubProductRequest) (*ClubProductResponse, error)
+	ClubSkuDestroy(context.Context, *ClubProductDestroyRequest) (*emptypb.Empty, error)
+	ClubSkuList(context.Context, *ClubProductRequest) (*ClubProductListResponse, error)
+	ClubSkuRetrieve(context.Context, *ClubProductRetrieveRequest) (*ClubProductResponse, error)
+	ClubSkuUpdate(context.Context, *ClubProductUpdateRequest) (*ClubProductResponse, error)
+	ClubSpuCreate(context.Context, *ClubProductSpuRequest) (*ClubProductSpuResponse, error)
+	ClubSpuDestroy(context.Context, *ClubProductSpuDestroyRequest) (*emptypb.Empty, error)
+	ClubSpuList(context.Context, *ClubProductSpuRequest) (*ClubProductSpuListResponse, error)
+	ClubSpuUpdate(context.Context, *ClubProductSpuUpdateRequest) (*ClubProductSpuResponse, error)
+	ClubSpuValues(context.Context, *ValuesListRequest) (*WorkshopClubSpuValuesResponse, error)
+	ClubWorkshopList(context.Context, *ClubWorkshopRequest) (*ClubWorkshopListResponse, error)
 	Create(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error)
 	CreateList(context.Context, *ProdWorkshopListRequest) (*ProdWorkshopListResponse, error)
 	Destroy(context.Context, *ProdWorkshopDestroyRequest) (*emptypb.Empty, error)
@@ -1304,12 +1414,10 @@ type WorkshopControllerServer interface {
 	PartialUpdate(context.Context, *ProdWorkshopPartialUpdateRequest) (*ProdWorkshopResponse, error)
 	Properties(context.Context, *ProdWorkshopPartRequest) (*WorkshopPropertiesListResponse, error)
 	Retrieve(context.Context, *ProdWorkshopRetrieveRequest) (*ProdWorkshopResponse, error)
-	SkuList(context.Context, *ClubProductRequest) (*ClubProductListResponse, error)
-	SkuRetrieve(context.Context, *ClubProductRetrieveRequest) (*ClubProductResponse, error)
 	SkuSpareParts(context.Context, *RawSkuSparePartsRequest) (*RawSkuSparePartsListResponse, error)
-	SpuList(context.Context, *ClubProductSpuRequest) (*ClubProductSpuListResponse, error)
 	SpuProperties(context.Context, *ProdWorkshopPartRequest) (*WorkshopSpuListResponse, error)
 	Update(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error)
+	WorkshopConfigList(context.Context, *WorkshopConfigRequest) (*WorkshopConfigListResponse, error)
 	mustEmbedUnimplementedWorkshopControllerServer()
 }
 
@@ -1317,6 +1425,39 @@ type WorkshopControllerServer interface {
 type UnimplementedWorkshopControllerServer struct {
 }
 
+func (UnimplementedWorkshopControllerServer) ClubSkuCreate(context.Context, *ClubProductRequest) (*ClubProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSkuCreate not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSkuDestroy(context.Context, *ClubProductDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSkuDestroy not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSkuList(context.Context, *ClubProductRequest) (*ClubProductListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSkuList not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSkuRetrieve(context.Context, *ClubProductRetrieveRequest) (*ClubProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSkuRetrieve not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSkuUpdate(context.Context, *ClubProductUpdateRequest) (*ClubProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSkuUpdate not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSpuCreate(context.Context, *ClubProductSpuRequest) (*ClubProductSpuResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSpuCreate not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSpuDestroy(context.Context, *ClubProductSpuDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSpuDestroy not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSpuList(context.Context, *ClubProductSpuRequest) (*ClubProductSpuListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSpuList not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSpuUpdate(context.Context, *ClubProductSpuUpdateRequest) (*ClubProductSpuResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSpuUpdate not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubSpuValues(context.Context, *ValuesListRequest) (*WorkshopClubSpuValuesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubSpuValues not implemented")
+}
+func (UnimplementedWorkshopControllerServer) ClubWorkshopList(context.Context, *ClubWorkshopRequest) (*ClubWorkshopListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ClubWorkshopList not implemented")
+}
 func (UnimplementedWorkshopControllerServer) Create(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
@@ -1341,23 +1482,17 @@ func (UnimplementedWorkshopControllerServer) Properties(context.Context, *ProdWo
 func (UnimplementedWorkshopControllerServer) Retrieve(context.Context, *ProdWorkshopRetrieveRequest) (*ProdWorkshopResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
 }
-func (UnimplementedWorkshopControllerServer) SkuList(context.Context, *ClubProductRequest) (*ClubProductListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SkuList not implemented")
-}
-func (UnimplementedWorkshopControllerServer) SkuRetrieve(context.Context, *ClubProductRetrieveRequest) (*ClubProductResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SkuRetrieve not implemented")
-}
 func (UnimplementedWorkshopControllerServer) SkuSpareParts(context.Context, *RawSkuSparePartsRequest) (*RawSkuSparePartsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SkuSpareParts not implemented")
-}
-func (UnimplementedWorkshopControllerServer) SpuList(context.Context, *ClubProductSpuRequest) (*ClubProductSpuListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SpuList not implemented")
 }
 func (UnimplementedWorkshopControllerServer) SpuProperties(context.Context, *ProdWorkshopPartRequest) (*WorkshopSpuListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SpuProperties not implemented")
 }
 func (UnimplementedWorkshopControllerServer) Update(context.Context, *ProdWorkshopRequest) (*ProdWorkshopResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedWorkshopControllerServer) WorkshopConfigList(context.Context, *WorkshopConfigRequest) (*WorkshopConfigListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WorkshopConfigList not implemented")
 }
 func (UnimplementedWorkshopControllerServer) mustEmbedUnimplementedWorkshopControllerServer() {}
 
@@ -1370,6 +1505,204 @@ type UnsafeWorkshopControllerServer interface {
 
 func RegisterWorkshopControllerServer(s grpc.ServiceRegistrar, srv WorkshopControllerServer) {
 	s.RegisterService(&WorkshopController_ServiceDesc, srv)
+}
+
+func _WorkshopController_ClubSkuCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSkuCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSkuCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSkuCreate(ctx, req.(*ClubProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSkuDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSkuDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSkuDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSkuDestroy(ctx, req.(*ClubProductDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSkuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSkuList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSkuList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSkuList(ctx, req.(*ClubProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSkuRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSkuRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSkuRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSkuRetrieve(ctx, req.(*ClubProductRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSkuUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSkuUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSkuUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSkuUpdate(ctx, req.(*ClubProductUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSpuCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductSpuRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSpuCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSpuCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSpuCreate(ctx, req.(*ClubProductSpuRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSpuDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductSpuDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSpuDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSpuDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSpuDestroy(ctx, req.(*ClubProductSpuDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSpuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductSpuRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSpuList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSpuList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSpuList(ctx, req.(*ClubProductSpuRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSpuUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubProductSpuUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSpuUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSpuUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSpuUpdate(ctx, req.(*ClubProductSpuUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubSpuValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubSpuValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubSpuValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubSpuValues(ctx, req.(*ValuesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WorkshopController_ClubWorkshopList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClubWorkshopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).ClubWorkshopList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_ClubWorkshopList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).ClubWorkshopList(ctx, req.(*ClubWorkshopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _WorkshopController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1516,42 +1849,6 @@ func _WorkshopController_Retrieve_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WorkshopController_SkuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClubProductRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WorkshopControllerServer).SkuList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WorkshopController_SkuList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WorkshopControllerServer).SkuList(ctx, req.(*ClubProductRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WorkshopController_SkuRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClubProductRetrieveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WorkshopControllerServer).SkuRetrieve(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WorkshopController_SkuRetrieve_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WorkshopControllerServer).SkuRetrieve(ctx, req.(*ClubProductRetrieveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _WorkshopController_SkuSpareParts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RawSkuSparePartsRequest)
 	if err := dec(in); err != nil {
@@ -1566,24 +1863,6 @@ func _WorkshopController_SkuSpareParts_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WorkshopControllerServer).SkuSpareParts(ctx, req.(*RawSkuSparePartsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WorkshopController_SpuList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClubProductSpuRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WorkshopControllerServer).SpuList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WorkshopController_SpuList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WorkshopControllerServer).SpuList(ctx, req.(*ClubProductSpuRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1624,6 +1903,24 @@ func _WorkshopController_Update_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _WorkshopController_WorkshopConfigList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WorkshopConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WorkshopControllerServer).WorkshopConfigList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WorkshopController_WorkshopConfigList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WorkshopControllerServer).WorkshopConfigList(ctx, req.(*WorkshopConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // WorkshopController_ServiceDesc is the grpc.ServiceDesc for WorkshopController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1631,6 +1928,50 @@ var WorkshopController_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "product_service.prod_ito.WorkshopController",
 	HandlerType: (*WorkshopControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ClubSkuCreate",
+			Handler:    _WorkshopController_ClubSkuCreate_Handler,
+		},
+		{
+			MethodName: "ClubSkuDestroy",
+			Handler:    _WorkshopController_ClubSkuDestroy_Handler,
+		},
+		{
+			MethodName: "ClubSkuList",
+			Handler:    _WorkshopController_ClubSkuList_Handler,
+		},
+		{
+			MethodName: "ClubSkuRetrieve",
+			Handler:    _WorkshopController_ClubSkuRetrieve_Handler,
+		},
+		{
+			MethodName: "ClubSkuUpdate",
+			Handler:    _WorkshopController_ClubSkuUpdate_Handler,
+		},
+		{
+			MethodName: "ClubSpuCreate",
+			Handler:    _WorkshopController_ClubSpuCreate_Handler,
+		},
+		{
+			MethodName: "ClubSpuDestroy",
+			Handler:    _WorkshopController_ClubSpuDestroy_Handler,
+		},
+		{
+			MethodName: "ClubSpuList",
+			Handler:    _WorkshopController_ClubSpuList_Handler,
+		},
+		{
+			MethodName: "ClubSpuUpdate",
+			Handler:    _WorkshopController_ClubSpuUpdate_Handler,
+		},
+		{
+			MethodName: "ClubSpuValues",
+			Handler:    _WorkshopController_ClubSpuValues_Handler,
+		},
+		{
+			MethodName: "ClubWorkshopList",
+			Handler:    _WorkshopController_ClubWorkshopList_Handler,
+		},
 		{
 			MethodName: "Create",
 			Handler:    _WorkshopController_Create_Handler,
@@ -1664,20 +2005,8 @@ var WorkshopController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _WorkshopController_Retrieve_Handler,
 		},
 		{
-			MethodName: "SkuList",
-			Handler:    _WorkshopController_SkuList_Handler,
-		},
-		{
-			MethodName: "SkuRetrieve",
-			Handler:    _WorkshopController_SkuRetrieve_Handler,
-		},
-		{
 			MethodName: "SkuSpareParts",
 			Handler:    _WorkshopController_SkuSpareParts_Handler,
-		},
-		{
-			MethodName: "SpuList",
-			Handler:    _WorkshopController_SpuList_Handler,
 		},
 		{
 			MethodName: "SpuProperties",
@@ -1686,6 +2015,10 @@ var WorkshopController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Update",
 			Handler:    _WorkshopController_Update_Handler,
+		},
+		{
+			MethodName: "WorkshopConfigList",
+			Handler:    _WorkshopController_WorkshopConfigList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -4,13 +4,14 @@
 // - protoc             v3.19.4
 // source: customer_ito.proto
 
-package pb
+package pbCtmIto
 
 import (
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -60,11 +61,11 @@ type CtmItoControllerClient interface {
 	CreateCtmCardCares(ctx context.Context, in *CtmCardCaresCreateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
 	CreateCtmProduct(ctx context.Context, in *CtmProductCreateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
 	DefaultAddr(ctx context.Context, in *CtmDefaultAddrRequest, opts ...grpc.CallOption) (*CtmItoDefaultAddrResponse, error)
-	Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*CtmBaseDestroyResponse, error)
-	DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*CtmAddrDestroyResponse, error)
-	DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*CtmCartDestroyResponse, error)
-	DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmCardCaresResponse, error)
-	DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmProductResponse, error)
+	Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *CtmBaseListRequest, opts ...grpc.CallOption) (*CtmBaseListResponse, error)
 	ListAddr(ctx context.Context, in *CtmAddrListRequest, opts ...grpc.CallOption) (*CtmAddrListResponse, error)
 	ListCart(ctx context.Context, in *CtmCartListRequest, opts ...grpc.CallOption) (*CtmCartListResponse, error)
@@ -154,8 +155,8 @@ func (c *ctmItoControllerClient) DefaultAddr(ctx context.Context, in *CtmDefault
 	return out, nil
 }
 
-func (c *ctmItoControllerClient) Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*CtmBaseDestroyResponse, error) {
-	out := new(CtmBaseDestroyResponse)
+func (c *ctmItoControllerClient) Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -163,8 +164,8 @@ func (c *ctmItoControllerClient) Destroy(ctx context.Context, in *CtmBaseDestroy
 	return out, nil
 }
 
-func (c *ctmItoControllerClient) DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*CtmAddrDestroyResponse, error) {
-	out := new(CtmAddrDestroyResponse)
+func (c *ctmItoControllerClient) DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoController_DestroyAddr_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -172,8 +173,8 @@ func (c *ctmItoControllerClient) DestroyAddr(ctx context.Context, in *CtmAddrDes
 	return out, nil
 }
 
-func (c *ctmItoControllerClient) DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*CtmCartDestroyResponse, error) {
-	out := new(CtmCartDestroyResponse)
+func (c *ctmItoControllerClient) DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoController_DestroyCart_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -181,8 +182,8 @@ func (c *ctmItoControllerClient) DestroyCart(ctx context.Context, in *CtmCartDes
 	return out, nil
 }
 
-func (c *ctmItoControllerClient) DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmCardCaresResponse, error) {
-	out := new(CtmItoDestroyCtmCardCaresResponse)
+func (c *ctmItoControllerClient) DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmCardCares_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -190,8 +191,8 @@ func (c *ctmItoControllerClient) DestroyCtmCardCares(ctx context.Context, in *Ct
 	return out, nil
 }
 
-func (c *ctmItoControllerClient) DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*CtmItoDestroyCtmProductResponse, error) {
-	out := new(CtmItoDestroyCtmProductResponse)
+func (c *ctmItoControllerClient) DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmProduct_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -354,11 +355,11 @@ type CtmItoControllerServer interface {
 	CreateCtmCardCares(context.Context, *CtmCardCaresCreateRequest) (*CtmCardCaresResponse, error)
 	CreateCtmProduct(context.Context, *CtmProductCreateRequest) (*CtmProductResponse, error)
 	DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error)
-	Destroy(context.Context, *CtmBaseDestroyRequest) (*CtmBaseDestroyResponse, error)
-	DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*CtmAddrDestroyResponse, error)
-	DestroyCart(context.Context, *CtmCartDestroyRequest) (*CtmCartDestroyResponse, error)
-	DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*CtmItoDestroyCtmCardCaresResponse, error)
-	DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*CtmItoDestroyCtmProductResponse, error)
+	Destroy(context.Context, *CtmBaseDestroyRequest) (*emptypb.Empty, error)
+	DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*emptypb.Empty, error)
+	DestroyCart(context.Context, *CtmCartDestroyRequest) (*emptypb.Empty, error)
+	DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*emptypb.Empty, error)
+	DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*emptypb.Empty, error)
 	List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error)
 	ListAddr(context.Context, *CtmAddrListRequest) (*CtmAddrListResponse, error)
 	ListCart(context.Context, *CtmCartListRequest) (*CtmCartListResponse, error)
@@ -403,19 +404,19 @@ func (UnimplementedCtmItoControllerServer) CreateCtmProduct(context.Context, *Ct
 func (UnimplementedCtmItoControllerServer) DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DefaultAddr not implemented")
 }
-func (UnimplementedCtmItoControllerServer) Destroy(context.Context, *CtmBaseDestroyRequest) (*CtmBaseDestroyResponse, error) {
+func (UnimplementedCtmItoControllerServer) Destroy(context.Context, *CtmBaseDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedCtmItoControllerServer) DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*CtmAddrDestroyResponse, error) {
+func (UnimplementedCtmItoControllerServer) DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyAddr not implemented")
 }
-func (UnimplementedCtmItoControllerServer) DestroyCart(context.Context, *CtmCartDestroyRequest) (*CtmCartDestroyResponse, error) {
+func (UnimplementedCtmItoControllerServer) DestroyCart(context.Context, *CtmCartDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCart not implemented")
 }
-func (UnimplementedCtmItoControllerServer) DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*CtmItoDestroyCtmCardCaresResponse, error) {
+func (UnimplementedCtmItoControllerServer) DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmCardCares not implemented")
 }
-func (UnimplementedCtmItoControllerServer) DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*CtmItoDestroyCtmProductResponse, error) {
+func (UnimplementedCtmItoControllerServer) DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmProduct not implemented")
 }
 func (UnimplementedCtmItoControllerServer) List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error) {

@@ -228,8 +228,8 @@ message CardVoucherNextSerialResponse {
 }
 
 message CardVoucherOptionResponse {
-  repeated LabelValueResponse coupon_classes = 1;
-  repeated LabelValueResponse coupon_types = 2;
+  repeated LabelNumberValueResponse coupon_classes = 1;
+  repeated LabelNumberValueResponse coupon_types = 2;
   repeated LabelValueResponse coupon_names = 3;
 }
 
@@ -250,6 +250,7 @@ message CardVoucherPartialUpdateRequest {
   optional int32 discount = 21;
   optional string coupon_series = 22;
   optional string prod_range = 23;
+  optional int32 cumulate_count = 24;
 }
 
 message CardVoucherRequest {
@@ -268,6 +269,7 @@ message CardVoucherRequest {
   optional int32 discount = 20;
   optional string coupon_series = 21;
   optional string prod_range = 22;
+  optional int32 cumulate_count = 23;
 }
 
 message CardVoucherResponse {
@@ -289,10 +291,16 @@ message CardVoucherResponse {
   string type_name = 23;
   optional string coupon_series = 24;
   optional string prod_range = 25;
+  optional int32 cumulate_count = 26;
 }
 
 message CardVoucherRetrieveRequest {
   int32 id = 1;
+}
+
+message LabelNumberValueResponse {
+  int32 value = 1;
+  string label = 2;
 }
 
 message LabelValueResponse {
@@ -307,4 +315,3 @@ message NextSerialRequest {
 
 message OptionRequest {
 }
-

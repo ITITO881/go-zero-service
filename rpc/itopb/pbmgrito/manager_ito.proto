@@ -6,6 +6,7 @@ option go_package = "../pbmgrito";
 import "google/protobuf/empty.proto";
 
 service MgrController {
+  rpc AccountDept(MgrWebLoginRequest) returns (AccountsUsersinfoResponse) {}
   rpc Create(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
   rpc Destroy(ManagerWebModelDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ManagerWebModelListRequest) returns (ManagerWebModelListResponse) {}
@@ -15,12 +16,22 @@ service MgrController {
   rpc Update(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
 }
 
+message AccountsUsersinfoResponse {
+  string username = 6;
+  repeated DepartmentResponse dept = 7;
+}
+
+message DepartmentResponse {
+  string code = 1;
+  string name = 2;
+}
+
 message ManagerWebModelDestroyRequest {
   int32 id = 1;
 }
 
 message ManagerWebModelListRequest {
-  optional int32 id = 1;
+  int32 id = 1;
   string password = 2;
   string filters = 3;
   string date_joined = 4;
@@ -48,42 +59,42 @@ message ManagerWebModelListResponse {
 }
 
 message ManagerWebModelPartialUpdateRequest {
-  optional int32 id = 1;
-  optional string password = 2;
-  optional string filters = 3;
-  optional string date_joined = 4;
+  int32 id = 1;
+  string password = 2;
+  string filters = 3;
+  string date_joined = 4;
   repeated string _partial_update_fields = 5;
   optional string last_login = 6;
-  optional bool is_superuser = 7;
-  optional string username = 8;
-  optional string first_name = 9;
-  optional string last_name = 10;
-  optional string email = 11;
-  optional bool is_staff = 12;
-  optional bool is_active = 13;
-  optional string nickname = 14;
-  optional string mobile_phone = 15;
+  bool is_superuser = 7;
+  string username = 8;
+  string first_name = 9;
+  string last_name = 10;
+  string email = 11;
+  bool is_staff = 12;
+  bool is_active = 13;
+  string nickname = 14;
+  string mobile_phone = 15;
   optional string describe = 16;
   optional string user_avatar = 17;
   optional string expiration_time = 18;
   repeated int32 groups = 20;
   repeated int32 user_permissions = 21;
-  optional int32 creator = 22;
+  int32 creator = 22;
 }
 
 message ManagerWebModelRequest {
-  optional int32 id = 1;
+  int32 id = 1;
   string password = 2;
-  optional string filters = 3;
+  string filters = 3;
   string date_joined = 4;
   optional string last_login = 5;
-  optional bool is_superuser = 6;
+  bool is_superuser = 6;
   string username = 7;
-  optional string first_name = 8;
-  optional string last_name = 9;
-  optional string email = 10;
-  optional bool is_staff = 11;
-  optional bool is_active = 12;
+  string first_name = 8;
+  string last_name = 9;
+  string email = 10;
+  bool is_staff = 11;
+  bool is_active = 12;
   string nickname = 13;
   string mobile_phone = 14;
   optional string describe = 15;
@@ -91,7 +102,7 @@ message ManagerWebModelRequest {
   optional string expiration_time = 17;
   repeated int32 groups = 19;
   repeated int32 user_permissions = 20;
-  optional int32 creator = 21;
+  int32 creator = 21;
 }
 
 message ManagerWebModelResponse {

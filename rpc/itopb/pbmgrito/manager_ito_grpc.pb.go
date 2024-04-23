@@ -20,6 +20,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
+	MgrController_AccountDept_FullMethodName   = "/manager_service.manager_ito.MgrController/AccountDept"
 	MgrController_Create_FullMethodName        = "/manager_service.manager_ito.MgrController/Create"
 	MgrController_Destroy_FullMethodName       = "/manager_service.manager_ito.MgrController/Destroy"
 	MgrController_List_FullMethodName          = "/manager_service.manager_ito.MgrController/List"
@@ -33,6 +34,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MgrControllerClient interface {
+	AccountDept(ctx context.Context, in *MgrWebLoginRequest, opts ...grpc.CallOption) (*AccountsUsersinfoResponse, error)
 	Create(ctx context.Context, in *ManagerWebModelRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error)
 	Destroy(ctx context.Context, in *ManagerWebModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ManagerWebModelListRequest, opts ...grpc.CallOption) (*ManagerWebModelListResponse, error)
@@ -48,6 +50,15 @@ type mgrControllerClient struct {
 
 func NewMgrControllerClient(cc grpc.ClientConnInterface) MgrControllerClient {
 	return &mgrControllerClient{cc}
+}
+
+func (c *mgrControllerClient) AccountDept(ctx context.Context, in *MgrWebLoginRequest, opts ...grpc.CallOption) (*AccountsUsersinfoResponse, error) {
+	out := new(AccountsUsersinfoResponse)
+	err := c.cc.Invoke(ctx, MgrController_AccountDept_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *mgrControllerClient) Create(ctx context.Context, in *ManagerWebModelRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error) {
@@ -117,6 +128,7 @@ func (c *mgrControllerClient) Update(ctx context.Context, in *ManagerWebModelReq
 // All implementations must embed UnimplementedMgrControllerServer
 // for forward compatibility
 type MgrControllerServer interface {
+	AccountDept(context.Context, *MgrWebLoginRequest) (*AccountsUsersinfoResponse, error)
 	Create(context.Context, *ManagerWebModelRequest) (*ManagerWebModelResponse, error)
 	Destroy(context.Context, *ManagerWebModelDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ManagerWebModelListRequest) (*ManagerWebModelListResponse, error)
@@ -131,6 +143,9 @@ type MgrControllerServer interface {
 type UnimplementedMgrControllerServer struct {
 }
 
+func (UnimplementedMgrControllerServer) AccountDept(context.Context, *MgrWebLoginRequest) (*AccountsUsersinfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AccountDept not implemented")
+}
 func (UnimplementedMgrControllerServer) Create(context.Context, *ManagerWebModelRequest) (*ManagerWebModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
@@ -163,6 +178,24 @@ type UnsafeMgrControllerServer interface {
 
 func RegisterMgrControllerServer(s grpc.ServiceRegistrar, srv MgrControllerServer) {
 	s.RegisterService(&MgrController_ServiceDesc, srv)
+}
+
+func _MgrController_AccountDept_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MgrWebLoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MgrControllerServer).AccountDept(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MgrController_AccountDept_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MgrControllerServer).AccountDept(ctx, req.(*MgrWebLoginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _MgrController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -298,6 +331,10 @@ var MgrController_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "manager_service.manager_ito.MgrController",
 	HandlerType: (*MgrControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AccountDept",
+			Handler:    _MgrController_AccountDept_Handler,
+		},
 		{
 			MethodName: "Create",
 			Handler:    _MgrController_Create_Handler,

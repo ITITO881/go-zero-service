@@ -33,6 +33,8 @@ const (
 	CtmItoServiceController_CreateObjectSwap_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/CreateObjectSwap"
 	CtmItoServiceController_CreateObjectTailor_FullMethodName     = "/customer_service.customer_ito.CtmItoServiceController/CreateObjectTailor"
 	CtmItoServiceController_CreateObjectTradeIn_FullMethodName    = "/customer_service.customer_ito.CtmItoServiceController/CreateObjectTradeIn"
+	CtmItoServiceController_CreateStockIn_FullMethodName          = "/customer_service.customer_ito.CtmItoServiceController/CreateStockIn"
+	CtmItoServiceController_CreateStockOut_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/CreateStockOut"
 	CtmItoServiceController_Destroy_FullMethodName                = "/customer_service.customer_ito.CtmItoServiceController/Destroy"
 	CtmItoServiceController_DestroyGoodsDeliver_FullMethodName    = "/customer_service.customer_ito.CtmItoServiceController/DestroyGoodsDeliver"
 	CtmItoServiceController_DestroyGoodsInvoice_FullMethodName    = "/customer_service.customer_ito.CtmItoServiceController/DestroyGoodsInvoice"
@@ -44,6 +46,8 @@ const (
 	CtmItoServiceController_DestroyObjectSwap_FullMethodName      = "/customer_service.customer_ito.CtmItoServiceController/DestroyObjectSwap"
 	CtmItoServiceController_DestroyObjectTailor_FullMethodName    = "/customer_service.customer_ito.CtmItoServiceController/DestroyObjectTailor"
 	CtmItoServiceController_DestroyObjectTradeIn_FullMethodName   = "/customer_service.customer_ito.CtmItoServiceController/DestroyObjectTradeIn"
+	CtmItoServiceController_DestroyStockIn_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/DestroyStockIn"
+	CtmItoServiceController_DestroyStockOut_FullMethodName        = "/customer_service.customer_ito.CtmItoServiceController/DestroyStockOut"
 	CtmItoServiceController_List_FullMethodName                   = "/customer_service.customer_ito.CtmItoServiceController/List"
 	CtmItoServiceController_ListGoodsDeliver_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/ListGoodsDeliver"
 	CtmItoServiceController_ListGoodsInvoice_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/ListGoodsInvoice"
@@ -55,6 +59,8 @@ const (
 	CtmItoServiceController_ListObjectSwap_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/ListObjectSwap"
 	CtmItoServiceController_ListObjectTailor_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/ListObjectTailor"
 	CtmItoServiceController_ListObjectTradeIn_FullMethodName      = "/customer_service.customer_ito.CtmItoServiceController/ListObjectTradeIn"
+	CtmItoServiceController_ListStockIn_FullMethodName            = "/customer_service.customer_ito.CtmItoServiceController/ListStockIn"
+	CtmItoServiceController_ListStockOut_FullMethodName           = "/customer_service.customer_ito.CtmItoServiceController/ListStockOut"
 	CtmItoServiceController_PartialUpdate_FullMethodName          = "/customer_service.customer_ito.CtmItoServiceController/PartialUpdate"
 	CtmItoServiceController_Retrieve_FullMethodName               = "/customer_service.customer_ito.CtmItoServiceController/Retrieve"
 	CtmItoServiceController_RetrieveGoodsDeliver_FullMethodName   = "/customer_service.customer_ito.CtmItoServiceController/RetrieveGoodsDeliver"
@@ -67,6 +73,8 @@ const (
 	CtmItoServiceController_RetrieveObjectSwap_FullMethodName     = "/customer_service.customer_ito.CtmItoServiceController/RetrieveObjectSwap"
 	CtmItoServiceController_RetrieveObjectTailor_FullMethodName   = "/customer_service.customer_ito.CtmItoServiceController/RetrieveObjectTailor"
 	CtmItoServiceController_RetrieveObjectTradeIn_FullMethodName  = "/customer_service.customer_ito.CtmItoServiceController/RetrieveObjectTradeIn"
+	CtmItoServiceController_RetrieveStockIn_FullMethodName        = "/customer_service.customer_ito.CtmItoServiceController/RetrieveStockIn"
+	CtmItoServiceController_RetrieveStockOut_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/RetrieveStockOut"
 	CtmItoServiceController_ServiceNextSid_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/ServiceNextSid"
 	CtmItoServiceController_ServiceOptions_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/ServiceOptions"
 	CtmItoServiceController_ServiceStatusCount_FullMethodName     = "/customer_service.customer_ito.CtmItoServiceController/ServiceStatusCount"
@@ -81,6 +89,8 @@ const (
 	CtmItoServiceController_UpdateObjectSwap_FullMethodName       = "/customer_service.customer_ito.CtmItoServiceController/UpdateObjectSwap"
 	CtmItoServiceController_UpdateObjectTailor_FullMethodName     = "/customer_service.customer_ito.CtmItoServiceController/UpdateObjectTailor"
 	CtmItoServiceController_UpdateObjectTradeIn_FullMethodName    = "/customer_service.customer_ito.CtmItoServiceController/UpdateObjectTradeIn"
+	CtmItoServiceController_UpdateStockIn_FullMethodName          = "/customer_service.customer_ito.CtmItoServiceController/UpdateStockIn"
+	CtmItoServiceController_UpdateStockOut_FullMethodName         = "/customer_service.customer_ito.CtmItoServiceController/UpdateStockOut"
 )
 
 // CtmItoServiceControllerClient is the client API for CtmItoServiceController service.
@@ -100,6 +110,8 @@ type CtmItoServiceControllerClient interface {
 	CreateObjectSwap(ctx context.Context, in *CreateObjectSwapRequest, opts ...grpc.CallOption) (*ObjectSwapResponse, error)
 	CreateObjectTailor(ctx context.Context, in *CreateObjectTailorRequest, opts ...grpc.CallOption) (*ObjectTailorResponse, error)
 	CreateObjectTradeIn(ctx context.Context, in *CreateObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInResponse, error)
+	CreateStockIn(ctx context.Context, in *CreateStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error)
+	CreateStockOut(ctx context.Context, in *CreateStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error)
 	Destroy(ctx context.Context, in *CtmServiceDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyGoodsDeliver(ctx context.Context, in *DestroyGoodsDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyGoodsInvoice(ctx context.Context, in *DestroyGoodsInvoiceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -111,6 +123,8 @@ type CtmItoServiceControllerClient interface {
 	DestroyObjectSwap(ctx context.Context, in *DestroyObjectSwapRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyObjectTailor(ctx context.Context, in *DestroyObjectTailorRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyObjectTradeIn(ctx context.Context, in *DestroyObjectTradeInRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyStockIn(ctx context.Context, in *DestroyStockInRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyStockOut(ctx context.Context, in *DestroyStockOutRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *CtmServiceListRequest, opts ...grpc.CallOption) (*CtmServiceListResponse, error)
 	ListGoodsDeliver(ctx context.Context, in *ListGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDeliverListResponse, error)
 	ListGoodsInvoice(ctx context.Context, in *ListGoodsInvoiceRequest, opts ...grpc.CallOption) (*ServiceGoodsInvoiceListResponse, error)
@@ -122,6 +136,8 @@ type CtmItoServiceControllerClient interface {
 	ListObjectSwap(ctx context.Context, in *ListObjectSwapRequest, opts ...grpc.CallOption) (*ObjectSwapListResponse, error)
 	ListObjectTailor(ctx context.Context, in *ListObjectTailorRequest, opts ...grpc.CallOption) (*ObjectTailorListResponse, error)
 	ListObjectTradeIn(ctx context.Context, in *ListObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInListResponse, error)
+	ListStockIn(ctx context.Context, in *ListStockInRequest, opts ...grpc.CallOption) (*ServiceStockInListResponse, error)
+	ListStockOut(ctx context.Context, in *ListStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutListResponse, error)
 	PartialUpdate(ctx context.Context, in *CtmServicePartialUpdateRequest, opts ...grpc.CallOption) (*CtmServiceResponse, error)
 	Retrieve(ctx context.Context, in *CtmServiceRetrieveRequest, opts ...grpc.CallOption) (*CtmServiceResponse, error)
 	RetrieveGoodsDeliver(ctx context.Context, in *RetrieveGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDeliverResponse, error)
@@ -134,6 +150,8 @@ type CtmItoServiceControllerClient interface {
 	RetrieveObjectSwap(ctx context.Context, in *RetrieveObjectSwapRequest, opts ...grpc.CallOption) (*ObjectSwapResponse, error)
 	RetrieveObjectTailor(ctx context.Context, in *RetrieveObjectTailorRequest, opts ...grpc.CallOption) (*ObjectTailorResponse, error)
 	RetrieveObjectTradeIn(ctx context.Context, in *RetrieveObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInResponse, error)
+	RetrieveStockIn(ctx context.Context, in *RetrieveStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error)
+	RetrieveStockOut(ctx context.Context, in *RetrieveStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error)
 	ServiceNextSid(ctx context.Context, in *ServiceNextSidRequest, opts ...grpc.CallOption) (*ServiceNextSidResponse, error)
 	ServiceOptions(ctx context.Context, in *ServiceOptionsRequest, opts ...grpc.CallOption) (*ServiceOptionsResponse, error)
 	ServiceStatusCount(ctx context.Context, in *ServiceStatusCountRequest, opts ...grpc.CallOption) (*ServiceStatusCountListResponse, error)
@@ -148,6 +166,8 @@ type CtmItoServiceControllerClient interface {
 	UpdateObjectSwap(ctx context.Context, in *UpdateObjectSwapRequest, opts ...grpc.CallOption) (*ObjectSwapResponse, error)
 	UpdateObjectTailor(ctx context.Context, in *UpdateObjectTailorRequest, opts ...grpc.CallOption) (*ObjectTailorResponse, error)
 	UpdateObjectTradeIn(ctx context.Context, in *UpdateObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInResponse, error)
+	UpdateStockIn(ctx context.Context, in *UpdateStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error)
+	UpdateStockOut(ctx context.Context, in *UpdateStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error)
 }
 
 type ctmItoServiceControllerClient struct {
@@ -275,6 +295,24 @@ func (c *ctmItoServiceControllerClient) CreateObjectTradeIn(ctx context.Context,
 	return out, nil
 }
 
+func (c *ctmItoServiceControllerClient) CreateStockIn(ctx context.Context, in *CreateStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error) {
+	out := new(ServiceStockInResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_CreateStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) CreateStockOut(ctx context.Context, in *CreateStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error) {
+	out := new(ServiceStockOutResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_CreateStockOut_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoServiceControllerClient) Destroy(ctx context.Context, in *CtmServiceDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoServiceController_Destroy_FullMethodName, in, out, opts...)
@@ -374,6 +412,24 @@ func (c *ctmItoServiceControllerClient) DestroyObjectTradeIn(ctx context.Context
 	return out, nil
 }
 
+func (c *ctmItoServiceControllerClient) DestroyStockIn(ctx context.Context, in *DestroyStockInRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_DestroyStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) DestroyStockOut(ctx context.Context, in *DestroyStockOutRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_DestroyStockOut_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoServiceControllerClient) List(ctx context.Context, in *CtmServiceListRequest, opts ...grpc.CallOption) (*CtmServiceListResponse, error) {
 	out := new(CtmServiceListResponse)
 	err := c.cc.Invoke(ctx, CtmItoServiceController_List_FullMethodName, in, out, opts...)
@@ -467,6 +523,24 @@ func (c *ctmItoServiceControllerClient) ListObjectTailor(ctx context.Context, in
 func (c *ctmItoServiceControllerClient) ListObjectTradeIn(ctx context.Context, in *ListObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInListResponse, error) {
 	out := new(ObjectTradeInListResponse)
 	err := c.cc.Invoke(ctx, CtmItoServiceController_ListObjectTradeIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) ListStockIn(ctx context.Context, in *ListStockInRequest, opts ...grpc.CallOption) (*ServiceStockInListResponse, error) {
+	out := new(ServiceStockInListResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_ListStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) ListStockOut(ctx context.Context, in *ListStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutListResponse, error) {
+	out := new(ServiceStockOutListResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_ListStockOut_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -575,6 +649,24 @@ func (c *ctmItoServiceControllerClient) RetrieveObjectTailor(ctx context.Context
 func (c *ctmItoServiceControllerClient) RetrieveObjectTradeIn(ctx context.Context, in *RetrieveObjectTradeInRequest, opts ...grpc.CallOption) (*ObjectTradeInResponse, error) {
 	out := new(ObjectTradeInResponse)
 	err := c.cc.Invoke(ctx, CtmItoServiceController_RetrieveObjectTradeIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) RetrieveStockIn(ctx context.Context, in *RetrieveStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error) {
+	out := new(ServiceStockInResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_RetrieveStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) RetrieveStockOut(ctx context.Context, in *RetrieveStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error) {
+	out := new(ServiceStockOutResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_RetrieveStockOut_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -707,6 +799,24 @@ func (c *ctmItoServiceControllerClient) UpdateObjectTradeIn(ctx context.Context,
 	return out, nil
 }
 
+func (c *ctmItoServiceControllerClient) UpdateStockIn(ctx context.Context, in *UpdateStockInRequest, opts ...grpc.CallOption) (*ServiceStockInResponse, error) {
+	out := new(ServiceStockInResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_UpdateStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoServiceControllerClient) UpdateStockOut(ctx context.Context, in *UpdateStockOutRequest, opts ...grpc.CallOption) (*ServiceStockOutResponse, error) {
+	out := new(ServiceStockOutResponse)
+	err := c.cc.Invoke(ctx, CtmItoServiceController_UpdateStockOut_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CtmItoServiceControllerServer is the server API for CtmItoServiceController service.
 // All implementations must embed UnimplementedCtmItoServiceControllerServer
 // for forward compatibility
@@ -724,6 +834,8 @@ type CtmItoServiceControllerServer interface {
 	CreateObjectSwap(context.Context, *CreateObjectSwapRequest) (*ObjectSwapResponse, error)
 	CreateObjectTailor(context.Context, *CreateObjectTailorRequest) (*ObjectTailorResponse, error)
 	CreateObjectTradeIn(context.Context, *CreateObjectTradeInRequest) (*ObjectTradeInResponse, error)
+	CreateStockIn(context.Context, *CreateStockInRequest) (*ServiceStockInResponse, error)
+	CreateStockOut(context.Context, *CreateStockOutRequest) (*ServiceStockOutResponse, error)
 	Destroy(context.Context, *CtmServiceDestroyRequest) (*emptypb.Empty, error)
 	DestroyGoodsDeliver(context.Context, *DestroyGoodsDeliverRequest) (*emptypb.Empty, error)
 	DestroyGoodsInvoice(context.Context, *DestroyGoodsInvoiceRequest) (*emptypb.Empty, error)
@@ -735,6 +847,8 @@ type CtmItoServiceControllerServer interface {
 	DestroyObjectSwap(context.Context, *DestroyObjectSwapRequest) (*emptypb.Empty, error)
 	DestroyObjectTailor(context.Context, *DestroyObjectTailorRequest) (*emptypb.Empty, error)
 	DestroyObjectTradeIn(context.Context, *DestroyObjectTradeInRequest) (*emptypb.Empty, error)
+	DestroyStockIn(context.Context, *DestroyStockInRequest) (*emptypb.Empty, error)
+	DestroyStockOut(context.Context, *DestroyStockOutRequest) (*emptypb.Empty, error)
 	List(context.Context, *CtmServiceListRequest) (*CtmServiceListResponse, error)
 	ListGoodsDeliver(context.Context, *ListGoodsDeliverRequest) (*ServiceGoodsDeliverListResponse, error)
 	ListGoodsInvoice(context.Context, *ListGoodsInvoiceRequest) (*ServiceGoodsInvoiceListResponse, error)
@@ -746,6 +860,8 @@ type CtmItoServiceControllerServer interface {
 	ListObjectSwap(context.Context, *ListObjectSwapRequest) (*ObjectSwapListResponse, error)
 	ListObjectTailor(context.Context, *ListObjectTailorRequest) (*ObjectTailorListResponse, error)
 	ListObjectTradeIn(context.Context, *ListObjectTradeInRequest) (*ObjectTradeInListResponse, error)
+	ListStockIn(context.Context, *ListStockInRequest) (*ServiceStockInListResponse, error)
+	ListStockOut(context.Context, *ListStockOutRequest) (*ServiceStockOutListResponse, error)
 	PartialUpdate(context.Context, *CtmServicePartialUpdateRequest) (*CtmServiceResponse, error)
 	Retrieve(context.Context, *CtmServiceRetrieveRequest) (*CtmServiceResponse, error)
 	RetrieveGoodsDeliver(context.Context, *RetrieveGoodsDeliverRequest) (*ServiceGoodsDeliverResponse, error)
@@ -758,6 +874,8 @@ type CtmItoServiceControllerServer interface {
 	RetrieveObjectSwap(context.Context, *RetrieveObjectSwapRequest) (*ObjectSwapResponse, error)
 	RetrieveObjectTailor(context.Context, *RetrieveObjectTailorRequest) (*ObjectTailorResponse, error)
 	RetrieveObjectTradeIn(context.Context, *RetrieveObjectTradeInRequest) (*ObjectTradeInResponse, error)
+	RetrieveStockIn(context.Context, *RetrieveStockInRequest) (*ServiceStockInResponse, error)
+	RetrieveStockOut(context.Context, *RetrieveStockOutRequest) (*ServiceStockOutResponse, error)
 	ServiceNextSid(context.Context, *ServiceNextSidRequest) (*ServiceNextSidResponse, error)
 	ServiceOptions(context.Context, *ServiceOptionsRequest) (*ServiceOptionsResponse, error)
 	ServiceStatusCount(context.Context, *ServiceStatusCountRequest) (*ServiceStatusCountListResponse, error)
@@ -772,6 +890,8 @@ type CtmItoServiceControllerServer interface {
 	UpdateObjectSwap(context.Context, *UpdateObjectSwapRequest) (*ObjectSwapResponse, error)
 	UpdateObjectTailor(context.Context, *UpdateObjectTailorRequest) (*ObjectTailorResponse, error)
 	UpdateObjectTradeIn(context.Context, *UpdateObjectTradeInRequest) (*ObjectTradeInResponse, error)
+	UpdateStockIn(context.Context, *UpdateStockInRequest) (*ServiceStockInResponse, error)
+	UpdateStockOut(context.Context, *UpdateStockOutRequest) (*ServiceStockOutResponse, error)
 	mustEmbedUnimplementedCtmItoServiceControllerServer()
 }
 
@@ -818,6 +938,12 @@ func (UnimplementedCtmItoServiceControllerServer) CreateObjectTailor(context.Con
 func (UnimplementedCtmItoServiceControllerServer) CreateObjectTradeIn(context.Context, *CreateObjectTradeInRequest) (*ObjectTradeInResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateObjectTradeIn not implemented")
 }
+func (UnimplementedCtmItoServiceControllerServer) CreateStockIn(context.Context, *CreateStockInRequest) (*ServiceStockInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStockIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) CreateStockOut(context.Context, *CreateStockOutRequest) (*ServiceStockOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateStockOut not implemented")
+}
 func (UnimplementedCtmItoServiceControllerServer) Destroy(context.Context, *CtmServiceDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
@@ -851,6 +977,12 @@ func (UnimplementedCtmItoServiceControllerServer) DestroyObjectTailor(context.Co
 func (UnimplementedCtmItoServiceControllerServer) DestroyObjectTradeIn(context.Context, *DestroyObjectTradeInRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyObjectTradeIn not implemented")
 }
+func (UnimplementedCtmItoServiceControllerServer) DestroyStockIn(context.Context, *DestroyStockInRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyStockIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) DestroyStockOut(context.Context, *DestroyStockOutRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyStockOut not implemented")
+}
 func (UnimplementedCtmItoServiceControllerServer) List(context.Context, *CtmServiceListRequest) (*CtmServiceListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
@@ -883,6 +1015,12 @@ func (UnimplementedCtmItoServiceControllerServer) ListObjectTailor(context.Conte
 }
 func (UnimplementedCtmItoServiceControllerServer) ListObjectTradeIn(context.Context, *ListObjectTradeInRequest) (*ObjectTradeInListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListObjectTradeIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) ListStockIn(context.Context, *ListStockInRequest) (*ServiceStockInListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStockIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) ListStockOut(context.Context, *ListStockOutRequest) (*ServiceStockOutListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStockOut not implemented")
 }
 func (UnimplementedCtmItoServiceControllerServer) PartialUpdate(context.Context, *CtmServicePartialUpdateRequest) (*CtmServiceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -919,6 +1057,12 @@ func (UnimplementedCtmItoServiceControllerServer) RetrieveObjectTailor(context.C
 }
 func (UnimplementedCtmItoServiceControllerServer) RetrieveObjectTradeIn(context.Context, *RetrieveObjectTradeInRequest) (*ObjectTradeInResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveObjectTradeIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) RetrieveStockIn(context.Context, *RetrieveStockInRequest) (*ServiceStockInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveStockIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) RetrieveStockOut(context.Context, *RetrieveStockOutRequest) (*ServiceStockOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveStockOut not implemented")
 }
 func (UnimplementedCtmItoServiceControllerServer) ServiceNextSid(context.Context, *ServiceNextSidRequest) (*ServiceNextSidResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ServiceNextSid not implemented")
@@ -961,6 +1105,12 @@ func (UnimplementedCtmItoServiceControllerServer) UpdateObjectTailor(context.Con
 }
 func (UnimplementedCtmItoServiceControllerServer) UpdateObjectTradeIn(context.Context, *UpdateObjectTradeInRequest) (*ObjectTradeInResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateObjectTradeIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) UpdateStockIn(context.Context, *UpdateStockInRequest) (*ServiceStockInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStockIn not implemented")
+}
+func (UnimplementedCtmItoServiceControllerServer) UpdateStockOut(context.Context, *UpdateStockOutRequest) (*ServiceStockOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateStockOut not implemented")
 }
 func (UnimplementedCtmItoServiceControllerServer) mustEmbedUnimplementedCtmItoServiceControllerServer() {
 }
@@ -1210,6 +1360,42 @@ func _CtmItoServiceController_CreateObjectTradeIn_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoServiceController_CreateStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).CreateStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_CreateStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).CreateStockIn(ctx, req.(*CreateStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_CreateStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).CreateStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_CreateStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).CreateStockOut(ctx, req.(*CreateStockOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoServiceController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmServiceDestroyRequest)
 	if err := dec(in); err != nil {
@@ -1408,6 +1594,42 @@ func _CtmItoServiceController_DestroyObjectTradeIn_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoServiceController_DestroyStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).DestroyStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_DestroyStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).DestroyStockIn(ctx, req.(*DestroyStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_DestroyStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).DestroyStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_DestroyStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).DestroyStockOut(ctx, req.(*DestroyStockOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoServiceController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmServiceListRequest)
 	if err := dec(in); err != nil {
@@ -1602,6 +1824,42 @@ func _CtmItoServiceController_ListObjectTradeIn_Handler(srv interface{}, ctx con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoServiceControllerServer).ListObjectTradeIn(ctx, req.(*ListObjectTradeInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_ListStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).ListStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_ListStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).ListStockIn(ctx, req.(*ListStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_ListStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).ListStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_ListStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).ListStockOut(ctx, req.(*ListStockOutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1818,6 +2076,42 @@ func _CtmItoServiceController_RetrieveObjectTradeIn_Handler(srv interface{}, ctx
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoServiceControllerServer).RetrieveObjectTradeIn(ctx, req.(*RetrieveObjectTradeInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_RetrieveStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).RetrieveStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_RetrieveStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).RetrieveStockIn(ctx, req.(*RetrieveStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_RetrieveStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).RetrieveStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_RetrieveStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).RetrieveStockOut(ctx, req.(*RetrieveStockOutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2074,6 +2368,42 @@ func _CtmItoServiceController_UpdateObjectTradeIn_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoServiceController_UpdateStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).UpdateStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_UpdateStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).UpdateStockIn(ctx, req.(*UpdateStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoServiceController_UpdateStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoServiceControllerServer).UpdateStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoServiceController_UpdateStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoServiceControllerServer).UpdateStockOut(ctx, req.(*UpdateStockOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CtmItoServiceController_ServiceDesc is the grpc.ServiceDesc for CtmItoServiceController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2134,6 +2464,14 @@ var CtmItoServiceController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoServiceController_CreateObjectTradeIn_Handler,
 		},
 		{
+			MethodName: "CreateStockIn",
+			Handler:    _CtmItoServiceController_CreateStockIn_Handler,
+		},
+		{
+			MethodName: "CreateStockOut",
+			Handler:    _CtmItoServiceController_CreateStockOut_Handler,
+		},
+		{
 			MethodName: "Destroy",
 			Handler:    _CtmItoServiceController_Destroy_Handler,
 		},
@@ -2178,6 +2516,14 @@ var CtmItoServiceController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoServiceController_DestroyObjectTradeIn_Handler,
 		},
 		{
+			MethodName: "DestroyStockIn",
+			Handler:    _CtmItoServiceController_DestroyStockIn_Handler,
+		},
+		{
+			MethodName: "DestroyStockOut",
+			Handler:    _CtmItoServiceController_DestroyStockOut_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _CtmItoServiceController_List_Handler,
 		},
@@ -2220,6 +2566,14 @@ var CtmItoServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListObjectTradeIn",
 			Handler:    _CtmItoServiceController_ListObjectTradeIn_Handler,
+		},
+		{
+			MethodName: "ListStockIn",
+			Handler:    _CtmItoServiceController_ListStockIn_Handler,
+		},
+		{
+			MethodName: "ListStockOut",
+			Handler:    _CtmItoServiceController_ListStockOut_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
@@ -2268,6 +2622,14 @@ var CtmItoServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveObjectTradeIn",
 			Handler:    _CtmItoServiceController_RetrieveObjectTradeIn_Handler,
+		},
+		{
+			MethodName: "RetrieveStockIn",
+			Handler:    _CtmItoServiceController_RetrieveStockIn_Handler,
+		},
+		{
+			MethodName: "RetrieveStockOut",
+			Handler:    _CtmItoServiceController_RetrieveStockOut_Handler,
 		},
 		{
 			MethodName: "ServiceNextSid",
@@ -2324,6 +2686,14 @@ var CtmItoServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateObjectTradeIn",
 			Handler:    _CtmItoServiceController_UpdateObjectTradeIn_Handler,
+		},
+		{
+			MethodName: "UpdateStockIn",
+			Handler:    _CtmItoServiceController_UpdateStockIn_Handler,
+		},
+		{
+			MethodName: "UpdateStockOut",
+			Handler:    _CtmItoServiceController_UpdateStockOut_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

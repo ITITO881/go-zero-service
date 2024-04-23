@@ -4,7 +4,7 @@ package product_service.prod_ito;
 
 import "google/protobuf/empty.proto";
 
-option go_package = "../pbRawGoodsIto";
+option go_package = "../pbrawgoodsito";
 
 service ProdPropertiesController {
   rpc List(ProdPropertiesListRequest) returns (ProdPropertiesListResponse) {}
@@ -43,6 +43,17 @@ service ProductController {
 }
 
 service WorkshopController {
+  rpc ClubSkuCreate(ClubProductRequest) returns (ClubProductResponse) {}
+  rpc ClubSkuDestroy(ClubProductDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ClubSkuList(ClubProductRequest) returns (ClubProductListResponse) {}
+  rpc ClubSkuRetrieve(ClubProductRetrieveRequest) returns (ClubProductResponse) {}
+  rpc ClubSkuUpdate(ClubProductUpdateRequest) returns (ClubProductResponse) {}
+  rpc ClubSpuCreate(ClubProductSpuRequest) returns (ClubProductSpuResponse) {}
+  rpc ClubSpuDestroy(ClubProductSpuDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ClubSpuList(ClubProductSpuRequest) returns (ClubProductSpuListResponse) {}
+  rpc ClubSpuUpdate(ClubProductSpuUpdateRequest) returns (ClubProductSpuResponse) {}
+  rpc ClubSpuValues(ValuesListRequest) returns (WorkshopClubSpuValuesResponse) {}
+  rpc ClubWorkshopList(ClubWorkshopRequest) returns (ClubWorkshopListResponse) {}
   rpc Create(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
   rpc CreateList(ProdWorkshopListRequest) returns (ProdWorkshopListResponse) {}
   rpc Destroy(ProdWorkshopDestroyRequest) returns (google.protobuf.Empty) {}
@@ -51,12 +62,14 @@ service WorkshopController {
   rpc PartialUpdate(ProdWorkshopPartialUpdateRequest) returns (ProdWorkshopResponse) {}
   rpc Properties(ProdWorkshopPartRequest) returns (WorkshopPropertiesListResponse) {}
   rpc Retrieve(ProdWorkshopRetrieveRequest) returns (ProdWorkshopResponse) {}
-  rpc SkuList(ClubProductRequest) returns (ClubProductListResponse) {}
-  rpc SkuRetrieve(ClubProductRetrieveRequest) returns (ClubProductResponse) {}
   rpc SkuSpareParts(RawSkuSparePartsRequest) returns (RawSkuSparePartsListResponse) {}
-  rpc SpuList(ClubProductSpuRequest) returns (ClubProductSpuListResponse) {}
   rpc SpuProperties(ProdWorkshopPartRequest) returns (WorkshopSpuListResponse) {}
   rpc Update(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
+  rpc WorkshopConfigList(WorkshopConfigRequest) returns (WorkshopConfigListResponse) {}
+}
+
+message ClubProductDestroyRequest {
+  int32 id = 1;
 }
 
 message ClubProductListResponse {
@@ -66,6 +79,26 @@ message ClubProductListResponse {
 
 message ClubProductRequest {
   string filters = 1;
+  int32 id = 2;
+  string prod_code = 3;
+  optional string origin_cat = 4;
+  optional string full_name = 5;
+  optional string color = 6;
+  optional string color_rgb = 7;
+  optional string size = 8;
+  optional string stripe = 9;
+  optional string head_img = 10;
+  bool is_valid = 11;
+  bool bindable = 12;
+  bool customizable = 13;
+  int32 renew_time = 14;
+  int32 repair_time = 15;
+  string renew_time_unit = 16;
+  string repair_time_unit = 17;
+  optional int32 sort = 18;
+  int64 spu = 19;
+  optional int64 prod = 20;
+  repeated int64 workshop_color = 21;
 }
 
 message ClubProductResponse {
@@ -92,9 +125,16 @@ message ClubProductResponse {
   string create_time = 21;
   string update_time = 22;
   int64 spu = 23;
+  optional int64 prod = 24;
+  string prod_image = 25;
+  repeated int64 workshop_color = 26;
 }
 
 message ClubProductRetrieveRequest {
+  int32 id = 1;
+}
+
+message ClubProductSpuDestroyRequest {
   int32 id = 1;
 }
 
@@ -105,6 +145,16 @@ message ClubProductSpuListResponse {
 
 message ClubProductSpuRequest {
   string filters = 1;
+  int32 id = 2;
+  string prod_cat = 3;
+  optional string origin_cat = 4;
+  string spu_name = 5;
+  optional string alias = 6;
+  bool is_valid = 7;
+  bool bindable = 8;
+  bool customizable = 9;
+  int32 sort = 10;
+  int32 print_way = 11;
 }
 
 message ClubProductSpuResponse {
@@ -124,6 +174,75 @@ message ClubProductSpuResponse {
   int32 sort = 14;
   string create_time = 15;
   string update_time = 16;
+  int32 print_way = 17;
+  string print_way_name = 18;
+}
+
+message ClubProductSpuUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string prod_cat = 4;
+  optional string origin_cat = 5;
+  string spu_name = 6;
+  optional string alias = 7;
+  bool is_valid = 8;
+  bool bindable = 9;
+  bool customizable = 10;
+  int32 sort = 11;
+  int32 print_way = 12;
+}
+
+message ClubProductUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string prod_code = 4;
+  optional string origin_cat = 5;
+  optional string full_name = 6;
+  optional string color = 7;
+  optional string color_rgb = 8;
+  optional string size = 9;
+  optional string stripe = 10;
+  optional string head_img = 11;
+  bool is_valid = 12;
+  bool bindable = 13;
+  bool customizable = 14;
+  int32 renew_time = 15;
+  int32 repair_time = 16;
+  string renew_time_unit = 17;
+  string repair_time_unit = 18;
+  optional int32 sort = 19;
+  int64 spu = 20;
+  optional int64 prod = 21;
+  repeated int64 workshop_color = 22;
+}
+
+message ClubWorkshopListResponse {
+  repeated ClubWorkshopResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubWorkshopRequest {
+  string filters = 1;
+}
+
+message ClubWorkshopResponse {
+  int32 id = 1;
+  optional string part_name = 2;
+  bool is_valid = 3;
+  optional string part_image = 4;
+  int32 print_way = 5;
+  string create_time = 6;
+  string update_time = 7;
+  optional int64 prod = 8;
+  string prod_cat = 9;
+  string spu_name = 10;
+  string alias = 11;
+  string print_way_name = 12;
+  optional string font_regular = 13;
+  repeated WorkshopColorResponse workshop_color = 14;
+  string sku = 15;
 }
 
 message ProdPropertiesListRequest {
@@ -700,6 +819,40 @@ message RepairPartsRetrieveRequest {
   int32 id = 1;
 }
 
+message ValuesListRequest {
+  string filters = 1;
+  string value_name = 2;
+}
+
+message WorkshopClubSpuValuesResponse {
+  repeated string results = 1;
+}
+
+message WorkshopColorResponse {
+  int32 id = 1;
+  optional string color_name = 2;
+  optional string color_rgb = 3;
+  bool is_valid = 4;
+}
+
+message WorkshopConfigListResponse {
+  repeated WorkshopConfigResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopConfigRequest {
+  string filters = 1;
+}
+
+message WorkshopConfigResponse {
+  int32 id = 1;
+  int32 type = 2;
+  optional string title = 3;
+  optional string content = 4;
+  optional string remark = 5;
+  string update_time = 6;
+}
+
 message WorkshopPropertiesListResponse {
   repeated WorkshopPropertiesResponse results = 1;
   int32 count = 2;
@@ -724,3 +877,4 @@ message WorkshopSpuResponse {
   string name = 5;
   ProdWorkshopPartResponse spu = 6;
 }
+

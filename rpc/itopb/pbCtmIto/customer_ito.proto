@@ -267,7 +267,7 @@ message CtmCartCreateRequest {
   int32 id = 1;
   string filters = 2;
   string spu = 3;
-  int32 sku_id = 4;
+  string sku_id = 4;
   string sku = 5;
   int32 order_num = 6;
   string price = 7;
@@ -294,7 +294,7 @@ message CtmCartResponse {
   string create_time = 2;
   string update_time = 3;
   string spu = 4;
-  int32 sku_id = 5;
+  string sku_id = 5;
   string sku = 6;
   int32 order_num = 7;
   string price = 8;
@@ -317,7 +317,7 @@ message CtmCartUpdateRequest {
   string filters = 2;
   repeated string _partial_update_fields = 3;
   string spu = 4;
-  int32 sku_id = 5;
+  string sku_id = 5;
   string sku = 6;
   int32 order_num = 7;
   string price = 8;

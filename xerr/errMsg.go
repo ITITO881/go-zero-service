@@ -137,6 +137,14 @@ func init() {
 
 	message[WDT_TRADE_PUSH_FAIL] = "旺店通 下推订单推送失败"
 	message[WDT_TRADE_QUERY_FAIL] = "旺店通 查询订单失败"
+	message[WDT_QM_TRADE_QUERY_FAIL] = "旺店通奇门 查询订单失败"
+	// 定制相关错误
+	message[WDT_TRADE_NOT_EXIST] = "查询订单不存在"
+	message[WDT_TRADE_STATUS_ERROR_CANNOT_TAILOR] = "订单状态错误，已出库不能定制"
+	message[WDT_TAILOR_PERMISSION_SKU_REQUIRE] = "缺少定制许可SKU"
+	message[WDT_NO_CAN_TAILOR_PRODUCT] = "无可定制产品"
+	message[WDT_ALREADY_TAILORED] = "已定制|定制次数不足"
+
 	message[WDT_STOCK_IN_PUSH_FAIL] = "旺店通 下推入库单推送失败"
 	message[EXP_CLIENT_QUERY_FAIL] = "快递单号 客户端 查询失败"
 
