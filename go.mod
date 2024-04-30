@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-//add pbdistribution
+//update rpc 4.30
 go 1.20
 
 
