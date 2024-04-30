@@ -43,6 +43,7 @@ func init() {
 
 	message[REDIS_ERROR] = "redis error"
 	message[DS_API_ERROR] = "数仓API请求出错"
+	message[JAVA_API_ERROR] = "JAVA API返回错误码"
 
 	message[COUPON_STOCK_NOT_ENOUGH] = "优惠券库存不足"
 	message[ACTIVITY_NOT_AVALIABLE] = "活动已失效"
@@ -122,6 +123,7 @@ func init() {
 	// 服务单 相关错误
 	message[SERVICE_RPC_FAIL] = "服务单RPC 失败"
 	message[TRADE_TYPE_EMPTY_FAIL] = "服务单 业务类型字段 缺少"
+	message[TYPE_EMPTY_FAIL] = "退换单 申请子类型TYPE 缺少"
 	message[OBJECT_REPAIR_RPC_FAIL] = "维修单RPC 失败"
 	message[OBJECT_SWAP_RPC_FAIL] = "换货单RPC 失败"
 	message[OBJECT_TAILOR_RPC_FAIL] = "定制单RPC 失败"

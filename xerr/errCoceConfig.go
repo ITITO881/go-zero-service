@@ -43,9 +43,10 @@ const (
 )
 
 const (
-	ORM_ERROR    uint32 = 200000
-	REDIS_ERROR  uint32 = 200100
-	DS_API_ERROR uint32 = 200200
+	ORM_ERROR      uint32 = 200000
+	REDIS_ERROR    uint32 = 200100
+	DS_API_ERROR   uint32 = 200200
+	JAVA_API_ERROR uint32 = 200300
 )
 
 const (
@@ -149,6 +150,7 @@ const (
 	/** 服务单 Service RPC 相关 */
 	SERVICE_RPC_FAIL                uint32 = 140600
 	TRADE_TYPE_EMPTY_FAIL           uint32 = 140601
+	TYPE_EMPTY_FAIL                 uint32 = 140602
 	OBJECT_REPAIR_RPC_FAIL          uint32 = 140610
 	OBJECT_SWAP_RPC_FAIL            uint32 = 140615
 	OBJECT_TAILOR_RPC_FAIL          uint32 = 140620

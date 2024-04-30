@@ -1,0 +1,1221 @@
+syntax = "proto3";
+
+package customer_service.customer_ito;
+
+import "google/protobuf/empty.proto";
+option go_package = "../pbRefundIto";
+
+service CtmItoRefundController {
+  rpc Create(CtmRefundRequest) returns (CtmRefundResponse) {}
+  rpc CreateObjectAfterSales(CreateObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc CreateRefundDeliver(CreateRefundDeliverRequest) returns (RefundDeliverResponse) {}
+  rpc CreateRefundInvoice(CreateRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
+  rpc CreateRefundRefund(CreateRefundRefundRequest) returns (RefundRefundResponse) {}
+  rpc CreateRefundReturn(CreateRefundReturnRequest) returns (RefundReturnResponse) {}
+  rpc CreateRefundStockIn(CreateRefundStockInRequest) returns (RefundStockInResponse) {}
+  rpc CreateRefundStockOut(CreateRefundStockOutRequest) returns (RefundStockOutResponse) {}
+  rpc Destroy(CtmRefundDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyObjectAfterSales(DestroyObjectAfterSalesRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundDeliver(DestroyRefundDeliverRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundInvoice(DestroyRefundInvoiceRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundRefund(DestroyRefundRefundRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundReturn(DestroyRefundReturnRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundStockIn(DestroyRefundStockInRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundStockOut(DestroyRefundStockOutRequest) returns (google.protobuf.Empty) {}
+  rpc List(CtmRefundListRequest) returns (CtmRefundListResponse) {}
+  rpc ListObjectAfterSales(ListObjectAfterSalesRequest) returns (ObjectAfterSalesListResponse) {}
+  rpc ListRefundDeliver(ListRefundDeliverRequest) returns (RefundDeliverListResponse) {}
+  rpc ListRefundInvoice(ListRefundInvoiceRequest) returns (RefundInvoiceListResponse) {}
+  rpc ListRefundRefund(ListRefundRefundRequest) returns (RefundRefundListResponse) {}
+  rpc ListRefundReturn(ListRefundReturnRequest) returns (RefundReturnListResponse) {}
+  rpc ListRefundStockIn(ListRefundStockInRequest) returns (RefundStockInListResponse) {}
+  rpc ListRefundStockOut(ListRefundStockOutRequest) returns (RefundStockOutListResponse) {}
+  rpc NextNoRefundRefund(NextNoRefundRefundRequest) returns (NextNoRefundRefundResponse) {}
+  rpc PartialUpdate(CtmRefundPartialUpdateRequest) returns (CtmRefundResponse) {}
+  rpc RefundNextRid(RefundNextRidRequest) returns (RefundNextRidResponse) {}
+  rpc RefundOptions(RefundOptionsRequest) returns (RefundOptionsResponse) {}
+  rpc RefundStatusCount(RefundStatusCountRequest) returns (RefundStatusCountListResponse) {}
+  rpc Retrieve(CtmRefundRetrieveRequest) returns (CtmRefundResponse) {}
+  rpc RetrieveObjectAfterSales(RetrieveObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc RetrieveRefundDeliver(RetrieveRefundDeliverRequest) returns (RefundDeliverResponse) {}
+  rpc RetrieveRefundInvoice(RetrieveRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
+  rpc RetrieveRefundRefund(RetrieveRefundRefundRequest) returns (RefundRefundResponse) {}
+  rpc RetrieveRefundReturn(RetrieveRefundReturnRequest) returns (RefundReturnResponse) {}
+  rpc RetrieveRefundStockIn(RetrieveRefundStockInRequest) returns (RefundStockInResponse) {}
+  rpc RetrieveRefundStockOut(RetrieveRefundStockOutRequest) returns (RefundStockOutResponse) {}
+  rpc Update(CtmRefundRequest) returns (CtmRefundResponse) {}
+  rpc UpdateObjectAfterSales(UpdateObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc UpdateRefundDeliver(UpdateRefundDeliverRequest) returns (RefundDeliverResponse) {}
+  rpc UpdateRefundInvoice(UpdateRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
+  rpc UpdateRefundRefund(UpdateRefundRefundRequest) returns (RefundRefundResponse) {}
+  rpc UpdateRefundReturn(UpdateRefundReturnRequest) returns (RefundReturnResponse) {}
+  rpc UpdateRefundStockIn(UpdateRefundStockInRequest) returns (RefundStockInResponse) {}
+  rpc UpdateRefundStockOut(UpdateRefundStockOutRequest) returns (RefundStockOutResponse) {}
+}
+
+message CreateObjectAfterSalesRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 type = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  optional string platform_order = 12;
+  optional string oms_order = 13;
+  optional double retail_price = 15;
+  int32 num = 16;
+  optional string damage_parts_code = 17;
+  optional string damage_parts_name = 18;
+  optional string damage_reasons = 19;
+  optional string damage_desc = 20;
+  optional string media_path = 21;
+  optional int64 refund_object = 22;
+  optional string oid = 23;
+  optional double out_amount = 24;
+  optional int64 order_details = 25;
+}
+
+message CreateRefundDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_refund = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  optional string goods_no = 20;
+  string spec_no = 21;
+  optional string spec_name = 22;
+  optional string rfid_code = 23;
+  optional string security_code = 24;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_service = 26;
+}
+
+message CreateRefundInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 invoice_type = 3;
+  int32 payer_type = 4;
+  optional string payer_name = 5;
+  optional string payer_register_no = 6;
+  optional string payer_phone = 7;
+  optional string payer_email = 8;
+  optional string payer_address = 9;
+  optional string payer_bank = 10;
+  optional string payer_account = 11;
+  optional double invoice_amount = 12;
+  optional string invoice_remark = 13;
+  int32 reason_type = 14;
+  optional string invoice_no = 15;
+  optional string invoice_code = 16;
+  optional int64 ctm_order = 17;
+  optional int64 ctm_service = 18;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
+}
+
+message CreateRefundRefundRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string refund_no = 3;
+  optional string transaction_id = 4;
+  optional string platform_order = 5;
+  optional string refund_id = 6;
+  optional string channel = 7;
+  optional string user_received_account = 8;
+  optional string refund_success_time = 9;
+  optional string refund_create_time = 10;
+  optional string status = 11;
+  optional int32 total = 12;
+  optional int32 refund = 13;
+  optional int32 payer_total = 14;
+  optional int32 payer_refund = 15;
+  optional int32 settlement_refund = 16;
+  optional int32 settlement_total = 17;
+  optional int32 discount_refund = 18;
+  optional string currency = 19;
+  optional int32 refund_fee = 20;
+  optional string cancel_reasons = 21;
+  optional int64 ctm_refund = 22;
+  optional int64 ctm_order_pay = 23;
+}
+
+message CreateRefundReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  string oid = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_no = 6;
+  optional string spec_no = 7;
+  optional string spec_name = 8;
+  optional string rfid_code = 9;
+  optional string security_code = 10;
+  int32 num = 11;
+  optional int64 ctm_refund = 12;
+  optional int64 order_details = 13;
+  optional string goods_spu = 14;
+  optional double out_amount = 15;
+}
+
+message CreateRefundStockInRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string src_order_no = 3;
+  optional string src_order_type = 4;
+  optional string order_no = 5;
+  optional string stock_in_no = 6;
+  optional string status = 7;
+  optional string logistics_name = 8;
+  optional string logistics_code = 9;
+  optional string logistics_no = 10;
+  optional string stockin_time = 11;
+  optional string check_time = 12;
+  optional string modified = 13;
+  optional string goods_no = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string spec_no = 17;
+  double goods_count = 18;
+  optional int64 ctm_service = 19;
+  optional int64 ctm_refund = 20;
+}
+
+message CreateRefundStockOutRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string src_order_no = 3;
+  optional string stock_out_no = 4;
+  optional string order_no = 5;
+  optional string order_type_name = 6;
+  optional string status = 7;
+  optional string logistics_name = 8;
+  optional string logistics_code = 9;
+  optional string logistics_no = 10;
+  optional string consign_time = 11;
+  optional string stock_check_time = 12;
+  optional string modified = 13;
+  optional string goods_no = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string spec_no = 17;
+  double goods_count = 18;
+  optional int64 ctm_service = 19;
+  optional int64 ctm_order = 20;
+  optional int64 ctm_refund = 21;
+}
+
+message CtmRefundDestroyRequest {
+  int32 id = 1;
+}
+
+message CtmRefundListRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string create_name = 3;
+  optional int32 create_type = 4;
+  string rid = 5;
+  optional int32 trade_type = 6;
+  int32 type = 7;
+  string refund_status = 8;
+  optional string seller_name = 9;
+  optional string seller_memo = 10;
+  optional string shop_no = 11;
+  optional string shop_name = 12;
+  optional string reason_code = 13;
+  optional string reason = 14;
+  optional string desc = 15;
+  optional string approve_time = 16;
+  optional string approve_name = 17;
+  optional string approve_reasons = 18;
+  optional string cancel_reasons = 19;
+  optional string revert_code = 20;
+  optional string revert_reason = 21;
+  optional int32 trade_status = 22;
+  optional int32 pay_status = 23;
+  optional string pay_time = 24;
+  optional int32 delivery_term = 25;
+  optional string buyer_nick = 26;
+  optional string buyer_mobile = 27;
+  optional string buyer_message = 28;
+  optional string warehouse_no = 29;
+  optional string warehouse_name = 30;
+  optional string receiver_name = 31;
+  optional string receiver_province = 32;
+  optional string receiver_city = 33;
+  optional string receiver_district = 34;
+  optional string receiver_address = 35;
+  optional string receiver_mobile = 36;
+  optional double post_amount = 37;
+  optional double other_amount = 38;
+  optional double ext_cod_fee = 39;
+  optional double paid = 40;
+  optional double cod_amount = 41;
+  optional double receivable = 42;
+  optional double discount = 43;
+  optional int32 invoice_status = 44;
+  string tid = 45;
+  optional string oms_order = 46;
+  optional string warehouse_in_no = 47;
+  optional string warehouse_in_name = 48;
+  optional string open_id = 49;
+  double refund_fee = 50;
+  optional string refund_card_no = 51;
+  int32 refund_card_points = 52;
+  int32 refund_nut_num = 53;
+  int32 refund_score_num = 54;
+  int32 refund_badge_num = 55;
+  optional string logistics_in_name = 56;
+  optional string logistics_in_code = 57;
+  optional string logistics_no = 58;
+  optional string remark = 59;
+  optional int32 is_check = 60;
+  optional string outer_no = 61;
+  optional string refund_no = 62;
+  optional int64 ctm = 63;
+  optional int64 ctm_order = 64;
+  repeated RefundReturnRequest return_list = 66;
+  repeated RefundDeliverRequest swap_list = 67;
+  optional RefundInvoiceRequest invoice_content = 68;
+  repeated ObjectAfterSalesRequest after_sales_content = 69;
+  optional RefundRefundRequest pay_content = 70;
+}
+
+message CtmRefundListResponse {
+  repeated CtmRefundResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmRefundPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string create_name = 4;
+  optional int32 create_type = 5;
+  string rid = 6;
+  optional int32 trade_type = 7;
+  int32 type = 8;
+  string refund_status = 9;
+  optional string seller_name = 10;
+  optional string seller_memo = 11;
+  optional string shop_no = 12;
+  optional string shop_name = 13;
+  optional string reason_code = 14;
+  optional string reason = 15;
+  optional string desc = 16;
+  optional string approve_time = 17;
+  optional string approve_name = 18;
+  optional string approve_reasons = 19;
+  optional string cancel_reasons = 20;
+  optional string revert_code = 21;
+  optional string revert_reason = 22;
+  optional int32 trade_status = 23;
+  optional int32 pay_status = 24;
+  optional string pay_time = 25;
+  optional int32 delivery_term = 26;
+  optional string buyer_nick = 27;
+  optional string buyer_mobile = 28;
+  optional string buyer_message = 29;
+  optional string warehouse_no = 30;
+  optional string warehouse_name = 31;
+  optional string receiver_name = 32;
+  optional string receiver_province = 33;
+  optional string receiver_city = 34;
+  optional string receiver_district = 35;
+  optional string receiver_address = 36;
+  optional string receiver_mobile = 37;
+  optional double post_amount = 38;
+  optional double other_amount = 39;
+  optional double ext_cod_fee = 40;
+  optional double paid = 41;
+  optional double cod_amount = 42;
+  optional double receivable = 43;
+  optional double discount = 44;
+  optional int32 invoice_status = 45;
+  string tid = 46;
+  optional string oms_order = 47;
+  optional string warehouse_in_no = 48;
+  optional string warehouse_in_name = 49;
+  optional string open_id = 50;
+  double refund_fee = 51;
+  optional string refund_card_no = 52;
+  int32 refund_card_points = 53;
+  int32 refund_nut_num = 54;
+  int32 refund_score_num = 55;
+  int32 refund_badge_num = 56;
+  optional string logistics_in_name = 57;
+  optional string logistics_in_code = 58;
+  optional string logistics_no = 59;
+  optional string remark = 60;
+  optional int32 is_check = 61;
+  optional string outer_no = 62;
+  optional string refund_no = 63;
+  optional int64 ctm = 64;
+  optional int64 ctm_order = 65;
+  repeated RefundReturnRequest return_list = 67;
+  repeated RefundDeliverRequest swap_list = 68;
+  optional RefundInvoiceRequest invoice_content = 69;
+  repeated ObjectAfterSalesRequest after_sales_content = 70;
+  optional RefundRefundRequest pay_content = 71;
+}
+
+message CtmRefundRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string create_name = 3;
+  optional int32 create_type = 4;
+  string rid = 5;
+  optional int32 trade_type = 6;
+  int32 type = 7;
+  string refund_status = 8;
+  optional string seller_name = 9;
+  optional string seller_memo = 10;
+  optional string shop_no = 11;
+  optional string shop_name = 12;
+  optional string reason_code = 13;
+  optional string reason = 14;
+  optional string desc = 15;
+  optional string approve_time = 16;
+  optional string approve_name = 17;
+  optional string approve_reasons = 18;
+  optional string cancel_reasons = 19;
+  optional string revert_code = 20;
+  optional string revert_reason = 21;
+  optional int32 trade_status = 22;
+  optional int32 pay_status = 23;
+  optional string pay_time = 24;
+  optional int32 delivery_term = 25;
+  optional string buyer_nick = 26;
+  optional string buyer_mobile = 27;
+  optional string buyer_message = 28;
+  optional string warehouse_no = 29;
+  optional string warehouse_name = 30;
+  optional string receiver_name = 31;
+  optional string receiver_province = 32;
+  optional string receiver_city = 33;
+  optional string receiver_district = 34;
+  optional string receiver_address = 35;
+  optional string receiver_mobile = 36;
+  optional double post_amount = 37;
+  optional double other_amount = 38;
+  optional double ext_cod_fee = 39;
+  optional double paid = 40;
+  optional double cod_amount = 41;
+  optional double receivable = 42;
+  optional double discount = 43;
+  optional int32 invoice_status = 44;
+  string tid = 45;
+  optional string oms_order = 46;
+  optional string warehouse_in_no = 47;
+  optional string warehouse_in_name = 48;
+  optional string open_id = 49;
+  double refund_fee = 50;
+  optional string refund_card_no = 51;
+  int32 refund_card_points = 52;
+  int32 refund_nut_num = 53;
+  int32 refund_score_num = 54;
+  int32 refund_badge_num = 55;
+  optional string logistics_in_name = 56;
+  optional string logistics_in_code = 57;
+  optional string logistics_no = 58;
+  optional string remark = 59;
+  optional int32 is_check = 60;
+  optional string outer_no = 61;
+  optional string refund_no = 62;
+  optional int64 ctm = 63;
+  optional int64 ctm_order = 64;
+  repeated RefundReturnRequest return_list = 66;
+  repeated RefundDeliverRequest swap_list = 67;
+  optional RefundInvoiceRequest invoice_content = 68;
+  repeated ObjectAfterSalesRequest after_sales_content = 69;
+  optional RefundRefundRequest pay_content = 70;
+}
+
+message CtmRefundResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string type_name = 3;
+  string trade_status_name = 4;
+  string create_type_name = 5;
+  string refund_status_name = 6;
+  string invoice_status_name = 7;
+  string pay_status_name = 8;
+  string delivery_term_name = 9;
+  string ctm_nickname = 10;
+  string ctm_mobile = 11;
+  string ctm_openId = 12;
+  repeated ObjectAfterSalesResponse after_sales_details = 13;
+  repeated RefundReturnResponse refund_goods_details = 14;
+  repeated RefundDeliverResponse swap_goods_details = 15;
+  repeated RefundInvoiceResponse refund_invoice_details = 16;
+  repeated RefundStockInResponse stock_in_details = 17;
+  repeated RefundStockOutResponse stock_out_details = 18;
+  string create_time = 19;
+  string update_time = 20;
+  optional string create_name = 21;
+  optional int32 create_type = 22;
+  string rid = 23;
+  optional int32 trade_type = 24;
+  int32 type = 25;
+  string refund_status = 26;
+  optional string seller_name = 27;
+  optional string seller_memo = 28;
+  optional string shop_no = 29;
+  optional string shop_name = 30;
+  optional string reason_code = 31;
+  optional string reason = 32;
+  optional string desc = 33;
+  optional string approve_time = 34;
+  optional string approve_name = 35;
+  optional string approve_reasons = 36;
+  optional string cancel_reasons = 37;
+  optional string revert_code = 38;
+  optional string revert_reason = 39;
+  optional int32 trade_status = 40;
+  optional int32 pay_status = 41;
+  optional string pay_time = 42;
+  optional int32 delivery_term = 43;
+  optional string buyer_nick = 44;
+  optional string buyer_mobile = 45;
+  optional string buyer_message = 46;
+  optional string warehouse_no = 47;
+  optional string warehouse_name = 48;
+  optional string receiver_name = 49;
+  optional string receiver_province = 50;
+  optional string receiver_city = 51;
+  optional string receiver_district = 52;
+  optional string receiver_address = 53;
+  optional string receiver_mobile = 54;
+  optional double post_amount = 55;
+  optional double other_amount = 56;
+  optional double ext_cod_fee = 57;
+  optional double paid = 58;
+  optional double cod_amount = 59;
+  optional double receivable = 60;
+  optional double discount = 61;
+  optional int32 invoice_status = 62;
+  string tid = 63;
+  optional string oms_order = 64;
+  optional string warehouse_in_no = 65;
+  optional string warehouse_in_name = 66;
+  optional string open_id = 67;
+  double refund_fee = 68;
+  optional string refund_card_no = 69;
+  int32 refund_card_points = 70;
+  int32 refund_nut_num = 71;
+  int32 refund_score_num = 72;
+  int32 refund_badge_num = 73;
+  optional string logistics_in_name = 74;
+  optional string logistics_in_code = 75;
+  optional string logistics_no = 76;
+  optional string remark = 77;
+  optional int32 is_check = 78;
+  optional string outer_no = 79;
+  optional string refund_no = 80;
+  optional int64 ctm = 81;
+  optional int64 ctm_order = 82;
+  repeated RefundRefundResponse refund_pay_details = 83;
+}
+
+message CtmRefundRetrieveRequest {
+  int32 id = 1;
+}
+
+message DestroyObjectAfterSalesRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundDeliverRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundInvoiceRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundRefundRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundReturnRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundStockInRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundStockOutRequest {
+  int32 id = 1;
+}
+
+message ListObjectAfterSalesRequest {
+  string filters = 1;
+}
+
+message ListRefundDeliverRequest {
+  string filters = 1;
+}
+
+message ListRefundInvoiceRequest {
+  string filters = 1;
+}
+
+message ListRefundRefundRequest {
+  string filters = 1;
+}
+
+message ListRefundReturnRequest {
+  string filters = 1;
+}
+
+message ListRefundStockInRequest {
+  string filters = 1;
+}
+
+message ListRefundStockOutRequest {
+  string filters = 1;
+}
+
+message NextNoRefundRefundRequest {
+}
+
+message NextNoRefundRefundResponse {
+  string next_refund_no = 1;
+}
+
+message ObjectAfterSalesListResponse {
+  repeated ObjectAfterSalesResponse results = 1;
+  int32 count = 2;
+}
+
+message ObjectAfterSalesRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 type = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  optional string platform_order = 12;
+  optional string oms_order = 13;
+  optional double retail_price = 15;
+  int32 num = 16;
+  optional string damage_parts_code = 17;
+  optional string damage_parts_name = 18;
+  optional string damage_reasons = 19;
+  optional string damage_desc = 20;
+  optional string media_path = 21;
+  optional int64 refund_object = 22;
+  optional string oid = 23;
+  optional double out_amount = 24;
+  optional int64 order_details = 25;
+}
+
+message ObjectAfterSalesResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 type = 4;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_spu = 7;
+  optional string goods_no = 8;
+  optional string spec_no = 9;
+  optional string spec_name = 10;
+  optional string rfid_code = 11;
+  optional string security_code = 12;
+  optional string platform_order = 13;
+  optional string oms_order = 14;
+  optional double retail_price = 16;
+  int32 num = 17;
+  optional string damage_parts_code = 18;
+  optional string damage_parts_name = 19;
+  optional string damage_reasons = 20;
+  optional string damage_desc = 21;
+  optional string media_path = 22;
+  optional int64 refund_object = 23;
+  optional string oid = 24;
+  optional double out_amount = 25;
+  optional int64 order_details = 26;
+}
+
+message OptionValueIntResponse {
+  int32 value = 1;
+  string label = 2;
+}
+
+message OptionValueStringResponse {
+  string value = 1;
+  string label = 2;
+}
+
+message RefundDeliverListResponse {
+  repeated RefundDeliverResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_refund = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  optional string goods_no = 20;
+  string spec_no = 21;
+  optional string spec_name = 22;
+  optional string rfid_code = 23;
+  optional string security_code = 24;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_service = 26;
+}
+
+message RefundDeliverResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string refund_status_name = 3;
+  optional int64 ctm_refund = 4;
+  string create_time = 5;
+  string update_time = 6;
+  bool can_edit = 7;
+  int32 num = 8;
+  double price = 9;
+  double adjust_amount = 10;
+  double discount = 11;
+  double share_discount = 12;
+  double share_amount = 13;
+  optional double debit_amount = 14;
+  optional int32 price_score = 15;
+  optional int32 price_badge = 16;
+  optional int32 price_nut = 17;
+  optional int32 status = 18;
+  optional int32 refund_status = 19;
+  optional string goods_id = 20;
+  optional string goods_name = 21;
+  optional string goods_spu = 22;
+  optional string goods_no = 23;
+  string spec_no = 24;
+  optional string spec_name = 25;
+  optional string rfid_code = 26;
+  optional string security_code = 27;
+  optional int64 ctm_order = 28;
+  optional int64 ctm_service = 29;
+}
+
+message RefundInvoiceChildrenResponse {
+  int32 id = 1;
+  string invoice_type_name = 2;
+  string payer_type_name = 3;
+  string reason_type_name = 4;
+  string create_time = 5;
+  string update_time = 6;
+  int32 invoice_type = 7;
+  int32 payer_type = 8;
+  optional string payer_name = 9;
+  optional string payer_register_no = 10;
+  optional string payer_phone = 11;
+  optional string payer_email = 12;
+  optional string payer_address = 13;
+  optional string payer_bank = 14;
+  optional string payer_account = 15;
+  optional double invoice_amount = 16;
+  optional string invoice_remark = 17;
+  int32 reason_type = 18;
+  optional string invoice_no = 19;
+  optional string invoice_code = 20;
+  optional int64 ctm_order = 21;
+  optional int64 ctm_service = 22;
+  optional int64 ctm_refund = 23;
+  optional int64 parent_invoice = 24;
+}
+
+message RefundInvoiceListResponse {
+  repeated RefundInvoiceResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 invoice_type = 3;
+  int32 payer_type = 4;
+  optional string payer_name = 5;
+  optional string payer_register_no = 6;
+  optional string payer_phone = 7;
+  optional string payer_email = 8;
+  optional string payer_address = 9;
+  optional string payer_bank = 10;
+  optional string payer_account = 11;
+  optional double invoice_amount = 12;
+  optional string invoice_remark = 13;
+  int32 reason_type = 14;
+  optional string invoice_no = 15;
+  optional string invoice_code = 16;
+  optional int64 ctm_order = 17;
+  optional int64 ctm_service = 18;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
+}
+
+message RefundInvoiceResponse {
+  int32 id = 1;
+  string invoice_type_name = 2;
+  string payer_type_name = 3;
+  string reason_type_name = 4;
+  repeated RefundInvoiceChildrenResponse children = 5;
+  string create_time = 6;
+  string update_time = 7;
+  int32 invoice_type = 8;
+  int32 payer_type = 9;
+  optional string payer_name = 10;
+  optional string payer_register_no = 11;
+  optional string payer_phone = 12;
+  optional string payer_email = 13;
+  optional string payer_address = 14;
+  optional string payer_bank = 15;
+  optional string payer_account = 16;
+  optional double invoice_amount = 17;
+  optional string invoice_remark = 18;
+  int32 reason_type = 19;
+  optional string invoice_no = 20;
+  optional string invoice_code = 21;
+  optional int64 ctm_order = 22;
+  optional int64 ctm_service = 23;
+  optional int64 ctm_refund = 24;
+  optional int64 parent_invoice = 25;
+}
+
+message RefundNextRidRequest {
+}
+
+message RefundNextRidResponse {
+  string next_rid = 1;
+}
+
+message RefundOptionsRequest {
+}
+
+message RefundOptionsResponse {
+  repeated OptionValueIntResponse create_type = 1;
+  repeated OptionValueIntResponse trade_type = 2;
+  repeated OptionValueIntResponse type = 3;
+  repeated OptionValueStringResponse refund_status = 4;
+  repeated OptionValueIntResponse trade_status = 5;
+  repeated OptionValueIntResponse pay_status = 6;
+  repeated OptionValueIntResponse invoice_status = 7;
+}
+
+message RefundRefundListResponse {
+  repeated RefundRefundResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundRefundRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string refund_no = 3;
+  optional string transaction_id = 4;
+  optional string platform_order = 5;
+  optional string refund_id = 6;
+  optional string channel = 7;
+  optional string user_received_account = 8;
+  optional string refund_success_time = 9;
+  optional string refund_create_time = 10;
+  optional string status = 11;
+  optional int32 total = 12;
+  optional int32 refund = 13;
+  optional int32 payer_total = 14;
+  optional int32 payer_refund = 15;
+  optional int32 settlement_refund = 16;
+  optional int32 settlement_total = 17;
+  optional int32 discount_refund = 18;
+  optional string currency = 19;
+  optional int32 refund_fee = 20;
+  optional string cancel_reasons = 21;
+  optional int64 ctm_refund = 22;
+  optional int64 ctm_order_pay = 23;
+}
+
+message RefundRefundResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string create_time = 3;
+  string update_time = 4;
+  optional string refund_no = 5;
+  optional string transaction_id = 6;
+  optional string platform_order = 7;
+  optional string refund_id = 8;
+  optional string channel = 9;
+  optional string user_received_account = 10;
+  optional string refund_success_time = 11;
+  optional string refund_create_time = 12;
+  optional string status = 13;
+  optional int32 total = 14;
+  optional int32 refund = 15;
+  optional int32 payer_total = 16;
+  optional int32 payer_refund = 17;
+  optional int32 settlement_refund = 18;
+  optional int32 settlement_total = 19;
+  optional int32 discount_refund = 20;
+  optional string currency = 21;
+  optional int32 refund_fee = 22;
+  optional string cancel_reasons = 23;
+  optional int64 ctm_refund = 24;
+  optional int64 ctm_order_pay = 25;
+}
+
+message RefundReturnListResponse {
+  repeated RefundReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  string oid = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_no = 6;
+  optional string spec_no = 7;
+  optional string spec_name = 8;
+  optional string rfid_code = 9;
+  optional string security_code = 10;
+  int32 num = 11;
+  optional int64 ctm_refund = 12;
+  optional int64 order_details = 13;
+  optional string goods_spu = 14;
+  optional double out_amount = 15;
+}
+
+message RefundReturnResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string oid = 4;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  int32 num = 12;
+  optional int64 ctm_refund = 13;
+  optional int64 order_details = 14;
+  optional string goods_spu = 15;
+  optional double out_amount = 16;
+}
+
+message RefundStatusCountListResponse {
+  repeated RefundStatusCountResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundStatusCountRequest {
+  int32 trade_type = 1;
+}
+
+message RefundStatusCountResponse {
+  int32 refund_status = 1;
+  int32 count = 2;
+}
+
+message RefundStockInListResponse {
+  repeated RefundStockInResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundStockInResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string src_order_no = 4;
+  optional string src_order_type = 5;
+  optional string order_no = 6;
+  optional string stock_in_no = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string stockin_time = 12;
+  optional string check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
+  optional int64 ctm_refund = 21;
+}
+
+message RefundStockOutListResponse {
+  repeated RefundStockOutResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundStockOutResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string src_order_no = 4;
+  optional string stock_out_no = 5;
+  optional string order_no = 6;
+  optional string order_type_name = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string consign_time = 12;
+  optional string stock_check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
+  optional int64 ctm_order = 21;
+  optional int64 ctm_refund = 22;
+}
+
+message RetrieveObjectAfterSalesRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundDeliverRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundInvoiceRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundRefundRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundReturnRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundStockInRequest {
+  int32 id = 1;
+}
+
+message RetrieveRefundStockOutRequest {
+  int32 id = 1;
+}
+
+message UpdateObjectAfterSalesRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 type = 4;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_spu = 7;
+  optional string goods_no = 8;
+  optional string spec_no = 9;
+  optional string spec_name = 10;
+  optional string rfid_code = 11;
+  optional string security_code = 12;
+  optional string platform_order = 13;
+  optional string oms_order = 14;
+  optional double retail_price = 16;
+  int32 num = 17;
+  optional string damage_parts_code = 18;
+  optional string damage_parts_name = 19;
+  optional string damage_reasons = 20;
+  optional string damage_desc = 21;
+  optional string media_path = 22;
+  optional int64 refund_object = 23;
+  optional string oid = 24;
+  optional double out_amount = 25;
+  optional int64 order_details = 26;
+}
+
+message UpdateRefundDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_refund = 3;
+  repeated string _partial_update_fields = 4;
+  bool can_edit = 5;
+  int32 num = 6;
+  double price = 7;
+  double adjust_amount = 8;
+  double discount = 9;
+  double share_discount = 10;
+  double share_amount = 11;
+  optional double debit_amount = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
+  optional int32 price_nut = 15;
+  optional int32 status = 16;
+  optional int32 refund_status = 17;
+  optional string goods_id = 18;
+  optional string goods_name = 19;
+  optional string goods_spu = 20;
+  optional string goods_no = 21;
+  string spec_no = 22;
+  optional string spec_name = 23;
+  optional string rfid_code = 24;
+  optional string security_code = 25;
+  optional int64 ctm_order = 26;
+  optional int64 ctm_service = 27;
+}
+
+message UpdateRefundInvoiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 invoice_type = 4;
+  int32 payer_type = 5;
+  optional string payer_name = 6;
+  optional string payer_register_no = 7;
+  optional string payer_phone = 8;
+  optional string payer_email = 9;
+  optional string payer_address = 10;
+  optional string payer_bank = 11;
+  optional string payer_account = 12;
+  optional double invoice_amount = 13;
+  optional string invoice_remark = 14;
+  int32 reason_type = 15;
+  optional string invoice_no = 16;
+  optional string invoice_code = 17;
+  optional int64 ctm_order = 18;
+  optional int64 ctm_service = 19;
+  optional int64 ctm_refund = 20;
+  optional int64 parent_invoice = 21;
+}
+
+message UpdateRefundRefundRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string refund_no = 4;
+  optional string transaction_id = 5;
+  optional string platform_order = 6;
+  optional string refund_id = 7;
+  optional string channel = 8;
+  optional string user_received_account = 9;
+  optional string refund_success_time = 10;
+  optional string refund_create_time = 11;
+  optional string status = 12;
+  optional int32 total = 13;
+  optional int32 refund = 14;
+  optional int32 payer_total = 15;
+  optional int32 payer_refund = 16;
+  optional int32 settlement_refund = 17;
+  optional int32 settlement_total = 18;
+  optional int32 discount_refund = 19;
+  optional string currency = 20;
+  optional int32 refund_fee = 21;
+  optional string cancel_reasons = 22;
+  optional int64 ctm_refund = 23;
+  optional int64 ctm_order_pay = 24;
+}
+
+message UpdateRefundReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string oid = 4;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  int32 num = 12;
+  optional int64 ctm_refund = 13;
+  optional int64 order_details = 14;
+  optional string goods_spu = 15;
+  optional double out_amount = 16;
+}
+
+message UpdateRefundStockInRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string src_order_no = 4;
+  optional string src_order_type = 5;
+  optional string order_no = 6;
+  optional string stock_in_no = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string stockin_time = 12;
+  optional string check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
+  optional int64 ctm_refund = 21;
+}
+
+message UpdateRefundStockOutRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string src_order_no = 4;
+  optional string stock_out_no = 5;
+  optional string order_no = 6;
+  optional string order_type_name = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string consign_time = 12;
+  optional string stock_check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
+  optional int64 ctm_order = 21;
+  optional int64 ctm_refund = 22;
+}

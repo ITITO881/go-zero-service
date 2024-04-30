@@ -12,6 +12,10 @@ func init() {
 	srcFlag[WEB_MP_ITO_USER_AVATAR] = "文件源：微信小程序，用户头像"
 	srcFlag[WEB_MP_ITO_SWIPER_HOME] = "文件源：微信小程序，轮播图，主页"
 	srcFlag[WEB_MP_ITO_SWIPER_PRODUCT] = "文件源：微信小程序，轮播图，产品页"
+	srcFlag[WEB_MP_ITO_SWIPER_PACKAGING] = "文件源：微信小程序，轮播图，礼卡包装"
+	srcFlag[WEB_MP_ITO_SWIPER_ITOCARE] = "文件源：微信小程序，轮播图，ITO CARE"
+	srcFlag[WEB_MP_ITO_SWIPER_EXCHANGE] = "文件源：微信小程序，轮播图，(换购)开新果计划"
+
 	srcFlag[WEB_MP_ITO_CATEGORY_HOME] = "文件源：微信小程序，宫格列表，主页"
 	srcFlag[WEB_MP_ITO_CATEGORY_PRODUCT] = "文件源：微信小程序，宫格列表，产品页"
 	srcFlag[WEB_MP_ITO_CATEGORY_COUPON] = "文件源：微信小程序，宫格列表，卡券ICON"
@@ -19,11 +23,15 @@ func init() {
 	srcFlag[WEB_MP_ITO_HOT_GRID_PRODUCT] = "文件源：微信小程序，热点，主副图，产品页"
 	srcFlag[WEB_MP_ITO_HOT_GRID_CLUB] = "文件源：微信小程序，热点，主副图，社群页"
 	srcFlag[WEB_MP_ITO_CLUB_GRID_ITOGETHER] = "文件源：微信小程，社区，主副图，ITOgether"
+	srcFlag[WEB_MP_ITO_CLUB_GRID_SERVICE] = "文件源：微信小程，服务，主副图"
 	srcFlag[WEB_MP_ITO_BAR_CAT_HOME] = "文件源：微信小程序，分类列表，主页"
 	srcFlag[WEB_MP_ITO_BAR_CAT_Prod_CAT] = "文件源：微信小程序，分类列表，卡券"
 	srcFlag[WEB_MP_ITO_BAR_CAT_HOT_PROPOSE] = "文件源：微信小程序，分类列表，热点推荐"
+	srcFlag[WEB_MP_ITO_BAR_CAT_BENEFIT] = "文件源：微信小程序，分类多图， 我的 会员权益 "
+
 	srcFlag[WEB_MP_ITO_GUESS_HOME] = "文件源：微信小程序，猜你喜欢，产品信息组图，通用组件"
 	srcFlag[WEB_MP_ITO_GUESS_HOT_PROPOSE] = "文件源：微信小程序，混入产品信息，热点推荐"
+	srcFlag[WEB_MP_ITO_MIXIN_HOME_PRODUCT] = "文件源：微信小程序，混入产品信息，首页新品"
 
 	srcFlag[WEB_MP_ITO_PRODUCT_MANAGER_SPU] = "文件源：微信小程序，产品管理，SPU"
 	srcFlag[WEB_MP_ITO_PRODUCT_MANAGER_SKU] = "文件源：微信小程序，产品管理，SKU"
@@ -31,6 +39,8 @@ func init() {
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_HOT_PROPOSE] = "文件源：微信小程序，分类混入列表，热点推荐"
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_PAGE] = "文件源：微信小程序，分类混入列表，页面素材"
 	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_SWIPER] = "文件源：微信小程序，分类混入列表，轮播素材"
+	srcFlag[WEB_MP_ITO_BAR_CAT_MIXIN_TIPS] = "文件源：微信小程序，分类混入列表，ITO知识"
+
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_PROD] = "文件源：微信小程序，二级分类复合列表，产品页"
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_SHOP] = "文件源：微信小程序，二级分类复合列表，商城页"
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_ACTIVITY] = "文件源：微信小程序，二级分类复合列表，活动页"

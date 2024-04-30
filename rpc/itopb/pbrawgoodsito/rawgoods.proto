@@ -53,7 +53,11 @@ service WorkshopController {
   rpc ClubSpuList(ClubProductSpuRequest) returns (ClubProductSpuListResponse) {}
   rpc ClubSpuUpdate(ClubProductSpuUpdateRequest) returns (ClubProductSpuResponse) {}
   rpc ClubSpuValues(ValuesListRequest) returns (WorkshopClubSpuValuesResponse) {}
+  rpc ClubWorkshopCreate(ClubWorkshopRequest) returns (ClubWorkshopResponse) {}
+  rpc ClubWorkshopDestroy(ClubWorkshopDestroyRequest) returns (google.protobuf.Empty) {}
   rpc ClubWorkshopList(ClubWorkshopRequest) returns (ClubWorkshopListResponse) {}
+  rpc ClubWorkshopRetrieve(ClubWorkshopRetrieveRequest) returns (ClubWorkshopResponse) {}
+  rpc ClubWorkshopUpdate(ClubWorkshopUpdateRequest) returns (ClubWorkshopResponse) {}
   rpc Create(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
   rpc CreateList(ProdWorkshopListRequest) returns (ProdWorkshopListResponse) {}
   rpc Destroy(ProdWorkshopDestroyRequest) returns (google.protobuf.Empty) {}
@@ -65,6 +69,7 @@ service WorkshopController {
   rpc SkuSpareParts(RawSkuSparePartsRequest) returns (RawSkuSparePartsListResponse) {}
   rpc SpuProperties(ProdWorkshopPartRequest) returns (WorkshopSpuListResponse) {}
   rpc Update(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
+  rpc WorkshopColorList(WorkshopColorRequest) returns (WorkshopColorListResponse) {}
   rpc WorkshopConfigList(WorkshopConfigRequest) returns (WorkshopConfigListResponse) {}
 }
 
@@ -80,24 +85,20 @@ message ClubProductListResponse {
 message ClubProductRequest {
   string filters = 1;
   int32 id = 2;
-  string prod_code = 3;
-  optional string origin_cat = 4;
-  optional string full_name = 5;
   optional string color = 6;
   optional string color_rgb = 7;
   optional string size = 8;
   optional string stripe = 9;
   optional string head_img = 10;
-  bool is_valid = 11;
   bool bindable = 12;
   bool customizable = 13;
   int32 renew_time = 14;
   int32 repair_time = 15;
-  string renew_time_unit = 16;
-  string repair_time_unit = 17;
+  optional string renew_time_unit = 16;
+  optional string repair_time_unit = 17;
   optional int32 sort = 18;
   int64 spu = 19;
-  optional int64 prod = 20;
+  string prod = 20;
   repeated int64 workshop_color = 21;
 }
 
@@ -107,27 +108,29 @@ message ClubProductResponse {
   string spu_name = 3;
   string alias = 4;
   string prod_code = 5;
-  optional string origin_cat = 6;
-  optional string full_name = 7;
+  string origin_cat = 6;
+  string full_name = 7;
   optional string color = 8;
   optional string color_rgb = 9;
   optional string size = 10;
   optional string stripe = 11;
   optional string head_img = 12;
-  bool is_valid = 13;
   bool bindable = 14;
   bool customizable = 15;
   int32 renew_time = 16;
   int32 repair_time = 17;
-  string renew_time_unit = 18;
-  string repair_time_unit = 19;
+  optional string renew_time_unit = 18;
+  optional string repair_time_unit = 19;
   optional int32 sort = 20;
   string create_time = 21;
   string update_time = 22;
   int64 spu = 23;
-  optional int64 prod = 24;
+  string prod = 24;
   string prod_image = 25;
   repeated int64 workshop_color = 26;
+  repeated WorkshopColorResponse workshop_colors = 27;
+  int32 print_way = 28;
+  string sku = 29;
 }
 
 message ClubProductRetrieveRequest {
@@ -197,25 +200,25 @@ message ClubProductUpdateRequest {
   int32 id = 1;
   string filters = 2;
   repeated string _partial_update_fields = 3;
-  string prod_code = 4;
-  optional string origin_cat = 5;
-  optional string full_name = 6;
   optional string color = 7;
   optional string color_rgb = 8;
   optional string size = 9;
   optional string stripe = 10;
   optional string head_img = 11;
-  bool is_valid = 12;
   bool bindable = 13;
   bool customizable = 14;
   int32 renew_time = 15;
   int32 repair_time = 16;
-  string renew_time_unit = 17;
-  string repair_time_unit = 18;
+  optional string renew_time_unit = 17;
+  optional string repair_time_unit = 18;
   optional int32 sort = 19;
   int64 spu = 20;
-  optional int64 prod = 21;
+  string prod = 21;
   repeated int64 workshop_color = 22;
+}
+
+message ClubWorkshopDestroyRequest {
+  int32 id = 1;
 }
 
 message ClubWorkshopListResponse {
@@ -225,6 +228,14 @@ message ClubWorkshopListResponse {
 
 message ClubWorkshopRequest {
   string filters = 1;
+  int32 id = 2;
+  int32 prod_id = 3;
+  optional string part_name = 4;
+  bool is_valid = 5;
+  optional string part_image = 6;
+  int32 print_way = 7;
+  optional string font_regular = 8;
+  optional int64 prod = 9;
 }
 
 message ClubWorkshopResponse {
@@ -241,8 +252,25 @@ message ClubWorkshopResponse {
   string alias = 11;
   string print_way_name = 12;
   optional string font_regular = 13;
-  repeated WorkshopColorResponse workshop_color = 14;
   string sku = 15;
+  int32 prod_id = 16;
+}
+
+message ClubWorkshopRetrieveRequest {
+  int32 id = 1;
+}
+
+message ClubWorkshopUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 prod_id = 3;
+  repeated string _partial_update_fields = 4;
+  optional string part_name = 5;
+  bool is_valid = 6;
+  optional string part_image = 7;
+  int32 print_way = 8;
+  optional string font_regular = 9;
+  optional int64 prod = 10;
 }
 
 message ProdPropertiesListRequest {
@@ -828,11 +856,21 @@ message WorkshopClubSpuValuesResponse {
   repeated string results = 1;
 }
 
+message WorkshopColorListResponse {
+  repeated WorkshopColorResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopColorRequest {
+  string filters = 1;
+}
+
 message WorkshopColorResponse {
   int32 id = 1;
   optional string color_name = 2;
   optional string color_rgb = 3;
   bool is_valid = 4;
+  bool deletable = 5;
 }
 
 message WorkshopConfigListResponse {

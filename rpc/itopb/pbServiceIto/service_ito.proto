@@ -3,8 +3,8 @@ syntax = "proto3";
 package customer_service.customer_ito;
 
 import "google/protobuf/empty.proto";
-option go_package = "../pbServiceIto";
 
+option go_package = "../pbServiceIto";
 service CtmItoServiceController {
   rpc BulkCreateGoodsDeliver(BulkCreateGoodsDeliverListRequest) returns (ServiceGoodsDeliverListResponse) {}
   rpc BulkCreateGoodsReturn(BulkCreateGoodsReturnListRequest) returns (ServiceGoodsReturnListResponse) {}
@@ -185,6 +185,7 @@ message CreateGoodsInvoiceRequest {
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
   optional int64 parent_invoice = 19;
+  optional int64 ctm_refund = 20;
 }
 
 message CreateGoodsPayRequest {
@@ -1243,6 +1244,7 @@ message ServiceGoodsInvoiceChildrenResponse {
   optional int64 ctm_order = 21;
   optional int64 ctm_service = 22;
   optional int64 parent_invoice = 23;
+  optional int64 ctm_refund = 24;
 }
 
 message ServiceGoodsInvoiceListResponse {
@@ -1270,6 +1272,7 @@ message ServiceGoodsInvoiceRequest {
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
   optional int64 parent_invoice = 19;
+  optional int64 ctm_refund = 20;
 }
 
 message ServiceGoodsInvoiceResponse {
@@ -1297,6 +1300,7 @@ message ServiceGoodsInvoiceResponse {
   optional int64 ctm_order = 22;
   optional int64 ctm_service = 23;
   optional int64 parent_invoice = 24;
+  optional int64 ctm_refund = 25;
 }
 
 message ServiceGoodsPayListResponse {
@@ -1566,6 +1570,7 @@ message UpdateGoodsInvoiceRequest {
   optional int64 ctm_order = 18;
   optional int64 ctm_service = 19;
   optional int64 parent_invoice = 20;
+  optional int64 ctm_refund = 21;
 }
 
 message UpdateGoodsPayRequest {
@@ -1816,5 +1821,4 @@ message UpdateStockOutRequest {
   optional int64 ctm_order = 21;
   optional int64 ctm_refund = 22;
 }
-
 
