@@ -227,7 +227,7 @@ message StatHmxSalesListRequest {
   int32 num = 4;
   optional string col_name = 5;
   optional string filters = 6;
-  optional float discount_amount = 7;
+  optional float share_amount = 7;
 }
 
 message StatHmxSalesListResponse {
@@ -241,7 +241,7 @@ message StatHmxSalesResponse {
   float retail_amount = 3;
   int32 num = 4;
   optional string col_name = 5;
-  optional float discount_amount = 6;
+  optional float share_amount = 6;
 }
 
 message StoreTradesListResponse {
