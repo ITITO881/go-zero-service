@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-//update rpc 4.30
+// modify rpc store_stat 5.7
 go 1.20
 
 
