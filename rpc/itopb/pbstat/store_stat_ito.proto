@@ -275,6 +275,8 @@ message TradeDetailsResponse {
   string status = 8;
   optional string style = 9;
   int64 trade = 10;
+  optional float share_price = 11;
+  optional float share_amount = 12;
 }
 
 message TradeEmployeesResponse {
