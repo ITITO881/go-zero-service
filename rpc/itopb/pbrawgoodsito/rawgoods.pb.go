@@ -4,7 +4,7 @@
 // 	protoc        v3.19.4
 // source: rawgoods.proto
 
-package pbrawgoodsito
+package pbRawGoodsIto
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

@@ -20,59 +20,71 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	CtmItoRefundController_Create_FullMethodName                   = "/customer_service.customer_ito.CtmItoRefundController/Create"
-	CtmItoRefundController_CreateObjectAfterSales_FullMethodName   = "/customer_service.customer_ito.CtmItoRefundController/CreateObjectAfterSales"
-	CtmItoRefundController_CreateRefundDeliver_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundDeliver"
-	CtmItoRefundController_CreateRefundInvoice_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundInvoice"
-	CtmItoRefundController_CreateRefundRefund_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundRefund"
-	CtmItoRefundController_CreateRefundReturn_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundReturn"
-	CtmItoRefundController_CreateRefundStockIn_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundStockIn"
-	CtmItoRefundController_CreateRefundStockOut_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundStockOut"
-	CtmItoRefundController_Destroy_FullMethodName                  = "/customer_service.customer_ito.CtmItoRefundController/Destroy"
-	CtmItoRefundController_DestroyObjectAfterSales_FullMethodName  = "/customer_service.customer_ito.CtmItoRefundController/DestroyObjectAfterSales"
-	CtmItoRefundController_DestroyRefundDeliver_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundDeliver"
-	CtmItoRefundController_DestroyRefundInvoice_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundInvoice"
-	CtmItoRefundController_DestroyRefundRefund_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundRefund"
-	CtmItoRefundController_DestroyRefundReturn_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundReturn"
-	CtmItoRefundController_DestroyRefundStockIn_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundStockIn"
-	CtmItoRefundController_DestroyRefundStockOut_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundStockOut"
-	CtmItoRefundController_List_FullMethodName                     = "/customer_service.customer_ito.CtmItoRefundController/List"
-	CtmItoRefundController_ListObjectAfterSales_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/ListObjectAfterSales"
-	CtmItoRefundController_ListRefundDeliver_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/ListRefundDeliver"
-	CtmItoRefundController_ListRefundInvoice_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/ListRefundInvoice"
-	CtmItoRefundController_ListRefundRefund_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/ListRefundRefund"
-	CtmItoRefundController_ListRefundReturn_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/ListRefundReturn"
-	CtmItoRefundController_ListRefundStockIn_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/ListRefundStockIn"
-	CtmItoRefundController_ListRefundStockOut_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/ListRefundStockOut"
-	CtmItoRefundController_NextNoRefundRefund_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/NextNoRefundRefund"
-	CtmItoRefundController_PartialUpdate_FullMethodName            = "/customer_service.customer_ito.CtmItoRefundController/PartialUpdate"
-	CtmItoRefundController_RefundNextRid_FullMethodName            = "/customer_service.customer_ito.CtmItoRefundController/RefundNextRid"
-	CtmItoRefundController_RefundOptions_FullMethodName            = "/customer_service.customer_ito.CtmItoRefundController/RefundOptions"
-	CtmItoRefundController_RefundStatusCount_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/RefundStatusCount"
-	CtmItoRefundController_Retrieve_FullMethodName                 = "/customer_service.customer_ito.CtmItoRefundController/Retrieve"
-	CtmItoRefundController_RetrieveObjectAfterSales_FullMethodName = "/customer_service.customer_ito.CtmItoRefundController/RetrieveObjectAfterSales"
-	CtmItoRefundController_RetrieveRefundDeliver_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundDeliver"
-	CtmItoRefundController_RetrieveRefundInvoice_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundInvoice"
-	CtmItoRefundController_RetrieveRefundRefund_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundRefund"
-	CtmItoRefundController_RetrieveRefundReturn_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundReturn"
-	CtmItoRefundController_RetrieveRefundStockIn_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundStockIn"
-	CtmItoRefundController_RetrieveRefundStockOut_FullMethodName   = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundStockOut"
-	CtmItoRefundController_Update_FullMethodName                   = "/customer_service.customer_ito.CtmItoRefundController/Update"
-	CtmItoRefundController_UpdateObjectAfterSales_FullMethodName   = "/customer_service.customer_ito.CtmItoRefundController/UpdateObjectAfterSales"
-	CtmItoRefundController_UpdateRefundDeliver_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundDeliver"
-	CtmItoRefundController_UpdateRefundInvoice_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundInvoice"
-	CtmItoRefundController_UpdateRefundRefund_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundRefund"
-	CtmItoRefundController_UpdateRefundReturn_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundReturn"
-	CtmItoRefundController_UpdateRefundStockIn_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundStockIn"
-	CtmItoRefundController_UpdateRefundStockOut_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundStockOut"
+	CtmItoRefundController_BulkCreateRefundCompensate_FullMethodName = "/customer_service.customer_ito.CtmItoRefundController/BulkCreateRefundCompensate"
+	CtmItoRefundController_BulkCreateRefundDeliver_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/BulkCreateRefundDeliver"
+	CtmItoRefundController_BulkCreateRefundReturn_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/BulkCreateRefundReturn"
+	CtmItoRefundController_Create_FullMethodName                     = "/customer_service.customer_ito.CtmItoRefundController/Create"
+	CtmItoRefundController_CreateObjectAfterSales_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/CreateObjectAfterSales"
+	CtmItoRefundController_CreateRefundCompensate_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundCompensate"
+	CtmItoRefundController_CreateRefundDeliver_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundDeliver"
+	CtmItoRefundController_CreateRefundInvoice_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundInvoice"
+	CtmItoRefundController_CreateRefundRefund_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundRefund"
+	CtmItoRefundController_CreateRefundReturn_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundReturn"
+	CtmItoRefundController_CreateRefundStockIn_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundStockIn"
+	CtmItoRefundController_CreateRefundStockOut_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/CreateRefundStockOut"
+	CtmItoRefundController_Destroy_FullMethodName                    = "/customer_service.customer_ito.CtmItoRefundController/Destroy"
+	CtmItoRefundController_DestroyObjectAfterSales_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/DestroyObjectAfterSales"
+	CtmItoRefundController_DestroyRefundCompensate_FullMethodName    = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundCompensate"
+	CtmItoRefundController_DestroyRefundDeliver_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundDeliver"
+	CtmItoRefundController_DestroyRefundInvoice_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundInvoice"
+	CtmItoRefundController_DestroyRefundRefund_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundRefund"
+	CtmItoRefundController_DestroyRefundReturn_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundReturn"
+	CtmItoRefundController_DestroyRefundStockIn_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundStockIn"
+	CtmItoRefundController_DestroyRefundStockOut_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/DestroyRefundStockOut"
+	CtmItoRefundController_List_FullMethodName                       = "/customer_service.customer_ito.CtmItoRefundController/List"
+	CtmItoRefundController_ListObjectAfterSales_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/ListObjectAfterSales"
+	CtmItoRefundController_ListRefundCompensate_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/ListRefundCompensate"
+	CtmItoRefundController_ListRefundDeliver_FullMethodName          = "/customer_service.customer_ito.CtmItoRefundController/ListRefundDeliver"
+	CtmItoRefundController_ListRefundInvoice_FullMethodName          = "/customer_service.customer_ito.CtmItoRefundController/ListRefundInvoice"
+	CtmItoRefundController_ListRefundRefund_FullMethodName           = "/customer_service.customer_ito.CtmItoRefundController/ListRefundRefund"
+	CtmItoRefundController_ListRefundReturn_FullMethodName           = "/customer_service.customer_ito.CtmItoRefundController/ListRefundReturn"
+	CtmItoRefundController_ListRefundStockIn_FullMethodName          = "/customer_service.customer_ito.CtmItoRefundController/ListRefundStockIn"
+	CtmItoRefundController_ListRefundStockOut_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/ListRefundStockOut"
+	CtmItoRefundController_NextNoRefundRefund_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/NextNoRefundRefund"
+	CtmItoRefundController_PartialUpdate_FullMethodName              = "/customer_service.customer_ito.CtmItoRefundController/PartialUpdate"
+	CtmItoRefundController_RefundNextRid_FullMethodName              = "/customer_service.customer_ito.CtmItoRefundController/RefundNextRid"
+	CtmItoRefundController_RefundOptions_FullMethodName              = "/customer_service.customer_ito.CtmItoRefundController/RefundOptions"
+	CtmItoRefundController_RefundStatusCount_FullMethodName          = "/customer_service.customer_ito.CtmItoRefundController/RefundStatusCount"
+	CtmItoRefundController_Retrieve_FullMethodName                   = "/customer_service.customer_ito.CtmItoRefundController/Retrieve"
+	CtmItoRefundController_RetrieveObjectAfterSales_FullMethodName   = "/customer_service.customer_ito.CtmItoRefundController/RetrieveObjectAfterSales"
+	CtmItoRefundController_RetrieveRefundCompensate_FullMethodName   = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundCompensate"
+	CtmItoRefundController_RetrieveRefundDeliver_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundDeliver"
+	CtmItoRefundController_RetrieveRefundInvoice_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundInvoice"
+	CtmItoRefundController_RetrieveRefundRefund_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundRefund"
+	CtmItoRefundController_RetrieveRefundReturn_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundReturn"
+	CtmItoRefundController_RetrieveRefundStockIn_FullMethodName      = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundStockIn"
+	CtmItoRefundController_RetrieveRefundStockOut_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/RetrieveRefundStockOut"
+	CtmItoRefundController_Update_FullMethodName                     = "/customer_service.customer_ito.CtmItoRefundController/Update"
+	CtmItoRefundController_UpdateObjectAfterSales_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/UpdateObjectAfterSales"
+	CtmItoRefundController_UpdateRefundCompensate_FullMethodName     = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundCompensate"
+	CtmItoRefundController_UpdateRefundDeliver_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundDeliver"
+	CtmItoRefundController_UpdateRefundInvoice_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundInvoice"
+	CtmItoRefundController_UpdateRefundRefund_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundRefund"
+	CtmItoRefundController_UpdateRefundReturn_FullMethodName         = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundReturn"
+	CtmItoRefundController_UpdateRefundStockIn_FullMethodName        = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundStockIn"
+	CtmItoRefundController_UpdateRefundStockOut_FullMethodName       = "/customer_service.customer_ito.CtmItoRefundController/UpdateRefundStockOut"
 )
 
 // CtmItoRefundControllerClient is the client API for CtmItoRefundController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CtmItoRefundControllerClient interface {
+	BulkCreateRefundCompensate(ctx context.Context, in *BulkCreateRefundCompensateListRequest, opts ...grpc.CallOption) (*RefundCompensateListResponse, error)
+	BulkCreateRefundDeliver(ctx context.Context, in *BulkCreateRefundDeliverListRequest, opts ...grpc.CallOption) (*RefundDeliverListResponse, error)
+	BulkCreateRefundReturn(ctx context.Context, in *BulkCreateRefundReturnListRequest, opts ...grpc.CallOption) (*RefundReturnListResponse, error)
 	Create(ctx context.Context, in *CtmRefundRequest, opts ...grpc.CallOption) (*CtmRefundResponse, error)
 	CreateObjectAfterSales(ctx context.Context, in *CreateObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesResponse, error)
+	CreateRefundCompensate(ctx context.Context, in *CreateRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error)
 	CreateRefundDeliver(ctx context.Context, in *CreateRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverResponse, error)
 	CreateRefundInvoice(ctx context.Context, in *CreateRefundInvoiceRequest, opts ...grpc.CallOption) (*RefundInvoiceResponse, error)
 	CreateRefundRefund(ctx context.Context, in *CreateRefundRefundRequest, opts ...grpc.CallOption) (*RefundRefundResponse, error)
@@ -81,6 +93,7 @@ type CtmItoRefundControllerClient interface {
 	CreateRefundStockOut(ctx context.Context, in *CreateRefundStockOutRequest, opts ...grpc.CallOption) (*RefundStockOutResponse, error)
 	Destroy(ctx context.Context, in *CtmRefundDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyObjectAfterSales(ctx context.Context, in *DestroyObjectAfterSalesRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyRefundCompensate(ctx context.Context, in *DestroyRefundCompensateRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyRefundDeliver(ctx context.Context, in *DestroyRefundDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyRefundInvoice(ctx context.Context, in *DestroyRefundInvoiceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyRefundRefund(ctx context.Context, in *DestroyRefundRefundRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -89,6 +102,7 @@ type CtmItoRefundControllerClient interface {
 	DestroyRefundStockOut(ctx context.Context, in *DestroyRefundStockOutRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *CtmRefundListRequest, opts ...grpc.CallOption) (*CtmRefundListResponse, error)
 	ListObjectAfterSales(ctx context.Context, in *ListObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesListResponse, error)
+	ListRefundCompensate(ctx context.Context, in *ListRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateListResponse, error)
 	ListRefundDeliver(ctx context.Context, in *ListRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverListResponse, error)
 	ListRefundInvoice(ctx context.Context, in *ListRefundInvoiceRequest, opts ...grpc.CallOption) (*RefundInvoiceListResponse, error)
 	ListRefundRefund(ctx context.Context, in *ListRefundRefundRequest, opts ...grpc.CallOption) (*RefundRefundListResponse, error)
@@ -102,6 +116,7 @@ type CtmItoRefundControllerClient interface {
 	RefundStatusCount(ctx context.Context, in *RefundStatusCountRequest, opts ...grpc.CallOption) (*RefundStatusCountListResponse, error)
 	Retrieve(ctx context.Context, in *CtmRefundRetrieveRequest, opts ...grpc.CallOption) (*CtmRefundResponse, error)
 	RetrieveObjectAfterSales(ctx context.Context, in *RetrieveObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesResponse, error)
+	RetrieveRefundCompensate(ctx context.Context, in *RetrieveRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error)
 	RetrieveRefundDeliver(ctx context.Context, in *RetrieveRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverResponse, error)
 	RetrieveRefundInvoice(ctx context.Context, in *RetrieveRefundInvoiceRequest, opts ...grpc.CallOption) (*RefundInvoiceResponse, error)
 	RetrieveRefundRefund(ctx context.Context, in *RetrieveRefundRefundRequest, opts ...grpc.CallOption) (*RefundRefundResponse, error)
@@ -110,6 +125,7 @@ type CtmItoRefundControllerClient interface {
 	RetrieveRefundStockOut(ctx context.Context, in *RetrieveRefundStockOutRequest, opts ...grpc.CallOption) (*RefundStockOutResponse, error)
 	Update(ctx context.Context, in *CtmRefundRequest, opts ...grpc.CallOption) (*CtmRefundResponse, error)
 	UpdateObjectAfterSales(ctx context.Context, in *UpdateObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesResponse, error)
+	UpdateRefundCompensate(ctx context.Context, in *UpdateRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error)
 	UpdateRefundDeliver(ctx context.Context, in *UpdateRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverResponse, error)
 	UpdateRefundInvoice(ctx context.Context, in *UpdateRefundInvoiceRequest, opts ...grpc.CallOption) (*RefundInvoiceResponse, error)
 	UpdateRefundRefund(ctx context.Context, in *UpdateRefundRefundRequest, opts ...grpc.CallOption) (*RefundRefundResponse, error)
@@ -126,6 +142,33 @@ func NewCtmItoRefundControllerClient(cc grpc.ClientConnInterface) CtmItoRefundCo
 	return &ctmItoRefundControllerClient{cc}
 }
 
+func (c *ctmItoRefundControllerClient) BulkCreateRefundCompensate(ctx context.Context, in *BulkCreateRefundCompensateListRequest, opts ...grpc.CallOption) (*RefundCompensateListResponse, error) {
+	out := new(RefundCompensateListResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_BulkCreateRefundCompensate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoRefundControllerClient) BulkCreateRefundDeliver(ctx context.Context, in *BulkCreateRefundDeliverListRequest, opts ...grpc.CallOption) (*RefundDeliverListResponse, error) {
+	out := new(RefundDeliverListResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_BulkCreateRefundDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoRefundControllerClient) BulkCreateRefundReturn(ctx context.Context, in *BulkCreateRefundReturnListRequest, opts ...grpc.CallOption) (*RefundReturnListResponse, error) {
+	out := new(RefundReturnListResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_BulkCreateRefundReturn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoRefundControllerClient) Create(ctx context.Context, in *CtmRefundRequest, opts ...grpc.CallOption) (*CtmRefundResponse, error) {
 	out := new(CtmRefundResponse)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_Create_FullMethodName, in, out, opts...)
@@ -138,6 +181,15 @@ func (c *ctmItoRefundControllerClient) Create(ctx context.Context, in *CtmRefund
 func (c *ctmItoRefundControllerClient) CreateObjectAfterSales(ctx context.Context, in *CreateObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesResponse, error) {
 	out := new(ObjectAfterSalesResponse)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_CreateObjectAfterSales_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoRefundControllerClient) CreateRefundCompensate(ctx context.Context, in *CreateRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error) {
+	out := new(RefundCompensateResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_CreateRefundCompensate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -216,6 +268,15 @@ func (c *ctmItoRefundControllerClient) DestroyObjectAfterSales(ctx context.Conte
 	return out, nil
 }
 
+func (c *ctmItoRefundControllerClient) DestroyRefundCompensate(ctx context.Context, in *DestroyRefundCompensateRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_DestroyRefundCompensate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoRefundControllerClient) DestroyRefundDeliver(ctx context.Context, in *DestroyRefundDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_DestroyRefundDeliver_FullMethodName, in, out, opts...)
@@ -282,6 +343,15 @@ func (c *ctmItoRefundControllerClient) List(ctx context.Context, in *CtmRefundLi
 func (c *ctmItoRefundControllerClient) ListObjectAfterSales(ctx context.Context, in *ListObjectAfterSalesRequest, opts ...grpc.CallOption) (*ObjectAfterSalesListResponse, error) {
 	out := new(ObjectAfterSalesListResponse)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_ListObjectAfterSales_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoRefundControllerClient) ListRefundCompensate(ctx context.Context, in *ListRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateListResponse, error) {
+	out := new(RefundCompensateListResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_ListRefundCompensate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -405,6 +475,15 @@ func (c *ctmItoRefundControllerClient) RetrieveObjectAfterSales(ctx context.Cont
 	return out, nil
 }
 
+func (c *ctmItoRefundControllerClient) RetrieveRefundCompensate(ctx context.Context, in *RetrieveRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error) {
+	out := new(RefundCompensateResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_RetrieveRefundCompensate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoRefundControllerClient) RetrieveRefundDeliver(ctx context.Context, in *RetrieveRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverResponse, error) {
 	out := new(RefundDeliverResponse)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_RetrieveRefundDeliver_FullMethodName, in, out, opts...)
@@ -477,6 +556,15 @@ func (c *ctmItoRefundControllerClient) UpdateObjectAfterSales(ctx context.Contex
 	return out, nil
 }
 
+func (c *ctmItoRefundControllerClient) UpdateRefundCompensate(ctx context.Context, in *UpdateRefundCompensateRequest, opts ...grpc.CallOption) (*RefundCompensateResponse, error) {
+	out := new(RefundCompensateResponse)
+	err := c.cc.Invoke(ctx, CtmItoRefundController_UpdateRefundCompensate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoRefundControllerClient) UpdateRefundDeliver(ctx context.Context, in *UpdateRefundDeliverRequest, opts ...grpc.CallOption) (*RefundDeliverResponse, error) {
 	out := new(RefundDeliverResponse)
 	err := c.cc.Invoke(ctx, CtmItoRefundController_UpdateRefundDeliver_FullMethodName, in, out, opts...)
@@ -535,8 +623,12 @@ func (c *ctmItoRefundControllerClient) UpdateRefundStockOut(ctx context.Context,
 // All implementations must embed UnimplementedCtmItoRefundControllerServer
 // for forward compatibility
 type CtmItoRefundControllerServer interface {
+	BulkCreateRefundCompensate(context.Context, *BulkCreateRefundCompensateListRequest) (*RefundCompensateListResponse, error)
+	BulkCreateRefundDeliver(context.Context, *BulkCreateRefundDeliverListRequest) (*RefundDeliverListResponse, error)
+	BulkCreateRefundReturn(context.Context, *BulkCreateRefundReturnListRequest) (*RefundReturnListResponse, error)
 	Create(context.Context, *CtmRefundRequest) (*CtmRefundResponse, error)
 	CreateObjectAfterSales(context.Context, *CreateObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error)
+	CreateRefundCompensate(context.Context, *CreateRefundCompensateRequest) (*RefundCompensateResponse, error)
 	CreateRefundDeliver(context.Context, *CreateRefundDeliverRequest) (*RefundDeliverResponse, error)
 	CreateRefundInvoice(context.Context, *CreateRefundInvoiceRequest) (*RefundInvoiceResponse, error)
 	CreateRefundRefund(context.Context, *CreateRefundRefundRequest) (*RefundRefundResponse, error)
@@ -545,6 +637,7 @@ type CtmItoRefundControllerServer interface {
 	CreateRefundStockOut(context.Context, *CreateRefundStockOutRequest) (*RefundStockOutResponse, error)
 	Destroy(context.Context, *CtmRefundDestroyRequest) (*emptypb.Empty, error)
 	DestroyObjectAfterSales(context.Context, *DestroyObjectAfterSalesRequest) (*emptypb.Empty, error)
+	DestroyRefundCompensate(context.Context, *DestroyRefundCompensateRequest) (*emptypb.Empty, error)
 	DestroyRefundDeliver(context.Context, *DestroyRefundDeliverRequest) (*emptypb.Empty, error)
 	DestroyRefundInvoice(context.Context, *DestroyRefundInvoiceRequest) (*emptypb.Empty, error)
 	DestroyRefundRefund(context.Context, *DestroyRefundRefundRequest) (*emptypb.Empty, error)
@@ -553,6 +646,7 @@ type CtmItoRefundControllerServer interface {
 	DestroyRefundStockOut(context.Context, *DestroyRefundStockOutRequest) (*emptypb.Empty, error)
 	List(context.Context, *CtmRefundListRequest) (*CtmRefundListResponse, error)
 	ListObjectAfterSales(context.Context, *ListObjectAfterSalesRequest) (*ObjectAfterSalesListResponse, error)
+	ListRefundCompensate(context.Context, *ListRefundCompensateRequest) (*RefundCompensateListResponse, error)
 	ListRefundDeliver(context.Context, *ListRefundDeliverRequest) (*RefundDeliverListResponse, error)
 	ListRefundInvoice(context.Context, *ListRefundInvoiceRequest) (*RefundInvoiceListResponse, error)
 	ListRefundRefund(context.Context, *ListRefundRefundRequest) (*RefundRefundListResponse, error)
@@ -566,6 +660,7 @@ type CtmItoRefundControllerServer interface {
 	RefundStatusCount(context.Context, *RefundStatusCountRequest) (*RefundStatusCountListResponse, error)
 	Retrieve(context.Context, *CtmRefundRetrieveRequest) (*CtmRefundResponse, error)
 	RetrieveObjectAfterSales(context.Context, *RetrieveObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error)
+	RetrieveRefundCompensate(context.Context, *RetrieveRefundCompensateRequest) (*RefundCompensateResponse, error)
 	RetrieveRefundDeliver(context.Context, *RetrieveRefundDeliverRequest) (*RefundDeliverResponse, error)
 	RetrieveRefundInvoice(context.Context, *RetrieveRefundInvoiceRequest) (*RefundInvoiceResponse, error)
 	RetrieveRefundRefund(context.Context, *RetrieveRefundRefundRequest) (*RefundRefundResponse, error)
@@ -574,6 +669,7 @@ type CtmItoRefundControllerServer interface {
 	RetrieveRefundStockOut(context.Context, *RetrieveRefundStockOutRequest) (*RefundStockOutResponse, error)
 	Update(context.Context, *CtmRefundRequest) (*CtmRefundResponse, error)
 	UpdateObjectAfterSales(context.Context, *UpdateObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error)
+	UpdateRefundCompensate(context.Context, *UpdateRefundCompensateRequest) (*RefundCompensateResponse, error)
 	UpdateRefundDeliver(context.Context, *UpdateRefundDeliverRequest) (*RefundDeliverResponse, error)
 	UpdateRefundInvoice(context.Context, *UpdateRefundInvoiceRequest) (*RefundInvoiceResponse, error)
 	UpdateRefundRefund(context.Context, *UpdateRefundRefundRequest) (*RefundRefundResponse, error)
@@ -587,11 +683,23 @@ type CtmItoRefundControllerServer interface {
 type UnimplementedCtmItoRefundControllerServer struct {
 }
 
+func (UnimplementedCtmItoRefundControllerServer) BulkCreateRefundCompensate(context.Context, *BulkCreateRefundCompensateListRequest) (*RefundCompensateListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateRefundCompensate not implemented")
+}
+func (UnimplementedCtmItoRefundControllerServer) BulkCreateRefundDeliver(context.Context, *BulkCreateRefundDeliverListRequest) (*RefundDeliverListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateRefundDeliver not implemented")
+}
+func (UnimplementedCtmItoRefundControllerServer) BulkCreateRefundReturn(context.Context, *BulkCreateRefundReturnListRequest) (*RefundReturnListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateRefundReturn not implemented")
+}
 func (UnimplementedCtmItoRefundControllerServer) Create(context.Context, *CtmRefundRequest) (*CtmRefundResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
 func (UnimplementedCtmItoRefundControllerServer) CreateObjectAfterSales(context.Context, *CreateObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateObjectAfterSales not implemented")
+}
+func (UnimplementedCtmItoRefundControllerServer) CreateRefundCompensate(context.Context, *CreateRefundCompensateRequest) (*RefundCompensateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRefundCompensate not implemented")
 }
 func (UnimplementedCtmItoRefundControllerServer) CreateRefundDeliver(context.Context, *CreateRefundDeliverRequest) (*RefundDeliverResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRefundDeliver not implemented")
@@ -617,6 +725,9 @@ func (UnimplementedCtmItoRefundControllerServer) Destroy(context.Context, *CtmRe
 func (UnimplementedCtmItoRefundControllerServer) DestroyObjectAfterSales(context.Context, *DestroyObjectAfterSalesRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyObjectAfterSales not implemented")
 }
+func (UnimplementedCtmItoRefundControllerServer) DestroyRefundCompensate(context.Context, *DestroyRefundCompensateRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyRefundCompensate not implemented")
+}
 func (UnimplementedCtmItoRefundControllerServer) DestroyRefundDeliver(context.Context, *DestroyRefundDeliverRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyRefundDeliver not implemented")
 }
@@ -640,6 +751,9 @@ func (UnimplementedCtmItoRefundControllerServer) List(context.Context, *CtmRefun
 }
 func (UnimplementedCtmItoRefundControllerServer) ListObjectAfterSales(context.Context, *ListObjectAfterSalesRequest) (*ObjectAfterSalesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListObjectAfterSales not implemented")
+}
+func (UnimplementedCtmItoRefundControllerServer) ListRefundCompensate(context.Context, *ListRefundCompensateRequest) (*RefundCompensateListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRefundCompensate not implemented")
 }
 func (UnimplementedCtmItoRefundControllerServer) ListRefundDeliver(context.Context, *ListRefundDeliverRequest) (*RefundDeliverListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRefundDeliver not implemented")
@@ -680,6 +794,9 @@ func (UnimplementedCtmItoRefundControllerServer) Retrieve(context.Context, *CtmR
 func (UnimplementedCtmItoRefundControllerServer) RetrieveObjectAfterSales(context.Context, *RetrieveObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveObjectAfterSales not implemented")
 }
+func (UnimplementedCtmItoRefundControllerServer) RetrieveRefundCompensate(context.Context, *RetrieveRefundCompensateRequest) (*RefundCompensateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRefundCompensate not implemented")
+}
 func (UnimplementedCtmItoRefundControllerServer) RetrieveRefundDeliver(context.Context, *RetrieveRefundDeliverRequest) (*RefundDeliverResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRefundDeliver not implemented")
 }
@@ -703,6 +820,9 @@ func (UnimplementedCtmItoRefundControllerServer) Update(context.Context, *CtmRef
 }
 func (UnimplementedCtmItoRefundControllerServer) UpdateObjectAfterSales(context.Context, *UpdateObjectAfterSalesRequest) (*ObjectAfterSalesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateObjectAfterSales not implemented")
+}
+func (UnimplementedCtmItoRefundControllerServer) UpdateRefundCompensate(context.Context, *UpdateRefundCompensateRequest) (*RefundCompensateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRefundCompensate not implemented")
 }
 func (UnimplementedCtmItoRefundControllerServer) UpdateRefundDeliver(context.Context, *UpdateRefundDeliverRequest) (*RefundDeliverResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRefundDeliver not implemented")
@@ -734,6 +854,60 @@ type UnsafeCtmItoRefundControllerServer interface {
 
 func RegisterCtmItoRefundControllerServer(s grpc.ServiceRegistrar, srv CtmItoRefundControllerServer) {
 	s.RegisterService(&CtmItoRefundController_ServiceDesc, srv)
+}
+
+func _CtmItoRefundController_BulkCreateRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkCreateRefundCompensateListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_BulkCreateRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundCompensate(ctx, req.(*BulkCreateRefundCompensateListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoRefundController_BulkCreateRefundDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkCreateRefundDeliverListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_BulkCreateRefundDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundDeliver(ctx, req.(*BulkCreateRefundDeliverListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoRefundController_BulkCreateRefundReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkCreateRefundReturnListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundReturn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_BulkCreateRefundReturn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).BulkCreateRefundReturn(ctx, req.(*BulkCreateRefundReturnListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _CtmItoRefundController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -768,6 +942,24 @@ func _CtmItoRefundController_CreateObjectAfterSales_Handler(srv interface{}, ctx
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoRefundControllerServer).CreateObjectAfterSales(ctx, req.(*CreateObjectAfterSalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoRefundController_CreateRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRefundCompensateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).CreateRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_CreateRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).CreateRefundCompensate(ctx, req.(*CreateRefundCompensateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -916,6 +1108,24 @@ func _CtmItoRefundController_DestroyObjectAfterSales_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoRefundController_DestroyRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyRefundCompensateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).DestroyRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_DestroyRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).DestroyRefundCompensate(ctx, req.(*DestroyRefundCompensateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoRefundController_DestroyRefundDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DestroyRefundDeliverRequest)
 	if err := dec(in); err != nil {
@@ -1056,6 +1266,24 @@ func _CtmItoRefundController_ListObjectAfterSales_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoRefundControllerServer).ListObjectAfterSales(ctx, req.(*ListObjectAfterSalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoRefundController_ListRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRefundCompensateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).ListRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_ListRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).ListRefundCompensate(ctx, req.(*ListRefundCompensateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1294,6 +1522,24 @@ func _CtmItoRefundController_RetrieveObjectAfterSales_Handler(srv interface{}, c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoRefundController_RetrieveRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveRefundCompensateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).RetrieveRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_RetrieveRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).RetrieveRefundCompensate(ctx, req.(*RetrieveRefundCompensateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoRefundController_RetrieveRefundDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RetrieveRefundDeliverRequest)
 	if err := dec(in); err != nil {
@@ -1438,6 +1684,24 @@ func _CtmItoRefundController_UpdateObjectAfterSales_Handler(srv interface{}, ctx
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoRefundController_UpdateRefundCompensate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRefundCompensateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoRefundControllerServer).UpdateRefundCompensate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoRefundController_UpdateRefundCompensate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoRefundControllerServer).UpdateRefundCompensate(ctx, req.(*UpdateRefundCompensateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoRefundController_UpdateRefundDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateRefundDeliverRequest)
 	if err := dec(in); err != nil {
@@ -1554,12 +1818,28 @@ var CtmItoRefundController_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CtmItoRefundControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "BulkCreateRefundCompensate",
+			Handler:    _CtmItoRefundController_BulkCreateRefundCompensate_Handler,
+		},
+		{
+			MethodName: "BulkCreateRefundDeliver",
+			Handler:    _CtmItoRefundController_BulkCreateRefundDeliver_Handler,
+		},
+		{
+			MethodName: "BulkCreateRefundReturn",
+			Handler:    _CtmItoRefundController_BulkCreateRefundReturn_Handler,
+		},
+		{
 			MethodName: "Create",
 			Handler:    _CtmItoRefundController_Create_Handler,
 		},
 		{
 			MethodName: "CreateObjectAfterSales",
 			Handler:    _CtmItoRefundController_CreateObjectAfterSales_Handler,
+		},
+		{
+			MethodName: "CreateRefundCompensate",
+			Handler:    _CtmItoRefundController_CreateRefundCompensate_Handler,
 		},
 		{
 			MethodName: "CreateRefundDeliver",
@@ -1594,6 +1874,10 @@ var CtmItoRefundController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoRefundController_DestroyObjectAfterSales_Handler,
 		},
 		{
+			MethodName: "DestroyRefundCompensate",
+			Handler:    _CtmItoRefundController_DestroyRefundCompensate_Handler,
+		},
+		{
 			MethodName: "DestroyRefundDeliver",
 			Handler:    _CtmItoRefundController_DestroyRefundDeliver_Handler,
 		},
@@ -1624,6 +1908,10 @@ var CtmItoRefundController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListObjectAfterSales",
 			Handler:    _CtmItoRefundController_ListObjectAfterSales_Handler,
+		},
+		{
+			MethodName: "ListRefundCompensate",
+			Handler:    _CtmItoRefundController_ListRefundCompensate_Handler,
 		},
 		{
 			MethodName: "ListRefundDeliver",
@@ -1678,6 +1966,10 @@ var CtmItoRefundController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoRefundController_RetrieveObjectAfterSales_Handler,
 		},
 		{
+			MethodName: "RetrieveRefundCompensate",
+			Handler:    _CtmItoRefundController_RetrieveRefundCompensate_Handler,
+		},
+		{
 			MethodName: "RetrieveRefundDeliver",
 			Handler:    _CtmItoRefundController_RetrieveRefundDeliver_Handler,
 		},
@@ -1708,6 +2000,10 @@ var CtmItoRefundController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateObjectAfterSales",
 			Handler:    _CtmItoRefundController_UpdateObjectAfterSales_Handler,
+		},
+		{
+			MethodName: "UpdateRefundCompensate",
+			Handler:    _CtmItoRefundController_UpdateRefundCompensate_Handler,
 		},
 		{
 			MethodName: "UpdateRefundDeliver",

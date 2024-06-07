@@ -6,8 +6,12 @@ import "google/protobuf/empty.proto";
 option go_package = "../pbRefundIto";
 
 service CtmItoRefundController {
+  rpc BulkCreateRefundCompensate(BulkCreateRefundCompensateListRequest) returns (RefundCompensateListResponse) {}
+  rpc BulkCreateRefundDeliver(BulkCreateRefundDeliverListRequest) returns (RefundDeliverListResponse) {}
+  rpc BulkCreateRefundReturn(BulkCreateRefundReturnListRequest) returns (RefundReturnListResponse) {}
   rpc Create(CtmRefundRequest) returns (CtmRefundResponse) {}
   rpc CreateObjectAfterSales(CreateObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc CreateRefundCompensate(CreateRefundCompensateRequest) returns (RefundCompensateResponse) {}
   rpc CreateRefundDeliver(CreateRefundDeliverRequest) returns (RefundDeliverResponse) {}
   rpc CreateRefundInvoice(CreateRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
   rpc CreateRefundRefund(CreateRefundRefundRequest) returns (RefundRefundResponse) {}
@@ -16,6 +20,7 @@ service CtmItoRefundController {
   rpc CreateRefundStockOut(CreateRefundStockOutRequest) returns (RefundStockOutResponse) {}
   rpc Destroy(CtmRefundDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyObjectAfterSales(DestroyObjectAfterSalesRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyRefundCompensate(DestroyRefundCompensateRequest) returns (google.protobuf.Empty) {}
   rpc DestroyRefundDeliver(DestroyRefundDeliverRequest) returns (google.protobuf.Empty) {}
   rpc DestroyRefundInvoice(DestroyRefundInvoiceRequest) returns (google.protobuf.Empty) {}
   rpc DestroyRefundRefund(DestroyRefundRefundRequest) returns (google.protobuf.Empty) {}
@@ -24,6 +29,7 @@ service CtmItoRefundController {
   rpc DestroyRefundStockOut(DestroyRefundStockOutRequest) returns (google.protobuf.Empty) {}
   rpc List(CtmRefundListRequest) returns (CtmRefundListResponse) {}
   rpc ListObjectAfterSales(ListObjectAfterSalesRequest) returns (ObjectAfterSalesListResponse) {}
+  rpc ListRefundCompensate(ListRefundCompensateRequest) returns (RefundCompensateListResponse) {}
   rpc ListRefundDeliver(ListRefundDeliverRequest) returns (RefundDeliverListResponse) {}
   rpc ListRefundInvoice(ListRefundInvoiceRequest) returns (RefundInvoiceListResponse) {}
   rpc ListRefundRefund(ListRefundRefundRequest) returns (RefundRefundListResponse) {}
@@ -37,6 +43,7 @@ service CtmItoRefundController {
   rpc RefundStatusCount(RefundStatusCountRequest) returns (RefundStatusCountListResponse) {}
   rpc Retrieve(CtmRefundRetrieveRequest) returns (CtmRefundResponse) {}
   rpc RetrieveObjectAfterSales(RetrieveObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc RetrieveRefundCompensate(RetrieveRefundCompensateRequest) returns (RefundCompensateResponse) {}
   rpc RetrieveRefundDeliver(RetrieveRefundDeliverRequest) returns (RefundDeliverResponse) {}
   rpc RetrieveRefundInvoice(RetrieveRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
   rpc RetrieveRefundRefund(RetrieveRefundRefundRequest) returns (RefundRefundResponse) {}
@@ -45,12 +52,112 @@ service CtmItoRefundController {
   rpc RetrieveRefundStockOut(RetrieveRefundStockOutRequest) returns (RefundStockOutResponse) {}
   rpc Update(CtmRefundRequest) returns (CtmRefundResponse) {}
   rpc UpdateObjectAfterSales(UpdateObjectAfterSalesRequest) returns (ObjectAfterSalesResponse) {}
+  rpc UpdateRefundCompensate(UpdateRefundCompensateRequest) returns (RefundCompensateResponse) {}
   rpc UpdateRefundDeliver(UpdateRefundDeliverRequest) returns (RefundDeliverResponse) {}
   rpc UpdateRefundInvoice(UpdateRefundInvoiceRequest) returns (RefundInvoiceResponse) {}
   rpc UpdateRefundRefund(UpdateRefundRefundRequest) returns (RefundRefundResponse) {}
   rpc UpdateRefundReturn(UpdateRefundReturnRequest) returns (RefundReturnResponse) {}
   rpc UpdateRefundStockIn(UpdateRefundStockInRequest) returns (RefundStockInResponse) {}
   rpc UpdateRefundStockOut(UpdateRefundStockOutRequest) returns (RefundStockOutResponse) {}
+}
+
+message BulkCreateRefundCompensateListRequest {
+  repeated BulkCreateRefundCompensateRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateRefundCompensateRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional string cancel_reasons = 31;
+  optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
+  optional int64 ctm_service = 34;
+}
+
+message BulkCreateRefundDeliverListRequest {
+  repeated BulkCreateRefundDeliverRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateRefundDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int64 ctm_refund = 3;
+  bool can_edit = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional double debit_amount = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 price_nut = 14;
+  optional int32 status = 15;
+  optional int32 refund_status = 16;
+  optional string goods_id = 17;
+  optional string goods_name = 18;
+  optional string goods_spu = 19;
+  optional string goods_no = 20;
+  string spec_no = 21;
+  optional string spec_name = 22;
+  optional string rfid_code = 23;
+  optional string security_code = 24;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_service = 26;
+}
+
+message BulkCreateRefundReturnListRequest {
+  repeated BulkCreateRefundReturnRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateRefundReturnRequest {
+  int32 id = 1;
+  string filters = 2;
+  string oid = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  optional double out_amount = 12;
+  int32 num = 13;
+  optional int64 ctm_refund = 14;
+  optional int64 order_details = 15;
 }
 
 message CreateObjectAfterSalesRequest {
@@ -78,6 +185,43 @@ message CreateObjectAfterSalesRequest {
   optional string oid = 23;
   optional double out_amount = 24;
   optional int64 order_details = 25;
+}
+
+message CreateRefundCompensateRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional string cancel_reasons = 31;
+  optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
+  optional int64 ctm_service = 34;
 }
 
 message CreateRefundDeliverRequest {
@@ -297,6 +441,7 @@ message CtmRefundListRequest {
   optional RefundInvoiceRequest invoice_content = 68;
   repeated ObjectAfterSalesRequest after_sales_content = 69;
   optional RefundRefundRequest pay_content = 70;
+  optional RefundCompensateRequest refund_compensate_content = 71;
 }
 
 message CtmRefundListResponse {
@@ -375,6 +520,7 @@ message CtmRefundPartialUpdateRequest {
   optional RefundInvoiceRequest invoice_content = 69;
   repeated ObjectAfterSalesRequest after_sales_content = 70;
   optional RefundRefundRequest pay_content = 71;
+  optional RefundCompensateRequest refund_compensate_content = 72;
 }
 
 message CtmRefundRequest {
@@ -447,6 +593,7 @@ message CtmRefundRequest {
   optional RefundInvoiceRequest invoice_content = 68;
   repeated ObjectAfterSalesRequest after_sales_content = 69;
   optional RefundRefundRequest pay_content = 70;
+  optional RefundCompensateRequest refund_compensate_content = 71;
 }
 
 message CtmRefundResponse {
@@ -533,6 +680,7 @@ message CtmRefundResponse {
   optional int64 ctm = 81;
   optional int64 ctm_order = 82;
   repeated RefundRefundResponse refund_pay_details = 83;
+  repeated RefundCompensateResponse refund_compensate_details = 84;
 }
 
 message CtmRefundRetrieveRequest {
@@ -540,6 +688,10 @@ message CtmRefundRetrieveRequest {
 }
 
 message DestroyObjectAfterSalesRequest {
+  int32 id = 1;
+}
+
+message DestroyRefundCompensateRequest {
   int32 id = 1;
 }
 
@@ -568,6 +720,10 @@ message DestroyRefundStockOutRequest {
 }
 
 message ListObjectAfterSalesRequest {
+  string filters = 1;
+}
+
+message ListRefundCompensateRequest {
   string filters = 1;
 }
 
@@ -670,6 +826,88 @@ message OptionValueIntResponse {
 message OptionValueStringResponse {
   string value = 1;
   string label = 2;
+}
+
+message RefundCompensateListResponse {
+  repeated RefundCompensateResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundCompensateRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional string cancel_reasons = 31;
+  optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
+  optional int64 ctm_service = 34;
+}
+
+message RefundCompensateResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string trade_status_name = 3;
+  string create_time = 4;
+  string update_time = 5;
+  optional string prepay_id = 6;
+  optional string prepay_expired = 7;
+  optional string trade_type = 8;
+  optional string trade_state = 9;
+  optional string trade_state_desc = 10;
+  optional string transaction_id = 11;
+  optional string app_id = 12;
+  optional string mch_id = 13;
+  string open_id = 14;
+  optional string out_trade_no = 15;
+  optional string attach = 16;
+  optional int32 total = 17;
+  optional int32 payer_total = 18;
+  optional string currency = 19;
+  optional string bank_type = 20;
+  optional string success_time = 21;
+  optional string out_refund_no = 22;
+  optional string reason = 23;
+  optional int32 refund = 24;
+  optional int32 payer_refund = 25;
+  optional int32 settlement_refund = 26;
+  optional int32 settlement_total = 27;
+  optional int32 discount_refund = 28;
+  optional int32 refund_fee = 29;
+  optional string refund_id = 30;
+  optional string channel = 31;
+  optional string user_received_account = 32;
+  optional string status = 33;
+  optional string cancel_reasons = 34;
+  optional int64 ctm_order = 35;
+  optional int64 ctm_refund = 36;
+  optional int64 ctm_service = 37;
 }
 
 message RefundDeliverListResponse {
@@ -952,7 +1190,7 @@ message RefundStatusCountRequest {
 }
 
 message RefundStatusCountResponse {
-  int32 refund_status = 1;
+  string refund_status = 1;
   int32 count = 2;
 }
 
@@ -1019,6 +1257,10 @@ message RetrieveObjectAfterSalesRequest {
   int32 id = 1;
 }
 
+message RetrieveRefundCompensateRequest {
+  int32 id = 1;
+}
+
 message RetrieveRefundDeliverRequest {
   int32 id = 1;
 }
@@ -1069,6 +1311,44 @@ message UpdateObjectAfterSalesRequest {
   optional string oid = 24;
   optional double out_amount = 25;
   optional int64 order_details = 26;
+}
+
+message UpdateRefundCompensateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string prepay_id = 4;
+  optional string prepay_expired = 5;
+  optional string trade_type = 6;
+  optional string trade_state = 7;
+  optional string trade_state_desc = 8;
+  optional string transaction_id = 9;
+  optional string app_id = 10;
+  optional string mch_id = 11;
+  string open_id = 12;
+  optional string out_trade_no = 13;
+  optional string attach = 14;
+  optional int32 total = 15;
+  optional int32 payer_total = 16;
+  optional string currency = 17;
+  optional string bank_type = 18;
+  optional string success_time = 19;
+  optional string out_refund_no = 20;
+  optional string reason = 21;
+  optional int32 refund = 22;
+  optional int32 payer_refund = 23;
+  optional int32 settlement_refund = 24;
+  optional int32 settlement_total = 25;
+  optional int32 discount_refund = 26;
+  optional int32 refund_fee = 27;
+  optional string refund_id = 28;
+  optional string channel = 29;
+  optional string user_received_account = 30;
+  optional string status = 31;
+  optional string cancel_reasons = 32;
+  optional int64 ctm_order = 33;
+  optional int64 ctm_refund = 34;
+  optional int64 ctm_service = 35;
 }
 
 message UpdateRefundDeliverRequest {
@@ -1219,3 +1499,4 @@ message UpdateRefundStockOutRequest {
   optional int64 ctm_order = 21;
   optional int64 ctm_refund = 22;
 }
+

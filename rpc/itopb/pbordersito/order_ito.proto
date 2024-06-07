@@ -5,6 +5,7 @@ package customer_service.customer_ito;
 import "google/protobuf/empty.proto";
 option go_package = "../pbordersito";
 
+
 service CtmItoOrderController {
   rpc ChildrenBatchUpdateRefundReason(ChildrenBatchUpdateRequest) returns (ChildrenBatchUpdateResponse) {}
   rpc CouponOptions(OptionRequest) returns (CtmCouponOptionResponse) {}
