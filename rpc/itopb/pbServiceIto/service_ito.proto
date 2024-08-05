@@ -3,8 +3,8 @@ syntax = "proto3";
 package customer_service.customer_ito;
 
 import "google/protobuf/empty.proto";
-
 option go_package = "../pbServiceIto";
+
 service CtmItoServiceController {
   rpc BulkCreateGoodsDeliver(BulkCreateGoodsDeliverListRequest) returns (ServiceGoodsDeliverListResponse) {}
   rpc BulkCreateGoodsReturn(BulkCreateGoodsReturnListRequest) returns (ServiceGoodsReturnListResponse) {}
@@ -87,7 +87,7 @@ message BulkCreateGoodsDeliverListRequest {
 message BulkCreateGoodsDeliverRequest {
   int32 id = 1;
   string filters = 2;
-  optional int64 ctm_order = 3;
+  optional int64 ctm_service = 3;
   bool can_edit = 4;
   int32 num = 5;
   double price = 6;
@@ -96,9 +96,9 @@ message BulkCreateGoodsDeliverRequest {
   double share_discount = 9;
   double share_amount = 10;
   optional double debit_amount = 11;
-  optional int32 price_score = 12;
-  optional int32 price_badge = 13;
-  optional int32 price_nut = 14;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
   optional int32 status = 15;
   optional int32 refund_status = 16;
   optional string goods_id = 17;
@@ -109,8 +109,8 @@ message BulkCreateGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_refund = 25;
-  optional int64 ctm_service = 26;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_refund = 26;
 }
 
 message BulkCreateGoodsReturnListRequest {
@@ -139,7 +139,7 @@ message BulkCreateGoodsReturnRequest {
 message CreateGoodsDeliverRequest {
   int32 id = 1;
   string filters = 2;
-  optional int64 ctm_order = 3;
+  optional int64 ctm_service = 3;
   bool can_edit = 4;
   int32 num = 5;
   double price = 6;
@@ -148,9 +148,9 @@ message CreateGoodsDeliverRequest {
   double share_discount = 9;
   double share_amount = 10;
   optional double debit_amount = 11;
-  optional int32 price_score = 12;
-  optional int32 price_badge = 13;
-  optional int32 price_nut = 14;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
   optional int32 status = 15;
   optional int32 refund_status = 16;
   optional string goods_id = 17;
@@ -161,8 +161,8 @@ message CreateGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_refund = 25;
-  optional int64 ctm_service = 26;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_refund = 26;
 }
 
 message CreateGoodsInvoiceRequest {
@@ -184,8 +184,8 @@ message CreateGoodsInvoiceRequest {
   optional string invoice_code = 16;
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
-  optional int64 parent_invoice = 19;
-  optional int64 ctm_refund = 20;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
 }
 
 message CreateGoodsPayRequest {
@@ -339,14 +339,14 @@ message CreateObjectTailorRequest {
   int32 id = 1;
   string filters = 2;
   optional int64 service_object = 3;
-  optional string platform_order = 4;
-  optional string oms_order = 5;
-  optional string goods_id = 6;
-  optional string goods_name = 7;
-  optional string goods_spu = 8;
-  optional string goods_no = 9;
-  optional string spec_no = 10;
-  optional string spec_name = 11;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string platform_order = 10;
+  optional string oms_order = 11;
   optional string rfid_code = 12;
   optional string security_code = 13;
   optional double out_price = 14;
@@ -356,8 +356,8 @@ message CreateObjectTailorRequest {
   optional string text = 18;
   optional string text_color = 19;
   optional string text_font = 20;
-  optional string img_path = 21;
-  optional string remark = 22;
+  optional string remark = 21;
+  optional string img_path = 22;
   optional string tif_path = 23;
   optional bool deletable = 24;
 }
@@ -388,18 +388,18 @@ message CreateStockInRequest {
   optional string order_no = 5;
   optional string stock_in_no = 6;
   optional string status = 7;
-  optional string logistics_no = 8;
-  optional string stockin_time = 9;
-  optional string check_time = 10;
-  optional string modified = 11;
-  optional string goods_no = 12;
-  optional string goods_name = 13;
-  optional string spec_name = 14;
-  optional string spec_no = 15;
-  double goods_count = 16;
-  optional int64 ctm_service = 17;
-  optional string logistics_name = 18;
-  optional string logistics_code = 19;
+  optional string logistics_name = 8;
+  optional string logistics_code = 9;
+  optional string logistics_no = 10;
+  optional string stockin_time = 11;
+  optional string check_time = 12;
+  optional string modified = 13;
+  optional string goods_no = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string spec_no = 17;
+  double goods_count = 18;
+  optional int64 ctm_service = 19;
   optional int64 ctm_refund = 20;
 }
 
@@ -445,15 +445,15 @@ message CtmServiceListRequest {
   optional ServiceGoodsPayRequest pay_content = 11;
   optional ServiceGoodsInvoiceRequest invoice_content = 12;
   optional string create_name = 13;
-  optional string approve_time = 14;
-  optional string approve_name = 15;
-  optional string approve_reasons = 16;
-  optional string reject_reasons = 17;
-  optional string cancel_reasons = 18;
-  string sid = 19;
-  optional int32 trade_type = 20;
-  optional int32 type = 21;
-  optional int32 create_type = 22;
+  optional int32 create_type = 14;
+  optional string approve_time = 15;
+  optional string approve_name = 16;
+  optional string approve_reasons = 17;
+  optional string reject_reasons = 18;
+  optional string cancel_reasons = 19;
+  string sid = 20;
+  optional int32 trade_type = 21;
+  optional int32 type = 22;
   optional int32 service_status = 23;
   optional int32 trade_status = 24;
   optional int32 pay_status = 25;
@@ -511,15 +511,15 @@ message CtmServicePartialUpdateRequest {
   optional ServiceGoodsInvoiceRequest invoice_content = 12;
   repeated string _partial_update_fields = 13;
   optional string create_name = 14;
-  optional string approve_time = 15;
-  optional string approve_name = 16;
-  optional string approve_reasons = 17;
-  optional string reject_reasons = 18;
-  optional string cancel_reasons = 19;
-  string sid = 20;
-  optional int32 trade_type = 21;
-  optional int32 type = 22;
-  optional int32 create_type = 23;
+  optional int32 create_type = 15;
+  optional string approve_time = 16;
+  optional string approve_name = 17;
+  optional string approve_reasons = 18;
+  optional string reject_reasons = 19;
+  optional string cancel_reasons = 20;
+  string sid = 21;
+  optional int32 trade_type = 22;
+  optional int32 type = 23;
   optional int32 service_status = 24;
   optional int32 trade_status = 25;
   optional int32 pay_status = 26;
@@ -571,15 +571,15 @@ message CtmServiceRequest {
   optional ServiceGoodsPayRequest pay_content = 11;
   optional ServiceGoodsInvoiceRequest invoice_content = 12;
   optional string create_name = 13;
-  optional string approve_time = 14;
-  optional string approve_name = 15;
-  optional string approve_reasons = 16;
-  optional string reject_reasons = 17;
-  optional string cancel_reasons = 18;
-  string sid = 19;
-  optional int32 trade_type = 20;
-  optional int32 type = 21;
-  optional int32 create_type = 22;
+  optional int32 create_type = 14;
+  optional string approve_time = 15;
+  optional string approve_name = 16;
+  optional string approve_reasons = 17;
+  optional string reject_reasons = 18;
+  optional string cancel_reasons = 19;
+  string sid = 20;
+  optional int32 trade_type = 21;
+  optional int32 type = 22;
   optional int32 service_status = 23;
   optional int32 trade_status = 24;
   optional int32 pay_status = 25;
@@ -645,15 +645,15 @@ message CtmServiceResponse {
   string create_time = 25;
   string update_time = 26;
   optional string create_name = 27;
-  optional string approve_time = 28;
-  optional string approve_name = 29;
-  optional string approve_reasons = 30;
-  optional string reject_reasons = 31;
-  optional string cancel_reasons = 32;
-  string sid = 33;
-  optional int32 trade_type = 34;
-  optional int32 type = 35;
-  optional int32 create_type = 36;
+  optional int32 create_type = 28;
+  optional string approve_time = 29;
+  optional string approve_name = 30;
+  optional string approve_reasons = 31;
+  optional string reject_reasons = 32;
+  optional string cancel_reasons = 33;
+  string sid = 34;
+  optional int32 trade_type = 35;
+  optional int32 type = 36;
   optional int32 service_status = 37;
   optional int32 trade_status = 38;
   optional int32 pay_status = 39;
@@ -1008,14 +1008,14 @@ message ObjectTailorRequest {
   int32 id = 1;
   string filters = 2;
   optional int64 service_object = 3;
-  optional string platform_order = 4;
-  optional string oms_order = 5;
-  optional string goods_id = 6;
-  optional string goods_name = 7;
-  optional string goods_spu = 8;
-  optional string goods_no = 9;
-  optional string spec_no = 10;
-  optional string spec_name = 11;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string platform_order = 10;
+  optional string oms_order = 11;
   optional string rfid_code = 12;
   optional string security_code = 13;
   optional double out_price = 14;
@@ -1025,8 +1025,8 @@ message ObjectTailorRequest {
   optional string text = 18;
   optional string text_color = 19;
   optional string text_font = 20;
-  optional string img_path = 21;
-  optional string remark = 22;
+  optional string remark = 21;
+  optional string img_path = 22;
   optional string tif_path = 23;
   optional bool deletable = 24;
 }
@@ -1036,14 +1036,14 @@ message ObjectTailorResponse {
   optional int64 service_object = 2;
   string create_time = 3;
   string update_time = 4;
-  optional string platform_order = 5;
-  optional string oms_order = 6;
-  optional string goods_id = 7;
-  optional string goods_name = 8;
-  optional string goods_spu = 9;
-  optional string goods_no = 10;
-  optional string spec_no = 11;
-  optional string spec_name = 12;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_spu = 7;
+  optional string goods_no = 8;
+  optional string spec_no = 9;
+  optional string spec_name = 10;
+  optional string platform_order = 11;
+  optional string oms_order = 12;
   optional string rfid_code = 13;
   optional string security_code = 14;
   optional double out_price = 15;
@@ -1053,8 +1053,8 @@ message ObjectTailorResponse {
   optional string text = 19;
   optional string text_color = 20;
   optional string text_font = 21;
-  optional string img_path = 22;
-  optional string remark = 23;
+  optional string remark = 22;
+  optional string img_path = 23;
   optional string tif_path = 24;
   optional bool deletable = 25;
 }
@@ -1162,7 +1162,7 @@ message ServiceGoodsDeliverListResponse {
 message ServiceGoodsDeliverRequest {
   int32 id = 1;
   string filters = 2;
-  optional int64 ctm_order = 3;
+  optional int64 ctm_service = 3;
   bool can_edit = 4;
   int32 num = 5;
   double price = 6;
@@ -1171,9 +1171,9 @@ message ServiceGoodsDeliverRequest {
   double share_discount = 9;
   double share_amount = 10;
   optional double debit_amount = 11;
-  optional int32 price_score = 12;
-  optional int32 price_badge = 13;
-  optional int32 price_nut = 14;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
   optional int32 status = 15;
   optional int32 refund_status = 16;
   optional string goods_id = 17;
@@ -1184,15 +1184,15 @@ message ServiceGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_refund = 25;
-  optional int64 ctm_service = 26;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_refund = 26;
 }
 
 message ServiceGoodsDeliverResponse {
   int32 id = 1;
   string status_name = 2;
   string refund_status_name = 3;
-  optional int64 ctm_order = 4;
+  optional int64 ctm_service = 4;
   string create_time = 5;
   string update_time = 6;
   bool can_edit = 7;
@@ -1203,9 +1203,9 @@ message ServiceGoodsDeliverResponse {
   double share_discount = 12;
   double share_amount = 13;
   optional double debit_amount = 14;
-  optional int32 price_score = 15;
-  optional int32 price_badge = 16;
-  optional int32 price_nut = 17;
+  optional int32 price_nut = 15;
+  optional int32 price_score = 16;
+  optional int32 price_badge = 17;
   optional int32 status = 18;
   optional int32 refund_status = 19;
   optional string goods_id = 20;
@@ -1216,8 +1216,8 @@ message ServiceGoodsDeliverResponse {
   optional string spec_name = 25;
   optional string rfid_code = 26;
   optional string security_code = 27;
-  optional int64 ctm_refund = 28;
-  optional int64 ctm_service = 29;
+  optional int64 ctm_order = 28;
+  optional int64 ctm_refund = 29;
 }
 
 message ServiceGoodsInvoiceChildrenResponse {
@@ -1243,8 +1243,8 @@ message ServiceGoodsInvoiceChildrenResponse {
   optional string invoice_code = 20;
   optional int64 ctm_order = 21;
   optional int64 ctm_service = 22;
-  optional int64 parent_invoice = 23;
-  optional int64 ctm_refund = 24;
+  optional int64 ctm_refund = 23;
+  optional int64 parent_invoice = 24;
 }
 
 message ServiceGoodsInvoiceListResponse {
@@ -1271,8 +1271,8 @@ message ServiceGoodsInvoiceRequest {
   optional string invoice_code = 16;
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
-  optional int64 parent_invoice = 19;
-  optional int64 ctm_refund = 20;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
 }
 
 message ServiceGoodsInvoiceResponse {
@@ -1299,8 +1299,8 @@ message ServiceGoodsInvoiceResponse {
   optional string invoice_code = 21;
   optional int64 ctm_order = 22;
   optional int64 ctm_service = 23;
-  optional int64 parent_invoice = 24;
-  optional int64 ctm_refund = 25;
+  optional int64 ctm_refund = 24;
+  optional int64 parent_invoice = 25;
 }
 
 message ServiceGoodsPayListResponse {
@@ -1452,7 +1452,8 @@ message ServiceStatusCountListResponse {
 }
 
 message ServiceStatusCountRequest {
-  int32 trade_type = 1;
+  optional int32 trade_type = 1;
+  optional int64 ctm_id = 2;
 }
 
 message ServiceStatusCountResponse {
@@ -1474,18 +1475,18 @@ message ServiceStockInResponse {
   optional string order_no = 6;
   optional string stock_in_no = 7;
   optional string status = 8;
-  optional string logistics_no = 9;
-  optional string stockin_time = 10;
-  optional string check_time = 11;
-  optional string modified = 12;
-  optional string goods_no = 13;
-  optional string goods_name = 14;
-  optional string spec_name = 15;
-  optional string spec_no = 16;
-  double goods_count = 17;
-  optional int64 ctm_service = 18;
-  optional string logistics_name = 19;
-  optional string logistics_code = 20;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string stockin_time = 12;
+  optional string check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
   optional int64 ctm_refund = 21;
 }
 
@@ -1532,9 +1533,9 @@ message UpdateGoodsDeliverRequest {
   double share_discount = 10;
   double share_amount = 11;
   optional double debit_amount = 12;
-  optional int32 price_score = 13;
-  optional int32 price_badge = 14;
-  optional int32 price_nut = 15;
+  optional int32 price_nut = 13;
+  optional int32 price_score = 14;
+  optional int32 price_badge = 15;
   optional int32 status = 16;
   optional int32 refund_status = 17;
   optional string goods_id = 18;
@@ -1569,8 +1570,8 @@ message UpdateGoodsInvoiceRequest {
   optional string invoice_code = 17;
   optional int64 ctm_order = 18;
   optional int64 ctm_service = 19;
-  optional int64 parent_invoice = 20;
-  optional int64 ctm_refund = 21;
+  optional int64 ctm_refund = 20;
+  optional int64 parent_invoice = 21;
 }
 
 message UpdateGoodsPayRequest {
@@ -1731,14 +1732,14 @@ message UpdateObjectTailorRequest {
   string filters = 2;
   optional int64 service_object = 3;
   repeated string _partial_update_fields = 4;
-  optional string platform_order = 5;
-  optional string oms_order = 6;
-  optional string goods_id = 7;
-  optional string goods_name = 8;
-  optional string goods_spu = 9;
-  optional string goods_no = 10;
-  optional string spec_no = 11;
-  optional string spec_name = 12;
+  optional string goods_id = 5;
+  optional string goods_name = 6;
+  optional string goods_spu = 7;
+  optional string goods_no = 8;
+  optional string spec_no = 9;
+  optional string spec_name = 10;
+  optional string platform_order = 11;
+  optional string oms_order = 12;
   optional string rfid_code = 13;
   optional string security_code = 14;
   optional double out_price = 15;
@@ -1748,8 +1749,8 @@ message UpdateObjectTailorRequest {
   optional string text = 19;
   optional string text_color = 20;
   optional string text_font = 21;
-  optional string img_path = 22;
-  optional string remark = 23;
+  optional string remark = 22;
+  optional string img_path = 23;
   optional string tif_path = 24;
   optional bool deletable = 25;
 }
@@ -1782,18 +1783,18 @@ message UpdateStockInRequest {
   optional string order_no = 6;
   optional string stock_in_no = 7;
   optional string status = 8;
-  optional string logistics_no = 9;
-  optional string stockin_time = 10;
-  optional string check_time = 11;
-  optional string modified = 12;
-  optional string goods_no = 13;
-  optional string goods_name = 14;
-  optional string spec_name = 15;
-  optional string spec_no = 16;
-  double goods_count = 17;
-  optional int64 ctm_service = 18;
-  optional string logistics_name = 19;
-  optional string logistics_code = 20;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string stockin_time = 12;
+  optional string check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_service = 20;
   optional int64 ctm_refund = 21;
 }
 

@@ -20,311 +20,311 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	CardCaresController_Create_FullMethodName        = "/card_service.card_ito.CardCaresController/Create"
-	CardCaresController_Destroy_FullMethodName       = "/card_service.card_ito.CardCaresController/Destroy"
-	CardCaresController_List_FullMethodName          = "/card_service.card_ito.CardCaresController/List"
-	CardCaresController_Options_FullMethodName       = "/card_service.card_ito.CardCaresController/Options"
-	CardCaresController_PartialUpdate_FullMethodName = "/card_service.card_ito.CardCaresController/PartialUpdate"
-	CardCaresController_Retrieve_FullMethodName      = "/card_service.card_ito.CardCaresController/Retrieve"
-	CardCaresController_Update_FullMethodName        = "/card_service.card_ito.CardCaresController/Update"
+	CardCareController_Create_FullMethodName        = "/card_service.card_ito.CardCareController/Create"
+	CardCareController_Destroy_FullMethodName       = "/card_service.card_ito.CardCareController/Destroy"
+	CardCareController_List_FullMethodName          = "/card_service.card_ito.CardCareController/List"
+	CardCareController_Options_FullMethodName       = "/card_service.card_ito.CardCareController/Options"
+	CardCareController_PartialUpdate_FullMethodName = "/card_service.card_ito.CardCareController/PartialUpdate"
+	CardCareController_Retrieve_FullMethodName      = "/card_service.card_ito.CardCareController/Retrieve"
+	CardCareController_Update_FullMethodName        = "/card_service.card_ito.CardCareController/Update"
 )
 
-// CardCaresControllerClient is the client API for CardCaresController service.
+// CardCareControllerClient is the client API for CardCareController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CardCaresControllerClient interface {
-	Create(ctx context.Context, in *CardCaresRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
-	Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	List(ctx context.Context, in *CardCaresListRequest, opts ...grpc.CallOption) (*CardCaresListResponse, error)
-	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardCaresOptionResponse, error)
-	PartialUpdate(ctx context.Context, in *CardCaresPartialUpdateRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
-	Retrieve(ctx context.Context, in *CardCaresRetrieveRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
-	Update(ctx context.Context, in *CardCaresRequest, opts ...grpc.CallOption) (*CardCaresResponse, error)
+type CardCareControllerClient interface {
+	Create(ctx context.Context, in *CardCareRequest, opts ...grpc.CallOption) (*CardCareResponse, error)
+	Destroy(ctx context.Context, in *CardCareDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *CardCareListRequest, opts ...grpc.CallOption) (*CardCareListResponse, error)
+	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardCareOptionResponse, error)
+	PartialUpdate(ctx context.Context, in *CardCarePartialUpdateRequest, opts ...grpc.CallOption) (*CardCareResponse, error)
+	Retrieve(ctx context.Context, in *CardCareRetrieveRequest, opts ...grpc.CallOption) (*CardCareResponse, error)
+	Update(ctx context.Context, in *CardCareRequest, opts ...grpc.CallOption) (*CardCareResponse, error)
 }
 
-type cardCaresControllerClient struct {
+type cardCareControllerClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCardCaresControllerClient(cc grpc.ClientConnInterface) CardCaresControllerClient {
-	return &cardCaresControllerClient{cc}
+func NewCardCareControllerClient(cc grpc.ClientConnInterface) CardCareControllerClient {
+	return &cardCareControllerClient{cc}
 }
 
-func (c *cardCaresControllerClient) Create(ctx context.Context, in *CardCaresRequest, opts ...grpc.CallOption) (*CardCaresResponse, error) {
-	out := new(CardCaresResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_Create_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) Create(ctx context.Context, in *CardCareRequest, opts ...grpc.CallOption) (*CardCareResponse, error) {
+	out := new(CardCareResponse)
+	err := c.cc.Invoke(ctx, CardCareController_Create_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) Destroy(ctx context.Context, in *CardCaresDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cardCareControllerClient) Destroy(ctx context.Context, in *CardCareDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, CardCaresController_Destroy_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, CardCareController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) List(ctx context.Context, in *CardCaresListRequest, opts ...grpc.CallOption) (*CardCaresListResponse, error) {
-	out := new(CardCaresListResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_List_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) List(ctx context.Context, in *CardCareListRequest, opts ...grpc.CallOption) (*CardCareListResponse, error) {
+	out := new(CardCareListResponse)
+	err := c.cc.Invoke(ctx, CardCareController_List_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardCaresOptionResponse, error) {
-	out := new(CardCaresOptionResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_Options_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*CardCareOptionResponse, error) {
+	out := new(CardCareOptionResponse)
+	err := c.cc.Invoke(ctx, CardCareController_Options_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) PartialUpdate(ctx context.Context, in *CardCaresPartialUpdateRequest, opts ...grpc.CallOption) (*CardCaresResponse, error) {
-	out := new(CardCaresResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_PartialUpdate_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) PartialUpdate(ctx context.Context, in *CardCarePartialUpdateRequest, opts ...grpc.CallOption) (*CardCareResponse, error) {
+	out := new(CardCareResponse)
+	err := c.cc.Invoke(ctx, CardCareController_PartialUpdate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) Retrieve(ctx context.Context, in *CardCaresRetrieveRequest, opts ...grpc.CallOption) (*CardCaresResponse, error) {
-	out := new(CardCaresResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_Retrieve_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) Retrieve(ctx context.Context, in *CardCareRetrieveRequest, opts ...grpc.CallOption) (*CardCareResponse, error) {
+	out := new(CardCareResponse)
+	err := c.cc.Invoke(ctx, CardCareController_Retrieve_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cardCaresControllerClient) Update(ctx context.Context, in *CardCaresRequest, opts ...grpc.CallOption) (*CardCaresResponse, error) {
-	out := new(CardCaresResponse)
-	err := c.cc.Invoke(ctx, CardCaresController_Update_FullMethodName, in, out, opts...)
+func (c *cardCareControllerClient) Update(ctx context.Context, in *CardCareRequest, opts ...grpc.CallOption) (*CardCareResponse, error) {
+	out := new(CardCareResponse)
+	err := c.cc.Invoke(ctx, CardCareController_Update_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CardCaresControllerServer is the server API for CardCaresController service.
-// All implementations must embed UnimplementedCardCaresControllerServer
+// CardCareControllerServer is the server API for CardCareController service.
+// All implementations must embed UnimplementedCardCareControllerServer
 // for forward compatibility
-type CardCaresControllerServer interface {
-	Create(context.Context, *CardCaresRequest) (*CardCaresResponse, error)
-	Destroy(context.Context, *CardCaresDestroyRequest) (*emptypb.Empty, error)
-	List(context.Context, *CardCaresListRequest) (*CardCaresListResponse, error)
-	Options(context.Context, *OptionRequest) (*CardCaresOptionResponse, error)
-	PartialUpdate(context.Context, *CardCaresPartialUpdateRequest) (*CardCaresResponse, error)
-	Retrieve(context.Context, *CardCaresRetrieveRequest) (*CardCaresResponse, error)
-	Update(context.Context, *CardCaresRequest) (*CardCaresResponse, error)
-	mustEmbedUnimplementedCardCaresControllerServer()
+type CardCareControllerServer interface {
+	Create(context.Context, *CardCareRequest) (*CardCareResponse, error)
+	Destroy(context.Context, *CardCareDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *CardCareListRequest) (*CardCareListResponse, error)
+	Options(context.Context, *OptionRequest) (*CardCareOptionResponse, error)
+	PartialUpdate(context.Context, *CardCarePartialUpdateRequest) (*CardCareResponse, error)
+	Retrieve(context.Context, *CardCareRetrieveRequest) (*CardCareResponse, error)
+	Update(context.Context, *CardCareRequest) (*CardCareResponse, error)
+	mustEmbedUnimplementedCardCareControllerServer()
 }
 
-// UnimplementedCardCaresControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedCardCaresControllerServer struct {
+// UnimplementedCardCareControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedCardCareControllerServer struct {
 }
 
-func (UnimplementedCardCaresControllerServer) Create(context.Context, *CardCaresRequest) (*CardCaresResponse, error) {
+func (UnimplementedCardCareControllerServer) Create(context.Context, *CardCareRequest) (*CardCareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCardCaresControllerServer) Destroy(context.Context, *CardCaresDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedCardCareControllerServer) Destroy(context.Context, *CardCareDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedCardCaresControllerServer) List(context.Context, *CardCaresListRequest) (*CardCaresListResponse, error) {
+func (UnimplementedCardCareControllerServer) List(context.Context, *CardCareListRequest) (*CardCareListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedCardCaresControllerServer) Options(context.Context, *OptionRequest) (*CardCaresOptionResponse, error) {
+func (UnimplementedCardCareControllerServer) Options(context.Context, *OptionRequest) (*CardCareOptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Options not implemented")
 }
-func (UnimplementedCardCaresControllerServer) PartialUpdate(context.Context, *CardCaresPartialUpdateRequest) (*CardCaresResponse, error) {
+func (UnimplementedCardCareControllerServer) PartialUpdate(context.Context, *CardCarePartialUpdateRequest) (*CardCareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
 }
-func (UnimplementedCardCaresControllerServer) Retrieve(context.Context, *CardCaresRetrieveRequest) (*CardCaresResponse, error) {
+func (UnimplementedCardCareControllerServer) Retrieve(context.Context, *CardCareRetrieveRequest) (*CardCareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
 }
-func (UnimplementedCardCaresControllerServer) Update(context.Context, *CardCaresRequest) (*CardCaresResponse, error) {
+func (UnimplementedCardCareControllerServer) Update(context.Context, *CardCareRequest) (*CardCareResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedCardCaresControllerServer) mustEmbedUnimplementedCardCaresControllerServer() {}
+func (UnimplementedCardCareControllerServer) mustEmbedUnimplementedCardCareControllerServer() {}
 
-// UnsafeCardCaresControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CardCaresControllerServer will
+// UnsafeCardCareControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CardCareControllerServer will
 // result in compilation errors.
-type UnsafeCardCaresControllerServer interface {
-	mustEmbedUnimplementedCardCaresControllerServer()
+type UnsafeCardCareControllerServer interface {
+	mustEmbedUnimplementedCardCareControllerServer()
 }
 
-func RegisterCardCaresControllerServer(s grpc.ServiceRegistrar, srv CardCaresControllerServer) {
-	s.RegisterService(&CardCaresController_ServiceDesc, srv)
+func RegisterCardCareControllerServer(s grpc.ServiceRegistrar, srv CardCareControllerServer) {
+	s.RegisterService(&CardCareController_ServiceDesc, srv)
 }
 
-func _CardCaresController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresRequest)
+func _CardCareController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCareRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).Create(ctx, in)
+		return srv.(CardCareControllerServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_Create_FullMethodName,
+		FullMethod: CardCareController_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).Create(ctx, req.(*CardCaresRequest))
+		return srv.(CardCareControllerServer).Create(ctx, req.(*CardCareRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresDestroyRequest)
+func _CardCareController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCareDestroyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).Destroy(ctx, in)
+		return srv.(CardCareControllerServer).Destroy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_Destroy_FullMethodName,
+		FullMethod: CardCareController_Destroy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).Destroy(ctx, req.(*CardCaresDestroyRequest))
+		return srv.(CardCareControllerServer).Destroy(ctx, req.(*CardCareDestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresListRequest)
+func _CardCareController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCareListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).List(ctx, in)
+		return srv.(CardCareControllerServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_List_FullMethodName,
+		FullMethod: CardCareController_List_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).List(ctx, req.(*CardCaresListRequest))
+		return srv.(CardCareControllerServer).List(ctx, req.(*CardCareListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_Options_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CardCareController_Options_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).Options(ctx, in)
+		return srv.(CardCareControllerServer).Options(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_Options_FullMethodName,
+		FullMethod: CardCareController_Options_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).Options(ctx, req.(*OptionRequest))
+		return srv.(CardCareControllerServer).Options(ctx, req.(*OptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresPartialUpdateRequest)
+func _CardCareController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCarePartialUpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).PartialUpdate(ctx, in)
+		return srv.(CardCareControllerServer).PartialUpdate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_PartialUpdate_FullMethodName,
+		FullMethod: CardCareController_PartialUpdate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).PartialUpdate(ctx, req.(*CardCaresPartialUpdateRequest))
+		return srv.(CardCareControllerServer).PartialUpdate(ctx, req.(*CardCarePartialUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresRetrieveRequest)
+func _CardCareController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCareRetrieveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).Retrieve(ctx, in)
+		return srv.(CardCareControllerServer).Retrieve(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_Retrieve_FullMethodName,
+		FullMethod: CardCareController_Retrieve_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).Retrieve(ctx, req.(*CardCaresRetrieveRequest))
+		return srv.(CardCareControllerServer).Retrieve(ctx, req.(*CardCareRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CardCaresController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CardCaresRequest)
+func _CardCareController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CardCareRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CardCaresControllerServer).Update(ctx, in)
+		return srv.(CardCareControllerServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CardCaresController_Update_FullMethodName,
+		FullMethod: CardCareController_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardCaresControllerServer).Update(ctx, req.(*CardCaresRequest))
+		return srv.(CardCareControllerServer).Update(ctx, req.(*CardCareRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CardCaresController_ServiceDesc is the grpc.ServiceDesc for CardCaresController service.
+// CardCareController_ServiceDesc is the grpc.ServiceDesc for CardCareController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CardCaresController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "card_service.card_ito.CardCaresController",
-	HandlerType: (*CardCaresControllerServer)(nil),
+var CardCareController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "card_service.card_ito.CardCareController",
+	HandlerType: (*CardCareControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Create",
-			Handler:    _CardCaresController_Create_Handler,
+			Handler:    _CardCareController_Create_Handler,
 		},
 		{
 			MethodName: "Destroy",
-			Handler:    _CardCaresController_Destroy_Handler,
+			Handler:    _CardCareController_Destroy_Handler,
 		},
 		{
 			MethodName: "List",
-			Handler:    _CardCaresController_List_Handler,
+			Handler:    _CardCareController_List_Handler,
 		},
 		{
 			MethodName: "Options",
-			Handler:    _CardCaresController_Options_Handler,
+			Handler:    _CardCareController_Options_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
-			Handler:    _CardCaresController_PartialUpdate_Handler,
+			Handler:    _CardCareController_PartialUpdate_Handler,
 		},
 		{
 			MethodName: "Retrieve",
-			Handler:    _CardCaresController_Retrieve_Handler,
+			Handler:    _CardCareController_Retrieve_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _CardCaresController_Update_Handler,
+			Handler:    _CardCareController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

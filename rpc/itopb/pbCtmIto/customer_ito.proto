@@ -13,42 +13,87 @@ service CtmItoController {
   rpc CreateCart(CtmCartCreateRequest) returns (CtmCartResponse) {}
   rpc CreateCtmCardCares(CtmCardCaresCreateRequest) returns (CtmCardCaresResponse) {}
   rpc CreateCtmProduct(CtmProductCreateRequest) returns (CtmProductResponse) {}
+  rpc CreateCtmWallet(CreateCtmWalletRequest) returns (CtmWalletResponse) {}
+  rpc CreateCtmWalletRecord(CreateCtmWalletRecordRequest) returns (CtmWalletRecordResponse) {}
   rpc DefaultAddr(CtmDefaultAddrRequest) returns (CtmItoDefaultAddrResponse) {}
   rpc Destroy(CtmBaseDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyAddr(CtmAddrDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyCart(CtmCartDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyCtmCardCares(CtmItoDestroyCtmCardCaresRequest) returns (google.protobuf.Empty) {}
   rpc DestroyCtmProduct(CtmItoDestroyCtmProductRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyCtmWallet(DestroyCtmWalletRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyCtmWalletRecord(DestroyCtmWalletRecordRequest) returns (google.protobuf.Empty) {}
   rpc List(CtmBaseListRequest) returns (CtmBaseListResponse) {}
   rpc ListAddr(CtmAddrListRequest) returns (CtmAddrListResponse) {}
   rpc ListCart(CtmCartListRequest) returns (CtmCartListResponse) {}
   rpc ListCtmCardCares(CtmCardCaresListRequest) returns (CtmCardCaresListResponse) {}
   rpc ListCtmProduct(CtmProductListRequest) returns (CtmProductListResponse) {}
+  rpc ListCtmWallet(ListCtmWalletRequest) returns (CtmWalletListResponse) {}
+  rpc ListCtmWalletRecord(ListCtmWalletRecordRequest) returns (CtmWalletRecordListResponse) {}
+  rpc NextCardNoCtmWallet(WalletNextCardCodeRequest) returns (WalletNextCardCodeResponse) {}
+  rpc OptionsCtmWallet(google.protobuf.Empty) returns (CtmWalletOptionsResponse) {}
   rpc PartialUpdate(CtmBasePartialUpdateRequest) returns (CtmBaseResponse) {}
   rpc Retrieve(CtmBaseRetrieveRequest) returns (CtmBaseResponse) {}
   rpc RetrieveAddr(CtmAddrRetrieveRequest) returns (CtmAddrResponse) {}
   rpc RetrieveCart(CtmCartRetrieveRequest) returns (CtmCartResponse) {}
   rpc RetrieveCtmCardCares(CtmCardCaresRetrieveRequest) returns (CtmCardCaresResponse) {}
   rpc RetrieveCtmProduct(CtmProductRetrieveRequest) returns (CtmProductResponse) {}
+  rpc RetrieveCtmWallet(RetrieveCtmWalletRequest) returns (CtmWalletResponse) {}
+  rpc RetrieveCtmWalletRecord(RetrieveCtmWalletRecordRequest) returns (CtmWalletRecordResponse) {}
   rpc Update(CtmBaseRequest) returns (CtmBaseResponse) {}
   rpc UpdateAddr(CtmAddrUpdateRequest) returns (CtmAddrResponse) {}
   rpc UpdateCart(CtmCartUpdateRequest) returns (CtmCartResponse) {}
   rpc UpdateCtmCardCares(CtmCardCaresUpdateRequest) returns (CtmCardCaresResponse) {}
   rpc UpdateCtmProduct(CtmProductUpdateRequest) returns (CtmProductResponse) {}
+  rpc UpdateCtmWallet(UpdateCtmWalletRequest) returns (CtmWalletResponse) {}
+  rpc UpdateCtmWalletRecord(UpdateCtmWalletRecordRequest) returns (CtmWalletRecordResponse) {}
 }
 
 message CardCaresResponse {
   int32 id = 1;
-  optional string name = 2;
-  int32 type = 3;
-  optional int32 extend_time_diff = 4;
-  optional int32 active_time_diff = 5;
-  string extend_time_unit = 6;
-  string active_time_unit = 7;
-  bool is_valid = 8;
-  optional string remark = 9;
-  string create_time = 10;
-  string update_time = 11;
+  string type_name = 2;
+  optional string name = 3;
+  int32 type = 4;
+  optional int32 extend_time_diff = 5;
+  optional int32 active_time_diff = 6;
+  string extend_time_unit = 7;
+  string active_time_unit = 8;
+  bool is_valid = 9;
+  optional string remark = 10;
+  string create_time = 11;
+  string update_time = 12;
+}
+
+message CreateCtmWalletRecordRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional int32 activity_id = 3;
+  optional int32 change_type = 4;
+  optional int32 before_points = 5;
+  optional int32 after_points = 6;
+  optional double before_amount = 7;
+  optional double after_amount = 8;
+  optional string change_code = 9;
+  optional string change_reason = 10;
+  optional int64 wallet = 11;
+  optional int64 order_used = 12;
+  optional int64 refund_used = 13;
+}
+
+message CreateCtmWalletRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional bool can_deposit = 3;
+  optional int32 act_card_id = 4;
+  optional string card_sku = 5;
+  optional string card_code = 6;
+  optional string card_name = 7;
+  optional string card_intro = 8;
+  optional int32 card_class = 9;
+  optional int32 card_type = 10;
+  optional int32 points = 11;
+  optional double amounts = 12;
+  optional int64 ctm = 13;
 }
 
 message CtmAddrCreateRequest {
@@ -134,6 +179,8 @@ message CtmBaseListRequest {
   string mp_openId = 12;
   optional string nickname = 13;
   optional string channel_code = 14;
+  optional string property = 15;
+  optional string area = 16;
 }
 
 message CtmBaseListResponse {
@@ -157,6 +204,8 @@ message CtmBasePartialUpdateRequest {
   string mp_openId = 13;
   optional string nickname = 14;
   optional string channel_code = 15;
+  optional string property = 16;
+  optional string area = 17;
 }
 
 message CtmBaseRequest {
@@ -174,6 +223,8 @@ message CtmBaseRequest {
   string mp_openId = 12;
   optional string nickname = 13;
   optional string channel_code = 14;
+  optional string property = 15;
+  optional string area = 16;
 }
 
 message CtmBaseResponse {
@@ -195,6 +246,8 @@ message CtmBaseResponse {
   string mp_openId = 16;
   optional string nickname = 17;
   optional string channel_code = 18;
+  optional string property = 19;
+  optional string area = 20;
 }
 
 message CtmBaseRetrieveRequest {
@@ -266,14 +319,18 @@ message CtmCardCaresUpdateRequest {
 message CtmCartCreateRequest {
   int32 id = 1;
   string filters = 2;
-  string spu = 3;
-  string sku_id = 4;
-  string sku = 5;
-  int32 order_num = 6;
-  string price = 7;
-  bool is_selected = 8;
-  string attrs_text = 9;
-  int64 ctm = 10;
+  optional int32 trade_type = 3;
+  string spu = 4;
+  string sku_id = 5;
+  string sku = 6;
+  int32 order_num = 7;
+  string price = 8;
+  bool is_selected = 9;
+  string attrs_text = 10;
+  optional int32 price_nut = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  int64 ctm = 14;
 }
 
 message CtmCartDestroyRequest {
@@ -293,14 +350,18 @@ message CtmCartResponse {
   int32 id = 1;
   string create_time = 2;
   string update_time = 3;
-  string spu = 4;
-  string sku_id = 5;
-  string sku = 6;
-  int32 order_num = 7;
-  string price = 8;
-  bool is_selected = 9;
-  string attrs_text = 10;
-  int64 ctm = 11;
+  optional int32 trade_type = 4;
+  string spu = 5;
+  string sku_id = 6;
+  string sku = 7;
+  int32 order_num = 8;
+  string price = 9;
+  bool is_selected = 10;
+  string attrs_text = 11;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
+  int64 ctm = 15;
 }
 
 message CtmCartRetrieveRequest {
@@ -316,14 +377,18 @@ message CtmCartUpdateRequest {
   int32 id = 1;
   string filters = 2;
   repeated string _partial_update_fields = 3;
-  string spu = 4;
-  string sku_id = 5;
-  string sku = 6;
-  int32 order_num = 7;
-  string price = 8;
-  bool is_selected = 9;
-  string attrs_text = 10;
-  int64 ctm = 11;
+  optional int32 trade_type = 4;
+  string spu = 5;
+  string sku_id = 6;
+  string sku = 7;
+  int32 order_num = 8;
+  string price = 9;
+  bool is_selected = 10;
+  string attrs_text = 11;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
+  int64 ctm = 15;
 }
 
 message CtmDefaultAddrRequest {
@@ -349,15 +414,16 @@ message CtmProductCreateRequest {
   int32 id = 1;
   string filters = 2;
   string ac_code = 3;
-  string buy_time = 4;
-  optional string bind_time = 5;
-  string renew_expired = 6;
-  string repair_expired = 7;
-  bool renew_flag = 8;
-  int64 ctm = 11;
-  optional string prod_code = 12;
-  optional string origin_ac_code = 13;
-  optional string origin_prod_code = 14;
+  optional string prod_code = 4;
+  string buy_time = 5;
+  optional string bind_time = 6;
+  string renew_expired = 7;
+  string repair_expired = 8;
+  bool renew_flag = 9;
+  optional string origin_ac_code = 10;
+  optional string origin_prod_code = 11;
+  int64 ctm = 12;
+  optional string password = 13;
 }
 
 message CtmProductListRequest {
@@ -371,21 +437,21 @@ message CtmProductListResponse {
 
 message CtmProductResponse {
   int32 id = 1;
-  string ac_code = 3;
+  string ac_code = 2;
+  optional string prod_code = 3;
   string buy_time = 4;
   optional string bind_time = 5;
   string renew_expired = 6;
   string repair_expired = 7;
   bool renew_flag = 8;
-  string create_time = 10;
-  string update_time = 11;
+  optional string origin_ac_code = 9;
+  optional string origin_prod_code = 10;
+  string create_time = 11;
+  string update_time = 12;
   int64 ctm = 13;
-  int32 repair_status = 15;
-  int32 renew_status = 16;
-  optional string prod_code = 17;
-  optional string origin_ac_code = 18;
-  optional string origin_prod_code = 19;
-  int32 last_service_id = 20;
+  optional string password = 14;
+  string mobile = 15;
+  string nickname = 16;
 }
 
 message CtmProductRetrieveRequest {
@@ -397,14 +463,141 @@ message CtmProductUpdateRequest {
   string filters = 2;
   repeated string _partial_update_fields = 3;
   string ac_code = 4;
-  string buy_time = 5;
-  optional string bind_time = 6;
-  string renew_expired = 7;
-  string repair_expired = 8;
-  bool renew_flag = 9;
-  int64 ctm = 12;
-  optional string origin_ac_code = 14;
-  optional string origin_prod_code = 15;
-  optional string prod_code = 16;
+  optional string prod_code = 5;
+  string buy_time = 6;
+  optional string bind_time = 7;
+  string renew_expired = 8;
+  string repair_expired = 9;
+  bool renew_flag = 10;
+  optional string origin_ac_code = 11;
+  optional string origin_prod_code = 12;
+  int64 ctm = 13;
+  optional string password = 14;
+}
+
+message CtmWalletListResponse {
+  repeated CtmWalletResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmWalletOptionsResponse {
+  repeated LabelNumberValueResponse card_class = 1;
+  repeated LabelNumberValueResponse card_type = 2;
+  repeated LabelNumberValueResponse record_change_type = 3;
+}
+
+message CtmWalletRecordListResponse {
+  repeated CtmWalletRecordResponse results = 1;
+  int32 count = 2;
+}
+
+message CtmWalletRecordResponse {
+  int32 id = 1;
+  string change_type_name = 2;
+  string create_time = 3;
+  string update_time = 4;
+  optional int32 activity_id = 5;
+  optional int32 change_type = 6;
+  optional int32 before_points = 7;
+  optional int32 after_points = 8;
+  optional double before_amount = 9;
+  optional double after_amount = 10;
+  optional string change_code = 11;
+  optional string change_reason = 12;
+  optional int64 wallet = 13;
+  optional int64 order_used = 14;
+  optional int64 refund_used = 15;
+}
+
+message CtmWalletResponse {
+  int32 id = 1;
+  string card_class_name = 2;
+  string card_type_name = 3;
+  string create_time = 4;
+  string update_time = 5;
+  optional bool can_deposit = 6;
+  optional int32 act_card_id = 7;
+  optional string card_sku = 8;
+  optional string card_code = 9;
+  optional string card_name = 10;
+  optional string card_intro = 11;
+  optional int32 card_class = 12;
+  optional int32 card_type = 13;
+  optional int32 points = 14;
+  optional double amounts = 15;
+  optional int64 ctm = 16;
+}
+
+message DestroyCtmWalletRecordRequest {
+  int32 id = 1;
+}
+
+message DestroyCtmWalletRequest {
+  int32 id = 1;
+}
+
+message LabelNumberValueResponse {
+  int32 value = 1;
+  optional string label = 2;
+  optional int32 count = 3;
+}
+
+message ListCtmWalletRecordRequest {
+  string filters = 1;
+}
+
+message ListCtmWalletRequest {
+  string filters = 1;
+}
+
+message RetrieveCtmWalletRecordRequest {
+  int32 id = 1;
+}
+
+message RetrieveCtmWalletRequest {
+  int32 id = 1;
+}
+
+message UpdateCtmWalletRecordRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional int32 activity_id = 4;
+  optional int32 change_type = 5;
+  optional int32 before_points = 6;
+  optional int32 after_points = 7;
+  optional double before_amount = 8;
+  optional double after_amount = 9;
+  optional string change_code = 10;
+  optional string change_reason = 11;
+  optional int64 wallet = 12;
+  optional int64 order_used = 13;
+  optional int64 refund_used = 14;
+}
+
+message UpdateCtmWalletRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional bool can_deposit = 4;
+  optional int32 act_card_id = 5;
+  optional string card_sku = 6;
+  optional string card_code = 7;
+  optional string card_name = 8;
+  optional string card_intro = 9;
+  optional int32 card_class = 10;
+  optional int32 card_type = 11;
+  optional int32 points = 12;
+  optional double amounts = 13;
+  optional int64 ctm = 14;
+}
+
+message WalletNextCardCodeRequest {
+  int32 card_class = 1;
+  int32 card_type = 2;
+}
+
+message WalletNextCardCodeResponse {
+  string next_card_code = 1;
 }
 

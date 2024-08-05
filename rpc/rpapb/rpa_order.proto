@@ -1,0 +1,540 @@
+syntax = "proto3";
+
+package rpa_service.rpa_order;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "../rpapb";
+
+
+service OrderController {
+  rpc Create(OrderRequest) returns (OrderResponse) {}
+  rpc CreateConfig(ConfigRequest) returns (ConfigResponse) {}
+  rpc CreateConfigSku(ConfigSkuRequest) returns (ConfigSkuResponse) {}
+  rpc CreateOrderLog(OrderLogRequest) returns (OrderLogResponse) {}
+  rpc CreateRefund(RefundRequest) returns (RefundResponse) {}
+  rpc Destroy(OrderDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyConfig(ConfigDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyConfigSku(ConfigSkuDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(OrderListRequest) returns (OrderListResponse) {}
+  rpc ListConfig(ConfigListRequest) returns (ConfigListResponse) {}
+  rpc ListConfigSku(ConfigSkuListRequest) returns (ConfigSkuListResponse) {}
+  rpc ListRefund(RefundListRequest) returns (RefundListResponse) {}
+  rpc Options(google.protobuf.Empty) returns (OptionsResponse) {}
+  rpc PartialUpdate(OrderPartialUpdateRequest) returns (OrderResponse) {}
+  rpc Retrieve(OrderRetrieveRequest) returns (OrderResponse) {}
+  rpc RetrieveRefund(RefundRetrieveRequest) returns (RefundResponse) {}
+  rpc StatusCount(google.protobuf.Empty) returns (LabelNumberValueListResponse) {}
+  rpc StatusCountRefund(google.protobuf.Empty) returns (LabelNumberValueListResponse) {}
+  rpc Update(OrderRequest) returns (OrderResponse) {}
+  rpc UpdateConfig(ConfigUpdateRequest) returns (ConfigResponse) {}
+  rpc UpdateConfigSku(ConfigSkuUpdateRequest) returns (ConfigSkuResponse) {}
+  rpc UpdateOrderDetail(OrderDetailUpdateRequest) returns (OrderDetailResponse) {}
+  rpc UpdateRefund(RefundUpdateRequest) returns (RefundResponse) {}
+}
+
+message ConfigDestroyRequest {
+  int32 id = 1;
+}
+
+message ConfigListRequest {
+  string filters = 1;
+}
+
+message ConfigListResponse {
+  repeated ConfigResponse results = 1;
+  int32 count = 2;
+}
+
+message ConfigRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 type = 3;
+  optional string title = 4;
+  optional string content = 5;
+  optional google.protobuf.Struct json_content = 6;
+  optional string remark = 7;
+}
+
+message ConfigResponse {
+  int32 id = 1;
+  string type_name = 2;
+  int32 type = 3;
+  optional string title = 4;
+  optional string content = 5;
+  optional google.protobuf.Struct json_content = 6;
+  optional string remark = 7;
+  string update_time = 8;
+}
+
+message ConfigSkuDestroyRequest {
+  int32 id = 1;
+}
+
+message ConfigSkuListRequest {
+  string filters = 1;
+}
+
+message ConfigSkuListResponse {
+  repeated ConfigSkuResponse results = 1;
+  int32 count = 2;
+}
+
+message ConfigSkuRequest {
+  int32 id = 1;
+  string filters = 2;
+  string shop_no = 3;
+  string spec_no = 5;
+  optional string goods_no = 6;
+  optional bool is_valid = 7;
+  string plat_sku = 8;
+}
+
+message ConfigSkuResponse {
+  int32 id = 1;
+  string shop_no = 2;
+  string spec_no = 4;
+  optional string goods_no = 5;
+  optional bool is_valid = 6;
+  string update_time = 7;
+  ProdCodeResponse product = 8;
+  string plat_sku = 9;
+}
+
+message ConfigSkuUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string shop_no = 4;
+  string spec_no = 6;
+  optional string goods_no = 7;
+  optional bool is_valid = 8;
+  string plat_sku = 9;
+}
+
+message ConfigUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 type = 4;
+  optional string title = 5;
+  optional string content = 6;
+  optional google.protobuf.Struct json_content = 7;
+  optional string remark = 8;
+}
+
+message LabelNumberValueListResponse {
+  repeated LabelNumberValueResponse results = 1;
+  int32 count = 2;
+}
+
+message LabelNumberValueResponse {
+  int32 value = 1;
+  optional string label = 2;
+  optional int32 count = 3;
+}
+
+message OptionsResponse {
+  repeated LabelNumberValueResponse order_trade_status = 1;
+  repeated LabelNumberValueResponse order_delivery_term = 2;
+  repeated LabelNumberValueResponse order_pay_status = 3;
+  repeated LabelNumberValueResponse order_rpa_status = 4;
+  repeated LabelNumberValueResponse detail_status = 5;
+  repeated LabelNumberValueResponse detail_refund_status = 6;
+  repeated LabelNumberValueResponse config_type = 7;
+}
+
+message OrderDestroyRequest {
+  int32 id = 1;
+}
+
+message OrderDetailRequest {
+  int32 id = 1;
+  string filters = 2;
+  string oid = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  optional int32 status = 9;
+  string spec_no = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  optional int32 refund_status = 13;
+  optional string plat_sku = 14;
+  optional string origin_data = 15;
+  int32 order = 16;
+}
+
+message OrderDetailResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string refund_status_name = 3;
+  ProdCodeResponse product = 4;
+  string oid = 5;
+  int32 num = 6;
+  double price = 7;
+  double adjust_amount = 8;
+  double discount = 9;
+  double share_discount = 10;
+  optional int32 status = 11;
+  string spec_no = 12;
+  optional string goods_name = 13;
+  optional string goods_no = 14;
+  optional int32 refund_status = 15;
+  optional string plat_sku = 16;
+  optional string origin_data = 17;
+  string create_time = 18;
+  string update_time = 19;
+  int32 order = 20;
+}
+
+message OrderDetailUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string tid = 4;
+  int32 goods_count = 5;
+  optional double goods_amount = 6;
+  optional int32 trade_status = 7;
+  string trade_time = 8;
+  optional int32 delivery_term = 9;
+  string buyer_nick = 10;
+  optional string buyer_mobile = 11;
+  optional string buyer_message = 12;
+  string shop_no = 13;
+  string warehouse_no = 14;
+  optional int32 pay_status = 15;
+  optional string pay_time = 16;
+  optional string receiver_name = 17;
+  optional string receiver_province = 18;
+  optional string receiver_city = 19;
+  optional string receiver_district = 20;
+  optional string receiver_address = 21;
+  optional string receiver_mobile = 22;
+  optional double post_amount = 23;
+  optional double cod_amount = 24;
+  optional double other_amount = 25;
+  optional double ext_cod_fee = 26;
+  optional double paid = 27;
+  optional string seller_memo = 28;
+  int32 rpa_status = 29;
+  optional string rpa_memo = 30;
+  repeated OrderDetailRequest order_details = 31;
+  repeated OrderLogRequest order_logs = 32;
+  optional string plat_trade_type = 33;
+}
+
+message OrderListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string tid = 3;
+  int32 goods_count = 4;
+  optional double goods_amount = 5;
+  optional int32 trade_status = 6;
+  string trade_time = 7;
+  optional int32 delivery_term = 8;
+  string buyer_nick = 9;
+  optional string buyer_mobile = 10;
+  optional string buyer_message = 11;
+  string shop_no = 12;
+  string warehouse_no = 13;
+  optional int32 pay_status = 14;
+  optional string pay_time = 15;
+  optional string receiver_name = 16;
+  optional string receiver_province = 17;
+  optional string receiver_city = 18;
+  optional string receiver_district = 19;
+  optional string receiver_address = 20;
+  optional string receiver_mobile = 21;
+  optional double post_amount = 22;
+  optional double cod_amount = 23;
+  optional double other_amount = 24;
+  optional double ext_cod_fee = 25;
+  optional double paid = 26;
+  optional string seller_memo = 27;
+  int32 rpa_status = 28;
+  optional string rpa_memo = 29;
+  repeated OrderDetailRequest order_details = 30;
+  repeated OrderLogRequest order_logs = 31;
+  optional string plat_trade_type = 32;
+}
+
+message OrderListResponse {
+  repeated OrderResponse results = 1;
+  int32 count = 2;
+}
+
+message OrderLogRequest {
+  int32 id = 1;
+  string filters = 2;
+  string content = 3;
+  optional int64 order = 4;
+  optional int64 refund = 5;
+}
+
+message OrderLogResponse {
+  int32 id = 1;
+  string content = 2;
+  string create_time = 3;
+  optional int64 order = 4;
+  optional int64 refund = 5;
+}
+
+message OrderPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string tid = 4;
+  int32 goods_count = 5;
+  optional double goods_amount = 6;
+  optional int32 trade_status = 7;
+  string trade_time = 8;
+  optional int32 delivery_term = 9;
+  string buyer_nick = 10;
+  optional string buyer_mobile = 11;
+  optional string buyer_message = 12;
+  string shop_no = 13;
+  string warehouse_no = 14;
+  optional int32 pay_status = 15;
+  optional string pay_time = 16;
+  optional string receiver_name = 17;
+  optional string receiver_province = 18;
+  optional string receiver_city = 19;
+  optional string receiver_district = 20;
+  optional string receiver_address = 21;
+  optional string receiver_mobile = 22;
+  optional double post_amount = 23;
+  optional double cod_amount = 24;
+  optional double other_amount = 25;
+  optional double ext_cod_fee = 26;
+  optional double paid = 27;
+  optional string seller_memo = 28;
+  int32 rpa_status = 29;
+  optional string rpa_memo = 30;
+  repeated OrderDetailRequest order_details = 31;
+  repeated OrderLogRequest order_logs = 32;
+  optional string plat_trade_type = 33;
+}
+
+message OrderRequest {
+  int32 id = 1;
+  string filters = 2;
+  string tid = 3;
+  int32 goods_count = 4;
+  optional double goods_amount = 5;
+  optional int32 trade_status = 6;
+  string trade_time = 7;
+  optional int32 delivery_term = 8;
+  string buyer_nick = 9;
+  optional string buyer_mobile = 10;
+  optional string buyer_message = 11;
+  string shop_no = 12;
+  string warehouse_no = 13;
+  optional int32 pay_status = 14;
+  optional string pay_time = 15;
+  optional string receiver_name = 16;
+  optional string receiver_province = 17;
+  optional string receiver_city = 18;
+  optional string receiver_district = 19;
+  optional string receiver_address = 20;
+  optional string receiver_mobile = 21;
+  optional double post_amount = 22;
+  optional double cod_amount = 23;
+  optional double other_amount = 24;
+  optional double ext_cod_fee = 25;
+  optional double paid = 26;
+  optional string seller_memo = 27;
+  int32 rpa_status = 28;
+  optional string rpa_memo = 29;
+  repeated OrderDetailRequest order_details = 30;
+  repeated OrderLogRequest order_logs = 31;
+  optional string plat_trade_type = 32;
+}
+
+message OrderResponse {
+  int32 id = 1;
+  string trade_status_name = 2;
+  string delivery_term_name = 3;
+  string pay_status_name = 4;
+  string rpa_status_name = 5;
+  string tid = 6;
+  int32 goods_count = 7;
+  optional double goods_amount = 8;
+  optional int32 trade_status = 9;
+  string trade_time = 10;
+  optional int32 delivery_term = 11;
+  string buyer_nick = 12;
+  optional string buyer_mobile = 13;
+  optional string buyer_message = 14;
+  string shop_no = 15;
+  string warehouse_no = 16;
+  optional int32 pay_status = 17;
+  optional string pay_time = 18;
+  optional string receiver_name = 19;
+  optional string receiver_province = 20;
+  optional string receiver_city = 21;
+  optional string receiver_district = 22;
+  optional string receiver_address = 23;
+  optional string receiver_mobile = 24;
+  optional double post_amount = 25;
+  optional double cod_amount = 26;
+  optional double other_amount = 27;
+  optional double ext_cod_fee = 28;
+  optional double paid = 29;
+  optional string seller_memo = 30;
+  int32 rpa_status = 31;
+  optional string rpa_memo = 32;
+  string create_time = 33;
+  string update_time = 34;
+  repeated OrderDetailResponse order_details = 35;
+  repeated OrderLogResponse order_logs = 36;
+  optional string plat_trade_type = 37;
+}
+
+message OrderRetrieveRequest {
+  int32 id = 1;
+}
+
+message ProdCodeResponse {
+  int32 id = 1;
+  string prod_model = 2;
+  string prod_color = 3;
+  string prod_code = 4;
+  string prod_barcode = 5;
+  optional string prod_hs_code = 6;
+  optional float prod_cost = 7;
+  optional float prod_price = 8;
+  optional string prod_image = 9;
+  optional float prod_length = 10;
+  optional float prod_width = 11;
+  optional float prod_height = 12;
+  optional float prod_gross_weight = 13;
+  optional string prod_code_style = 14;
+  optional string prod_description = 15;
+  optional string prod_brief = 16;
+  bool is_valid = 17;
+  optional int32 renew = 18;
+  optional int32 repair = 19;
+  string create_time = 20;
+  string update_time = 21;
+}
+
+message RefundDetailRequest {
+  int32 id = 1;
+  string filters = 2;
+  string oid = 3;
+  int32 num = 4;
+  optional string goods_name = 5;
+  optional string plat_sku = 6;
+  optional string spec_no = 7;
+  int32 refund = 8;
+  optional int64 order_detail = 9;
+}
+
+message RefundDetailResponse {
+  int32 id = 1;
+  ProdCodeResponse product = 2;
+  string oid = 3;
+  int32 num = 4;
+  optional string goods_name = 5;
+  optional string plat_sku = 6;
+  optional string spec_no = 7;
+  string create_time = 8;
+  string update_time = 9;
+  int32 refund = 10;
+  optional int64 order_detail = 11;
+}
+
+message RefundListRequest {
+  string filters = 1;
+}
+
+message RefundListResponse {
+  repeated RefundResponse results = 1;
+  int32 count = 2;
+}
+
+message RefundRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated RefundDetailRequest refund_details = 3;
+  repeated OrderLogRequest refund_logs = 4;
+  string refund_no = 5;
+  string tid = 6;
+  string shop_no = 7;
+  int32 type = 8;
+  optional string reason = 9;
+  optional string desc = 10;
+  optional string logistics_name = 11;
+  optional string logistics_no = 12;
+  string refund_time = 13;
+  double refund_fee = 14;
+  string status = 15;
+  optional string remark = 16;
+  int32 rpa_status = 17;
+  optional string rpa_memo = 18;
+  optional string plat_trade_type = 19;
+  optional string origin_data = 20;
+  optional int64 order = 21;
+}
+
+message RefundResponse {
+  int32 id = 1;
+  string type_name = 2;
+  string status_name = 3;
+  string rpa_status_name = 4;
+  repeated RefundDetailResponse refund_details = 5;
+  repeated OrderLogResponse refund_logs = 6;
+  string refund_no = 7;
+  string tid = 8;
+  string shop_no = 9;
+  int32 type = 10;
+  optional string reason = 11;
+  optional string desc = 12;
+  optional string logistics_name = 13;
+  optional string logistics_no = 14;
+  string refund_time = 15;
+  double refund_fee = 16;
+  string status = 17;
+  optional string remark = 18;
+  int32 rpa_status = 19;
+  optional string rpa_memo = 20;
+  optional string plat_trade_type = 21;
+  optional string origin_data = 22;
+  string create_time = 23;
+  string update_time = 24;
+  optional int64 order = 25;
+}
+
+message RefundRetrieveRequest {
+  int32 id = 1;
+}
+
+message RefundUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated RefundDetailRequest refund_details = 3;
+  repeated OrderLogRequest refund_logs = 4;
+  repeated string _partial_update_fields = 5;
+  string refund_no = 6;
+  string tid = 7;
+  string shop_no = 8;
+  int32 type = 9;
+  optional string reason = 10;
+  optional string desc = 11;
+  optional string logistics_name = 12;
+  optional string logistics_no = 13;
+  string refund_time = 14;
+  double refund_fee = 15;
+  string status = 16;
+  optional string remark = 17;
+  int32 rpa_status = 18;
+  optional string rpa_memo = 19;
+  optional string plat_trade_type = 20;
+  optional string origin_data = 21;
+  optional int64 order = 22;
+}
+

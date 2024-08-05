@@ -128,25 +128,25 @@ message CtmCouponCreateRequest {
   optional bool is_valid = 2;
   optional int32 act_voucher_id = 3;
   optional string coupon_sku = 4;
-  string coupon_name = 5;
-  string coupon_code = 6;
+  string coupon_code = 5;
+  string coupon_name = 6;
   optional string coupon_intro = 7;
   int32 coupon_class = 8;
   int32 coupon_type = 9;
   bool can_stack = 10;
   optional int32 trigger_amount = 11;
-  optional int32 discount_amount = 12;
-  optional int32 trigger_qty = 13;
-  optional int32 discount = 14;
-  optional string prod_range = 15;
-  int32 coupon_status = 16;
-  optional string acquire_time = 17;
-  optional string claim_time = 18;
-  optional string start_time = 19;
-  optional string expire_time = 20;
-  int64 ctm = 21;
-  optional int64 order_used = 22;
-  optional int32 cumulate_count = 23;
+  optional int32 trigger_qty = 12;
+  optional int32 cumulate_count = 13;
+  optional string prod_range = 14;
+  optional int32 discount_amount = 15;
+  optional int32 discount = 16;
+  int32 coupon_status = 17;
+  optional string acquire_time = 18;
+  optional string claim_time = 19;
+  optional string start_time = 20;
+  optional string expire_time = 21;
+  int64 ctm = 22;
+  optional int64 order_used = 23;
 }
 
 message CtmCouponDestroyRequest {
@@ -178,25 +178,25 @@ message CtmCouponResponse {
   string update_time = 7;
   optional int32 act_voucher_id = 8;
   optional string coupon_sku = 9;
-  string coupon_name = 10;
-  string coupon_code = 11;
+  string coupon_code = 10;
+  string coupon_name = 11;
   optional string coupon_intro = 12;
   int32 coupon_class = 13;
   int32 coupon_type = 14;
   bool can_stack = 15;
   optional int32 trigger_amount = 16;
-  optional int32 discount_amount = 17;
-  optional int32 trigger_qty = 18;
-  optional int32 discount = 19;
-  optional string prod_range = 20;
-  int32 coupon_status = 21;
-  optional string acquire_time = 22;
-  optional string claim_time = 23;
-  optional string start_time = 24;
-  optional string expire_time = 25;
-  int64 ctm = 26;
-  optional int64 order_used = 27;
-  optional int32 cumulate_count = 28;
+  optional int32 trigger_qty = 17;
+  optional int32 cumulate_count = 18;
+  optional string prod_range = 19;
+  optional int32 discount_amount = 20;
+  optional int32 discount = 21;
+  int32 coupon_status = 22;
+  optional string acquire_time = 23;
+  optional string claim_time = 24;
+  optional string start_time = 25;
+  optional string expire_time = 26;
+  int64 ctm = 27;
+  optional int64 order_used = 28;
 }
 
 message CtmCouponRetrieveRequest {
@@ -209,25 +209,25 @@ message CtmCouponUpdateRequest {
   repeated string _partial_update_fields = 3;
   optional int32 act_voucher_id = 4;
   optional string coupon_sku = 5;
-  string coupon_name = 6;
-  string coupon_code = 7;
+  string coupon_code = 6;
+  string coupon_name = 7;
   optional string coupon_intro = 8;
   int32 coupon_class = 9;
   int32 coupon_type = 10;
   bool can_stack = 11;
   optional int32 trigger_amount = 12;
-  optional int32 discount_amount = 13;
-  optional int32 trigger_qty = 14;
-  optional int32 discount = 15;
-  optional string prod_range = 16;
-  int32 coupon_status = 17;
-  optional string acquire_time = 18;
-  optional string claim_time = 19;
-  optional string start_time = 20;
-  optional string expire_time = 21;
-  int64 ctm = 22;
-  optional int64 order_used = 23;
-  optional int32 cumulate_count = 24;
+  optional int32 trigger_qty = 13;
+  optional int32 cumulate_count = 14;
+  optional string prod_range = 15;
+  optional int32 discount_amount = 16;
+  optional int32 discount = 17;
+  int32 coupon_status = 18;
+  optional string acquire_time = 19;
+  optional string claim_time = 20;
+  optional string start_time = 21;
+  optional string expire_time = 22;
+  int64 ctm = 23;
+  optional int64 order_used = 24;
 }
 
 message CtmOrderConfCreateRequest {
@@ -322,9 +322,9 @@ message CtmOrderGoodsDetailCreateRequest {
   double share_discount = 9;
   double share_amount = 10;
   optional double debit_amount = 11;
-  optional int32 price_score = 12;
-  optional int32 price_badge = 13;
-  optional int32 price_nut = 14;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
   optional int32 status = 15;
   optional int32 refund_status = 16;
   optional string goods_id = 17;
@@ -364,9 +364,9 @@ message CtmOrderGoodsDetailRequest {
   double share_discount = 9;
   double share_amount = 10;
   optional double debit_amount = 11;
-  optional int32 price_score = 12;
-  optional int32 price_badge = 13;
-  optional int32 price_nut = 14;
+  optional int32 price_nut = 12;
+  optional int32 price_score = 13;
+  optional int32 price_badge = 14;
   optional int32 status = 15;
   optional int32 refund_status = 16;
   optional string goods_id = 17;
@@ -396,9 +396,9 @@ message CtmOrderGoodsDetailResponse {
   double share_discount = 12;
   double share_amount = 13;
   optional double debit_amount = 14;
-  optional int32 price_score = 15;
-  optional int32 price_badge = 16;
-  optional int32 price_nut = 17;
+  optional int32 price_nut = 15;
+  optional int32 price_score = 16;
+  optional int32 price_badge = 17;
   optional int32 status = 18;
   optional int32 refund_status = 19;
   optional string goods_id = 20;
@@ -430,9 +430,9 @@ message CtmOrderGoodsDetailUpdateRequest {
   double share_discount = 10;
   double share_amount = 11;
   optional double debit_amount = 12;
-  optional int32 price_score = 13;
-  optional int32 price_badge = 14;
-  optional int32 price_nut = 15;
+  optional int32 price_nut = 13;
+  optional int32 price_score = 14;
+  optional int32 price_badge = 15;
   optional int32 status = 16;
   optional int32 refund_status = 17;
   optional string goods_id = 18;
@@ -470,8 +470,8 @@ message CtmOrderInvoiceChildrenResponse {
   optional string invoice_code = 20;
   optional int64 ctm_order = 21;
   optional int64 ctm_service = 22;
-  optional int64 parent_invoice = 23;
-  optional int64 ctm_refund = 24;
+  optional int64 ctm_refund = 23;
+  optional int64 parent_invoice = 24;
 }
 
 message CtmOrderInvoiceDetailCreateRequest {
@@ -493,8 +493,8 @@ message CtmOrderInvoiceDetailCreateRequest {
   optional string invoice_code = 16;
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
-  optional int64 parent_invoice = 19;
-  optional int64 ctm_refund = 20;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
 }
 
 message CtmOrderInvoiceDetailDestroyRequest {
@@ -529,8 +529,8 @@ message CtmOrderInvoiceDetailUpdateRequest {
   optional string invoice_code = 17;
   optional int64 ctm_order = 18;
   optional int64 ctm_service = 19;
-  optional int64 parent_invoice = 20;
-  optional int64 ctm_refund = 21;
+  optional int64 ctm_refund = 20;
+  optional int64 parent_invoice = 21;
 }
 
 message CtmOrderInvoiceListResponse {
@@ -557,8 +557,8 @@ message CtmOrderInvoiceRequest {
   optional string invoice_code = 16;
   optional int64 ctm_order = 17;
   optional int64 ctm_service = 18;
-  optional int64 parent_invoice = 19;
-  optional int64 ctm_refund = 20;
+  optional int64 ctm_refund = 19;
+  optional int64 parent_invoice = 20;
 }
 
 message CtmOrderInvoiceResponse {
@@ -585,8 +585,8 @@ message CtmOrderInvoiceResponse {
   optional string invoice_code = 21;
   optional int64 ctm_order = 22;
   optional int64 ctm_service = 23;
-  optional int64 parent_invoice = 24;
-  optional int64 ctm_refund = 25;
+  optional int64 ctm_refund = 24;
+  optional int64 parent_invoice = 25;
 }
 
 message CtmOrderListRequest {
@@ -597,53 +597,53 @@ message CtmOrderListRequest {
   optional CtmOrderPayRequest order_pay = 5;
   optional CtmOrderInvoiceRequest order_invoice = 6;
   optional string create_name = 7;
-  optional string approve_time = 8;
-  optional string approve_name = 9;
-  optional string approve_reasons = 10;
-  optional string reject_reasons = 11;
-  optional string cancel_reasons = 12;
-  string tid = 13;
-  optional int32 trade_type = 14;
-  optional int32 create_type = 15;
-  optional int32 trade_status = 16;
-  optional int32 pay_status = 17;
-  optional string pay_time = 18;
-  optional int32 delivery_term = 19;
-  string buyer_nick = 20;
-  optional string buyer_mobile = 21;
-  optional string buyer_message = 22;
-  optional string seller_memo = 23;
-  optional string seller_name = 24;
-  string shop_no = 25;
-  string shop_name = 26;
-  string warehouse_no = 27;
-  string warehouse_name = 28;
-  optional string receiver_name = 29;
-  optional string receiver_province = 30;
-  optional string receiver_city = 31;
-  optional string receiver_district = 32;
-  optional string receiver_address = 33;
-  optional string receiver_mobile = 34;
-  optional double post_amount = 35;
-  optional double other_amount = 36;
-  optional double ext_cod_fee = 37;
-  optional double paid = 38;
-  optional double cod_amount = 39;
-  optional double receivable = 40;
-  optional double discount = 41;
-  optional int32 invoice_status = 42;
-  optional double debit_pay = 43;
-  optional double gift_pay = 44;
-  optional int32 score_pay = 45;
-  optional int32 badge_pay = 46;
-  optional int32 nut_pay = 47;
-  optional int64 ctm = 48;
-  optional int64 debit_card = 49;
-  optional int64 score_card = 50;
-  optional int64 badge_card = 51;
-  optional int64 nut_card = 52;
-  repeated int64 gift_cards = 53;
-  optional int32 type = 54;
+  optional int32 create_type = 8;
+  optional string seller_memo = 9;
+  optional string seller_name = 10;
+  optional string approve_time = 11;
+  optional string approve_name = 12;
+  optional string approve_reasons = 13;
+  optional string reject_reasons = 14;
+  optional string cancel_reasons = 15;
+  string tid = 16;
+  optional int32 trade_type = 17;
+  optional int32 type = 18;
+  optional int32 trade_status = 19;
+  optional int32 pay_status = 20;
+  optional string pay_time = 21;
+  optional int32 delivery_term = 22;
+  string buyer_nick = 23;
+  optional string buyer_mobile = 24;
+  optional string buyer_message = 25;
+  string shop_no = 26;
+  string shop_name = 27;
+  string warehouse_no = 28;
+  string warehouse_name = 29;
+  optional string receiver_name = 30;
+  optional string receiver_province = 31;
+  optional string receiver_city = 32;
+  optional string receiver_district = 33;
+  optional string receiver_address = 34;
+  optional string receiver_mobile = 35;
+  optional double paid = 36;
+  optional double post_amount = 37;
+  optional double other_amount = 38;
+  optional double ext_cod_fee = 39;
+  optional double cod_amount = 40;
+  optional double receivable = 41;
+  optional double discount = 42;
+  optional int32 invoice_status = 43;
+  optional double debit_pay = 44;
+  optional double gift_pay = 45;
+  optional int32 score_pay = 46;
+  optional int32 badge_pay = 47;
+  optional int32 nut_pay = 48;
+  optional int64 ctm = 49;
+  optional int64 debit_card = 50;
+  optional int64 score_card = 51;
+  optional int64 badge_card = 52;
+  optional int64 nut_card = 53;
+  repeated int64 gift_cards = 54;
 }
 
 message CtmOrderListResponse {
@@ -673,53 +673,53 @@ message CtmOrderPartialUpdateRequest {
   optional CtmOrderInvoiceRequest order_invoice = 6;
   repeated string _partial_update_fields = 7;
   optional string create_name = 8;
-  optional string approve_time = 9;
-  optional string approve_name = 10;
-  optional string approve_reasons = 11;
-  optional string reject_reasons = 12;
-  optional string cancel_reasons = 13;
-  string tid = 14;
-  optional int32 trade_type = 15;
-  optional int32 create_type = 16;
-  optional int32 trade_status = 17;
-  optional int32 pay_status = 18;
-  optional string pay_time = 19;
-  optional int32 delivery_term = 20;
-  string buyer_nick = 21;
-  optional string buyer_mobile = 22;
-  optional string buyer_message = 23;
-  optional string seller_memo = 24;
-  optional string seller_name = 25;
-  string shop_no = 26;
-  string shop_name = 27;
-  string warehouse_no = 28;
-  string warehouse_name = 29;
-  optional string receiver_name = 30;
-  optional string receiver_province = 31;
-  optional string receiver_city = 32;
-  optional string receiver_district = 33;
-  optional string receiver_address = 34;
-  optional string receiver_mobile = 35;
-  optional double post_amount = 36;
-  optional double other_amount = 37;
-  optional double ext_cod_fee = 38;
-  optional double paid = 39;
-  optional double cod_amount = 40;
-  optional double receivable = 41;
-  optional double discount = 42;
-  optional int32 invoice_status = 43;
-  optional double debit_pay = 44;
-  optional double gift_pay = 45;
-  optional int32 score_pay = 46;
-  optional int32 badge_pay = 47;
-  optional int32 nut_pay = 48;
-  optional int64 ctm = 49;
-  optional int64 debit_card = 50;
-  optional int64 score_card = 51;
-  optional int64 badge_card = 52;
-  optional int64 nut_card = 53;
-  repeated int64 gift_cards = 54;
-  optional int32 type = 55;
+  optional int32 create_type = 9;
+  optional string seller_memo = 10;
+  optional string seller_name = 11;
+  optional string approve_time = 12;
+  optional string approve_name = 13;
+  optional string approve_reasons = 14;
+  optional string reject_reasons = 15;
+  optional string cancel_reasons = 16;
+  string tid = 17;
+  optional int32 trade_type = 18;
+  optional int32 type = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  string shop_no = 27;
+  string shop_name = 28;
+  string warehouse_no = 29;
+  string warehouse_name = 30;
+  optional string receiver_name = 31;
+  optional string receiver_province = 32;
+  optional string receiver_city = 33;
+  optional string receiver_district = 34;
+  optional string receiver_address = 35;
+  optional string receiver_mobile = 36;
+  optional double paid = 37;
+  optional double post_amount = 38;
+  optional double other_amount = 39;
+  optional double ext_cod_fee = 40;
+  optional double cod_amount = 41;
+  optional double receivable = 42;
+  optional double discount = 43;
+  optional int32 invoice_status = 44;
+  optional double debit_pay = 45;
+  optional double gift_pay = 46;
+  optional int32 score_pay = 47;
+  optional int32 badge_pay = 48;
+  optional int32 nut_pay = 49;
+  optional int64 ctm = 50;
+  optional int64 debit_card = 51;
+  optional int64 score_card = 52;
+  optional int64 badge_card = 53;
+  optional int64 nut_card = 54;
+  repeated int64 gift_cards = 55;
 }
 
 message CtmOrderPayDetailCreateRequest {
@@ -741,22 +741,22 @@ message CtmOrderPayDetailCreateRequest {
   optional string currency = 16;
   optional string bank_type = 17;
   optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
   optional string cancel_reasons = 31;
   optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
   optional int64 ctm_service = 34;
-  optional string out_refund_no = 35;
-  optional string reason = 36;
-  optional int32 refund = 37;
-  optional int32 payer_refund = 38;
-  optional int32 settlement_refund = 39;
-  optional int32 settlement_total = 40;
-  optional int32 discount_refund = 41;
-  optional int32 refund_fee = 42;
-  optional string refund_id = 43;
-  optional string channel = 44;
-  optional string user_received_account = 45;
-  optional string status = 46;
-  optional int64 ctm_refund = 47;
 }
 
 message CtmOrderPayDetailDestroyRequest {
@@ -791,22 +791,22 @@ message CtmOrderPayDetailUpdateRequest {
   optional string currency = 17;
   optional string bank_type = 18;
   optional string success_time = 19;
+  optional string out_refund_no = 20;
+  optional string reason = 21;
+  optional int32 refund = 22;
+  optional int32 payer_refund = 23;
+  optional int32 settlement_refund = 24;
+  optional int32 settlement_total = 25;
+  optional int32 discount_refund = 26;
+  optional int32 refund_fee = 27;
+  optional string refund_id = 28;
+  optional string channel = 29;
+  optional string user_received_account = 30;
+  optional string status = 31;
   optional string cancel_reasons = 32;
   optional int64 ctm_order = 33;
+  optional int64 ctm_refund = 34;
   optional int64 ctm_service = 35;
-  optional string out_refund_no = 36;
-  optional string reason = 37;
-  optional int32 refund = 38;
-  optional int32 payer_refund = 39;
-  optional int32 settlement_refund = 40;
-  optional int32 settlement_total = 41;
-  optional int32 discount_refund = 42;
-  optional int32 refund_fee = 43;
-  optional string refund_id = 44;
-  optional string channel = 45;
-  optional string user_received_account = 46;
-  optional string status = 47;
-  optional int64 ctm_refund = 48;
 }
 
 message CtmOrderPayListResponse {
@@ -833,22 +833,22 @@ message CtmOrderPayRequest {
   optional string currency = 16;
   optional string bank_type = 17;
   optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
   optional string cancel_reasons = 31;
   optional int64 ctm_order = 32;
+  optional int64 ctm_refund = 33;
   optional int64 ctm_service = 34;
-  optional string out_refund_no = 35;
-  optional string reason = 36;
-  optional int32 refund = 37;
-  optional int32 payer_refund = 38;
-  optional int32 settlement_refund = 39;
-  optional int32 settlement_total = 40;
-  optional int32 discount_refund = 41;
-  optional int32 refund_fee = 42;
-  optional string refund_id = 43;
-  optional string channel = 44;
-  optional string user_received_account = 45;
-  optional string status = 46;
-  optional int64 ctm_refund = 47;
 }
 
 message CtmOrderPayResponse {
@@ -873,22 +873,22 @@ message CtmOrderPayResponse {
   optional string currency = 19;
   optional string bank_type = 20;
   optional string success_time = 21;
+  optional string out_refund_no = 22;
+  optional string reason = 23;
+  optional int32 refund = 24;
+  optional int32 payer_refund = 25;
+  optional int32 settlement_refund = 26;
+  optional int32 settlement_total = 27;
+  optional int32 discount_refund = 28;
+  optional int32 refund_fee = 29;
+  optional string refund_id = 30;
+  optional string channel = 31;
+  optional string user_received_account = 32;
+  optional string status = 33;
   optional string cancel_reasons = 34;
   optional int64 ctm_order = 35;
+  optional int64 ctm_refund = 36;
   optional int64 ctm_service = 37;
-  optional string out_refund_no = 38;
-  optional string reason = 39;
-  optional int32 refund = 40;
-  optional int32 payer_refund = 41;
-  optional int32 settlement_refund = 42;
-  optional int32 settlement_total = 43;
-  optional int32 discount_refund = 44;
-  optional int32 refund_fee = 45;
-  optional string refund_id = 46;
-  optional string channel = 47;
-  optional string user_received_account = 48;
-  optional string status = 49;
-  optional int64 ctm_refund = 50;
 }
 
 message CtmOrderPromotionDetailCreateRequest {
@@ -905,14 +905,14 @@ message CtmOrderPromotionDetailCreateRequest {
   optional string coupon_code = 11;
   optional string coupon_intro = 12;
   optional int32 trigger_amount = 13;
-  optional int32 discount_amount = 14;
-  optional int32 trigger_qty = 15;
-  optional int32 discount = 16;
-  bool can_stack = 17;
-  optional string prod_range = 18;
-  optional string start_time = 19;
-  optional string expire_time = 20;
-  optional int32 cumulate_count = 21;
+  optional int32 trigger_qty = 14;
+  optional int32 cumulate_count = 15;
+  optional int32 discount_amount = 16;
+  optional int32 discount = 17;
+  bool can_stack = 18;
+  optional string prod_range = 19;
+  optional string start_time = 20;
+  optional string expire_time = 21;
 }
 
 message CtmOrderPromotionDetailDestroyRequest {
@@ -936,53 +936,53 @@ message CtmOrderPromotionDetailUpdateRequest {
   optional CtmOrderInvoiceRequest order_invoice = 6;
   repeated string _partial_update_fields = 7;
   optional string create_name = 8;
-  optional string approve_time = 9;
-  optional string approve_name = 10;
-  optional string approve_reasons = 11;
-  optional string reject_reasons = 12;
-  optional string cancel_reasons = 13;
-  string tid = 14;
-  optional int32 trade_type = 15;
-  optional int32 create_type = 16;
-  optional int32 trade_status = 17;
-  optional int32 pay_status = 18;
-  optional string pay_time = 19;
-  optional int32 delivery_term = 20;
-  string buyer_nick = 21;
-  optional string buyer_mobile = 22;
-  optional string buyer_message = 23;
-  optional string seller_memo = 24;
-  optional string seller_name = 25;
-  string shop_no = 26;
-  string shop_name = 27;
-  string warehouse_no = 28;
-  string warehouse_name = 29;
-  optional string receiver_name = 30;
-  optional string receiver_province = 31;
-  optional string receiver_city = 32;
-  optional string receiver_district = 33;
-  optional string receiver_address = 34;
-  optional string receiver_mobile = 35;
-  optional double post_amount = 36;
-  optional double other_amount = 37;
-  optional double ext_cod_fee = 38;
-  optional double paid = 39;
-  optional double cod_amount = 40;
-  optional double receivable = 41;
-  optional double discount = 42;
-  optional int32 invoice_status = 43;
-  optional double debit_pay = 44;
-  optional double gift_pay = 45;
-  optional int32 score_pay = 46;
-  optional int32 badge_pay = 47;
-  optional int32 nut_pay = 48;
-  optional int64 ctm = 49;
-  optional int64 debit_card = 50;
-  optional int64 score_card = 51;
-  optional int64 badge_card = 52;
-  optional int64 nut_card = 53;
-  repeated int64 gift_cards = 54;
-  optional int32 type = 55;
+  optional int32 create_type = 9;
+  optional string seller_memo = 10;
+  optional string seller_name = 11;
+  optional string approve_time = 12;
+  optional string approve_name = 13;
+  optional string approve_reasons = 14;
+  optional string reject_reasons = 15;
+  optional string cancel_reasons = 16;
+  string tid = 17;
+  optional int32 trade_type = 18;
+  optional int32 type = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  string shop_no = 27;
+  string shop_name = 28;
+  string warehouse_no = 29;
+  string warehouse_name = 30;
+  optional string receiver_name = 31;
+  optional string receiver_province = 32;
+  optional string receiver_city = 33;
+  optional string receiver_district = 34;
+  optional string receiver_address = 35;
+  optional string receiver_mobile = 36;
+  optional double paid = 37;
+  optional double post_amount = 38;
+  optional double other_amount = 39;
+  optional double ext_cod_fee = 40;
+  optional double cod_amount = 41;
+  optional double receivable = 42;
+  optional double discount = 43;
+  optional int32 invoice_status = 44;
+  optional double debit_pay = 45;
+  optional double gift_pay = 46;
+  optional int32 score_pay = 47;
+  optional int32 badge_pay = 48;
+  optional int32 nut_pay = 49;
+  optional int64 ctm = 50;
+  optional int64 debit_card = 51;
+  optional int64 score_card = 52;
+  optional int64 badge_card = 53;
+  optional int64 nut_card = 54;
+  repeated int64 gift_cards = 55;
 }
 
 message CtmOrderPromotionListResponse {
@@ -1004,14 +1004,14 @@ message CtmOrderPromotionRequest {
   optional string coupon_code = 11;
   optional string coupon_intro = 12;
   optional int32 trigger_amount = 13;
-  optional int32 discount_amount = 14;
-  optional int32 trigger_qty = 15;
-  optional int32 discount = 16;
-  bool can_stack = 17;
-  optional string prod_range = 18;
-  optional string start_time = 19;
-  optional string expire_time = 20;
-  optional int32 cumulate_count = 21;
+  optional int32 trigger_qty = 14;
+  optional int32 cumulate_count = 15;
+  optional int32 discount_amount = 16;
+  optional int32 discount = 17;
+  bool can_stack = 18;
+  optional string prod_range = 19;
+  optional string start_time = 20;
+  optional string expire_time = 21;
 }
 
 message CtmOrderPromotionResponse {
@@ -1031,14 +1031,14 @@ message CtmOrderPromotionResponse {
   optional string coupon_code = 14;
   optional string coupon_intro = 15;
   optional int32 trigger_amount = 16;
-  optional int32 discount_amount = 17;
-  optional int32 trigger_qty = 18;
-  optional int32 discount = 19;
-  bool can_stack = 20;
-  optional string prod_range = 21;
-  optional string start_time = 22;
-  optional string expire_time = 23;
-  optional int32 cumulate_count = 24;
+  optional int32 trigger_qty = 17;
+  optional int32 cumulate_count = 18;
+  optional int32 discount_amount = 19;
+  optional int32 discount = 20;
+  bool can_stack = 21;
+  optional string prod_range = 22;
+  optional string start_time = 23;
+  optional string expire_time = 24;
 }
 
 message CtmOrderRequest {
@@ -1049,53 +1049,53 @@ message CtmOrderRequest {
   optional CtmOrderPayRequest order_pay = 5;
   optional CtmOrderInvoiceRequest order_invoice = 6;
   optional string create_name = 7;
-  optional string approve_time = 8;
-  optional string approve_name = 9;
-  optional string approve_reasons = 10;
-  optional string reject_reasons = 11;
-  optional string cancel_reasons = 12;
-  string tid = 13;
-  optional int32 trade_type = 14;
-  optional int32 create_type = 15;
-  optional int32 trade_status = 16;
-  optional int32 pay_status = 17;
-  optional string pay_time = 18;
-  optional int32 delivery_term = 19;
-  string buyer_nick = 20;
-  optional string buyer_mobile = 21;
-  optional string buyer_message = 22;
-  optional string seller_memo = 23;
-  optional string seller_name = 24;
-  string shop_no = 25;
-  string shop_name = 26;
-  string warehouse_no = 27;
-  string warehouse_name = 28;
-  optional string receiver_name = 29;
-  optional string receiver_province = 30;
-  optional string receiver_city = 31;
-  optional string receiver_district = 32;
-  optional string receiver_address = 33;
-  optional string receiver_mobile = 34;
-  optional double post_amount = 35;
-  optional double other_amount = 36;
-  optional double ext_cod_fee = 37;
-  optional double paid = 38;
-  optional double cod_amount = 39;
-  optional double receivable = 40;
-  optional double discount = 41;
-  optional int32 invoice_status = 42;
-  optional double debit_pay = 43;
-  optional double gift_pay = 44;
-  optional int32 score_pay = 45;
-  optional int32 badge_pay = 46;
-  optional int32 nut_pay = 47;
-  optional int64 ctm = 48;
-  optional int64 debit_card = 49;
-  optional int64 score_card = 50;
-  optional int64 badge_card = 51;
-  optional int64 nut_card = 52;
-  repeated int64 gift_cards = 53;
-  optional int32 type = 54;
+  optional int32 create_type = 8;
+  optional string seller_memo = 9;
+  optional string seller_name = 10;
+  optional string approve_time = 11;
+  optional string approve_name = 12;
+  optional string approve_reasons = 13;
+  optional string reject_reasons = 14;
+  optional string cancel_reasons = 15;
+  string tid = 16;
+  optional int32 trade_type = 17;
+  optional int32 type = 18;
+  optional int32 trade_status = 19;
+  optional int32 pay_status = 20;
+  optional string pay_time = 21;
+  optional int32 delivery_term = 22;
+  string buyer_nick = 23;
+  optional string buyer_mobile = 24;
+  optional string buyer_message = 25;
+  string shop_no = 26;
+  string shop_name = 27;
+  string warehouse_no = 28;
+  string warehouse_name = 29;
+  optional string receiver_name = 30;
+  optional string receiver_province = 31;
+  optional string receiver_city = 32;
+  optional string receiver_district = 33;
+  optional string receiver_address = 34;
+  optional string receiver_mobile = 35;
+  optional double paid = 36;
+  optional double post_amount = 37;
+  optional double other_amount = 38;
+  optional double ext_cod_fee = 39;
+  optional double cod_amount = 40;
+  optional double receivable = 41;
+  optional double discount = 42;
+  optional int32 invoice_status = 43;
+  optional double debit_pay = 44;
+  optional double gift_pay = 45;
+  optional int32 score_pay = 46;
+  optional int32 badge_pay = 47;
+  optional int32 nut_pay = 48;
+  optional int64 ctm = 49;
+  optional int64 debit_card = 50;
+  optional int64 score_card = 51;
+  optional int64 badge_card = 52;
+  optional int64 nut_card = 53;
+  repeated int64 gift_cards = 54;
 }
 
 message CtmOrderResponse {
@@ -1110,57 +1110,57 @@ message CtmOrderResponse {
   repeated CtmOrderPromotionResponse coupon_details = 9;
   repeated CtmOrderPayResponse pay_details = 10;
   repeated CtmOrderInvoiceResponse invoice_details = 11;
-  string create_time = 12;
-  string update_time = 13;
-  optional string create_name = 14;
-  optional string approve_time = 15;
-  optional string approve_name = 16;
-  optional string approve_reasons = 17;
-  optional string reject_reasons = 18;
-  optional string cancel_reasons = 19;
-  string tid = 20;
-  optional int32 trade_type = 21;
-  optional int32 create_type = 22;
-  optional int32 trade_status = 23;
-  optional int32 pay_status = 24;
-  optional string pay_time = 25;
-  optional int32 delivery_term = 26;
-  string buyer_nick = 27;
-  optional string buyer_mobile = 28;
-  optional string buyer_message = 29;
-  optional string seller_memo = 30;
-  optional string seller_name = 31;
-  string shop_no = 32;
-  string shop_name = 33;
-  string warehouse_no = 34;
-  string warehouse_name = 35;
-  optional string receiver_name = 36;
-  optional string receiver_province = 37;
-  optional string receiver_city = 38;
-  optional string receiver_district = 39;
-  optional string receiver_address = 40;
-  optional string receiver_mobile = 41;
-  optional double post_amount = 42;
-  optional double other_amount = 43;
-  optional double ext_cod_fee = 44;
-  optional double paid = 45;
-  optional double cod_amount = 46;
-  optional double receivable = 47;
-  optional double discount = 48;
-  optional int32 invoice_status = 49;
-  optional double debit_pay = 50;
-  optional double gift_pay = 51;
-  optional int32 score_pay = 52;
-  optional int32 badge_pay = 53;
-  optional int32 nut_pay = 54;
-  optional int64 ctm = 55;
-  optional int64 debit_card = 56;
-  optional int64 score_card = 57;
-  optional int64 badge_card = 58;
-  optional int64 nut_card = 59;
-  repeated int64 gift_cards = 60;
-  repeated CtmOrderStockOutResponse stock_out_details = 61;
-  optional int32 type = 62;
+  repeated CtmOrderStockOutResponse stock_out_details = 12;
+  string create_time = 13;
+  string update_time = 14;
+  optional string create_name = 15;
+  optional int32 create_type = 16;
+  optional string seller_memo = 17;
+  optional string seller_name = 18;
+  optional string approve_time = 19;
+  optional string approve_name = 20;
+  optional string approve_reasons = 21;
+  optional string reject_reasons = 22;
+  optional string cancel_reasons = 23;
+  string tid = 24;
+  optional int32 trade_type = 25;
+  optional int32 type = 26;
+  optional int32 trade_status = 27;
+  optional int32 pay_status = 28;
+  optional string pay_time = 29;
+  optional int32 delivery_term = 30;
+  string buyer_nick = 31;
+  optional string buyer_mobile = 32;
+  optional string buyer_message = 33;
+  string shop_no = 34;
+  string shop_name = 35;
+  string warehouse_no = 36;
+  string warehouse_name = 37;
+  optional string receiver_name = 38;
+  optional string receiver_province = 39;
+  optional string receiver_city = 40;
+  optional string receiver_district = 41;
+  optional string receiver_address = 42;
+  optional string receiver_mobile = 43;
+  optional double paid = 44;
+  optional double post_amount = 45;
+  optional double other_amount = 46;
+  optional double ext_cod_fee = 47;
+  optional double cod_amount = 48;
+  optional double receivable = 49;
+  optional double discount = 50;
+  optional int32 invoice_status = 51;
+  optional double debit_pay = 52;
+  optional double gift_pay = 53;
+  optional int32 score_pay = 54;
+  optional int32 badge_pay = 55;
+  optional int32 nut_pay = 56;
+  optional int64 ctm = 57;
+  optional int64 debit_card = 58;
+  optional int64 score_card = 59;
+  optional int64 badge_card = 60;
+  optional int64 nut_card = 61;
+  repeated int64 gift_cards = 62;
 }
 
 message CtmOrderRetrieveRequest {
@@ -1200,11 +1200,11 @@ message CtmRefundReasonChildrenResponse {
   int32 reason_code = 5;
   string reason_name = 6;
   optional string reason_desc = 7;
-  bool is_valid = 8;
-  optional bool is_reserved = 9;
-  optional int64 parent = 10;
-  optional int64 order_config = 11;
-  optional bool with_remark = 12;
+  optional bool with_remark = 8;
+  bool is_valid = 9;
+  optional bool is_reserved = 10;
+  optional int64 parent = 11;
+  optional int64 order_config = 12;
 }
 
 message CtmRefundReasonCreateRequest {
@@ -1213,11 +1213,11 @@ message CtmRefundReasonCreateRequest {
   int32 reason_code = 3;
   string reason_name = 4;
   optional string reason_desc = 5;
-  bool is_valid = 6;
-  optional bool is_reserved = 7;
-  optional int64 parent = 8;
-  optional int64 order_config = 9;
-  optional bool with_remark = 10;
+  optional bool with_remark = 6;
+  bool is_valid = 7;
+  optional bool is_reserved = 8;
+  optional int64 parent = 9;
+  optional int64 order_config = 10;
 }
 
 message CtmRefundReasonDestroyRequest {
@@ -1243,11 +1243,11 @@ message CtmRefundReasonResponse {
   int32 reason_code = 7;
   string reason_name = 8;
   optional string reason_desc = 9;
-  bool is_valid = 10;
-  optional bool is_reserved = 11;
-  optional int64 parent = 12;
-  optional int64 order_config = 13;
-  optional bool with_remark = 14;
+  optional bool with_remark = 10;
+  bool is_valid = 11;
+  optional bool is_reserved = 12;
+  optional int64 parent = 13;
+  optional int64 order_config = 14;
 }
 
 message CtmRefundReasonRetrieveRequest {
@@ -1261,11 +1261,11 @@ message CtmRefundReasonUpdateRequest {
   int32 reason_code = 4;
   string reason_name = 5;
   optional string reason_desc = 6;
-  bool is_valid = 7;
-  optional bool is_reserved = 8;
-  optional int64 parent = 9;
-  optional int64 order_config = 10;
-  optional bool with_remark = 11;
+  optional bool with_remark = 7;
+  bool is_valid = 8;
+  optional bool is_reserved = 9;
+  optional int64 parent = 10;
+  optional int64 order_config = 11;
 }
 
 message LabelValueResponse {
@@ -1335,11 +1335,11 @@ message TradeReasonOption {
   int32 reason_code = 7;
   string reason_name = 8;
   optional string reason_desc = 9;
-  bool is_valid = 10;
-  optional bool is_reserved = 11;
-  optional int64 parent = 12;
-  optional int64 order_config = 13;
-  optional bool with_remark = 14;
+  optional bool with_remark = 10;
+  bool is_valid = 11;
+  optional bool is_reserved = 12;
+  optional int64 parent = 13;
+  optional int64 order_config = 14;
 }
 
 message TradeReasonOptionListResponse {
@@ -1358,7 +1358,8 @@ message TradeStatusCountListResponse {
 }
 
 message TradeStatusCountRequest {
-  int32 trade_type = 1;
+  optional int32 trade_type = 1;
+  optional int64 ctm_id = 2;
 }
 
 message TradeStatusCountResponse {
@@ -1396,6 +1397,7 @@ message TradeTypeOptionsRequest {
 message WdtShop {
   string shop_code = 1;
   string shop_name = 2;
+  int32 platform_id = 3;
 }
 
 message WdtShopListRequest {
@@ -1409,6 +1411,8 @@ message WdtShopListResponse {
 message WdtStock {
   string stock_code = 1;
   string stock_name = 2;
+  int32 stock_type = 3;
+  string ext_warehouse_no = 4;
 }
 
 message WdtStockListRequest {

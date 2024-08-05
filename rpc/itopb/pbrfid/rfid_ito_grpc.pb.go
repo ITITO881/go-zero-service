@@ -20,661 +20,2051 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	RfidSystemController_Create_FullMethodName        = "/rfid_service.rfid_ito.RfidSystemController/Create"
-	RfidSystemController_Destroy_FullMethodName       = "/rfid_service.rfid_ito.RfidSystemController/Destroy"
-	RfidSystemController_List_FullMethodName          = "/rfid_service.rfid_ito.RfidSystemController/List"
-	RfidSystemController_PartialUpdate_FullMethodName = "/rfid_service.rfid_ito.RfidSystemController/PartialUpdate"
-	RfidSystemController_Retrieve_FullMethodName      = "/rfid_service.rfid_ito.RfidSystemController/Retrieve"
-	RfidSystemController_Update_FullMethodName        = "/rfid_service.rfid_ito.RfidSystemController/Update"
-	RfidSystemController_UserWarehouse_FullMethodName = "/rfid_service.rfid_ito.RfidSystemController/UserWarehouse"
+	DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_FullMethodName  = "/rfid_service.rfid_ito.DeliverNoticeController/BulkCreateDeliverNoticeGoodsDetails"
+	DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_FullMethodName  = "/rfid_service.rfid_ito.DeliverNoticeController/BulkCreateSupplierTradeGoodsDetails"
+	DeliverNoticeController_Create_FullMethodName                               = "/rfid_service.rfid_ito.DeliverNoticeController/Create"
+	DeliverNoticeController_CreateCtmVendorAddr_FullMethodName                  = "/rfid_service.rfid_ito.DeliverNoticeController/CreateCtmVendorAddr"
+	DeliverNoticeController_CreateDeliverNoticeGoodsDetails_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/CreateDeliverNoticeGoodsDetails"
+	DeliverNoticeController_CreateKeyCtm_FullMethodName                         = "/rfid_service.rfid_ito.DeliverNoticeController/CreateKeyCtm"
+	DeliverNoticeController_CreateKeyVendor_FullMethodName                      = "/rfid_service.rfid_ito.DeliverNoticeController/CreateKeyVendor"
+	DeliverNoticeController_CreateSupplierTrade_FullMethodName                  = "/rfid_service.rfid_ito.DeliverNoticeController/CreateSupplierTrade"
+	DeliverNoticeController_CreateSupplierTradeGoodsDetails_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/CreateSupplierTradeGoodsDetails"
+	DeliverNoticeController_CreateSupplierTradeStockOutDetails_FullMethodName   = "/rfid_service.rfid_ito.DeliverNoticeController/CreateSupplierTradeStockOutDetails"
+	DeliverNoticeController_CreateVendorOperator_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/CreateVendorOperator"
+	DeliverNoticeController_DeliverNoticeOptions_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/DeliverNoticeOptions"
+	DeliverNoticeController_Destroy_FullMethodName                              = "/rfid_service.rfid_ito.DeliverNoticeController/Destroy"
+	DeliverNoticeController_DestroyCtmVendorAddr_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyCtmVendorAddr"
+	DeliverNoticeController_DestroyDeliverNoticeGoodsDetails_FullMethodName     = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyDeliverNoticeGoodsDetails"
+	DeliverNoticeController_DestroyKeyCtm_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyKeyCtm"
+	DeliverNoticeController_DestroyKeyVendor_FullMethodName                     = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyKeyVendor"
+	DeliverNoticeController_DestroySupplierTrade_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/DestroySupplierTrade"
+	DeliverNoticeController_DestroySupplierTradeGoodsDetails_FullMethodName     = "/rfid_service.rfid_ito.DeliverNoticeController/DestroySupplierTradeGoodsDetails"
+	DeliverNoticeController_DestroySupplierTradeStockOutDetails_FullMethodName  = "/rfid_service.rfid_ito.DeliverNoticeController/DestroySupplierTradeStockOutDetails"
+	DeliverNoticeController_DestroyVendorOperator_FullMethodName                = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyVendorOperator"
+	DeliverNoticeController_List_FullMethodName                                 = "/rfid_service.rfid_ito.DeliverNoticeController/List"
+	DeliverNoticeController_ListCtmVendorAddr_FullMethodName                    = "/rfid_service.rfid_ito.DeliverNoticeController/ListCtmVendorAddr"
+	DeliverNoticeController_ListDeliverNoticeGoodsDetails_FullMethodName        = "/rfid_service.rfid_ito.DeliverNoticeController/ListDeliverNoticeGoodsDetails"
+	DeliverNoticeController_ListKeyCtm_FullMethodName                           = "/rfid_service.rfid_ito.DeliverNoticeController/ListKeyCtm"
+	DeliverNoticeController_ListKeyVendor_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/ListKeyVendor"
+	DeliverNoticeController_ListSupplierTrade_FullMethodName                    = "/rfid_service.rfid_ito.DeliverNoticeController/ListSupplierTrade"
+	DeliverNoticeController_ListSupplierTradeGoodsDetails_FullMethodName        = "/rfid_service.rfid_ito.DeliverNoticeController/ListSupplierTradeGoodsDetails"
+	DeliverNoticeController_ListSupplierTradeStockOutDetails_FullMethodName     = "/rfid_service.rfid_ito.DeliverNoticeController/ListSupplierTradeStockOutDetails"
+	DeliverNoticeController_ListVendorOperator_FullMethodName                   = "/rfid_service.rfid_ito.DeliverNoticeController/ListVendorOperator"
+	DeliverNoticeController_NoticeNextDid_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/NoticeNextDid"
+	DeliverNoticeController_NoticeStatusCount_FullMethodName                    = "/rfid_service.rfid_ito.DeliverNoticeController/NoticeStatusCount"
+	DeliverNoticeController_PartialUpdate_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/PartialUpdate"
+	DeliverNoticeController_PurchaseOrder_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/PurchaseOrder"
+	DeliverNoticeController_Retrieve_FullMethodName                             = "/rfid_service.rfid_ito.DeliverNoticeController/Retrieve"
+	DeliverNoticeController_RetrieveCtmVendorAddr_FullMethodName                = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveCtmVendorAddr"
+	DeliverNoticeController_RetrieveDeliverNoticeGoodsDetails_FullMethodName    = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveDeliverNoticeGoodsDetails"
+	DeliverNoticeController_RetrieveKeyCtm_FullMethodName                       = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveKeyCtm"
+	DeliverNoticeController_RetrieveKeyVendor_FullMethodName                    = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveKeyVendor"
+	DeliverNoticeController_RetrieveSupplierTrade_FullMethodName                = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTrade"
+	DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_FullMethodName    = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeGoodsDetails"
+	DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_FullMethodName = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeStockOutDetails"
+	DeliverNoticeController_RetrieveVendorOperator_FullMethodName               = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveVendorOperator"
+	DeliverNoticeController_SupplierTradeNextTid_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/SupplierTradeNextTid"
+	DeliverNoticeController_SupplierTradeProcess_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/SupplierTradeProcess"
+	DeliverNoticeController_Update_FullMethodName                               = "/rfid_service.rfid_ito.DeliverNoticeController/Update"
+	DeliverNoticeController_UpdateCtmVendorAddr_FullMethodName                  = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateCtmVendorAddr"
+	DeliverNoticeController_UpdateDeliverNoticeGoodsDetails_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateDeliverNoticeGoodsDetails"
+	DeliverNoticeController_UpdateKeyCtm_FullMethodName                         = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateKeyCtm"
+	DeliverNoticeController_UpdateKeyVendor_FullMethodName                      = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateKeyVendor"
+	DeliverNoticeController_UpdateSupplierTrade_FullMethodName                  = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateSupplierTrade"
+	DeliverNoticeController_UpdateSupplierTradeGoodsDetails_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateSupplierTradeGoodsDetails"
+	DeliverNoticeController_UpdateSupplierTradeStockOutDetails_FullMethodName   = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateSupplierTradeStockOutDetails"
+	DeliverNoticeController_UpdateVendorOperator_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/UpdateVendorOperator"
 )
 
-// RfidSystemControllerClient is the client API for RfidSystemController service.
+// DeliverNoticeControllerClient is the client API for DeliverNoticeController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RfidSystemControllerClient interface {
-	Create(ctx context.Context, in *KeyCustomerModelRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error)
-	Destroy(ctx context.Context, in *KeyCustomerModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	List(ctx context.Context, in *KeyCustomerModelListRequest, opts ...grpc.CallOption) (*KeyCustomerModelListResponse, error)
-	PartialUpdate(ctx context.Context, in *KeyCustomerModelPartialUpdateRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error)
-	Retrieve(ctx context.Context, in *KeyCustomerModelRetrieveRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error)
-	Update(ctx context.Context, in *KeyCustomerModelRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error)
-	UserWarehouse(ctx context.Context, in *SysUserWarehouseRequest, opts ...grpc.CallOption) (*SysUserWarehouseResponse, error)
+type DeliverNoticeControllerClient interface {
+	BulkCreateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsBulkCreateListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error)
+	BulkCreateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsBulkCreateListRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsListResponse, error)
+	Create(ctx context.Context, in *DeliverNoticeRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error)
+	CreateCtmVendorAddr(ctx context.Context, in *CtmVendorAddrCreateRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error)
+	CreateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsCreateRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error)
+	CreateKeyCtm(ctx context.Context, in *KeyCtmCreateRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error)
+	CreateKeyVendor(ctx context.Context, in *KeyVendorCreateRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error)
+	CreateSupplierTrade(ctx context.Context, in *SupplierTradeCreateRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error)
+	CreateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsCreateRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error)
+	CreateSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsCreateRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error)
+	CreateVendorOperator(ctx context.Context, in *VendorOperatorCreateRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error)
+	DeliverNoticeOptions(ctx context.Context, in *DeliverNoticeOptionsRequest, opts ...grpc.CallOption) (*DeliverNoticeOptionsResponse, error)
+	Destroy(ctx context.Context, in *DeliverNoticeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCtmVendorAddr(ctx context.Context, in *CtmVendorAddrDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyKeyCtm(ctx context.Context, in *KeyCtmDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyKeyVendor(ctx context.Context, in *KeyVendorDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroySupplierTrade(ctx context.Context, in *SupplierTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroySupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroySupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyVendorOperator(ctx context.Context, in *VendorOperatorDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *DeliverNoticeListRequest, opts ...grpc.CallOption) (*DeliverNoticeListResponse, error)
+	ListCtmVendorAddr(ctx context.Context, in *CtmVendorAddrListRequest, opts ...grpc.CallOption) (*CtmVendorAddrListResponse, error)
+	ListDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error)
+	ListKeyCtm(ctx context.Context, in *KeyCtmListRequest, opts ...grpc.CallOption) (*KeyCtmListResponse, error)
+	ListKeyVendor(ctx context.Context, in *KeyVendorListRequest, opts ...grpc.CallOption) (*KeyVendorListResponse, error)
+	ListSupplierTrade(ctx context.Context, in *SupplierTradeListRequest, opts ...grpc.CallOption) (*SupplierTradeListResponse, error)
+	ListSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsListRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsListResponse, error)
+	ListSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsListRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsListResponse, error)
+	ListVendorOperator(ctx context.Context, in *VendorOperatorListRequest, opts ...grpc.CallOption) (*VendorOperatorListResponse, error)
+	NoticeNextDid(ctx context.Context, in *NoticeNextDidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error)
+	NoticeStatusCount(ctx context.Context, in *NoticeStatusCountRequest, opts ...grpc.CallOption) (*NoticeStatusCountListResponse, error)
+	PartialUpdate(ctx context.Context, in *DeliverNoticePartialUpdateRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error)
+	PurchaseOrder(ctx context.Context, in *PurchaseOrderRequest, opts ...grpc.CallOption) (*PurchaseOrderListResponse, error)
+	Retrieve(ctx context.Context, in *DeliverNoticeRetrieveRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error)
+	RetrieveCtmVendorAddr(ctx context.Context, in *CtmVendorAddrRetrieveRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error)
+	RetrieveDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error)
+	RetrieveKeyCtm(ctx context.Context, in *KeyCtmRetrieveRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error)
+	RetrieveKeyVendor(ctx context.Context, in *KeyVendorRetrieveRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error)
+	RetrieveSupplierTrade(ctx context.Context, in *SupplierTradeRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error)
+	RetrieveSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error)
+	RetrieveSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error)
+	RetrieveVendorOperator(ctx context.Context, in *VendorOperatorRetrieveRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error)
+	SupplierTradeNextTid(ctx context.Context, in *SupplierTradeNextTidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error)
+	SupplierTradeProcess(ctx context.Context, in *DeliverNoticeSupplierTradeProcessRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Update(ctx context.Context, in *DeliverNoticeRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error)
+	UpdateCtmVendorAddr(ctx context.Context, in *CtmVendorAddrUpdateRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error)
+	UpdateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsUpdateRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error)
+	UpdateKeyCtm(ctx context.Context, in *KeyCtmUpdateRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error)
+	UpdateKeyVendor(ctx context.Context, in *KeyVendorUpdateRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error)
+	UpdateSupplierTrade(ctx context.Context, in *SupplierTradeUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error)
+	UpdateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error)
+	UpdateSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error)
+	UpdateVendorOperator(ctx context.Context, in *VendorOperatorUpdateRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error)
 }
 
-type rfidSystemControllerClient struct {
+type deliverNoticeControllerClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRfidSystemControllerClient(cc grpc.ClientConnInterface) RfidSystemControllerClient {
-	return &rfidSystemControllerClient{cc}
+func NewDeliverNoticeControllerClient(cc grpc.ClientConnInterface) DeliverNoticeControllerClient {
+	return &deliverNoticeControllerClient{cc}
 }
 
-func (c *rfidSystemControllerClient) Create(ctx context.Context, in *KeyCustomerModelRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error) {
-	out := new(KeyCustomerModelResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_Create_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) BulkCreateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsBulkCreateListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error) {
+	out := new(DeliverNoticeGoodsDetailsListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) Destroy(ctx context.Context, in *KeyCustomerModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *deliverNoticeControllerClient) BulkCreateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsBulkCreateListRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsListResponse, error) {
+	out := new(SupplierTradeGoodsDetailsListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) Create(ctx context.Context, in *DeliverNoticeRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error) {
+	out := new(DeliverNoticeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateCtmVendorAddr(ctx context.Context, in *CtmVendorAddrCreateRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error) {
+	out := new(CtmVendorAddrResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateCtmVendorAddr_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsCreateRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error) {
+	out := new(DeliverNoticeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateKeyCtm(ctx context.Context, in *KeyCtmCreateRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error) {
+	out := new(KeyCtmResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateKeyCtm_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateKeyVendor(ctx context.Context, in *KeyVendorCreateRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error) {
+	out := new(KeyVendorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateKeyVendor_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateSupplierTrade(ctx context.Context, in *SupplierTradeCreateRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error) {
+	out := new(SupplierTradeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateSupplierTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsCreateRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error) {
+	out := new(SupplierTradeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateSupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsCreateRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error) {
+	out := new(SupplierTradeStockOutDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateSupplierTradeStockOutDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) CreateVendorOperator(ctx context.Context, in *VendorOperatorCreateRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error) {
+	out := new(VendorOperatorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_CreateVendorOperator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) DeliverNoticeOptions(ctx context.Context, in *DeliverNoticeOptionsRequest, opts ...grpc.CallOption) (*DeliverNoticeOptionsResponse, error) {
+	out := new(DeliverNoticeOptionsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DeliverNoticeOptions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) Destroy(ctx context.Context, in *DeliverNoticeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, RfidSystemController_Destroy_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) List(ctx context.Context, in *KeyCustomerModelListRequest, opts ...grpc.CallOption) (*KeyCustomerModelListResponse, error) {
-	out := new(KeyCustomerModelListResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_List_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) DestroyCtmVendorAddr(ctx context.Context, in *CtmVendorAddrDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroyCtmVendorAddr_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) PartialUpdate(ctx context.Context, in *KeyCustomerModelPartialUpdateRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error) {
-	out := new(KeyCustomerModelResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_PartialUpdate_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) DestroyDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroyDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) Retrieve(ctx context.Context, in *KeyCustomerModelRetrieveRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error) {
-	out := new(KeyCustomerModelResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_Retrieve_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) DestroyKeyCtm(ctx context.Context, in *KeyCtmDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroyKeyCtm_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) Update(ctx context.Context, in *KeyCustomerModelRequest, opts ...grpc.CallOption) (*KeyCustomerModelResponse, error) {
-	out := new(KeyCustomerModelResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_Update_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) DestroyKeyVendor(ctx context.Context, in *KeyVendorDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroyKeyVendor_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *rfidSystemControllerClient) UserWarehouse(ctx context.Context, in *SysUserWarehouseRequest, opts ...grpc.CallOption) (*SysUserWarehouseResponse, error) {
-	out := new(SysUserWarehouseResponse)
-	err := c.cc.Invoke(ctx, RfidSystemController_UserWarehouse_FullMethodName, in, out, opts...)
+func (c *deliverNoticeControllerClient) DestroySupplierTrade(ctx context.Context, in *SupplierTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroySupplierTrade_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RfidSystemControllerServer is the server API for RfidSystemController service.
-// All implementations must embed UnimplementedRfidSystemControllerServer
+func (c *deliverNoticeControllerClient) DestroySupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroySupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) DestroySupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroySupplierTradeStockOutDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) DestroyVendorOperator(ctx context.Context, in *VendorOperatorDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_DestroyVendorOperator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) List(ctx context.Context, in *DeliverNoticeListRequest, opts ...grpc.CallOption) (*DeliverNoticeListResponse, error) {
+	out := new(DeliverNoticeListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListCtmVendorAddr(ctx context.Context, in *CtmVendorAddrListRequest, opts ...grpc.CallOption) (*CtmVendorAddrListResponse, error) {
+	out := new(CtmVendorAddrListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListCtmVendorAddr_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error) {
+	out := new(DeliverNoticeGoodsDetailsListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListKeyCtm(ctx context.Context, in *KeyCtmListRequest, opts ...grpc.CallOption) (*KeyCtmListResponse, error) {
+	out := new(KeyCtmListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListKeyCtm_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListKeyVendor(ctx context.Context, in *KeyVendorListRequest, opts ...grpc.CallOption) (*KeyVendorListResponse, error) {
+	out := new(KeyVendorListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListKeyVendor_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListSupplierTrade(ctx context.Context, in *SupplierTradeListRequest, opts ...grpc.CallOption) (*SupplierTradeListResponse, error) {
+	out := new(SupplierTradeListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListSupplierTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsListRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsListResponse, error) {
+	out := new(SupplierTradeGoodsDetailsListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListSupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsListRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsListResponse, error) {
+	out := new(SupplierTradeStockOutDetailsListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListSupplierTradeStockOutDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) ListVendorOperator(ctx context.Context, in *VendorOperatorListRequest, opts ...grpc.CallOption) (*VendorOperatorListResponse, error) {
+	out := new(VendorOperatorListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListVendorOperator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) NoticeNextDid(ctx context.Context, in *NoticeNextDidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error) {
+	out := new(NoticeNextDidResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_NoticeNextDid_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) NoticeStatusCount(ctx context.Context, in *NoticeStatusCountRequest, opts ...grpc.CallOption) (*NoticeStatusCountListResponse, error) {
+	out := new(NoticeStatusCountListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_NoticeStatusCount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) PartialUpdate(ctx context.Context, in *DeliverNoticePartialUpdateRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error) {
+	out := new(DeliverNoticeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) PurchaseOrder(ctx context.Context, in *PurchaseOrderRequest, opts ...grpc.CallOption) (*PurchaseOrderListResponse, error) {
+	out := new(PurchaseOrderListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_PurchaseOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) Retrieve(ctx context.Context, in *DeliverNoticeRetrieveRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error) {
+	out := new(DeliverNoticeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveCtmVendorAddr(ctx context.Context, in *CtmVendorAddrRetrieveRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error) {
+	out := new(CtmVendorAddrResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveCtmVendorAddr_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error) {
+	out := new(DeliverNoticeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveKeyCtm(ctx context.Context, in *KeyCtmRetrieveRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error) {
+	out := new(KeyCtmResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveKeyCtm_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveKeyVendor(ctx context.Context, in *KeyVendorRetrieveRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error) {
+	out := new(KeyVendorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveKeyVendor_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveSupplierTrade(ctx context.Context, in *SupplierTradeRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error) {
+	out := new(SupplierTradeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveSupplierTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error) {
+	out := new(SupplierTradeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error) {
+	out := new(SupplierTradeStockOutDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) RetrieveVendorOperator(ctx context.Context, in *VendorOperatorRetrieveRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error) {
+	out := new(VendorOperatorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_RetrieveVendorOperator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) SupplierTradeNextTid(ctx context.Context, in *SupplierTradeNextTidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error) {
+	out := new(NoticeNextDidResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_SupplierTradeNextTid_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) SupplierTradeProcess(ctx context.Context, in *DeliverNoticeSupplierTradeProcessRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_SupplierTradeProcess_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) Update(ctx context.Context, in *DeliverNoticeRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error) {
+	out := new(DeliverNoticeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateCtmVendorAddr(ctx context.Context, in *CtmVendorAddrUpdateRequest, opts ...grpc.CallOption) (*CtmVendorAddrResponse, error) {
+	out := new(CtmVendorAddrResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateCtmVendorAddr_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsUpdateRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsResponse, error) {
+	out := new(DeliverNoticeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateKeyCtm(ctx context.Context, in *KeyCtmUpdateRequest, opts ...grpc.CallOption) (*KeyCtmResponse, error) {
+	out := new(KeyCtmResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateKeyCtm_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateKeyVendor(ctx context.Context, in *KeyVendorUpdateRequest, opts ...grpc.CallOption) (*KeyVendorResponse, error) {
+	out := new(KeyVendorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateKeyVendor_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateSupplierTrade(ctx context.Context, in *SupplierTradeUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeResponse, error) {
+	out := new(SupplierTradeResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateSupplierTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error) {
+	out := new(SupplierTradeGoodsDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateSupplierTradeGoodsDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsUpdateRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error) {
+	out := new(SupplierTradeStockOutDetailsResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateSupplierTradeStockOutDetails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) UpdateVendorOperator(ctx context.Context, in *VendorOperatorUpdateRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error) {
+	out := new(VendorOperatorResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_UpdateVendorOperator_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeliverNoticeControllerServer is the server API for DeliverNoticeController service.
+// All implementations must embed UnimplementedDeliverNoticeControllerServer
 // for forward compatibility
-type RfidSystemControllerServer interface {
-	Create(context.Context, *KeyCustomerModelRequest) (*KeyCustomerModelResponse, error)
-	Destroy(context.Context, *KeyCustomerModelDestroyRequest) (*emptypb.Empty, error)
-	List(context.Context, *KeyCustomerModelListRequest) (*KeyCustomerModelListResponse, error)
-	PartialUpdate(context.Context, *KeyCustomerModelPartialUpdateRequest) (*KeyCustomerModelResponse, error)
-	Retrieve(context.Context, *KeyCustomerModelRetrieveRequest) (*KeyCustomerModelResponse, error)
-	Update(context.Context, *KeyCustomerModelRequest) (*KeyCustomerModelResponse, error)
-	UserWarehouse(context.Context, *SysUserWarehouseRequest) (*SysUserWarehouseResponse, error)
-	mustEmbedUnimplementedRfidSystemControllerServer()
+type DeliverNoticeControllerServer interface {
+	BulkCreateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsBulkCreateListRequest) (*DeliverNoticeGoodsDetailsListResponse, error)
+	BulkCreateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsBulkCreateListRequest) (*SupplierTradeGoodsDetailsListResponse, error)
+	Create(context.Context, *DeliverNoticeRequest) (*DeliverNoticeResponse, error)
+	CreateCtmVendorAddr(context.Context, *CtmVendorAddrCreateRequest) (*CtmVendorAddrResponse, error)
+	CreateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsCreateRequest) (*DeliverNoticeGoodsDetailsResponse, error)
+	CreateKeyCtm(context.Context, *KeyCtmCreateRequest) (*KeyCtmResponse, error)
+	CreateKeyVendor(context.Context, *KeyVendorCreateRequest) (*KeyVendorResponse, error)
+	CreateSupplierTrade(context.Context, *SupplierTradeCreateRequest) (*SupplierTradeResponse, error)
+	CreateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsCreateRequest) (*SupplierTradeGoodsDetailsResponse, error)
+	CreateSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsCreateRequest) (*SupplierTradeStockOutDetailsResponse, error)
+	CreateVendorOperator(context.Context, *VendorOperatorCreateRequest) (*VendorOperatorResponse, error)
+	DeliverNoticeOptions(context.Context, *DeliverNoticeOptionsRequest) (*DeliverNoticeOptionsResponse, error)
+	Destroy(context.Context, *DeliverNoticeDestroyRequest) (*emptypb.Empty, error)
+	DestroyCtmVendorAddr(context.Context, *CtmVendorAddrDestroyRequest) (*emptypb.Empty, error)
+	DestroyDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsDestroyRequest) (*emptypb.Empty, error)
+	DestroyKeyCtm(context.Context, *KeyCtmDestroyRequest) (*emptypb.Empty, error)
+	DestroyKeyVendor(context.Context, *KeyVendorDestroyRequest) (*emptypb.Empty, error)
+	DestroySupplierTrade(context.Context, *SupplierTradeDestroyRequest) (*emptypb.Empty, error)
+	DestroySupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsDestroyRequest) (*emptypb.Empty, error)
+	DestroySupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsDestroyRequest) (*emptypb.Empty, error)
+	DestroyVendorOperator(context.Context, *VendorOperatorDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *DeliverNoticeListRequest) (*DeliverNoticeListResponse, error)
+	ListCtmVendorAddr(context.Context, *CtmVendorAddrListRequest) (*CtmVendorAddrListResponse, error)
+	ListDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsListRequest) (*DeliverNoticeGoodsDetailsListResponse, error)
+	ListKeyCtm(context.Context, *KeyCtmListRequest) (*KeyCtmListResponse, error)
+	ListKeyVendor(context.Context, *KeyVendorListRequest) (*KeyVendorListResponse, error)
+	ListSupplierTrade(context.Context, *SupplierTradeListRequest) (*SupplierTradeListResponse, error)
+	ListSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsListRequest) (*SupplierTradeGoodsDetailsListResponse, error)
+	ListSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsListRequest) (*SupplierTradeStockOutDetailsListResponse, error)
+	ListVendorOperator(context.Context, *VendorOperatorListRequest) (*VendorOperatorListResponse, error)
+	NoticeNextDid(context.Context, *NoticeNextDidRequest) (*NoticeNextDidResponse, error)
+	NoticeStatusCount(context.Context, *NoticeStatusCountRequest) (*NoticeStatusCountListResponse, error)
+	PartialUpdate(context.Context, *DeliverNoticePartialUpdateRequest) (*DeliverNoticeResponse, error)
+	PurchaseOrder(context.Context, *PurchaseOrderRequest) (*PurchaseOrderListResponse, error)
+	Retrieve(context.Context, *DeliverNoticeRetrieveRequest) (*DeliverNoticeResponse, error)
+	RetrieveCtmVendorAddr(context.Context, *CtmVendorAddrRetrieveRequest) (*CtmVendorAddrResponse, error)
+	RetrieveDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsRetrieveRequest) (*DeliverNoticeGoodsDetailsResponse, error)
+	RetrieveKeyCtm(context.Context, *KeyCtmRetrieveRequest) (*KeyCtmResponse, error)
+	RetrieveKeyVendor(context.Context, *KeyVendorRetrieveRequest) (*KeyVendorResponse, error)
+	RetrieveSupplierTrade(context.Context, *SupplierTradeRetrieveRequest) (*SupplierTradeResponse, error)
+	RetrieveSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsRetrieveRequest) (*SupplierTradeGoodsDetailsResponse, error)
+	RetrieveSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsRetrieveRequest) (*SupplierTradeStockOutDetailsResponse, error)
+	RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error)
+	SupplierTradeNextTid(context.Context, *SupplierTradeNextTidRequest) (*NoticeNextDidResponse, error)
+	SupplierTradeProcess(context.Context, *DeliverNoticeSupplierTradeProcessRequest) (*emptypb.Empty, error)
+	Update(context.Context, *DeliverNoticeRequest) (*DeliverNoticeResponse, error)
+	UpdateCtmVendorAddr(context.Context, *CtmVendorAddrUpdateRequest) (*CtmVendorAddrResponse, error)
+	UpdateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsUpdateRequest) (*DeliverNoticeGoodsDetailsResponse, error)
+	UpdateKeyCtm(context.Context, *KeyCtmUpdateRequest) (*KeyCtmResponse, error)
+	UpdateKeyVendor(context.Context, *KeyVendorUpdateRequest) (*KeyVendorResponse, error)
+	UpdateSupplierTrade(context.Context, *SupplierTradeUpdateRequest) (*SupplierTradeResponse, error)
+	UpdateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsUpdateRequest) (*SupplierTradeGoodsDetailsResponse, error)
+	UpdateSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsUpdateRequest) (*SupplierTradeStockOutDetailsResponse, error)
+	UpdateVendorOperator(context.Context, *VendorOperatorUpdateRequest) (*VendorOperatorResponse, error)
+	mustEmbedUnimplementedDeliverNoticeControllerServer()
 }
 
-// UnimplementedRfidSystemControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedRfidSystemControllerServer struct {
+// UnimplementedDeliverNoticeControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedDeliverNoticeControllerServer struct {
 }
 
-func (UnimplementedRfidSystemControllerServer) Create(context.Context, *KeyCustomerModelRequest) (*KeyCustomerModelResponse, error) {
+func (UnimplementedDeliverNoticeControllerServer) BulkCreateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsBulkCreateListRequest) (*DeliverNoticeGoodsDetailsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) BulkCreateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsBulkCreateListRequest) (*SupplierTradeGoodsDetailsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateSupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) Create(context.Context, *DeliverNoticeRequest) (*DeliverNoticeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) Destroy(context.Context, *KeyCustomerModelDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedDeliverNoticeControllerServer) CreateCtmVendorAddr(context.Context, *CtmVendorAddrCreateRequest) (*CtmVendorAddrResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmVendorAddr not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsCreateRequest) (*DeliverNoticeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateKeyCtm(context.Context, *KeyCtmCreateRequest) (*KeyCtmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateKeyCtm not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateKeyVendor(context.Context, *KeyVendorCreateRequest) (*KeyVendorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateKeyVendor not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateSupplierTrade(context.Context, *SupplierTradeCreateRequest) (*SupplierTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateSupplierTrade not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsCreateRequest) (*SupplierTradeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateSupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsCreateRequest) (*SupplierTradeStockOutDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateSupplierTradeStockOutDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) CreateVendorOperator(context.Context, *VendorOperatorCreateRequest) (*VendorOperatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DeliverNoticeOptions(context.Context, *DeliverNoticeOptionsRequest) (*DeliverNoticeOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeliverNoticeOptions not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) Destroy(context.Context, *DeliverNoticeDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) List(context.Context, *KeyCustomerModelListRequest) (*KeyCustomerModelListResponse, error) {
+func (UnimplementedDeliverNoticeControllerServer) DestroyCtmVendorAddr(context.Context, *CtmVendorAddrDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmVendorAddr not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroyDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroyKeyCtm(context.Context, *KeyCtmDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyKeyCtm not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroyKeyVendor(context.Context, *KeyVendorDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyKeyVendor not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroySupplierTrade(context.Context, *SupplierTradeDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroySupplierTrade not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroySupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroySupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroySupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroySupplierTradeStockOutDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) DestroyVendorOperator(context.Context, *VendorOperatorDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) List(context.Context, *DeliverNoticeListRequest) (*DeliverNoticeListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) PartialUpdate(context.Context, *KeyCustomerModelPartialUpdateRequest) (*KeyCustomerModelResponse, error) {
+func (UnimplementedDeliverNoticeControllerServer) ListCtmVendorAddr(context.Context, *CtmVendorAddrListRequest) (*CtmVendorAddrListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCtmVendorAddr not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsListRequest) (*DeliverNoticeGoodsDetailsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListKeyCtm(context.Context, *KeyCtmListRequest) (*KeyCtmListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListKeyCtm not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListKeyVendor(context.Context, *KeyVendorListRequest) (*KeyVendorListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListKeyVendor not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListSupplierTrade(context.Context, *SupplierTradeListRequest) (*SupplierTradeListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSupplierTrade not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsListRequest) (*SupplierTradeGoodsDetailsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsListRequest) (*SupplierTradeStockOutDetailsListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSupplierTradeStockOutDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ListVendorOperator(context.Context, *VendorOperatorListRequest) (*VendorOperatorListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) NoticeNextDid(context.Context, *NoticeNextDidRequest) (*NoticeNextDidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NoticeNextDid not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) NoticeStatusCount(context.Context, *NoticeStatusCountRequest) (*NoticeStatusCountListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NoticeStatusCount not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) PartialUpdate(context.Context, *DeliverNoticePartialUpdateRequest) (*DeliverNoticeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) Retrieve(context.Context, *KeyCustomerModelRetrieveRequest) (*KeyCustomerModelResponse, error) {
+func (UnimplementedDeliverNoticeControllerServer) PurchaseOrder(context.Context, *PurchaseOrderRequest) (*PurchaseOrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PurchaseOrder not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) Retrieve(context.Context, *DeliverNoticeRetrieveRequest) (*DeliverNoticeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) Update(context.Context, *KeyCustomerModelRequest) (*KeyCustomerModelResponse, error) {
+func (UnimplementedDeliverNoticeControllerServer) RetrieveCtmVendorAddr(context.Context, *CtmVendorAddrRetrieveRequest) (*CtmVendorAddrResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmVendorAddr not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsRetrieveRequest) (*DeliverNoticeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveKeyCtm(context.Context, *KeyCtmRetrieveRequest) (*KeyCtmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveKeyCtm not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveKeyVendor(context.Context, *KeyVendorRetrieveRequest) (*KeyVendorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveKeyVendor not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveSupplierTrade(context.Context, *SupplierTradeRetrieveRequest) (*SupplierTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveSupplierTrade not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsRetrieveRequest) (*SupplierTradeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveSupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsRetrieveRequest) (*SupplierTradeStockOutDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveSupplierTradeStockOutDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) SupplierTradeNextTid(context.Context, *SupplierTradeNextTidRequest) (*NoticeNextDidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SupplierTradeNextTid not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) SupplierTradeProcess(context.Context, *DeliverNoticeSupplierTradeProcessRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SupplierTradeProcess not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) Update(context.Context, *DeliverNoticeRequest) (*DeliverNoticeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) UserWarehouse(context.Context, *SysUserWarehouseRequest) (*SysUserWarehouseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UserWarehouse not implemented")
+func (UnimplementedDeliverNoticeControllerServer) UpdateCtmVendorAddr(context.Context, *CtmVendorAddrUpdateRequest) (*CtmVendorAddrResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmVendorAddr not implemented")
 }
-func (UnimplementedRfidSystemControllerServer) mustEmbedUnimplementedRfidSystemControllerServer() {}
+func (UnimplementedDeliverNoticeControllerServer) UpdateDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsUpdateRequest) (*DeliverNoticeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateDeliverNoticeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateKeyCtm(context.Context, *KeyCtmUpdateRequest) (*KeyCtmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateKeyCtm not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateKeyVendor(context.Context, *KeyVendorUpdateRequest) (*KeyVendorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateKeyVendor not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateSupplierTrade(context.Context, *SupplierTradeUpdateRequest) (*SupplierTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateSupplierTrade not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsUpdateRequest) (*SupplierTradeGoodsDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateSupplierTradeGoodsDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsUpdateRequest) (*SupplierTradeStockOutDetailsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateSupplierTradeStockOutDetails not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) UpdateVendorOperator(context.Context, *VendorOperatorUpdateRequest) (*VendorOperatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) mustEmbedUnimplementedDeliverNoticeControllerServer() {
+}
 
-// UnsafeRfidSystemControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RfidSystemControllerServer will
+// UnsafeDeliverNoticeControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeliverNoticeControllerServer will
 // result in compilation errors.
-type UnsafeRfidSystemControllerServer interface {
-	mustEmbedUnimplementedRfidSystemControllerServer()
+type UnsafeDeliverNoticeControllerServer interface {
+	mustEmbedUnimplementedDeliverNoticeControllerServer()
 }
 
-func RegisterRfidSystemControllerServer(s grpc.ServiceRegistrar, srv RfidSystemControllerServer) {
-	s.RegisterService(&RfidSystemController_ServiceDesc, srv)
+func RegisterDeliverNoticeControllerServer(s grpc.ServiceRegistrar, srv DeliverNoticeControllerServer) {
+	s.RegisterService(&DeliverNoticeController_ServiceDesc, srv)
 }
 
-func _RfidSystemController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelRequest)
+func _DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsBulkCreateListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).Create(ctx, in)
+		return srv.(DeliverNoticeControllerServer).BulkCreateDeliverNoticeGoodsDetails(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_Create_FullMethodName,
+		FullMethod: DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).Create(ctx, req.(*KeyCustomerModelRequest))
+		return srv.(DeliverNoticeControllerServer).BulkCreateDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsBulkCreateListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelDestroyRequest)
+func _DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsBulkCreateListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).Destroy(ctx, in)
+		return srv.(DeliverNoticeControllerServer).BulkCreateSupplierTradeGoodsDetails(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_Destroy_FullMethodName,
+		FullMethod: DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).Destroy(ctx, req.(*KeyCustomerModelDestroyRequest))
+		return srv.(DeliverNoticeControllerServer).BulkCreateSupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsBulkCreateListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelListRequest)
+func _DeliverNoticeController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).List(ctx, in)
+		return srv.(DeliverNoticeControllerServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_List_FullMethodName,
+		FullMethod: DeliverNoticeController_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).List(ctx, req.(*KeyCustomerModelListRequest))
+		return srv.(DeliverNoticeControllerServer).Create(ctx, req.(*DeliverNoticeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelPartialUpdateRequest)
+func _DeliverNoticeController_CreateCtmVendorAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmVendorAddrCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).PartialUpdate(ctx, in)
+		return srv.(DeliverNoticeControllerServer).CreateCtmVendorAddr(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_PartialUpdate_FullMethodName,
+		FullMethod: DeliverNoticeController_CreateCtmVendorAddr_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).PartialUpdate(ctx, req.(*KeyCustomerModelPartialUpdateRequest))
+		return srv.(DeliverNoticeControllerServer).CreateCtmVendorAddr(ctx, req.(*CtmVendorAddrCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelRetrieveRequest)
+func _DeliverNoticeController_CreateDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).Retrieve(ctx, in)
+		return srv.(DeliverNoticeControllerServer).CreateDeliverNoticeGoodsDetails(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_Retrieve_FullMethodName,
+		FullMethod: DeliverNoticeController_CreateDeliverNoticeGoodsDetails_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).Retrieve(ctx, req.(*KeyCustomerModelRetrieveRequest))
+		return srv.(DeliverNoticeControllerServer).CreateDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyCustomerModelRequest)
+func _DeliverNoticeController_CreateKeyCtm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyCtmCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).Update(ctx, in)
+		return srv.(DeliverNoticeControllerServer).CreateKeyCtm(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_Update_FullMethodName,
+		FullMethod: DeliverNoticeController_CreateKeyCtm_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).Update(ctx, req.(*KeyCustomerModelRequest))
+		return srv.(DeliverNoticeControllerServer).CreateKeyCtm(ctx, req.(*KeyCtmCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RfidSystemController_UserWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SysUserWarehouseRequest)
+func _DeliverNoticeController_CreateKeyVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyVendorCreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RfidSystemControllerServer).UserWarehouse(ctx, in)
+		return srv.(DeliverNoticeControllerServer).CreateKeyVendor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RfidSystemController_UserWarehouse_FullMethodName,
+		FullMethod: DeliverNoticeController_CreateKeyVendor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidSystemControllerServer).UserWarehouse(ctx, req.(*SysUserWarehouseRequest))
+		return srv.(DeliverNoticeControllerServer).CreateKeyVendor(ctx, req.(*KeyVendorCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RfidSystemController_ServiceDesc is the grpc.ServiceDesc for RfidSystemController service.
+func _DeliverNoticeController_CreateSupplierTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_CreateSupplierTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTrade(ctx, req.(*SupplierTradeCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_CreateSupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTradeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_CreateSupplierTradeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_CreateSupplierTradeStockOutDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeStockOutDetailsCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTradeStockOutDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_CreateSupplierTradeStockOutDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).CreateSupplierTradeStockOutDetails(ctx, req.(*SupplierTradeStockOutDetailsCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_CreateVendorOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VendorOperatorCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).CreateVendorOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_CreateVendorOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).CreateVendorOperator(ctx, req.(*VendorOperatorCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DeliverNoticeOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DeliverNoticeOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DeliverNoticeOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DeliverNoticeOptions(ctx, req.(*DeliverNoticeOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).Destroy(ctx, req.(*DeliverNoticeDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroyCtmVendorAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmVendorAddrDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroyCtmVendorAddr(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroyCtmVendorAddr_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroyCtmVendorAddr(ctx, req.(*CtmVendorAddrDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroyDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroyDeliverNoticeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroyDeliverNoticeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroyDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroyKeyCtm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyCtmDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroyKeyCtm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroyKeyCtm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroyKeyCtm(ctx, req.(*KeyCtmDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroyKeyVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyVendorDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroyKeyVendor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroyKeyVendor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroyKeyVendor(ctx, req.(*KeyVendorDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroySupplierTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroySupplierTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTrade(ctx, req.(*SupplierTradeDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroySupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTradeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroySupplierTradeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroySupplierTradeStockOutDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeStockOutDetailsDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTradeStockOutDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroySupplierTradeStockOutDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroySupplierTradeStockOutDetails(ctx, req.(*SupplierTradeStockOutDetailsDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_DestroyVendorOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VendorOperatorDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).DestroyVendorOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_DestroyVendorOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).DestroyVendorOperator(ctx, req.(*VendorOperatorDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).List(ctx, req.(*DeliverNoticeListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListCtmVendorAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmVendorAddrListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListCtmVendorAddr(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListCtmVendorAddr_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListCtmVendorAddr(ctx, req.(*CtmVendorAddrListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListDeliverNoticeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListDeliverNoticeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListKeyCtm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyCtmListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListKeyCtm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListKeyCtm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListKeyCtm(ctx, req.(*KeyCtmListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListKeyVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyVendorListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListKeyVendor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListKeyVendor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListKeyVendor(ctx, req.(*KeyVendorListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListSupplierTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListSupplierTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTrade(ctx, req.(*SupplierTradeListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListSupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTradeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListSupplierTradeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListSupplierTradeStockOutDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeStockOutDetailsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTradeStockOutDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListSupplierTradeStockOutDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListSupplierTradeStockOutDetails(ctx, req.(*SupplierTradeStockOutDetailsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_ListVendorOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VendorOperatorListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListVendorOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListVendorOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListVendorOperator(ctx, req.(*VendorOperatorListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_NoticeNextDid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoticeNextDidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).NoticeNextDid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_NoticeNextDid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).NoticeNextDid(ctx, req.(*NoticeNextDidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_NoticeStatusCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoticeStatusCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).NoticeStatusCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_NoticeStatusCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).NoticeStatusCount(ctx, req.(*NoticeStatusCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticePartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).PartialUpdate(ctx, req.(*DeliverNoticePartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_PurchaseOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PurchaseOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).PurchaseOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_PurchaseOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).PurchaseOrder(ctx, req.(*PurchaseOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).Retrieve(ctx, req.(*DeliverNoticeRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveCtmVendorAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmVendorAddrRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveCtmVendorAddr(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveCtmVendorAddr_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveCtmVendorAddr(ctx, req.(*CtmVendorAddrRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveDeliverNoticeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveDeliverNoticeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveKeyCtm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyCtmRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveKeyCtm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveKeyCtm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveKeyCtm(ctx, req.(*KeyCtmRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveKeyVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyVendorRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveKeyVendor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveKeyVendor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveKeyVendor(ctx, req.(*KeyVendorRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveSupplierTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveSupplierTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTrade(ctx, req.(*SupplierTradeRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTradeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeStockOutDetailsRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTradeStockOutDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveSupplierTradeStockOutDetails(ctx, req.(*SupplierTradeStockOutDetailsRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_RetrieveVendorOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VendorOperatorRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).RetrieveVendorOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_RetrieveVendorOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).RetrieveVendorOperator(ctx, req.(*VendorOperatorRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_SupplierTradeNextTid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeNextTidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).SupplierTradeNextTid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_SupplierTradeNextTid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).SupplierTradeNextTid(ctx, req.(*SupplierTradeNextTidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_SupplierTradeProcess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeSupplierTradeProcessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).SupplierTradeProcess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_SupplierTradeProcess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).SupplierTradeProcess(ctx, req.(*DeliverNoticeSupplierTradeProcessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).Update(ctx, req.(*DeliverNoticeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateCtmVendorAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmVendorAddrUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateCtmVendorAddr(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateCtmVendorAddr_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateCtmVendorAddr(ctx, req.(*CtmVendorAddrUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeGoodsDetailsUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateDeliverNoticeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateDeliverNoticeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateDeliverNoticeGoodsDetails(ctx, req.(*DeliverNoticeGoodsDetailsUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateKeyCtm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyCtmUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateKeyCtm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateKeyCtm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateKeyCtm(ctx, req.(*KeyCtmUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateKeyVendor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyVendorUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateKeyVendor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateKeyVendor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateKeyVendor(ctx, req.(*KeyVendorUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateSupplierTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateSupplierTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTrade(ctx, req.(*SupplierTradeUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateSupplierTradeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeGoodsDetailsUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTradeGoodsDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateSupplierTradeGoodsDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTradeGoodsDetails(ctx, req.(*SupplierTradeGoodsDetailsUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateSupplierTradeStockOutDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SupplierTradeStockOutDetailsUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTradeStockOutDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateSupplierTradeStockOutDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateSupplierTradeStockOutDetails(ctx, req.(*SupplierTradeStockOutDetailsUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_UpdateVendorOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VendorOperatorUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).UpdateVendorOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_UpdateVendorOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).UpdateVendorOperator(ctx, req.(*VendorOperatorUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeliverNoticeController_ServiceDesc is the grpc.ServiceDesc for DeliverNoticeController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RfidSystemController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rfid_service.rfid_ito.RfidSystemController",
-	HandlerType: (*RfidSystemControllerServer)(nil),
+var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rfid_service.rfid_ito.DeliverNoticeController",
+	HandlerType: (*DeliverNoticeControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "BulkCreateDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "BulkCreateSupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_Handler,
+		},
+		{
 			MethodName: "Create",
-			Handler:    _RfidSystemController_Create_Handler,
+			Handler:    _DeliverNoticeController_Create_Handler,
+		},
+		{
+			MethodName: "CreateCtmVendorAddr",
+			Handler:    _DeliverNoticeController_CreateCtmVendorAddr_Handler,
+		},
+		{
+			MethodName: "CreateDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_CreateDeliverNoticeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "CreateKeyCtm",
+			Handler:    _DeliverNoticeController_CreateKeyCtm_Handler,
+		},
+		{
+			MethodName: "CreateKeyVendor",
+			Handler:    _DeliverNoticeController_CreateKeyVendor_Handler,
+		},
+		{
+			MethodName: "CreateSupplierTrade",
+			Handler:    _DeliverNoticeController_CreateSupplierTrade_Handler,
+		},
+		{
+			MethodName: "CreateSupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_CreateSupplierTradeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "CreateSupplierTradeStockOutDetails",
+			Handler:    _DeliverNoticeController_CreateSupplierTradeStockOutDetails_Handler,
+		},
+		{
+			MethodName: "CreateVendorOperator",
+			Handler:    _DeliverNoticeController_CreateVendorOperator_Handler,
+		},
+		{
+			MethodName: "DeliverNoticeOptions",
+			Handler:    _DeliverNoticeController_DeliverNoticeOptions_Handler,
 		},
 		{
 			MethodName: "Destroy",
-			Handler:    _RfidSystemController_Destroy_Handler,
+			Handler:    _DeliverNoticeController_Destroy_Handler,
+		},
+		{
+			MethodName: "DestroyCtmVendorAddr",
+			Handler:    _DeliverNoticeController_DestroyCtmVendorAddr_Handler,
+		},
+		{
+			MethodName: "DestroyDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_DestroyDeliverNoticeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "DestroyKeyCtm",
+			Handler:    _DeliverNoticeController_DestroyKeyCtm_Handler,
+		},
+		{
+			MethodName: "DestroyKeyVendor",
+			Handler:    _DeliverNoticeController_DestroyKeyVendor_Handler,
+		},
+		{
+			MethodName: "DestroySupplierTrade",
+			Handler:    _DeliverNoticeController_DestroySupplierTrade_Handler,
+		},
+		{
+			MethodName: "DestroySupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_DestroySupplierTradeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "DestroySupplierTradeStockOutDetails",
+			Handler:    _DeliverNoticeController_DestroySupplierTradeStockOutDetails_Handler,
+		},
+		{
+			MethodName: "DestroyVendorOperator",
+			Handler:    _DeliverNoticeController_DestroyVendorOperator_Handler,
 		},
 		{
 			MethodName: "List",
-			Handler:    _RfidSystemController_List_Handler,
+			Handler:    _DeliverNoticeController_List_Handler,
+		},
+		{
+			MethodName: "ListCtmVendorAddr",
+			Handler:    _DeliverNoticeController_ListCtmVendorAddr_Handler,
+		},
+		{
+			MethodName: "ListDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_ListDeliverNoticeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "ListKeyCtm",
+			Handler:    _DeliverNoticeController_ListKeyCtm_Handler,
+		},
+		{
+			MethodName: "ListKeyVendor",
+			Handler:    _DeliverNoticeController_ListKeyVendor_Handler,
+		},
+		{
+			MethodName: "ListSupplierTrade",
+			Handler:    _DeliverNoticeController_ListSupplierTrade_Handler,
+		},
+		{
+			MethodName: "ListSupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_ListSupplierTradeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "ListSupplierTradeStockOutDetails",
+			Handler:    _DeliverNoticeController_ListSupplierTradeStockOutDetails_Handler,
+		},
+		{
+			MethodName: "ListVendorOperator",
+			Handler:    _DeliverNoticeController_ListVendorOperator_Handler,
+		},
+		{
+			MethodName: "NoticeNextDid",
+			Handler:    _DeliverNoticeController_NoticeNextDid_Handler,
+		},
+		{
+			MethodName: "NoticeStatusCount",
+			Handler:    _DeliverNoticeController_NoticeStatusCount_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
-			Handler:    _RfidSystemController_PartialUpdate_Handler,
+			Handler:    _DeliverNoticeController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "PurchaseOrder",
+			Handler:    _DeliverNoticeController_PurchaseOrder_Handler,
 		},
 		{
 			MethodName: "Retrieve",
-			Handler:    _RfidSystemController_Retrieve_Handler,
+			Handler:    _DeliverNoticeController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RetrieveCtmVendorAddr",
+			Handler:    _DeliverNoticeController_RetrieveCtmVendorAddr_Handler,
+		},
+		{
+			MethodName: "RetrieveDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_RetrieveDeliverNoticeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "RetrieveKeyCtm",
+			Handler:    _DeliverNoticeController_RetrieveKeyCtm_Handler,
+		},
+		{
+			MethodName: "RetrieveKeyVendor",
+			Handler:    _DeliverNoticeController_RetrieveKeyVendor_Handler,
+		},
+		{
+			MethodName: "RetrieveSupplierTrade",
+			Handler:    _DeliverNoticeController_RetrieveSupplierTrade_Handler,
+		},
+		{
+			MethodName: "RetrieveSupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_Handler,
+		},
+		{
+			MethodName: "RetrieveSupplierTradeStockOutDetails",
+			Handler:    _DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_Handler,
+		},
+		{
+			MethodName: "RetrieveVendorOperator",
+			Handler:    _DeliverNoticeController_RetrieveVendorOperator_Handler,
+		},
+		{
+			MethodName: "SupplierTradeNextTid",
+			Handler:    _DeliverNoticeController_SupplierTradeNextTid_Handler,
+		},
+		{
+			MethodName: "SupplierTradeProcess",
+			Handler:    _DeliverNoticeController_SupplierTradeProcess_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _RfidSystemController_Update_Handler,
+			Handler:    _DeliverNoticeController_Update_Handler,
 		},
 		{
-			MethodName: "UserWarehouse",
-			Handler:    _RfidSystemController_UserWarehouse_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "rfid_ito.proto",
-}
-
-const (
-	RfidWarehouseController_Create_FullMethodName            = "/rfid_service.rfid_ito.RfidWarehouseController/Create"
-	RfidWarehouseController_Destroy_FullMethodName           = "/rfid_service.rfid_ito.RfidWarehouseController/Destroy"
-	RfidWarehouseController_List_FullMethodName              = "/rfid_service.rfid_ito.RfidWarehouseController/List"
-	RfidWarehouseController_PartialUpdate_FullMethodName     = "/rfid_service.rfid_ito.RfidWarehouseController/PartialUpdate"
-	RfidWarehouseController_Retrieve_FullMethodName          = "/rfid_service.rfid_ito.RfidWarehouseController/Retrieve"
-	RfidWarehouseController_TradeNextTid_FullMethodName      = "/rfid_service.rfid_ito.RfidWarehouseController/TradeNextTid"
-	RfidWarehouseController_TradeStatusChange_FullMethodName = "/rfid_service.rfid_ito.RfidWarehouseController/TradeStatusChange"
-	RfidWarehouseController_Update_FullMethodName            = "/rfid_service.rfid_ito.RfidWarehouseController/Update"
-)
-
-// RfidWarehouseControllerClient is the client API for RfidWarehouseController service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RfidWarehouseControllerClient interface {
-	Create(ctx context.Context, in *ProviderTradeModelRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error)
-	Destroy(ctx context.Context, in *ProviderTradeModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	List(ctx context.Context, in *ProviderTradeModelListRequest, opts ...grpc.CallOption) (*ProviderTradeModelListResponse, error)
-	PartialUpdate(ctx context.Context, in *ProviderTradeModelPartialUpdateRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error)
-	Retrieve(ctx context.Context, in *ProviderTradeModelRetrieveRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error)
-	TradeNextTid(ctx context.Context, in *TradeNextTidRequest, opts ...grpc.CallOption) (*TradeNextTidResponse, error)
-	TradeStatusChange(ctx context.Context, in *TradeStatusChangeRequest, opts ...grpc.CallOption) (*TradeStatusChangeResponse, error)
-	Update(ctx context.Context, in *ProviderTradeModelRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error)
-}
-
-type rfidWarehouseControllerClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRfidWarehouseControllerClient(cc grpc.ClientConnInterface) RfidWarehouseControllerClient {
-	return &rfidWarehouseControllerClient{cc}
-}
-
-func (c *rfidWarehouseControllerClient) Create(ctx context.Context, in *ProviderTradeModelRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error) {
-	out := new(ProviderTradeModelResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_Create_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) Destroy(ctx context.Context, in *ProviderTradeModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_Destroy_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) List(ctx context.Context, in *ProviderTradeModelListRequest, opts ...grpc.CallOption) (*ProviderTradeModelListResponse, error) {
-	out := new(ProviderTradeModelListResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_List_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) PartialUpdate(ctx context.Context, in *ProviderTradeModelPartialUpdateRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error) {
-	out := new(ProviderTradeModelResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_PartialUpdate_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) Retrieve(ctx context.Context, in *ProviderTradeModelRetrieveRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error) {
-	out := new(ProviderTradeModelResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_Retrieve_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) TradeNextTid(ctx context.Context, in *TradeNextTidRequest, opts ...grpc.CallOption) (*TradeNextTidResponse, error) {
-	out := new(TradeNextTidResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_TradeNextTid_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) TradeStatusChange(ctx context.Context, in *TradeStatusChangeRequest, opts ...grpc.CallOption) (*TradeStatusChangeResponse, error) {
-	out := new(TradeStatusChangeResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_TradeStatusChange_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rfidWarehouseControllerClient) Update(ctx context.Context, in *ProviderTradeModelRequest, opts ...grpc.CallOption) (*ProviderTradeModelResponse, error) {
-	out := new(ProviderTradeModelResponse)
-	err := c.cc.Invoke(ctx, RfidWarehouseController_Update_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RfidWarehouseControllerServer is the server API for RfidWarehouseController service.
-// All implementations must embed UnimplementedRfidWarehouseControllerServer
-// for forward compatibility
-type RfidWarehouseControllerServer interface {
-	Create(context.Context, *ProviderTradeModelRequest) (*ProviderTradeModelResponse, error)
-	Destroy(context.Context, *ProviderTradeModelDestroyRequest) (*emptypb.Empty, error)
-	List(context.Context, *ProviderTradeModelListRequest) (*ProviderTradeModelListResponse, error)
-	PartialUpdate(context.Context, *ProviderTradeModelPartialUpdateRequest) (*ProviderTradeModelResponse, error)
-	Retrieve(context.Context, *ProviderTradeModelRetrieveRequest) (*ProviderTradeModelResponse, error)
-	TradeNextTid(context.Context, *TradeNextTidRequest) (*TradeNextTidResponse, error)
-	TradeStatusChange(context.Context, *TradeStatusChangeRequest) (*TradeStatusChangeResponse, error)
-	Update(context.Context, *ProviderTradeModelRequest) (*ProviderTradeModelResponse, error)
-	mustEmbedUnimplementedRfidWarehouseControllerServer()
-}
-
-// UnimplementedRfidWarehouseControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedRfidWarehouseControllerServer struct {
-}
-
-func (UnimplementedRfidWarehouseControllerServer) Create(context.Context, *ProviderTradeModelRequest) (*ProviderTradeModelResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) Destroy(context.Context, *ProviderTradeModelDestroyRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) List(context.Context, *ProviderTradeModelListRequest) (*ProviderTradeModelListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) PartialUpdate(context.Context, *ProviderTradeModelPartialUpdateRequest) (*ProviderTradeModelResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) Retrieve(context.Context, *ProviderTradeModelRetrieveRequest) (*ProviderTradeModelResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) TradeNextTid(context.Context, *TradeNextTidRequest) (*TradeNextTidResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TradeNextTid not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) TradeStatusChange(context.Context, *TradeStatusChangeRequest) (*TradeStatusChangeResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TradeStatusChange not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) Update(context.Context, *ProviderTradeModelRequest) (*ProviderTradeModelResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
-}
-func (UnimplementedRfidWarehouseControllerServer) mustEmbedUnimplementedRfidWarehouseControllerServer() {
-}
-
-// UnsafeRfidWarehouseControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RfidWarehouseControllerServer will
-// result in compilation errors.
-type UnsafeRfidWarehouseControllerServer interface {
-	mustEmbedUnimplementedRfidWarehouseControllerServer()
-}
-
-func RegisterRfidWarehouseControllerServer(s grpc.ServiceRegistrar, srv RfidWarehouseControllerServer) {
-	s.RegisterService(&RfidWarehouseController_ServiceDesc, srv)
-}
-
-func _RfidWarehouseController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_Create_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).Create(ctx, req.(*ProviderTradeModelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelDestroyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).Destroy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_Destroy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).Destroy(ctx, req.(*ProviderTradeModelDestroyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).List(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_List_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).List(ctx, req.(*ProviderTradeModelListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelPartialUpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).PartialUpdate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_PartialUpdate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).PartialUpdate(ctx, req.(*ProviderTradeModelPartialUpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelRetrieveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).Retrieve(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_Retrieve_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).Retrieve(ctx, req.(*ProviderTradeModelRetrieveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_TradeNextTid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TradeNextTidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).TradeNextTid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_TradeNextTid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).TradeNextTid(ctx, req.(*TradeNextTidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_TradeStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TradeStatusChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).TradeStatusChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_TradeStatusChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).TradeStatusChange(ctx, req.(*TradeStatusChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RfidWarehouseController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProviderTradeModelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RfidWarehouseControllerServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RfidWarehouseController_Update_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RfidWarehouseControllerServer).Update(ctx, req.(*ProviderTradeModelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RfidWarehouseController_ServiceDesc is the grpc.ServiceDesc for RfidWarehouseController service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RfidWarehouseController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rfid_service.rfid_ito.RfidWarehouseController",
-	HandlerType: (*RfidWarehouseControllerServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Create",
-			Handler:    _RfidWarehouseController_Create_Handler,
+			MethodName: "UpdateCtmVendorAddr",
+			Handler:    _DeliverNoticeController_UpdateCtmVendorAddr_Handler,
 		},
 		{
-			MethodName: "Destroy",
-			Handler:    _RfidWarehouseController_Destroy_Handler,
+			MethodName: "UpdateDeliverNoticeGoodsDetails",
+			Handler:    _DeliverNoticeController_UpdateDeliverNoticeGoodsDetails_Handler,
 		},
 		{
-			MethodName: "List",
-			Handler:    _RfidWarehouseController_List_Handler,
+			MethodName: "UpdateKeyCtm",
+			Handler:    _DeliverNoticeController_UpdateKeyCtm_Handler,
 		},
 		{
-			MethodName: "PartialUpdate",
-			Handler:    _RfidWarehouseController_PartialUpdate_Handler,
+			MethodName: "UpdateKeyVendor",
+			Handler:    _DeliverNoticeController_UpdateKeyVendor_Handler,
 		},
 		{
-			MethodName: "Retrieve",
-			Handler:    _RfidWarehouseController_Retrieve_Handler,
+			MethodName: "UpdateSupplierTrade",
+			Handler:    _DeliverNoticeController_UpdateSupplierTrade_Handler,
 		},
 		{
-			MethodName: "TradeNextTid",
-			Handler:    _RfidWarehouseController_TradeNextTid_Handler,
+			MethodName: "UpdateSupplierTradeGoodsDetails",
+			Handler:    _DeliverNoticeController_UpdateSupplierTradeGoodsDetails_Handler,
 		},
 		{
-			MethodName: "TradeStatusChange",
-			Handler:    _RfidWarehouseController_TradeStatusChange_Handler,
+			MethodName: "UpdateSupplierTradeStockOutDetails",
+			Handler:    _DeliverNoticeController_UpdateSupplierTradeStockOutDetails_Handler,
 		},
 		{
-			MethodName: "Update",
-			Handler:    _RfidWarehouseController_Update_Handler,
+			MethodName: "UpdateVendorOperator",
+			Handler:    _DeliverNoticeController_UpdateVendorOperator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

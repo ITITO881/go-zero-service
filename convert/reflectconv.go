@@ -37,7 +37,7 @@ func (c ReflectTag) FindKeys(tag string) []string {
 func (c ReflectTag) GetFilterData(tag string) string {
 	reqValue := reflect.ValueOf(c.Value).Elem()
 	reqType := reqValue.Type()
-	filterData := make(map[string]string)
+	filterData := make(map[string]interface{})
 	for i := 0; i < reqType.NumField(); i++ {
 		// 仅处理可选的 筛选参数
 		if reqValue.Field(i).Kind() == reflect.Ptr {
@@ -48,7 +48,7 @@ func (c ReflectTag) GetFilterData(tag string) string {
 			if reqValue.Field(i).Elem().Kind() == reflect.String {
 				filterData[fTag] = reqValue.Field(i).Elem().String()
 			} else if reqValue.Field(i).Elem().Kind() == reflect.Int32 || reqValue.Field(i).Elem().Kind() == reflect.Int64 {
-				filterData[fTag] = strconv.FormatInt(reqValue.Field(i).Elem().Int(), 10)
+				filterData[fTag] = reqValue.Field(i).Elem().Int()
 			} else if reqValue.Field(i).Elem().Kind() == reflect.Bool {
 				bJson, _ := json.Marshal(reqValue.Field(i).Elem().Bool())
 				filterData[fTag] = string(bJson)
@@ -81,4 +81,37 @@ func (c ReflectTag) GetMap(tag string) map[string]interface{} {
 		}
 	}
 	return filterData
+}
+
+// MapToStr map转字符串
+func MapToStr(req map[string]interface{}) (resp string) {
+	jsonMap, _ := json.Marshal(req)
+	return string(jsonMap)
+}
+
+// StructToStruct 结构体转新结构体
+func StructToStruct(rawStruct interface{}, tarStruct interface{}) (err error) {
+	reqJson, err := json.Marshal(rawStruct)
+	err = json.Unmarshal(reqJson, tarStruct)
+	return
+}
+
+func String(value string) *string {
+	return &value
+}
+
+func Int32(value int32) *int32 {
+	return &value
+}
+
+func Int64(value int64) *int64 {
+	return &value
+}
+
+func Float64(value float64) *float64 {
+	return &value
+}
+
+func Bool(value bool) *bool {
+	return &value
 }

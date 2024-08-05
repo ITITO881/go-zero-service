@@ -27,6 +27,7 @@ func init() {
 	message[GET_TOKEN_FAIL] = "用户获取TOKEN失败"
 	message[WECHAT_PHONE_CODE_FAIL] = "微信小程序手机授权code验证失败"
 	message[TOKEN_PARSE_FAIL] = "Token解析值错误"
+	message[WECHAT_SECURITY_FAIL] = "文案中包含不良内容，请修改后重新提交。"
 
 	// 客户数据库相关错误
 	message[CTM_BASE_USER_EXIST] = "微信会员已存在，不能二次注册"
@@ -49,6 +50,7 @@ func init() {
 	message[ACTIVITY_NOT_AVALIABLE] = "活动已失效"
 	message[ACTIVITY_NOT_STARTED] = "活动尚未开启"
 	message[COUPON_TAKE_LIMIT] = "优惠券领取数量已达上限"
+	message[ACTIVITY_NEED_ATTEND] = "请先参与征集活动"
 
 	// 订单 配置表 相关错误
 	message[ORDER_CONF_TRADE_TYPE_FAIL] = "订单类型获取错误"
@@ -119,6 +121,7 @@ func init() {
 	message[PRODUCT_NOT_MATCH] = "产品信息不匹配"
 	message[PRODUCT_NOT_SUPPORT_AFTERSALE] = "当前产品不支持售后"
 	message[PRODUCT_ON_AFTERSALE] = "当前产品维修/售后中"
+	message[PRODUCT_IS_INVALID] = "产品已下架，请重新选择"
 
 	// 服务单 相关错误
 	message[SERVICE_RPC_FAIL] = "服务单RPC 失败"
@@ -151,6 +154,15 @@ func init() {
 	message[EXP_CLIENT_QUERY_FAIL] = "快递单号 客户端 查询失败"
 
 	payState[WX_PAY_DETAIL_NOT_PAY] = "待支付"
+
+	// 品牌活动相关
+	message[BRAND_ACTIVITY_NOT_EXIST] = "活动不存在"
+	message[BRAND_ACTIVITY_NOT_START] = "活动尚未开始，敬请期待"
+	message[BRAND_ACTIVITY_NOT_AVAILABLE] = "活动已停止报名"
+	message[BRAND_ACTIVITY_EXPIRED] = "活动已结束"
+	message[BRAND_BACTIVITY_ACCEPTED] = "您已领取该活动卡券，，请前往权益卡列表查看"
+	message[BRAND_ACTIVITY_FINISHED] = "手慢了，卡券已被领取完"
+
 }
 
 func MapErrMsg(errCode uint32) string {

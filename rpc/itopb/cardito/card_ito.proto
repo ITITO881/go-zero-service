@@ -6,14 +6,14 @@ import "google/protobuf/empty.proto";
 
 option go_package = "../cardito";
 
-service CardCaresController {
-  rpc Create(CardCaresRequest) returns (CardCaresResponse) {}
-  rpc Destroy(CardCaresDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc List(CardCaresListRequest) returns (CardCaresListResponse) {}
-  rpc Options(OptionRequest) returns (CardCaresOptionResponse) {}
-  rpc PartialUpdate(CardCaresPartialUpdateRequest) returns (CardCaresResponse) {}
-  rpc Retrieve(CardCaresRetrieveRequest) returns (CardCaresResponse) {}
-  rpc Update(CardCaresRequest) returns (CardCaresResponse) {}
+service CardCareController {
+  rpc Create(CardCareRequest) returns (CardCareResponse) {}
+  rpc Destroy(CardCareDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(CardCareListRequest) returns (CardCareListResponse) {}
+  rpc Options(OptionRequest) returns (CardCareOptionResponse) {}
+  rpc PartialUpdate(CardCarePartialUpdateRequest) returns (CardCareResponse) {}
+  rpc Retrieve(CardCareRetrieveRequest) returns (CardCareResponse) {}
+  rpc Update(CardCareRequest) returns (CardCareResponse) {}
 }
 
 service CardMemberController {
@@ -45,26 +45,26 @@ service CardVoucherController {
   rpc Update(CardVoucherRequest) returns (CardVoucherResponse) {}
 }
 
-message CardCaresDestroyRequest {
+message CardCareDestroyRequest {
   int32 id = 1;
 }
 
-message CardCaresListRequest {
-  string filters = 2;
+message CardCareListRequest {
+  string filters = 1;
 }
 
-message CardCaresListResponse {
-  repeated CardCaresResponse results = 1;
+message CardCareListResponse {
+  repeated CardCareResponse results = 1;
   int32 count = 2;
 }
 
-message CardCaresOptionResponse {
+message CardCareOptionResponse {
   repeated LabelValueResponse time_units = 1;
   repeated LabelValueResponse status = 2;
-  repeated LabelValueResponse types = 3;
+  repeated LabelNumberValueResponse types = 3;
 }
 
-message CardCaresPartialUpdateRequest {
+message CardCarePartialUpdateRequest {
   int32 id = 1;
   string filters = 2;
   repeated string _partial_update_fields = 3;
@@ -78,7 +78,7 @@ message CardCaresPartialUpdateRequest {
   optional string remark = 11;
 }
 
-message CardCaresRequest {
+message CardCareRequest {
   int32 id = 1;
   string filters = 2;
   optional string name = 3;
@@ -91,7 +91,7 @@ message CardCaresRequest {
   optional string remark = 10;
 }
 
-message CardCaresResponse {
+message CardCareResponse {
   int32 id = 1;
   optional string name = 2;
   int32 type = 3;
@@ -105,7 +105,7 @@ message CardCaresResponse {
   string update_time = 11;
 }
 
-message CardCaresRetrieveRequest {
+message CardCareRetrieveRequest {
   int32 id = 1;
 }
 
@@ -315,3 +315,4 @@ message NextSerialRequest {
 
 message OptionRequest {
 }
+

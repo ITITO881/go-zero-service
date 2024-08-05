@@ -20,34 +20,46 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	CtmItoController_ChangeSelectedAllCart_FullMethodName = "/customer_service.customer_ito.CtmItoController/ChangeSelectedAllCart"
-	CtmItoController_Create_FullMethodName                = "/customer_service.customer_ito.CtmItoController/Create"
-	CtmItoController_CreateAddr_FullMethodName            = "/customer_service.customer_ito.CtmItoController/CreateAddr"
-	CtmItoController_CreateCart_FullMethodName            = "/customer_service.customer_ito.CtmItoController/CreateCart"
-	CtmItoController_CreateCtmCardCares_FullMethodName    = "/customer_service.customer_ito.CtmItoController/CreateCtmCardCares"
-	CtmItoController_CreateCtmProduct_FullMethodName      = "/customer_service.customer_ito.CtmItoController/CreateCtmProduct"
-	CtmItoController_DefaultAddr_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DefaultAddr"
-	CtmItoController_Destroy_FullMethodName               = "/customer_service.customer_ito.CtmItoController/Destroy"
-	CtmItoController_DestroyAddr_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DestroyAddr"
-	CtmItoController_DestroyCart_FullMethodName           = "/customer_service.customer_ito.CtmItoController/DestroyCart"
-	CtmItoController_DestroyCtmCardCares_FullMethodName   = "/customer_service.customer_ito.CtmItoController/DestroyCtmCardCares"
-	CtmItoController_DestroyCtmProduct_FullMethodName     = "/customer_service.customer_ito.CtmItoController/DestroyCtmProduct"
-	CtmItoController_List_FullMethodName                  = "/customer_service.customer_ito.CtmItoController/List"
-	CtmItoController_ListAddr_FullMethodName              = "/customer_service.customer_ito.CtmItoController/ListAddr"
-	CtmItoController_ListCart_FullMethodName              = "/customer_service.customer_ito.CtmItoController/ListCart"
-	CtmItoController_ListCtmCardCares_FullMethodName      = "/customer_service.customer_ito.CtmItoController/ListCtmCardCares"
-	CtmItoController_ListCtmProduct_FullMethodName        = "/customer_service.customer_ito.CtmItoController/ListCtmProduct"
-	CtmItoController_PartialUpdate_FullMethodName         = "/customer_service.customer_ito.CtmItoController/PartialUpdate"
-	CtmItoController_Retrieve_FullMethodName              = "/customer_service.customer_ito.CtmItoController/Retrieve"
-	CtmItoController_RetrieveAddr_FullMethodName          = "/customer_service.customer_ito.CtmItoController/RetrieveAddr"
-	CtmItoController_RetrieveCart_FullMethodName          = "/customer_service.customer_ito.CtmItoController/RetrieveCart"
-	CtmItoController_RetrieveCtmCardCares_FullMethodName  = "/customer_service.customer_ito.CtmItoController/RetrieveCtmCardCares"
-	CtmItoController_RetrieveCtmProduct_FullMethodName    = "/customer_service.customer_ito.CtmItoController/RetrieveCtmProduct"
-	CtmItoController_Update_FullMethodName                = "/customer_service.customer_ito.CtmItoController/Update"
-	CtmItoController_UpdateAddr_FullMethodName            = "/customer_service.customer_ito.CtmItoController/UpdateAddr"
-	CtmItoController_UpdateCart_FullMethodName            = "/customer_service.customer_ito.CtmItoController/UpdateCart"
-	CtmItoController_UpdateCtmCardCares_FullMethodName    = "/customer_service.customer_ito.CtmItoController/UpdateCtmCardCares"
-	CtmItoController_UpdateCtmProduct_FullMethodName      = "/customer_service.customer_ito.CtmItoController/UpdateCtmProduct"
+	CtmItoController_ChangeSelectedAllCart_FullMethodName   = "/customer_service.customer_ito.CtmItoController/ChangeSelectedAllCart"
+	CtmItoController_Create_FullMethodName                  = "/customer_service.customer_ito.CtmItoController/Create"
+	CtmItoController_CreateAddr_FullMethodName              = "/customer_service.customer_ito.CtmItoController/CreateAddr"
+	CtmItoController_CreateCart_FullMethodName              = "/customer_service.customer_ito.CtmItoController/CreateCart"
+	CtmItoController_CreateCtmCardCares_FullMethodName      = "/customer_service.customer_ito.CtmItoController/CreateCtmCardCares"
+	CtmItoController_CreateCtmProduct_FullMethodName        = "/customer_service.customer_ito.CtmItoController/CreateCtmProduct"
+	CtmItoController_CreateCtmWallet_FullMethodName         = "/customer_service.customer_ito.CtmItoController/CreateCtmWallet"
+	CtmItoController_CreateCtmWalletRecord_FullMethodName   = "/customer_service.customer_ito.CtmItoController/CreateCtmWalletRecord"
+	CtmItoController_DefaultAddr_FullMethodName             = "/customer_service.customer_ito.CtmItoController/DefaultAddr"
+	CtmItoController_Destroy_FullMethodName                 = "/customer_service.customer_ito.CtmItoController/Destroy"
+	CtmItoController_DestroyAddr_FullMethodName             = "/customer_service.customer_ito.CtmItoController/DestroyAddr"
+	CtmItoController_DestroyCart_FullMethodName             = "/customer_service.customer_ito.CtmItoController/DestroyCart"
+	CtmItoController_DestroyCtmCardCares_FullMethodName     = "/customer_service.customer_ito.CtmItoController/DestroyCtmCardCares"
+	CtmItoController_DestroyCtmProduct_FullMethodName       = "/customer_service.customer_ito.CtmItoController/DestroyCtmProduct"
+	CtmItoController_DestroyCtmWallet_FullMethodName        = "/customer_service.customer_ito.CtmItoController/DestroyCtmWallet"
+	CtmItoController_DestroyCtmWalletRecord_FullMethodName  = "/customer_service.customer_ito.CtmItoController/DestroyCtmWalletRecord"
+	CtmItoController_List_FullMethodName                    = "/customer_service.customer_ito.CtmItoController/List"
+	CtmItoController_ListAddr_FullMethodName                = "/customer_service.customer_ito.CtmItoController/ListAddr"
+	CtmItoController_ListCart_FullMethodName                = "/customer_service.customer_ito.CtmItoController/ListCart"
+	CtmItoController_ListCtmCardCares_FullMethodName        = "/customer_service.customer_ito.CtmItoController/ListCtmCardCares"
+	CtmItoController_ListCtmProduct_FullMethodName          = "/customer_service.customer_ito.CtmItoController/ListCtmProduct"
+	CtmItoController_ListCtmWallet_FullMethodName           = "/customer_service.customer_ito.CtmItoController/ListCtmWallet"
+	CtmItoController_ListCtmWalletRecord_FullMethodName     = "/customer_service.customer_ito.CtmItoController/ListCtmWalletRecord"
+	CtmItoController_NextCardNoCtmWallet_FullMethodName     = "/customer_service.customer_ito.CtmItoController/NextCardNoCtmWallet"
+	CtmItoController_OptionsCtmWallet_FullMethodName        = "/customer_service.customer_ito.CtmItoController/OptionsCtmWallet"
+	CtmItoController_PartialUpdate_FullMethodName           = "/customer_service.customer_ito.CtmItoController/PartialUpdate"
+	CtmItoController_Retrieve_FullMethodName                = "/customer_service.customer_ito.CtmItoController/Retrieve"
+	CtmItoController_RetrieveAddr_FullMethodName            = "/customer_service.customer_ito.CtmItoController/RetrieveAddr"
+	CtmItoController_RetrieveCart_FullMethodName            = "/customer_service.customer_ito.CtmItoController/RetrieveCart"
+	CtmItoController_RetrieveCtmCardCares_FullMethodName    = "/customer_service.customer_ito.CtmItoController/RetrieveCtmCardCares"
+	CtmItoController_RetrieveCtmProduct_FullMethodName      = "/customer_service.customer_ito.CtmItoController/RetrieveCtmProduct"
+	CtmItoController_RetrieveCtmWallet_FullMethodName       = "/customer_service.customer_ito.CtmItoController/RetrieveCtmWallet"
+	CtmItoController_RetrieveCtmWalletRecord_FullMethodName = "/customer_service.customer_ito.CtmItoController/RetrieveCtmWalletRecord"
+	CtmItoController_Update_FullMethodName                  = "/customer_service.customer_ito.CtmItoController/Update"
+	CtmItoController_UpdateAddr_FullMethodName              = "/customer_service.customer_ito.CtmItoController/UpdateAddr"
+	CtmItoController_UpdateCart_FullMethodName              = "/customer_service.customer_ito.CtmItoController/UpdateCart"
+	CtmItoController_UpdateCtmCardCares_FullMethodName      = "/customer_service.customer_ito.CtmItoController/UpdateCtmCardCares"
+	CtmItoController_UpdateCtmProduct_FullMethodName        = "/customer_service.customer_ito.CtmItoController/UpdateCtmProduct"
+	CtmItoController_UpdateCtmWallet_FullMethodName         = "/customer_service.customer_ito.CtmItoController/UpdateCtmWallet"
+	CtmItoController_UpdateCtmWalletRecord_FullMethodName   = "/customer_service.customer_ito.CtmItoController/UpdateCtmWalletRecord"
 )
 
 // CtmItoControllerClient is the client API for CtmItoController service.
@@ -60,28 +72,40 @@ type CtmItoControllerClient interface {
 	CreateCart(ctx context.Context, in *CtmCartCreateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
 	CreateCtmCardCares(ctx context.Context, in *CtmCardCaresCreateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
 	CreateCtmProduct(ctx context.Context, in *CtmProductCreateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
+	CreateCtmWallet(ctx context.Context, in *CreateCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error)
+	CreateCtmWalletRecord(ctx context.Context, in *CreateCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error)
 	DefaultAddr(ctx context.Context, in *CtmDefaultAddrRequest, opts ...grpc.CallOption) (*CtmItoDefaultAddrResponse, error)
 	Destroy(ctx context.Context, in *CtmBaseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyAddr(ctx context.Context, in *CtmAddrDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyCart(ctx context.Context, in *CtmCartDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyCtmCardCares(ctx context.Context, in *CtmItoDestroyCtmCardCaresRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyCtmProduct(ctx context.Context, in *CtmItoDestroyCtmProductRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCtmWallet(ctx context.Context, in *DestroyCtmWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyCtmWalletRecord(ctx context.Context, in *DestroyCtmWalletRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *CtmBaseListRequest, opts ...grpc.CallOption) (*CtmBaseListResponse, error)
 	ListAddr(ctx context.Context, in *CtmAddrListRequest, opts ...grpc.CallOption) (*CtmAddrListResponse, error)
 	ListCart(ctx context.Context, in *CtmCartListRequest, opts ...grpc.CallOption) (*CtmCartListResponse, error)
 	ListCtmCardCares(ctx context.Context, in *CtmCardCaresListRequest, opts ...grpc.CallOption) (*CtmCardCaresListResponse, error)
 	ListCtmProduct(ctx context.Context, in *CtmProductListRequest, opts ...grpc.CallOption) (*CtmProductListResponse, error)
+	ListCtmWallet(ctx context.Context, in *ListCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletListResponse, error)
+	ListCtmWalletRecord(ctx context.Context, in *ListCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordListResponse, error)
+	NextCardNoCtmWallet(ctx context.Context, in *WalletNextCardCodeRequest, opts ...grpc.CallOption) (*WalletNextCardCodeResponse, error)
+	OptionsCtmWallet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CtmWalletOptionsResponse, error)
 	PartialUpdate(ctx context.Context, in *CtmBasePartialUpdateRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	Retrieve(ctx context.Context, in *CtmBaseRetrieveRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	RetrieveAddr(ctx context.Context, in *CtmAddrRetrieveRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
 	RetrieveCart(ctx context.Context, in *CtmCartRetrieveRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
 	RetrieveCtmCardCares(ctx context.Context, in *CtmCardCaresRetrieveRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
 	RetrieveCtmProduct(ctx context.Context, in *CtmProductRetrieveRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
+	RetrieveCtmWallet(ctx context.Context, in *RetrieveCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error)
+	RetrieveCtmWalletRecord(ctx context.Context, in *RetrieveCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error)
 	Update(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	UpdateAddr(ctx context.Context, in *CtmAddrUpdateRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
 	UpdateCart(ctx context.Context, in *CtmCartUpdateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
 	UpdateCtmCardCares(ctx context.Context, in *CtmCardCaresUpdateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
 	UpdateCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
+	UpdateCtmWallet(ctx context.Context, in *UpdateCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error)
+	UpdateCtmWalletRecord(ctx context.Context, in *UpdateCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error)
 }
 
 type ctmItoControllerClient struct {
@@ -146,6 +170,24 @@ func (c *ctmItoControllerClient) CreateCtmProduct(ctx context.Context, in *CtmPr
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) CreateCtmWallet(ctx context.Context, in *CreateCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error) {
+	out := new(CtmWalletResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_CreateCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) CreateCtmWalletRecord(ctx context.Context, in *CreateCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error) {
+	out := new(CtmWalletRecordResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_CreateCtmWalletRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) DefaultAddr(ctx context.Context, in *CtmDefaultAddrRequest, opts ...grpc.CallOption) (*CtmItoDefaultAddrResponse, error) {
 	out := new(CtmItoDefaultAddrResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_DefaultAddr_FullMethodName, in, out, opts...)
@@ -200,6 +242,24 @@ func (c *ctmItoControllerClient) DestroyCtmProduct(ctx context.Context, in *CtmI
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) DestroyCtmWallet(ctx context.Context, in *DestroyCtmWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) DestroyCtmWalletRecord(ctx context.Context, in *DestroyCtmWalletRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, CtmItoController_DestroyCtmWalletRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) List(ctx context.Context, in *CtmBaseListRequest, opts ...grpc.CallOption) (*CtmBaseListResponse, error) {
 	out := new(CtmBaseListResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_List_FullMethodName, in, out, opts...)
@@ -239,6 +299,42 @@ func (c *ctmItoControllerClient) ListCtmCardCares(ctx context.Context, in *CtmCa
 func (c *ctmItoControllerClient) ListCtmProduct(ctx context.Context, in *CtmProductListRequest, opts ...grpc.CallOption) (*CtmProductListResponse, error) {
 	out := new(CtmProductListResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_ListCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) ListCtmWallet(ctx context.Context, in *ListCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletListResponse, error) {
+	out := new(CtmWalletListResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_ListCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) ListCtmWalletRecord(ctx context.Context, in *ListCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordListResponse, error) {
+	out := new(CtmWalletRecordListResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_ListCtmWalletRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) NextCardNoCtmWallet(ctx context.Context, in *WalletNextCardCodeRequest, opts ...grpc.CallOption) (*WalletNextCardCodeResponse, error) {
+	out := new(WalletNextCardCodeResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_NextCardNoCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) OptionsCtmWallet(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CtmWalletOptionsResponse, error) {
+	out := new(CtmWalletOptionsResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_OptionsCtmWallet_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -299,6 +395,24 @@ func (c *ctmItoControllerClient) RetrieveCtmProduct(ctx context.Context, in *Ctm
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) RetrieveCtmWallet(ctx context.Context, in *RetrieveCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error) {
+	out := new(CtmWalletResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_RetrieveCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) RetrieveCtmWalletRecord(ctx context.Context, in *RetrieveCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error) {
+	out := new(CtmWalletRecordResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_RetrieveCtmWalletRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) Update(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error) {
 	out := new(CtmBaseResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_Update_FullMethodName, in, out, opts...)
@@ -344,6 +458,24 @@ func (c *ctmItoControllerClient) UpdateCtmProduct(ctx context.Context, in *CtmPr
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) UpdateCtmWallet(ctx context.Context, in *UpdateCtmWalletRequest, opts ...grpc.CallOption) (*CtmWalletResponse, error) {
+	out := new(CtmWalletResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_UpdateCtmWallet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ctmItoControllerClient) UpdateCtmWalletRecord(ctx context.Context, in *UpdateCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error) {
+	out := new(CtmWalletRecordResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_UpdateCtmWalletRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CtmItoControllerServer is the server API for CtmItoController service.
 // All implementations must embed UnimplementedCtmItoControllerServer
 // for forward compatibility
@@ -354,28 +486,40 @@ type CtmItoControllerServer interface {
 	CreateCart(context.Context, *CtmCartCreateRequest) (*CtmCartResponse, error)
 	CreateCtmCardCares(context.Context, *CtmCardCaresCreateRequest) (*CtmCardCaresResponse, error)
 	CreateCtmProduct(context.Context, *CtmProductCreateRequest) (*CtmProductResponse, error)
+	CreateCtmWallet(context.Context, *CreateCtmWalletRequest) (*CtmWalletResponse, error)
+	CreateCtmWalletRecord(context.Context, *CreateCtmWalletRecordRequest) (*CtmWalletRecordResponse, error)
 	DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error)
 	Destroy(context.Context, *CtmBaseDestroyRequest) (*emptypb.Empty, error)
 	DestroyAddr(context.Context, *CtmAddrDestroyRequest) (*emptypb.Empty, error)
 	DestroyCart(context.Context, *CtmCartDestroyRequest) (*emptypb.Empty, error)
 	DestroyCtmCardCares(context.Context, *CtmItoDestroyCtmCardCaresRequest) (*emptypb.Empty, error)
 	DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*emptypb.Empty, error)
+	DestroyCtmWallet(context.Context, *DestroyCtmWalletRequest) (*emptypb.Empty, error)
+	DestroyCtmWalletRecord(context.Context, *DestroyCtmWalletRecordRequest) (*emptypb.Empty, error)
 	List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error)
 	ListAddr(context.Context, *CtmAddrListRequest) (*CtmAddrListResponse, error)
 	ListCart(context.Context, *CtmCartListRequest) (*CtmCartListResponse, error)
 	ListCtmCardCares(context.Context, *CtmCardCaresListRequest) (*CtmCardCaresListResponse, error)
 	ListCtmProduct(context.Context, *CtmProductListRequest) (*CtmProductListResponse, error)
+	ListCtmWallet(context.Context, *ListCtmWalletRequest) (*CtmWalletListResponse, error)
+	ListCtmWalletRecord(context.Context, *ListCtmWalletRecordRequest) (*CtmWalletRecordListResponse, error)
+	NextCardNoCtmWallet(context.Context, *WalletNextCardCodeRequest) (*WalletNextCardCodeResponse, error)
+	OptionsCtmWallet(context.Context, *emptypb.Empty) (*CtmWalletOptionsResponse, error)
 	PartialUpdate(context.Context, *CtmBasePartialUpdateRequest) (*CtmBaseResponse, error)
 	Retrieve(context.Context, *CtmBaseRetrieveRequest) (*CtmBaseResponse, error)
 	RetrieveAddr(context.Context, *CtmAddrRetrieveRequest) (*CtmAddrResponse, error)
 	RetrieveCart(context.Context, *CtmCartRetrieveRequest) (*CtmCartResponse, error)
 	RetrieveCtmCardCares(context.Context, *CtmCardCaresRetrieveRequest) (*CtmCardCaresResponse, error)
 	RetrieveCtmProduct(context.Context, *CtmProductRetrieveRequest) (*CtmProductResponse, error)
+	RetrieveCtmWallet(context.Context, *RetrieveCtmWalletRequest) (*CtmWalletResponse, error)
+	RetrieveCtmWalletRecord(context.Context, *RetrieveCtmWalletRecordRequest) (*CtmWalletRecordResponse, error)
 	Update(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error)
 	UpdateAddr(context.Context, *CtmAddrUpdateRequest) (*CtmAddrResponse, error)
 	UpdateCart(context.Context, *CtmCartUpdateRequest) (*CtmCartResponse, error)
 	UpdateCtmCardCares(context.Context, *CtmCardCaresUpdateRequest) (*CtmCardCaresResponse, error)
 	UpdateCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error)
+	UpdateCtmWallet(context.Context, *UpdateCtmWalletRequest) (*CtmWalletResponse, error)
+	UpdateCtmWalletRecord(context.Context, *UpdateCtmWalletRecordRequest) (*CtmWalletRecordResponse, error)
 	mustEmbedUnimplementedCtmItoControllerServer()
 }
 
@@ -401,6 +545,12 @@ func (UnimplementedCtmItoControllerServer) CreateCtmCardCares(context.Context, *
 func (UnimplementedCtmItoControllerServer) CreateCtmProduct(context.Context, *CtmProductCreateRequest) (*CtmProductResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmProduct not implemented")
 }
+func (UnimplementedCtmItoControllerServer) CreateCtmWallet(context.Context, *CreateCtmWalletRequest) (*CtmWalletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) CreateCtmWalletRecord(context.Context, *CreateCtmWalletRecordRequest) (*CtmWalletRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCtmWalletRecord not implemented")
+}
 func (UnimplementedCtmItoControllerServer) DefaultAddr(context.Context, *CtmDefaultAddrRequest) (*CtmItoDefaultAddrResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DefaultAddr not implemented")
 }
@@ -419,6 +569,12 @@ func (UnimplementedCtmItoControllerServer) DestroyCtmCardCares(context.Context, 
 func (UnimplementedCtmItoControllerServer) DestroyCtmProduct(context.Context, *CtmItoDestroyCtmProductRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmProduct not implemented")
 }
+func (UnimplementedCtmItoControllerServer) DestroyCtmWallet(context.Context, *DestroyCtmWalletRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) DestroyCtmWalletRecord(context.Context, *DestroyCtmWalletRecordRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyCtmWalletRecord not implemented")
+}
 func (UnimplementedCtmItoControllerServer) List(context.Context, *CtmBaseListRequest) (*CtmBaseListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
@@ -433,6 +589,18 @@ func (UnimplementedCtmItoControllerServer) ListCtmCardCares(context.Context, *Ct
 }
 func (UnimplementedCtmItoControllerServer) ListCtmProduct(context.Context, *CtmProductListRequest) (*CtmProductListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCtmProduct not implemented")
+}
+func (UnimplementedCtmItoControllerServer) ListCtmWallet(context.Context, *ListCtmWalletRequest) (*CtmWalletListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) ListCtmWalletRecord(context.Context, *ListCtmWalletRecordRequest) (*CtmWalletRecordListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCtmWalletRecord not implemented")
+}
+func (UnimplementedCtmItoControllerServer) NextCardNoCtmWallet(context.Context, *WalletNextCardCodeRequest) (*WalletNextCardCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NextCardNoCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) OptionsCtmWallet(context.Context, *emptypb.Empty) (*CtmWalletOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method OptionsCtmWallet not implemented")
 }
 func (UnimplementedCtmItoControllerServer) PartialUpdate(context.Context, *CtmBasePartialUpdateRequest) (*CtmBaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -452,6 +620,12 @@ func (UnimplementedCtmItoControllerServer) RetrieveCtmCardCares(context.Context,
 func (UnimplementedCtmItoControllerServer) RetrieveCtmProduct(context.Context, *CtmProductRetrieveRequest) (*CtmProductResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmProduct not implemented")
 }
+func (UnimplementedCtmItoControllerServer) RetrieveCtmWallet(context.Context, *RetrieveCtmWalletRequest) (*CtmWalletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) RetrieveCtmWalletRecord(context.Context, *RetrieveCtmWalletRecordRequest) (*CtmWalletRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveCtmWalletRecord not implemented")
+}
 func (UnimplementedCtmItoControllerServer) Update(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
@@ -466,6 +640,12 @@ func (UnimplementedCtmItoControllerServer) UpdateCtmCardCares(context.Context, *
 }
 func (UnimplementedCtmItoControllerServer) UpdateCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmProduct not implemented")
+}
+func (UnimplementedCtmItoControllerServer) UpdateCtmWallet(context.Context, *UpdateCtmWalletRequest) (*CtmWalletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmWallet not implemented")
+}
+func (UnimplementedCtmItoControllerServer) UpdateCtmWalletRecord(context.Context, *UpdateCtmWalletRecordRequest) (*CtmWalletRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCtmWalletRecord not implemented")
 }
 func (UnimplementedCtmItoControllerServer) mustEmbedUnimplementedCtmItoControllerServer() {}
 
@@ -588,6 +768,42 @@ func _CtmItoController_CreateCtmProduct_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_CreateCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCtmWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).CreateCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_CreateCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).CreateCtmWallet(ctx, req.(*CreateCtmWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_CreateCtmWalletRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCtmWalletRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).CreateCtmWalletRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_CreateCtmWalletRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).CreateCtmWalletRecord(ctx, req.(*CreateCtmWalletRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_DefaultAddr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmDefaultAddrRequest)
 	if err := dec(in); err != nil {
@@ -696,6 +912,42 @@ func _CtmItoController_DestroyCtmProduct_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_DestroyCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyCtmWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).DestroyCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_DestroyCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).DestroyCtmWallet(ctx, req.(*DestroyCtmWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_DestroyCtmWalletRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyCtmWalletRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).DestroyCtmWalletRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_DestroyCtmWalletRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).DestroyCtmWalletRecord(ctx, req.(*DestroyCtmWalletRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmBaseListRequest)
 	if err := dec(in); err != nil {
@@ -782,6 +1034,78 @@ func _CtmItoController_ListCtmProduct_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CtmItoControllerServer).ListCtmProduct(ctx, req.(*CtmProductListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_ListCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCtmWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).ListCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_ListCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).ListCtmWallet(ctx, req.(*ListCtmWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_ListCtmWalletRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCtmWalletRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).ListCtmWalletRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_ListCtmWalletRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).ListCtmWalletRecord(ctx, req.(*ListCtmWalletRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_NextCardNoCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WalletNextCardCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).NextCardNoCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_NextCardNoCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).NextCardNoCtmWallet(ctx, req.(*WalletNextCardCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_OptionsCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).OptionsCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_OptionsCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).OptionsCtmWallet(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -894,6 +1218,42 @@ func _CtmItoController_RetrieveCtmProduct_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_RetrieveCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveCtmWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).RetrieveCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_RetrieveCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).RetrieveCtmWallet(ctx, req.(*RetrieveCtmWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_RetrieveCtmWalletRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveCtmWalletRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).RetrieveCtmWalletRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_RetrieveCtmWalletRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).RetrieveCtmWalletRecord(ctx, req.(*RetrieveCtmWalletRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmBaseRequest)
 	if err := dec(in); err != nil {
@@ -984,6 +1344,42 @@ func _CtmItoController_UpdateCtmProduct_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_UpdateCtmWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCtmWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).UpdateCtmWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_UpdateCtmWallet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).UpdateCtmWallet(ctx, req.(*UpdateCtmWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CtmItoController_UpdateCtmWalletRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateCtmWalletRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).UpdateCtmWalletRecord(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_UpdateCtmWalletRecord_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).UpdateCtmWalletRecord(ctx, req.(*UpdateCtmWalletRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CtmItoController_ServiceDesc is the grpc.ServiceDesc for CtmItoController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1016,6 +1412,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_CreateCtmProduct_Handler,
 		},
 		{
+			MethodName: "CreateCtmWallet",
+			Handler:    _CtmItoController_CreateCtmWallet_Handler,
+		},
+		{
+			MethodName: "CreateCtmWalletRecord",
+			Handler:    _CtmItoController_CreateCtmWalletRecord_Handler,
+		},
+		{
 			MethodName: "DefaultAddr",
 			Handler:    _CtmItoController_DefaultAddr_Handler,
 		},
@@ -1040,6 +1444,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_DestroyCtmProduct_Handler,
 		},
 		{
+			MethodName: "DestroyCtmWallet",
+			Handler:    _CtmItoController_DestroyCtmWallet_Handler,
+		},
+		{
+			MethodName: "DestroyCtmWalletRecord",
+			Handler:    _CtmItoController_DestroyCtmWalletRecord_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _CtmItoController_List_Handler,
 		},
@@ -1058,6 +1470,22 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListCtmProduct",
 			Handler:    _CtmItoController_ListCtmProduct_Handler,
+		},
+		{
+			MethodName: "ListCtmWallet",
+			Handler:    _CtmItoController_ListCtmWallet_Handler,
+		},
+		{
+			MethodName: "ListCtmWalletRecord",
+			Handler:    _CtmItoController_ListCtmWalletRecord_Handler,
+		},
+		{
+			MethodName: "NextCardNoCtmWallet",
+			Handler:    _CtmItoController_NextCardNoCtmWallet_Handler,
+		},
+		{
+			MethodName: "OptionsCtmWallet",
+			Handler:    _CtmItoController_OptionsCtmWallet_Handler,
 		},
 		{
 			MethodName: "PartialUpdate",
@@ -1084,6 +1512,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CtmItoController_RetrieveCtmProduct_Handler,
 		},
 		{
+			MethodName: "RetrieveCtmWallet",
+			Handler:    _CtmItoController_RetrieveCtmWallet_Handler,
+		},
+		{
+			MethodName: "RetrieveCtmWalletRecord",
+			Handler:    _CtmItoController_RetrieveCtmWalletRecord_Handler,
+		},
+		{
 			MethodName: "Update",
 			Handler:    _CtmItoController_Update_Handler,
 		},
@@ -1102,6 +1538,14 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateCtmProduct",
 			Handler:    _CtmItoController_UpdateCtmProduct_Handler,
+		},
+		{
+			MethodName: "UpdateCtmWallet",
+			Handler:    _CtmItoController_UpdateCtmWallet_Handler,
+		},
+		{
+			MethodName: "UpdateCtmWalletRecord",
+			Handler:    _CtmItoController_UpdateCtmWalletRecord_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

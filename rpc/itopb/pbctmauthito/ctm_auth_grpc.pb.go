@@ -19,10 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	MpLoginSvc_MpCtmToken_FullMethodName    = "/login.MpLoginSvc/MpCtmToken"
-	MpLoginSvc_MpCtmMp_FullMethodName       = "/login.MpLoginSvc/MpCtmMp"
-	MpLoginSvc_GenCtmToken_FullMethodName   = "/login.MpLoginSvc/GenCtmToken"
-	MpLoginSvc_ParseCtmToken_FullMethodName = "/login.MpLoginSvc/ParseCtmToken"
+	MpLoginSvc_MpCtmToken_FullMethodName       = "/login.MpLoginSvc/MpCtmToken"
+	MpLoginSvc_MpCtmMp_FullMethodName          = "/login.MpLoginSvc/MpCtmMp"
+	MpLoginSvc_GenCtmToken_FullMethodName      = "/login.MpLoginSvc/GenCtmToken"
+	MpLoginSvc_ParseCtmToken_FullMethodName    = "/login.MpLoginSvc/ParseCtmToken"
+	MpLoginSvc_WxaSecurityCheck_FullMethodName = "/login.MpLoginSvc/WxaSecurityCheck"
 )
 
 // MpLoginSvcClient is the client API for MpLoginSvc service.
@@ -37,6 +38,8 @@ type MpLoginSvcClient interface {
 	GenCtmToken(ctx context.Context, in *GenCtmTokenReq, opts ...grpc.CallOption) (*GenCtmTokenResp, error)
 	// 4. 根据用户使用的 token 返回 openId，userId，userMobile
 	ParseCtmToken(ctx context.Context, in *ParseCtmTokenReq, opts ...grpc.CallOption) (*ParseCtmTokenResp, error)
+	// 5. 内容安全
+	WxaSecurityCheck(ctx context.Context, in *WxaSecurityCheckReq, opts ...grpc.CallOption) (*WxaSecurityCheckResp, error)
 }
 
 type mpLoginSvcClient struct {
@@ -83,6 +86,15 @@ func (c *mpLoginSvcClient) ParseCtmToken(ctx context.Context, in *ParseCtmTokenR
 	return out, nil
 }
 
+func (c *mpLoginSvcClient) WxaSecurityCheck(ctx context.Context, in *WxaSecurityCheckReq, opts ...grpc.CallOption) (*WxaSecurityCheckResp, error) {
+	out := new(WxaSecurityCheckResp)
+	err := c.cc.Invoke(ctx, MpLoginSvc_WxaSecurityCheck_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MpLoginSvcServer is the server API for MpLoginSvc service.
 // All implementations must embed UnimplementedMpLoginSvcServer
 // for forward compatibility
@@ -95,6 +107,8 @@ type MpLoginSvcServer interface {
 	GenCtmToken(context.Context, *GenCtmTokenReq) (*GenCtmTokenResp, error)
 	// 4. 根据用户使用的 token 返回 openId，userId，userMobile
 	ParseCtmToken(context.Context, *ParseCtmTokenReq) (*ParseCtmTokenResp, error)
+	// 5. 内容安全
+	WxaSecurityCheck(context.Context, *WxaSecurityCheckReq) (*WxaSecurityCheckResp, error)
 	mustEmbedUnimplementedMpLoginSvcServer()
 }
 
@@ -113,6 +127,9 @@ func (UnimplementedMpLoginSvcServer) GenCtmToken(context.Context, *GenCtmTokenRe
 }
 func (UnimplementedMpLoginSvcServer) ParseCtmToken(context.Context, *ParseCtmTokenReq) (*ParseCtmTokenResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ParseCtmToken not implemented")
+}
+func (UnimplementedMpLoginSvcServer) WxaSecurityCheck(context.Context, *WxaSecurityCheckReq) (*WxaSecurityCheckResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WxaSecurityCheck not implemented")
 }
 func (UnimplementedMpLoginSvcServer) mustEmbedUnimplementedMpLoginSvcServer() {}
 
@@ -199,6 +216,24 @@ func _MpLoginSvc_ParseCtmToken_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MpLoginSvc_WxaSecurityCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WxaSecurityCheckReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MpLoginSvcServer).WxaSecurityCheck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MpLoginSvc_WxaSecurityCheck_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MpLoginSvcServer).WxaSecurityCheck(ctx, req.(*WxaSecurityCheckReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // MpLoginSvc_ServiceDesc is the grpc.ServiceDesc for MpLoginSvc service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -221,6 +256,10 @@ var MpLoginSvc_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ParseCtmToken",
 			Handler:    _MpLoginSvc_ParseCtmToken_Handler,
+		},
+		{
+			MethodName: "WxaSecurityCheck",
+			Handler:    _MpLoginSvc_WxaSecurityCheck_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

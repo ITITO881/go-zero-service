@@ -6,116 +6,866 @@ import "google/protobuf/empty.proto";
 
 option go_package = "../pbrfid";
 
-service RfidSystemController {
-  rpc Create(KeyCustomerModelRequest) returns (KeyCustomerModelResponse) {}
-  rpc Destroy(KeyCustomerModelDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc List(KeyCustomerModelListRequest) returns (KeyCustomerModelListResponse) {}
-  rpc PartialUpdate(KeyCustomerModelPartialUpdateRequest) returns (KeyCustomerModelResponse) {}
-  rpc Retrieve(KeyCustomerModelRetrieveRequest) returns (KeyCustomerModelResponse) {}
-  rpc Update(KeyCustomerModelRequest) returns (KeyCustomerModelResponse) {}
-  rpc UserWarehouse(SysUserWarehouseRequest) returns (SysUserWarehouseResponse) {}
+service DeliverNoticeController {
+  rpc BulkCreateDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsBulkCreateListRequest) returns (DeliverNoticeGoodsDetailsListResponse) {}
+  rpc BulkCreateSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsBulkCreateListRequest) returns (SupplierTradeGoodsDetailsListResponse) {}
+  rpc Create(DeliverNoticeRequest) returns (DeliverNoticeResponse) {}
+  rpc CreateCtmVendorAddr(CtmVendorAddrCreateRequest) returns (CtmVendorAddrResponse) {}
+  rpc CreateDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsCreateRequest) returns (DeliverNoticeGoodsDetailsResponse) {}
+  rpc CreateKeyCtm(KeyCtmCreateRequest) returns (KeyCtmResponse) {}
+  rpc CreateKeyVendor(KeyVendorCreateRequest) returns (KeyVendorResponse) {}
+  rpc CreateSupplierTrade(SupplierTradeCreateRequest) returns (SupplierTradeResponse) {}
+  rpc CreateSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsCreateRequest) returns (SupplierTradeGoodsDetailsResponse) {}
+  rpc CreateSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsCreateRequest) returns (SupplierTradeStockOutDetailsResponse) {}
+  rpc CreateVendorOperator(VendorOperatorCreateRequest) returns (VendorOperatorResponse) {}
+  rpc DeliverNoticeOptions(DeliverNoticeOptionsRequest) returns (DeliverNoticeOptionsResponse) {}
+  rpc Destroy(DeliverNoticeDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyCtmVendorAddr(CtmVendorAddrDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyKeyCtm(KeyCtmDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyKeyVendor(KeyVendorDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroySupplierTrade(SupplierTradeDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroySupplierTradeGoodsDetails(SupplierTradeGoodsDetailsDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroySupplierTradeStockOutDetails(SupplierTradeStockOutDetailsDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyVendorOperator(VendorOperatorDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(DeliverNoticeListRequest) returns (DeliverNoticeListResponse) {}
+  rpc ListCtmVendorAddr(CtmVendorAddrListRequest) returns (CtmVendorAddrListResponse) {}
+  rpc ListDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsListRequest) returns (DeliverNoticeGoodsDetailsListResponse) {}
+  rpc ListKeyCtm(KeyCtmListRequest) returns (KeyCtmListResponse) {}
+  rpc ListKeyVendor(KeyVendorListRequest) returns (KeyVendorListResponse) {}
+  rpc ListSupplierTrade(SupplierTradeListRequest) returns (SupplierTradeListResponse) {}
+  rpc ListSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsListRequest) returns (SupplierTradeGoodsDetailsListResponse) {}
+  rpc ListSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsListRequest) returns (SupplierTradeStockOutDetailsListResponse) {}
+  rpc ListVendorOperator(VendorOperatorListRequest) returns (VendorOperatorListResponse) {}
+  rpc NoticeNextDid(NoticeNextDidRequest) returns (NoticeNextDidResponse) {}
+  rpc NoticeStatusCount(NoticeStatusCountRequest) returns (NoticeStatusCountListResponse) {}
+  rpc PartialUpdate(DeliverNoticePartialUpdateRequest) returns (DeliverNoticeResponse) {}
+  rpc PurchaseOrder(PurchaseOrderRequest) returns (PurchaseOrderListResponse) {}
+  rpc Retrieve(DeliverNoticeRetrieveRequest) returns (DeliverNoticeResponse) {}
+  rpc RetrieveCtmVendorAddr(CtmVendorAddrRetrieveRequest) returns (CtmVendorAddrResponse) {}
+  rpc RetrieveDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsRetrieveRequest) returns (DeliverNoticeGoodsDetailsResponse) {}
+  rpc RetrieveKeyCtm(KeyCtmRetrieveRequest) returns (KeyCtmResponse) {}
+  rpc RetrieveKeyVendor(KeyVendorRetrieveRequest) returns (KeyVendorResponse) {}
+  rpc RetrieveSupplierTrade(SupplierTradeRetrieveRequest) returns (SupplierTradeResponse) {}
+  rpc RetrieveSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsRetrieveRequest) returns (SupplierTradeGoodsDetailsResponse) {}
+  rpc RetrieveSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsRetrieveRequest) returns (SupplierTradeStockOutDetailsResponse) {}
+  rpc RetrieveVendorOperator(VendorOperatorRetrieveRequest) returns (VendorOperatorResponse) {}
+  rpc SupplierTradeNextTid(SupplierTradeNextTidRequest) returns (NoticeNextDidResponse) {}
+  rpc SupplierTradeProcess(DeliverNoticeSupplierTradeProcessRequest) returns (google.protobuf.Empty) {}
+  rpc Update(DeliverNoticeRequest) returns (DeliverNoticeResponse) {}
+  rpc UpdateCtmVendorAddr(CtmVendorAddrUpdateRequest) returns (CtmVendorAddrResponse) {}
+  rpc UpdateDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsUpdateRequest) returns (DeliverNoticeGoodsDetailsResponse) {}
+  rpc UpdateKeyCtm(KeyCtmUpdateRequest) returns (KeyCtmResponse) {}
+  rpc UpdateKeyVendor(KeyVendorUpdateRequest) returns (KeyVendorResponse) {}
+  rpc UpdateSupplierTrade(SupplierTradeUpdateRequest) returns (SupplierTradeResponse) {}
+  rpc UpdateSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsUpdateRequest) returns (SupplierTradeGoodsDetailsResponse) {}
+  rpc UpdateSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsUpdateRequest) returns (SupplierTradeStockOutDetailsResponse) {}
+  rpc UpdateVendorOperator(VendorOperatorUpdateRequest) returns (VendorOperatorResponse) {}
 }
 
-service RfidWarehouseController {
-  rpc Create(ProviderTradeModelRequest) returns (ProviderTradeModelResponse) {}
-  rpc Destroy(ProviderTradeModelDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc List(ProviderTradeModelListRequest) returns (ProviderTradeModelListResponse) {}
-  rpc PartialUpdate(ProviderTradeModelPartialUpdateRequest) returns (ProviderTradeModelResponse) {}
-  rpc Retrieve(ProviderTradeModelRetrieveRequest) returns (ProviderTradeModelResponse) {}
-  rpc TradeNextTid(TradeNextTidRequest) returns (TradeNextTidResponse) {}
-  rpc TradeStatusChange(TradeStatusChangeRequest) returns (TradeStatusChangeResponse) {}
-  rpc Update(ProviderTradeModelRequest) returns (ProviderTradeModelResponse) {}
-}
-
-message CtmAddrModelRequest {
+message CtmVendorAddrCreateRequest {
   int32 id = 1;
-  optional string filters = 2;
-  string province = 3;
-  string city = 4;
-  string district = 5;
-  string addr_detail = 6;
-  optional string addr_tag = 7;
+  string receiver_province = 3;
+  string receiver_city = 4;
+  string receiver_district = 5;
+  string receiver_address = 6;
+  optional string address_tag = 7;
   optional string zip_code = 8;
-  bool is_default = 9;
-  string receiver = 10;
-  string receiver_mobile = 11;
-  int64 ctm = 12;
+  string receiver_name = 9;
+  string receiver_mobile = 10;
+  optional int64 ctm = 11;
+  optional int64 vendor = 12;
+  string filters = 13;
 }
 
-message CtmAddrModelResponse {
-  int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  string province = 4;
-  string city = 5;
-  string district = 6;
-  string addr_detail = 7;
-  optional string addr_tag = 8;
-  optional string zip_code = 9;
-  bool is_default = 10;
-  string receiver = 11;
-  string receiver_mobile = 12;
-  int64 ctm = 13;
-}
-
-message KeyCustomerModelDestroyRequest {
+message CtmVendorAddrDestroyRequest {
   int32 id = 1;
 }
 
-message KeyCustomerModelListRequest {
-  int32 id = 1;
-  optional string filters = 2;
-  optional string name = 3;
-  string mobile = 4;
-  optional string describe = 5;
-  repeated CtmAddrModelRequest ctm_addr = 6;
-  optional string create_name = 7;
+message CtmVendorAddrListRequest {
+  string filters = 1;
 }
 
-message KeyCustomerModelListResponse {
-  repeated KeyCustomerModelResponse results = 1;
+message CtmVendorAddrListResponse {
+  repeated CtmVendorAddrResponse results = 1;
   int32 count = 2;
 }
 
-message KeyCustomerModelPartialUpdateRequest {
+message CtmVendorAddrRequest {
   int32 id = 1;
-  optional string filters = 2;
+  string receiver_province = 3;
+  string receiver_city = 4;
+  string receiver_district = 5;
+  string receiver_address = 6;
+  optional string address_tag = 7;
+  optional string zip_code = 8;
+  string receiver_name = 9;
+  string receiver_mobile = 10;
+  optional int64 ctm = 11;
+  optional int64 vendor = 12;
+  string filters = 13;
+}
+
+message CtmVendorAddrResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string receiver_province = 4;
+  string receiver_city = 5;
+  string receiver_district = 6;
+  string receiver_address = 7;
+  optional string address_tag = 8;
+  optional string zip_code = 9;
+  string receiver_name = 10;
+  string receiver_mobile = 11;
+  optional int64 ctm = 12;
+  optional int64 vendor = 13;
+}
+
+message CtmVendorAddrRetrieveRequest {
+  int32 id = 1;
+}
+
+message CtmVendorAddrUpdateRequest {
+  int32 id = 1;
   repeated string _partial_update_fields = 3;
+  string receiver_province = 4;
+  string receiver_city = 5;
+  string receiver_district = 6;
+  string receiver_address = 7;
+  optional string address_tag = 8;
+  optional string zip_code = 9;
+  string receiver_name = 10;
+  string receiver_mobile = 11;
+  optional int64 ctm = 12;
+  optional int64 vendor = 13;
+  string filters = 14;
+}
+
+message DeliverNoticeDestroyRequest {
+  int32 id = 1;
+}
+
+message DeliverNoticeGoodsDetailsBulkCreateListRequest {
+  repeated DeliverNoticeGoodsDetailsBulkCreateRequest results = 1;
+  int32 count = 2;
+}
+
+message DeliverNoticeGoodsDetailsBulkCreateRequest {
+  int32 id = 1;
+  int32 num = 3;
+  double price = 4;
+  double adjust_amount = 5;
+  double discount = 6;
+  double share_discount = 7;
+  double share_amount = 8;
+  optional int32 status = 9;
+  optional string goods_id = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  string spec_no = 13;
+  optional string spec_name = 14;
+  optional int64 notice = 15;
+  string filters = 16;
+}
+
+message DeliverNoticeGoodsDetailsCreateRequest {
+  int32 id = 1;
+  int32 num = 3;
+  double price = 4;
+  double adjust_amount = 5;
+  double discount = 6;
+  double share_discount = 7;
+  double share_amount = 8;
+  optional int32 status = 9;
+  optional string goods_id = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  string spec_no = 13;
+  optional string spec_name = 14;
+  optional int64 notice = 15;
+  string filters = 16;
+}
+
+message DeliverNoticeGoodsDetailsDestroyRequest {
+  int32 id = 1;
+}
+
+message DeliverNoticeGoodsDetailsListRequest {
+  string filters = 1;
+}
+
+message DeliverNoticeGoodsDetailsListResponse {
+  repeated DeliverNoticeGoodsDetailsResponse results = 1;
+  int32 count = 2;
+}
+
+message DeliverNoticeGoodsDetailsRequest {
+  int32 id = 1;
+  int32 num = 3;
+  double price = 4;
+  double adjust_amount = 5;
+  double discount = 6;
+  double share_discount = 7;
+  double share_amount = 8;
+  optional int32 status = 9;
+  optional string goods_id = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  string spec_no = 13;
+  optional string spec_name = 14;
+  optional int64 notice = 15;
+  string filters = 16;
+}
+
+message DeliverNoticeGoodsDetailsResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string create_time = 3;
+  string update_time = 4;
+  int32 num = 5;
+  double price = 6;
+  double adjust_amount = 7;
+  double discount = 8;
+  double share_discount = 9;
+  double share_amount = 10;
+  optional int32 status = 11;
+  optional string goods_id = 12;
+  optional string goods_name = 13;
+  optional string goods_no = 14;
+  string spec_no = 15;
+  optional string spec_name = 16;
+  optional int64 notice = 17;
+  int32 send_num = 18;
+  float send_amount = 19;
+}
+
+message DeliverNoticeGoodsDetailsRetrieveRequest {
+  int32 id = 1;
+}
+
+message DeliverNoticeGoodsDetailsUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  double share_amount = 9;
+  optional int32 status = 10;
+  optional string goods_id = 11;
+  optional string goods_name = 12;
+  optional string goods_no = 13;
+  string spec_no = 14;
+  optional string spec_name = 15;
+  optional int64 notice = 16;
+  string filters = 17;
+}
+
+message DeliverNoticeListRequest {
+  int32 id = 1;
+  repeated DeliverNoticeGoodsDetailsRequest goods_list = 3;
+  string did = 4;
+  optional int32 trade_type = 5;
+  optional string create_name = 6;
+  optional int32 create_type = 7;
+  optional int32 editor_id = 8;
+  optional string editor_name = 9;
+  optional string approve_time = 10;
+  optional string approve_name = 11;
+  optional string approve_reasons = 12;
+  optional string reject_reasons = 13;
+  optional string cancel_reasons = 14;
+  optional int32 notice_type = 15;
+  optional int32 type = 16;
+  optional int32 notice_status = 17;
+  optional int32 pay_status = 18;
+  optional string pay_time = 19;
+  optional int32 delivery_term = 20;
+  string shop_no = 21;
+  string shop_name = 22;
+  string warehouse_no = 23;
+  string warehouse_name = 24;
+  optional string receiver_name = 25;
+  optional string receiver_province = 26;
+  optional string receiver_city = 27;
+  optional string receiver_district = 28;
+  optional string receiver_address = 29;
+  optional string receiver_mobile = 30;
+  optional double paid = 31;
+  optional double post_amount = 32;
+  optional double other_amount = 33;
+  optional double ext_cod_fee = 34;
+  optional double cod_amount = 35;
+  optional double receivable = 36;
+  optional double discount = 37;
+  optional int32 invoice_status = 38;
+  optional int64 ctm = 39;
+  optional int64 vendor = 40;
+  string filters = 41;
+  optional string seller_memo = 42;
+}
+
+message DeliverNoticeListResponse {
+  repeated DeliverNoticeResponse results = 1;
+  int32 count = 2;
+}
+
+message DeliverNoticeOptionsRequest {
+}
+
+message DeliverNoticeOptionsResponse {
+  repeated IntegerChoiceResponse trade_type = 1;
+  repeated IntegerChoiceResponse create_type = 2;
+  repeated IntegerChoiceResponse notice_type = 3;
+  repeated IntegerChoiceResponse type = 4;
+  repeated IntegerChoiceResponse notice_status = 5;
+  repeated IntegerChoiceResponse pay_status = 6;
+  repeated IntegerChoiceResponse delivery_term = 7;
+  repeated IntegerChoiceResponse invoice_status = 8;
+}
+
+message DeliverNoticePartialUpdateRequest {
+  int32 id = 1;
+  repeated DeliverNoticeGoodsDetailsRequest goods_list = 3;
+  repeated string _partial_update_fields = 4;
+  string did = 5;
+  optional int32 trade_type = 6;
+  optional string create_name = 7;
+  optional int32 create_type = 8;
+  optional int32 editor_id = 9;
+  optional string editor_name = 10;
+  optional string approve_time = 11;
+  optional string approve_name = 12;
+  optional string approve_reasons = 13;
+  optional string reject_reasons = 14;
+  optional string cancel_reasons = 15;
+  optional int32 notice_type = 16;
+  optional int32 type = 17;
+  optional int32 notice_status = 18;
+  optional int32 pay_status = 19;
+  optional string pay_time = 20;
+  optional int32 delivery_term = 21;
+  string shop_no = 22;
+  string shop_name = 23;
+  string warehouse_no = 24;
+  string warehouse_name = 25;
+  optional string receiver_name = 26;
+  optional string receiver_province = 27;
+  optional string receiver_city = 28;
+  optional string receiver_district = 29;
+  optional string receiver_address = 30;
+  optional string receiver_mobile = 31;
+  optional double paid = 32;
+  optional double post_amount = 33;
+  optional double other_amount = 34;
+  optional double ext_cod_fee = 35;
+  optional double cod_amount = 36;
+  optional double receivable = 37;
+  optional double discount = 38;
+  optional int32 invoice_status = 39;
+  optional int64 ctm = 40;
+  optional int64 vendor = 41;
+  string filters = 42;
+  optional string seller_memo = 43;
+}
+
+message DeliverNoticeRequest {
+  int32 id = 1;
+  repeated DeliverNoticeGoodsDetailsRequest goods_list = 3;
+  string did = 4;
+  optional int32 trade_type = 5;
+  optional string create_name = 6;
+  optional int32 create_type = 7;
+  optional int32 editor_id = 8;
+  optional string editor_name = 9;
+  optional string approve_time = 10;
+  optional string approve_name = 11;
+  optional string approve_reasons = 12;
+  optional string reject_reasons = 13;
+  optional string cancel_reasons = 14;
+  optional int32 notice_type = 15;
+  optional int32 type = 16;
+  optional int32 notice_status = 17;
+  optional int32 pay_status = 18;
+  optional string pay_time = 19;
+  optional int32 delivery_term = 20;
+  string shop_no = 21;
+  string shop_name = 22;
+  string warehouse_no = 23;
+  string warehouse_name = 24;
+  optional string receiver_name = 25;
+  optional string receiver_province = 26;
+  optional string receiver_city = 27;
+  optional string receiver_district = 28;
+  optional string receiver_address = 29;
+  optional string receiver_mobile = 30;
+  optional double paid = 31;
+  optional double post_amount = 32;
+  optional double other_amount = 33;
+  optional double ext_cod_fee = 34;
+  optional double cod_amount = 35;
+  optional double receivable = 36;
+  optional double discount = 37;
+  optional int32 invoice_status = 38;
+  optional int64 ctm = 39;
+  optional int64 vendor = 40;
+  string filters = 41;
+  optional string seller_memo = 42;
+}
+
+message DeliverNoticeResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string create_type_name = 3;
+  string notice_type_name = 4;
+  string type_name = 5;
+  string notice_status_name = 6;
+  string pay_status_name = 7;
+  string delivery_term_name = 8;
+  string invoice_status_name = 9;
+  repeated DeliverNoticeGoodsDetailsResponse goods_details = 10;
+  repeated SupplierTradeResponse trade_details = 11;
+  string create_time = 12;
+  string update_time = 13;
+  string did = 14;
+  optional int32 trade_type = 15;
+  optional string create_name = 16;
+  optional int32 create_type = 17;
+  optional int32 editor_id = 18;
+  optional string editor_name = 19;
+  optional string approve_time = 20;
+  optional string approve_name = 21;
+  optional string approve_reasons = 22;
+  optional string reject_reasons = 23;
+  optional string cancel_reasons = 24;
+  optional int32 notice_type = 25;
+  optional int32 type = 26;
+  optional int32 notice_status = 27;
+  optional int32 pay_status = 28;
+  optional string pay_time = 29;
+  optional int32 delivery_term = 30;
+  string shop_no = 31;
+  string shop_name = 32;
+  string warehouse_no = 33;
+  string warehouse_name = 34;
+  optional string receiver_name = 35;
+  optional string receiver_province = 36;
+  optional string receiver_city = 37;
+  optional string receiver_district = 38;
+  optional string receiver_address = 39;
+  optional string receiver_mobile = 40;
+  optional double paid = 41;
+  optional double post_amount = 42;
+  optional double other_amount = 43;
+  optional double ext_cod_fee = 44;
+  optional double cod_amount = 45;
+  optional double receivable = 46;
+  optional double discount = 47;
+  optional int32 invoice_status = 48;
+  optional int64 ctm = 49;
+  optional int64 vendor = 50;
+  optional string seller_memo = 51;
+  string vendor_name = 52;
+  string ctm_name = 53;
+}
+
+message DeliverNoticeRetrieveRequest {
+  int32 id = 1;
+}
+
+message DeliverNoticeSupplierTradeProcessRequest {
+  string tid = 1;
+  string logistics_no = 2;
+  string rfid_user = 3;
+}
+
+message IntegerChoiceResponse {
+  int32 value = 1;
+  string label = 2;
+}
+
+message KeyCtmCreateRequest {
+  int32 id = 1;
+  repeated CtmVendorAddrRequest address_list = 3;
   optional string name = 4;
   string mobile = 5;
   optional string describe = 6;
-  repeated CtmAddrModelRequest ctm_addr = 7;
-  optional string create_name = 8;
+  optional string dw_memId = 7;
+  optional int32 platform_id = 8;
+  optional string platform_name = 9;
+  optional string data_warehouse_id = 10;
+  optional int32 creator_id = 11;
+  optional string creator_name = 12;
+  optional int32 editor_id = 13;
+  optional string editor_name = 14;
+  string filters = 15;
 }
 
-message KeyCustomerModelRequest {
+message KeyCtmDestroyRequest {
   int32 id = 1;
-  optional string filters = 2;
-  optional string name = 3;
-  string mobile = 4;
-  optional string describe = 5;
-  repeated CtmAddrModelRequest ctm_addr = 6;
-  optional string create_name = 7;
 }
 
-message KeyCustomerModelResponse {
+message KeyCtmListRequest {
+  string filters = 1;
+}
+
+message KeyCtmListResponse {
+  repeated KeyCtmResponse results = 1;
+  int32 count = 2;
+}
+
+message KeyCtmResponse {
   int32 id = 1;
-  repeated CtmAddrModelResponse ctm_addr = 2;
+  repeated CtmVendorAddrResponse ctm_addr = 2;
   string create_time = 3;
   string update_time = 4;
   optional string name = 5;
   string mobile = 6;
   optional string describe = 7;
-  optional string create_name = 8;
+  optional string dw_memId = 8;
+  optional int32 platform_id = 9;
+  optional string platform_name = 10;
+  optional string data_warehouse_id = 11;
+  optional int32 creator_id = 12;
+  optional string creator_name = 13;
+  optional int32 editor_id = 14;
+  optional string editor_name = 15;
 }
 
-message KeyCustomerModelRetrieveRequest {
+message KeyCtmRetrieveRequest {
   int32 id = 1;
 }
 
-message ProviderTradeDetailModelRequest {
+message KeyCtmUpdateRequest {
   int32 id = 1;
-  optional string filters = 2;
+  repeated CtmVendorAddrRequest address_list = 3;
+  repeated string _partial_update_fields = 4;
+  optional string name = 5;
+  string mobile = 6;
+  optional string describe = 7;
+  optional string dw_memId = 8;
+  optional int32 platform_id = 9;
+  optional string platform_name = 10;
+  optional string data_warehouse_id = 11;
+  optional int32 creator_id = 12;
+  optional string creator_name = 13;
+  optional int32 editor_id = 14;
+  optional string editor_name = 15;
+  string filters = 16;
+}
+
+message KeyVendorCreateRequest {
+  int32 id = 1;
+  repeated CtmVendorAddrRequest address_list = 3;
+  repeated VendorOperatorRequest operator_list = 4;
+  optional string name = 5;
+  string mobile = 6;
+  optional string describe = 7;
+  optional int32 platform_id = 8;
+  optional string platform_name = 9;
+  optional string data_warehouse_id = 10;
+  optional int32 creator_id = 11;
+  optional string creator_name = 12;
+  optional int32 editor_id = 13;
+  optional string editor_name = 14;
+  optional string shop_no = 15;
+  optional string shop_name = 16;
+  optional string warehouse_no = 17;
+  optional string warehouse_name = 18;
+  string filters = 19;
+}
+
+message KeyVendorDestroyRequest {
+  int32 id = 1;
+}
+
+message KeyVendorListRequest {
+  string filters = 1;
+}
+
+message KeyVendorListResponse {
+  repeated KeyVendorResponse results = 1;
+  int32 count = 2;
+}
+
+message KeyVendorResponse {
+  int32 id = 1;
+  repeated CtmVendorAddrResponse vendor_addr = 2;
+  repeated VendorOperatorResponse vendor_operator = 3;
+  string create_time = 4;
+  string update_time = 5;
+  optional string name = 6;
+  string mobile = 7;
+  optional string describe = 8;
+  optional int32 platform_id = 9;
+  optional string platform_name = 10;
+  optional string data_warehouse_id = 11;
+  optional int32 creator_id = 12;
+  optional string creator_name = 13;
+  optional int32 editor_id = 14;
+  optional string editor_name = 15;
+  optional string shop_no = 16;
+  optional string shop_name = 17;
+  optional string warehouse_no = 18;
+  optional string warehouse_name = 19;
+}
+
+message KeyVendorRetrieveRequest {
+  int32 id = 1;
+}
+
+message KeyVendorUpdateRequest {
+  int32 id = 1;
+  repeated CtmVendorAddrRequest address_list = 3;
+  repeated VendorOperatorRequest operator_list = 4;
+  repeated string _partial_update_fields = 5;
+  optional string name = 6;
+  string mobile = 7;
+  optional string describe = 8;
+  optional int32 platform_id = 9;
+  optional string platform_name = 10;
+  optional string data_warehouse_id = 11;
+  optional int32 creator_id = 12;
+  optional string creator_name = 13;
+  optional int32 editor_id = 14;
+  optional string editor_name = 15;
+  optional string shop_no = 16;
+  optional string shop_name = 17;
+  optional string warehouse_no = 18;
+  optional string warehouse_name = 19;
+  string filters = 20;
+}
+
+message NoticeNextDidRequest {
+}
+
+message NoticeNextDidResponse {
+  string next_did = 1;
+}
+
+message NoticeStatusCountListResponse {
+  int32 count = 2;
+  repeated NoticeStatusCountResponse results = 3;
+}
+
+message NoticeStatusCountRequest {
+  optional int32 trade_type = 1;
+  optional int64 vendor_id = 2;
+}
+
+message NoticeStatusCountResponse {
+  int32 count = 2;
+  int32 notice_status = 3;
+}
+
+message PurchaseDetailResponse {
+  int32 rec_id = 1;
+  optional string wms_outer_no = 2;
+  optional string spec_no = 3;
+  optional string brand_name = 4;
+  optional double num = 5;
+  optional double price = 6;
+  optional double discount = 7;
+  optional double tax = 8;
+  optional double tax_price = 9;
+  optional double tax_amount = 10;
+  optional double amount = 11;
+  optional double stockin_amount = 12;
+  optional double stockin_num = 13;
+  optional string prop1 = 14;
+  optional string prop2 = 15;
+  optional string remark = 16;
+  optional string modified = 17;
+  optional string provider_goods_no = 18;
+  optional string goods_no = 19;
+  optional string goods_name = 20;
+  optional string short_name = 21;
+  optional string spec_name = 22;
+  optional string spec_code = 23;
+  optional string base_unit = 24;
+  optional string purchase_unit = 25;
+  optional double arrive_num = 26;
+  optional double stopwait_num = 27;
+  optional double purchase_price = 28;
+  optional double last_price = 29;
+  optional double last_second_price = 30;
+  optional double lowest_price = 31;
+  optional double weight = 32;
+  optional double arrive_more_num = 33;
+  optional double lack_num = 34;
+  optional int32 spec_id = 35;
+  optional int32 warehouse_id = 36;
+  optional int32 tag = 37;
+  optional double num2 = 38;
+  optional double unit_ratio = 39;
+  optional int32 unit_id = 40;
+  optional int32 base_unit_id = 41;
+  optional string created = 42;
+  optional int32 purchase = 43;
+}
+
+message PurchaseOrderListResponse {
+  repeated PurchaseOrderResponse results = 1;
+  int32 count = 2;
+}
+
+message PurchaseOrderRequest {
+  int32 purchase_id = 1;
+  optional string purchase_no = 2;
+  optional string purchase_outer_no = 3;
+  optional string outer_no = 4;
+  optional string warehouse_name = 5;
+  optional string warehouse_no = 6;
+  optional int32 status = 7;
+  optional string provider_no = 8;
+  optional string provider_name = 9;
+  optional string contact = 10;
+  optional string telno = 11;
+  optional string purchaser_name = 12;
+  optional string receive_address = 13;
+  optional int32 logistics_type = 14;
+  optional string check_time = 15;
+  optional double goods_amount = 16;
+  optional double post_fee = 17;
+  optional double other_fee = 18;
+  optional double tax_goods_amount = 19;
+  optional string remark = 20;
+  optional string modified = 21;
+  optional string expect_arrive_time = 22;
+  optional string prop1 = 23;
+  optional string prop2 = 24;
+  optional string created = 25;
+  optional int32 creator_id = 26;
+  optional string creator_name = 27;
+  optional int32 warehouse_id = 28;
+  optional string api_outer_no = 29;
+  optional string wms_outer_no = 30;
+  optional int32 wms_status = 31;
+  optional string error_info = 32;
+  optional int32 purchaser_id = 33;
+  optional int32 order_type = 34;
+  optional int32 flag_id = 35;
+  optional int32 provider_id = 36;
+  optional int32 check_operator_id = 37;
+  optional int32 facheck_operator_id = 38;
+  optional string facheck_time = 39;
+  optional double goods_fee = 40;
+  optional double goods_count = 41;
+  optional double tax_fee = 42;
+  optional int32 goods_type_count = 43;
+  optional double goods_arrive_count = 44;
+  optional int32 revert_reason = 45;
+  optional int32 version_id = 46;
+  optional int32 note_count = 47;
+  optional string prop_time1 = 48;
+}
+
+message PurchaseOrderResponse {
+  int32 purchase_id = 1;
+  optional string purchase_no = 2;
+  optional string purchase_outer_no = 3;
+  optional string outer_no = 4;
+  optional string warehouse_name = 5;
+  optional string warehouse_no = 6;
+  optional int32 status = 7;
+  optional string provider_no = 8;
+  optional string provider_name = 9;
+  optional string contact = 10;
+  optional string telno = 11;
+  optional string purchaser_name = 12;
+  optional string receive_address = 13;
+  optional int32 logistics_type = 14;
+  optional string check_time = 15;
+  optional double goods_amount = 16;
+  optional double post_fee = 17;
+  optional double other_fee = 18;
+  optional double tax_goods_amount = 19;
+  optional string remark = 20;
+  optional string modified = 21;
+  optional string expect_arrive_time = 22;
+  optional string prop1 = 23;
+  optional string prop2 = 24;
+  optional string created = 25;
+  optional int32 creator_id = 26;
+  optional string creator_name = 27;
+  optional int32 warehouse_id = 28;
+  optional string api_outer_no = 29;
+  optional string wms_outer_no = 30;
+  optional int32 wms_status = 31;
+  optional string error_info = 32;
+  optional int32 purchaser_id = 33;
+  optional int32 order_type = 34;
+  optional int32 flag_id = 35;
+  optional int32 provider_id = 36;
+  optional int32 check_operator_id = 37;
+  optional int32 facheck_operator_id = 38;
+  optional string facheck_time = 39;
+  optional double goods_fee = 40;
+  optional double goods_count = 41;
+  optional double tax_fee = 42;
+  optional int32 goods_type_count = 43;
+  optional double goods_arrive_count = 44;
+  optional int32 revert_reason = 45;
+  optional int32 version_id = 46;
+  optional int32 note_count = 47;
+  optional string prop_time1 = 48;
+  repeated PurchaseDetailResponse purchase_details = 49;
+}
+
+message SupplierTradeCreateRequest {
+  int32 id = 1;
+  repeated SupplierTradeGoodsDetailsRequest goods_list = 3;
+  optional string create_name = 4;
+  optional int32 create_type = 5;
+  string tid = 6;
+  optional int32 trade_status = 7;
+  optional int32 pay_status = 8;
+  optional string pay_time = 9;
+  optional int32 delivery_term = 10;
+  string buyer_nick = 11;
+  optional string buyer_mobile = 12;
+  optional string buyer_message = 13;
+  optional string seller_memo = 14;
+  optional string seller_name = 15;
+  string shop_no = 16;
+  string shop_name = 17;
+  string warehouse_no = 18;
+  string warehouse_name = 19;
+  optional string receiver_name = 20;
+  optional string receiver_province = 21;
+  optional string receiver_city = 22;
+  optional string receiver_district = 23;
+  optional string receiver_address = 24;
+  optional string receiver_mobile = 25;
+  optional double paid = 26;
+  optional double post_amount = 27;
+  optional double other_amount = 28;
+  optional double ext_cod_fee = 29;
+  optional double cod_amount = 30;
+  optional double receivable = 31;
+  optional double discount = 32;
+  optional int32 invoice_status = 33;
+  optional int64 deliver_notice = 34;
+  repeated TradeGoodsEpcRequest stock_in_data = 35;
+  TradeGoodsEpcRequest stock_out_data = 36;
+  string filters = 37;
+  optional int32 self_pickup = 38;
+  optional string image_url = 39;
+}
+
+message SupplierTradeDestroyRequest {
+  int32 id = 1;
+}
+
+message SupplierTradeGoodsDetailsBulkCreateListRequest {
+  repeated SupplierTradeGoodsDetailsBulkCreateRequest results = 1;
+  int32 count = 2;
+}
+
+message SupplierTradeGoodsDetailsBulkCreateRequest {
+  int32 id = 1;
   int32 num = 3;
   double price = 4;
   double adjust_amount = 5;
@@ -130,12 +880,90 @@ message ProviderTradeDetailModelRequest {
   string spec_no = 14;
   optional string spec_name = 15;
   optional int64 trade = 16;
+  string oid = 17;
 }
 
-message ProviderTradeDetailModelResponse {
+message SupplierTradeGoodsDetailsCreateRequest {
   int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
+  int32 num = 3;
+  double price = 4;
+  double adjust_amount = 5;
+  double discount = 6;
+  double share_discount = 7;
+  double share_amount = 8;
+  optional int32 status = 9;
+  optional int32 refund_status = 10;
+  optional string goods_id = 11;
+  optional string goods_name = 12;
+  optional string goods_no = 13;
+  string spec_no = 14;
+  optional string spec_name = 15;
+  optional int64 trade = 16;
+  string oid = 17;
+}
+
+message SupplierTradeGoodsDetailsDestroyRequest {
+  int32 id = 1;
+}
+
+message SupplierTradeGoodsDetailsListRequest {
+  string filters = 1;
+}
+
+message SupplierTradeGoodsDetailsListResponse {
+  repeated SupplierTradeGoodsDetailsResponse results = 1;
+  int32 count = 2;
+}
+
+message SupplierTradeGoodsDetailsRequest {
+  int32 id = 1;
+  int32 num = 3;
+  double price = 4;
+  double adjust_amount = 5;
+  double discount = 6;
+  double share_discount = 7;
+  double share_amount = 8;
+  optional int32 status = 9;
+  optional int32 refund_status = 10;
+  optional string goods_id = 11;
+  optional string goods_name = 12;
+  optional string goods_no = 13;
+  string spec_no = 14;
+  optional string spec_name = 15;
+  optional int64 trade = 16;
+  string oid = 17;
+}
+
+message SupplierTradeGoodsDetailsResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string refund_status_name = 3;
+  string create_time = 4;
+  string update_time = 5;
+  int32 num = 6;
+  double price = 7;
+  double adjust_amount = 8;
+  double discount = 9;
+  double share_discount = 10;
+  double share_amount = 11;
+  optional int32 status = 12;
+  optional int32 refund_status = 13;
+  optional string goods_id = 14;
+  optional string goods_name = 15;
+  optional string goods_no = 16;
+  string spec_no = 17;
+  optional string spec_name = 18;
+  optional int64 trade = 19;
+  string oid = 20;
+}
+
+message SupplierTradeGoodsDetailsRetrieveRequest {
+  int32 id = 1;
+}
+
+message SupplierTradeGoodsDetailsUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 3;
   int32 num = 4;
   double price = 5;
   double adjust_amount = 6;
@@ -150,74 +978,36 @@ message ProviderTradeDetailModelResponse {
   string spec_no = 15;
   optional string spec_name = 16;
   optional int64 trade = 17;
+  string oid = 18;
 }
 
-message ProviderTradeModelDestroyRequest {
-  int32 id = 1;
+message SupplierTradeListRequest {
+  string filters = 1;
 }
 
-message ProviderTradeModelListRequest {
-  int32 id = 1;
-  optional string filters = 2;
-  optional string create_name = 3;
-  optional int32 create_type = 4;
-  optional string approve_time = 5;
-  optional string approve_name = 6;
-  optional string approve_reasons = 7;
-  optional string cancel_reasons = 9;
-  string tid = 10;
-  optional int32 trade_type = 11;
-  optional int32 type = 12;
-  optional int32 trade_status = 13;
-  optional int32 pay_status = 14;
-  optional string pay_time = 15;
-  optional int32 delivery_term = 16;
-  string buyer_nick = 17;
-  optional string buyer_mobile = 18;
-  optional string buyer_message = 19;
-  optional string seller_memo = 20;
-  optional string seller_name = 21;
-  string shop_no = 22;
-  string shop_name = 23;
-  string warehouse_no = 24;
-  string warehouse_name = 25;
-  optional string receiver_name = 26;
-  optional string receiver_province = 27;
-  optional string receiver_city = 28;
-  optional string receiver_district = 29;
-  optional string receiver_address = 30;
-  optional string receiver_mobile = 31;
-  optional double post_amount = 32;
-  optional double other_amount = 33;
-  optional double ext_cod_fee = 34;
-  optional double paid = 35;
-  optional double cod_amount = 36;
-  optional double receivable = 37;
-  optional double discount = 38;
-  optional int32 invoice_status = 39;
-  optional int64 ctm = 40;
-  repeated ProviderTradeDetailModelRequest trade_details = 41;
-  optional string anti_audit_reasons = 42;
-}
-
-message ProviderTradeModelListResponse {
-  repeated ProviderTradeModelResponse results = 1;
+message SupplierTradeListResponse {
+  repeated SupplierTradeResponse results = 1;
   int32 count = 2;
 }
 
-message ProviderTradeModelPartialUpdateRequest {
+message SupplierTradeNextTidRequest {
+  int64 deliver_notice = 1;
+}
+
+message SupplierTradeResponse {
   int32 id = 1;
-  optional string filters = 2;
-  repeated string _partial_update_fields = 3;
-  optional string create_name = 4;
-  optional int32 create_type = 5;
-  optional string approve_time = 6;
-  optional string approve_name = 7;
-  optional string approve_reasons = 8;
-  optional string cancel_reasons = 10;
-  string tid = 11;
-  optional int32 trade_type = 12;
-  optional int32 type = 13;
+  string create_type_name = 2;
+  string trade_status_name = 3;
+  string pay_status_name = 4;
+  string delivery_term_name = 5;
+  string invoice_status_name = 6;
+  repeated SupplierTradeGoodsDetailsResponse goods_details = 7;
+  repeated SupplierTradeStockOutDetailsResponse stock_out_details = 8;
+  string create_time = 9;
+  string update_time = 10;
+  optional string create_name = 11;
+  optional int32 create_type = 12;
+  string tid = 13;
   optional int32 trade_status = 14;
   optional int32 pay_status = 15;
   optional string pay_time = 16;
@@ -237,208 +1027,215 @@ message ProviderTradeModelPartialUpdateRequest {
   optional string receiver_district = 30;
   optional string receiver_address = 31;
   optional string receiver_mobile = 32;
-  optional double post_amount = 33;
-  optional double other_amount = 34;
-  optional double ext_cod_fee = 35;
-  optional double paid = 36;
+  optional double paid = 33;
+  optional double post_amount = 34;
+  optional double other_amount = 35;
+  optional double ext_cod_fee = 36;
   optional double cod_amount = 37;
   optional double receivable = 38;
   optional double discount = 39;
   optional int32 invoice_status = 40;
-  optional int64 ctm = 41;
-  repeated ProviderTradeDetailModelRequest trade_details = 42;
-  optional string anti_audit_reasons = 43;
+  optional int64 deliver_notice = 41;
+  optional int32 self_pickup = 42;
+  optional string image_url = 43;
+  string pickup = 44;
+  string logistics_no = 45;
 }
 
-message ProviderTradeModelRequest {
+message SupplierTradeRetrieveRequest {
   int32 id = 1;
-  optional string filters = 2;
-  optional string create_name = 3;
-  optional int32 create_type = 4;
-  optional string approve_time = 5;
-  optional string approve_name = 6;
-  optional string approve_reasons = 7;
-  optional string cancel_reasons = 9;
-  string tid = 10;
-  optional int32 trade_type = 11;
-  optional int32 type = 12;
-  optional int32 trade_status = 13;
-  optional int32 pay_status = 14;
-  optional string pay_time = 15;
-  optional int32 delivery_term = 16;
-  string buyer_nick = 17;
-  optional string buyer_mobile = 18;
-  optional string buyer_message = 19;
-  optional string seller_memo = 20;
-  optional string seller_name = 21;
-  string shop_no = 22;
-  string shop_name = 23;
-  string warehouse_no = 24;
-  string warehouse_name = 25;
-  optional string receiver_name = 26;
-  optional string receiver_province = 27;
-  optional string receiver_city = 28;
-  optional string receiver_district = 29;
-  optional string receiver_address = 30;
-  optional string receiver_mobile = 31;
-  optional double post_amount = 32;
-  optional double other_amount = 33;
-  optional double ext_cod_fee = 34;
-  optional double paid = 35;
-  optional double cod_amount = 36;
-  optional double receivable = 37;
-  optional double discount = 38;
-  optional int32 invoice_status = 39;
-  optional int64 ctm = 40;
-  repeated ProviderTradeDetailModelRequest trade_details = 41;
-  optional string anti_audit_reasons = 42;
 }
 
-message ProviderTradeModelResponse {
+message SupplierTradeStockOutDetailsCreateRequest {
   int32 id = 1;
-  string create_time = 3;
-  string update_time = 4;
+  optional string src_order_no = 3;
+  optional string stock_out_no = 4;
+  optional string order_no = 5;
+  optional string order_type_name = 6;
+  optional string status = 7;
+  optional string logistics_name = 8;
+  optional string logistics_code = 9;
+  optional string logistics_no = 10;
+  optional string consign_time = 11;
+  optional string stock_check_time = 12;
+  optional string modified = 13;
+  optional string goods_no = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string spec_no = 17;
+  double goods_count = 18;
+  optional int64 ctm_order = 19;
+  string filters = 20;
+}
+
+message SupplierTradeStockOutDetailsDestroyRequest {
+  int32 id = 1;
+}
+
+message SupplierTradeStockOutDetailsListRequest {
+  string filters = 1;
+}
+
+message SupplierTradeStockOutDetailsListResponse {
+  repeated SupplierTradeStockOutDetailsResponse results = 1;
+  int32 count = 2;
+}
+
+message SupplierTradeStockOutDetailsResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string src_order_no = 4;
+  optional string stock_out_no = 5;
+  optional string order_no = 6;
+  optional string order_type_name = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string consign_time = 12;
+  optional string stock_check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_order = 20;
+}
+
+message SupplierTradeStockOutDetailsRetrieveRequest {
+  int32 id = 1;
+}
+
+message SupplierTradeStockOutDetailsUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 3;
+  optional string src_order_no = 4;
+  optional string stock_out_no = 5;
+  optional string order_no = 6;
+  optional string order_type_name = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string consign_time = 12;
+  optional string stock_check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 ctm_order = 20;
+  string filters = 21;
+}
+
+message SupplierTradeUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated SupplierTradeGoodsDetailsRequest goods_list = 3;
+  repeated string _partial_update_fields = 4;
   optional string create_name = 5;
   optional int32 create_type = 6;
-  optional string approve_time = 7;
-  optional string approve_name = 8;
-  optional string approve_reasons = 9;
-  optional string cancel_reasons = 11;
-  string tid = 12;
-  optional int32 trade_type = 13;
-  optional int32 type = 14;
-  optional int32 trade_status = 15;
-  optional int32 pay_status = 16;
-  optional string pay_time = 17;
-  optional int32 delivery_term = 18;
-  string buyer_nick = 19;
-  optional string buyer_mobile = 20;
-  optional string buyer_message = 21;
-  optional string seller_memo = 22;
-  optional string seller_name = 23;
-  string shop_no = 24;
-  string shop_name = 25;
-  string warehouse_no = 26;
-  string warehouse_name = 27;
-  optional string receiver_name = 28;
-  optional string receiver_province = 29;
-  optional string receiver_city = 30;
-  optional string receiver_district = 31;
-  optional string receiver_address = 32;
-  optional string receiver_mobile = 33;
-  optional double post_amount = 34;
-  optional double other_amount = 35;
-  optional double ext_cod_fee = 36;
-  optional double paid = 37;
-  optional double cod_amount = 38;
-  optional double receivable = 39;
-  optional double discount = 40;
-  optional int32 invoice_status = 41;
-  optional int64 ctm = 42;
-  repeated ProviderTradeDetailModelResponse trade_details = 43;
-  optional string anti_audit_reasons = 44;
+  string tid = 7;
+  optional int32 trade_status = 8;
+  optional int32 pay_status = 9;
+  optional string pay_time = 10;
+  optional int32 delivery_term = 11;
+  string buyer_nick = 12;
+  optional string buyer_mobile = 13;
+  optional string buyer_message = 14;
+  optional string seller_memo = 15;
+  optional string seller_name = 16;
+  string shop_no = 17;
+  string shop_name = 18;
+  string warehouse_no = 19;
+  string warehouse_name = 20;
+  optional string receiver_name = 21;
+  optional string receiver_province = 22;
+  optional string receiver_city = 23;
+  optional string receiver_district = 24;
+  optional string receiver_address = 25;
+  optional string receiver_mobile = 26;
+  optional double paid = 27;
+  optional double post_amount = 28;
+  optional double other_amount = 29;
+  optional double ext_cod_fee = 30;
+  optional double cod_amount = 31;
+  optional double receivable = 32;
+  optional double discount = 33;
+  optional int32 invoice_status = 34;
+  optional int64 deliver_notice = 35;
+  repeated TradeGoodsEpcRequest stock_in_data = 36;
+  TradeGoodsEpcRequest stock_out_data = 37;
+  optional int32 self_pickup = 38;
+  optional string image_url = 39;
 }
 
-message ProviderTradeModelRetrieveRequest {
+message TradeGoodsEpcRequest {
+  optional string stock_in_text = 1;
+  optional string stock_out_text = 2;
+  optional string epc_text = 3;
+  string warehouse_no = 4;
+}
+
+message VendorOperatorCreateRequest {
+  int32 id = 1;
+  optional int32 organize_id = 3;
+  optional string organize_name = 4;
+  optional int32 operator_id = 5;
+  optional string operator_name = 6;
+  optional int64 vendor = 7;
+  string filters = 8;
+}
+
+message VendorOperatorDestroyRequest {
   int32 id = 1;
 }
 
-message SysOrgModelResponse {
-  int32 id = 1;
-  string createdate = 2;
-  int32 deletedstate = 3;
-  optional string updatedate = 4;
-  optional int32 create_userid = 5;
-  optional int32 update_userid = 6;
-  optional string org_code = 7;
-  string org_name = 8;
-  optional string org_type = 9;
-  optional int32 owner_storeid = 10;
-  optional int32 owner_userid = 11;
-  optional int32 parent_id = 12;
-  int32 tenant_id = 13;
+message VendorOperatorListRequest {
+  string filters = 1;
 }
 
-message SysUserWarehouseRequest {
+message VendorOperatorListResponse {
+  repeated VendorOperatorResponse results = 1;
+  int32 count = 2;
+}
+
+message VendorOperatorRequest {
   int32 id = 1;
-  repeated int64 warehouse = 2;
+  optional int32 organize_id = 3;
+  optional string organize_name = 4;
+  optional int32 operator_id = 5;
+  optional string operator_name = 6;
+  optional int64 vendor = 7;
+  string filters = 8;
+}
+
+message VendorOperatorResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional int32 organize_id = 4;
+  optional string organize_name = 5;
+  optional int32 operator_id = 6;
+  optional string operator_name = 7;
+  optional int64 vendor = 8;
+}
+
+message VendorOperatorRetrieveRequest {
+  int32 id = 1;
+}
+
+message VendorOperatorUpdateRequest {
+  int32 id = 1;
   repeated string _partial_update_fields = 3;
-}
-
-message SysUserWarehouseResponse {
-  int32 id = 1;
-  optional SysOrgModelResponse organization = 2;
-  repeated WarehouseInfoModelResponse warehouse = 3;
-  string createdate = 4;
-  int32 deletedstate = 5;
-  optional string updatedate = 6;
-  optional int32 create_userid = 7;
-  string login_name = 8;
-  string password = 9;
-  optional int32 tenant_id = 10;
-  optional int32 update_userid = 11;
-  optional string create_user = 12;
-  optional string user_desc = 13;
-  string display_name = 14;
-  optional string user_icon = 15;
-  string is_enable = 16;
-  optional string user_mail = 17;
-  optional int32 permission_id = 18;
-  optional string permissions = 19;
-  string user_phone = 20;
-  optional int32 role_id = 21;
-  optional int32 store_id = 22;
-  optional string update_user = 23;
-  optional string user_code = 24;
-}
-
-message TradeNextTidRequest {
-}
-
-message TradeNextTidResponse {
-  string tid = 1;
-}
-
-message TradeStatusChangeRequest {
-  int32 id = 1;
-  int32 trade_status = 2;
-  string approve_reasons = 3;
-  string anti_audit_reasons = 4;
-  string cancel_reasons = 5;
-  repeated string _partial_update_fields = 6;
-}
-
-message TradeStatusChangeResponse {
-}
-
-message WarehouseInfoModelResponse {
-  int32 id = 1;
-  string createdate = 2;
-  int32 deletedstate = 3;
-  optional string updatedate = 4;
-  optional int32 create_userid = 5;
-  optional int32 update_userid = 6;
-  int32 tenant_id = 7;
-  optional string cell = 8;
-  optional string city = 9;
-  optional string code = 10;
-  optional string contacts = 11;
-  optional string contacts_code = 12;
-  optional string create_user = 13;
-  optional string detail_address = 14;
-  optional string district = 15;
-  optional string exp_company = 16;
-  optional int32 is_enabled = 17;
-  optional int32 is_match_exp_company = 18;
-  optional int32 is_sameproperty = 19;
-  optional int32 level = 20;
-  optional string name = 21;
-  optional int32 p_id = 22;
-  optional string phone = 23;
-  optional string p_ids = 24;
-  optional int32 property = 25;
-  optional string province = 26;
-  optional string remark = 27;
-  optional string update_user = 28;
+  optional int32 organize_id = 4;
+  optional string organize_name = 5;
+  optional int32 operator_id = 6;
+  optional string operator_name = 7;
+  optional int64 vendor = 8;
+  string filters = 9;
 }
 
