@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-// update 6.7
+// add new pbfile
 go 1.20
 
 
