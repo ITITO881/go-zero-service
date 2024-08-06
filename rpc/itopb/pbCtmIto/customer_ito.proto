@@ -420,10 +420,10 @@ message CtmProductCreateRequest {
   string renew_expired = 7;
   string repair_expired = 8;
   bool renew_flag = 9;
-  optional string origin_ac_code = 10;
-  optional string origin_prod_code = 11;
-  int64 ctm = 12;
-  optional string password = 13;
+  optional string password = 10;
+  optional string origin_ac_code = 11;
+  optional string origin_prod_code = 12;
+  int64 ctm = 13;
 }
 
 message CtmProductListRequest {
@@ -437,21 +437,21 @@ message CtmProductListResponse {
 
 message CtmProductResponse {
   int32 id = 1;
-  string ac_code = 2;
-  optional string prod_code = 3;
-  string buy_time = 4;
-  optional string bind_time = 5;
-  string renew_expired = 6;
-  string repair_expired = 7;
-  bool renew_flag = 8;
-  optional string origin_ac_code = 9;
-  optional string origin_prod_code = 10;
-  string create_time = 11;
-  string update_time = 12;
-  int64 ctm = 13;
-  optional string password = 14;
-  string mobile = 15;
-  string nickname = 16;
+  string mobile = 2;
+  string nickname = 3;
+  string ac_code = 4;
+  optional string prod_code = 5;
+  string buy_time = 6;
+  optional string bind_time = 7;
+  string renew_expired = 8;
+  string repair_expired = 9;
+  bool renew_flag = 10;
+  optional string password = 11;
+  optional string origin_ac_code = 12;
+  optional string origin_prod_code = 13;
+  string create_time = 14;
+  string update_time = 15;
+  int64 ctm = 16;
 }
 
 message CtmProductRetrieveRequest {
@@ -469,10 +469,10 @@ message CtmProductUpdateRequest {
   string renew_expired = 8;
   string repair_expired = 9;
   bool renew_flag = 10;
-  optional string origin_ac_code = 11;
-  optional string origin_prod_code = 12;
-  int64 ctm = 13;
-  optional string password = 14;
+  optional string password = 11;
+  optional string origin_ac_code = 12;
+  optional string origin_prod_code = 13;
+  int64 ctm = 14;
 }
 
 message CtmWalletListResponse {

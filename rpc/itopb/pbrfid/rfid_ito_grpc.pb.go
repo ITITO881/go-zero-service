@@ -63,6 +63,8 @@ const (
 	DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_FullMethodName    = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeGoodsDetails"
 	DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_FullMethodName = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeStockOutDetails"
 	DeliverNoticeController_RetrieveVendorOperator_FullMethodName               = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveVendorOperator"
+	DeliverNoticeController_ShopOptionsWdt_FullMethodName                       = "/rfid_service.rfid_ito.DeliverNoticeController/ShopOptionsWdt"
+	DeliverNoticeController_StockOptionsWdt_FullMethodName                      = "/rfid_service.rfid_ito.DeliverNoticeController/StockOptionsWdt"
 	DeliverNoticeController_SupplierTradeNextTid_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/SupplierTradeNextTid"
 	DeliverNoticeController_SupplierTradeProcess_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/SupplierTradeProcess"
 	DeliverNoticeController_Update_FullMethodName                               = "/rfid_service.rfid_ito.DeliverNoticeController/Update"
@@ -123,6 +125,8 @@ type DeliverNoticeControllerClient interface {
 	RetrieveSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error)
 	RetrieveSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error)
 	RetrieveVendorOperator(ctx context.Context, in *VendorOperatorRetrieveRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error)
+	ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error)
+	StockOptionsWdt(ctx context.Context, in *WdtStockListRequest, opts ...grpc.CallOption) (*WdtStockListResponse, error)
 	SupplierTradeNextTid(ctx context.Context, in *SupplierTradeNextTidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error)
 	SupplierTradeProcess(ctx context.Context, in *DeliverNoticeSupplierTradeProcessRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	Update(ctx context.Context, in *DeliverNoticeRequest, opts ...grpc.CallOption) (*DeliverNoticeResponse, error)
@@ -531,6 +535,24 @@ func (c *deliverNoticeControllerClient) RetrieveVendorOperator(ctx context.Conte
 	return out, nil
 }
 
+func (c *deliverNoticeControllerClient) ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error) {
+	out := new(WdtShopListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ShopOptionsWdt_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deliverNoticeControllerClient) StockOptionsWdt(ctx context.Context, in *WdtStockListRequest, opts ...grpc.CallOption) (*WdtStockListResponse, error) {
+	out := new(WdtStockListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_StockOptionsWdt_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *deliverNoticeControllerClient) SupplierTradeNextTid(ctx context.Context, in *SupplierTradeNextTidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error) {
 	out := new(NoticeNextDidResponse)
 	err := c.cc.Invoke(ctx, DeliverNoticeController_SupplierTradeNextTid_FullMethodName, in, out, opts...)
@@ -677,6 +699,8 @@ type DeliverNoticeControllerServer interface {
 	RetrieveSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsRetrieveRequest) (*SupplierTradeGoodsDetailsResponse, error)
 	RetrieveSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsRetrieveRequest) (*SupplierTradeStockOutDetailsResponse, error)
 	RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error)
+	ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error)
+	StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error)
 	SupplierTradeNextTid(context.Context, *SupplierTradeNextTidRequest) (*NoticeNextDidResponse, error)
 	SupplierTradeProcess(context.Context, *DeliverNoticeSupplierTradeProcessRequest) (*emptypb.Empty, error)
 	Update(context.Context, *DeliverNoticeRequest) (*DeliverNoticeResponse, error)
@@ -823,6 +847,12 @@ func (UnimplementedDeliverNoticeControllerServer) RetrieveSupplierTradeStockOutD
 }
 func (UnimplementedDeliverNoticeControllerServer) RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ShopOptionsWdt not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StockOptionsWdt not implemented")
 }
 func (UnimplementedDeliverNoticeControllerServer) SupplierTradeNextTid(context.Context, *SupplierTradeNextTidRequest) (*NoticeNextDidResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SupplierTradeNextTid not implemented")
@@ -1645,6 +1675,42 @@ func _DeliverNoticeController_RetrieveVendorOperator_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DeliverNoticeController_ShopOptionsWdt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtShopListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ShopOptionsWdt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ShopOptionsWdt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ShopOptionsWdt(ctx, req.(*WdtShopListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeliverNoticeController_StockOptionsWdt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtStockListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).StockOptionsWdt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_StockOptionsWdt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).StockOptionsWdt(ctx, req.(*WdtStockListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DeliverNoticeController_SupplierTradeNextTid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SupplierTradeNextTidRequest)
 	if err := dec(in); err != nil {
@@ -2021,6 +2087,14 @@ var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveVendorOperator",
 			Handler:    _DeliverNoticeController_RetrieveVendorOperator_Handler,
+		},
+		{
+			MethodName: "ShopOptionsWdt",
+			Handler:    _DeliverNoticeController_ShopOptionsWdt_Handler,
+		},
+		{
+			MethodName: "StockOptionsWdt",
+			Handler:    _DeliverNoticeController_StockOptionsWdt_Handler,
 		},
 		{
 			MethodName: "SupplierTradeNextTid",

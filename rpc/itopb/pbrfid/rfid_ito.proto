@@ -50,6 +50,8 @@ service DeliverNoticeController {
   rpc RetrieveSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsRetrieveRequest) returns (SupplierTradeGoodsDetailsResponse) {}
   rpc RetrieveSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsRetrieveRequest) returns (SupplierTradeStockOutDetailsResponse) {}
   rpc RetrieveVendorOperator(VendorOperatorRetrieveRequest) returns (VendorOperatorResponse) {}
+  rpc ShopOptionsWdt(WdtShopListRequest) returns (WdtShopListResponse) {}
+  rpc StockOptionsWdt(WdtStockListRequest) returns (WdtStockListResponse) {}
   rpc SupplierTradeNextTid(SupplierTradeNextTidRequest) returns (NoticeNextDidResponse) {}
   rpc SupplierTradeProcess(DeliverNoticeSupplierTradeProcessRequest) returns (google.protobuf.Empty) {}
   rpc Update(DeliverNoticeRequest) returns (DeliverNoticeResponse) {}
@@ -1237,5 +1239,34 @@ message VendorOperatorUpdateRequest {
   optional string operator_name = 7;
   optional int64 vendor = 8;
   string filters = 9;
+}
+
+message WdtShop {
+  string shop_code = 1;
+  string shop_name = 2;
+  int32 platform_id = 3;
+}
+
+message WdtShopListRequest {
+}
+
+message WdtShopListResponse {
+  repeated WdtShop results = 1;
+  int32 count = 2;
+}
+
+message WdtStock {
+  string stock_code = 1;
+  string stock_name = 2;
+  int32 stock_type = 3;
+  string ext_warehouse_no = 4;
+}
+
+message WdtStockListRequest {
+}
+
+message WdtStockListResponse {
+  repeated WdtStock results = 1;
+  int32 count = 2;
 }
 

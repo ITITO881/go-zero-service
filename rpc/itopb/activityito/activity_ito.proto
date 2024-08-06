@@ -79,6 +79,8 @@ service ActivityDiscountController {
 
 message ActVoucherOptionResponse {
   repeated LabelValueResponse titles = 1;
+  repeated LabelNumberValueResponse act_types = 2;
+  repeated LabelNumberValueResponse sub_types = 3;
 }
 
 message ActivityBrandBlogDestroyRequest {
@@ -342,6 +344,8 @@ message ActivityBrandPartialUpdateRequest {
   optional string admin_name = 14;
   int32 type = 15;
   optional string place = 16;
+  optional string mp_page = 17;
+  repeated int64 products = 18;
 }
 
 message ActivityBrandRecordDestroyRequest {
@@ -443,6 +447,8 @@ message ActivityBrandRequest {
   optional string admin_name = 13;
   int32 type = 14;
   optional string place = 15;
+  optional string mp_page = 16;
+  repeated int64 products = 17;
 }
 
 message ActivityBrandResponse {
@@ -464,6 +470,9 @@ message ActivityBrandResponse {
   int32 type = 16;
   optional string place = 17;
   string type_name = 18;
+  repeated PlatProductResponse product_list = 19;
+  optional string mp_page = 20;
+  repeated int64 products = 21;
 }
 
 message ActivityBrandRetrieveRequest {
@@ -956,6 +965,11 @@ message CtmResponse {
   optional string area = 18;
 }
 
+message LabelNumberValueResponse {
+  int32 value = 1;
+  string label = 2;
+}
+
 message LabelValueResponse {
   string value = 1;
   string label = 2;
@@ -968,6 +982,44 @@ message NextSerialRequest {
 }
 
 message OptionRequest {
+}
+
+message PlatProductResponse {
+  int32 id = 1;
+  optional string spu = 2;
+  optional string sku = 3;
+  optional string bar_code = 4;
+  optional string plat_brand = 5;
+  optional string plat_category = 6;
+  optional string plat_series = 7;
+  optional string plat_model = 8;
+  optional string plat_color = 9;
+  optional string plat_size = 10;
+  optional string plat_texture = 11;
+  optional string plat_lining = 12;
+  optional string plat_version = 13;
+  optional string name_color = 14;
+  optional string name_size = 15;
+  optional string name_texture = 16;
+  optional string name_lining = 17;
+  optional string name_version = 18;
+  optional string plat_code = 19;
+  optional string plat_sub_code = 20;
+  optional string plat_name = 21;
+  optional string plat_brief = 22;
+  optional string plat_tag = 24;
+  optional string plat_retail = 25;
+  optional string plat_discount = 26;
+  int32 is_selected = 27;
+  optional string started_at = 28;
+  optional string expired_at = 29;
+  optional int32 nut_num = 30;
+  optional int32 badge_num = 31;
+  optional int32 score_num = 32;
+  string created_at = 33;
+  string updated_at = 34;
+  optional string deleted_at = 35;
+  optional string plat_desc = 36;
 }
 
 message VoucherRecordUpdateRequest {

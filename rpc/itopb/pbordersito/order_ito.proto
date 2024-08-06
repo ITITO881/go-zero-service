@@ -3,8 +3,8 @@ syntax = "proto3";
 package customer_service.customer_ito;
 
 import "google/protobuf/empty.proto";
-option go_package = "../pbordersito";
 
+option go_package = "../pbordersito";
 
 service CtmItoOrderController {
   rpc ChildrenBatchUpdateRefundReason(ChildrenBatchUpdateRequest) returns (ChildrenBatchUpdateResponse) {}
@@ -930,59 +930,26 @@ message CtmOrderPromotionDetailRetrieveRequest {
 message CtmOrderPromotionDetailUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated CtmOrderGoodsDetailRequest goods_list = 3;
-  repeated CtmOrderPromotionRequest coupon_list = 4;
-  optional CtmOrderPayRequest order_pay = 5;
-  optional CtmOrderInvoiceRequest order_invoice = 6;
   repeated string _partial_update_fields = 7;
-  optional string create_name = 8;
-  optional int32 create_type = 9;
-  optional string seller_memo = 10;
-  optional string seller_name = 11;
-  optional string approve_time = 12;
-  optional string approve_name = 13;
-  optional string approve_reasons = 14;
-  optional string reject_reasons = 15;
-  optional string cancel_reasons = 16;
-  string tid = 17;
-  optional int32 trade_type = 18;
-  optional int32 type = 19;
-  optional int32 trade_status = 20;
-  optional int32 pay_status = 21;
-  optional string pay_time = 22;
-  optional int32 delivery_term = 23;
-  string buyer_nick = 24;
-  optional string buyer_mobile = 25;
-  optional string buyer_message = 26;
-  string shop_no = 27;
-  string shop_name = 28;
-  string warehouse_no = 29;
-  string warehouse_name = 30;
-  optional string receiver_name = 31;
-  optional string receiver_province = 32;
-  optional string receiver_city = 33;
-  optional string receiver_district = 34;
-  optional string receiver_address = 35;
-  optional string receiver_mobile = 36;
-  optional double paid = 37;
-  optional double post_amount = 38;
-  optional double other_amount = 39;
-  optional double ext_cod_fee = 40;
-  optional double cod_amount = 41;
-  optional double receivable = 42;
-  optional double discount = 43;
-  optional int32 invoice_status = 44;
-  optional double debit_pay = 45;
-  optional double gift_pay = 46;
-  optional int32 score_pay = 47;
-  optional int32 badge_pay = 48;
-  optional int32 nut_pay = 49;
-  optional int64 ctm = 50;
-  optional int64 debit_card = 51;
-  optional int64 score_card = 52;
-  optional int64 badge_card = 53;
-  optional int64 nut_card = 54;
-  repeated int64 gift_cards = 55;
+  optional int32 discount = 43;
+  optional int64 ctm_order = 44;
+  int32 coupon_id = 45;
+  optional int32 act_voucher_id = 46;
+  int32 coupon_class = 47;
+  int32 coupon_type = 48;
+  optional bool is_registered = 49;
+  optional string coupon_sku = 50;
+  string coupon_name = 51;
+  optional string coupon_code = 52;
+  optional string coupon_intro = 53;
+  optional int32 trigger_amount = 54;
+  optional int32 trigger_qty = 55;
+  optional int32 cumulate_count = 56;
+  optional int32 discount_amount = 57;
+  bool can_stack = 58;
+  optional string prod_range = 59;
+  optional string start_time = 60;
+  optional string expire_time = 61;
 }
 
 message CtmOrderPromotionListResponse {

@@ -191,6 +191,8 @@ const (
 	WDT_ALREADY_TAILORED                 uint32 = 140668
 
 	EXP_CLIENT_QUERY_FAIL uint32 = 140670
+
+	PRODUCT_STOCK_NOT_ENOUGH uint32 = 140671
 )
 
 const (

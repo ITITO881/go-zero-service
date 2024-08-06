@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 type ReflectTag struct {
@@ -114,4 +115,32 @@ func Float64(value float64) *float64 {
 
 func Bool(value bool) *bool {
 	return &value
+}
+
+func ContainEmoji(s string) bool {
+	for _, r := range s {
+		if unicode.Is(unicode.M, r) || // Miscellaneous symbols and pictographs
+			unicode.Is(unicode.S, r) { // Symbols, currency, etc.
+			return true
+		}
+		if r >= 0x1F300 && r <= 0x1F5FF {
+			return true
+		}
+	}
+	return false
+}
+
+func RemoveEmoji(s string) string {
+	result := ""
+	for _, r := range s {
+		if unicode.Is(unicode.M, r) || // Miscellaneous symbols and pictographs
+			unicode.Is(unicode.S, r) { // Symbols, currency, etc.
+			continue
+		}
+		if r >= 0x1F300 && r <= 0x1F5FF {
+			continue
+		}
+		result += string(r)
+	}
+	return result
 }

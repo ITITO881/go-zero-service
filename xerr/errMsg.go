@@ -163,6 +163,8 @@ func init() {
 	message[BRAND_BACTIVITY_ACCEPTED] = "您已领取该活动卡券，，请前往权益卡列表查看"
 	message[BRAND_ACTIVITY_FINISHED] = "手慢了，卡券已被领取完"
 
+	// 产品相关
+	message[PRODUCT_STOCK_NOT_ENOUGH] = "库存不足"
 }
 
 func MapErrMsg(errCode uint32) string {
