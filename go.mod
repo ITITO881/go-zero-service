@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-// add new pbfile
+// pbrfid 增加仓库/店铺列表查询
 go 1.20
 
 
