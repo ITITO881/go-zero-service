@@ -287,8 +287,8 @@ message DeliverNoticeListRequest {
   optional int32 delivery_term = 20;
   string shop_no = 21;
   string shop_name = 22;
-  string warehouse_no = 23;
-  string warehouse_name = 24;
+  optional string warehouse_no = 23;
+  optional string warehouse_name = 24;
   optional string receiver_name = 25;
   optional string receiver_province = 26;
   optional string receiver_city = 27;
@@ -307,6 +307,7 @@ message DeliverNoticeListRequest {
   optional int64 vendor = 40;
   string filters = 41;
   optional string seller_memo = 42;
+  optional int32 can_split = 43;
 }
 
 message DeliverNoticeListResponse {
@@ -351,8 +352,8 @@ message DeliverNoticePartialUpdateRequest {
   optional int32 delivery_term = 21;
   string shop_no = 22;
   string shop_name = 23;
-  string warehouse_no = 24;
-  string warehouse_name = 25;
+  optional string warehouse_no = 24;
+  optional string warehouse_name = 25;
   optional string receiver_name = 26;
   optional string receiver_province = 27;
   optional string receiver_city = 28;
@@ -371,6 +372,7 @@ message DeliverNoticePartialUpdateRequest {
   optional int64 vendor = 41;
   string filters = 42;
   optional string seller_memo = 43;
+  optional int32 can_split = 44;
 }
 
 message DeliverNoticeRequest {
@@ -395,8 +397,8 @@ message DeliverNoticeRequest {
   optional int32 delivery_term = 20;
   string shop_no = 21;
   string shop_name = 22;
-  string warehouse_no = 23;
-  string warehouse_name = 24;
+  optional string warehouse_no = 23;
+  optional string warehouse_name = 24;
   optional string receiver_name = 25;
   optional string receiver_province = 26;
   optional string receiver_city = 27;
@@ -415,6 +417,7 @@ message DeliverNoticeRequest {
   optional int64 vendor = 40;
   string filters = 41;
   optional string seller_memo = 42;
+  optional int32 can_split = 43;
 }
 
 message DeliverNoticeResponse {
@@ -450,8 +453,8 @@ message DeliverNoticeResponse {
   optional int32 delivery_term = 30;
   string shop_no = 31;
   string shop_name = 32;
-  string warehouse_no = 33;
-  string warehouse_name = 34;
+  optional string warehouse_no = 33;
+  optional string warehouse_name = 34;
   optional string receiver_name = 35;
   optional string receiver_province = 36;
   optional string receiver_city = 37;
@@ -471,6 +474,7 @@ message DeliverNoticeResponse {
   optional string seller_memo = 51;
   string vendor_name = 52;
   string ctm_name = 53;
+  optional int32 can_split = 54;
 }
 
 message DeliverNoticeRetrieveRequest {
