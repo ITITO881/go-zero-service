@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-// pbrfid add fields
+// add new pb
 go 1.20
 
 
