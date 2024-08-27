@@ -133,8 +133,10 @@ message BulkCreateRefundDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_service = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_service = 28;
 }
 
 message BulkCreateRefundReturnListRequest {
@@ -249,8 +251,10 @@ message CreateRefundDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_service = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_service = 28;
 }
 
 message CreateRefundInvoiceRequest {
@@ -940,8 +944,10 @@ message RefundDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_service = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_service = 28;
 }
 
 message RefundDeliverResponse {
@@ -972,8 +978,10 @@ message RefundDeliverResponse {
   optional string spec_name = 25;
   optional string rfid_code = 26;
   optional string security_code = 27;
-  optional int64 ctm_order = 28;
-  optional int64 ctm_service = 29;
+  optional string remark = 28;
+  optional string memo = 29;
+  optional int64 ctm_order = 30;
+  optional int64 ctm_service = 31;
 }
 
 message RefundInvoiceChildrenResponse {
@@ -1378,8 +1386,10 @@ message UpdateRefundDeliverRequest {
   optional string spec_name = 23;
   optional string rfid_code = 24;
   optional string security_code = 25;
-  optional int64 ctm_order = 26;
-  optional int64 ctm_service = 27;
+  optional string remark = 26;
+  optional string memo = 27;
+  optional int64 ctm_order = 28;
+  optional int64 ctm_service = 29;
 }
 
 message UpdateRefundInvoiceRequest {

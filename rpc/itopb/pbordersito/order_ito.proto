@@ -335,8 +335,10 @@ message CtmOrderGoodsDetailCreateRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_refund = 25;
-  optional int64 ctm_service = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_refund = 27;
+  optional int64 ctm_service = 28;
 }
 
 message CtmOrderGoodsDetailDestroyRequest {
@@ -377,8 +379,10 @@ message CtmOrderGoodsDetailRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_refund = 25;
-  optional int64 ctm_service = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_refund = 27;
+  optional int64 ctm_service = 28;
 }
 
 message CtmOrderGoodsDetailResponse {
@@ -409,8 +413,10 @@ message CtmOrderGoodsDetailResponse {
   optional string spec_name = 25;
   optional string rfid_code = 26;
   optional string security_code = 27;
-  optional int64 ctm_refund = 28;
-  optional int64 ctm_service = 29;
+  optional string remark = 28;
+  optional string memo = 29;
+  optional int64 ctm_refund = 30;
+  optional int64 ctm_service = 31;
 }
 
 message CtmOrderGoodsDetailRetrieveRequest {
@@ -443,8 +449,10 @@ message CtmOrderGoodsDetailUpdateRequest {
   optional string spec_name = 23;
   optional string rfid_code = 24;
   optional string security_code = 25;
-  optional int64 ctm_refund = 26;
-  optional int64 ctm_service = 27;
+  optional string remark = 26;
+  optional string memo = 27;
+  optional int64 ctm_refund = 28;
+  optional int64 ctm_service = 29;
 }
 
 message CtmOrderInvoiceChildrenResponse {
@@ -638,12 +646,14 @@ message CtmOrderListRequest {
   optional int32 score_pay = 46;
   optional int32 badge_pay = 47;
   optional int32 nut_pay = 48;
-  optional int64 ctm = 49;
-  optional int64 debit_card = 50;
-  optional int64 score_card = 51;
-  optional int64 badge_card = 52;
-  optional int64 nut_card = 53;
-  repeated int64 gift_cards = 54;
+  optional string remark = 49;
+  optional string memo = 50;
+  optional int64 ctm = 51;
+  optional int64 debit_card = 52;
+  optional int64 score_card = 53;
+  optional int64 badge_card = 54;
+  optional int64 nut_card = 55;
+  repeated int64 gift_cards = 56;
 }
 
 message CtmOrderListResponse {
@@ -714,12 +724,14 @@ message CtmOrderPartialUpdateRequest {
   optional int32 score_pay = 47;
   optional int32 badge_pay = 48;
   optional int32 nut_pay = 49;
-  optional int64 ctm = 50;
-  optional int64 debit_card = 51;
-  optional int64 score_card = 52;
-  optional int64 badge_card = 53;
-  optional int64 nut_card = 54;
-  repeated int64 gift_cards = 55;
+  optional string remark = 50;
+  optional string memo = 51;
+  optional int64 ctm = 52;
+  optional int64 debit_card = 53;
+  optional int64 score_card = 54;
+  optional int64 badge_card = 55;
+  optional int64 nut_card = 56;
+  repeated int64 gift_cards = 57;
 }
 
 message CtmOrderPayDetailCreateRequest {
@@ -930,26 +942,26 @@ message CtmOrderPromotionDetailRetrieveRequest {
 message CtmOrderPromotionDetailUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 7;
-  optional int32 discount = 43;
-  optional int64 ctm_order = 44;
-  int32 coupon_id = 45;
-  optional int32 act_voucher_id = 46;
-  int32 coupon_class = 47;
-  int32 coupon_type = 48;
-  optional bool is_registered = 49;
-  optional string coupon_sku = 50;
-  string coupon_name = 51;
-  optional string coupon_code = 52;
-  optional string coupon_intro = 53;
-  optional int32 trigger_amount = 54;
-  optional int32 trigger_qty = 55;
-  optional int32 cumulate_count = 56;
-  optional int32 discount_amount = 57;
-  bool can_stack = 58;
-  optional string prod_range = 59;
-  optional string start_time = 60;
-  optional string expire_time = 61;
+  optional int64 ctm_order = 3;
+  repeated string _partial_update_fields = 4;
+  int32 coupon_id = 5;
+  optional int32 act_voucher_id = 6;
+  int32 coupon_class = 7;
+  int32 coupon_type = 8;
+  optional bool is_registered = 9;
+  optional string coupon_sku = 10;
+  string coupon_name = 11;
+  optional string coupon_code = 12;
+  optional string coupon_intro = 13;
+  optional int32 trigger_amount = 14;
+  optional int32 trigger_qty = 15;
+  optional int32 cumulate_count = 16;
+  optional int32 discount_amount = 17;
+  optional int32 discount = 18;
+  bool can_stack = 19;
+  optional string prod_range = 20;
+  optional string start_time = 21;
+  optional string expire_time = 22;
 }
 
 message CtmOrderPromotionListResponse {
@@ -1057,12 +1069,14 @@ message CtmOrderRequest {
   optional int32 score_pay = 46;
   optional int32 badge_pay = 47;
   optional int32 nut_pay = 48;
-  optional int64 ctm = 49;
-  optional int64 debit_card = 50;
-  optional int64 score_card = 51;
-  optional int64 badge_card = 52;
-  optional int64 nut_card = 53;
-  repeated int64 gift_cards = 54;
+  optional string remark = 49;
+  optional string memo = 50;
+  optional int64 ctm = 51;
+  optional int64 debit_card = 52;
+  optional int64 score_card = 53;
+  optional int64 badge_card = 54;
+  optional int64 nut_card = 55;
+  repeated int64 gift_cards = 56;
 }
 
 message CtmOrderResponse {
@@ -1122,12 +1136,14 @@ message CtmOrderResponse {
   optional int32 score_pay = 54;
   optional int32 badge_pay = 55;
   optional int32 nut_pay = 56;
-  optional int64 ctm = 57;
-  optional int64 debit_card = 58;
-  optional int64 score_card = 59;
-  optional int64 badge_card = 60;
-  optional int64 nut_card = 61;
-  repeated int64 gift_cards = 62;
+  optional string remark = 57;
+  optional string memo = 58;
+  optional int64 ctm = 59;
+  optional int64 debit_card = 60;
+  optional int64 score_card = 61;
+  optional int64 badge_card = 62;
+  optional int64 nut_card = 63;
+  repeated int64 gift_cards = 64;
 }
 
 message CtmOrderRetrieveRequest {

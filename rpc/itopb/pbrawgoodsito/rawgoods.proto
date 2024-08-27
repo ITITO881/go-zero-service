@@ -100,6 +100,9 @@ message ClubProductRequest {
   int64 spu = 19;
   string prod = 20;
   repeated int64 workshop_color = 21;
+  bool recyclable = 22;
+  bool with_gifts = 23;
+  optional string feature = 24;
 }
 
 message ClubProductResponse {
@@ -131,6 +134,9 @@ message ClubProductResponse {
   repeated WorkshopColorResponse workshop_colors = 27;
   int32 print_way = 28;
   string sku = 29;
+  bool recyclable = 30;
+  bool with_gifts = 31;
+  optional string feature = 32;
 }
 
 message ClubProductRetrieveRequest {
@@ -215,6 +221,9 @@ message ClubProductUpdateRequest {
   int64 spu = 20;
   string prod = 21;
   repeated int64 workshop_color = 22;
+  bool recyclable = 23;
+  bool with_gifts = 24;
+  optional string feature = 25;
 }
 
 message ClubWorkshopDestroyRequest {

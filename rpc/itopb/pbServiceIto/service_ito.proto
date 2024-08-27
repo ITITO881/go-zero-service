@@ -109,8 +109,10 @@ message BulkCreateGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_refund = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_refund = 28;
 }
 
 message BulkCreateGoodsReturnListRequest {
@@ -161,8 +163,10 @@ message CreateGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_refund = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_refund = 28;
 }
 
 message CreateGoodsInvoiceRequest {
@@ -1184,8 +1188,10 @@ message ServiceGoodsDeliverRequest {
   optional string spec_name = 22;
   optional string rfid_code = 23;
   optional string security_code = 24;
-  optional int64 ctm_order = 25;
-  optional int64 ctm_refund = 26;
+  optional string remark = 25;
+  optional string memo = 26;
+  optional int64 ctm_order = 27;
+  optional int64 ctm_refund = 28;
 }
 
 message ServiceGoodsDeliverResponse {
@@ -1216,8 +1222,10 @@ message ServiceGoodsDeliverResponse {
   optional string spec_name = 25;
   optional string rfid_code = 26;
   optional string security_code = 27;
-  optional int64 ctm_order = 28;
-  optional int64 ctm_refund = 29;
+  optional string remark = 28;
+  optional string memo = 29;
+  optional int64 ctm_order = 30;
+  optional int64 ctm_refund = 31;
 }
 
 message ServiceGoodsInvoiceChildrenResponse {
@@ -1546,8 +1554,10 @@ message UpdateGoodsDeliverRequest {
   optional string spec_name = 23;
   optional string rfid_code = 24;
   optional string security_code = 25;
-  optional int64 ctm_refund = 26;
-  optional int64 ctm_service = 27;
+  optional string remark = 26;
+  optional string memo = 27;
+  optional int64 ctm_refund = 28;
+  optional int64 ctm_service = 29;
 }
 
 message UpdateGoodsInvoiceRequest {

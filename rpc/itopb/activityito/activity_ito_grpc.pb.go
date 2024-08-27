@@ -1782,6 +1782,11 @@ const (
 	ActivityDiscountController_NextSerial_FullMethodName              = "/activity_service.activity_ito.ActivityDiscountController/NextSerial"
 	ActivityDiscountController_Options_FullMethodName                 = "/activity_service.activity_ito.ActivityDiscountController/Options"
 	ActivityDiscountController_PartialUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/PartialUpdate"
+	ActivityDiscountController_ProductCreate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/ProductCreate"
+	ActivityDiscountController_ProductCreateBatch_FullMethodName      = "/activity_service.activity_ito.ActivityDiscountController/ProductCreateBatch"
+	ActivityDiscountController_ProductDestroy_FullMethodName          = "/activity_service.activity_ito.ActivityDiscountController/ProductDestroy"
+	ActivityDiscountController_ProductList_FullMethodName             = "/activity_service.activity_ito.ActivityDiscountController/ProductList"
+	ActivityDiscountController_ProductUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/ProductUpdate"
 	ActivityDiscountController_Retrieve_FullMethodName                = "/activity_service.activity_ito.ActivityDiscountController/Retrieve"
 	ActivityDiscountController_Update_FullMethodName                  = "/activity_service.activity_ito.ActivityDiscountController/Update"
 	ActivityDiscountController_VoucherCreate_FullMethodName           = "/activity_service.activity_ito.ActivityDiscountController/VoucherCreate"
@@ -1807,6 +1812,11 @@ type ActivityDiscountControllerClient interface {
 	NextSerial(ctx context.Context, in *NextSerialRequest, opts ...grpc.CallOption) (*ActivityDiscountNextSerialResponse, error)
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityDiscountPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
+	ProductCreate(ctx context.Context, in *ActivityDiscountProductRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
+	ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
+	ProductDestroy(ctx context.Context, in *ActivityDiscountProductDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ProductList(ctx context.Context, in *ActivityDiscountProductListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductListResponse, error)
+	ProductUpdate(ctx context.Context, in *ActivityDiscountProductUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
 	Retrieve(ctx context.Context, in *ActivityDiscountRetrieveRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	Update(ctx context.Context, in *ActivityDiscountRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	VoucherCreate(ctx context.Context, in *ActivityDiscountVoucherRequest, opts ...grpc.CallOption) (*ActivityDiscountVoucherResponse, error)
@@ -1878,6 +1888,51 @@ func (c *activityDiscountControllerClient) Options(ctx context.Context, in *Opti
 func (c *activityDiscountControllerClient) PartialUpdate(ctx context.Context, in *ActivityDiscountPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error) {
 	out := new(ActivityDiscountResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) ProductCreate(ctx context.Context, in *ActivityDiscountProductRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error) {
+	out := new(ActivityDiscountProductResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error) {
+	out := new(ActivityDiscountProductResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductCreateBatch_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) ProductDestroy(ctx context.Context, in *ActivityDiscountProductDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) ProductList(ctx context.Context, in *ActivityDiscountProductListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductListResponse, error) {
+	out := new(ActivityDiscountProductListResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityDiscountControllerClient) ProductUpdate(ctx context.Context, in *ActivityDiscountProductUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error) {
+	out := new(ActivityDiscountProductResponse)
+	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductUpdate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2011,6 +2066,11 @@ type ActivityDiscountControllerServer interface {
 	NextSerial(context.Context, *NextSerialRequest) (*ActivityDiscountNextSerialResponse, error)
 	Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error)
 	PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error)
+	ProductCreate(context.Context, *ActivityDiscountProductRequest) (*ActivityDiscountProductResponse, error)
+	ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductResponse, error)
+	ProductDestroy(context.Context, *ActivityDiscountProductDestroyRequest) (*emptypb.Empty, error)
+	ProductList(context.Context, *ActivityDiscountProductListRequest) (*ActivityDiscountProductListResponse, error)
+	ProductUpdate(context.Context, *ActivityDiscountProductUpdateRequest) (*ActivityDiscountProductResponse, error)
 	Retrieve(context.Context, *ActivityDiscountRetrieveRequest) (*ActivityDiscountResponse, error)
 	Update(context.Context, *ActivityDiscountRequest) (*ActivityDiscountResponse, error)
 	VoucherCreate(context.Context, *ActivityDiscountVoucherRequest) (*ActivityDiscountVoucherResponse, error)
@@ -2048,6 +2108,21 @@ func (UnimplementedActivityDiscountControllerServer) Options(context.Context, *O
 }
 func (UnimplementedActivityDiscountControllerServer) PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) ProductCreate(context.Context, *ActivityDiscountProductRequest) (*ActivityDiscountProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProductCreate not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProductCreateBatch not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) ProductDestroy(context.Context, *ActivityDiscountProductDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProductDestroy not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) ProductList(context.Context, *ActivityDiscountProductListRequest) (*ActivityDiscountProductListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProductList not implemented")
+}
+func (UnimplementedActivityDiscountControllerServer) ProductUpdate(context.Context, *ActivityDiscountProductUpdateRequest) (*ActivityDiscountProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProductUpdate not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) Retrieve(context.Context, *ActivityDiscountRetrieveRequest) (*ActivityDiscountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
@@ -2206,6 +2281,96 @@ func _ActivityDiscountController_PartialUpdate_Handler(srv interface{}, ctx cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ActivityDiscountControllerServer).PartialUpdate(ctx, req.(*ActivityDiscountPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_ProductCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountProductRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).ProductCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_ProductCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).ProductCreate(ctx, req.(*ActivityDiscountProductRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_ProductCreateBatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountProductCreateBatchListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).ProductCreateBatch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_ProductCreateBatch_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).ProductCreateBatch(ctx, req.(*ActivityDiscountProductCreateBatchListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_ProductDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountProductDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).ProductDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_ProductDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).ProductDestroy(ctx, req.(*ActivityDiscountProductDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_ProductList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountProductListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).ProductList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_ProductList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).ProductList(ctx, req.(*ActivityDiscountProductListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityDiscountController_ProductUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityDiscountProductUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityDiscountControllerServer).ProductUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityDiscountController_ProductUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityDiscountControllerServer).ProductUpdate(ctx, req.(*ActivityDiscountProductUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2474,6 +2639,26 @@ var ActivityDiscountController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PartialUpdate",
 			Handler:    _ActivityDiscountController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "ProductCreate",
+			Handler:    _ActivityDiscountController_ProductCreate_Handler,
+		},
+		{
+			MethodName: "ProductCreateBatch",
+			Handler:    _ActivityDiscountController_ProductCreateBatch_Handler,
+		},
+		{
+			MethodName: "ProductDestroy",
+			Handler:    _ActivityDiscountController_ProductDestroy_Handler,
+		},
+		{
+			MethodName: "ProductList",
+			Handler:    _ActivityDiscountController_ProductList_Handler,
+		},
+		{
+			MethodName: "ProductUpdate",
+			Handler:    _ActivityDiscountController_ProductUpdate_Handler,
 		},
 		{
 			MethodName: "Retrieve",

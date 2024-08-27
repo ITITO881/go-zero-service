@@ -62,6 +62,11 @@ service ActivityDiscountController {
   rpc NextSerial(NextSerialRequest) returns (ActivityDiscountNextSerialResponse) {}
   rpc Options(OptionRequest) returns (ActVoucherOptionResponse) {}
   rpc PartialUpdate(ActivityDiscountPartialUpdateRequest) returns (ActivityDiscountResponse) {}
+  rpc ProductCreate(ActivityDiscountProductRequest) returns (ActivityDiscountProductResponse) {}
+  rpc ProductCreateBatch(ActivityDiscountProductCreateBatchListRequest) returns (ActivityDiscountProductResponse) {}
+  rpc ProductDestroy(ActivityDiscountProductDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ProductList(ActivityDiscountProductListRequest) returns (ActivityDiscountProductListResponse) {}
+  rpc ProductUpdate(ActivityDiscountProductUpdateRequest) returns (ActivityDiscountProductResponse) {}
   rpc Retrieve(ActivityDiscountRetrieveRequest) returns (ActivityDiscountResponse) {}
   rpc Update(ActivityDiscountRequest) returns (ActivityDiscountResponse) {}
   rpc VoucherCreate(ActivityDiscountVoucherRequest) returns (ActivityDiscountVoucherResponse) {}
@@ -124,6 +129,7 @@ message ActivityBrandCaresRecordRequest {
   int64 activity_cares = 9;
   optional int64 ctm = 10;
   int32 ctm_id = 11;
+  optional string admin_name = 12;
 }
 
 message ActivityBrandCaresRecordResponse {
@@ -141,6 +147,7 @@ message ActivityBrandCaresRecordResponse {
   string nickname = 13;
   int32 ctm_id = 14;
   int32 cares_id = 15;
+  optional string admin_name = 16;
 }
 
 message ActivityBrandCaresRecordRetrieveRequest {
@@ -159,6 +166,7 @@ message ActivityBrandCaresRecordUpdateRequest {
   int64 activity_cares = 10;
   optional int64 ctm = 11;
   int32 ctm_id = 12;
+  optional string admin_name = 13;
 }
 
 message ActivityBrandCaresRequest {
@@ -249,6 +257,7 @@ message ActivityBrandNutRecordRequest {
   optional string remark = 8;
   int64 activity_nut = 9;
   optional int64 ctm = 10;
+  optional string admin_name = 11;
 }
 
 message ActivityBrandNutRecordResponse {
@@ -266,6 +275,7 @@ message ActivityBrandNutRecordResponse {
   string update_time = 12;
   int64 activity_nut = 13;
   optional int64 ctm = 14;
+  optional string admin_name = 15;
 }
 
 message ActivityBrandNutRecordRetrieveRequest {
@@ -284,6 +294,7 @@ message ActivityBrandNutRecordUpdateRequest {
   optional string phone_number = 18;
   int64 activity_nut = 19;
   optional int64 ctm = 20;
+  optional string admin_name = 21;
 }
 
 message ActivityBrandNutRequest {
@@ -344,8 +355,7 @@ message ActivityBrandPartialUpdateRequest {
   optional string admin_name = 14;
   int32 type = 15;
   optional string place = 16;
-  optional string mp_page = 17;
-  repeated int64 products = 18;
+  bool repeatable = 17;
 }
 
 message ActivityBrandRecordDestroyRequest {
@@ -447,8 +457,7 @@ message ActivityBrandRequest {
   optional string admin_name = 13;
   int32 type = 14;
   optional string place = 15;
-  optional string mp_page = 16;
-  repeated int64 products = 17;
+  bool repeatable = 16;
 }
 
 message ActivityBrandResponse {
@@ -470,9 +479,7 @@ message ActivityBrandResponse {
   int32 type = 16;
   optional string place = 17;
   string type_name = 18;
-  repeated PlatProductResponse product_list = 19;
-  optional string mp_page = 20;
-  repeated int64 products = 21;
+  bool repeatable = 19;
 }
 
 message ActivityBrandRetrieveRequest {
@@ -515,6 +522,101 @@ message ActivityDiscountPartialUpdateRequest {
   optional string admin_name = 15;
   int32 act_type = 16;
   int32 sub_type = 17;
+  optional string gift_range = 18;
+  optional string prod_range = 19;
+}
+
+message ActivityDiscountProductCreateBatchListRequest {
+  repeated ActivityDiscountProductCreateBatchRequest results = 1;
+  int32 count = 2;
+}
+
+message ActivityDiscountProductCreateBatchRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated ActivityDiscountSubProductRequest act_sub_products = 3;
+  int32 activity_id = 4;
+  optional string goods_spu = 5;
+  optional string goods_no = 6;
+  int32 limit_num = 7;
+  bool optional = 8;
+  bool customizable = 9;
+  int32 limit_word = 10;
+  optional string regular = 11;
+  optional string title = 12;
+  optional string remark = 13;
+  optional string admin_name = 14;
+  optional int64 parent = 15;
+}
+
+message ActivityDiscountProductDestroyRequest {
+  int32 id = 1;
+}
+
+message ActivityDiscountProductListRequest {
+  string filters = 1;
+}
+
+message ActivityDiscountProductListResponse {
+  repeated ActivityDiscountProductResponse results = 1;
+  int32 count = 2;
+}
+
+message ActivityDiscountProductRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_spu = 3;
+  optional string goods_no = 4;
+  int32 limit_num = 5;
+  bool optional = 6;
+  bool customizable = 7;
+  int32 limit_word = 8;
+  optional string regular = 9;
+  optional string title = 10;
+  optional string remark = 11;
+  optional string admin_name = 12;
+  optional int64 parent = 14;
+  int32 activity_id = 15;
+  repeated ActivityDiscountSubProductRequest act_sub_products = 16;
+}
+
+message ActivityDiscountProductResponse {
+  int32 id = 1;
+  repeated ActivityDiscountSubProductResponse act_sub_products = 2;
+  string create_time = 3;
+  string update_time = 4;
+  optional string goods_spu = 5;
+  optional string goods_no = 6;
+  int32 limit_num = 7;
+  bool optional = 8;
+  bool customizable = 9;
+  int32 limit_word = 10;
+  optional string regular = 11;
+  optional string title = 12;
+  optional string remark = 13;
+  optional string admin_name = 14;
+  optional ActivityDiscountResponse activity = 15;
+  optional int64 parent = 16;
+  int32 activity_id = 17;
+}
+
+message ActivityDiscountProductUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string goods_spu = 4;
+  optional string goods_no = 5;
+  int32 limit_num = 6;
+  bool optional = 7;
+  bool customizable = 8;
+  int32 limit_word = 9;
+  optional string regular = 10;
+  optional string title = 11;
+  optional string remark = 12;
+  optional string admin_name = 13;
+  optional int64 parent = 15;
+  int32 activity_id = 16;
+  repeated ActivityDiscountSubProductRequest act_sub_products = 17;
 }
 
 message ActivityDiscountRequest {
@@ -531,6 +633,8 @@ message ActivityDiscountRequest {
   optional string admin_name = 14;
   int32 act_type = 15;
   int32 sub_type = 16;
+  optional string gift_range = 17;
+  optional string prod_range = 18;
 }
 
 message ActivityDiscountResponse {
@@ -551,10 +655,47 @@ message ActivityDiscountResponse {
   int32 sub_type = 18;
   string act_type_name = 19;
   string sub_type_name = 20;
+  optional string gift_range = 21;
+  optional string prod_range = 22;
 }
 
 message ActivityDiscountRetrieveRequest {
   int32 id = 1;
+}
+
+message ActivityDiscountSubProductRequest {
+  int32 id = 1;
+  int32 activity_id = 3;
+  optional string goods_spu = 4;
+  optional string goods_no = 5;
+  int32 limit_num = 6;
+  bool optional = 7;
+  bool customizable = 8;
+  int32 limit_word = 9;
+  optional string regular = 10;
+  optional string title = 11;
+  optional string remark = 12;
+  optional string admin_name = 13;
+  optional int64 parent = 15;
+}
+
+message ActivityDiscountSubProductResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_spu = 4;
+  optional string goods_no = 5;
+  int32 limit_num = 6;
+  bool optional = 7;
+  bool customizable = 8;
+  int32 limit_word = 9;
+  optional string regular = 10;
+  optional string title = 11;
+  optional string remark = 12;
+  optional string admin_name = 13;
+  optional ActivityDiscountResponse activity = 14;
+  optional int64 parent = 15;
+  int32 activity_id = 16;
 }
 
 message ActivityDiscountVoucherDestroyRequest {
@@ -982,44 +1123,6 @@ message NextSerialRequest {
 }
 
 message OptionRequest {
-}
-
-message PlatProductResponse {
-  int32 id = 1;
-  optional string spu = 2;
-  optional string sku = 3;
-  optional string bar_code = 4;
-  optional string plat_brand = 5;
-  optional string plat_category = 6;
-  optional string plat_series = 7;
-  optional string plat_model = 8;
-  optional string plat_color = 9;
-  optional string plat_size = 10;
-  optional string plat_texture = 11;
-  optional string plat_lining = 12;
-  optional string plat_version = 13;
-  optional string name_color = 14;
-  optional string name_size = 15;
-  optional string name_texture = 16;
-  optional string name_lining = 17;
-  optional string name_version = 18;
-  optional string plat_code = 19;
-  optional string plat_sub_code = 20;
-  optional string plat_name = 21;
-  optional string plat_brief = 22;
-  optional string plat_tag = 24;
-  optional string plat_retail = 25;
-  optional string plat_discount = 26;
-  int32 is_selected = 27;
-  optional string started_at = 28;
-  optional string expired_at = 29;
-  optional int32 nut_num = 30;
-  optional int32 badge_num = 31;
-  optional int32 score_num = 32;
-  string created_at = 33;
-  string updated_at = 34;
-  optional string deleted_at = 35;
-  optional string plat_desc = 36;
 }
 
 message VoucherRecordUpdateRequest {

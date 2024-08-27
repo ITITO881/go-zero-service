@@ -7,1740 +7,1985 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 
 service AlipayBillController {
-  rpc CreateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc DestroyAlipayBillAccountlog(AlipayBillAccountlogDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc ListAlipayBillAccountlog(AlipayBillAccountlogListRequest) returns (AlipayBillAccountlogListResponse) {}
-  rpc PartialUpdateAlipayBillAccountlog(AlipayBillAccountlogPartialUpdateRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc RetrieveAlipayBillAccountlog(AlipayBillAccountlogRetrieveRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc UpdateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
+    rpc CreateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
+    rpc DestroyAlipayBillAccountlog(AlipayBillAccountlogDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc ListAlipayBillAccountlog(AlipayBillAccountlogListRequest) returns (AlipayBillAccountlogListResponse) {}
+    rpc PartialUpdateAlipayBillAccountlog(AlipayBillAccountlogPartialUpdateRequest) returns (AlipayBillAccountlogResponse) {}
+    rpc RetrieveAlipayBillAccountlog(AlipayBillAccountlogRetrieveRequest) returns (AlipayBillAccountlogResponse) {}
+    rpc UpdateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
 }
 
 service CeleryTaskController {
-  rpc CreateClockedSchedule(ClockedScheduleRequest) returns (ClockedScheduleResponse) {}
-  rpc CreateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
-  rpc CreateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
-  rpc CreatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
-  rpc CreateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
-  rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc ListCeleryTasks(CeleryTaskQueryOptsRequest) returns (CeleryTaskInfoListResponse) {}
-  rpc ListClockedSchedule(ClockedScheduleListRequest) returns (ClockedScheduleListResponse) {}
-  rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
-  rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
-  rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
-  rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
-  rpc PartialUpdateClockedSchedule(ClockedSchedulePartialUpdateRequest) returns (ClockedScheduleResponse) {}
-  rpc PartialUpdateCrontabSchedule(CrontabSchedulePartialUpdateRequest) returns (CrontabScheduleResponse) {}
-  rpc PartialUpdateIntervalSchedule(IntervalSchedulePartialUpdateRequest) returns (IntervalScheduleResponse) {}
-  rpc PartialUpdatePeriodicTask(PeriodicTaskPartialUpdateRequest) returns (PeriodicTaskResponse) {}
-  rpc PartialUpdateTaskResult(TaskResultPartialUpdateRequest) returns (TaskResultResponse) {}
-  rpc RetrieveClockedSchedule(ClockedScheduleRetrieveRequest) returns (ClockedScheduleResponse) {}
-  rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
-  rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
-  rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
-  rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
-  rpc RunCeleryTask(CeleryTaskRunOptsRequest) returns (CeleryTaskRunOptsResponse) {}
-  rpc UpdateClockedSchedule(ClockedScheduleRequest) returns (ClockedScheduleResponse) {}
-  rpc UpdateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
-  rpc UpdateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
-  rpc UpdatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
-  rpc UpdateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
+    rpc CreateClockedSchedule(ClockedScheduleRequest) returns (ClockedScheduleResponse) {}
+    rpc CreateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
+    rpc CreateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
+    rpc CreatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
+    rpc CreateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
+    rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc ListCeleryTasks(CeleryTaskQueryOptsRequest) returns (CeleryTaskInfoListResponse) {}
+    rpc ListClockedSchedule(ClockedScheduleListRequest) returns (ClockedScheduleListResponse) {}
+    rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
+    rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
+    rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
+    rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
+    rpc PartialUpdateClockedSchedule(ClockedSchedulePartialUpdateRequest) returns (ClockedScheduleResponse) {}
+    rpc PartialUpdateCrontabSchedule(CrontabSchedulePartialUpdateRequest) returns (CrontabScheduleResponse) {}
+    rpc PartialUpdateIntervalSchedule(IntervalSchedulePartialUpdateRequest) returns (IntervalScheduleResponse) {}
+    rpc PartialUpdatePeriodicTask(PeriodicTaskPartialUpdateRequest) returns (PeriodicTaskResponse) {}
+    rpc PartialUpdateTaskResult(TaskResultPartialUpdateRequest) returns (TaskResultResponse) {}
+    rpc RetrieveClockedSchedule(ClockedScheduleRetrieveRequest) returns (ClockedScheduleResponse) {}
+    rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
+    rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
+    rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
+    rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
+    rpc RunCeleryTask(CeleryTaskRunOptsRequest) returns (CeleryTaskRunOptsResponse) {}
+    rpc UpdateClockedSchedule(ClockedScheduleRequest) returns (ClockedScheduleResponse) {}
+    rpc UpdateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
+    rpc UpdateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
+    rpc UpdatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
+    rpc UpdateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
 }
 
 service KingdeePurchaseOrderController {
-  rpc BulkCreateKingdeePurchaseOrder(BulkCreateKingdeePurchaseOrderRequest) returns (BulkCreateKingdeePurchaseOrderResponse) {}
-  rpc Create(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
-  rpc Destroy(KingdeePurchaseDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc List(KingdeePurchaseListRequest) returns (KingdeePurchaseListResponse) {}
-  rpc PartialUpdate(KingdeePurchasePartialUpdateRequest) returns (KingdeePurchaseResponse) {}
-  rpc Retrieve(KingdeePurchaseRetrieveRequest) returns (KingdeePurchaseResponse) {}
-  rpc Update(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
+    rpc BulkCreateKingdeePurchaseOrder(BulkCreateKingdeePurchaseOrderRequest) returns (BulkCreateKingdeePurchaseOrderResponse) {}
+    rpc BulkCreateKingdeeReceiveBill(BulkCreateKingdeeReceiveBillRequest) returns (BulkCreateKingdeeReceiveBillResponse) {}
+    rpc Create(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
+    rpc Destroy(KingdeePurchaseDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc List(KingdeePurchaseListRequest) returns (KingdeePurchaseListResponse) {}
+    rpc PartialUpdate(KingdeePurchasePartialUpdateRequest) returns (KingdeePurchaseResponse) {}
+    rpc QueryKingdeePurchaseOrder(QueryKingdeePurchaseOrderRequest) returns (QueryKingdeePurchaseOrderResponse) {}
+    rpc Retrieve(KingdeePurchaseRetrieveRequest) returns (KingdeePurchaseResponse) {}
+    rpc Update(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
 }
 
 service TradeAggController {
-  rpc CountAggPushStatus(AggPushStatusCountRequest) returns (AggPushStatusCountResponse) {}
-  rpc Create(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
-  rpc CreateAggParamsTrade(AggParamsTradeCreateRequest) returns (AggParamsTradeResponse) {}
-  rpc CreateClockedSchedule(ClockedScheduleCreateRequest) returns (ClockedScheduleResponse) {}
-  rpc CreateCrontabSchedule(CrontabScheduleCreateRequest) returns (CrontabScheduleResponse) {}
-  rpc CreateIntervalSchedule(IntervalScheduleCreateRequest) returns (IntervalScheduleResponse) {}
-  rpc CreatePeriodicTask(PeriodicTaskCreateRequest) returns (PeriodicTaskResponse) {}
-  rpc CreateTaskResult(TaskResultCreateRequest) returns (TaskResultResponse) {}
-  rpc Destroy(KingdeeTradeDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyAggParamsTrade(AggParamsTradeDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc FetchQimenTrade(FetchQimenTradeRequest) returns (FetchQimenTradeResponse) {}
-  rpc GetKingdeeShopNoInfo(KingdeeShopNoInfoRequest) returns (KingdeeShopNoInfoResponse) {}
-  rpc GetKingdeeStockNoInfo(KingdeeStockNoInfoRequest) returns (KingdeeStockNoInfoResponse) {}
-  rpc List(KingdeeTradeListRequest) returns (KingdeeTradeListResponse) {}
-  rpc ListAggParamsTrade(AggParamsTradeListRequest) returns (AggParamsTradeListResponse) {}
-  rpc ListClockedSchedule(ClockedScheduleListRequest) returns (ClockedScheduleListResponse) {}
-  rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
-  rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
-  rpc ListKingdeeSalOutStock(KingdeeSalOutStockListRequest) returns (KingdeeSalOutStockListResponse) {}
-  rpc ListMongoTrades(MongoTradesListRequest) returns (MongoTradesListResponse) {}
-  rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
-  rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
-  rpc NextNoAggParamsTrade(AggParamsTradeNextNoRequest) returns (AggParamsTradeNextNoResponse) {}
-  rpc PartialUpdate(KingdeeTradePartialUpdateRequest) returns (KingdeeTradeResponse) {}
-  rpc PeriodAggTrade(PeriodAggTradeRequest) returns (PeriodAggTradeResponse) {}
-  rpc PushToKingDeeSalOutStock(PushToKingDeeSalOutStockRequest) returns (PushToKingDeeSalOutStockResponse) {}
-  rpc Retrieve(KingdeeTradeRetrieveRequest) returns (KingdeeTradeResponse) {}
-  rpc RetrieveAggParamsTrade(AggParamsTradeRetrieveRequest) returns (AggParamsTradeResponse) {}
-  rpc RetrieveClockedSchedule(ClockedScheduleRetrieveRequest) returns (ClockedScheduleResponse) {}
-  rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
-  rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
-  rpc RetrieveKingdeeSalOutStock(KingdeeSalOutStockRetrieveRequest) returns (KingdeeSalOutStockResponse) {}
-  rpc RetrieveMongoTrades(MongoTradesRetrieveRequest) returns (MongoTradesResponse) {}
-  rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
-  rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
-  rpc RevokeKingdeeSalOutstock(RevokeKingdeeSalOutstockRequest) returns (RevokeKingdeeSalOutstockResponse) {}
-  rpc RunPeriodAggSharedTask(RunPeriodAggSharedTaskRequest) returns (RunPeriodAggSharedTaskResponse) {}
-  rpc RunPeriodPushToKingDeeSalOutStock(RunPeriodPushToKingDeeSalOutStockRequest) returns (RunPeriodPushToKingDeeSalOutStockResponse) {}
-  rpc RunPeriodicTask(RunPeriodicTaskRequest) returns (RunPeriodicTaskResponse) {}
-  rpc RunSliceFetchTrade(RunSharedTaskRequest) returns (RunSharedTaskResponse) {}
-  rpc StopPeriodicTask(StopPeriodicTaskRequest) returns (StopPeriodicTaskResponse) {}
-  rpc Update(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
-  rpc UpdateAggParamsTrade(AggParamsTradeUpdateRequest) returns (AggParamsTradeResponse) {}
-  rpc UpdateClockedSchedule(ClockedScheduleUpdateRequest) returns (ClockedScheduleResponse) {}
-  rpc UpdateCrontabSchedule(CrontabScheduleUpdateRequest) returns (CrontabScheduleResponse) {}
-  rpc UpdateIntervalSchedule(IntervalScheduleUpdateRequest) returns (IntervalScheduleResponse) {}
-  rpc UpdatePeriodicTask(PeriodicTaskUpdateRequest) returns (PeriodicTaskResponse) {}
-  rpc UpdateTaskResult(TaskResultUpdateRequest) returns (TaskResultResponse) {}
+    rpc CountAggPushStatus(AggPushStatusCountRequest) returns (AggPushStatusCountResponse) {}
+    rpc Create(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
+    rpc CreateAggParamsTrade(AggParamsTradeCreateRequest) returns (AggParamsTradeResponse) {}
+    rpc CreateClockedSchedule(ClockedScheduleCreateRequest) returns (ClockedScheduleResponse) {}
+    rpc CreateCrontabSchedule(CrontabScheduleCreateRequest) returns (CrontabScheduleResponse) {}
+    rpc CreateIntervalSchedule(IntervalScheduleCreateRequest) returns (IntervalScheduleResponse) {}
+    rpc CreatePeriodicTask(PeriodicTaskCreateRequest) returns (PeriodicTaskResponse) {}
+    rpc CreateTaskResult(TaskResultCreateRequest) returns (TaskResultResponse) {}
+    rpc Destroy(KingdeeTradeDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyAggParamsTrade(AggParamsTradeDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc FetchQimenTrade(FetchQimenTradeRequest) returns (FetchQimenTradeResponse) {}
+    rpc GetKingdeeShopNoInfo(KingdeeShopNoInfoRequest) returns (KingdeeShopNoInfoResponse) {}
+    rpc GetKingdeeStockNoInfo(KingdeeStockNoInfoRequest) returns (KingdeeStockNoInfoResponse) {}
+    rpc List(KingdeeTradeListRequest) returns (KingdeeTradeListResponse) {}
+    rpc ListAggParamsTrade(AggParamsTradeListRequest) returns (AggParamsTradeListResponse) {}
+    rpc ListClockedSchedule(ClockedScheduleListRequest) returns (ClockedScheduleListResponse) {}
+    rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
+    rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
+    rpc ListKingdeeSalOutStock(KingdeeSalOutStockListRequest) returns (KingdeeSalOutStockListResponse) {}
+    rpc ListMongoTrades(MongoTradesListRequest) returns (MongoTradesListResponse) {}
+    rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
+    rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
+    rpc NextNoAggParamsTrade(AggParamsTradeNextNoRequest) returns (AggParamsTradeNextNoResponse) {}
+    rpc PartialUpdate(KingdeeTradePartialUpdateRequest) returns (KingdeeTradeResponse) {}
+    rpc PeriodAggTrade(PeriodAggTradeRequest) returns (PeriodAggTradeResponse) {}
+    rpc PushToKingDeeSalOutStock(PushToKingDeeSalOutStockRequest) returns (PushToKingDeeSalOutStockResponse) {}
+    rpc Retrieve(KingdeeTradeRetrieveRequest) returns (KingdeeTradeResponse) {}
+    rpc RetrieveAggParamsTrade(AggParamsTradeRetrieveRequest) returns (AggParamsTradeResponse) {}
+    rpc RetrieveClockedSchedule(ClockedScheduleRetrieveRequest) returns (ClockedScheduleResponse) {}
+    rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
+    rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
+    rpc RetrieveKingdeeSalOutStock(KingdeeSalOutStockRetrieveRequest) returns (KingdeeSalOutStockResponse) {}
+    rpc RetrieveMongoTrades(MongoTradesRetrieveRequest) returns (MongoTradesResponse) {}
+    rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
+    rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
+    rpc RevokeKingdeeSalOutstock(RevokeKingdeeSalOutstockRequest) returns (RevokeKingdeeSalOutstockResponse) {}
+    rpc RunPeriodAggSharedTask(RunPeriodAggSharedTaskRequest) returns (RunPeriodAggSharedTaskResponse) {}
+    rpc RunPeriodPushToKingDeeSalOutStock(RunPeriodPushToKingDeeSalOutStockRequest) returns (RunPeriodPushToKingDeeSalOutStockResponse) {}
+    rpc RunPeriodicTask(RunPeriodicTaskRequest) returns (RunPeriodicTaskResponse) {}
+    rpc RunSliceFetchTrade(RunSharedTaskRequest) returns (RunSharedTaskResponse) {}
+    rpc StopPeriodicTask(StopPeriodicTaskRequest) returns (StopPeriodicTaskResponse) {}
+    rpc Update(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
+    rpc UpdateAggParamsTrade(AggParamsTradeUpdateRequest) returns (AggParamsTradeResponse) {}
+    rpc UpdateClockedSchedule(ClockedScheduleUpdateRequest) returns (ClockedScheduleResponse) {}
+    rpc UpdateCrontabSchedule(CrontabScheduleUpdateRequest) returns (CrontabScheduleResponse) {}
+    rpc UpdateIntervalSchedule(IntervalScheduleUpdateRequest) returns (IntervalScheduleResponse) {}
+    rpc UpdatePeriodicTask(PeriodicTaskUpdateRequest) returns (PeriodicTaskResponse) {}
+    rpc UpdateTaskResult(TaskResultUpdateRequest) returns (TaskResultResponse) {}
 }
 
 service TradeRefundAggController {
-  rpc CreateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
-  rpc CreateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
-  rpc DestroyTradeRefund(TradeRefundDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyTradeRefundStockin(TradeRefundStockinDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc ListTradeRefund(TradeRefundListRequest) returns (TradeRefundListResponse) {}
-  rpc ListTradeRefundStockin(TradeRefundStockinListRequest) returns (TradeRefundStockinListResponse) {}
-  rpc PartialUpdateTradeRefund(TradeRefundPartialUpdateRequest) returns (TradeRefundResponse) {}
-  rpc PartialUpdateTradeRefundStockin(TradeRefundStockinPartialUpdateRequest) returns (TradeRefundStockinResponse) {}
-  rpc RetrieveTradeRefund(TradeRefundRetrieveRequest) returns (TradeRefundResponse) {}
-  rpc RetrieveTradeRefundStockin(TradeRefundStockinRetrieveRequest) returns (TradeRefundStockinResponse) {}
-  rpc UpdateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
-  rpc UpdateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
+    rpc CreateKingdeeSalReturnStock(KingdeeSalReturnStockRequest) returns (KingdeeSalReturnStockResponse) {}
+    rpc CreateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
+    rpc CreateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
+    rpc DestroyKingdeeSalReturnStock(KingdeeSalReturnStockDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyTradeRefund(TradeRefundDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc DestroyTradeRefundStockin(TradeRefundStockinDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc ListKingdeeSalReturnStock(KingdeeSalReturnStockListRequest) returns (KingdeeSalReturnStockListResponse) {}
+    rpc ListTradeRefund(TradeRefundListRequest) returns (TradeRefundListResponse) {}
+    rpc ListTradeRefundStockin(TradeRefundStockinListRequest) returns (TradeRefundStockinListResponse) {}
+    rpc PartialUpdateKingdeeSalReturnStock(KingdeeSalReturnStockPartialUpdateRequest) returns (KingdeeSalReturnStockResponse) {}
+    rpc PartialUpdateTradeRefund(TradeRefundPartialUpdateRequest) returns (TradeRefundResponse) {}
+    rpc PartialUpdateTradeRefundStockin(TradeRefundStockinPartialUpdateRequest) returns (TradeRefundStockinResponse) {}
+    rpc RetrieveKingdeeSalReturnStock(KingdeeSalReturnStockRetrieveRequest) returns (KingdeeSalReturnStockResponse) {}
+    rpc RetrieveTradeRefund(TradeRefundRetrieveRequest) returns (TradeRefundResponse) {}
+    rpc RetrieveTradeRefundStockin(TradeRefundStockinRetrieveRequest) returns (TradeRefundStockinResponse) {}
+    rpc UpdateKingdeeSalReturnStock(KingdeeSalReturnStockRequest) returns (KingdeeSalReturnStockResponse) {}
+    rpc UpdateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
+    rpc UpdateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
 }
 
 message AggParamsTradeCreateRequest {
-  optional int32 id = 1;
-  optional string create_name = 2;
-  optional string config_no = 3;
-  optional string config_name = 4;
-  optional int32 agg_type = 5;
-  optional int32 channel_dim = 6;
-  optional int32 time_dim = 7;
-  optional int32 month_cutoff = 8;
-  optional string organize_no = 9;
-  optional string organize_name = 10;
-  optional string shop_no = 11;
-  optional string shop_name = 12;
-  optional string warehouse_no = 13;
-  optional string warehouse_name = 14;
-  optional int32 agg_discount = 15;
+    optional int32 id = 1;
+    optional string create_name = 2;
+    optional string config_no = 3;
+    optional string config_name = 4;
+    optional int32 agg_type = 5;
+    optional int32 channel_dim = 6;
+    optional int32 time_dim = 7;
+    optional int32 month_cutoff = 8;
+    optional string organize_no = 9;
+    optional string organize_name = 10;
+    optional string shop_no = 11;
+    optional string shop_name = 12;
+    optional string warehouse_no = 13;
+    optional string warehouse_name = 14;
+    optional int32 agg_discount = 15;
 }
 
 message AggParamsTradeDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message AggParamsTradeListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message AggParamsTradeListResponse {
-  repeated AggParamsTradeResponse results = 1;
-  int32 count = 2;
+    repeated AggParamsTradeResponse results = 1;
+    int32 count = 2;
 }
 
 message AggParamsTradeNextNoRequest {
 }
 
 message AggParamsTradeNextNoResponse {
-  string next_no = 1;
+    string next_no = 1;
 }
 
 message AggParamsTradeResponse {
-  optional int32 id = 1;
-  optional string agg_type_name = 2;
-  optional string channel_dim_name = 3;
-  optional string time_dim_name = 4;
-  optional string create_time = 5;
-  optional string update_time = 6;
-  optional string create_name = 7;
-  optional string config_no = 8;
-  optional string config_name = 9;
-  optional int32 agg_type = 10;
-  optional int32 channel_dim = 11;
-  optional int32 time_dim = 12;
-  optional int32 month_cutoff = 13;
-  optional string organize_no = 14;
-  optional string organize_name = 15;
-  optional string shop_no = 16;
-  optional string shop_name = 17;
-  optional string warehouse_no = 18;
-  optional string warehouse_name = 19;
-  optional int32 agg_discount = 20;
+    optional int32 id = 1;
+    optional string agg_type_name = 2;
+    optional string channel_dim_name = 3;
+    optional string time_dim_name = 4;
+    optional string create_time = 5;
+    optional string update_time = 6;
+    optional string create_name = 7;
+    optional string config_no = 8;
+    optional string config_name = 9;
+    optional int32 agg_type = 10;
+    optional int32 channel_dim = 11;
+    optional int32 time_dim = 12;
+    optional int32 month_cutoff = 13;
+    optional string organize_no = 14;
+    optional string organize_name = 15;
+    optional string shop_no = 16;
+    optional string shop_name = 17;
+    optional string warehouse_no = 18;
+    optional string warehouse_name = 19;
+    optional int32 agg_discount = 20;
 }
 
 message AggParamsTradeRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message AggParamsTradeUpdateRequest {
-  optional int32 id = 1;
-  repeated string _partial_update_fields = 2;
-  optional string create_name = 3;
-  optional string config_no = 4;
-  optional string config_name = 5;
-  optional int32 agg_type = 6;
-  optional int32 channel_dim = 7;
-  optional int32 time_dim = 8;
-  optional int32 month_cutoff = 9;
-  optional string organize_no = 10;
-  optional string organize_name = 11;
-  optional string shop_no = 12;
-  optional string shop_name = 13;
-  optional string warehouse_no = 14;
-  optional string warehouse_name = 15;
-  optional int32 agg_discount = 16;
+    optional int32 id = 1;
+    repeated string _partial_update_fields = 2;
+    optional string create_name = 3;
+    optional string config_no = 4;
+    optional string config_name = 5;
+    optional int32 agg_type = 6;
+    optional int32 channel_dim = 7;
+    optional int32 time_dim = 8;
+    optional int32 month_cutoff = 9;
+    optional string organize_no = 10;
+    optional string organize_name = 11;
+    optional string shop_no = 12;
+    optional string shop_name = 13;
+    optional string warehouse_no = 14;
+    optional string warehouse_name = 15;
+    optional int32 agg_discount = 16;
 }
 
 message AggPushStatusCountRequest {
 }
 
 message AggPushStatusCountResponse {
-  int32 consign_wait_push = 1;
-  int32 consign_failed_push = 2;
-  int32 pay_wait_push = 3;
-  int32 pay_failed_push = 4;
+    int32 consign_wait_push = 1;
+    int32 consign_failed_push = 2;
+    int32 pay_wait_push = 3;
+    int32 pay_failed_push = 4;
 }
 
 message AlipayBillAccountlogDestroyRequest {
-  string account_log_id = 1;
+    string account_log_id = 1;
 }
 
 message AlipayBillAccountlogListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message AlipayBillAccountlogListResponse {
-  repeated AlipayBillAccountlogResponse results = 1;
-  int32 count = 2;
+    repeated AlipayBillAccountlogResponse results = 1;
+    int32 count = 2;
 }
 
 message AlipayBillAccountlogPartialUpdateRequest {
-  string account_log_id = 1;
-  repeated string _partial_update_fields = 2;
-  string trans_dt = 3;
-  optional google.protobuf.Struct associted_trade_ids = 4;
-  string alipay_order_no = 5;
-  string merchant_order_no = 6;
-  double trans_amount = 7;
-  double balance = 8;
-  string type = 9;
-  string other_account = 10;
-  string direction = 11;
-  optional string trans_memo = 12;
-  optional string bill_source = 13;
-  optional string biz_nos = 14;
-  optional string biz_orig_no = 15;
-  optional string biz_desc = 16;
-  optional string merchant_out_refund_no = 17;
-  optional string complement_info = 18;
-  optional string store_name = 19;
+    string account_log_id = 1;
+    repeated string _partial_update_fields = 2;
+    string trans_dt = 3;
+    optional google.protobuf.Struct associted_trade_ids = 4;
+    string alipay_order_no = 5;
+    string merchant_order_no = 6;
+    double trans_amount = 7;
+    double balance = 8;
+    string type = 9;
+    string other_account = 10;
+    string direction = 11;
+    optional string trans_memo = 12;
+    optional string bill_source = 13;
+    optional string biz_nos = 14;
+    optional string biz_orig_no = 15;
+    optional string biz_desc = 16;
+    optional string merchant_out_refund_no = 17;
+    optional string complement_info = 18;
+    optional string store_name = 19;
 }
 
 message AlipayBillAccountlogRequest {
-  string account_log_id = 1;
-  string trans_dt = 2;
-  optional google.protobuf.Struct associted_trade_ids = 3;
-  string alipay_order_no = 4;
-  string merchant_order_no = 5;
-  double trans_amount = 6;
-  double balance = 7;
-  string type = 8;
-  string other_account = 9;
-  string direction = 10;
-  optional string trans_memo = 11;
-  optional string bill_source = 12;
-  optional string biz_nos = 13;
-  optional string biz_orig_no = 14;
-  optional string biz_desc = 15;
-  optional string merchant_out_refund_no = 16;
-  optional string complement_info = 17;
-  optional string store_name = 18;
+    string account_log_id = 1;
+    string trans_dt = 2;
+    optional google.protobuf.Struct associted_trade_ids = 3;
+    string alipay_order_no = 4;
+    string merchant_order_no = 5;
+    double trans_amount = 6;
+    double balance = 7;
+    string type = 8;
+    string other_account = 9;
+    string direction = 10;
+    optional string trans_memo = 11;
+    optional string bill_source = 12;
+    optional string biz_nos = 13;
+    optional string biz_orig_no = 14;
+    optional string biz_desc = 15;
+    optional string merchant_out_refund_no = 16;
+    optional string complement_info = 17;
+    optional string store_name = 18;
 }
 
 message AlipayBillAccountlogResponse {
-  string account_log_id = 1;
-  string trans_dt = 2;
-  optional google.protobuf.Struct associted_trade_ids = 3;
-  string alipay_order_no = 4;
-  string merchant_order_no = 5;
-  double trans_amount = 6;
-  double balance = 7;
-  string type = 8;
-  string other_account = 9;
-  string direction = 10;
-  optional string trans_memo = 11;
-  optional string bill_source = 12;
-  optional string biz_nos = 13;
-  optional string biz_orig_no = 14;
-  optional string biz_desc = 15;
-  optional string merchant_out_refund_no = 16;
-  optional string complement_info = 17;
-  optional string store_name = 18;
+    string account_log_id = 1;
+    string trans_dt = 2;
+    optional google.protobuf.Struct associted_trade_ids = 3;
+    string alipay_order_no = 4;
+    string merchant_order_no = 5;
+    double trans_amount = 6;
+    double balance = 7;
+    string type = 8;
+    string other_account = 9;
+    string direction = 10;
+    optional string trans_memo = 11;
+    optional string bill_source = 12;
+    optional string biz_nos = 13;
+    optional string biz_orig_no = 14;
+    optional string biz_desc = 15;
+    optional string merchant_out_refund_no = 16;
+    optional string complement_info = 17;
+    optional string store_name = 18;
 }
 
 message AlipayBillAccountlogRetrieveRequest {
-  string account_log_id = 1;
+    string account_log_id = 1;
 }
 
 message BulkCreateKingdeePurchaseOrderRequest {
-  string purchase_list = 1;
+    string uuid = 1;
+    string purchase_list = 2;
 }
 
 message BulkCreateKingdeePurchaseOrderResponse {
-  int32 code = 1;
-  string msg = 2;
-  int32 affected = 3;
+    int32 code = 1;
+    string msg = 2;
+    int32 affected = 3;
+}
+
+message BulkCreateKingdeeReceiveBillRequest {
+    string uuid = 1;
+    string receive_bill_list = 2;
+}
+
+message BulkCreateKingdeeReceiveBillResponse {
+    int32 code = 1;
+    string msg = 2;
+    int32 affected = 3;
 }
 
 message CeleryTaskInfoListResponse {
-  repeated CeleryTaskInfoResponse results = 1;
-  int32 count = 2;
+    repeated CeleryTaskInfoResponse results = 1;
+    int32 count = 2;
 }
 
 message CeleryTaskInfoResponse {
-  string name = 1;
-  string label = 2;
+    string name = 1;
+    string label = 2;
 }
 
 message CeleryTaskQueryOptsRequest {
 }
 
 message CeleryTaskRunOptsRequest {
-  string task_id = 1;
-  string task_name = 2;
-  string celery_task_name = 3;
-  string args = 4;
-  string kwargs = 5;
-  string queue = 6;
-  bool sync = 7;
+    string task_id = 1;
+    string task_name = 2;
+    string celery_task_name = 3;
+    string args = 4;
+    string kwargs = 5;
+    string queue = 6;
+    bool sync = 7;
 }
 
 message CeleryTaskRunOptsResponse {
-  int32 code = 1;
-  string msg = 2;
-  string data = 3;
+    int32 code = 1;
+    string msg = 2;
+    string data = 3;
 }
 
 message ClockedScheduleCreateRequest {
-  optional int32 id = 1;
-  string clocked_time = 2;
+    optional int32 id = 1;
+    string clocked_time = 2;
 }
 
 message ClockedScheduleDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message ClockedScheduleListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message ClockedScheduleListResponse {
-  repeated ClockedScheduleResponse results = 1;
-  int32 count = 2;
+    repeated ClockedScheduleResponse results = 1;
+    int32 count = 2;
 }
 
 message ClockedSchedulePartialUpdateRequest {
-  optional int32 id = 1;
-  string clocked_time = 2;
-  repeated string _partial_update_fields = 3;
+    optional int32 id = 1;
+    string clocked_time = 2;
+    repeated string _partial_update_fields = 3;
 }
 
 message ClockedScheduleRequest {
-  optional int32 id = 1;
-  string clocked_time = 2;
+    optional int32 id = 1;
+    string clocked_time = 2;
 }
 
 message ClockedScheduleResponse {
-  optional int32 id = 1;
-  string clocked_time = 2;
+    optional int32 id = 1;
+    string clocked_time = 2;
 }
 
 message ClockedScheduleRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message ClockedScheduleUpdateRequest {
-  optional int32 id = 1;
-  string clocked_time = 2;
-  repeated string _partial_update_fields = 3;
+    optional int32 id = 1;
+    string clocked_time = 2;
+    repeated string _partial_update_fields = 3;
 }
 
 message CrontabScheduleCreateRequest {
-  optional int32 id = 1;
-  optional string minute = 2;
-  optional string hour = 3;
-  optional string day_of_month = 4;
-  optional string month_of_year = 5;
-  optional string day_of_week = 6;
-  string timezone = 7;
+    optional int32 id = 1;
+    optional string minute = 2;
+    optional string hour = 3;
+    optional string day_of_month = 4;
+    optional string month_of_year = 5;
+    optional string day_of_week = 6;
+    string timezone = 7;
 }
 
 message CrontabScheduleDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message CrontabScheduleListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message CrontabScheduleListResponse {
-  repeated CrontabScheduleResponse results = 1;
-  int32 count = 2;
+    repeated CrontabScheduleResponse results = 1;
+    int32 count = 2;
 }
 
 message CrontabSchedulePartialUpdateRequest {
-  optional int32 id = 1;
-  optional string minute = 2;
-  optional string hour = 3;
-  optional string day_of_month = 4;
-  optional string month_of_year = 5;
-  optional string day_of_week = 6;
-  string timezone = 7;
-  repeated string _partial_update_fields = 8;
+    optional int32 id = 1;
+    optional string minute = 2;
+    optional string hour = 3;
+    optional string day_of_month = 4;
+    optional string month_of_year = 5;
+    optional string day_of_week = 6;
+    string timezone = 7;
+    repeated string _partial_update_fields = 8;
 }
 
 message CrontabScheduleRequest {
-  optional int32 id = 1;
-  optional string minute = 2;
-  optional string hour = 3;
-  optional string day_of_month = 4;
-  optional string month_of_year = 5;
-  optional string day_of_week = 6;
-  string timezone = 7;
+    optional int32 id = 1;
+    optional string minute = 2;
+    optional string hour = 3;
+    optional string day_of_month = 4;
+    optional string month_of_year = 5;
+    optional string day_of_week = 6;
+    string timezone = 7;
 }
 
 message CrontabScheduleResponse {
-  optional int32 id = 1;
-  optional string minute = 2;
-  optional string hour = 3;
-  optional string day_of_month = 4;
-  optional string month_of_year = 5;
-  optional string day_of_week = 6;
-  string timezone = 7;
+    optional int32 id = 1;
+    optional string minute = 2;
+    optional string hour = 3;
+    optional string day_of_month = 4;
+    optional string month_of_year = 5;
+    optional string day_of_week = 6;
+    string timezone = 7;
 }
 
 message CrontabScheduleRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message CrontabScheduleUpdateRequest {
-  optional int32 id = 1;
-  optional string minute = 2;
-  optional string hour = 3;
-  optional string day_of_month = 4;
-  optional string month_of_year = 5;
-  optional string day_of_week = 6;
-  string timezone = 7;
-  repeated string _partial_update_fields = 8;
+    optional int32 id = 1;
+    optional string minute = 2;
+    optional string hour = 3;
+    optional string day_of_month = 4;
+    optional string month_of_year = 5;
+    optional string day_of_week = 6;
+    string timezone = 7;
+    repeated string _partial_update_fields = 8;
 }
 
 message FEntityResponse {
-  string FMaterialID = 1;
-  string FOwnerID = 2;
-  string FStockID = 3;
-  string FUnitID = 4;
-  optional int32 FENTRYID = 5;
-  optional string FRowType = 6;
-  optional string FOwnerTypeID = 7;
-  optional double FSALUNITQTY = 8;
-  optional double FRealQty = 9;
-  optional double FSALBASEQTY = 10;
-  optional double FPRICEBASEQTY = 11;
-  optional double FARNOTJOINQTY = 12;
-  optional double FAllAmount = 13;
-  optional int32 FDiscountRate = 14;
-  optional bool FOUTCONTROL = 15;
-  optional bool FIsOverLegalOrg = 16;
-  optional bool FCheckDelivery = 17;
-  optional bool FIsFree = 18;
-  optional string FEntrynote = 19;
-  optional int32 FEntryTaxRate = 20;
+    string FMaterialID = 1;
+    string FOwnerID = 2;
+    string FStockID = 3;
+    string FUnitID = 4;
+    optional int32 FENTRYID = 5;
+    optional string FRowType = 6;
+    optional string FOwnerTypeID = 7;
+    optional double FSALUNITQTY = 8;
+    optional double FRealQty = 9;
+    optional double FSALBASEQTY = 10;
+    optional double FPRICEBASEQTY = 11;
+    optional double FARNOTJOINQTY = 12;
+    optional double FAllAmount = 13;
+    optional int32 FDiscountRate = 14;
+    optional bool FOUTCONTROL = 15;
+    optional bool FIsOverLegalOrg = 16;
+    optional bool FCheckDelivery = 17;
+    optional bool FIsFree = 18;
+    optional string FEntrynote = 19;
+    optional int32 FEntryTaxRate = 20;
 }
 
 message FetchQimenTradeRequest {
-  string start_time = 1;
-  string end_time = 2;
-  optional string status = 3;
+    string start_time = 1;
+    string end_time = 2;
+    optional string status = 3;
 }
 
 message FetchQimenTradeResponse {
-  int32 code = 1;
-  int32 affected = 2;
+    int32 code = 1;
+    int32 affected = 2;
 }
 
 message IntervalScheduleCreateRequest {
-  optional int32 id = 1;
-  int32 every = 2;
-  string period = 3;
+    optional int32 id = 1;
+    int32 every = 2;
+    string period = 3;
 }
 
 message IntervalScheduleDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message IntervalScheduleListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message IntervalScheduleListResponse {
-  repeated IntervalScheduleResponse results = 1;
-  int32 count = 2;
+    repeated IntervalScheduleResponse results = 1;
+    int32 count = 2;
 }
 
 message IntervalSchedulePartialUpdateRequest {
-  optional int32 id = 1;
-  int32 every = 2;
-  string period = 3;
-  repeated string _partial_update_fields = 4;
+    optional int32 id = 1;
+    int32 every = 2;
+    string period = 3;
+    repeated string _partial_update_fields = 4;
 }
 
 message IntervalScheduleRequest {
-  optional int32 id = 1;
-  int32 every = 2;
-  string period = 3;
+    optional int32 id = 1;
+    int32 every = 2;
+    string period = 3;
 }
 
 message IntervalScheduleResponse {
-  optional int32 id = 1;
-  int32 every = 2;
-  string period = 3;
+    optional int32 id = 1;
+    int32 every = 2;
+    string period = 3;
 }
 
 message IntervalScheduleRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message IntervalScheduleUpdateRequest {
-  optional int32 id = 1;
-  int32 every = 2;
-  string period = 3;
-  repeated string _partial_update_fields = 4;
+    optional int32 id = 1;
+    int32 every = 2;
+    string period = 3;
+    repeated string _partial_update_fields = 4;
 }
 
 message KingdeePurchaseDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message KingdeePurchaseListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message KingdeePurchaseListResponse {
-  repeated KingdeePurchaseResponse results = 1;
-  int32 count = 2;
+    repeated KingdeePurchaseResponse results = 1;
+    int32 count = 2;
 }
 
 message KingdeePurchasePartialUpdateRequest {
-  optional int32 id = 1;
-  repeated string _partial_update_fields = 2;
-  optional string form_id = 3;
-  optional string kingdee_no = 4;
-  optional int32 push_kingdee_status = 5;
-  optional string kingdee_purchase_order = 6;
-  optional string kingdee_purchase_inform = 7;
-  optional string wdt_purchase_order = 8;
-  optional string wdt_stockin_no = 9;
+    optional int32 id = 1;
+    repeated string _partial_update_fields = 2;
+    optional string form_id = 3;
+    optional string kingdee_no = 4;
+    optional int32 push_kingdee_status = 5;
+    optional string kingdee_purchase_order = 6;
+    optional string kingdee_purchase_inform = 7;
+    optional string wdt_purchase_order = 8;
+    optional string wdt_stockin_no = 9;
 }
 
 message KingdeePurchaseRequest {
-  optional int32 id = 1;
-  optional string form_id = 2;
-  optional string kingdee_no = 3;
-  optional int32 push_kingdee_status = 4;
-  optional string kingdee_purchase_order = 5;
-  optional string kingdee_purchase_inform = 6;
-  optional string wdt_purchase_order = 7;
-  optional string wdt_stockin_no = 8;
+    optional int32 id = 1;
+    optional string form_id = 2;
+    optional string kingdee_no = 3;
+    optional int32 push_kingdee_status = 4;
+    optional string kingdee_purchase_order = 5;
+    optional string kingdee_purchase_inform = 6;
+    optional string wdt_purchase_order = 7;
+    optional string wdt_stockin_no = 8;
 }
 
 message KingdeePurchaseResponse {
-  optional int32 id = 1;
-  optional string create_time = 2;
-  optional string update_time = 3;
-  optional string form_id = 4;
-  optional string kingdee_no = 5;
-  optional int32 push_kingdee_status = 6;
-  optional string kingdee_purchase_order = 7;
-  optional string kingdee_purchase_inform = 8;
-  optional string wdt_purchase_order = 9;
-  optional string wdt_stockin_no = 10;
+    optional int32 id = 1;
+    optional string create_time = 2;
+    optional string update_time = 3;
+    optional string form_id = 4;
+    optional string kingdee_no = 5;
+    optional int32 push_kingdee_status = 6;
+    optional string kingdee_purchase_order = 7;
+    optional string kingdee_purchase_inform = 8;
+    optional string wdt_purchase_order = 9;
+    optional string wdt_stockin_no = 10;
 }
 
 message KingdeePurchaseRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message KingdeeSalOutStockListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message KingdeeSalOutStockListResponse {
-  repeated KingdeeSalOutStockResponse results = 1;
-  int32 count = 2;
+    repeated KingdeeSalOutStockResponse results = 1;
+    int32 count = 2;
 }
 
 message KingdeeSalOutStockModelResponse {
-  optional SubHeadEntityResponse SubHeadEntity = 1;
-  repeated FEntityResponse FEntity = 2;
-  string FBillTypeID = 3;
-  string FSaleOrgId = 4;
-  string FStockOrgId = 5;
-  string FBranchId = 6;
-  string FCustomerID = 7;
-  string FSettleID = 8;
-  string FPayerID = 9;
-  string FReceiverID = 10;
-  string FSaleDeptID = 11;
-  string FSalesManID = 12;
-  optional string FBillNo = 13;
-  string FDate = 14;
-  optional string FZBStockID = 15;
-  optional string FOwnerIdHead = 16;
-  optional string FNote = 17;
-  optional string FLogisticsNos = 18;
-  optional string FARStatus = 19;
+    optional SubHeadEntityResponse SubHeadEntity = 1;
+    repeated FEntityResponse FEntity = 2;
+    string FBillTypeID = 3;
+    string FSaleOrgId = 4;
+    string FStockOrgId = 5;
+    string FBranchId = 6;
+    string FCustomerID = 7;
+    string FSettleID = 8;
+    string FPayerID = 9;
+    string FReceiverID = 10;
+    string FSaleDeptID = 11;
+    string FSalesManID = 12;
+    optional string FBillNo = 13;
+    string FDate = 14;
+    optional string FZBStockID = 15;
+    optional string FOwnerIdHead = 16;
+    optional string FNote = 17;
+    optional string FLogisticsNos = 18;
+    optional string FARStatus = 19;
 }
 
 message KingdeeSalOutStockResponse {
-  optional string _id = 1;
-  optional KingdeeSalOutStockModelResponse model = 2;
-  optional string agg_no = 3;
-  optional string agg_name = 4;
-  optional string NeedUpDateFields = 5;
-  optional string NeedReturnFields = 6;
-  optional string kingdee_no = 7;
-  optional int32 sal_outstock_status = 8;
-  optional string failure_reason = 9;
-  optional string cancel_reason = 10;
-  optional int32 agg_type = 11;
-  optional string agg_type_name = 12;
-  optional int32 channel_dim = 13;
-  optional string channel_dim_name = 14;
-  optional int32 time_dim = 15;
-  optional string time_dim_name = 16;
-  optional string agg_organize_no = 17;
-  optional string agg_organize_name = 18;
-  optional int32 agg_year = 19;
-  optional int32 agg_month = 20;
-  optional int32 agg_week = 21;
-  optional int32 agg_day = 22;
-  optional string agg_shop_no = 23;
-  optional string agg_shop_name = 24;
-  optional string agg_warehouse_no = 25;
-  optional string agg_warehouse_name = 26;
-  optional string agg_trade_no = 27;
-  optional int32 agg_trade_count = 28;
-  optional int32 agg_goods_type_count = 29;
-  optional double agg_goods_count = 30;
-  optional double agg_total_amount = 31;
-  optional double agg_discount_amount = 32;
-  optional double agg_receivable_amount = 33;
-  optional double agg_paid_amount = 34;
-  optional string agg_period = 35;
-  optional string create_time = 36;
-  optional string update_time = 37;
+    optional string _id = 1;
+    optional KingdeeSalOutStockModelResponse model = 2;
+    optional string agg_no = 3;
+    optional string agg_name = 4;
+    optional string NeedUpDateFields = 5;
+    optional string NeedReturnFields = 6;
+    optional string kingdee_no = 7;
+    optional int32 sal_outstock_status = 8;
+    optional string failure_reason = 9;
+    optional string cancel_reason = 10;
+    optional int32 agg_type = 11;
+    optional string agg_type_name = 12;
+    optional int32 channel_dim = 13;
+    optional string channel_dim_name = 14;
+    optional int32 time_dim = 15;
+    optional string time_dim_name = 16;
+    optional string agg_organize_no = 17;
+    optional string agg_organize_name = 18;
+    optional int32 agg_year = 19;
+    optional int32 agg_month = 20;
+    optional int32 agg_week = 21;
+    optional int32 agg_day = 22;
+    optional string agg_shop_no = 23;
+    optional string agg_shop_name = 24;
+    optional string agg_warehouse_no = 25;
+    optional string agg_warehouse_name = 26;
+    optional string agg_trade_no = 27;
+    optional int32 agg_trade_count = 28;
+    optional int32 agg_goods_type_count = 29;
+    optional double agg_goods_count = 30;
+    optional double agg_total_amount = 31;
+    optional double agg_discount_amount = 32;
+    optional double agg_receivable_amount = 33;
+    optional double agg_paid_amount = 34;
+    optional string agg_period = 35;
+    optional string create_time = 36;
+    optional string update_time = 37;
 }
 
 message KingdeeSalOutStockRetrieveRequest {
-  string agg_no = 1;
+    string agg_no = 1;
+}
+
+message KingdeeSalReturnStockDestroyRequest {
+    string agg_no = 1;
+}
+
+message KingdeeSalReturnStockListRequest {
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
+}
+
+message KingdeeSalReturnStockListResponse {
+    repeated KingdeeSalReturnStockResponse results = 1;
+    int32 count = 2;
+}
+
+message KingdeeSalReturnStockPartialUpdateRequest {
+    string agg_no = 1;
+    repeated string agg_refund_stockin_no = 2;
+    repeated string _partial_update_fields = 3;
+    optional string NeedUpDateFields = 4;
+    optional string NeedReturnFields = 5;
+    optional string kingdee_no = 6;
+    optional int32 kingdee_push_status = 7;
+    optional string failure_reason = 8;
+    optional string cancel_reason = 9;
+    optional string agg_organize_no = 10;
+    optional string agg_organize_name = 11;
+    optional string agg_shop_no = 12;
+    optional string agg_shop_name = 13;
+    optional string agg_warehouse_no = 14;
+    optional string agg_warehouse_name = 15;
+    optional string trade_agg_no = 16;
+    optional int32 agg_refund_stockin_count = 17;
+    optional int32 agg_goods_type_count = 18;
+    optional double agg_goods_count = 19;
+    optional double agg_actual_refund_amount = 20;
+    optional double agg_total_price = 21;
+    optional double agg_goods_amount = 22;
+    optional string agg_period = 23;
+    optional string create_time = 24;
+    optional string update_time = 25;
+}
+
+message KingdeeSalReturnStockRequest {
+    string agg_no = 1;
+    repeated string agg_refund_stockin_no = 2;
+    optional string NeedUpDateFields = 3;
+    optional string NeedReturnFields = 4;
+    optional string kingdee_no = 5;
+    optional int32 kingdee_push_status = 6;
+    optional string failure_reason = 7;
+    optional string cancel_reason = 8;
+    optional string agg_organize_no = 9;
+    optional string agg_organize_name = 10;
+    optional string agg_shop_no = 11;
+    optional string agg_shop_name = 12;
+    optional string agg_warehouse_no = 13;
+    optional string agg_warehouse_name = 14;
+    optional string trade_agg_no = 15;
+    optional int32 agg_refund_stockin_count = 16;
+    optional int32 agg_goods_type_count = 17;
+    optional double agg_goods_count = 18;
+    optional double agg_actual_refund_amount = 19;
+    optional double agg_total_price = 20;
+    optional double agg_goods_amount = 21;
+    optional string agg_period = 22;
+    optional string create_time = 23;
+    optional string update_time = 24;
+}
+
+message KingdeeSalReturnStockResponse {
+    string agg_no = 1;
+    optional SalReturnStockResponse Model = 2;
+    repeated string agg_refund_stockin_no = 3;
+    optional string NeedUpDateFields = 4;
+    optional string NeedReturnFields = 5;
+    optional string kingdee_no = 6;
+    optional int32 kingdee_push_status = 7;
+    optional string failure_reason = 8;
+    optional string cancel_reason = 9;
+    optional string agg_organize_no = 10;
+    optional string agg_organize_name = 11;
+    optional string agg_shop_no = 12;
+    optional string agg_shop_name = 13;
+    optional string agg_warehouse_no = 14;
+    optional string agg_warehouse_name = 15;
+    optional string trade_agg_no = 16;
+    optional int32 agg_refund_stockin_count = 17;
+    optional int32 agg_goods_type_count = 18;
+    optional double agg_goods_count = 19;
+    optional double agg_actual_refund_amount = 20;
+    optional double agg_total_price = 21;
+    optional double agg_goods_amount = 22;
+    optional string agg_period = 23;
+    optional string create_time = 24;
+    optional string update_time = 25;
+}
+
+message KingdeeSalReturnStockRetrieveRequest {
+    string agg_no = 1;
 }
 
 message KingdeeShopNoInfoRequest {
-  string shop_no = 1;
+    string shop_no = 1;
 }
 
 message KingdeeShopNoInfoResponse {
-  string data = 1;
+    string data = 1;
 }
 
 message KingdeeStockNoInfoRequest {
-  string stock_no = 1;
+    string stock_no = 1;
 }
 
 message KingdeeStockNoInfoResponse {
-  string data = 1;
+    string data = 1;
 }
 
 message KingdeeTradeDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message KingdeeTradeListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message KingdeeTradeListResponse {
-  repeated KingdeeTradeResponse results = 1;
-  int32 count = 2;
+    repeated KingdeeTradeResponse results = 1;
+    int32 count = 2;
 }
 
 message KingdeeTradePartialUpdateRequest {
-  optional int32 id = 1;
-  repeated string _partial_update_fields = 2;
-  string form_id = 3;
-  optional string kingdee_no = 4;
-  optional int32 sal_outstock_status = 5;
-  optional string failure_reason = 6;
-  optional string cancel_reason = 7;
-  optional int32 agg_type = 8;
-  optional string agg_type_name = 9;
-  optional int32 channel_dim = 10;
-  optional string channel_dim_name = 11;
-  optional int32 time_dim = 12;
-  optional string time_dim_name = 13;
-  optional string agg_organize_no = 14;
-  optional string agg_organize_name = 15;
-  optional string agg_shop_no = 16;
-  optional string agg_shop_name = 17;
-  optional string agg_warehouse_no = 18;
-  optional string agg_warehouse_name = 19;
-  optional string agg_trade_no = 20;
-  optional int32 agg_trade_count = 21;
-  optional int32 agg_goods_type_count = 22;
-  optional int32 agg_goods_count = 23;
-  optional int32 agg_total_amount = 24;
-  optional int32 agg_discount_amount = 25;
-  optional int32 agg_receivable_amount = 26;
-  optional int32 agg_paid_amount = 27;
-  optional string agg_period = 28;
+    optional int32 id = 1;
+    repeated string _partial_update_fields = 2;
+    string form_id = 3;
+    optional string kingdee_no = 4;
+    optional int32 sal_outstock_status = 5;
+    optional string failure_reason = 6;
+    optional string cancel_reason = 7;
+    optional int32 agg_type = 8;
+    optional string agg_type_name = 9;
+    optional int32 channel_dim = 10;
+    optional string channel_dim_name = 11;
+    optional int32 time_dim = 12;
+    optional string time_dim_name = 13;
+    optional string agg_organize_no = 14;
+    optional string agg_organize_name = 15;
+    optional string agg_shop_no = 16;
+    optional string agg_shop_name = 17;
+    optional string agg_warehouse_no = 18;
+    optional string agg_warehouse_name = 19;
+    optional string agg_trade_no = 20;
+    optional int32 agg_trade_count = 21;
+    optional int32 agg_goods_type_count = 22;
+    optional int32 agg_goods_count = 23;
+    optional int32 agg_total_amount = 24;
+    optional int32 agg_discount_amount = 25;
+    optional int32 agg_receivable_amount = 26;
+    optional int32 agg_paid_amount = 27;
+    optional string agg_period = 28;
 }
 
 message KingdeeTradeRequest {
-  optional int32 id = 1;
-  string form_id = 2;
-  optional string kingdee_no = 3;
-  optional int32 sal_outstock_status = 4;
-  optional string failure_reason = 5;
-  optional string cancel_reason = 6;
-  optional int32 agg_type = 7;
-  optional string agg_type_name = 8;
-  optional int32 channel_dim = 9;
-  optional string channel_dim_name = 10;
-  optional int32 time_dim = 11;
-  optional string time_dim_name = 12;
-  optional string agg_organize_no = 13;
-  optional string agg_organize_name = 14;
-  optional string agg_shop_no = 15;
-  optional string agg_shop_name = 16;
-  optional string agg_warehouse_no = 17;
-  optional string agg_warehouse_name = 18;
-  optional string agg_trade_no = 19;
-  optional int32 agg_trade_count = 20;
-  optional int32 agg_goods_type_count = 21;
-  optional int32 agg_goods_count = 22;
-  optional int32 agg_total_amount = 23;
-  optional int32 agg_discount_amount = 24;
-  optional int32 agg_receivable_amount = 25;
-  optional int32 agg_paid_amount = 26;
-  optional string agg_period = 27;
+    optional int32 id = 1;
+    string form_id = 2;
+    optional string kingdee_no = 3;
+    optional int32 sal_outstock_status = 4;
+    optional string failure_reason = 5;
+    optional string cancel_reason = 6;
+    optional int32 agg_type = 7;
+    optional string agg_type_name = 8;
+    optional int32 channel_dim = 9;
+    optional string channel_dim_name = 10;
+    optional int32 time_dim = 11;
+    optional string time_dim_name = 12;
+    optional string agg_organize_no = 13;
+    optional string agg_organize_name = 14;
+    optional string agg_shop_no = 15;
+    optional string agg_shop_name = 16;
+    optional string agg_warehouse_no = 17;
+    optional string agg_warehouse_name = 18;
+    optional string agg_trade_no = 19;
+    optional int32 agg_trade_count = 20;
+    optional int32 agg_goods_type_count = 21;
+    optional int32 agg_goods_count = 22;
+    optional int32 agg_total_amount = 23;
+    optional int32 agg_discount_amount = 24;
+    optional int32 agg_receivable_amount = 25;
+    optional int32 agg_paid_amount = 26;
+    optional string agg_period = 27;
 }
 
 message KingdeeTradeResponse {
-  optional int32 id = 1;
-  optional string create_time = 2;
-  optional string update_time = 3;
-  string form_id = 4;
-  optional string kingdee_no = 5;
-  optional int32 sal_outstock_status = 6;
-  optional string failure_reason = 7;
-  optional string cancel_reason = 8;
-  optional int32 agg_type = 9;
-  optional string agg_type_name = 10;
-  optional int32 channel_dim = 11;
-  optional string channel_dim_name = 12;
-  optional int32 time_dim = 13;
-  optional string time_dim_name = 14;
-  optional string agg_organize_no = 15;
-  optional string agg_organize_name = 16;
-  optional string agg_shop_no = 17;
-  optional string agg_shop_name = 18;
-  optional string agg_warehouse_no = 19;
-  optional string agg_warehouse_name = 20;
-  optional string agg_trade_no = 21;
-  optional int32 agg_trade_count = 22;
-  optional int32 agg_goods_type_count = 23;
-  optional int32 agg_goods_count = 24;
-  optional int32 agg_total_amount = 25;
-  optional int32 agg_discount_amount = 26;
-  optional int32 agg_receivable_amount = 27;
-  optional int32 agg_paid_amount = 28;
-  optional string agg_period = 29;
+    optional int32 id = 1;
+    optional string create_time = 2;
+    optional string update_time = 3;
+    string form_id = 4;
+    optional string kingdee_no = 5;
+    optional int32 sal_outstock_status = 6;
+    optional string failure_reason = 7;
+    optional string cancel_reason = 8;
+    optional int32 agg_type = 9;
+    optional string agg_type_name = 10;
+    optional int32 channel_dim = 11;
+    optional string channel_dim_name = 12;
+    optional int32 time_dim = 13;
+    optional string time_dim_name = 14;
+    optional string agg_organize_no = 15;
+    optional string agg_organize_name = 16;
+    optional string agg_shop_no = 17;
+    optional string agg_shop_name = 18;
+    optional string agg_warehouse_no = 19;
+    optional string agg_warehouse_name = 20;
+    optional string agg_trade_no = 21;
+    optional int32 agg_trade_count = 22;
+    optional int32 agg_goods_type_count = 23;
+    optional int32 agg_goods_count = 24;
+    optional int32 agg_total_amount = 25;
+    optional int32 agg_discount_amount = 26;
+    optional int32 agg_receivable_amount = 27;
+    optional int32 agg_paid_amount = 28;
+    optional string agg_period = 29;
 }
 
 message KingdeeTradeRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message MongoGoodslistResponse {
-  string poid = 1;
-  optional string modified = 2;
-  optional string created = 3;
-  optional string src_tid = 4;
-  optional int32 rec_id = 5;
-  optional string src_oid = 6;
-  optional int32 flag = 7;
-  optional int32 refund_status = 8;
-  optional string pay_id = 9;
-  optional int32 pay_status = 10;
-  optional string pay_time = 11;
-  optional int32 delivery_term = 12;
-  optional string bind_oid = 13;
-  optional int32 platform_id = 14;
-  optional string platform_goods_id = 15;
-  optional string platform_spec_id = 16;
-  optional int32 suite_id = 17;
-  optional string suite_no = 18;
-  optional string suite_name = 19;
-  optional double suite_num = 20;
-  optional double suite_amount = 21;
-  optional double suite_discount = 22;
-  optional string class_name = 23;
-  optional int32 goods_id = 24;
-  optional string goods_no = 25;
-  optional string goods_name = 26;
-  optional int32 spec_id = 27;
-  optional string spec_name = 28;
-  optional string spec_no = 29;
-  optional string spec_code = 30;
-  optional string barcode = 31;
-  optional string api_goods_name = 32;
-  optional string api_spec_name = 33;
-  optional double num = 34;
-  optional double actual_num = 35;
-  optional double price = 36;
-  optional double order_price = 37;
-  optional double share_price = 38;
-  optional double adjust = 39;
-  optional double discount = 40;
-  optional double share_amount = 41;
-  optional double share_post = 42;
-  optional double paid = 43;
-  optional int32 gift_type = 44;
-  optional int32 guarantee_mode = 45;
-  optional int32 is_print_suite = 46;
-  optional int32 is_zero_cost = 47;
-  optional int32 stock_reserved = 48;
-  optional int32 is_consigned = 49;
-  optional int32 is_received = 50;
-  optional double weight = 51;
-  optional double commission = 52;
-  optional int32 goods_type = 53;
-  optional int32 large_type = 54;
-  optional int32 invoice_type = 55;
-  optional string invoice_content = 56;
-  optional int32 from_mask = 57;
-  optional int32 cid = 58;
-  optional double tax_rate = 59;
-  optional int32 base_unit_id = 60;
-  optional string unit_name = 61;
+    string poid = 1;
+    optional string modified = 2;
+    optional string created = 3;
+    optional string src_tid = 4;
+    optional int32 rec_id = 5;
+    optional string src_oid = 6;
+    optional int32 flag = 7;
+    optional int32 refund_status = 8;
+    optional string pay_id = 9;
+    optional int32 pay_status = 10;
+    optional string pay_time = 11;
+    optional int32 delivery_term = 12;
+    optional string bind_oid = 13;
+    optional int32 platform_id = 14;
+    optional string platform_goods_id = 15;
+    optional string platform_spec_id = 16;
+    optional int32 suite_id = 17;
+    optional string suite_no = 18;
+    optional string suite_name = 19;
+    optional double suite_num = 20;
+    optional double suite_amount = 21;
+    optional double suite_discount = 22;
+    optional string class_name = 23;
+    optional int32 goods_id = 24;
+    optional string goods_no = 25;
+    optional string goods_name = 26;
+    optional int32 spec_id = 27;
+    optional string spec_name = 28;
+    optional string spec_no = 29;
+    optional string spec_code = 30;
+    optional string barcode = 31;
+    optional string api_goods_name = 32;
+    optional string api_spec_name = 33;
+    optional double num = 34;
+    optional double actual_num = 35;
+    optional double price = 36;
+    optional double order_price = 37;
+    optional double share_price = 38;
+    optional double adjust = 39;
+    optional double discount = 40;
+    optional double share_amount = 41;
+    optional double share_post = 42;
+    optional double paid = 43;
+    optional int32 gift_type = 44;
+    optional int32 guarantee_mode = 45;
+    optional int32 is_print_suite = 46;
+    optional int32 is_zero_cost = 47;
+    optional int32 stock_reserved = 48;
+    optional int32 is_consigned = 49;
+    optional int32 is_received = 50;
+    optional double weight = 51;
+    optional double commission = 52;
+    optional int32 goods_type = 53;
+    optional int32 large_type = 54;
+    optional int32 invoice_type = 55;
+    optional string invoice_content = 56;
+    optional int32 from_mask = 57;
+    optional int32 cid = 58;
+    optional double tax_rate = 59;
+    optional int32 base_unit_id = 60;
+    optional string unit_name = 61;
 }
 
 message MongoTradesListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message MongoTradesListResponse {
-  repeated MongoTradesResponse results = 1;
-  int32 count = 2;
-  int32 goods_count = 3;
-  int32 goods_category_count = 4;
-  string total_amount = 5;
+    repeated MongoTradesResponse results = 1;
+    int32 count = 2;
+    int32 goods_count = 3;
+    int32 goods_category_count = 4;
+    string total_amount = 5;
 }
 
 message MongoTradesResponse {
-  optional string _id = 1;
-  optional string agg_consign_status_name = 2;
-  optional string agg_pay_status_name = 3;
-  repeated MongoGoodslistResponse goods_list = 4;
-  optional string reserve = 5;
-  optional string oaid = 6;
-  optional int32 valid = 7;
-  optional int32 color_flag = 8;
-  optional string consign_time = 9;
-  optional string trade_time = 10;
-  optional string pay_time = 11;
-  optional string modified = 12;
-  optional string created = 13;
-  optional int32 version_id = 14;
-  optional int32 trade_id = 15;
-  optional string trade_no = 16;
-  optional int32 trade_from = 17;
-  optional string src_tids = 18;
-  optional int32 is_sealed = 19;
-  optional string split_from_trade_id = 20;
-  optional int32 split_package_num = 21;
-  optional string tags = 22;
-  optional int32 trade_status = 23;
-  optional int32 consign_status = 24;
-  optional int32 trade_type = 25;
-  optional int32 refund_status = 26;
-  optional int32 goods_type_count = 27;
-  optional double goods_count = 28;
-  optional string single_spec_no = 29;
-  optional double raw_goods_count = 30;
-  optional int32 raw_goods_type_count = 31;
-  optional double goods_amount = 32;
-  optional double post_amount = 33;
-  optional double other_amount = 34;
-  optional double discount = 35;
-  optional double receivable = 36;
-  optional double dap_amount = 37;
-  optional double cod_amount = 38;
-  optional double ext_cod_fee = 39;
-  optional double goods_cost = 40;
-  optional double post_cost = 41;
-  optional double paid = 42;
-  optional double profit = 43;
-  optional double tax = 44;
-  optional double tax_rate = 45;
-  optional double commission = 46;
-  optional string currency = 47;
-  optional int32 invoice_type = 48;
-  optional string invoice_title = 49;
-  optional string invoice_content = 50;
-  optional int32 invoice_id = 51;
-  optional string customer_id = 52;
-  optional int32 customer_type = 53;
-  optional string customer_name = 54;
-  optional string customer_no = 55;
-  optional string pay_account = 56;
-  optional string buyer_nick = 57;
-  optional string receiver_name = 58;
-  optional int32 receiver_province = 59;
-  optional int32 receiver_city = 60;
-  optional int32 receiver_district = 61;
-  optional string receiver_address = 62;
-  optional string receiver_mobile = 63;
-  optional string receiver_telno = 64;
-  optional string receiver_zip = 65;
-  optional string receiver_area = 66;
-  optional string receiver_ring = 67;
-  optional string receiver_dtb = 68;
-  optional int32 receiver_country = 69;
-  optional string buyer_message = 70;
-  optional string cs_remark = 71;
-  optional int32 remark_flag = 72;
-  optional string print_remark = 73;
-  optional string to_deliver_time = 74;
-  optional int32 bad_reason = 75;
-  optional int32 logistics_id = 76;
-  optional string logistics_name = 77;
-  optional string logistics_code = 78;
-  optional int32 logistics_type = 79;
-  optional string logistics_no = 80;
-  optional string pre_charge_time = 81;
-  optional int32 is_prev_notify = 82;
-  optional double volume = 83;
-  optional double weight = 84;
-  optional string logistics_template_id = 85;
-  optional string sendbill_template_id = 86;
-  optional string package_id = 87;
-  optional int32 large_type = 88;
-  optional string stockout_no = 89;
-  optional int32 salesman_id = 90;
-  optional int32 checker_id = 91;
-  optional string fullname = 92;
-  optional string checker_name = 93;
-  optional int32 fchecker_id = 94;
-  optional string fchecker_name = 95;
-  optional int32 checkouter_id = 96;
-  optional string checkouter_name = 97;
-  optional int32 platform_id = 98;
-  optional int32 shop_platform_id = 99;
-  optional int32 delivery_term = 100;
-  optional int32 freeze_reason = 101;
-  optional int32 fenxiao_type = 102;
-  optional string fenxiao_nick = 103;
-  optional int32 check_step = 104;
-  optional int32 unmerge_mask = 105;
-  optional string delay_to_time = 106;
-  optional int32 note_count = 107;
-  optional int32 buyer_message_count = 108;
-  optional int32 cs_remark_count = 109;
-  optional int32 cs_remark_change_count = 110;
-  optional double discount_change = 111;
-  optional double trade_prepay = 112;
-  optional double pi_amount = 113;
-  optional double other_cost = 114;
-  optional string sales_score = 115;
-  optional int32 gift_mask = 116;
-  optional int32 revert_reason = 117;
-  optional int32 cancel_reason = 118;
-  optional int32 is_unpayment_sms = 119;
-  optional string trade_mask = 120;
-  optional int32 flag_id = 121;
-  optional string flag_name = 122;
-  optional int32 id_card_type = 123;
-  optional string id_card = 124;
-  optional string freeze_reason_info = 125;
-  optional string fenxiao_tid = 126;
-  optional int32 shop_id = 127;
-  optional string shop_no = 128;
-  optional string shop_name = 129;
-  optional string shop_remark = 130;
-  optional int32 warehouse_id = 131;
-  optional int32 warehouse_type = 132;
-  optional string warehouse_no = 133;
-  optional int32 agg_discount = 134;
-  optional int32 adjust_discount = 135;
-  optional string collection_time = 136;
-  optional string collection_account = 137;
-  optional string collection_no = 138;
-  optional int32 collection_type = 139;
-  optional double collection_amount = 140;
-  optional int32 agg_consign_status = 141;
-  optional string consign_agg_no = 142;
-  optional int32 agg_pay_status = 143;
-  optional string pay_agg_no = 144;
+    optional string _id = 1;
+    optional string agg_consign_status_name = 2;
+    optional string agg_pay_status_name = 3;
+    repeated MongoGoodslistResponse goods_list = 4;
+    optional string reserve = 5;
+    optional string oaid = 6;
+    optional int32 valid = 7;
+    optional int32 color_flag = 8;
+    optional string consign_time = 9;
+    optional string trade_time = 10;
+    optional string pay_time = 11;
+    optional string modified = 12;
+    optional string created = 13;
+    optional int32 version_id = 14;
+    optional int32 trade_id = 15;
+    optional string trade_no = 16;
+    optional int32 trade_from = 17;
+    optional string src_tids = 18;
+    optional int32 is_sealed = 19;
+    optional string split_from_trade_id = 20;
+    optional int32 split_package_num = 21;
+    optional string tags = 22;
+    optional int32 trade_status = 23;
+    optional int32 consign_status = 24;
+    optional int32 trade_type = 25;
+    optional int32 refund_status = 26;
+    optional int32 goods_type_count = 27;
+    optional double goods_count = 28;
+    optional string single_spec_no = 29;
+    optional double raw_goods_count = 30;
+    optional int32 raw_goods_type_count = 31;
+    optional double goods_amount = 32;
+    optional double post_amount = 33;
+    optional double other_amount = 34;
+    optional double discount = 35;
+    optional double receivable = 36;
+    optional double dap_amount = 37;
+    optional double cod_amount = 38;
+    optional double ext_cod_fee = 39;
+    optional double goods_cost = 40;
+    optional double post_cost = 41;
+    optional double paid = 42;
+    optional double profit = 43;
+    optional double tax = 44;
+    optional double tax_rate = 45;
+    optional double commission = 46;
+    optional string currency = 47;
+    optional int32 invoice_type = 48;
+    optional string invoice_title = 49;
+    optional string invoice_content = 50;
+    optional int32 invoice_id = 51;
+    optional string customer_id = 52;
+    optional int32 customer_type = 53;
+    optional string customer_name = 54;
+    optional string customer_no = 55;
+    optional string pay_account = 56;
+    optional string buyer_nick = 57;
+    optional string receiver_name = 58;
+    optional int32 receiver_province = 59;
+    optional int32 receiver_city = 60;
+    optional int32 receiver_district = 61;
+    optional string receiver_address = 62;
+    optional string receiver_mobile = 63;
+    optional string receiver_telno = 64;
+    optional string receiver_zip = 65;
+    optional string receiver_area = 66;
+    optional string receiver_ring = 67;
+    optional string receiver_dtb = 68;
+    optional int32 receiver_country = 69;
+    optional string buyer_message = 70;
+    optional string cs_remark = 71;
+    optional int32 remark_flag = 72;
+    optional string print_remark = 73;
+    optional string to_deliver_time = 74;
+    optional int32 bad_reason = 75;
+    optional int32 logistics_id = 76;
+    optional string logistics_name = 77;
+    optional string logistics_code = 78;
+    optional int32 logistics_type = 79;
+    optional string logistics_no = 80;
+    optional string pre_charge_time = 81;
+    optional int32 is_prev_notify = 82;
+    optional double volume = 83;
+    optional double weight = 84;
+    optional string logistics_template_id = 85;
+    optional string sendbill_template_id = 86;
+    optional string package_id = 87;
+    optional int32 large_type = 88;
+    optional string stockout_no = 89;
+    optional int32 salesman_id = 90;
+    optional int32 checker_id = 91;
+    optional string fullname = 92;
+    optional string checker_name = 93;
+    optional int32 fchecker_id = 94;
+    optional string fchecker_name = 95;
+    optional int32 checkouter_id = 96;
+    optional string checkouter_name = 97;
+    optional int32 platform_id = 98;
+    optional int32 shop_platform_id = 99;
+    optional int32 delivery_term = 100;
+    optional int32 freeze_reason = 101;
+    optional int32 fenxiao_type = 102;
+    optional string fenxiao_nick = 103;
+    optional int32 check_step = 104;
+    optional int32 unmerge_mask = 105;
+    optional string delay_to_time = 106;
+    optional int32 note_count = 107;
+    optional int32 buyer_message_count = 108;
+    optional int32 cs_remark_count = 109;
+    optional int32 cs_remark_change_count = 110;
+    optional double discount_change = 111;
+    optional double trade_prepay = 112;
+    optional double pi_amount = 113;
+    optional double other_cost = 114;
+    optional string sales_score = 115;
+    optional int32 gift_mask = 116;
+    optional int32 revert_reason = 117;
+    optional int32 cancel_reason = 118;
+    optional int32 is_unpayment_sms = 119;
+    optional string trade_mask = 120;
+    optional int32 flag_id = 121;
+    optional string flag_name = 122;
+    optional int32 id_card_type = 123;
+    optional string id_card = 124;
+    optional string freeze_reason_info = 125;
+    optional string fenxiao_tid = 126;
+    optional int32 shop_id = 127;
+    optional string shop_no = 128;
+    optional string shop_name = 129;
+    optional string shop_remark = 130;
+    optional int32 warehouse_id = 131;
+    optional int32 warehouse_type = 132;
+    optional string warehouse_no = 133;
+    optional int32 agg_discount = 134;
+    optional int32 adjust_discount = 135;
+    optional string collection_time = 136;
+    optional string collection_account = 137;
+    optional string collection_no = 138;
+    optional int32 collection_type = 139;
+    optional double collection_amount = 140;
+    optional int32 agg_consign_status = 141;
+    optional string consign_agg_no = 142;
+    optional int32 agg_pay_status = 143;
+    optional string pay_agg_no = 144;
 }
 
 message MongoTradesRetrieveRequest {
-  string trade_no = 1;
+    string trade_no = 1;
 }
 
 message PeriodAggTradeRequest {
-  string uuid = 1;
-  string period_start = 2;
-  string period_end = 3;
-  string config_no = 4;
+    string uuid = 1;
+    string period_start = 2;
+    string period_end = 3;
+    string config_no = 4;
 }
 
 message PeriodAggTradeResponse {
-  int32 code = 1;
-  string msg = 2;
-  int32 count = 3;
+    int32 code = 1;
+    string msg = 2;
+    int32 count = 3;
 }
 
 message PeriodicTaskCreateRequest {
-  optional int32 id = 1;
-  optional IntervalScheduleRequest interval_content = 2;
-  string name = 3;
-  string task = 4;
-  optional string args = 5;
-  optional string kwargs = 6;
-  optional string queue = 7;
-  optional string exchange = 8;
-  optional string routing_key = 9;
-  optional int32 priority = 10;
-  optional string expires = 11;
-  optional int32 expire_seconds = 12;
-  optional bool one_off = 13;
-  optional string start_time = 14;
-  optional bool enabled = 15;
-  optional string description = 16;
-  optional int32 crontab = 17;
-  optional int32 solar = 18;
-  optional int32 clocked = 19;
+    optional int32 id = 1;
+    optional IntervalScheduleRequest interval_content = 2;
+    string name = 3;
+    string task = 4;
+    optional string args = 5;
+    optional string kwargs = 6;
+    optional string queue = 7;
+    optional string exchange = 8;
+    optional string routing_key = 9;
+    optional int32 priority = 10;
+    optional string expires = 11;
+    optional int32 expire_seconds = 12;
+    optional bool one_off = 13;
+    optional string start_time = 14;
+    optional bool enabled = 15;
+    optional string description = 16;
+    optional int32 crontab = 17;
+    optional int32 solar = 18;
+    optional int32 clocked = 19;
 }
 
 message PeriodicTaskDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message PeriodicTaskListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message PeriodicTaskListResponse {
-  repeated PeriodicTaskResponse results = 1;
-  int32 count = 2;
+    repeated PeriodicTaskResponse results = 1;
+    int32 count = 2;
 }
 
 message PeriodicTaskPartialUpdateRequest {
-  optional int32 id = 1;
-  optional IntervalScheduleRequest interval_content = 2;
-  repeated string _partial_update_fields = 3;
-  string name = 4;
-  string task = 5;
-  optional string args = 6;
-  optional string kwargs = 7;
-  optional string queue = 8;
-  optional string exchange = 9;
-  optional string routing_key = 10;
-  optional int32 priority = 11;
-  optional string expires = 12;
-  optional int32 expire_seconds = 13;
-  optional bool one_off = 14;
-  optional string start_time = 15;
-  optional bool enabled = 16;
-  optional string description = 17;
-  optional int32 crontab = 18;
-  optional int32 solar = 19;
-  optional int32 clocked = 20;
+    optional int32 id = 1;
+    optional IntervalScheduleRequest interval_content = 2;
+    repeated string _partial_update_fields = 3;
+    string name = 4;
+    string task = 5;
+    optional string args = 6;
+    optional string kwargs = 7;
+    optional string queue = 8;
+    optional string exchange = 9;
+    optional string routing_key = 10;
+    optional int32 priority = 11;
+    optional string expires = 12;
+    optional int32 expire_seconds = 13;
+    optional bool one_off = 14;
+    optional string start_time = 15;
+    optional bool enabled = 16;
+    optional string description = 17;
+    optional int32 crontab = 18;
+    optional int32 solar = 19;
+    optional int32 clocked = 20;
 }
 
 message PeriodicTaskRequest {
-  optional int32 id = 1;
-  optional IntervalScheduleRequest interval_content = 2;
-  string name = 3;
-  string task = 4;
-  optional string args = 5;
-  optional string kwargs = 6;
-  optional string queue = 7;
-  optional string exchange = 8;
-  optional string routing_key = 9;
-  optional int32 priority = 10;
-  optional string expires = 11;
-  optional int32 expire_seconds = 12;
-  optional bool one_off = 13;
-  optional string start_time = 14;
-  optional bool enabled = 15;
-  optional string description = 16;
-  optional int32 crontab = 17;
-  optional int32 solar = 18;
-  optional int32 clocked = 19;
+    optional int32 id = 1;
+    optional IntervalScheduleRequest interval_content = 2;
+    string name = 3;
+    string task = 4;
+    optional string args = 5;
+    optional string kwargs = 6;
+    optional string queue = 7;
+    optional string exchange = 8;
+    optional string routing_key = 9;
+    optional int32 priority = 10;
+    optional string expires = 11;
+    optional int32 expire_seconds = 12;
+    optional bool one_off = 13;
+    optional string start_time = 14;
+    optional bool enabled = 15;
+    optional string description = 16;
+    optional int32 crontab = 17;
+    optional int32 solar = 18;
+    optional int32 clocked = 19;
 }
 
 message PeriodicTaskResponse {
-  optional int32 id = 1;
-  optional IntervalScheduleResponse interval = 2;
-  string name = 3;
-  string task = 4;
-  optional string args = 5;
-  optional string kwargs = 6;
-  optional string queue = 7;
-  optional string exchange = 8;
-  optional string routing_key = 9;
-  optional int32 priority = 10;
-  optional string expires = 11;
-  optional int32 expire_seconds = 12;
-  optional bool one_off = 13;
-  optional string start_time = 14;
-  optional bool enabled = 15;
-  optional string last_run_at = 16;
-  optional int32 total_run_count = 17;
-  optional string date_changed = 18;
-  optional string description = 19;
-  optional int32 crontab = 20;
-  optional int32 solar = 21;
-  optional int32 clocked = 22;
+    optional int32 id = 1;
+    optional IntervalScheduleResponse interval = 2;
+    string name = 3;
+    string task = 4;
+    optional string args = 5;
+    optional string kwargs = 6;
+    optional string queue = 7;
+    optional string exchange = 8;
+    optional string routing_key = 9;
+    optional int32 priority = 10;
+    optional string expires = 11;
+    optional int32 expire_seconds = 12;
+    optional bool one_off = 13;
+    optional string start_time = 14;
+    optional bool enabled = 15;
+    optional string last_run_at = 16;
+    optional int32 total_run_count = 17;
+    optional string date_changed = 18;
+    optional string description = 19;
+    optional int32 crontab = 20;
+    optional int32 solar = 21;
+    optional int32 clocked = 22;
 }
 
 message PeriodicTaskRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message PeriodicTaskUpdateRequest {
-  optional int32 id = 1;
-  optional IntervalScheduleRequest interval_content = 2;
-  repeated string _partial_update_fields = 3;
-  string name = 4;
-  string task = 5;
-  optional string args = 6;
-  optional string kwargs = 7;
-  optional string queue = 8;
-  optional string exchange = 9;
-  optional string routing_key = 10;
-  optional int32 priority = 11;
-  optional string expires = 12;
-  optional int32 expire_seconds = 13;
-  optional bool one_off = 14;
-  optional string start_time = 15;
-  optional bool enabled = 16;
-  optional string description = 17;
-  optional int32 crontab = 18;
-  optional int32 solar = 19;
-  optional int32 clocked = 20;
+    optional int32 id = 1;
+    optional IntervalScheduleRequest interval_content = 2;
+    repeated string _partial_update_fields = 3;
+    string name = 4;
+    string task = 5;
+    optional string args = 6;
+    optional string kwargs = 7;
+    optional string queue = 8;
+    optional string exchange = 9;
+    optional string routing_key = 10;
+    optional int32 priority = 11;
+    optional string expires = 12;
+    optional int32 expire_seconds = 13;
+    optional bool one_off = 14;
+    optional string start_time = 15;
+    optional bool enabled = 16;
+    optional string description = 17;
+    optional int32 crontab = 18;
+    optional int32 solar = 19;
+    optional int32 clocked = 20;
 }
 
 message PushToKingDeeSalOutStockRequest {
-  string agg_no_list = 1;
+    string agg_no_list = 1;
 }
 
 message PushToKingDeeSalOutStockResponse {
-  int32 code = 1;
-  string msg = 2;
-  int32 affected = 3;
+    int32 code = 1;
+    string msg = 2;
+    int32 affected = 3;
+}
+
+message QueryKingdeePurchaseOrderRequest {
+    optional int32 CreateOrgId = 1;
+    optional string Number = 2;
+    optional string Id = 3;
+}
+
+message QueryKingdeePurchaseOrderResponse {
+    int32 code = 1;
+    string msg = 2;
+    int32 affected = 3;
 }
 
 message RevokeKingdeeSalOutstockRequest {
-  int32 action = 1;
-  repeated string doc_numbers = 2;
+    int32 action = 1;
+    repeated string doc_numbers = 2;
 }
 
 message RevokeKingdeeSalOutstockResponse {
-  int32 code = 1;
-  string msg = 2;
-  string data = 3;
+    int32 code = 1;
+    string msg = 2;
+    string data = 3;
 }
 
 message RunPeriodAggSharedTaskRequest {
-  string uuid = 1;
-  string agg_task_name = 2;
-  string period_start = 3;
-  string period_end = 4;
-  string config_no = 5;
+    string uuid = 1;
+    string agg_task_name = 2;
+    string period_start = 3;
+    string period_end = 4;
+    string config_no = 5;
 }
 
 message RunPeriodAggSharedTaskResponse {
-  int32 code = 1;
-  string msg = 2;
-  string data = 3;
+    int32 code = 1;
+    string msg = 2;
+    string data = 3;
 }
 
 message RunPeriodPushToKingDeeSalOutStockRequest {
-  string uuid = 1;
-  string agg_no_list = 2;
-  optional string agg_task_name = 3;
+    string uuid = 1;
+    string agg_no_list = 2;
+    optional string agg_task_name = 3;
 }
 
 message RunPeriodPushToKingDeeSalOutStockResponse {
-  int32 code = 1;
-  string msg = 2;
-  string data = 3;
+    int32 code = 1;
+    string msg = 2;
+    string data = 3;
 }
 
 message RunPeriodicTaskRequest {
-  string uuid = 1;
-  string require_start = 2;
-  optional string require_end = 3;
-  string agg_name = 4;
-  optional string interval_every = 5;
-  optional string periodic_start = 6;
-  optional string periodic_expire = 7;
-  optional int32 slice_every = 8;
-  optional int32 slice_overlap = 9;
+    string uuid = 1;
+    string require_start = 2;
+    optional string require_end = 3;
+    string agg_name = 4;
+    optional string interval_every = 5;
+    optional string periodic_start = 6;
+    optional string periodic_expire = 7;
+    optional int32 slice_every = 8;
+    optional int32 slice_overlap = 9;
 }
 
 message RunPeriodicTaskResponse {
-  int32 code = 1;
-  string msg = 2;
-  int32 data = 3;
+    int32 code = 1;
+    string msg = 2;
+    int32 data = 3;
 }
 
 message RunSharedTaskRequest {
-  string uuid = 1;
-  string slice_task_name = 2;
-  string require_start = 3;
-  optional string require_end = 4;
-  optional string periodic_task_name = 5;
-  optional int32 slice_every = 6;
-  optional int32 slice_overlap = 7;
+    string uuid = 1;
+    string slice_task_name = 2;
+    string require_start = 3;
+    optional string require_end = 4;
+    optional string periodic_task_name = 5;
+    optional int32 slice_every = 6;
+    optional int32 slice_overlap = 7;
 }
 
 message RunSharedTaskResponse {
-  int32 code = 1;
-  string msg = 2;
-  int32 data = 3;
+    int32 code = 1;
+    string msg = 2;
+    int32 data = 3;
+}
+
+message SalReturnStockEntityResponse {
+    string FMaterialID = 1;
+    string FOWNERID = 2;
+    string FStockId = 3;
+    string FReturnType = 4;
+    optional string FRowType = 5;
+    int32 FRealQty = 6;
+    int32 FSalUnitQty = 7;
+    int32 FSalBaseQty = 8;
+    int32 FPriceBaseQty = 9;
+    int32 FArnotJoinQty = 10;
+    optional int32 FEntryTaxRate = 11;
+    optional double FTaxPrice = 12;
+    optional double FAllAmount = 13;
+    optional string FOWNERTYPEID = 14;
+    string FDeliveryDate = 15;
+    optional bool FIsOverLegalOrg = 16;
+    optional bool FIsReturnCheck = 17;
+}
+
+message SalReturnStockResponse {
+    string FBillNo = 1;
+    repeated SalReturnStockEntityResponse FEntity = 2;
+    string FBillTypeID = 3;
+    string FSaleOrgId = 4;
+    string FStockOrgId = 5;
+    string FOwnerIdHead = 6;
+    string FRetcustId = 7;
+    string FReceiveCustId = 8;
+    string FSettleCustId = 9;
+    string FPayCustId = 10;
+    string FZBStockID = 11;
+    string Fprop2 = 12;
+    optional int32 FID = 13;
+    string FDate = 14;
+    optional string FOwnerTypeIdHead = 15;
+    optional string FSplitBillType = 16;
 }
 
 message StopPeriodicTaskRequest {
-  string periodic_task_name = 1;
+    string periodic_task_name = 1;
 }
 
 message StopPeriodicTaskResponse {
-  int32 code = 1;
-  string msg = 2;
+    int32 code = 1;
+    string msg = 2;
 }
 
 message SubHeadEntityResponse {
-  string FSettleCurrID = 1;
-  string FSettleOrgID = 2;
-  string FSettleTypeID = 3;
-  string FPriceListId = 4;
-  string FDiscountListId = 5;
-  optional int32 FEntryId = 6;
-  optional string FThirdBillNo = 7;
-  optional string FThirdBillId = 8;
+    string FSettleCurrID = 1;
+    string FSettleOrgID = 2;
+    string FSettleTypeID = 3;
+    string FPriceListId = 4;
+    string FDiscountListId = 5;
+    optional int32 FEntryId = 6;
+    optional string FThirdBillNo = 7;
+    optional string FThirdBillId = 8;
 }
 
 message TaskResultCreateRequest {
-  optional int32 id = 1;
-  string task_id = 2;
-  optional string task_name = 3;
-  optional string periodic_task_name = 4;
-  optional string task_args = 5;
-  optional string task_kwargs = 6;
-  optional string status = 7;
-  optional string worker = 8;
-  string content_type = 9;
-  string content_encoding = 10;
-  optional string traceback = 11;
+    optional int32 id = 1;
+    string task_id = 2;
+    optional string task_name = 3;
+    optional string periodic_task_name = 4;
+    optional string task_args = 5;
+    optional string task_kwargs = 6;
+    optional string status = 7;
+    optional string worker = 8;
+    string content_type = 9;
+    string content_encoding = 10;
+    optional string traceback = 11;
 }
 
 message TaskResultDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message TaskResultListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message TaskResultListResponse {
-  repeated TaskResultResponse results = 1;
-  int32 count = 2;
+    repeated TaskResultResponse results = 1;
+    int32 count = 2;
 }
 
 message TaskResultPartialUpdateRequest {
-  optional int32 id = 1;
-  string task_id = 2;
-  optional string task_name = 3;
-  optional string periodic_task_name = 4;
-  optional string task_args = 5;
-  optional string task_kwargs = 6;
-  optional string status = 7;
-  optional string worker = 8;
-  string content_type = 9;
-  string content_encoding = 10;
-  optional string traceback = 11;
-  repeated string _partial_update_fields = 12;
+    optional int32 id = 1;
+    string task_id = 2;
+    optional string task_name = 3;
+    optional string periodic_task_name = 4;
+    optional string task_args = 5;
+    optional string task_kwargs = 6;
+    optional string status = 7;
+    optional string worker = 8;
+    string content_type = 9;
+    string content_encoding = 10;
+    optional string traceback = 11;
+    repeated string _partial_update_fields = 12;
 }
 
 message TaskResultRequest {
-  optional int32 id = 1;
-  string task_id = 2;
-  optional string task_name = 3;
-  optional string periodic_task_name = 4;
-  optional string task_args = 5;
-  optional string task_kwargs = 6;
-  optional string status = 7;
-  optional string worker = 8;
-  string content_type = 9;
-  string content_encoding = 10;
-  optional string traceback = 11;
+    optional int32 id = 1;
+    string task_id = 2;
+    optional string task_name = 3;
+    optional string periodic_task_name = 4;
+    optional string task_args = 5;
+    optional string task_kwargs = 6;
+    optional string status = 7;
+    optional string worker = 8;
+    string content_type = 9;
+    string content_encoding = 10;
+    optional string traceback = 11;
 }
 
 message TaskResultResponse {
-  optional int32 id = 1;
-  string task_id = 2;
-  optional string task_name = 3;
-  optional string periodic_task_name = 4;
-  optional string task_args = 5;
-  optional string task_kwargs = 6;
-  optional string result = 7;
-  optional string status = 8;
-  optional string worker = 9;
-  string content_type = 10;
-  string content_encoding = 11;
-  optional string date_created = 12;
-  optional string date_done = 13;
-  optional string traceback = 14;
-  optional string meta = 15;
+    optional int32 id = 1;
+    string task_id = 2;
+    optional string task_name = 3;
+    optional string periodic_task_name = 4;
+    optional string task_args = 5;
+    optional string task_kwargs = 6;
+    optional string result = 7;
+    optional string status = 8;
+    optional string worker = 9;
+    string content_type = 10;
+    string content_encoding = 11;
+    optional string date_created = 12;
+    optional string date_done = 13;
+    optional string traceback = 14;
+    optional string meta = 15;
 }
 
 message TaskResultRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message TaskResultUpdateRequest {
-  optional int32 id = 1;
-  string task_id = 2;
-  optional string task_name = 3;
-  optional string periodic_task_name = 4;
-  optional string task_args = 5;
-  optional string task_kwargs = 6;
-  optional string status = 7;
-  optional string worker = 8;
-  string content_type = 9;
-  string content_encoding = 10;
-  optional string traceback = 11;
-  repeated string _partial_update_fields = 12;
+    optional int32 id = 1;
+    string task_id = 2;
+    optional string task_name = 3;
+    optional string periodic_task_name = 4;
+    optional string task_args = 5;
+    optional string task_kwargs = 6;
+    optional string status = 7;
+    optional string worker = 8;
+    string content_type = 9;
+    string content_encoding = 10;
+    optional string traceback = 11;
+    repeated string _partial_update_fields = 12;
 }
 
 message TradeRefundDestroyRequest {
-  string refund_no = 1;
+    string refund_no = 1;
 }
 
 message TradeRefundDiscountResponse {
-  int32 rec_id = 1;
-  optional int32 platform_id = 2;
-  string tid = 3;
-  string oid = 4;
-  string refund_no = 5;
-  string name = 6;
-  double amount = 7;
+    int32 rec_id = 1;
+    optional int32 platform_id = 2;
+    string tid = 3;
+    string oid = 4;
+    string refund_no = 5;
+    string name = 6;
+    double amount = 7;
 }
 
 message TradeRefundGoodsResponse {
-  string oid = 1;
-  optional int32 platform_id = 2;
-  string refund_no = 3;
-  optional int32 status = 4;
-  string goods_id = 5;
-  string spec_id = 6;
-  string goods_no = 7;
-  string spec_no = 8;
-  double num = 9;
-  double price = 10;
-  double total_amount = 11;
-  string remark = 12;
-  optional string modified = 13;
-  optional string created = 14;
-  string goods_name = 15;
-  string spec_name = 16;
-  optional int32 order_id = 17;
-  optional string return_time = 18;
+    string oid = 1;
+    optional int32 platform_id = 2;
+    string refund_no = 3;
+    optional int32 status = 4;
+    string goods_id = 5;
+    string spec_id = 6;
+    string goods_no = 7;
+    string spec_no = 8;
+    double num = 9;
+    double price = 10;
+    double total_amount = 11;
+    string remark = 12;
+    optional string modified = 13;
+    optional string created = 14;
+    string goods_name = 15;
+    string spec_name = 16;
+    optional int32 order_id = 17;
+    optional string return_time = 18;
 }
 
 message TradeRefundListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message TradeRefundListResponse {
-  repeated TradeRefundResponse results = 1;
-  int32 count = 2;
+    repeated TradeRefundResponse results = 1;
+    int32 count = 2;
 }
 
 message TradeRefundPartialUpdateRequest {
-  string refund_no = 1;
-  repeated string _partial_update_fields = 2;
-  optional int32 platform_id = 3;
-  string shop_no = 4;
-  string tid = 5;
-  optional int32 type = 6;
-  optional int32 status = 7;
-  optional int32 process_status = 8;
-  optional int32 op_constraint = 9;
-  optional int32 is_aftersale = 10;
-  optional int32 cs_status = 11;
-  optional int32 guarantee_mode = 12;
-  double refund_amount = 13;
-  double actual_refund_amount = 14;
-  string reason = 15;
-  string remark = 16;
-  optional int32 refund_mask = 17;
-  string logistics_name = 18;
-  string logistics_no = 19;
-  optional string refund_time = 20;
-  optional string modified = 21;
-  optional string created = 22;
-  optional string current_phase_timeout = 23;
-  optional int32 shop_id = 24;
-  string title = 25;
-  optional int32 is_external = 26;
-  optional int32 refund_id = 27;
-  string pay_no = 28;
+    string refund_no = 1;
+    repeated string _partial_update_fields = 2;
+    optional int32 platform_id = 3;
+    string shop_no = 4;
+    string tid = 5;
+    optional string trade_no = 6;
+    optional string kingdee_stockout_bill_no = 7;
+    optional int32 type = 8;
+    optional int32 status = 9;
+    optional int32 process_status = 10;
+    optional int32 op_constraint = 11;
+    optional int32 is_aftersale = 12;
+    optional int32 cs_status = 13;
+    optional int32 guarantee_mode = 14;
+    double refund_amount = 15;
+    double actual_refund_amount = 16;
+    string reason = 17;
+    string remark = 18;
+    optional int32 refund_mask = 19;
+    string logistics_name = 20;
+    string logistics_no = 21;
+    optional string refund_time = 22;
+    optional string modified = 23;
+    optional string created = 24;
+    optional string current_phase_timeout = 25;
+    optional int32 shop_id = 26;
+    string title = 27;
+    optional int32 is_external = 28;
+    optional int32 refund_id = 29;
+    string pay_no = 30;
 }
 
 message TradeRefundRequest {
-  string refund_no = 1;
-  optional int32 platform_id = 2;
-  string shop_no = 3;
-  string tid = 4;
-  optional int32 type = 5;
-  optional int32 status = 6;
-  optional int32 process_status = 7;
-  optional int32 op_constraint = 8;
-  optional int32 is_aftersale = 9;
-  optional int32 cs_status = 10;
-  optional int32 guarantee_mode = 11;
-  double refund_amount = 12;
-  double actual_refund_amount = 13;
-  string reason = 14;
-  string remark = 15;
-  optional int32 refund_mask = 16;
-  string logistics_name = 17;
-  string logistics_no = 18;
-  optional string refund_time = 19;
-  optional string modified = 20;
-  optional string created = 21;
-  optional string current_phase_timeout = 22;
-  optional int32 shop_id = 23;
-  string title = 24;
-  optional int32 is_external = 25;
-  optional int32 refund_id = 26;
-  string pay_no = 27;
+    string refund_no = 1;
+    optional int32 platform_id = 2;
+    string shop_no = 3;
+    string tid = 4;
+    optional string trade_no = 5;
+    optional string kingdee_stockout_bill_no = 6;
+    optional int32 type = 7;
+    optional int32 status = 8;
+    optional int32 process_status = 9;
+    optional int32 op_constraint = 10;
+    optional int32 is_aftersale = 11;
+    optional int32 cs_status = 12;
+    optional int32 guarantee_mode = 13;
+    double refund_amount = 14;
+    double actual_refund_amount = 15;
+    string reason = 16;
+    string remark = 17;
+    optional int32 refund_mask = 18;
+    string logistics_name = 19;
+    string logistics_no = 20;
+    optional string refund_time = 21;
+    optional string modified = 22;
+    optional string created = 23;
+    optional string current_phase_timeout = 24;
+    optional int32 shop_id = 25;
+    string title = 26;
+    optional int32 is_external = 27;
+    optional int32 refund_id = 28;
+    string pay_no = 29;
 }
 
 message TradeRefundResponse {
-  string refund_no = 1;
-  repeated TradeRefundGoodsResponse goods_list = 2;
-  repeated TradeRefundDiscountResponse discount_list = 3;
-  optional int32 platform_id = 4;
-  string shop_no = 5;
-  string tid = 6;
-  optional int32 type = 7;
-  optional int32 status = 8;
-  optional int32 process_status = 9;
-  optional int32 op_constraint = 10;
-  optional int32 is_aftersale = 11;
-  optional int32 cs_status = 12;
-  optional int32 guarantee_mode = 13;
-  double refund_amount = 14;
-  double actual_refund_amount = 15;
-  string reason = 16;
-  string remark = 17;
-  optional int32 refund_mask = 18;
-  string logistics_name = 19;
-  string logistics_no = 20;
-  optional string refund_time = 21;
-  optional string modified = 22;
-  optional string created = 23;
-  optional string current_phase_timeout = 24;
-  optional int32 shop_id = 25;
-  string title = 26;
-  optional int32 is_external = 27;
-  optional int32 refund_id = 28;
-  string pay_no = 29;
+    string refund_no = 1;
+    repeated TradeRefundGoodsResponse goods_list = 2;
+    repeated TradeRefundDiscountResponse discount_list = 3;
+    optional int32 platform_id = 4;
+    string shop_no = 5;
+    string tid = 6;
+    optional string trade_no = 7;
+    optional string kingdee_stockout_bill_no = 8;
+    optional int32 type = 9;
+    optional int32 status = 10;
+    optional int32 process_status = 11;
+    optional int32 op_constraint = 12;
+    optional int32 is_aftersale = 13;
+    optional int32 cs_status = 14;
+    optional int32 guarantee_mode = 15;
+    double refund_amount = 16;
+    double actual_refund_amount = 17;
+    string reason = 18;
+    string remark = 19;
+    optional int32 refund_mask = 20;
+    string logistics_name = 21;
+    string logistics_no = 22;
+    optional string refund_time = 23;
+    optional string modified = 24;
+    optional string created = 25;
+    optional string current_phase_timeout = 26;
+    optional int32 shop_id = 27;
+    string title = 28;
+    optional int32 is_external = 29;
+    optional int32 refund_id = 30;
+    string pay_no = 31;
 }
 
 message TradeRefundRetrieveRequest {
-  string refund_no = 1;
+    string refund_no = 1;
 }
 
 message TradeRefundStockinDestroyRequest {
-  int32 stockin_id = 1;
+    int32 stockin_id = 1;
+}
+
+message TradeRefundStockinDetailsResponse {
+    int32 rec_id = 1;
+    optional int32 stockin_id = 2;
+    optional int32 src_order_detail_id = 3;
+    string spec_no = 4;
+    string suite_no = 5;
+    double goods_count = 6;
+    double discount = 7;
+    double cost_price = 8;
+    optional string production_date = 9;
+    optional int32 validity_days = 10;
+    optional string expire_date = 11;
+    double src_price = 12;
+    double tax_price = 13;
+    double tax_amount = 14;
+    double tax = 15;
+    double total_cost = 16;
+    string remark = 17;
+    double adjust_num = 18;
+    double adjust_price = 19;
+    double right_num = 20;
+    double right_price = 21;
+    double num = 22;
+    double num2 = 23;
+    double right_cost = 24;
+    string brand_no = 25;
+    string brand_name = 26;
+    string goods_name = 27;
+    string prop1 = 28;
+    string prop2 = 29;
+    string prop3 = 30;
+    string prop4 = 31;
+    string prop5 = 32;
+    string prop6 = 33;
+    string good_prop1 = 34;
+    string good_prop2 = 35;
+    string good_prop3 = 36;
+    string good_prop4 = 37;
+    string good_prop5 = 38;
+    string good_prop6 = 39;
+    string goods_no = 40;
+    string spec_name = 41;
+    string spec_code = 42;
+    string goods_unit = 43;
+    string batch_no = 44;
+    string batch_remark = 45;
+    string position_no = 46;
+    string tid = 47;
+    string oid = 48;
+    int32 src_order_type = 49;
+    optional int32 org_stockin_detail_id = 50;
+    optional int32 spec_id = 51;
+    optional int32 batch_id = 52;
+    optional int32 position_id = 53;
+    optional int32 unit_id = 54;
+    optional int32 base_unit_id = 55;
+    double unit_ratio = 56;
+    double expect_num = 57;
+    double cost_price2 = 58;
+    double share_post_cost = 59;
+    double share_post_total = 60;
+    optional string modified = 61;
+    optional string created = 62;
+    double price = 63;
+    string barcode = 64;
 }
 
 message TradeRefundStockinListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+    optional google.protobuf.Struct _filters = 1;
+    optional google.protobuf.Struct _pagination = 2;
 }
 
 message TradeRefundStockinListResponse {
-  repeated TradeRefundStockinResponse results = 1;
-  int32 count = 2;
+    repeated TradeRefundStockinResponse results = 1;
+    int32 count = 2;
 }
 
 message TradeRefundStockinPartialUpdateRequest {
-  int32 stockin_id = 1;
-  repeated string _partial_update_fields = 2;
-  string order_no = 3;
-  string warehouse_no = 4;
-  string warehouse_name = 5;
-  string shop_no = 6;
-  string shop_remark = 7;
-  string src_order_no = 8;
-  int32 process_status = 9;
-  int32 status = 10;
-  optional string stockin_time = 11;
-  optional string created_time = 12;
-  optional string associated_time = 13;
-  string remark = 14;
-  string trade_no = 15;
-  string trade_type = 16;
-  int32 order_type = 17;
-  string order_type_name = 18;
-  double goods_count = 19;
-  double goods_amount = 20;
-  double actual_refund_amount = 21;
-  double total_price = 22;
-  double discount = 23;
-  double tax_amount = 24;
-  double post_fee = 25;
-  double other_fee = 26;
-  double adjust_price = 27;
-  double right_price = 28;
-  optional int32 logistics_type = 29;
-  string logistics_no = 30;
-  string logistics_name = 31;
-  string logistics_code = 32;
-  string refund_no = 33;
-  optional string check_time = 34;
-  string customer_no = 35;
-  string customer_name = 36;
-  string nick_name = 37;
-  string shop_name = 38;
-  string fenxiao_nick = 39;
-  string fenxiao_nick_no = 40;
-  string reason = 41;
-  string stockin_reason = 42;
-  string flag_name = 43;
-  optional int32 platform_id = 44;
-  string tid = 45;
-  string stockin_operator_name = 46;
-  string check_operator_name = 47;
-  string refund_remark = 48;
-  string refund_operator_name = 49;
-  string stockin_no = 50;
-  string wms_outer_no = 51;
-  int32 wms_status = 52;
-  string wms_result = 53;
-  optional int32 warehouse_id = 54;
-  int32 src_order_type = 55;
-  optional int32 src_order_id = 56;
-  optional int32 reason_id = 57;
-  int32 fa_status = 58;
-  optional int32 logistics_id = 59;
-  optional int32 post_share_type = 60;
-  string operator_id = 61;
-  string check_operator_id = 62;
-  optional int32 goods_type_count = 63;
-  double adjust_num = 64;
-  optional int32 note_count = 65;
-  optional int32 flag_id = 66;
-  optional string modified = 67;
-  optional string details_list = 68;
+    int32 stockin_id = 1;
+    repeated string _partial_update_fields = 2;
+    string order_no = 3;
+    string warehouse_no = 4;
+    string warehouse_name = 5;
+    string shop_no = 6;
+    string shop_remark = 7;
+    string src_order_no = 8;
+    int32 process_status = 9;
+    int32 status = 10;
+    optional string stockin_time = 11;
+    optional string created_time = 12;
+    optional string associated_time = 13;
+    string remark = 14;
+    string trade_no = 15;
+    optional string trade_agg_no = 16;
+    string trade_type = 17;
+    int32 order_type = 18;
+    string order_type_name = 19;
+    double goods_count = 20;
+    double goods_amount = 21;
+    double actual_refund_amount = 22;
+    double total_price = 23;
+    double discount = 24;
+    double tax_amount = 25;
+    double post_fee = 26;
+    double other_fee = 27;
+    double adjust_price = 28;
+    double right_price = 29;
+    optional int32 logistics_type = 30;
+    string logistics_no = 31;
+    string logistics_name = 32;
+    string logistics_code = 33;
+    string refund_no = 34;
+    optional string check_time = 35;
+    string customer_no = 36;
+    string customer_name = 37;
+    string nick_name = 38;
+    string shop_name = 39;
+    string fenxiao_nick = 40;
+    string fenxiao_nick_no = 41;
+    string reason = 42;
+    string stockin_reason = 43;
+    string flag_name = 44;
+    optional int32 platform_id = 45;
+    string tid = 46;
+    string stockin_operator_name = 47;
+    string check_operator_name = 48;
+    string refund_remark = 49;
+    string refund_operator_name = 50;
+    string stockin_no = 51;
+    string wms_outer_no = 52;
+    int32 wms_status = 53;
+    string wms_result = 54;
+    optional int32 warehouse_id = 55;
+    int32 src_order_type = 56;
+    optional int32 src_order_id = 57;
+    optional int32 reason_id = 58;
+    int32 fa_status = 59;
+    optional int32 logistics_id = 60;
+    optional int32 post_share_type = 61;
+    string operator_id = 62;
+    string check_operator_id = 63;
+    optional int32 goods_type_count = 64;
+    double adjust_num = 65;
+    optional int32 note_count = 66;
+    optional int32 flag_id = 67;
+    optional string modified = 68;
 }
 
 message TradeRefundStockinRequest {
-  int32 stockin_id = 1;
-  string order_no = 2;
-  string warehouse_no = 3;
-  string warehouse_name = 4;
-  string shop_no = 5;
-  string shop_remark = 6;
-  string src_order_no = 7;
-  int32 process_status = 8;
-  int32 status = 9;
-  optional string stockin_time = 10;
-  optional string created_time = 11;
-  optional string associated_time = 12;
-  string remark = 13;
-  string trade_no = 14;
-  string trade_type = 15;
-  int32 order_type = 16;
-  string order_type_name = 17;
-  double goods_count = 18;
-  double goods_amount = 19;
-  double actual_refund_amount = 20;
-  double total_price = 21;
-  double discount = 22;
-  double tax_amount = 23;
-  double post_fee = 24;
-  double other_fee = 25;
-  double adjust_price = 26;
-  double right_price = 27;
-  optional int32 logistics_type = 28;
-  string logistics_no = 29;
-  string logistics_name = 30;
-  string logistics_code = 31;
-  string refund_no = 32;
-  optional string check_time = 33;
-  string customer_no = 34;
-  string customer_name = 35;
-  string nick_name = 36;
-  string shop_name = 37;
-  string fenxiao_nick = 38;
-  string fenxiao_nick_no = 39;
-  string reason = 40;
-  string stockin_reason = 41;
-  string flag_name = 42;
-  optional int32 platform_id = 43;
-  string tid = 44;
-  string stockin_operator_name = 45;
-  string check_operator_name = 46;
-  string refund_remark = 47;
-  string refund_operator_name = 48;
-  string stockin_no = 49;
-  string wms_outer_no = 50;
-  int32 wms_status = 51;
-  string wms_result = 52;
-  optional int32 warehouse_id = 53;
-  int32 src_order_type = 54;
-  optional int32 src_order_id = 55;
-  optional int32 reason_id = 56;
-  int32 fa_status = 57;
-  optional int32 logistics_id = 58;
-  optional int32 post_share_type = 59;
-  string operator_id = 60;
-  string check_operator_id = 61;
-  optional int32 goods_type_count = 62;
-  double adjust_num = 63;
-  optional int32 note_count = 64;
-  optional int32 flag_id = 65;
-  optional string modified = 66;
-  optional string details_list = 67;
+    int32 stockin_id = 1;
+    string order_no = 2;
+    string warehouse_no = 3;
+    string warehouse_name = 4;
+    string shop_no = 5;
+    string shop_remark = 6;
+    string src_order_no = 7;
+    int32 process_status = 8;
+    int32 status = 9;
+    optional string stockin_time = 10;
+    optional string created_time = 11;
+    optional string associated_time = 12;
+    string remark = 13;
+    string trade_no = 14;
+    optional string trade_agg_no = 15;
+    string trade_type = 16;
+    int32 order_type = 17;
+    string order_type_name = 18;
+    double goods_count = 19;
+    double goods_amount = 20;
+    double actual_refund_amount = 21;
+    double total_price = 22;
+    double discount = 23;
+    double tax_amount = 24;
+    double post_fee = 25;
+    double other_fee = 26;
+    double adjust_price = 27;
+    double right_price = 28;
+    optional int32 logistics_type = 29;
+    string logistics_no = 30;
+    string logistics_name = 31;
+    string logistics_code = 32;
+    string refund_no = 33;
+    optional string check_time = 34;
+    string customer_no = 35;
+    string customer_name = 36;
+    string nick_name = 37;
+    string shop_name = 38;
+    string fenxiao_nick = 39;
+    string fenxiao_nick_no = 40;
+    string reason = 41;
+    string stockin_reason = 42;
+    string flag_name = 43;
+    optional int32 platform_id = 44;
+    string tid = 45;
+    string stockin_operator_name = 46;
+    string check_operator_name = 47;
+    string refund_remark = 48;
+    string refund_operator_name = 49;
+    string stockin_no = 50;
+    string wms_outer_no = 51;
+    int32 wms_status = 52;
+    string wms_result = 53;
+    optional int32 warehouse_id = 54;
+    int32 src_order_type = 55;
+    optional int32 src_order_id = 56;
+    optional int32 reason_id = 57;
+    int32 fa_status = 58;
+    optional int32 logistics_id = 59;
+    optional int32 post_share_type = 60;
+    string operator_id = 61;
+    string check_operator_id = 62;
+    optional int32 goods_type_count = 63;
+    double adjust_num = 64;
+    optional int32 note_count = 65;
+    optional int32 flag_id = 66;
+    optional string modified = 67;
 }
 
 message TradeRefundStockinResponse {
-  int32 stockin_id = 1;
-  string order_no = 2;
-  string warehouse_no = 3;
-  string warehouse_name = 4;
-  string shop_no = 5;
-  string shop_remark = 6;
-  string src_order_no = 7;
-  int32 process_status = 8;
-  int32 status = 9;
-  optional string stockin_time = 10;
-  optional string created_time = 11;
-  optional string associated_time = 12;
-  string remark = 13;
-  string trade_no = 14;
-  string trade_type = 15;
-  int32 order_type = 16;
-  string order_type_name = 17;
-  double goods_count = 18;
-  double goods_amount = 19;
-  double actual_refund_amount = 20;
-  double total_price = 21;
-  double discount = 22;
-  double tax_amount = 23;
-  double post_fee = 24;
-  double other_fee = 25;
-  double adjust_price = 26;
-  double right_price = 27;
-  optional int32 logistics_type = 28;
-  string logistics_no = 29;
-  string logistics_name = 30;
-  string logistics_code = 31;
-  string refund_no = 32;
-  optional string check_time = 33;
-  string customer_no = 34;
-  string customer_name = 35;
-  string nick_name = 36;
-  string shop_name = 37;
-  string fenxiao_nick = 38;
-  string fenxiao_nick_no = 39;
-  string reason = 40;
-  string stockin_reason = 41;
-  string flag_name = 42;
-  optional int32 platform_id = 43;
-  string tid = 44;
-  string stockin_operator_name = 45;
-  string check_operator_name = 46;
-  string refund_remark = 47;
-  string refund_operator_name = 48;
-  string stockin_no = 49;
-  string wms_outer_no = 50;
-  int32 wms_status = 51;
-  string wms_result = 52;
-  optional int32 warehouse_id = 53;
-  int32 src_order_type = 54;
-  optional int32 src_order_id = 55;
-  optional int32 reason_id = 56;
-  int32 fa_status = 57;
-  optional int32 logistics_id = 58;
-  optional int32 post_share_type = 59;
-  string operator_id = 60;
-  string check_operator_id = 61;
-  optional int32 goods_type_count = 62;
-  double adjust_num = 63;
-  optional int32 note_count = 64;
-  optional int32 flag_id = 65;
-  optional string modified = 66;
-  optional string details_list = 67;
+    int32 stockin_id = 1;
+    repeated TradeRefundStockinDetailsResponse details_list = 2;
+    string order_no = 3;
+    string warehouse_no = 4;
+    string warehouse_name = 5;
+    string shop_no = 6;
+    string shop_remark = 7;
+    string src_order_no = 8;
+    int32 process_status = 9;
+    int32 status = 10;
+    optional string stockin_time = 11;
+    optional string created_time = 12;
+    optional string associated_time = 13;
+    string remark = 14;
+    string trade_no = 15;
+    optional string trade_agg_no = 16;
+    string trade_type = 17;
+    int32 order_type = 18;
+    string order_type_name = 19;
+    double goods_count = 20;
+    double goods_amount = 21;
+    double actual_refund_amount = 22;
+    double total_price = 23;
+    double discount = 24;
+    double tax_amount = 25;
+    double post_fee = 26;
+    double other_fee = 27;
+    double adjust_price = 28;
+    double right_price = 29;
+    optional int32 logistics_type = 30;
+    string logistics_no = 31;
+    string logistics_name = 32;
+    string logistics_code = 33;
+    string refund_no = 34;
+    optional string check_time = 35;
+    string customer_no = 36;
+    string customer_name = 37;
+    string nick_name = 38;
+    string shop_name = 39;
+    string fenxiao_nick = 40;
+    string fenxiao_nick_no = 41;
+    string reason = 42;
+    string stockin_reason = 43;
+    string flag_name = 44;
+    optional int32 platform_id = 45;
+    string tid = 46;
+    string stockin_operator_name = 47;
+    string check_operator_name = 48;
+    string refund_remark = 49;
+    string refund_operator_name = 50;
+    string stockin_no = 51;
+    string wms_outer_no = 52;
+    int32 wms_status = 53;
+    string wms_result = 54;
+    optional int32 warehouse_id = 55;
+    int32 src_order_type = 56;
+    optional int32 src_order_id = 57;
+    optional int32 reason_id = 58;
+    int32 fa_status = 59;
+    optional int32 logistics_id = 60;
+    optional int32 post_share_type = 61;
+    string operator_id = 62;
+    string check_operator_id = 63;
+    optional int32 goods_type_count = 64;
+    double adjust_num = 65;
+    optional int32 note_count = 66;
+    optional int32 flag_id = 67;
+    optional string modified = 68;
 }
 
 message TradeRefundStockinRetrieveRequest {
-  int32 stockin_id = 1;
+    int32 stockin_id = 1;
 }
-
 

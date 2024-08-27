@@ -47,6 +47,7 @@ service CtmItoController {
   rpc UpdateCtmProduct(CtmProductUpdateRequest) returns (CtmProductResponse) {}
   rpc UpdateCtmWallet(UpdateCtmWalletRequest) returns (CtmWalletResponse) {}
   rpc UpdateCtmWalletRecord(UpdateCtmWalletRecordRequest) returns (CtmWalletRecordResponse) {}
+  rpc UpdateSpuSnapshot(CtmUpdateSpuSnapShotRequest) returns (google.protobuf.Empty) {}
 }
 
 message CardCaresResponse {
@@ -330,7 +331,9 @@ message CtmCartCreateRequest {
   optional int32 price_nut = 11;
   optional int32 price_score = 12;
   optional int32 price_badge = 13;
-  int64 ctm = 14;
+  optional string remark = 14;
+  optional string memo = 15;
+  int64 ctm = 16;
 }
 
 message CtmCartDestroyRequest {
@@ -361,7 +364,9 @@ message CtmCartResponse {
   optional int32 price_nut = 12;
   optional int32 price_score = 13;
   optional int32 price_badge = 14;
-  int64 ctm = 15;
+  optional string remark = 15;
+  optional string memo = 16;
+  int64 ctm = 17;
 }
 
 message CtmCartRetrieveRequest {
@@ -388,7 +393,9 @@ message CtmCartUpdateRequest {
   optional int32 price_nut = 12;
   optional int32 price_score = 13;
   optional int32 price_badge = 14;
-  int64 ctm = 15;
+  optional string remark = 15;
+  optional string memo = 16;
+  int64 ctm = 17;
 }
 
 message CtmDefaultAddrRequest {
@@ -473,6 +480,12 @@ message CtmProductUpdateRequest {
   optional string origin_ac_code = 12;
   optional string origin_prod_code = 13;
   int64 ctm = 14;
+}
+
+message CtmUpdateSpuSnapShotRequest {
+  string goods_spu = 1;
+  string goods_no = 2;
+  string new_spu = 3;
 }
 
 message CtmWalletListResponse {

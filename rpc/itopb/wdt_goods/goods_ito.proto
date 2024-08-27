@@ -1,0 +1,229 @@
+syntax = "proto3";
+
+package product_service.goods_ito;
+
+option go_package = "../wdt_goods";
+
+service WdtGoodsController {
+  rpc List(GoodsModelListRequest) returns (GoodsModelListResponse) {}
+  rpc Retrieve(GoodsModelRetrieveRequest) returns (GoodsModelResponse) {}
+}
+
+message GoodsModelListRequest {
+  int32 goods_id = 1;
+  string filters = 2;
+  repeated GoodsSpecTblRequest goods_spec = 3;
+  optional string goods_no = 4;
+  optional string goods_name = 5;
+  optional string short_name = 6;
+  optional string alias = 7;
+  optional int32 goods_type = 8;
+  optional int32 spec_count = 9;
+  optional string pinyin = 10;
+  optional string brand_no = 11;
+  optional string brand_name = 12;
+  optional string remark = 13;
+  optional string vein = 14;
+  optional string size = 15;
+  optional string color = 16;
+  optional string style = 17;
+  optional string lining = 18;
+  optional string ver = 19;
+  optional string origin = 20;
+  optional string class_id = 21;
+  optional string class_name = 22;
+  optional string brand_id = 23;
+  optional string unit = 24;
+  optional string aux_unit = 25;
+  optional string flag_id = 26;
+  optional string properties = 27;
+  optional string version_id = 28;
+  optional string modified = 29;
+  optional string created = 30;
+  optional string unit_name = 31;
+  optional string aux_unit_name = 32;
+  optional string flag_name = 33;
+  optional string goods_created = 34;
+  optional string goods_modified = 35;
+  optional int32 deleted = 36;
+}
+
+message GoodsModelListResponse {
+  repeated GoodsModelResponse results = 1;
+  int32 count = 2;
+}
+
+message GoodsModelResponse {
+  int32 goods_id = 1;
+  repeated GoodsSpecTblResponse goods_spec = 2;
+  optional string goods_no = 3;
+  optional string goods_name = 4;
+  optional string short_name = 5;
+  optional string alias = 6;
+  optional int32 goods_type = 7;
+  optional int32 spec_count = 8;
+  optional string pinyin = 9;
+  optional string brand_no = 10;
+  optional string brand_name = 11;
+  optional string remark = 12;
+  optional string vein = 13;
+  optional string size = 14;
+  optional string color = 15;
+  optional string style = 16;
+  optional string lining = 17;
+  optional string ver = 18;
+  optional string origin = 19;
+  optional string class_id = 20;
+  optional string class_name = 21;
+  optional string brand_id = 22;
+  optional string unit = 23;
+  optional string aux_unit = 24;
+  optional string flag_id = 25;
+  optional string properties = 26;
+  optional string version_id = 27;
+  optional string modified = 28;
+  optional string created = 29;
+  optional string unit_name = 30;
+  optional string aux_unit_name = 31;
+  optional string flag_name = 32;
+  optional string goods_created = 33;
+  optional string goods_modified = 34;
+  optional int32 deleted = 35;
+}
+
+message GoodsModelRetrieveRequest {
+  int32 goods_id = 1;
+}
+
+message GoodsSpecTblRequest {
+  string spec_id = 1;
+  optional string spec_no = 2;
+  optional string spec_code = 3;
+  optional string barcode = 4;
+  optional string spec_name = 5;
+  optional double lowest_price = 6;
+  optional double retail_price = 7;
+  optional double wholesale_price = 8;
+  optional double member_price = 9;
+  optional double market_price = 10;
+  optional double custom_price1 = 11;
+  optional double custom_price2 = 12;
+  optional int32 sale_score = 13;
+  optional int32 pack_score = 14;
+  optional int32 pick_score = 15;
+  optional int32 validity_days = 16;
+  optional int32 sales_days = 17;
+  optional int32 receive_days = 18;
+  optional double weight = 19;
+  optional double length = 20;
+  optional double width = 21;
+  optional double height = 22;
+  optional int32 is_sn_enable = 23;
+  optional int32 is_allow_neg_stock = 24;
+  optional int32 is_not_need_examine = 25;
+  optional int32 is_zero_cost = 26;
+  optional int32 is_lower_cost = 27;
+  optional int32 is_not_use_air = 28;
+  optional double tax_rate = 29;
+  optional int32 large_type = 30;
+  optional string remark = 31;
+  optional string spec_created = 32;
+  optional string spec_modified = 33;
+  optional string prop1 = 34;
+  optional string prop2 = 35;
+  optional string prop3 = 36;
+  optional string prop4 = 37;
+  optional string prop5 = 38;
+  optional string prop6 = 39;
+  optional string img_url = 40;
+  optional string tax_code_id = 41;
+  optional int32 is_single_batch = 42;
+  optional string washing_label = 43;
+  optional string unit = 44;
+  optional string aux_unit = 45;
+  optional string flag_id = 46;
+  optional string img_key = 47;
+  optional int32 barcode_count = 48;
+  optional int32 plat_spec_count = 49;
+  optional string postfix_val = 50;
+  optional string last_date = 51;
+  optional string replenish_type = 52;
+  optional string is_popular = 53;
+  optional string replace_no = 54;
+  optional string spec_mask = 55;
+  optional string replace_proportion = 56;
+  optional string extra_3 = 57;
+  optional string tax_code = 58;
+  optional string modified = 59;
+  optional string created = 60;
+  optional string spec_unit_name = 61;
+  optional string spec_aux_unit_name = 62;
+  optional int32 deleted = 63;
+}
+
+message GoodsSpecTblResponse {
+  string spec_id = 1;
+  optional string spec_no = 2;
+  optional string spec_code = 3;
+  optional string barcode = 4;
+  optional string spec_name = 5;
+  optional double lowest_price = 6;
+  optional double retail_price = 7;
+  optional double wholesale_price = 8;
+  optional double member_price = 9;
+  optional double market_price = 10;
+  optional double custom_price1 = 11;
+  optional double custom_price2 = 12;
+  optional int32 sale_score = 13;
+  optional int32 pack_score = 14;
+  optional int32 pick_score = 15;
+  optional int32 validity_days = 16;
+  optional int32 sales_days = 17;
+  optional int32 receive_days = 18;
+  optional double weight = 19;
+  optional double length = 20;
+  optional double width = 21;
+  optional double height = 22;
+  optional int32 is_sn_enable = 23;
+  optional int32 is_allow_neg_stock = 24;
+  optional int32 is_not_need_examine = 25;
+  optional int32 is_zero_cost = 26;
+  optional int32 is_lower_cost = 27;
+  optional int32 is_not_use_air = 28;
+  optional double tax_rate = 29;
+  optional int32 large_type = 30;
+  optional string remark = 31;
+  optional string spec_created = 32;
+  optional string spec_modified = 33;
+  optional string prop1 = 34;
+  optional string prop2 = 35;
+  optional string prop3 = 36;
+  optional string prop4 = 37;
+  optional string prop5 = 38;
+  optional string prop6 = 39;
+  optional string img_url = 40;
+  optional string tax_code_id = 41;
+  optional int32 is_single_batch = 42;
+  optional string washing_label = 43;
+  optional string unit = 44;
+  optional string aux_unit = 45;
+  optional string flag_id = 46;
+  optional string img_key = 47;
+  optional int32 barcode_count = 48;
+  optional int32 plat_spec_count = 49;
+  optional string postfix_val = 50;
+  optional string last_date = 51;
+  optional string replenish_type = 52;
+  optional string is_popular = 53;
+  optional string replace_no = 54;
+  optional string spec_mask = 55;
+  optional string replace_proportion = 56;
+  optional string extra_3 = 57;
+  optional string tax_code = 58;
+  optional string modified = 59;
+  optional string created = 60;
+  optional string spec_unit_name = 61;
+  optional string spec_aux_unit_name = 62;
+  optional int32 deleted = 63;
+}
+
