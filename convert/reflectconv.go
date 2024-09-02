@@ -84,6 +84,39 @@ func (c ReflectTag) GetMap(tag string) map[string]interface{} {
 	return filterData
 }
 
+func (c ReflectTag) GetMapOmitempty(tag string) map[string]interface{} {
+	reqValue := reflect.ValueOf(c.Value).Elem()
+	reqType := reqValue.Type()
+	filterData := make(map[string]interface{})
+	for i := 0; i < reqType.NumField(); i++ {
+		fTag := strings.Split(reqType.Field(i).Tag.Get(tag), ",")[0]
+		if fTag == "" {
+			continue
+		}
+
+		if reqValue.Field(i).Kind() == reflect.Ptr && !reqValue.Field(i).IsNil() {
+			if reqValue.Field(i).Elem().Kind() == reflect.String {
+				filterData[fTag] = reqValue.Field(i).Elem().String()
+			} else if reqValue.Field(i).Elem().Kind() == reflect.Int32 || reqValue.Field(i).Elem().Kind() == reflect.Int64 {
+				filterData[fTag] = strconv.FormatInt(reqValue.Field(i).Elem().Int(), 10)
+			} else if reqValue.Field(i).Elem().Kind() == reflect.Bool {
+				bJson, _ := json.Marshal(reqValue.Field(i).Elem().Bool())
+				filterData[fTag] = string(bJson)
+			}
+		} else if !reqValue.Field(i).IsZero() {
+			if reqValue.Field(i).Type().Kind() == reflect.String {
+				filterData[fTag] = reqValue.Field(i).String()
+			} else if reqValue.Field(i).Type().Kind() == reflect.Int32 || reqValue.Field(i).Type().Kind() == reflect.Int64 {
+				filterData[fTag] = strconv.FormatInt(reqValue.Field(i).Int(), 10)
+			} else if reqValue.Field(i).Type().Kind() == reflect.Bool {
+				bJson, _ := json.Marshal(reqValue.Field(i).Bool())
+				filterData[fTag] = string(bJson)
+			}
+		}
+	}
+	return filterData
+}
+
 // MapToStr map转字符串
 func MapToStr(req map[string]interface{}) (resp string) {
 	jsonMap, _ := json.Marshal(req)
