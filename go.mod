@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-// add wdt sdk
+//wdt sdk modified
 go 1.21
 
 toolchain go1.21.4
