@@ -21,7 +21,6 @@ type QmClient struct {
 	AppKey       string `form:"app_key" mapstructure:"app_key"`               // 奇门授权应用（21xxxxxx）
 	Timestamp    string `form:"timestamp" mapstructure:"timestamp"`           // 格式化后的时间戳2019-12-06 10:37:00
 	Sign         string `form:"sign" mapstructure:"sign"`                     // 奇门签名计算规则
-	Method       string `form:"method" mapstructure:"method"`                 // 参考原接口名转化refund_query=》wdt.refund.query
 	TargetAppKey string `form:"target_app_key" mapstructure:"target_app_key"` // 旺店通在奇门授权应用（授权通知邮件中提供）
 	Format       string `form:"format" mapstructure:"format"`                 // 固定值json
 	SignMethod   string `form:"sign_method" mapstructure:"sign_method"`       // 固定值md5
@@ -52,11 +51,11 @@ func NewQmClient(clientParams map[string]string) *QmClient {
 		ReadTimeout:    15000,
 	}
 }
-func (c *QmClient) Execute(params map[string]string) (*map[string]interface{}, error) {
+func (c *QmClient) Execute(method string, params map[string]string) (*map[string]interface{}, error) {
 	params["sid"] = c.Sid
 	params["app_key"] = c.AppKey
 	params["target_app_key"] = c.TargetAppKey
-	params["method"] = c.Method
+	params["method"] = method
 	params["format"] = c.Format
 	params["sign_method"] = c.SignMethod
 	params["v"] = c.V
@@ -125,7 +124,6 @@ func buildRequest(ctx context.Context, method, url string, params map[string]str
 
 	val := convertMapStringToStringInterface(params)
 	req.URL.RawQuery = buildFormQuery(u, val)
-	//req.Header.Set("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
 	return req, nil
 }
 

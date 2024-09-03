@@ -10,11 +10,13 @@ import (
 
 type VipStockOutsideWmsFunc struct {
 	erpClient *erp.WdtClient
+	method    string
 }
 
 func NewVipStockOutsideWmsFunc(conf map[string]string) *VipStockOutsideWmsFunc {
 	return &VipStockOutsideWmsFunc{
 		erpClient: erp.NewWdtClient(conf),
+		method:    "vip_stock_outside_wms_query.php",
 	}
 }
 
@@ -26,7 +28,7 @@ func (f *VipStockOutsideWmsFunc) VipStockOutsideWmsQuery(data *types.VipStockOut
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
-	resp, err := f.erpClient.Execute("vip_stock_outside_wms_query.php", businessParams)
+	resp, err := f.erpClient.Execute(f.method, businessParams)
 	if err != nil {
 		fmt.Println("请求旺店通接口 vip_stock_outside_wms_query.php 错误：", err.Error())
 		return nil

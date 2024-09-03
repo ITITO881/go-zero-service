@@ -3,18 +3,20 @@ package qm_refund
 import (
 	"fmt"
 	"github.com/ITITO881/go-zero-service/convert"
-	"github.com/ITITO881/go-zero-service/wdt_client/erp"
 	"github.com/ITITO881/go-zero-service/wdt_client/types"
+	"github.com/ITITO881/go-zero-service/wdt_client/wdt_qm"
 	"github.com/mitchellh/mapstructure"
 )
 
 type ApiRefundFunc struct {
-	erpClient *erp.WdtClient
+	qmClient *wdt_qm.QmClient
+	method   string
 }
 
 func NewApiRefundFunc(conf map[string]string) *ApiRefundFunc {
 	return &ApiRefundFunc{
-		erpClient: erp.NewWdtClient(conf),
+		qmClient: wdt_qm.NewQmClient(conf),
+		method:   "wdt.vip.api.refund.query",
 	}
 }
 
@@ -26,13 +28,13 @@ func (f *ApiRefundFunc) VipApiRefundQuery(data *types.VipApiRefundQueryReq) *typ
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
-	resp, err := f.erpClient.Execute("vip_api_refund_query.php", businessParams)
+	resp, err := f.qmClient.Execute(f.method, businessParams)
 	if err != nil {
-		fmt.Println("请求旺店通接口 vip_api_refund_query.php 错误：", err.Error())
+		fmt.Println("请求奇门接口 wdt.vip.api.refund.query 错误：", err.Error())
 		return nil
 	}
 	if (*resp)["code"].(float64) != 0 {
-		fmt.Println("查询原始退款单失败：", (*resp)["code"], " 错误信息：", (*resp)["message"])
+		fmt.Println("查询原始退款单失败 wdt.vip.api.refund.query：", (*resp)["code"], " 错误信息：", (*resp)["message"])
 		return nil
 	}
 	dataList := make([]types.VipApiRefundTrade, 0)
@@ -55,13 +57,13 @@ func (f *ApiRefundFunc) RefundQuery(data *types.RefundQueryReq) *types.RefundQue
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
-	resp, err := f.erpClient.Execute("refund_query.php", businessParams)
+	resp, err := f.qmClient.Execute("wdt.refund.query", businessParams)
 	if err != nil {
-		fmt.Println("请求旺店通接口 refund_query.php 错误：", err.Error())
+		fmt.Println("请求奇门接口 wdt.refund.query 错误：", err.Error())
 		return nil
 	}
 	if (*resp)["code"].(float64) != 0 {
-		fmt.Println("查询退换管理失败：", (*resp)["code"], " 错误信息：", (*resp)["message"])
+		fmt.Println("查询退换管理失败 wdt.vip.api.refund.query：", (*resp)["code"], " 错误信息：", (*resp)["message"])
 		return nil
 	}
 	dataList := make([]types.RefundData, 0)
