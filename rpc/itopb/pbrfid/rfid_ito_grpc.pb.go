@@ -2144,3 +2144,1738 @@ var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "rfid_ito.proto",
 }
+
+const (
+	GoodsQualityController_Create_FullMethodName                        = "/rfid_service.rfid_ito.GoodsQualityController/Create"
+	GoodsQualityController_CreateQualityReturnWarehouse_FullMethodName  = "/rfid_service.rfid_ito.GoodsQualityController/CreateQualityReturnWarehouse"
+	GoodsQualityController_CreateUnqualifiedReason_FullMethodName       = "/rfid_service.rfid_ito.GoodsQualityController/CreateUnqualifiedReason"
+	GoodsQualityController_Destroy_FullMethodName                       = "/rfid_service.rfid_ito.GoodsQualityController/Destroy"
+	GoodsQualityController_DestroyQualityReturnWarehouse_FullMethodName = "/rfid_service.rfid_ito.GoodsQualityController/DestroyQualityReturnWarehouse"
+	GoodsQualityController_DestroyUnqualifiedReason_FullMethodName      = "/rfid_service.rfid_ito.GoodsQualityController/DestroyUnqualifiedReason"
+	GoodsQualityController_List_FullMethodName                          = "/rfid_service.rfid_ito.GoodsQualityController/List"
+	GoodsQualityController_ListQualityReturnWarehouse_FullMethodName    = "/rfid_service.rfid_ito.GoodsQualityController/ListQualityReturnWarehouse"
+	GoodsQualityController_ListUnqualifiedReason_FullMethodName         = "/rfid_service.rfid_ito.GoodsQualityController/ListUnqualifiedReason"
+	GoodsQualityController_PartialUpdate_FullMethodName                 = "/rfid_service.rfid_ito.GoodsQualityController/PartialUpdate"
+	GoodsQualityController_Retrieve_FullMethodName                      = "/rfid_service.rfid_ito.GoodsQualityController/Retrieve"
+	GoodsQualityController_RfidQualityOptions_FullMethodName            = "/rfid_service.rfid_ito.GoodsQualityController/RfidQualityOptions"
+	GoodsQualityController_Update_FullMethodName                        = "/rfid_service.rfid_ito.GoodsQualityController/Update"
+	GoodsQualityController_UpdateQualityReturnWarehouse_FullMethodName  = "/rfid_service.rfid_ito.GoodsQualityController/UpdateQualityReturnWarehouse"
+	GoodsQualityController_UpdateUnqualifiedReason_FullMethodName       = "/rfid_service.rfid_ito.GoodsQualityController/UpdateUnqualifiedReason"
+)
+
+// GoodsQualityControllerClient is the client API for GoodsQualityController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GoodsQualityControllerClient interface {
+	Create(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	CreateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseCreateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error)
+	CreateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonCreateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error)
+	Destroy(ctx context.Context, in *QualityReturnGoodsModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *QualityReturnGoodsModelListRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelListResponse, error)
+	ListQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseListRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelListResponse, error)
+	ListUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonListRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelListResponse, error)
+	PartialUpdate(ctx context.Context, in *QualityReturnGoodsModelPartialUpdateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	Retrieve(ctx context.Context, in *QualityReturnGoodsModelRetrieveRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	RfidQualityOptions(ctx context.Context, in *RfidQualityOptionsRequest, opts ...grpc.CallOption) (*RfidQualityOptionsResponse, error)
+	Update(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	UpdateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseUpdateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error)
+	UpdateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonUpdateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error)
+}
+
+type goodsQualityControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGoodsQualityControllerClient(cc grpc.ClientConnInterface) GoodsQualityControllerClient {
+	return &goodsQualityControllerClient{cc}
+}
+
+func (c *goodsQualityControllerClient) Create(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) CreateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseCreateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error) {
+	out := new(QualityReturnWarehouseModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_CreateQualityReturnWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) CreateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonCreateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error) {
+	out := new(UnqualifiedReasonModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_CreateUnqualifiedReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) Destroy(ctx context.Context, in *QualityReturnGoodsModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, GoodsQualityController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) DestroyQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, GoodsQualityController_DestroyQualityReturnWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) DestroyUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, GoodsQualityController_DestroyUnqualifiedReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) List(ctx context.Context, in *QualityReturnGoodsModelListRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelListResponse, error) {
+	out := new(QualityReturnGoodsModelListResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) ListQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseListRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelListResponse, error) {
+	out := new(QualityReturnWarehouseModelListResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_ListQualityReturnWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) ListUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonListRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelListResponse, error) {
+	out := new(UnqualifiedReasonModelListResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_ListUnqualifiedReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) PartialUpdate(ctx context.Context, in *QualityReturnGoodsModelPartialUpdateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) Retrieve(ctx context.Context, in *QualityReturnGoodsModelRetrieveRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) RfidQualityOptions(ctx context.Context, in *RfidQualityOptionsRequest, opts ...grpc.CallOption) (*RfidQualityOptionsResponse, error) {
+	out := new(RfidQualityOptionsResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_RfidQualityOptions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) Update(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) UpdateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseUpdateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error) {
+	out := new(QualityReturnWarehouseModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_UpdateQualityReturnWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) UpdateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonUpdateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error) {
+	out := new(UnqualifiedReasonModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_UpdateUnqualifiedReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GoodsQualityControllerServer is the server API for GoodsQualityController service.
+// All implementations must embed UnimplementedGoodsQualityControllerServer
+// for forward compatibility
+type GoodsQualityControllerServer interface {
+	Create(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error)
+	CreateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseCreateRequest) (*QualityReturnWarehouseModelResponse, error)
+	CreateUnqualifiedReason(context.Context, *UnqualifiedReasonCreateRequest) (*UnqualifiedReasonModelResponse, error)
+	Destroy(context.Context, *QualityReturnGoodsModelDestroyRequest) (*emptypb.Empty, error)
+	DestroyQualityReturnWarehouse(context.Context, *QualityReturnWarehouseDestroyRequest) (*emptypb.Empty, error)
+	DestroyUnqualifiedReason(context.Context, *UnqualifiedReasonDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *QualityReturnGoodsModelListRequest) (*QualityReturnGoodsModelListResponse, error)
+	ListQualityReturnWarehouse(context.Context, *QualityReturnWarehouseListRequest) (*QualityReturnWarehouseModelListResponse, error)
+	ListUnqualifiedReason(context.Context, *UnqualifiedReasonListRequest) (*UnqualifiedReasonModelListResponse, error)
+	PartialUpdate(context.Context, *QualityReturnGoodsModelPartialUpdateRequest) (*QualityReturnGoodsModelResponse, error)
+	Retrieve(context.Context, *QualityReturnGoodsModelRetrieveRequest) (*QualityReturnGoodsModelResponse, error)
+	RfidQualityOptions(context.Context, *RfidQualityOptionsRequest) (*RfidQualityOptionsResponse, error)
+	Update(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error)
+	UpdateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseUpdateRequest) (*QualityReturnWarehouseModelResponse, error)
+	UpdateUnqualifiedReason(context.Context, *UnqualifiedReasonUpdateRequest) (*UnqualifiedReasonModelResponse, error)
+	mustEmbedUnimplementedGoodsQualityControllerServer()
+}
+
+// UnimplementedGoodsQualityControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedGoodsQualityControllerServer struct {
+}
+
+func (UnimplementedGoodsQualityControllerServer) Create(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) CreateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseCreateRequest) (*QualityReturnWarehouseModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateQualityReturnWarehouse not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) CreateUnqualifiedReason(context.Context, *UnqualifiedReasonCreateRequest) (*UnqualifiedReasonModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUnqualifiedReason not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) Destroy(context.Context, *QualityReturnGoodsModelDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) DestroyQualityReturnWarehouse(context.Context, *QualityReturnWarehouseDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyQualityReturnWarehouse not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) DestroyUnqualifiedReason(context.Context, *UnqualifiedReasonDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyUnqualifiedReason not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) List(context.Context, *QualityReturnGoodsModelListRequest) (*QualityReturnGoodsModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) ListQualityReturnWarehouse(context.Context, *QualityReturnWarehouseListRequest) (*QualityReturnWarehouseModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListQualityReturnWarehouse not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) ListUnqualifiedReason(context.Context, *UnqualifiedReasonListRequest) (*UnqualifiedReasonModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUnqualifiedReason not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) PartialUpdate(context.Context, *QualityReturnGoodsModelPartialUpdateRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) Retrieve(context.Context, *QualityReturnGoodsModelRetrieveRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) RfidQualityOptions(context.Context, *RfidQualityOptionsRequest) (*RfidQualityOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidQualityOptions not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) Update(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) UpdateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseUpdateRequest) (*QualityReturnWarehouseModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateQualityReturnWarehouse not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) UpdateUnqualifiedReason(context.Context, *UnqualifiedReasonUpdateRequest) (*UnqualifiedReasonModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUnqualifiedReason not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) mustEmbedUnimplementedGoodsQualityControllerServer() {
+}
+
+// UnsafeGoodsQualityControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GoodsQualityControllerServer will
+// result in compilation errors.
+type UnsafeGoodsQualityControllerServer interface {
+	mustEmbedUnimplementedGoodsQualityControllerServer()
+}
+
+func RegisterGoodsQualityControllerServer(s grpc.ServiceRegistrar, srv GoodsQualityControllerServer) {
+	s.RegisterService(&GoodsQualityController_ServiceDesc, srv)
+}
+
+func _GoodsQualityController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).Create(ctx, req.(*QualityReturnGoodsModelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_CreateQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnWarehouseCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).CreateQualityReturnWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_CreateQualityReturnWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).CreateQualityReturnWarehouse(ctx, req.(*QualityReturnWarehouseCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_CreateUnqualifiedReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnqualifiedReasonCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).CreateUnqualifiedReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_CreateUnqualifiedReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).CreateUnqualifiedReason(ctx, req.(*UnqualifiedReasonCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).Destroy(ctx, req.(*QualityReturnGoodsModelDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_DestroyQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnWarehouseDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).DestroyQualityReturnWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_DestroyQualityReturnWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).DestroyQualityReturnWarehouse(ctx, req.(*QualityReturnWarehouseDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_DestroyUnqualifiedReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnqualifiedReasonDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).DestroyUnqualifiedReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_DestroyUnqualifiedReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).DestroyUnqualifiedReason(ctx, req.(*UnqualifiedReasonDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).List(ctx, req.(*QualityReturnGoodsModelListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_ListQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnWarehouseListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).ListQualityReturnWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_ListQualityReturnWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).ListQualityReturnWarehouse(ctx, req.(*QualityReturnWarehouseListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_ListUnqualifiedReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnqualifiedReasonListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).ListUnqualifiedReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_ListUnqualifiedReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).ListUnqualifiedReason(ctx, req.(*UnqualifiedReasonListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).PartialUpdate(ctx, req.(*QualityReturnGoodsModelPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).Retrieve(ctx, req.(*QualityReturnGoodsModelRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_RfidQualityOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).RfidQualityOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_RfidQualityOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).RfidQualityOptions(ctx, req.(*RfidQualityOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsModelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).Update(ctx, req.(*QualityReturnGoodsModelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_UpdateQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnWarehouseUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).UpdateQualityReturnWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_UpdateQualityReturnWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).UpdateQualityReturnWarehouse(ctx, req.(*QualityReturnWarehouseUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_UpdateUnqualifiedReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnqualifiedReasonUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).UpdateUnqualifiedReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_UpdateUnqualifiedReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).UpdateUnqualifiedReason(ctx, req.(*UnqualifiedReasonUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GoodsQualityController_ServiceDesc is the grpc.ServiceDesc for GoodsQualityController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GoodsQualityController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rfid_service.rfid_ito.GoodsQualityController",
+	HandlerType: (*GoodsQualityControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _GoodsQualityController_Create_Handler,
+		},
+		{
+			MethodName: "CreateQualityReturnWarehouse",
+			Handler:    _GoodsQualityController_CreateQualityReturnWarehouse_Handler,
+		},
+		{
+			MethodName: "CreateUnqualifiedReason",
+			Handler:    _GoodsQualityController_CreateUnqualifiedReason_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _GoodsQualityController_Destroy_Handler,
+		},
+		{
+			MethodName: "DestroyQualityReturnWarehouse",
+			Handler:    _GoodsQualityController_DestroyQualityReturnWarehouse_Handler,
+		},
+		{
+			MethodName: "DestroyUnqualifiedReason",
+			Handler:    _GoodsQualityController_DestroyUnqualifiedReason_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _GoodsQualityController_List_Handler,
+		},
+		{
+			MethodName: "ListQualityReturnWarehouse",
+			Handler:    _GoodsQualityController_ListQualityReturnWarehouse_Handler,
+		},
+		{
+			MethodName: "ListUnqualifiedReason",
+			Handler:    _GoodsQualityController_ListUnqualifiedReason_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _GoodsQualityController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _GoodsQualityController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RfidQualityOptions",
+			Handler:    _GoodsQualityController_RfidQualityOptions_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _GoodsQualityController_Update_Handler,
+		},
+		{
+			MethodName: "UpdateQualityReturnWarehouse",
+			Handler:    _GoodsQualityController_UpdateQualityReturnWarehouse_Handler,
+		},
+		{
+			MethodName: "UpdateUnqualifiedReason",
+			Handler:    _GoodsQualityController_UpdateUnqualifiedReason_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rfid_ito.proto",
+}
+
+const (
+	ServiceController_BulkCreateGoodsDeliver_FullMethodName       = "/rfid_service.rfid_ito.ServiceController/BulkCreateGoodsDeliver"
+	ServiceController_Create_FullMethodName                       = "/rfid_service.rfid_ito.ServiceController/Create"
+	ServiceController_CreateGoodsDeliver_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/CreateGoodsDeliver"
+	ServiceController_CreateServiceConf_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/CreateServiceConf"
+	ServiceController_CreateServiceConfWarehouse_FullMethodName   = "/rfid_service.rfid_ito.ServiceController/CreateServiceConfWarehouse"
+	ServiceController_CreateServiceReason_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/CreateServiceReason"
+	ServiceController_Destroy_FullMethodName                      = "/rfid_service.rfid_ito.ServiceController/Destroy"
+	ServiceController_DestroyGoodsDeliver_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/DestroyGoodsDeliver"
+	ServiceController_DestroyServiceConf_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/DestroyServiceConf"
+	ServiceController_DestroyServiceConfWarehouse_FullMethodName  = "/rfid_service.rfid_ito.ServiceController/DestroyServiceConfWarehouse"
+	ServiceController_DestroyServiceReason_FullMethodName         = "/rfid_service.rfid_ito.ServiceController/DestroyServiceReason"
+	ServiceController_List_FullMethodName                         = "/rfid_service.rfid_ito.ServiceController/List"
+	ServiceController_ListGoodsDeliver_FullMethodName             = "/rfid_service.rfid_ito.ServiceController/ListGoodsDeliver"
+	ServiceController_ListServiceConf_FullMethodName              = "/rfid_service.rfid_ito.ServiceController/ListServiceConf"
+	ServiceController_ListServiceConfWarehouse_FullMethodName     = "/rfid_service.rfid_ito.ServiceController/ListServiceConfWarehouse"
+	ServiceController_ListServiceReason_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/ListServiceReason"
+	ServiceController_PartialUpdate_FullMethodName                = "/rfid_service.rfid_ito.ServiceController/PartialUpdate"
+	ServiceController_Retrieve_FullMethodName                     = "/rfid_service.rfid_ito.ServiceController/Retrieve"
+	ServiceController_RetrieveGoodsDeliver_FullMethodName         = "/rfid_service.rfid_ito.ServiceController/RetrieveGoodsDeliver"
+	ServiceController_RetrieveServiceConf_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceConf"
+	ServiceController_RetrieveServiceConfWarehouse_FullMethodName = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceConfWarehouse"
+	ServiceController_RetrieveServiceReason_FullMethodName        = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceReason"
+	ServiceController_ServiceOptions_FullMethodName               = "/rfid_service.rfid_ito.ServiceController/ServiceOptions"
+	ServiceController_ServiceStatusCount_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/ServiceStatusCount"
+	ServiceController_Update_FullMethodName                       = "/rfid_service.rfid_ito.ServiceController/Update"
+	ServiceController_UpdateGoodsDeliver_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/UpdateGoodsDeliver"
+	ServiceController_UpdateServiceConf_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/UpdateServiceConf"
+	ServiceController_UpdateServiceConfWarehouse_FullMethodName   = "/rfid_service.rfid_ito.ServiceController/UpdateServiceConfWarehouse"
+	ServiceController_UpdateServiceReason_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/UpdateServiceReason"
+)
+
+// ServiceControllerClient is the client API for ServiceController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceControllerClient interface {
+	BulkCreateGoodsDeliver(ctx context.Context, in *BulkCreateGoodsDeliverListRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailListResponse, error)
+	Create(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
+	CreateGoodsDeliver(ctx context.Context, in *CreateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
+	CreateServiceConf(ctx context.Context, in *CreateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	CreateServiceConfWarehouse(ctx context.Context, in *CreateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
+	CreateServiceReason(ctx context.Context, in *CreateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
+	Destroy(ctx context.Context, in *ServiceDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyGoodsDeliver(ctx context.Context, in *DestroyGoodsDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyServiceConf(ctx context.Context, in *DestroyServiceConfRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyServiceConfWarehouse(ctx context.Context, in *DestroyServiceConfWarehouseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyServiceReason(ctx context.Context, in *DestroyServiceReasonRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *ServiceListRequest, opts ...grpc.CallOption) (*ServiceListResponse, error)
+	ListGoodsDeliver(ctx context.Context, in *ListGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailListResponse, error)
+	ListServiceConf(ctx context.Context, in *ListServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfListResponse, error)
+	ListServiceConfWarehouse(ctx context.Context, in *ListServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseListResponse, error)
+	ListServiceReason(ctx context.Context, in *ListServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonListResponse, error)
+	PartialUpdate(ctx context.Context, in *ServicePartialUpdateRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
+	Retrieve(ctx context.Context, in *ServiceRetrieveRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
+	RetrieveGoodsDeliver(ctx context.Context, in *RetrieveGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
+	RetrieveServiceConf(ctx context.Context, in *RetrieveServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	RetrieveServiceConfWarehouse(ctx context.Context, in *RetrieveServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
+	RetrieveServiceReason(ctx context.Context, in *RetrieveServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
+	ServiceOptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ServiceOptionsResponse, error)
+	ServiceStatusCount(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*LabelNumberValueListResponse, error)
+	Update(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
+	UpdateGoodsDeliver(ctx context.Context, in *UpdateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
+	UpdateServiceConf(ctx context.Context, in *UpdateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	UpdateServiceConfWarehouse(ctx context.Context, in *UpdateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
+	UpdateServiceReason(ctx context.Context, in *UpdateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
+}
+
+type serviceControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceControllerClient(cc grpc.ClientConnInterface) ServiceControllerClient {
+	return &serviceControllerClient{cc}
+}
+
+func (c *serviceControllerClient) BulkCreateGoodsDeliver(ctx context.Context, in *BulkCreateGoodsDeliverListRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailListResponse, error) {
+	out := new(ServiceGoodsDetailListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_BulkCreateGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) Create(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error) {
+	out := new(ServiceResponse)
+	err := c.cc.Invoke(ctx, ServiceController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) CreateGoodsDeliver(ctx context.Context, in *CreateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error) {
+	out := new(ServiceGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, ServiceController_CreateGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) CreateServiceConf(ctx context.Context, in *CreateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error) {
+	out := new(ServiceConfResponse)
+	err := c.cc.Invoke(ctx, ServiceController_CreateServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) CreateServiceConfWarehouse(ctx context.Context, in *CreateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error) {
+	out := new(ServiceConfWarehouseResponse)
+	err := c.cc.Invoke(ctx, ServiceController_CreateServiceConfWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) CreateServiceReason(ctx context.Context, in *CreateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error) {
+	out := new(ServiceReasonResponse)
+	err := c.cc.Invoke(ctx, ServiceController_CreateServiceReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) Destroy(ctx context.Context, in *ServiceDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) DestroyGoodsDeliver(ctx context.Context, in *DestroyGoodsDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_DestroyGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) DestroyServiceConf(ctx context.Context, in *DestroyServiceConfRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_DestroyServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) DestroyServiceConfWarehouse(ctx context.Context, in *DestroyServiceConfWarehouseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_DestroyServiceConfWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) DestroyServiceReason(ctx context.Context, in *DestroyServiceReasonRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_DestroyServiceReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) List(ctx context.Context, in *ServiceListRequest, opts ...grpc.CallOption) (*ServiceListResponse, error) {
+	out := new(ServiceListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ListGoodsDeliver(ctx context.Context, in *ListGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailListResponse, error) {
+	out := new(ServiceGoodsDetailListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ListGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ListServiceConf(ctx context.Context, in *ListServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfListResponse, error) {
+	out := new(ServiceConfListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ListServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ListServiceConfWarehouse(ctx context.Context, in *ListServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseListResponse, error) {
+	out := new(ServiceConfWarehouseListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ListServiceConfWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ListServiceReason(ctx context.Context, in *ListServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonListResponse, error) {
+	out := new(ServiceReasonListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ListServiceReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) PartialUpdate(ctx context.Context, in *ServicePartialUpdateRequest, opts ...grpc.CallOption) (*ServiceResponse, error) {
+	out := new(ServiceResponse)
+	err := c.cc.Invoke(ctx, ServiceController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) Retrieve(ctx context.Context, in *ServiceRetrieveRequest, opts ...grpc.CallOption) (*ServiceResponse, error) {
+	out := new(ServiceResponse)
+	err := c.cc.Invoke(ctx, ServiceController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) RetrieveGoodsDeliver(ctx context.Context, in *RetrieveGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error) {
+	out := new(ServiceGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, ServiceController_RetrieveGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) RetrieveServiceConf(ctx context.Context, in *RetrieveServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error) {
+	out := new(ServiceConfResponse)
+	err := c.cc.Invoke(ctx, ServiceController_RetrieveServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) RetrieveServiceConfWarehouse(ctx context.Context, in *RetrieveServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error) {
+	out := new(ServiceConfWarehouseResponse)
+	err := c.cc.Invoke(ctx, ServiceController_RetrieveServiceConfWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) RetrieveServiceReason(ctx context.Context, in *RetrieveServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error) {
+	out := new(ServiceReasonResponse)
+	err := c.cc.Invoke(ctx, ServiceController_RetrieveServiceReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ServiceOptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ServiceOptionsResponse, error) {
+	out := new(ServiceOptionsResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ServiceOptions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ServiceStatusCount(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*LabelNumberValueListResponse, error) {
+	out := new(LabelNumberValueListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ServiceStatusCount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) Update(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error) {
+	out := new(ServiceResponse)
+	err := c.cc.Invoke(ctx, ServiceController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) UpdateGoodsDeliver(ctx context.Context, in *UpdateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error) {
+	out := new(ServiceGoodsDetailResponse)
+	err := c.cc.Invoke(ctx, ServiceController_UpdateGoodsDeliver_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) UpdateServiceConf(ctx context.Context, in *UpdateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error) {
+	out := new(ServiceConfResponse)
+	err := c.cc.Invoke(ctx, ServiceController_UpdateServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) UpdateServiceConfWarehouse(ctx context.Context, in *UpdateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error) {
+	out := new(ServiceConfWarehouseResponse)
+	err := c.cc.Invoke(ctx, ServiceController_UpdateServiceConfWarehouse_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) UpdateServiceReason(ctx context.Context, in *UpdateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error) {
+	out := new(ServiceReasonResponse)
+	err := c.cc.Invoke(ctx, ServiceController_UpdateServiceReason_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServiceControllerServer is the server API for ServiceController service.
+// All implementations must embed UnimplementedServiceControllerServer
+// for forward compatibility
+type ServiceControllerServer interface {
+	BulkCreateGoodsDeliver(context.Context, *BulkCreateGoodsDeliverListRequest) (*ServiceGoodsDetailListResponse, error)
+	Create(context.Context, *ServiceRequest) (*ServiceResponse, error)
+	CreateGoodsDeliver(context.Context, *CreateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
+	CreateServiceConf(context.Context, *CreateServiceConfRequest) (*ServiceConfResponse, error)
+	CreateServiceConfWarehouse(context.Context, *CreateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
+	CreateServiceReason(context.Context, *CreateServiceReasonRequest) (*ServiceReasonResponse, error)
+	Destroy(context.Context, *ServiceDestroyRequest) (*emptypb.Empty, error)
+	DestroyGoodsDeliver(context.Context, *DestroyGoodsDeliverRequest) (*emptypb.Empty, error)
+	DestroyServiceConf(context.Context, *DestroyServiceConfRequest) (*emptypb.Empty, error)
+	DestroyServiceConfWarehouse(context.Context, *DestroyServiceConfWarehouseRequest) (*emptypb.Empty, error)
+	DestroyServiceReason(context.Context, *DestroyServiceReasonRequest) (*emptypb.Empty, error)
+	List(context.Context, *ServiceListRequest) (*ServiceListResponse, error)
+	ListGoodsDeliver(context.Context, *ListGoodsDeliverRequest) (*ServiceGoodsDetailListResponse, error)
+	ListServiceConf(context.Context, *ListServiceConfRequest) (*ServiceConfListResponse, error)
+	ListServiceConfWarehouse(context.Context, *ListServiceConfWarehouseRequest) (*ServiceConfWarehouseListResponse, error)
+	ListServiceReason(context.Context, *ListServiceReasonRequest) (*ServiceReasonListResponse, error)
+	PartialUpdate(context.Context, *ServicePartialUpdateRequest) (*ServiceResponse, error)
+	Retrieve(context.Context, *ServiceRetrieveRequest) (*ServiceResponse, error)
+	RetrieveGoodsDeliver(context.Context, *RetrieveGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
+	RetrieveServiceConf(context.Context, *RetrieveServiceConfRequest) (*ServiceConfResponse, error)
+	RetrieveServiceConfWarehouse(context.Context, *RetrieveServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
+	RetrieveServiceReason(context.Context, *RetrieveServiceReasonRequest) (*ServiceReasonResponse, error)
+	ServiceOptions(context.Context, *emptypb.Empty) (*ServiceOptionsResponse, error)
+	ServiceStatusCount(context.Context, *ServiceRequest) (*LabelNumberValueListResponse, error)
+	Update(context.Context, *ServiceRequest) (*ServiceResponse, error)
+	UpdateGoodsDeliver(context.Context, *UpdateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
+	UpdateServiceConf(context.Context, *UpdateServiceConfRequest) (*ServiceConfResponse, error)
+	UpdateServiceConfWarehouse(context.Context, *UpdateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
+	UpdateServiceReason(context.Context, *UpdateServiceReasonRequest) (*ServiceReasonResponse, error)
+	mustEmbedUnimplementedServiceControllerServer()
+}
+
+// UnimplementedServiceControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedServiceControllerServer struct {
+}
+
+func (UnimplementedServiceControllerServer) BulkCreateGoodsDeliver(context.Context, *BulkCreateGoodsDeliverListRequest) (*ServiceGoodsDetailListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) Create(context.Context, *ServiceRequest) (*ServiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedServiceControllerServer) CreateGoodsDeliver(context.Context, *CreateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) CreateServiceConf(context.Context, *CreateServiceConfRequest) (*ServiceConfResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) CreateServiceConfWarehouse(context.Context, *CreateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceConfWarehouse not implemented")
+}
+func (UnimplementedServiceControllerServer) CreateServiceReason(context.Context, *CreateServiceReasonRequest) (*ServiceReasonResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceReason not implemented")
+}
+func (UnimplementedServiceControllerServer) Destroy(context.Context, *ServiceDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedServiceControllerServer) DestroyGoodsDeliver(context.Context, *DestroyGoodsDeliverRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) DestroyServiceConf(context.Context, *DestroyServiceConfRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) DestroyServiceConfWarehouse(context.Context, *DestroyServiceConfWarehouseRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceConfWarehouse not implemented")
+}
+func (UnimplementedServiceControllerServer) DestroyServiceReason(context.Context, *DestroyServiceReasonRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceReason not implemented")
+}
+func (UnimplementedServiceControllerServer) List(context.Context, *ServiceListRequest) (*ServiceListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedServiceControllerServer) ListGoodsDeliver(context.Context, *ListGoodsDeliverRequest) (*ServiceGoodsDetailListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) ListServiceConf(context.Context, *ListServiceConfRequest) (*ServiceConfListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) ListServiceConfWarehouse(context.Context, *ListServiceConfWarehouseRequest) (*ServiceConfWarehouseListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListServiceConfWarehouse not implemented")
+}
+func (UnimplementedServiceControllerServer) ListServiceReason(context.Context, *ListServiceReasonRequest) (*ServiceReasonListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListServiceReason not implemented")
+}
+func (UnimplementedServiceControllerServer) PartialUpdate(context.Context, *ServicePartialUpdateRequest) (*ServiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedServiceControllerServer) Retrieve(context.Context, *ServiceRetrieveRequest) (*ServiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedServiceControllerServer) RetrieveGoodsDeliver(context.Context, *RetrieveGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) RetrieveServiceConf(context.Context, *RetrieveServiceConfRequest) (*ServiceConfResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) RetrieveServiceConfWarehouse(context.Context, *RetrieveServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceConfWarehouse not implemented")
+}
+func (UnimplementedServiceControllerServer) RetrieveServiceReason(context.Context, *RetrieveServiceReasonRequest) (*ServiceReasonResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceReason not implemented")
+}
+func (UnimplementedServiceControllerServer) ServiceOptions(context.Context, *emptypb.Empty) (*ServiceOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ServiceOptions not implemented")
+}
+func (UnimplementedServiceControllerServer) ServiceStatusCount(context.Context, *ServiceRequest) (*LabelNumberValueListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ServiceStatusCount not implemented")
+}
+func (UnimplementedServiceControllerServer) Update(context.Context, *ServiceRequest) (*ServiceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedServiceControllerServer) UpdateGoodsDeliver(context.Context, *UpdateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGoodsDeliver not implemented")
+}
+func (UnimplementedServiceControllerServer) UpdateServiceConf(context.Context, *UpdateServiceConfRequest) (*ServiceConfResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) UpdateServiceConfWarehouse(context.Context, *UpdateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceConfWarehouse not implemented")
+}
+func (UnimplementedServiceControllerServer) UpdateServiceReason(context.Context, *UpdateServiceReasonRequest) (*ServiceReasonResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceReason not implemented")
+}
+func (UnimplementedServiceControllerServer) mustEmbedUnimplementedServiceControllerServer() {}
+
+// UnsafeServiceControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceControllerServer will
+// result in compilation errors.
+type UnsafeServiceControllerServer interface {
+	mustEmbedUnimplementedServiceControllerServer()
+}
+
+func RegisterServiceControllerServer(s grpc.ServiceRegistrar, srv ServiceControllerServer) {
+	s.RegisterService(&ServiceController_ServiceDesc, srv)
+}
+
+func _ServiceController_BulkCreateGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkCreateGoodsDeliverListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).BulkCreateGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_BulkCreateGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).BulkCreateGoodsDeliver(ctx, req.(*BulkCreateGoodsDeliverListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).Create(ctx, req.(*ServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_CreateGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateGoodsDeliverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).CreateGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_CreateGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).CreateGoodsDeliver(ctx, req.(*CreateGoodsDeliverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_CreateServiceConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateServiceConfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).CreateServiceConf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_CreateServiceConf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).CreateServiceConf(ctx, req.(*CreateServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_CreateServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateServiceConfWarehouseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).CreateServiceConfWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_CreateServiceConfWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).CreateServiceConfWarehouse(ctx, req.(*CreateServiceConfWarehouseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_CreateServiceReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateServiceReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).CreateServiceReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_CreateServiceReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).CreateServiceReason(ctx, req.(*CreateServiceReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).Destroy(ctx, req.(*ServiceDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_DestroyGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyGoodsDeliverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).DestroyGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_DestroyGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).DestroyGoodsDeliver(ctx, req.(*DestroyGoodsDeliverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_DestroyServiceConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyServiceConfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).DestroyServiceConf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_DestroyServiceConf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).DestroyServiceConf(ctx, req.(*DestroyServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_DestroyServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyServiceConfWarehouseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).DestroyServiceConfWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_DestroyServiceConfWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).DestroyServiceConfWarehouse(ctx, req.(*DestroyServiceConfWarehouseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_DestroyServiceReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyServiceReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).DestroyServiceReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_DestroyServiceReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).DestroyServiceReason(ctx, req.(*DestroyServiceReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).List(ctx, req.(*ServiceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ListGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListGoodsDeliverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ListGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ListGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ListGoodsDeliver(ctx, req.(*ListGoodsDeliverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ListServiceConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListServiceConfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ListServiceConf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ListServiceConf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ListServiceConf(ctx, req.(*ListServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ListServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListServiceConfWarehouseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ListServiceConfWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ListServiceConfWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ListServiceConfWarehouse(ctx, req.(*ListServiceConfWarehouseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ListServiceReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListServiceReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ListServiceReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ListServiceReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ListServiceReason(ctx, req.(*ListServiceReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServicePartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).PartialUpdate(ctx, req.(*ServicePartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).Retrieve(ctx, req.(*ServiceRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_RetrieveGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveGoodsDeliverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).RetrieveGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_RetrieveGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).RetrieveGoodsDeliver(ctx, req.(*RetrieveGoodsDeliverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_RetrieveServiceConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveServiceConfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).RetrieveServiceConf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_RetrieveServiceConf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).RetrieveServiceConf(ctx, req.(*RetrieveServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_RetrieveServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveServiceConfWarehouseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).RetrieveServiceConfWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_RetrieveServiceConfWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).RetrieveServiceConfWarehouse(ctx, req.(*RetrieveServiceConfWarehouseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_RetrieveServiceReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveServiceReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).RetrieveServiceReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_RetrieveServiceReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).RetrieveServiceReason(ctx, req.(*RetrieveServiceReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ServiceOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ServiceOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ServiceOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ServiceOptions(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ServiceStatusCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ServiceStatusCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ServiceStatusCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ServiceStatusCount(ctx, req.(*ServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).Update(ctx, req.(*ServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_UpdateGoodsDeliver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateGoodsDeliverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).UpdateGoodsDeliver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_UpdateGoodsDeliver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).UpdateGoodsDeliver(ctx, req.(*UpdateGoodsDeliverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_UpdateServiceConf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceConfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).UpdateServiceConf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_UpdateServiceConf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).UpdateServiceConf(ctx, req.(*UpdateServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_UpdateServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceConfWarehouseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).UpdateServiceConfWarehouse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_UpdateServiceConfWarehouse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).UpdateServiceConfWarehouse(ctx, req.(*UpdateServiceConfWarehouseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_UpdateServiceReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).UpdateServiceReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_UpdateServiceReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).UpdateServiceReason(ctx, req.(*UpdateServiceReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServiceController_ServiceDesc is the grpc.ServiceDesc for ServiceController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rfid_service.rfid_ito.ServiceController",
+	HandlerType: (*ServiceControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BulkCreateGoodsDeliver",
+			Handler:    _ServiceController_BulkCreateGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _ServiceController_Create_Handler,
+		},
+		{
+			MethodName: "CreateGoodsDeliver",
+			Handler:    _ServiceController_CreateGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "CreateServiceConf",
+			Handler:    _ServiceController_CreateServiceConf_Handler,
+		},
+		{
+			MethodName: "CreateServiceConfWarehouse",
+			Handler:    _ServiceController_CreateServiceConfWarehouse_Handler,
+		},
+		{
+			MethodName: "CreateServiceReason",
+			Handler:    _ServiceController_CreateServiceReason_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _ServiceController_Destroy_Handler,
+		},
+		{
+			MethodName: "DestroyGoodsDeliver",
+			Handler:    _ServiceController_DestroyGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "DestroyServiceConf",
+			Handler:    _ServiceController_DestroyServiceConf_Handler,
+		},
+		{
+			MethodName: "DestroyServiceConfWarehouse",
+			Handler:    _ServiceController_DestroyServiceConfWarehouse_Handler,
+		},
+		{
+			MethodName: "DestroyServiceReason",
+			Handler:    _ServiceController_DestroyServiceReason_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _ServiceController_List_Handler,
+		},
+		{
+			MethodName: "ListGoodsDeliver",
+			Handler:    _ServiceController_ListGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "ListServiceConf",
+			Handler:    _ServiceController_ListServiceConf_Handler,
+		},
+		{
+			MethodName: "ListServiceConfWarehouse",
+			Handler:    _ServiceController_ListServiceConfWarehouse_Handler,
+		},
+		{
+			MethodName: "ListServiceReason",
+			Handler:    _ServiceController_ListServiceReason_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _ServiceController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _ServiceController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RetrieveGoodsDeliver",
+			Handler:    _ServiceController_RetrieveGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "RetrieveServiceConf",
+			Handler:    _ServiceController_RetrieveServiceConf_Handler,
+		},
+		{
+			MethodName: "RetrieveServiceConfWarehouse",
+			Handler:    _ServiceController_RetrieveServiceConfWarehouse_Handler,
+		},
+		{
+			MethodName: "RetrieveServiceReason",
+			Handler:    _ServiceController_RetrieveServiceReason_Handler,
+		},
+		{
+			MethodName: "ServiceOptions",
+			Handler:    _ServiceController_ServiceOptions_Handler,
+		},
+		{
+			MethodName: "ServiceStatusCount",
+			Handler:    _ServiceController_ServiceStatusCount_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _ServiceController_Update_Handler,
+		},
+		{
+			MethodName: "UpdateGoodsDeliver",
+			Handler:    _ServiceController_UpdateGoodsDeliver_Handler,
+		},
+		{
+			MethodName: "UpdateServiceConf",
+			Handler:    _ServiceController_UpdateServiceConf_Handler,
+		},
+		{
+			MethodName: "UpdateServiceConfWarehouse",
+			Handler:    _ServiceController_UpdateServiceConfWarehouse_Handler,
+		},
+		{
+			MethodName: "UpdateServiceReason",
+			Handler:    _ServiceController_UpdateServiceReason_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rfid_ito.proto",
+}

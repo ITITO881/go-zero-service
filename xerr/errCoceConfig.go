@@ -2,6 +2,7 @@ package xerr
 
 // OK 成功返回
 const OK uint32 = 0
+const PARAM_MISS uint32 = 1
 
 /**(前3位代表业务,后三位代表具体功能)**/
 const (
@@ -134,8 +135,9 @@ const (
 	BRAND_ACTIVITY_NOT_START     uint32 = 150002
 	BRAND_ACTIVITY_EXPIRED       uint32 = 150003
 
-	BRAND_BACTIVITY_ACCEPTED uint32 = 150004
-	BRAND_ACTIVITY_FINISHED  uint32 = 150005
+	BRAND_BACTIVITY_ACCEPTED       uint32 = 150004
+	BRAND_ACTIVITY_FINISHED        uint32 = 150005
+	BRAND_BACTIVITY_ACCEPTED_OTHER uint32 = 150006
 )
 
 // 用户关联产品
@@ -146,6 +148,7 @@ const (
 	PRODUCT_NOT_SUPPORT_AFTERSALE uint32 = 30003
 	PRODUCT_ON_AFTERSALE          uint32 = 30004
 	PRODUCT_IS_INVALID            uint32 = 30005
+	PRODUCT_IS_BIND               uint32 = 30006
 )
 
 const (

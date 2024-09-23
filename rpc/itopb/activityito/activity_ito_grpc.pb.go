@@ -53,6 +53,7 @@ const (
 	ActivityBrandController_NutRecordUpdate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/NutRecordUpdate"
 	ActivityBrandController_NutRetrieve_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/NutRetrieve"
 	ActivityBrandController_NutUpdate_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/NutUpdate"
+	ActivityBrandController_Options_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Options"
 	ActivityBrandController_PartialUpdate_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
 	ActivityBrandController_RecordCreate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/RecordCreate"
 	ActivityBrandController_RecordDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/RecordDestroy"
@@ -105,6 +106,7 @@ type ActivityBrandControllerClient interface {
 	NutRecordUpdate(ctx context.Context, in *ActivityBrandNutRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandNutRecordResponse, error)
 	NutRetrieve(ctx context.Context, in *ActivityBrandNutRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
 	NutUpdate(ctx context.Context, in *ActivityBrandNutUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandNutResponse, error)
+	Options(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ActivityBrandOptionsResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 	RecordCreate(ctx context.Context, in *ActivityBrandRecordRequest, opts ...grpc.CallOption) (*ActivityBrandRecordResponse, error)
 	RecordDestroy(ctx context.Context, in *ActivityBrandRecordDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -425,6 +427,15 @@ func (c *activityBrandControllerClient) NutUpdate(ctx context.Context, in *Activ
 	return out, nil
 }
 
+func (c *activityBrandControllerClient) Options(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ActivityBrandOptionsResponse, error) {
+	out := new(ActivityBrandOptionsResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_Options_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *activityBrandControllerClient) PartialUpdate(ctx context.Context, in *ActivityBrandPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error) {
 	out := new(ActivityBrandResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandController_PartialUpdate_FullMethodName, in, out, opts...)
@@ -579,6 +590,7 @@ type ActivityBrandControllerServer interface {
 	NutRecordUpdate(context.Context, *ActivityBrandNutRecordUpdateRequest) (*ActivityBrandNutRecordResponse, error)
 	NutRetrieve(context.Context, *ActivityBrandNutRetrieveRequest) (*ActivityBrandNutResponse, error)
 	NutUpdate(context.Context, *ActivityBrandNutUpdateRequest) (*ActivityBrandNutResponse, error)
+	Options(context.Context, *emptypb.Empty) (*ActivityBrandOptionsResponse, error)
 	PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error)
 	RecordCreate(context.Context, *ActivityBrandRecordRequest) (*ActivityBrandRecordResponse, error)
 	RecordDestroy(context.Context, *ActivityBrandRecordDestroyRequest) (*emptypb.Empty, error)
@@ -697,6 +709,9 @@ func (UnimplementedActivityBrandControllerServer) NutRetrieve(context.Context, *
 }
 func (UnimplementedActivityBrandControllerServer) NutUpdate(context.Context, *ActivityBrandNutUpdateRequest) (*ActivityBrandNutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NutUpdate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) Options(context.Context, *emptypb.Empty) (*ActivityBrandOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Options not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) PartialUpdate(context.Context, *ActivityBrandPartialUpdateRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
@@ -1345,6 +1360,24 @@ func _ActivityBrandController_NutUpdate_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ActivityBrandController_Options_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).Options(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_Options_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).Options(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ActivityBrandController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ActivityBrandPartialUpdateRequest)
 	if err := dec(in); err != nil {
@@ -1719,6 +1752,10 @@ var ActivityBrandController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ActivityBrandController_NutUpdate_Handler,
 		},
 		{
+			MethodName: "Options",
+			Handler:    _ActivityBrandController_Options_Handler,
+		},
+		{
 			MethodName: "PartialUpdate",
 			Handler:    _ActivityBrandController_PartialUpdate_Handler,
 		},
@@ -1813,7 +1850,7 @@ type ActivityDiscountControllerClient interface {
 	Options(ctx context.Context, in *OptionRequest, opts ...grpc.CallOption) (*ActVoucherOptionResponse, error)
 	PartialUpdate(ctx context.Context, in *ActivityDiscountPartialUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountResponse, error)
 	ProductCreate(ctx context.Context, in *ActivityDiscountProductRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
-	ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
+	ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductListResponse, error)
 	ProductDestroy(ctx context.Context, in *ActivityDiscountProductDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ProductList(ctx context.Context, in *ActivityDiscountProductListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductListResponse, error)
 	ProductUpdate(ctx context.Context, in *ActivityDiscountProductUpdateRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error)
@@ -1903,8 +1940,8 @@ func (c *activityDiscountControllerClient) ProductCreate(ctx context.Context, in
 	return out, nil
 }
 
-func (c *activityDiscountControllerClient) ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductResponse, error) {
-	out := new(ActivityDiscountProductResponse)
+func (c *activityDiscountControllerClient) ProductCreateBatch(ctx context.Context, in *ActivityDiscountProductCreateBatchListRequest, opts ...grpc.CallOption) (*ActivityDiscountProductListResponse, error) {
+	out := new(ActivityDiscountProductListResponse)
 	err := c.cc.Invoke(ctx, ActivityDiscountController_ProductCreateBatch_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2067,7 +2104,7 @@ type ActivityDiscountControllerServer interface {
 	Options(context.Context, *OptionRequest) (*ActVoucherOptionResponse, error)
 	PartialUpdate(context.Context, *ActivityDiscountPartialUpdateRequest) (*ActivityDiscountResponse, error)
 	ProductCreate(context.Context, *ActivityDiscountProductRequest) (*ActivityDiscountProductResponse, error)
-	ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductResponse, error)
+	ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductListResponse, error)
 	ProductDestroy(context.Context, *ActivityDiscountProductDestroyRequest) (*emptypb.Empty, error)
 	ProductList(context.Context, *ActivityDiscountProductListRequest) (*ActivityDiscountProductListResponse, error)
 	ProductUpdate(context.Context, *ActivityDiscountProductUpdateRequest) (*ActivityDiscountProductResponse, error)
@@ -2112,7 +2149,7 @@ func (UnimplementedActivityDiscountControllerServer) PartialUpdate(context.Conte
 func (UnimplementedActivityDiscountControllerServer) ProductCreate(context.Context, *ActivityDiscountProductRequest) (*ActivityDiscountProductResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProductCreate not implemented")
 }
-func (UnimplementedActivityDiscountControllerServer) ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductResponse, error) {
+func (UnimplementedActivityDiscountControllerServer) ProductCreateBatch(context.Context, *ActivityDiscountProductCreateBatchListRequest) (*ActivityDiscountProductListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProductCreateBatch not implemented")
 }
 func (UnimplementedActivityDiscountControllerServer) ProductDestroy(context.Context, *ActivityDiscountProductDestroyRequest) (*emptypb.Empty, error) {

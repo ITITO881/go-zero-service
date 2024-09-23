@@ -40,6 +40,7 @@ service ActivityBrandController {
   rpc NutRecordUpdate(ActivityBrandNutRecordUpdateRequest) returns (ActivityBrandNutRecordResponse) {}
   rpc NutRetrieve(ActivityBrandNutRetrieveRequest) returns (ActivityBrandNutResponse) {}
   rpc NutUpdate(ActivityBrandNutUpdateRequest) returns (ActivityBrandNutResponse) {}
+  rpc Options(google.protobuf.Empty) returns (ActivityBrandOptionsResponse) {}
   rpc PartialUpdate(ActivityBrandPartialUpdateRequest) returns (ActivityBrandResponse) {}
   rpc RecordCreate(ActivityBrandRecordRequest) returns (ActivityBrandRecordResponse) {}
   rpc RecordDestroy(ActivityBrandRecordDestroyRequest) returns (google.protobuf.Empty) {}
@@ -63,7 +64,7 @@ service ActivityDiscountController {
   rpc Options(OptionRequest) returns (ActVoucherOptionResponse) {}
   rpc PartialUpdate(ActivityDiscountPartialUpdateRequest) returns (ActivityDiscountResponse) {}
   rpc ProductCreate(ActivityDiscountProductRequest) returns (ActivityDiscountProductResponse) {}
-  rpc ProductCreateBatch(ActivityDiscountProductCreateBatchListRequest) returns (ActivityDiscountProductResponse) {}
+  rpc ProductCreateBatch(ActivityDiscountProductCreateBatchListRequest) returns (ActivityDiscountProductListResponse) {}
   rpc ProductDestroy(ActivityDiscountProductDestroyRequest) returns (google.protobuf.Empty) {}
   rpc ProductList(ActivityDiscountProductListRequest) returns (ActivityDiscountProductListResponse) {}
   rpc ProductUpdate(ActivityDiscountProductUpdateRequest) returns (ActivityDiscountProductResponse) {}
@@ -97,7 +98,7 @@ message ActivityBrandCaresDestroyRequest {
 }
 
 message ActivityBrandCaresListRequest {
-  string filters = 2;
+  string filters = 1;
 }
 
 message ActivityBrandCaresListResponse {
@@ -121,33 +122,33 @@ message ActivityBrandCaresRecordListResponse {
 message ActivityBrandCaresRecordRequest {
   int32 id = 1;
   string filters = 2;
-  string card_no = 3;
-  int32 status = 4;
+  int32 ctm_id = 3;
+  string card_no = 4;
+  int32 status = 5;
   optional string accept_time = 6;
   optional string phone_number = 7;
   optional string remark = 8;
-  int64 activity_cares = 9;
-  optional int64 ctm = 10;
-  int32 ctm_id = 11;
-  optional string admin_name = 12;
+  optional string admin_name = 9;
+  int64 activity_cares = 10;
+  optional int64 ctm = 11;
 }
 
 message ActivityBrandCaresRecordResponse {
   int32 id = 1;
-  string card_no = 2;
-  int32 status = 3;
-  optional string accept_time = 5;
-  optional string phone_number = 6;
-  optional string remark = 7;
-  string create_time = 8;
-  string update_time = 9;
-  int64 activity_cares = 10;
-  string status_name = 11;
-  optional int64 ctm = 12;
-  string nickname = 13;
-  int32 ctm_id = 14;
-  int32 cares_id = 15;
-  optional string admin_name = 16;
+  int32 ctm_id = 2;
+  string status_name = 3;
+  string nickname = 4;
+  int32 cares_id = 5;
+  string card_no = 6;
+  int32 status = 7;
+  optional string accept_time = 8;
+  optional string phone_number = 9;
+  optional string remark = 10;
+  optional string admin_name = 11;
+  string create_time = 12;
+  string update_time = 13;
+  int64 activity_cares = 14;
+  optional int64 ctm = 15;
 }
 
 message ActivityBrandCaresRecordRetrieveRequest {
@@ -157,39 +158,39 @@ message ActivityBrandCaresRecordRetrieveRequest {
 message ActivityBrandCaresRecordUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
-  string card_no = 4;
-  int32 status = 5;
+  int32 ctm_id = 3;
+  repeated string _partial_update_fields = 4;
+  string card_no = 5;
+  int32 status = 6;
   optional string accept_time = 7;
   optional string phone_number = 8;
   optional string remark = 9;
-  int64 activity_cares = 10;
-  optional int64 ctm = 11;
-  int32 ctm_id = 12;
-  optional string admin_name = 13;
+  optional string admin_name = 10;
+  int64 activity_cares = 11;
+  optional int64 ctm = 12;
 }
 
 message ActivityBrandCaresRequest {
   int32 id = 1;
   string filters = 2;
+  int32 cares_id = 3;
   int32 count = 4;
   int32 limit = 5;
+  int32 balance = 6;
   int64 activity = 7;
-  int32 balance = 8;
-  int32 cares_id = 9;
 }
 
 message ActivityBrandCaresResponse {
   int32 id = 1;
-  int32 count = 3;
-  int32 limit = 4;
-  string create_time = 6;
-  string update_time = 7;
-  int64 activity = 8;
-  CardCaresResponse cares = 9;
-  int32 balance = 10;
-  bool deletable = 11;
-  int32 cares_id = 12;
+  CardCaresResponse cares = 2;
+  bool deletable = 3;
+  int32 cares_id = 4;
+  int32 count = 5;
+  int32 limit = 6;
+  int32 balance = 7;
+  string create_time = 8;
+  string update_time = 9;
+  int64 activity = 10;
 }
 
 message ActivityBrandCaresRetrieveRequest {
@@ -199,12 +200,12 @@ message ActivityBrandCaresRetrieveRequest {
 message ActivityBrandCaresUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
+  int32 cares_id = 3;
+  repeated string _partial_update_fields = 4;
   int32 count = 5;
   int32 limit = 6;
   int32 balance = 7;
   int64 activity = 8;
-  int32 cares_id = 9;
 }
 
 message ActivityBrandDestroyRequest {
@@ -212,7 +213,7 @@ message ActivityBrandDestroyRequest {
 }
 
 message ActivityBrandListRequest {
-  string filters = 2;
+  string filters = 1;
 }
 
 message ActivityBrandListResponse {
@@ -255,9 +256,9 @@ message ActivityBrandNutRecordRequest {
   optional string accept_time = 6;
   optional string phone_number = 7;
   optional string remark = 8;
-  int64 activity_nut = 9;
-  optional int64 ctm = 10;
-  optional string admin_name = 11;
+  optional string admin_name = 9;
+  int64 activity_nut = 10;
+  optional int64 ctm = 11;
 }
 
 message ActivityBrandNutRecordResponse {
@@ -271,11 +272,11 @@ message ActivityBrandNutRecordResponse {
   optional string accept_time = 8;
   optional string phone_number = 9;
   optional string remark = 10;
-  string create_time = 11;
-  string update_time = 12;
-  int64 activity_nut = 13;
-  optional int64 ctm = 14;
-  optional string admin_name = 15;
+  optional string admin_name = 11;
+  string create_time = 12;
+  string update_time = 13;
+  int64 activity_nut = 14;
+  optional int64 ctm = 15;
 }
 
 message ActivityBrandNutRecordRetrieveRequest {
@@ -285,16 +286,16 @@ message ActivityBrandNutRecordRetrieveRequest {
 message ActivityBrandNutRecordUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
-  optional string remark = 13;
-  int32 ctm_id = 14;
-  string card_no = 15;
-  int32 status = 16;
-  optional string accept_time = 17;
-  optional string phone_number = 18;
-  int64 activity_nut = 19;
-  optional int64 ctm = 20;
-  optional string admin_name = 21;
+  int32 ctm_id = 3;
+  repeated string _partial_update_fields = 4;
+  string card_no = 5;
+  int32 status = 6;
+  optional string accept_time = 7;
+  optional string phone_number = 8;
+  optional string remark = 9;
+  optional string admin_name = 10;
+  int64 activity_nut = 11;
+  optional int64 ctm = 12;
 }
 
 message ActivityBrandNutRequest {
@@ -303,23 +304,23 @@ message ActivityBrandNutRequest {
   int32 nut_id = 3;
   int32 count = 4;
   int32 limit = 5;
-  int64 activity = 7;
-  bool is_valid = 8;
-  int32 balance = 9;
+  int32 balance = 6;
+  bool is_valid = 7;
+  int64 activity = 8;
 }
 
 message ActivityBrandNutResponse {
   int32 id = 1;
   int32 nut_id = 2;
-  int32 count = 3;
-  int32 limit = 4;
-  string create_time = 6;
-  string update_time = 7;
-  int64 activity = 8;
-  bool is_valid = 9;
-  CardNutResponse nut = 10;
-  bool deletable = 11;
-  int32 balance = 12;
+  CardNutResponse nut = 3;
+  bool deletable = 4;
+  int32 count = 5;
+  int32 limit = 6;
+  int32 balance = 7;
+  bool is_valid = 8;
+  string create_time = 9;
+  string update_time = 10;
+  int64 activity = 11;
 }
 
 message ActivityBrandNutRetrieveRequest {
@@ -329,13 +330,21 @@ message ActivityBrandNutRetrieveRequest {
 message ActivityBrandNutUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
-  bool is_valid = 11;
-  int32 nut_id = 12;
-  int32 count = 13;
-  int32 limit = 14;
-  int64 activity = 15;
-  int32 balance = 16;
+  int32 nut_id = 3;
+  repeated string _partial_update_fields = 4;
+  int32 count = 5;
+  int32 limit = 6;
+  int32 balance = 7;
+  bool is_valid = 8;
+  int64 activity = 9;
+}
+
+message ActivityBrandOptionsResponse {
+  repeated LabelNumberValueResponse type = 1;
+  repeated LabelNumberValueResponse approve_status = 2;
+  repeated LabelNumberValueResponse card_status = 3;
+  repeated LabelNumberValueResponse blog_type = 4;
+  repeated LabelNumberValueResponse platform = 5;
 }
 
 message ActivityBrandPartialUpdateRequest {
@@ -345,17 +354,17 @@ message ActivityBrandPartialUpdateRequest {
   string activity_no = 4;
   string title = 5;
   optional string theme = 6;
-  optional string start_time = 7;
-  optional string end_time = 8;
-  bool is_valid = 9;
-  optional bool allow_apply = 10;
-  optional string remark = 11;
-  optional string description = 12;
-  optional int32 admin_id = 13;
-  optional string admin_name = 14;
-  int32 type = 15;
-  optional string place = 16;
-  bool repeatable = 17;
+  int32 type = 7;
+  optional string start_time = 8;
+  optional string end_time = 9;
+  optional string place = 10;
+  bool is_valid = 11;
+  optional bool allow_apply = 12;
+  bool repeatable = 13;
+  optional string remark = 14;
+  optional string description = 15;
+  optional int32 admin_id = 16;
+  optional string admin_name = 17;
 }
 
 message ActivityBrandRecordDestroyRequest {
@@ -396,24 +405,24 @@ message ActivityBrandRecordResponse {
   int32 ctm_id = 2;
   string status_name = 3;
   string nickname = 4;
-  int32 activity_id = 5;
-  ActivityBrandResponse activity = 6;
-  optional string name = 7;
-  optional string mobile = 8;
-  optional string province = 9;
-  optional string city = 10;
-  optional string district = 11;
-  optional string addr_detail = 12;
-  optional string apply_desc = 13;
-  int32 status = 14;
-  optional string review_time = 15;
-  optional string sign_time = 16;
-  optional string review_admin = 17;
-  optional string review_desc = 18;
-  optional string remark = 19;
-  string create_time = 20;
-  string update_time = 21;
-  CtmResponse ctm = 22;
+  ActivityBrandResponse activity = 5;
+  int32 activity_id = 6;
+  CtmResponse ctm = 7;
+  optional string name = 8;
+  optional string mobile = 9;
+  optional string province = 10;
+  optional string city = 11;
+  optional string district = 12;
+  optional string addr_detail = 13;
+  optional string apply_desc = 14;
+  int32 status = 15;
+  optional string review_time = 16;
+  optional string sign_time = 17;
+  optional string review_admin = 18;
+  optional string review_desc = 19;
+  optional string remark = 20;
+  string create_time = 21;
+  string update_time = 22;
 }
 
 message ActivityBrandRecordRetrieveRequest {
@@ -447,39 +456,39 @@ message ActivityBrandRequest {
   string activity_no = 3;
   string title = 4;
   optional string theme = 5;
-  optional string start_time = 6;
-  optional string end_time = 7;
-  bool is_valid = 8;
-  optional bool allow_apply = 9;
-  optional string remark = 10;
-  optional string description = 11;
-  optional int32 admin_id = 12;
-  optional string admin_name = 13;
-  int32 type = 14;
-  optional string place = 15;
-  bool repeatable = 16;
+  int32 type = 6;
+  optional string start_time = 7;
+  optional string end_time = 8;
+  optional string place = 9;
+  bool is_valid = 10;
+  optional bool allow_apply = 11;
+  bool repeatable = 12;
+  optional string remark = 13;
+  optional string description = 14;
+  optional int32 admin_id = 15;
+  optional string admin_name = 16;
 }
 
 message ActivityBrandResponse {
   int32 id = 1;
-  string activity_no = 2;
-  string title = 3;
-  optional string theme = 4;
-  optional string start_time = 5;
-  optional string end_time = 6;
-  bool is_valid = 7;
-  optional bool allow_apply = 8;
-  optional string remark = 9;
-  optional string description = 10;
-  optional int32 admin_id = 11;
-  optional string admin_name = 12;
-  string create_time = 13;
-  string update_time = 14;
-  bool deletable = 15;
-  int32 type = 16;
-  optional string place = 17;
-  string type_name = 18;
-  bool repeatable = 19;
+  bool deletable = 2;
+  string type_name = 3;
+  string activity_no = 4;
+  string title = 5;
+  optional string theme = 6;
+  int32 type = 7;
+  optional string start_time = 8;
+  optional string end_time = 9;
+  optional string place = 10;
+  bool is_valid = 11;
+  optional bool allow_apply = 12;
+  bool repeatable = 13;
+  optional string remark = 14;
+  optional string description = 15;
+  optional int32 admin_id = 16;
+  optional string admin_name = 17;
+  string create_time = 18;
+  string update_time = 19;
 }
 
 message ActivityBrandRetrieveRequest {
@@ -495,7 +504,7 @@ message ActivityDiscountDestroyRequest {
 }
 
 message ActivityDiscountListRequest {
-  string filters = 2;
+  string filters = 1;
 }
 
 message ActivityDiscountListResponse {
@@ -510,20 +519,20 @@ message ActivityDiscountNextSerialResponse {
 message ActivityDiscountPartialUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 4;
-  string activity_no = 5;
-  string title = 6;
-  optional string start_time = 7;
-  optional string end_time = 8;
-  bool is_valid = 9;
-  optional string remark = 11;
-  optional string description = 12;
-  optional int32 admin_id = 14;
-  optional string admin_name = 15;
-  int32 act_type = 16;
-  int32 sub_type = 17;
-  optional string gift_range = 18;
-  optional string prod_range = 19;
+  repeated string _partial_update_fields = 3;
+  bool is_valid = 4;
+  int32 act_type = 5;
+  int32 sub_type = 6;
+  string title = 7;
+  string activity_no = 8;
+  optional string description = 9;
+  optional string remark = 10;
+  optional string start_time = 11;
+  optional string end_time = 12;
+  optional int32 admin_id = 13;
+  optional string admin_name = 14;
+  optional string gift_range = 15;
+  optional string prod_range = 16;
 }
 
 message ActivityDiscountProductCreateBatchListRequest {
@@ -565,26 +574,8 @@ message ActivityDiscountProductListResponse {
 message ActivityDiscountProductRequest {
   int32 id = 1;
   string filters = 2;
-  optional string goods_spu = 3;
-  optional string goods_no = 4;
-  int32 limit_num = 5;
-  bool optional = 6;
-  bool customizable = 7;
-  int32 limit_word = 8;
-  optional string regular = 9;
-  optional string title = 10;
-  optional string remark = 11;
-  optional string admin_name = 12;
-  optional int64 parent = 14;
-  int32 activity_id = 15;
-  repeated ActivityDiscountSubProductRequest act_sub_products = 16;
-}
-
-message ActivityDiscountProductResponse {
-  int32 id = 1;
-  repeated ActivityDiscountSubProductResponse act_sub_products = 2;
-  string create_time = 3;
-  string update_time = 4;
+  repeated ActivityDiscountSubProductRequest act_sub_products = 3;
+  int32 activity_id = 4;
   optional string goods_spu = 5;
   optional string goods_no = 6;
   int32 limit_num = 7;
@@ -595,68 +586,86 @@ message ActivityDiscountProductResponse {
   optional string title = 12;
   optional string remark = 13;
   optional string admin_name = 14;
-  optional ActivityDiscountResponse activity = 15;
-  optional int64 parent = 16;
-  int32 activity_id = 17;
+  optional int64 parent = 15;
+}
+
+message ActivityDiscountProductResponse {
+  int32 id = 1;
+  repeated ActivityDiscountSubProductResponse act_sub_products = 2;
+  int32 activity_id = 3;
+  optional ActivityDiscountResponse activity = 4;
+  string create_time = 5;
+  string update_time = 6;
+  optional string goods_spu = 7;
+  optional string goods_no = 8;
+  int32 limit_num = 9;
+  bool optional = 10;
+  bool customizable = 11;
+  int32 limit_word = 12;
+  optional string regular = 13;
+  optional string title = 14;
+  optional string remark = 15;
+  optional string admin_name = 16;
+  optional int64 parent = 17;
 }
 
 message ActivityDiscountProductUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
-  optional string goods_spu = 4;
-  optional string goods_no = 5;
-  int32 limit_num = 6;
-  bool optional = 7;
-  bool customizable = 8;
-  int32 limit_word = 9;
-  optional string regular = 10;
-  optional string title = 11;
-  optional string remark = 12;
-  optional string admin_name = 13;
-  optional int64 parent = 15;
-  int32 activity_id = 16;
-  repeated ActivityDiscountSubProductRequest act_sub_products = 17;
+  repeated ActivityDiscountSubProductRequest act_sub_products = 3;
+  int32 activity_id = 4;
+  repeated string _partial_update_fields = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  int32 limit_num = 8;
+  bool optional = 9;
+  bool customizable = 10;
+  int32 limit_word = 11;
+  optional string regular = 12;
+  optional string title = 13;
+  optional string remark = 14;
+  optional string admin_name = 15;
+  optional int64 parent = 16;
 }
 
 message ActivityDiscountRequest {
   int32 id = 1;
   string filters = 2;
-  string activity_no = 4;
-  string title = 5;
-  optional string start_time = 6;
-  optional string end_time = 7;
-  bool is_valid = 8;
-  optional string remark = 10;
-  optional string description = 11;
-  optional int32 admin_id = 13;
-  optional string admin_name = 14;
-  int32 act_type = 15;
-  int32 sub_type = 16;
-  optional string gift_range = 17;
-  optional string prod_range = 18;
+  bool is_valid = 3;
+  int32 act_type = 4;
+  int32 sub_type = 5;
+  string title = 6;
+  string activity_no = 7;
+  optional string description = 8;
+  optional string remark = 9;
+  optional string start_time = 10;
+  optional string end_time = 11;
+  optional int32 admin_id = 12;
+  optional string admin_name = 13;
+  optional string gift_range = 14;
+  optional string prod_range = 15;
 }
 
 message ActivityDiscountResponse {
   int32 id = 1;
-  string activity_no = 3;
-  string title = 4;
-  optional string start_time = 5;
-  optional string end_time = 6;
+  bool is_expired = 2;
+  string act_type_name = 3;
+  string sub_type_name = 4;
+  string create_time = 5;
+  string update_time = 6;
   bool is_valid = 7;
-  optional string remark = 9;
-  optional string description = 10;
-  optional int32 admin_id = 12;
-  optional string admin_name = 13;
-  string create_time = 14;
-  string update_time = 15;
-  bool is_expired = 16;
-  int32 act_type = 17;
-  int32 sub_type = 18;
-  string act_type_name = 19;
-  string sub_type_name = 20;
-  optional string gift_range = 21;
-  optional string prod_range = 22;
+  int32 act_type = 8;
+  int32 sub_type = 9;
+  string title = 10;
+  string activity_no = 11;
+  optional string description = 12;
+  optional string remark = 13;
+  optional string start_time = 14;
+  optional string end_time = 15;
+  optional int32 admin_id = 16;
+  optional string admin_name = 17;
+  optional string gift_range = 18;
+  optional string prod_range = 19;
 }
 
 message ActivityDiscountRetrieveRequest {
@@ -665,37 +674,37 @@ message ActivityDiscountRetrieveRequest {
 
 message ActivityDiscountSubProductRequest {
   int32 id = 1;
-  int32 activity_id = 3;
-  optional string goods_spu = 4;
-  optional string goods_no = 5;
-  int32 limit_num = 6;
-  bool optional = 7;
-  bool customizable = 8;
-  int32 limit_word = 9;
-  optional string regular = 10;
-  optional string title = 11;
-  optional string remark = 12;
-  optional string admin_name = 13;
-  optional int64 parent = 15;
+  int32 activity_id = 2;
+  optional string goods_spu = 3;
+  optional string goods_no = 4;
+  int32 limit_num = 5;
+  bool optional = 6;
+  bool customizable = 7;
+  int32 limit_word = 8;
+  optional string regular = 9;
+  optional string title = 10;
+  optional string remark = 11;
+  optional string admin_name = 12;
+  optional int64 parent = 13;
 }
 
 message ActivityDiscountSubProductResponse {
   int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  optional string goods_spu = 4;
-  optional string goods_no = 5;
-  int32 limit_num = 6;
-  bool optional = 7;
-  bool customizable = 8;
-  int32 limit_word = 9;
-  optional string regular = 10;
-  optional string title = 11;
-  optional string remark = 12;
-  optional string admin_name = 13;
-  optional ActivityDiscountResponse activity = 14;
-  optional int64 parent = 15;
-  int32 activity_id = 16;
+  int32 activity_id = 2;
+  optional ActivityDiscountResponse activity = 3;
+  string create_time = 4;
+  string update_time = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  int32 limit_num = 8;
+  bool optional = 9;
+  bool customizable = 10;
+  int32 limit_word = 11;
+  optional string regular = 12;
+  optional string title = 13;
+  optional string remark = 14;
+  optional string admin_name = 15;
+  optional int64 parent = 16;
 }
 
 message ActivityDiscountVoucherDestroyRequest {
@@ -731,30 +740,30 @@ message ActivityDiscountVoucherRecordNextSerialResponse {
 message ActivityDiscountVoucherRecordRequest {
   int32 id = 1;
   string filters = 2;
-  string coupon_code = 6;
-  bool is_registered = 7;
-  int32 ctm_id = 8;
-  optional int32 platform = 9;
-  optional int32 order_id = 10;
-  optional string offset_time = 11;
-  optional int32 refund_id = 12;
-  optional string refund_time = 13;
-  optional int64 act_voucher = 14;
+  string coupon_code = 3;
+  bool is_registered = 4;
+  int32 ctm_id = 5;
+  optional int32 platform = 6;
+  optional int32 order_id = 7;
+  optional string offset_time = 8;
+  optional int32 refund_id = 9;
+  optional string refund_time = 10;
+  optional int64 act_voucher = 11;
 }
 
 message ActivityDiscountVoucherRecordResponse {
   int32 id = 1;
-  string create_time = 10;
-  string update_time = 11;
-  string coupon_code = 17;
-  bool is_registered = 18;
-  int32 ctm_id = 19;
-  optional int32 platform = 20;
-  optional int32 order_id = 21;
-  optional string offset_time = 22;
-  optional int32 refund_id = 23;
-  optional string refund_time = 24;
-  optional int64 act_voucher = 27;
+  string create_time = 2;
+  string update_time = 3;
+  string coupon_code = 4;
+  bool is_registered = 5;
+  int32 ctm_id = 6;
+  optional int32 platform = 7;
+  optional int32 order_id = 8;
+  optional string offset_time = 9;
+  optional int32 refund_id = 10;
+  optional string refund_time = 11;
+  optional int64 act_voucher = 12;
 }
 
 message ActivityDiscountVoucherRecordRetrieveRequest {
@@ -766,28 +775,28 @@ message ActivityDiscountVoucherRequest {
   string filters = 2;
   int32 voucher_id = 3;
   optional int32 count = 4;
-  optional int32 limit = 5;
-  optional int32 balance = 10;
-  int64 activity = 12;
-  bool can_stack = 13;
-  optional string mp_url = 14;
-  optional string remark = 15;
+  optional int32 balance = 5;
+  optional int32 limit = 6;
+  bool can_stack = 7;
+  optional string mp_url = 8;
+  optional string remark = 9;
+  int64 activity = 10;
 }
 
 message ActivityDiscountVoucherResponse {
   int32 id = 1;
-  int32 voucher_id = 2;
-  optional int32 count = 3;
-  optional int32 limit = 4;
-  string create_time = 7;
-  string update_time = 8;
-  int64 activity = 9;
-  optional int32 balance = 11;
-  ActivityDiscountResponse activity_info = 12;
-  bool can_stack = 13;
-  optional string mp_url = 14;
-  optional string remark = 15;
-  CardVoucherResponse voucher_info = 16;
+  ActivityDiscountResponse activity_info = 2;
+  CardVoucherResponse voucher_info = 3;
+  string create_time = 4;
+  string update_time = 5;
+  int32 voucher_id = 6;
+  optional int32 count = 7;
+  optional int32 balance = 8;
+  optional int32 limit = 9;
+  bool can_stack = 10;
+  optional string mp_url = 11;
+  optional string remark = 12;
+  int64 activity = 13;
 }
 
 message ActivityDiscountVoucherRetrieveRequest {
@@ -858,6 +867,32 @@ message ActivityUserApplyUpdateRequest {
   optional string remark = 13;
 }
 
+message BlogContentRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string cover_image = 3;
+  optional string template = 4;
+  optional string link = 5;
+  optional string title = 6;
+  optional string sub_title = 7;
+  optional string content = 8;
+  optional int64 blog = 9;
+}
+
+message BlogContentResponse {
+  int32 id = 1;
+  repeated string links = 2;
+  optional string cover_image = 3;
+  optional string template = 4;
+  optional string link = 5;
+  optional string title = 6;
+  optional string sub_title = 7;
+  optional string content = 8;
+  string create_time = 9;
+  string update_time = 10;
+  optional int64 blog = 11;
+}
+
 message BlogInteractDestroyRequest {
   int32 id = 1;
 }
@@ -891,23 +926,23 @@ message BlogInteractRequest {
 
 message BlogInteractResponse {
   int32 id = 1;
-  string nickname = 2;
-  string avatar = 3;
-  int32 blog_id = 4;
-  optional int32 view_count = 5;
-  optional bool is_like = 6;
-  optional int32 share_count = 7;
-  optional bool is_favorite = 8;
-  optional string view_date = 9;
-  optional string like_date = 10;
-  optional string favorite_date = 11;
-  optional string share_date = 12;
-  string create_time = 13;
-  string update_time = 14;
-  optional int64 ctm = 15;
-  optional int64 blog = 16;
-  optional int64 comment = 17;
-  int32 ctm_id = 18;
+  int32 ctm_id = 2;
+  string nickname = 3;
+  string avatar = 4;
+  int32 blog_id = 5;
+  optional int32 view_count = 6;
+  optional bool is_like = 7;
+  optional int32 share_count = 8;
+  optional bool is_favorite = 9;
+  optional string view_date = 10;
+  optional string like_date = 11;
+  optional string favorite_date = 12;
+  optional string share_date = 13;
+  string create_time = 14;
+  string update_time = 15;
+  optional int64 ctm = 16;
+  optional int64 blog = 17;
+  optional int64 comment = 18;
 }
 
 message BlogInteractRetrieveRequest {
@@ -917,20 +952,20 @@ message BlogInteractRetrieveRequest {
 message BlogInteractUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  int32 blog_id = 3;
-  repeated string _partial_update_fields = 4;
-  optional int32 view_count = 5;
-  optional bool is_like = 6;
-  optional int32 share_count = 7;
-  optional bool is_favorite = 8;
-  optional string view_date = 9;
-  optional string like_date = 10;
-  optional string favorite_date = 11;
-  optional string share_date = 12;
-  optional int64 ctm = 13;
-  optional int64 blog = 14;
-  optional int64 comment = 15;
-  int32 ctm_id = 16;
+  int32 ctm_id = 3;
+  int32 blog_id = 4;
+  repeated string _partial_update_fields = 5;
+  optional int32 view_count = 6;
+  optional bool is_like = 7;
+  optional int32 share_count = 8;
+  optional bool is_favorite = 9;
+  optional string view_date = 10;
+  optional string like_date = 11;
+  optional string favorite_date = 12;
+  optional string share_date = 13;
+  optional int64 ctm = 14;
+  optional int64 blog = 15;
+  optional int64 comment = 16;
 }
 
 message BlogListRequest {
@@ -946,44 +981,16 @@ message BlogRequest {
   int32 id = 1;
   string filters = 2;
   int32 activity_id = 3;
-  bool is_valid = 4;
-  optional string cover_image = 5;
-  optional string template = 6;
-  optional string link = 7;
-  optional string title = 8;
-  optional string sub_title = 9;
-  optional string content = 10;
-  optional int32 share_count = 11;
-  optional int32 view_count = 12;
-  optional int32 like_count = 13;
-  optional int32 comment_count = 14;
-  optional int32 favorite_count = 15;
-  optional string address = 16;
-  optional string ip = 17;
-  optional string platform = 18;
-  optional string tags = 19;
-  optional int32 index = 20;
-  optional string admin_name = 21;
-  optional string remark = 22;
-  optional int64 ctm = 23;
-  int32 ctm_id = 24;
-  int32 status = 25;
-}
-
-message BlogResponse {
-  int32 id = 1;
-  string activity_no = 2;
-  string nickname = 3;
-  string avatar = 4;
-  ActivityBrandResponse activity = 5;
-  int32 activity_id = 6;
+  int32 ctm_id = 4;
+  BlogContentRequest content = 5;
+  int32 blog_type = 6;
   bool is_valid = 7;
-  optional string cover_image = 8;
-  optional string template = 9;
-  optional string link = 10;
-  optional string title = 11;
-  optional string sub_title = 12;
-  optional string content = 13;
+  int32 status = 8;
+  optional string cover_image = 9;
+  optional string template = 10;
+  optional string link = 11;
+  optional string title = 12;
+  optional string sub_title = 13;
   optional int32 share_count = 14;
   optional int32 view_count = 15;
   optional int32 like_count = 16;
@@ -996,14 +1003,43 @@ message BlogResponse {
   optional int32 index = 23;
   optional string admin_name = 24;
   optional string remark = 25;
-  string create_time = 26;
-  string update_time = 27;
-  optional int64 ctm = 28;
-  int32 ctm_id = 29;
-  repeated string links = 30;
-  bool is_like = 31;
-  int32 status = 32;
-  string status_name = 33;
+  optional int64 ctm = 26;
+}
+
+message BlogResponse {
+  int32 id = 1;
+  string activity_no = 2;
+  string nickname = 3;
+  string avatar = 4;
+  int32 activity_id = 5;
+  int32 ctm_id = 6;
+  string status_name = 7;
+  ActivityBrandResponse activity = 8;
+  bool is_like = 9;
+  BlogContentResponse content = 10;
+  int32 blog_type = 11;
+  bool is_valid = 12;
+  int32 status = 13;
+  optional string cover_image = 14;
+  optional string template = 15;
+  optional string link = 16;
+  optional string title = 17;
+  optional string sub_title = 18;
+  optional int32 share_count = 19;
+  optional int32 view_count = 20;
+  optional int32 like_count = 21;
+  optional int32 comment_count = 22;
+  optional int32 favorite_count = 23;
+  optional string address = 24;
+  optional string ip = 25;
+  optional string platform = 26;
+  optional string tags = 27;
+  optional int32 index = 28;
+  optional string admin_name = 29;
+  optional string remark = 30;
+  string create_time = 31;
+  string update_time = 32;
+  optional int64 ctm = 33;
 }
 
 message BlogRetrieveRequest {
@@ -1014,29 +1050,30 @@ message BlogUpdateRequest {
   int32 id = 1;
   string filters = 2;
   int32 activity_id = 3;
-  repeated string _partial_update_fields = 4;
-  bool is_valid = 5;
-  optional string cover_image = 6;
-  optional string template = 7;
-  optional string link = 8;
-  optional string title = 9;
-  optional string sub_title = 10;
-  optional string content = 11;
-  optional int32 share_count = 12;
-  optional int32 view_count = 13;
-  optional int32 like_count = 14;
-  optional int32 comment_count = 15;
-  optional int32 favorite_count = 16;
-  optional string address = 17;
-  optional string ip = 18;
-  optional string platform = 19;
-  optional string tags = 20;
-  optional int32 index = 21;
-  optional string admin_name = 22;
-  optional string remark = 23;
-  optional int64 ctm = 24;
-  int32 ctm_id = 25;
-  int32 status = 26;
+  int32 ctm_id = 4;
+  BlogContentRequest content = 5;
+  repeated string _partial_update_fields = 6;
+  int32 blog_type = 7;
+  bool is_valid = 8;
+  int32 status = 9;
+  optional string cover_image = 10;
+  optional string template = 11;
+  optional string link = 12;
+  optional string title = 13;
+  optional string sub_title = 14;
+  optional int32 share_count = 15;
+  optional int32 view_count = 16;
+  optional int32 like_count = 17;
+  optional int32 comment_count = 18;
+  optional int32 favorite_count = 19;
+  optional string address = 20;
+  optional string ip = 21;
+  optional string platform = 22;
+  optional string tags = 23;
+  optional int32 index = 24;
+  optional string admin_name = 25;
+  optional string remark = 26;
+  optional int64 ctm = 27;
 }
 
 message CardCaresResponse {
@@ -1149,8 +1186,8 @@ message VoucherUpdateRequest {
   optional int32 balance = 6;
   optional int32 limit = 7;
   bool can_stack = 8;
-  int64 activity = 9;
-  optional string mp_url = 10;
-  optional string remark = 11;
+  optional string mp_url = 9;
+  optional string remark = 10;
+  int64 activity = 11;
 }
 

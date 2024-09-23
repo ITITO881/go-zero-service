@@ -65,6 +65,161 @@ service DeliverNoticeController {
   rpc UpdateVendorOperator(VendorOperatorUpdateRequest) returns (VendorOperatorResponse) {}
 }
 
+service GoodsQualityController {
+  rpc Create(QualityReturnGoodsModelRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc CreateQualityReturnWarehouse(QualityReturnWarehouseCreateRequest) returns (QualityReturnWarehouseModelResponse) {}
+  rpc CreateUnqualifiedReason(UnqualifiedReasonCreateRequest) returns (UnqualifiedReasonModelResponse) {}
+  rpc Destroy(QualityReturnGoodsModelDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyQualityReturnWarehouse(QualityReturnWarehouseDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyUnqualifiedReason(UnqualifiedReasonDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(QualityReturnGoodsModelListRequest) returns (QualityReturnGoodsModelListResponse) {}
+  rpc ListQualityReturnWarehouse(QualityReturnWarehouseListRequest) returns (QualityReturnWarehouseModelListResponse) {}
+  rpc ListUnqualifiedReason(UnqualifiedReasonListRequest) returns (UnqualifiedReasonModelListResponse) {}
+  rpc PartialUpdate(QualityReturnGoodsModelPartialUpdateRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc Retrieve(QualityReturnGoodsModelRetrieveRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc RfidQualityOptions(RfidQualityOptionsRequest) returns (RfidQualityOptionsResponse) {}
+  rpc Update(QualityReturnGoodsModelRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc UpdateQualityReturnWarehouse(QualityReturnWarehouseUpdateRequest) returns (QualityReturnWarehouseModelResponse) {}
+  rpc UpdateUnqualifiedReason(UnqualifiedReasonUpdateRequest) returns (UnqualifiedReasonModelResponse) {}
+}
+
+service ServiceController {
+  rpc BulkCreateGoodsDeliver(BulkCreateGoodsDeliverListRequest) returns (ServiceGoodsDetailListResponse) {}
+  rpc Create(ServiceRequest) returns (ServiceResponse) {}
+  rpc CreateGoodsDeliver(CreateGoodsDeliverRequest) returns (ServiceGoodsDetailResponse) {}
+  rpc CreateServiceConf(CreateServiceConfRequest) returns (ServiceConfResponse) {}
+  rpc CreateServiceConfWarehouse(CreateServiceConfWarehouseRequest) returns (ServiceConfWarehouseResponse) {}
+  rpc CreateServiceReason(CreateServiceReasonRequest) returns (ServiceReasonResponse) {}
+  rpc Destroy(ServiceDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyGoodsDeliver(DestroyGoodsDeliverRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyServiceConf(DestroyServiceConfRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyServiceConfWarehouse(DestroyServiceConfWarehouseRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyServiceReason(DestroyServiceReasonRequest) returns (google.protobuf.Empty) {}
+  rpc List(ServiceListRequest) returns (ServiceListResponse) {}
+  rpc ListGoodsDeliver(ListGoodsDeliverRequest) returns (ServiceGoodsDetailListResponse) {}
+  rpc ListServiceConf(ListServiceConfRequest) returns (ServiceConfListResponse) {}
+  rpc ListServiceConfWarehouse(ListServiceConfWarehouseRequest) returns (ServiceConfWarehouseListResponse) {}
+  rpc ListServiceReason(ListServiceReasonRequest) returns (ServiceReasonListResponse) {}
+  rpc PartialUpdate(ServicePartialUpdateRequest) returns (ServiceResponse) {}
+  rpc Retrieve(ServiceRetrieveRequest) returns (ServiceResponse) {}
+  rpc RetrieveGoodsDeliver(RetrieveGoodsDeliverRequest) returns (ServiceGoodsDetailResponse) {}
+  rpc RetrieveServiceConf(RetrieveServiceConfRequest) returns (ServiceConfResponse) {}
+  rpc RetrieveServiceConfWarehouse(RetrieveServiceConfWarehouseRequest) returns (ServiceConfWarehouseResponse) {}
+  rpc RetrieveServiceReason(RetrieveServiceReasonRequest) returns (ServiceReasonResponse) {}
+  rpc ServiceOptions(google.protobuf.Empty) returns (ServiceOptionsResponse) {}
+  rpc ServiceStatusCount(ServiceRequest) returns (LabelNumberValueListResponse) {}
+  rpc Update(ServiceRequest) returns (ServiceResponse) {}
+  rpc UpdateGoodsDeliver(UpdateGoodsDeliverRequest) returns (ServiceGoodsDetailResponse) {}
+  rpc UpdateServiceConf(UpdateServiceConfRequest) returns (ServiceConfResponse) {}
+  rpc UpdateServiceConfWarehouse(UpdateServiceConfWarehouseRequest) returns (ServiceConfWarehouseResponse) {}
+  rpc UpdateServiceReason(UpdateServiceReasonRequest) returns (ServiceReasonResponse) {}
+}
+
+message BulkCreateGoodsDeliverListRequest {
+  repeated BulkCreateGoodsDeliverRequest results = 1;
+  int32 count = 2;
+}
+
+message BulkCreateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  bool can_edit = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  double share_amount = 9;
+  optional double debit_amount = 10;
+  optional int32 price_nut = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 status = 14;
+  optional int32 refund_status = 15;
+  optional string goods_id = 16;
+  optional string goods_name = 17;
+  optional string goods_spu = 18;
+  optional string goods_no = 19;
+  string spec_no = 20;
+  optional string spec_name = 21;
+  optional string rfid_code = 22;
+  optional string security_code = 23;
+  optional string remark = 24;
+  optional string memo = 25;
+  optional int64 service = 26;
+}
+
+message CreateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  bool can_edit = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  double share_amount = 9;
+  optional double debit_amount = 10;
+  optional int32 price_nut = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 status = 14;
+  optional int32 refund_status = 15;
+  optional string goods_id = 16;
+  optional string goods_name = 17;
+  optional string goods_spu = 18;
+  optional string goods_no = 19;
+  string spec_no = 20;
+  optional string spec_name = 21;
+  optional string rfid_code = 22;
+  optional string security_code = 23;
+  optional string remark = 24;
+  optional string memo = 25;
+  optional int64 service = 26;
+}
+
+message CreateServiceConfRequest {
+  int32 id = 1;
+  string filters = 2;
+  string plat_name = 3;
+  int32 trade_type = 4;
+  int32 type = 5;
+  optional string conf_name = 6;
+}
+
+message CreateServiceConfWarehouseRequest {
+  int32 id = 1;
+  string filters = 2;
+  string shop_no = 3;
+  string shop_name = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  int32 confirm_overtime = 7;
+  int32 finish_overtime = 8;
+  int32 expire_time = 9;
+  bool auto_approve = 10;
+  bool can_return = 11;
+  optional string warehouse_in_no = 12;
+  optional string warehouse_in_name = 13;
+  optional int32 operator_id = 14;
+  optional string operator_name = 15;
+  int64 parent = 16;
+}
+
+message CreateServiceReasonRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 trade_type = 3;
+  optional int32 reason_type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  optional bool with_remark = 8;
+  bool is_valid = 9;
+  optional bool is_reserved = 10;
+  optional int64 parent = 11;
+}
+
 message CtmVendorAddrCreateRequest {
   int32 id = 1;
   string receiver_province = 3;
@@ -487,6 +642,22 @@ message DeliverNoticeSupplierTradeProcessRequest {
   string rfid_user = 3;
 }
 
+message DestroyGoodsDeliverRequest {
+  int32 id = 1;
+}
+
+message DestroyServiceConfRequest {
+  int32 id = 1;
+}
+
+message DestroyServiceConfWarehouseRequest {
+  int32 id = 1;
+}
+
+message DestroyServiceReasonRequest {
+  int32 id = 1;
+}
+
 message IntegerChoiceResponse {
   int32 value = 1;
   string label = 2;
@@ -644,6 +815,63 @@ message KeyVendorUpdateRequest {
   string filters = 20;
 }
 
+message LabelNumberValueListResponse {
+  repeated LabelNumberValueResponse results = 1;
+  int32 count = 2;
+}
+
+message LabelNumberValueResponse {
+  int32 value = 1;
+  optional string label = 2;
+  optional int32 count = 3;
+}
+
+message ListGoodsDeliverRequest {
+  string filters = 1;
+}
+
+message ListServiceConfRequest {
+  int32 id = 1;
+  string filters = 2;
+  string plat_name = 3;
+  int32 trade_type = 4;
+  int32 type = 5;
+  optional string conf_name = 6;
+}
+
+message ListServiceConfWarehouseRequest {
+  int32 id = 1;
+  string filters = 2;
+  string shop_no = 3;
+  string shop_name = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  int32 confirm_overtime = 7;
+  int32 finish_overtime = 8;
+  int32 expire_time = 9;
+  bool auto_approve = 10;
+  bool can_return = 11;
+  optional string warehouse_in_no = 12;
+  optional string warehouse_in_name = 13;
+  optional int32 operator_id = 14;
+  optional string operator_name = 15;
+  int64 parent = 16;
+}
+
+message ListServiceReasonRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 trade_type = 3;
+  optional int32 reason_type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  optional bool with_remark = 8;
+  bool is_valid = 9;
+  optional bool is_reserved = 10;
+  optional int64 parent = 11;
+}
+
 message NoticeNextDidRequest {
 }
 
@@ -664,6 +892,57 @@ message NoticeStatusCountRequest {
 message NoticeStatusCountResponse {
   int32 count = 2;
   int32 notice_status = 3;
+}
+
+message ObjectComplainRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string goods_id = 3;
+  optional string goods_name = 4;
+  optional string goods_spu = 5;
+  optional string goods_no = 6;
+  optional string spec_no = 7;
+  optional string spec_name = 8;
+  optional string rfid_code = 9;
+  optional string security_code = 10;
+  optional string platform_order = 11;
+  optional string oms_order = 12;
+  optional string platform_refund = 13;
+  optional string oms_refund = 14;
+  optional string parts_code = 15;
+  optional string parts_name = 16;
+  optional string complain_reasons = 17;
+  optional string complain_desc = 18;
+  optional string media_path = 19;
+  optional int64 service = 20;
+  optional string oms_purchase = 21;
+  optional string complain_reasons_code = 22;
+}
+
+message ObjectComplainResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string goods_id = 4;
+  optional string goods_name = 5;
+  optional string goods_spu = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string spec_name = 9;
+  optional string rfid_code = 10;
+  optional string security_code = 11;
+  optional string platform_order = 12;
+  optional string oms_order = 13;
+  optional string platform_refund = 14;
+  optional string oms_refund = 15;
+  optional string parts_code = 16;
+  optional string parts_name = 17;
+  optional string complain_reasons = 18;
+  optional string complain_desc = 19;
+  optional string media_path = 20;
+  optional int64 service = 21;
+  optional string oms_purchase = 22;
+  optional string complain_reasons_code = 23;
 }
 
 message PurchaseDetailResponse {
@@ -818,6 +1097,725 @@ message PurchaseOrderResponse {
   optional int32 note_count = 47;
   optional string prop_time1 = 48;
   repeated PurchaseDetailResponse purchase_details = 49;
+}
+
+message QualityReturnGoodsModelDestroyRequest {
+  int32 id = 1;
+}
+
+message QualityReturnGoodsModelListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  string quality_goods = 4;
+  string quality_spec = 5;
+  string quality_epc = 6;
+  string warehouse_no = 7;
+  string quality_user = 8;
+  optional string quality_remark = 9;
+  bool is_revoked = 10;
+  optional string revoke_time = 11;
+  bool is_aggregate = 12;
+  optional string agg_trade_no = 13;
+  int64 result = 14;
+}
+
+message QualityReturnGoodsModelListResponse {
+  repeated QualityReturnGoodsModelResponse results = 1;
+  int32 count = 2;
+}
+
+message QualityReturnGoodsModelPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  repeated string _partial_update_fields = 4;
+  string quality_goods = 5;
+  string quality_spec = 6;
+  string quality_epc = 7;
+  string warehouse_no = 8;
+  string quality_user = 9;
+  optional string quality_remark = 10;
+  bool is_revoked = 11;
+  optional string revoke_time = 12;
+  bool is_aggregate = 13;
+  optional string agg_trade_no = 14;
+  int64 result = 15;
+}
+
+message QualityReturnGoodsModelRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  string quality_goods = 4;
+  string quality_spec = 5;
+  string quality_epc = 6;
+  string warehouse_no = 7;
+  string quality_user = 8;
+  optional string quality_remark = 9;
+  bool is_revoked = 10;
+  optional string revoke_time = 11;
+  bool is_aggregate = 12;
+  optional string agg_trade_no = 13;
+  int64 result = 14;
+}
+
+message QualityReturnGoodsModelResponse {
+  int32 id = 1;
+  int32 quality_result = 2;
+  string quality_result_name = 3;
+  string quality_goods = 4;
+  string quality_spec = 5;
+  string quality_epc = 6;
+  string warehouse_no = 7;
+  string quality_time = 8;
+  string quality_user = 9;
+  optional string quality_remark = 10;
+  bool is_revoked = 11;
+  optional string revoke_time = 12;
+  bool is_aggregate = 13;
+  optional string agg_trade_no = 14;
+  int64 result = 15;
+}
+
+message QualityReturnGoodsModelRetrieveRequest {
+  int32 id = 1;
+}
+
+message QualityReturnWarehouseCreateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  string warehouse_name = 4;
+  string warehouse_no = 5;
+  int32 warehouse_type = 6;
+  optional string quality_config_remark = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+}
+
+message QualityReturnWarehouseDestroyRequest {
+  int32 id = 1;
+}
+
+message QualityReturnWarehouseListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  string warehouse_name = 4;
+  string warehouse_no = 5;
+  int32 warehouse_type = 6;
+  optional string quality_config_remark = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+}
+
+message QualityReturnWarehouseModelListResponse {
+  repeated QualityReturnWarehouseModelResponse results = 1;
+  int32 count = 2;
+}
+
+message QualityReturnWarehouseModelResponse {
+  int32 id = 1;
+  int32 quality_result = 2;
+  string warehouse_name = 3;
+  string warehouse_no = 4;
+  int32 warehouse_type = 5;
+  optional string quality_config_remark = 6;
+  optional int32 operator_id = 7;
+  optional string operator_name = 8;
+  string create_time = 9;
+  string update_time = 10;
+  string quality_result_name = 11;
+}
+
+message QualityReturnWarehouseUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 quality_result = 3;
+  string warehouse_name = 4;
+  string warehouse_no = 5;
+  int32 warehouse_type = 6;
+  optional string quality_config_remark = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+  repeated string _partial_update_fields = 10;
+}
+
+message RetrieveGoodsDeliverRequest {
+  int32 id = 1;
+}
+
+message RetrieveServiceConfRequest {
+  int32 id = 1;
+  string filters = 2;
+  string plat_name = 3;
+  int32 trade_type = 4;
+  int32 type = 5;
+  optional string conf_name = 6;
+}
+
+message RetrieveServiceConfWarehouseRequest {
+  int32 id = 1;
+  string filters = 2;
+  string shop_no = 3;
+  string shop_name = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  int32 confirm_overtime = 7;
+  int32 finish_overtime = 8;
+  int32 expire_time = 9;
+  bool auto_approve = 10;
+  bool can_return = 11;
+  optional string warehouse_in_no = 12;
+  optional string warehouse_in_name = 13;
+  optional int32 operator_id = 14;
+  optional string operator_name = 15;
+  int64 parent = 16;
+}
+
+message RetrieveServiceReasonRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 trade_type = 3;
+  optional int32 reason_type = 4;
+  int32 reason_code = 5;
+  string reason_name = 6;
+  optional string reason_desc = 7;
+  optional bool with_remark = 8;
+  bool is_valid = 9;
+  optional bool is_reserved = 10;
+  optional int64 parent = 11;
+}
+
+message RfidQualityOptionsRequest {
+}
+
+message RfidQualityOptionsResponse {
+  repeated IntegerChoiceResponse quality_result = 1;
+}
+
+message ServiceConfListResponse {
+  repeated ServiceConfResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceConfResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string plat_name = 4;
+  int32 trade_type = 5;
+  int32 type = 6;
+  repeated ServiceConfWarehouseResponse warehouse = 7;
+  optional string conf_name = 8;
+  string trade_type_name = 9;
+  string type_name = 10;
+}
+
+message ServiceConfWarehouseListResponse {
+  repeated ServiceConfWarehouseResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceConfWarehouseResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string shop_no = 4;
+  string shop_name = 5;
+  string warehouse_no = 6;
+  string warehouse_name = 7;
+  int32 confirm_overtime = 8;
+  int32 finish_overtime = 9;
+  int32 expire_time = 10;
+  bool auto_approve = 11;
+  bool can_return = 12;
+  optional string warehouse_in_no = 13;
+  optional string warehouse_in_name = 14;
+  optional int32 operator_id = 15;
+  optional string operator_name = 16;
+  int64 parent = 17;
+}
+
+message ServiceDestroyRequest {
+  int32 id = 1;
+}
+
+message ServiceGoodsDetailListResponse {
+  repeated ServiceGoodsDetailResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceGoodsDetailRequest {
+  int32 id = 1;
+  string filters = 2;
+  bool can_edit = 3;
+  int32 num = 4;
+  double price = 5;
+  double adjust_amount = 6;
+  double discount = 7;
+  double share_discount = 8;
+  double share_amount = 9;
+  optional double debit_amount = 10;
+  optional int32 price_nut = 11;
+  optional int32 price_score = 12;
+  optional int32 price_badge = 13;
+  optional int32 status = 14;
+  optional int32 refund_status = 15;
+  optional string goods_id = 16;
+  optional string goods_name = 17;
+  optional string goods_spu = 18;
+  optional string goods_no = 19;
+  string spec_no = 20;
+  optional string spec_name = 21;
+  optional string rfid_code = 22;
+  optional string security_code = 23;
+  optional string remark = 24;
+  optional string memo = 25;
+  optional int64 service = 26;
+}
+
+message ServiceGoodsDetailResponse {
+  int32 id = 1;
+  string status_name = 2;
+  string refund_status_name = 3;
+  string create_time = 4;
+  string update_time = 5;
+  bool can_edit = 6;
+  int32 num = 7;
+  double price = 8;
+  double adjust_amount = 9;
+  double discount = 10;
+  double share_discount = 11;
+  double share_amount = 12;
+  optional double debit_amount = 13;
+  optional int32 price_nut = 14;
+  optional int32 price_score = 15;
+  optional int32 price_badge = 16;
+  optional int32 status = 17;
+  optional int32 refund_status = 18;
+  optional string goods_id = 19;
+  optional string goods_name = 20;
+  optional string goods_spu = 21;
+  optional string goods_no = 22;
+  string spec_no = 23;
+  optional string spec_name = 24;
+  optional string rfid_code = 25;
+  optional string security_code = 26;
+  optional string remark = 27;
+  optional string memo = 28;
+  optional int64 service = 29;
+}
+
+message ServiceListRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string create_name = 3;
+  optional int32 create_type = 4;
+  optional string approve_time = 5;
+  optional string approve_name = 6;
+  optional string approve_reasons = 7;
+  optional string reject_reasons = 8;
+  optional string cancel_reasons = 9;
+  string sid = 10;
+  optional int32 trade_type = 11;
+  optional int32 type = 12;
+  optional int32 service_status = 13;
+  optional int32 trade_status = 14;
+  optional int32 pay_status = 15;
+  optional string pay_time = 16;
+  optional int32 delivery_term = 17;
+  optional string buyer_nick = 18;
+  optional string buyer_mobile = 19;
+  optional string buyer_message = 20;
+  optional string buyer_label = 21;
+  optional int32 buyer_source = 22;
+  optional string seller_name = 23;
+  optional string seller_memo = 24;
+  optional string shop_no = 25;
+  optional string shop_name = 26;
+  optional string warehouse_no = 27;
+  optional string warehouse_name = 28;
+  optional string receiver_name = 29;
+  optional string receiver_province = 30;
+  optional string receiver_city = 31;
+  optional string receiver_district = 32;
+  optional string receiver_address = 33;
+  optional string receiver_mobile = 34;
+  optional double post_amount = 35;
+  optional double other_amount = 36;
+  optional double ext_cod_fee = 37;
+  optional double paid = 38;
+  optional double cod_amount = 39;
+  optional double receivable = 40;
+  optional double discount = 41;
+  optional int32 invoice_status = 42;
+  optional string logistics_in_name = 43;
+  optional string logistics_in_code = 44;
+  optional string logistics_in_no = 45;
+  optional string warehouse_in_no = 46;
+  optional string warehouse_in_name = 47;
+  optional string outer_no = 48;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 50;
+  repeated ServicePayDetailRequest pay_details = 51;
+  repeated ServiceStockOutRequest stock_out_details = 52;
+  ObjectComplainRequest complain_content = 53;
+  optional int32 record_type = 54;
+}
+
+message ServiceListResponse {
+  repeated ServiceResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceOptionsResponse {
+  repeated LabelNumberValueResponse trade_type = 1;
+  repeated LabelNumberValueResponse type = 2;
+  repeated LabelNumberValueResponse create_type = 3;
+  repeated LabelNumberValueResponse service_status = 4;
+  repeated LabelNumberValueResponse trade_status = 5;
+  repeated LabelNumberValueResponse pay_status = 6;
+  repeated LabelNumberValueResponse reason_type = 7;
+  repeated LabelNumberValueResponse record_type = 8;
+  repeated LabelNumberValueResponse buyer_source = 9;
+}
+
+message ServicePartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string create_name = 4;
+  optional int32 create_type = 5;
+  optional string approve_time = 6;
+  optional string approve_name = 7;
+  optional string approve_reasons = 8;
+  optional string reject_reasons = 9;
+  optional string cancel_reasons = 10;
+  string sid = 11;
+  optional int32 trade_type = 12;
+  optional int32 type = 13;
+  optional int32 service_status = 14;
+  optional int32 trade_status = 15;
+  optional int32 pay_status = 16;
+  optional string pay_time = 17;
+  optional int32 delivery_term = 18;
+  optional string buyer_nick = 19;
+  optional string buyer_mobile = 20;
+  optional string buyer_message = 21;
+  optional string buyer_label = 22;
+  optional int32 buyer_source = 23;
+  optional string seller_name = 24;
+  optional string seller_memo = 25;
+  optional string shop_no = 26;
+  optional string shop_name = 27;
+  optional string warehouse_no = 28;
+  optional string warehouse_name = 29;
+  optional string receiver_name = 30;
+  optional string receiver_province = 31;
+  optional string receiver_city = 32;
+  optional string receiver_district = 33;
+  optional string receiver_address = 34;
+  optional string receiver_mobile = 35;
+  optional double post_amount = 36;
+  optional double other_amount = 37;
+  optional double ext_cod_fee = 38;
+  optional double paid = 39;
+  optional double cod_amount = 40;
+  optional double receivable = 41;
+  optional double discount = 42;
+  optional int32 invoice_status = 43;
+  optional string logistics_in_name = 44;
+  optional string logistics_in_code = 45;
+  optional string logistics_in_no = 46;
+  optional string warehouse_in_no = 47;
+  optional string warehouse_in_name = 48;
+  optional string outer_no = 49;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 51;
+  repeated ServicePayDetailRequest pay_details = 52;
+  repeated ServiceStockOutRequest stock_out_details = 53;
+  ObjectComplainRequest complain_content = 54;
+  optional int32 record_type = 55;
+}
+
+message ServicePayDetailRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prepay_id = 3;
+  optional string prepay_expired = 4;
+  optional string trade_type = 5;
+  optional string trade_state = 6;
+  optional string trade_state_desc = 7;
+  optional string transaction_id = 8;
+  optional string app_id = 9;
+  optional string mch_id = 10;
+  string open_id = 11;
+  optional string out_trade_no = 12;
+  optional string attach = 13;
+  optional int32 total = 14;
+  optional int32 payer_total = 15;
+  optional string currency = 16;
+  optional string bank_type = 17;
+  optional string success_time = 18;
+  optional string out_refund_no = 19;
+  optional string reason = 20;
+  optional int32 refund = 21;
+  optional int32 payer_refund = 22;
+  optional int32 settlement_refund = 23;
+  optional int32 settlement_total = 24;
+  optional int32 discount_refund = 25;
+  optional int32 refund_fee = 26;
+  optional string refund_id = 27;
+  optional string channel = 28;
+  optional string user_received_account = 29;
+  optional string status = 30;
+  optional string cancel_reasons = 31;
+  optional int64 service = 32;
+}
+
+message ServicePayDetailResponse {
+  int32 id = 1;
+  string trade_type_name = 2;
+  string create_time = 3;
+  string update_time = 4;
+  optional string prepay_id = 5;
+  optional string prepay_expired = 6;
+  optional string trade_type = 7;
+  optional string trade_state = 8;
+  optional string trade_state_desc = 9;
+  optional string transaction_id = 10;
+  optional string app_id = 11;
+  optional string mch_id = 12;
+  string open_id = 13;
+  optional string out_trade_no = 14;
+  optional string attach = 15;
+  optional int32 total = 16;
+  optional int32 payer_total = 17;
+  optional string currency = 18;
+  optional string bank_type = 19;
+  optional string success_time = 20;
+  optional string out_refund_no = 21;
+  optional string reason = 22;
+  optional int32 refund = 23;
+  optional int32 payer_refund = 24;
+  optional int32 settlement_refund = 25;
+  optional int32 settlement_total = 26;
+  optional int32 discount_refund = 27;
+  optional int32 refund_fee = 28;
+  optional string refund_id = 29;
+  optional string channel = 30;
+  optional string user_received_account = 31;
+  optional string status = 32;
+  optional string cancel_reasons = 33;
+  optional int64 service = 34;
+}
+
+message ServiceReasonChildrenResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 trade_type = 4;
+  optional int32 reason_type = 5;
+  int32 reason_code = 6;
+  string reason_name = 7;
+  optional string reason_desc = 8;
+  optional bool with_remark = 9;
+  bool is_valid = 10;
+  optional bool is_reserved = 11;
+  optional int64 parent = 12;
+}
+
+message ServiceReasonListResponse {
+  repeated ServiceReasonResponse results = 1;
+  int32 count = 2;
+}
+
+message ServiceReasonResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  int32 trade_type = 4;
+  optional int32 reason_type = 5;
+  int32 reason_code = 6;
+  string reason_name = 7;
+  optional string reason_desc = 8;
+  optional bool with_remark = 9;
+  bool is_valid = 10;
+  optional bool is_reserved = 11;
+  optional int64 parent = 12;
+  repeated ServiceReasonChildrenResponse children = 13;
+}
+
+message ServiceRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string create_name = 3;
+  optional int32 create_type = 4;
+  optional string approve_time = 5;
+  optional string approve_name = 6;
+  optional string approve_reasons = 7;
+  optional string reject_reasons = 8;
+  optional string cancel_reasons = 9;
+  string sid = 10;
+  optional int32 trade_type = 11;
+  optional int32 type = 12;
+  optional int32 service_status = 13;
+  optional int32 trade_status = 14;
+  optional int32 pay_status = 15;
+  optional string pay_time = 16;
+  optional int32 delivery_term = 17;
+  optional string buyer_nick = 18;
+  optional string buyer_mobile = 19;
+  optional string buyer_message = 20;
+  optional string buyer_label = 21;
+  optional int32 buyer_source = 22;
+  optional string seller_name = 23;
+  optional string seller_memo = 24;
+  optional string shop_no = 25;
+  optional string shop_name = 26;
+  optional string warehouse_no = 27;
+  optional string warehouse_name = 28;
+  optional string receiver_name = 29;
+  optional string receiver_province = 30;
+  optional string receiver_city = 31;
+  optional string receiver_district = 32;
+  optional string receiver_address = 33;
+  optional string receiver_mobile = 34;
+  optional double post_amount = 35;
+  optional double other_amount = 36;
+  optional double ext_cod_fee = 37;
+  optional double paid = 38;
+  optional double cod_amount = 39;
+  optional double receivable = 40;
+  optional double discount = 41;
+  optional int32 invoice_status = 42;
+  optional string logistics_in_name = 43;
+  optional string logistics_in_code = 44;
+  optional string logistics_in_no = 45;
+  optional string warehouse_in_no = 46;
+  optional string warehouse_in_name = 47;
+  optional string outer_no = 48;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 50;
+  repeated ServicePayDetailRequest pay_details = 51;
+  repeated ServiceStockOutRequest stock_out_details = 52;
+  ObjectComplainRequest complain_content = 53;
+  optional int32 record_type = 54;
+}
+
+message ServiceResponse {
+  int32 id = 1;
+  string create_type_name = 2;
+  string trade_type_name = 3;
+  string type_name = 4;
+  string service_status_name = 5;
+  string trade_status_name = 6;
+  string pay_status_name = 7;
+  string delivery_term_name = 8;
+  string invoice_status_name = 9;
+  string create_time = 10;
+  string update_time = 11;
+  optional string create_name = 12;
+  optional int32 create_type = 13;
+  optional string approve_time = 14;
+  optional string approve_name = 15;
+  optional string approve_reasons = 16;
+  optional string reject_reasons = 17;
+  optional string cancel_reasons = 18;
+  string sid = 19;
+  optional int32 trade_type = 20;
+  optional int32 type = 21;
+  optional int32 service_status = 22;
+  optional int32 trade_status = 23;
+  optional int32 pay_status = 24;
+  optional string pay_time = 25;
+  optional int32 delivery_term = 26;
+  optional string buyer_nick = 27;
+  optional string buyer_mobile = 28;
+  optional string buyer_message = 29;
+  optional string buyer_label = 30;
+  optional int32 buyer_source = 31;
+  optional string seller_name = 32;
+  optional string seller_memo = 33;
+  optional string shop_no = 34;
+  optional string shop_name = 35;
+  optional string warehouse_no = 36;
+  optional string warehouse_name = 37;
+  optional string receiver_name = 38;
+  optional string receiver_province = 39;
+  optional string receiver_city = 40;
+  optional string receiver_district = 41;
+  optional string receiver_address = 42;
+  optional string receiver_mobile = 43;
+  optional double post_amount = 44;
+  optional double other_amount = 45;
+  optional double ext_cod_fee = 46;
+  optional double paid = 47;
+  optional double cod_amount = 48;
+  optional double receivable = 49;
+  optional double discount = 50;
+  optional int32 invoice_status = 51;
+  optional string logistics_in_name = 52;
+  optional string logistics_in_code = 53;
+  optional string logistics_in_no = 54;
+  optional string warehouse_in_no = 55;
+  optional string warehouse_in_name = 56;
+  optional string outer_no = 57;
+  repeated ServiceGoodsDetailResponse swap_goods_details = 59;
+  repeated ServicePayDetailResponse pay_details = 60;
+  repeated ServiceStockOutResponse stock_out_details = 61;
+  ObjectComplainResponse complain_content = 62;
+  optional int32 record_type = 63;
+  string record_type_name = 64;
+  string buyer_source_name = 65;
+}
+
+message ServiceRetrieveRequest {
+  int32 id = 1;
+}
+
+message ServiceStockOutRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string src_order_no = 3;
+  optional string stock_out_no = 4;
+  optional string order_no = 5;
+  optional string order_type_name = 6;
+  optional string status = 7;
+  optional string logistics_name = 8;
+  optional string logistics_code = 9;
+  optional string logistics_no = 10;
+  optional string consign_time = 11;
+  optional string stock_check_time = 12;
+  optional string modified = 13;
+  optional string goods_no = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string spec_no = 17;
+  double goods_count = 18;
+  optional int64 service = 19;
+}
+
+message ServiceStockOutResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  optional string src_order_no = 4;
+  optional string stock_out_no = 5;
+  optional string order_no = 6;
+  optional string order_type_name = 7;
+  optional string status = 8;
+  optional string logistics_name = 9;
+  optional string logistics_code = 10;
+  optional string logistics_no = 11;
+  optional string consign_time = 12;
+  optional string stock_check_time = 13;
+  optional string modified = 14;
+  optional string goods_no = 15;
+  optional string goods_name = 16;
+  optional string spec_name = 17;
+  optional string spec_no = 18;
+  double goods_count = 19;
+  optional int64 service = 20;
 }
 
 message SupplierTradeCreateRequest {
@@ -1184,6 +2182,176 @@ message TradeGoodsEpcRequest {
   optional string stock_out_text = 2;
   optional string epc_text = 3;
   string warehouse_no = 4;
+}
+
+message UnqualifiedReasonCreateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional string reason_desc = 5;
+  optional bool with_remark = 6;
+  bool is_valid = 7;
+  optional bool is_reserved = 8;
+  optional int32 operator_id = 9;
+  optional string operator_name = 10;
+  optional int64 parent = 11;
+}
+
+message UnqualifiedReasonDestroyRequest {
+  int32 id = 1;
+}
+
+message UnqualifiedReasonListRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional string reason_desc = 5;
+  optional bool with_remark = 6;
+  bool is_valid = 7;
+  optional bool is_reserved = 8;
+  optional int32 operator_id = 9;
+  optional string operator_name = 10;
+  optional int64 parent = 11;
+}
+
+message UnqualifiedReasonModelListResponse {
+  repeated UnqualifiedReasonModelResponse results = 1;
+  int32 count = 2;
+}
+
+message UnqualifiedReasonModelResponse {
+  int32 id = 1;
+  string parent_name = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional string reason_desc = 5;
+  optional bool with_remark = 6;
+  bool is_valid = 7;
+  optional bool is_reserved = 8;
+  optional int32 operator_id = 9;
+  optional string operator_name = 10;
+  string create_time = 11;
+  string update_time = 12;
+  optional int64 parent = 13;
+}
+
+message UnqualifiedReasonUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional string reason_desc = 5;
+  optional bool with_remark = 6;
+  bool is_valid = 7;
+  optional bool is_reserved = 8;
+  optional int32 operator_id = 9;
+  optional string operator_name = 10;
+  optional int64 parent = 11;
+  repeated string _partial_update_fields = 12;
+}
+
+message UpdateGoodsDeliverRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 4;
+  repeated ServicePayDetailRequest pay_details = 5;
+  repeated ServiceStockOutRequest stock_out_details = 6;
+  repeated string _partial_update_fields = 7;
+  optional string create_name = 8;
+  optional int32 create_type = 9;
+  optional string approve_time = 10;
+  optional string approve_name = 11;
+  optional string approve_reasons = 12;
+  optional string reject_reasons = 13;
+  optional string cancel_reasons = 14;
+  string sid = 15;
+  optional int32 trade_type = 16;
+  optional int32 type = 17;
+  optional int32 service_status = 18;
+  optional int32 trade_status = 19;
+  optional int32 pay_status = 20;
+  optional string pay_time = 21;
+  optional int32 delivery_term = 22;
+  optional string buyer_nick = 23;
+  optional string buyer_mobile = 24;
+  optional string buyer_message = 25;
+  optional string buyer_label = 26;
+  optional int32 buyer_source = 27;
+  optional string seller_name = 28;
+  optional string seller_memo = 29;
+  optional string shop_no = 30;
+  optional string shop_name = 31;
+  optional string warehouse_no = 32;
+  optional string warehouse_name = 33;
+  optional string receiver_name = 34;
+  optional string receiver_province = 35;
+  optional string receiver_city = 36;
+  optional string receiver_district = 37;
+  optional string receiver_address = 38;
+  optional string receiver_mobile = 39;
+  optional double post_amount = 40;
+  optional double other_amount = 41;
+  optional double ext_cod_fee = 42;
+  optional double paid = 43;
+  optional double cod_amount = 44;
+  optional double receivable = 45;
+  optional double discount = 46;
+  optional int32 invoice_status = 47;
+  optional string logistics_in_name = 48;
+  optional string logistics_in_code = 49;
+  optional string logistics_in_no = 50;
+  optional string warehouse_in_no = 51;
+  optional string warehouse_in_name = 52;
+  optional string outer_no = 53;
+  ObjectComplainRequest complain_content = 54;
+  optional int32 record_type = 55;
+}
+
+message UpdateServiceConfRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string plat_name = 4;
+  int32 trade_type = 5;
+  int32 type = 6;
+  optional string conf_name = 7;
+}
+
+message UpdateServiceConfWarehouseRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string shop_no = 4;
+  string shop_name = 5;
+  string warehouse_no = 6;
+  string warehouse_name = 7;
+  int32 confirm_overtime = 8;
+  int32 finish_overtime = 9;
+  int32 expire_time = 10;
+  bool auto_approve = 11;
+  bool can_return = 12;
+  optional string warehouse_in_no = 13;
+  optional string warehouse_in_name = 14;
+  optional int32 operator_id = 15;
+  optional string operator_name = 16;
+  int64 parent = 17;
+}
+
+message UpdateServiceReasonRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  int32 trade_type = 4;
+  optional int32 reason_type = 5;
+  int32 reason_code = 6;
+  string reason_name = 7;
+  optional string reason_desc = 8;
+  optional bool with_remark = 9;
+  bool is_valid = 10;
+  optional bool is_reserved = 11;
+  optional int64 parent = 12;
 }
 
 message VendorOperatorCreateRequest {

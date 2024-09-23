@@ -7,6 +7,7 @@ func init() {
 	message = make(map[uint32]string)
 	payState = make(map[string]string)
 	message[OK] = "success"
+	message[PARAM_MISS] = "参数错误"
 
 	/**(API 文件上传 upload服务 相关错误码)**/
 	message[XORM_FILE_DB_CREATE_FAIL] = "xorm文件登记数据库新增错误"
@@ -160,7 +161,8 @@ func init() {
 	message[BRAND_ACTIVITY_NOT_START] = "活动尚未开始，敬请期待"
 	message[BRAND_ACTIVITY_NOT_AVAILABLE] = "活动已停止报名"
 	message[BRAND_ACTIVITY_EXPIRED] = "活动已结束"
-	message[BRAND_BACTIVITY_ACCEPTED] = "您已领取该活动卡券，，请前往权益卡列表查看"
+	message[BRAND_BACTIVITY_ACCEPTED] = "您已领取该活动卡券，请前往卡包查看"
+	message[BRAND_BACTIVITY_ACCEPTED_OTHER] = "卡券已被领取"
 	message[BRAND_ACTIVITY_FINISHED] = "手慢了，卡券已被领取完"
 
 	// 产品相关

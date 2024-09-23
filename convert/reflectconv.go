@@ -177,3 +177,42 @@ func RemoveEmoji(s string) string {
 	}
 	return result
 }
+
+// HandleFilter 处理筛选项
+func HandleFilter(req interface{}, tag string) (filterStr string) {
+	rpcFilterData := make(map[string]string)
+	reqValue := reflect.ValueOf(req).Elem()
+	reqType := reqValue.Type()
+	for i := 0; i < reqType.NumField(); i++ {
+		// 仅处理可选的 筛选参数
+		fTag := strings.Split(reqType.Field(i).Tag.Get(tag), ",")[0]
+		if fTag != "" {
+			if reqValue.Field(i).Kind() == reflect.Ptr {
+				if reqValue.Field(i).Elem().Kind() == reflect.String {
+					rpcFilterData[fTag] = reqValue.Field(i).Elem().String()
+				} else if reqValue.Field(i).Elem().Kind() == reflect.Int32 {
+					rpcFilterData[fTag] = strconv.FormatInt(reqValue.Field(i).Elem().Int(), 10)
+				} else if reqValue.Field(i).Elem().Kind() == reflect.Int64 {
+					rpcFilterData[fTag] = strconv.FormatInt(reqValue.Field(i).Elem().Int(), 10)
+				} else if reqValue.Field(i).Elem().Kind() == reflect.Bool {
+					bJson, _ := json.Marshal(reqValue.Field(i).Elem().Bool())
+					rpcFilterData[fTag] = string(bJson)
+				}
+			} else {
+				if reqValue.Field(i).Type().Kind() == reflect.String {
+					rpcFilterData[fTag] = reqValue.Field(i).String()
+				} else if reqValue.Field(i).Type().Kind() == reflect.Int32 {
+					rpcFilterData[fTag] = strconv.FormatInt(reqValue.Field(i).Int(), 10)
+				} else if reqValue.Field(i).Type().Kind() == reflect.Int64 {
+					rpcFilterData[fTag] = strconv.FormatInt(reqValue.Field(i).Int(), 10)
+				} else if reqValue.Field(i).Type().Kind() == reflect.Bool {
+					bJson, _ := json.Marshal(reqValue.Field(i).Bool())
+					rpcFilterData[fTag] = string(bJson)
+				}
+			}
+		}
+	}
+	jsonFilterData, _ := json.Marshal(rpcFilterData)
+	filterStr = string(jsonFilterData)
+	return filterStr
+}
