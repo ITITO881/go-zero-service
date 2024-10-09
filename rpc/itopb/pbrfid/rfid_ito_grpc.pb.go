@@ -2147,18 +2147,21 @@ var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	GoodsQualityController_Create_FullMethodName                        = "/rfid_service.rfid_ito.GoodsQualityController/Create"
+	GoodsQualityController_CreateQualityReturnGoods_FullMethodName      = "/rfid_service.rfid_ito.GoodsQualityController/CreateQualityReturnGoods"
 	GoodsQualityController_CreateQualityReturnWarehouse_FullMethodName  = "/rfid_service.rfid_ito.GoodsQualityController/CreateQualityReturnWarehouse"
 	GoodsQualityController_CreateUnqualifiedReason_FullMethodName       = "/rfid_service.rfid_ito.GoodsQualityController/CreateUnqualifiedReason"
 	GoodsQualityController_Destroy_FullMethodName                       = "/rfid_service.rfid_ito.GoodsQualityController/Destroy"
 	GoodsQualityController_DestroyQualityReturnWarehouse_FullMethodName = "/rfid_service.rfid_ito.GoodsQualityController/DestroyQualityReturnWarehouse"
 	GoodsQualityController_DestroyUnqualifiedReason_FullMethodName      = "/rfid_service.rfid_ito.GoodsQualityController/DestroyUnqualifiedReason"
 	GoodsQualityController_List_FullMethodName                          = "/rfid_service.rfid_ito.GoodsQualityController/List"
+	GoodsQualityController_ListQualityReturnGoods_FullMethodName        = "/rfid_service.rfid_ito.GoodsQualityController/ListQualityReturnGoods"
 	GoodsQualityController_ListQualityReturnWarehouse_FullMethodName    = "/rfid_service.rfid_ito.GoodsQualityController/ListQualityReturnWarehouse"
 	GoodsQualityController_ListUnqualifiedReason_FullMethodName         = "/rfid_service.rfid_ito.GoodsQualityController/ListUnqualifiedReason"
 	GoodsQualityController_PartialUpdate_FullMethodName                 = "/rfid_service.rfid_ito.GoodsQualityController/PartialUpdate"
 	GoodsQualityController_Retrieve_FullMethodName                      = "/rfid_service.rfid_ito.GoodsQualityController/Retrieve"
 	GoodsQualityController_RfidQualityOptions_FullMethodName            = "/rfid_service.rfid_ito.GoodsQualityController/RfidQualityOptions"
 	GoodsQualityController_Update_FullMethodName                        = "/rfid_service.rfid_ito.GoodsQualityController/Update"
+	GoodsQualityController_UpdateQualityReturnGoods_FullMethodName      = "/rfid_service.rfid_ito.GoodsQualityController/UpdateQualityReturnGoods"
 	GoodsQualityController_UpdateQualityReturnWarehouse_FullMethodName  = "/rfid_service.rfid_ito.GoodsQualityController/UpdateQualityReturnWarehouse"
 	GoodsQualityController_UpdateUnqualifiedReason_FullMethodName       = "/rfid_service.rfid_ito.GoodsQualityController/UpdateUnqualifiedReason"
 )
@@ -2168,18 +2171,21 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GoodsQualityControllerClient interface {
 	Create(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	CreateQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsCreateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
 	CreateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseCreateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error)
 	CreateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonCreateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error)
 	Destroy(ctx context.Context, in *QualityReturnGoodsModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *QualityReturnGoodsModelListRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelListResponse, error)
+	ListQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsListRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelListResponse, error)
 	ListQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseListRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelListResponse, error)
 	ListUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonListRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelListResponse, error)
 	PartialUpdate(ctx context.Context, in *QualityReturnGoodsModelPartialUpdateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
 	Retrieve(ctx context.Context, in *QualityReturnGoodsModelRetrieveRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
 	RfidQualityOptions(ctx context.Context, in *RfidQualityOptionsRequest, opts ...grpc.CallOption) (*RfidQualityOptionsResponse, error)
 	Update(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
+	UpdateQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsUpdateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error)
 	UpdateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseUpdateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error)
 	UpdateUnqualifiedReason(ctx context.Context, in *UnqualifiedReasonUpdateRequest, opts ...grpc.CallOption) (*UnqualifiedReasonModelResponse, error)
 }
@@ -2195,6 +2201,15 @@ func NewGoodsQualityControllerClient(cc grpc.ClientConnInterface) GoodsQualityCo
 func (c *goodsQualityControllerClient) Create(ctx context.Context, in *QualityReturnGoodsModelRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
 	out := new(QualityReturnGoodsModelResponse)
 	err := c.cc.Invoke(ctx, GoodsQualityController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *goodsQualityControllerClient) CreateQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsCreateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_CreateQualityReturnGoods_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2255,6 +2270,15 @@ func (c *goodsQualityControllerClient) List(ctx context.Context, in *QualityRetu
 	return out, nil
 }
 
+func (c *goodsQualityControllerClient) ListQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsListRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelListResponse, error) {
+	out := new(QualityReturnGoodsModelListResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_ListQualityReturnGoods_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *goodsQualityControllerClient) ListQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseListRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelListResponse, error) {
 	out := new(QualityReturnWarehouseModelListResponse)
 	err := c.cc.Invoke(ctx, GoodsQualityController_ListQualityReturnWarehouse_FullMethodName, in, out, opts...)
@@ -2309,6 +2333,15 @@ func (c *goodsQualityControllerClient) Update(ctx context.Context, in *QualityRe
 	return out, nil
 }
 
+func (c *goodsQualityControllerClient) UpdateQualityReturnGoods(ctx context.Context, in *QualityReturnGoodsUpdateRequest, opts ...grpc.CallOption) (*QualityReturnGoodsModelResponse, error) {
+	out := new(QualityReturnGoodsModelResponse)
+	err := c.cc.Invoke(ctx, GoodsQualityController_UpdateQualityReturnGoods_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *goodsQualityControllerClient) UpdateQualityReturnWarehouse(ctx context.Context, in *QualityReturnWarehouseUpdateRequest, opts ...grpc.CallOption) (*QualityReturnWarehouseModelResponse, error) {
 	out := new(QualityReturnWarehouseModelResponse)
 	err := c.cc.Invoke(ctx, GoodsQualityController_UpdateQualityReturnWarehouse_FullMethodName, in, out, opts...)
@@ -2332,18 +2365,21 @@ func (c *goodsQualityControllerClient) UpdateUnqualifiedReason(ctx context.Conte
 // for forward compatibility
 type GoodsQualityControllerServer interface {
 	Create(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error)
+	CreateQualityReturnGoods(context.Context, *QualityReturnGoodsCreateRequest) (*QualityReturnGoodsModelResponse, error)
 	CreateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseCreateRequest) (*QualityReturnWarehouseModelResponse, error)
 	CreateUnqualifiedReason(context.Context, *UnqualifiedReasonCreateRequest) (*UnqualifiedReasonModelResponse, error)
 	Destroy(context.Context, *QualityReturnGoodsModelDestroyRequest) (*emptypb.Empty, error)
 	DestroyQualityReturnWarehouse(context.Context, *QualityReturnWarehouseDestroyRequest) (*emptypb.Empty, error)
 	DestroyUnqualifiedReason(context.Context, *UnqualifiedReasonDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *QualityReturnGoodsModelListRequest) (*QualityReturnGoodsModelListResponse, error)
+	ListQualityReturnGoods(context.Context, *QualityReturnGoodsListRequest) (*QualityReturnGoodsModelListResponse, error)
 	ListQualityReturnWarehouse(context.Context, *QualityReturnWarehouseListRequest) (*QualityReturnWarehouseModelListResponse, error)
 	ListUnqualifiedReason(context.Context, *UnqualifiedReasonListRequest) (*UnqualifiedReasonModelListResponse, error)
 	PartialUpdate(context.Context, *QualityReturnGoodsModelPartialUpdateRequest) (*QualityReturnGoodsModelResponse, error)
 	Retrieve(context.Context, *QualityReturnGoodsModelRetrieveRequest) (*QualityReturnGoodsModelResponse, error)
 	RfidQualityOptions(context.Context, *RfidQualityOptionsRequest) (*RfidQualityOptionsResponse, error)
 	Update(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error)
+	UpdateQualityReturnGoods(context.Context, *QualityReturnGoodsUpdateRequest) (*QualityReturnGoodsModelResponse, error)
 	UpdateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseUpdateRequest) (*QualityReturnWarehouseModelResponse, error)
 	UpdateUnqualifiedReason(context.Context, *UnqualifiedReasonUpdateRequest) (*UnqualifiedReasonModelResponse, error)
 	mustEmbedUnimplementedGoodsQualityControllerServer()
@@ -2355,6 +2391,9 @@ type UnimplementedGoodsQualityControllerServer struct {
 
 func (UnimplementedGoodsQualityControllerServer) Create(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) CreateQualityReturnGoods(context.Context, *QualityReturnGoodsCreateRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateQualityReturnGoods not implemented")
 }
 func (UnimplementedGoodsQualityControllerServer) CreateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseCreateRequest) (*QualityReturnWarehouseModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateQualityReturnWarehouse not implemented")
@@ -2374,6 +2413,9 @@ func (UnimplementedGoodsQualityControllerServer) DestroyUnqualifiedReason(contex
 func (UnimplementedGoodsQualityControllerServer) List(context.Context, *QualityReturnGoodsModelListRequest) (*QualityReturnGoodsModelListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
+func (UnimplementedGoodsQualityControllerServer) ListQualityReturnGoods(context.Context, *QualityReturnGoodsListRequest) (*QualityReturnGoodsModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListQualityReturnGoods not implemented")
+}
 func (UnimplementedGoodsQualityControllerServer) ListQualityReturnWarehouse(context.Context, *QualityReturnWarehouseListRequest) (*QualityReturnWarehouseModelListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListQualityReturnWarehouse not implemented")
 }
@@ -2391,6 +2433,9 @@ func (UnimplementedGoodsQualityControllerServer) RfidQualityOptions(context.Cont
 }
 func (UnimplementedGoodsQualityControllerServer) Update(context.Context, *QualityReturnGoodsModelRequest) (*QualityReturnGoodsModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedGoodsQualityControllerServer) UpdateQualityReturnGoods(context.Context, *QualityReturnGoodsUpdateRequest) (*QualityReturnGoodsModelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateQualityReturnGoods not implemented")
 }
 func (UnimplementedGoodsQualityControllerServer) UpdateQualityReturnWarehouse(context.Context, *QualityReturnWarehouseUpdateRequest) (*QualityReturnWarehouseModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateQualityReturnWarehouse not implemented")
@@ -2426,6 +2471,24 @@ func _GoodsQualityController_Create_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GoodsQualityControllerServer).Create(ctx, req.(*QualityReturnGoodsModelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GoodsQualityController_CreateQualityReturnGoods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).CreateQualityReturnGoods(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_CreateQualityReturnGoods_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).CreateQualityReturnGoods(ctx, req.(*QualityReturnGoodsCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2538,6 +2601,24 @@ func _GoodsQualityController_List_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GoodsQualityController_ListQualityReturnGoods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).ListQualityReturnGoods(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_ListQualityReturnGoods_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).ListQualityReturnGoods(ctx, req.(*QualityReturnGoodsListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GoodsQualityController_ListQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QualityReturnWarehouseListRequest)
 	if err := dec(in); err != nil {
@@ -2646,6 +2727,24 @@ func _GoodsQualityController_Update_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GoodsQualityController_UpdateQualityReturnGoods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QualityReturnGoodsUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GoodsQualityControllerServer).UpdateQualityReturnGoods(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GoodsQualityController_UpdateQualityReturnGoods_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GoodsQualityControllerServer).UpdateQualityReturnGoods(ctx, req.(*QualityReturnGoodsUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GoodsQualityController_UpdateQualityReturnWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QualityReturnWarehouseUpdateRequest)
 	if err := dec(in); err != nil {
@@ -2694,6 +2793,10 @@ var GoodsQualityController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GoodsQualityController_Create_Handler,
 		},
 		{
+			MethodName: "CreateQualityReturnGoods",
+			Handler:    _GoodsQualityController_CreateQualityReturnGoods_Handler,
+		},
+		{
 			MethodName: "CreateQualityReturnWarehouse",
 			Handler:    _GoodsQualityController_CreateQualityReturnWarehouse_Handler,
 		},
@@ -2718,6 +2821,10 @@ var GoodsQualityController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GoodsQualityController_List_Handler,
 		},
 		{
+			MethodName: "ListQualityReturnGoods",
+			Handler:    _GoodsQualityController_ListQualityReturnGoods_Handler,
+		},
+		{
 			MethodName: "ListQualityReturnWarehouse",
 			Handler:    _GoodsQualityController_ListQualityReturnWarehouse_Handler,
 		},
@@ -2740,6 +2847,10 @@ var GoodsQualityController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Update",
 			Handler:    _GoodsQualityController_Update_Handler,
+		},
+		{
+			MethodName: "UpdateQualityReturnGoods",
+			Handler:    _GoodsQualityController_UpdateQualityReturnGoods_Handler,
 		},
 		{
 			MethodName: "UpdateQualityReturnWarehouse",

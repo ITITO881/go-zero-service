@@ -198,7 +198,7 @@ func HandleFilter(req interface{}, tag string) (filterStr string) {
 					bJson, _ := json.Marshal(reqValue.Field(i).Elem().Bool())
 					rpcFilterData[fTag] = string(bJson)
 				}
-			} else {
+			} else if !reqValue.Field(i).IsZero() {
 				if reqValue.Field(i).Type().Kind() == reflect.String {
 					rpcFilterData[fTag] = reqValue.Field(i).String()
 				} else if reqValue.Field(i).Type().Kind() == reflect.Int32 {

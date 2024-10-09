@@ -786,6 +786,9 @@ message RelProdRepairsResponse {
   optional int32 parts_num = 2;
   optional string remarks = 3;
   ProductResponse prod_parts = 6;
+  ProductResponse prod = 7;
+  optional string create_time = 8;
+  optional string update_time = 9;
 }
 
 message RelProdRepairsRetrieveRequest {
