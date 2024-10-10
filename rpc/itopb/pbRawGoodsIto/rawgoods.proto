@@ -1,0 +1,930 @@
+syntax = "proto3";
+
+package product_service.prod_ito;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "../pbRawGoodsIto";
+
+service ProdPropertiesController {
+  rpc List(ProdPropertiesListRequest) returns (ProdPropertiesListResponse) {}
+}
+
+service ProdRepairsController {
+  rpc Create(RepairPartsRequest) returns (RepairPartsResponse) {}
+  rpc Destroy(RepairPartsDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc GetRepairPartsCatChoice(RepairPartsCatChoiceRequest) returns (RepairPartsCatChoiceListResponse) {}
+  rpc List(RepairPartsListRequest) returns (RepairPartsListResponse) {}
+  rpc PartialUpdate(RepairPartsPartialUpdateRequest) returns (RepairPartsResponse) {}
+  rpc RepairPartsBulkUpdate(RepairPartsBulkUpdateRequest) returns (RepairPartsBulkUpdateResponse) {}
+  rpc Retrieve(RepairPartsRetrieveRequest) returns (RepairPartsResponse) {}
+  rpc Update(RepairPartsRequest) returns (RepairPartsResponse) {}
+}
+
+service ProdRepairsRelationController {
+  rpc BulkCreate(RelProdRepairsBulkCreateListRequest) returns (RelProdRepairsBulkCreateResponse) {}
+  rpc Create(RelProdRepairsRequest) returns (RelProdRepairsResponse) {}
+  rpc Destroy(RelProdRepairsDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc GetProdCode(ProductRequest) returns (ProductListResponse) {}
+  rpc List(RelProdRepairsListRequest) returns (RelProdRepairsListResponse) {}
+  rpc PartialUpdate(RelProdRepairsPartialUpdateRequest) returns (RelProdRepairsResponse) {}
+  rpc ProdSeriesRepairs(ProdSeriesRepairsRequest) returns (ProdSeriesRepairsListResponse) {}
+  rpc Retrieve(RelProdRepairsRetrieveRequest) returns (RelProdRepairsResponse) {}
+  rpc Update(RelProdRepairsRequest) returns (RelProdRepairsResponse) {}
+}
+
+service ProductController {
+  rpc Create(ProductModelRequest) returns (ProductModelResponse) {}
+  rpc Destroy(ProductModelDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ProductModelListRequest) returns (ProductModelListResponse) {}
+  rpc PartialUpdate(ProductModelPartialUpdateRequest) returns (ProductModelResponse) {}
+  rpc Retrieve(ProductModelRetrieveRequest) returns (ProductModelResponse) {}
+  rpc Update(ProductModelRequest) returns (ProductModelResponse) {}
+}
+
+service WorkshopController {
+  rpc ClubSkuCreate(ClubProductRequest) returns (ClubProductResponse) {}
+  rpc ClubSkuDestroy(ClubProductDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ClubSkuList(ClubProductRequest) returns (ClubProductListResponse) {}
+  rpc ClubSkuRetrieve(ClubProductRetrieveRequest) returns (ClubProductResponse) {}
+  rpc ClubSkuUpdate(ClubProductUpdateRequest) returns (ClubProductResponse) {}
+  rpc ClubSpuCreate(ClubProductSpuRequest) returns (ClubProductSpuResponse) {}
+  rpc ClubSpuDestroy(ClubProductSpuDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ClubSpuList(ClubProductSpuRequest) returns (ClubProductSpuListResponse) {}
+  rpc ClubSpuUpdate(ClubProductSpuUpdateRequest) returns (ClubProductSpuResponse) {}
+  rpc ClubSpuValues(ValuesListRequest) returns (WorkshopClubSpuValuesResponse) {}
+  rpc ClubWorkshopCreate(ClubWorkshopRequest) returns (ClubWorkshopResponse) {}
+  rpc ClubWorkshopDestroy(ClubWorkshopDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ClubWorkshopList(ClubWorkshopRequest) returns (ClubWorkshopListResponse) {}
+  rpc ClubWorkshopRetrieve(ClubWorkshopRetrieveRequest) returns (ClubWorkshopResponse) {}
+  rpc ClubWorkshopUpdate(ClubWorkshopUpdateRequest) returns (ClubWorkshopResponse) {}
+  rpc Create(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
+  rpc CreateList(ProdWorkshopListRequest) returns (ProdWorkshopListResponse) {}
+  rpc Destroy(ProdWorkshopDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc FilterRetrieve(ProdWorkshopPartRequest) returns (ProdWorkshopPartResponse) {}
+  rpc List(ProdWorkshopPartListRequest) returns (ProdWorkshopPartListResponse) {}
+  rpc PartialUpdate(ProdWorkshopPartialUpdateRequest) returns (ProdWorkshopResponse) {}
+  rpc Properties(ProdWorkshopPartRequest) returns (WorkshopPropertiesListResponse) {}
+  rpc Retrieve(ProdWorkshopRetrieveRequest) returns (ProdWorkshopResponse) {}
+  rpc SkuSpareParts(RawSkuSparePartsRequest) returns (RawSkuSparePartsListResponse) {}
+  rpc SpuProperties(ProdWorkshopPartRequest) returns (WorkshopSpuListResponse) {}
+  rpc Update(ProdWorkshopRequest) returns (ProdWorkshopResponse) {}
+  rpc WorkshopColorList(WorkshopColorRequest) returns (WorkshopColorListResponse) {}
+  rpc WorkshopConfigList(WorkshopConfigRequest) returns (WorkshopConfigListResponse) {}
+}
+
+message ClubProductDestroyRequest {
+  int32 id = 1;
+}
+
+message ClubProductListResponse {
+  repeated ClubProductResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubProductRequest {
+  string filters = 1;
+  int32 id = 2;
+  optional string color = 6;
+  optional string color_rgb = 7;
+  optional string size = 8;
+  optional string stripe = 9;
+  optional string head_img = 10;
+  bool bindable = 12;
+  bool customizable = 13;
+  int32 renew_time = 14;
+  int32 repair_time = 15;
+  optional string renew_time_unit = 16;
+  optional string repair_time_unit = 17;
+  optional int32 sort = 18;
+  int64 spu = 19;
+  string prod = 20;
+  repeated int64 workshop_color = 21;
+  bool recyclable = 22;
+  bool with_gifts = 23;
+  optional string feature = 24;
+}
+
+message ClubProductResponse {
+  int32 id = 1;
+  string prod_cat = 2;
+  string spu_name = 3;
+  string alias = 4;
+  string prod_code = 5;
+  string origin_cat = 6;
+  string full_name = 7;
+  optional string color = 8;
+  optional string color_rgb = 9;
+  optional string size = 10;
+  optional string stripe = 11;
+  optional string head_img = 12;
+  bool bindable = 14;
+  bool customizable = 15;
+  int32 renew_time = 16;
+  int32 repair_time = 17;
+  optional string renew_time_unit = 18;
+  optional string repair_time_unit = 19;
+  optional int32 sort = 20;
+  string create_time = 21;
+  string update_time = 22;
+  int64 spu = 23;
+  string prod = 24;
+  string prod_image = 25;
+  repeated int64 workshop_color = 26;
+  repeated WorkshopColorResponse workshop_colors = 27;
+  int32 print_way = 28;
+  string sku = 29;
+  bool recyclable = 30;
+  bool with_gifts = 31;
+  optional string feature = 32;
+}
+
+message ClubProductRetrieveRequest {
+  int32 id = 1;
+}
+
+message ClubProductSpuDestroyRequest {
+  int32 id = 1;
+}
+
+message ClubProductSpuListResponse {
+  repeated ClubProductSpuResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubProductSpuRequest {
+  string filters = 1;
+  int32 id = 2;
+  string prod_cat = 3;
+  optional string origin_cat = 4;
+  string spu_name = 5;
+  optional string alias = 6;
+  bool is_valid = 7;
+  bool bindable = 8;
+  bool customizable = 9;
+  int32 sort = 10;
+  int32 print_way = 11;
+}
+
+message ClubProductSpuResponse {
+  int32 id = 1;
+  repeated string color = 2;
+  repeated string color_rgb = 3;
+  repeated string size = 4;
+  repeated string stripe = 5;
+  repeated ClubProductResponse prod_skus = 6;
+  string prod_cat = 7;
+  optional string origin_cat = 8;
+  string spu_name = 9;
+  optional string alias = 10;
+  bool is_valid = 11;
+  bool bindable = 12;
+  bool customizable = 13;
+  int32 sort = 14;
+  string create_time = 15;
+  string update_time = 16;
+  int32 print_way = 17;
+  string print_way_name = 18;
+}
+
+message ClubProductSpuUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string prod_cat = 4;
+  optional string origin_cat = 5;
+  string spu_name = 6;
+  optional string alias = 7;
+  bool is_valid = 8;
+  bool bindable = 9;
+  bool customizable = 10;
+  int32 sort = 11;
+  int32 print_way = 12;
+}
+
+message ClubProductUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  optional string color = 7;
+  optional string color_rgb = 8;
+  optional string size = 9;
+  optional string stripe = 10;
+  optional string head_img = 11;
+  bool bindable = 13;
+  bool customizable = 14;
+  int32 renew_time = 15;
+  int32 repair_time = 16;
+  optional string renew_time_unit = 17;
+  optional string repair_time_unit = 18;
+  optional int32 sort = 19;
+  int64 spu = 20;
+  string prod = 21;
+  repeated int64 workshop_color = 22;
+  bool recyclable = 23;
+  bool with_gifts = 24;
+  optional string feature = 25;
+}
+
+message ClubWorkshopDestroyRequest {
+  int32 id = 1;
+}
+
+message ClubWorkshopListResponse {
+  repeated ClubWorkshopResponse results = 1;
+  int32 count = 2;
+}
+
+message ClubWorkshopRequest {
+  string filters = 1;
+  int32 id = 2;
+  int32 prod_id = 3;
+  optional string part_name = 4;
+  bool is_valid = 5;
+  optional string part_image = 6;
+  int32 print_way = 7;
+  optional string font_regular = 8;
+  optional int64 prod = 9;
+}
+
+message ClubWorkshopResponse {
+  int32 id = 1;
+  optional string part_name = 2;
+  bool is_valid = 3;
+  optional string part_image = 4;
+  int32 print_way = 5;
+  string create_time = 6;
+  string update_time = 7;
+  optional int64 prod = 8;
+  string prod_cat = 9;
+  string spu_name = 10;
+  string alias = 11;
+  string print_way_name = 12;
+  optional string font_regular = 13;
+  string sku = 15;
+  int32 prod_id = 16;
+}
+
+message ClubWorkshopRetrieveRequest {
+  int32 id = 1;
+}
+
+message ClubWorkshopUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 prod_id = 3;
+  repeated string _partial_update_fields = 4;
+  optional string part_name = 5;
+  bool is_valid = 6;
+  optional string part_image = 7;
+  int32 print_way = 8;
+  optional string font_regular = 9;
+  optional int64 prod = 10;
+}
+
+message ProdPropertiesListRequest {
+}
+
+message ProdPropertiesListResponse {
+  repeated ProdPropertiesResponse results = 1;
+}
+
+message ProdPropertiesResponse {
+  string col = 1;
+  string property_id = 2;
+  string code = 3;
+  string name = 4;
+}
+
+message ProdSeriesRepairsListResponse {
+  repeated ProdSeriesRepairsResponse results = 1;
+  int32 count = 2;
+}
+
+message ProdSeriesRepairsRequest {
+  int32 id = 1;
+  string prod_model = 2;
+  string prod_color = 3;
+  string prod_code = 4;
+  string prod_barcode = 5;
+  optional string prod_hs_code = 6;
+  optional float prod_cost = 7;
+  optional float prod_price = 8;
+  optional float prod_length = 9;
+  optional float prod_width = 10;
+  optional float prod_height = 11;
+  optional float prod_gross_weight = 12;
+  optional string prod_code_style = 13;
+  optional string prod_description = 14;
+  optional string prod_brief = 15;
+  bool is_valid = 16;
+  optional int32 renew = 17;
+  optional int32 repair = 18;
+  int64 prod_brand = 19;
+  int64 prod_cat = 20;
+  int64 prod_ser = 21;
+  int64 prod_size = 22;
+  int64 prod_texture = 23;
+  int64 prod_lining = 24;
+  int64 prod_version = 25;
+  optional string prod_image = 26;
+}
+
+message ProdSeriesRepairsResponse {
+  int32 id = 1;
+  repeated RelProdRepairsResponse rel_repairs = 2;
+  string prod_model = 3;
+  string prod_color = 4;
+  string prod_code = 5;
+  string prod_barcode = 6;
+  optional string prod_hs_code = 7;
+  optional float prod_cost = 8;
+  optional float prod_price = 9;
+  optional float prod_length = 10;
+  optional float prod_width = 11;
+  optional float prod_height = 12;
+  optional float prod_gross_weight = 13;
+  optional string prod_code_style = 14;
+  optional string prod_description = 15;
+  optional string prod_brief = 16;
+  bool is_valid = 17;
+  optional int32 renew = 18;
+  optional int32 repair = 19;
+  string create_time = 20;
+  string update_time = 21;
+  int64 prod_brand = 22;
+  int64 prod_cat = 23;
+  int64 prod_ser = 24;
+  int64 prod_size = 25;
+  int64 prod_texture = 26;
+  int64 prod_lining = 27;
+  int64 prod_version = 28;
+  optional string prod_image = 29;
+}
+
+message ProdSeriesResponse {
+  int32 id = 1;
+  RepairPartsResponse repair_parts = 2;
+  string ser_name = 3;
+  optional string ser_alias = 4;
+  optional string ser_code = 5;
+  bool is_valid = 6;
+  bool is_deletable = 7;
+  int64 prod_cat = 8;
+}
+
+message ProdWorkshopDestroyRequest {
+  int32 id = 1;
+}
+
+message ProdWorkshopListRequest {
+  repeated ProdWorkshopRequest results = 1;
+  int32 count = 2;
+}
+
+message ProdWorkshopListResponse {
+  repeated ProdWorkshopResponse results = 1;
+  int32 count = 2;
+}
+
+message ProdWorkshopPartListRequest {
+  int32 id = 1;
+  string filters = 2;
+  optional string prod = 3;
+  optional string part_name = 4;
+  bool is_valid = 5;
+  optional string part_image = 6;
+  optional int64 parent = 7;
+  optional string prod_cat = 8;
+  optional string spu_name = 9;
+  int32 print_way = 10;
+}
+
+message ProdWorkshopPartListResponse {
+  repeated ProdWorkshopPartResponse results = 1;
+  int32 count = 2;
+}
+
+message ProdWorkshopPartRequest {
+  int32 id = 1;
+  optional string part_name = 3;
+  bool is_valid = 4;
+  optional string part_image = 5;
+  optional string prod = 6;
+  optional int64 parent = 7;
+  string filters = 8;
+  optional string prod_cat = 9;
+  optional string spu_name = 10;
+  int32 print_way = 11;
+}
+
+message ProdWorkshopPartResponse {
+  int32 id = 1;
+  string sku = 2;
+  repeated ProdWorkshopResponse workshop_parts = 3;
+  optional string part_name = 4;
+  bool is_valid = 5;
+  optional string part_image = 6;
+  string create_time = 7;
+  string update_time = 8;
+  optional string prod = 9;
+  optional int64 parent = 10;
+  string prod_brand = 11;
+  optional string prod_cat = 12;
+  string prod_brief = 13;
+  string prod_color = 14;
+  string prod_size = 15;
+  string prod_ser = 16;
+  string prod_brand_code = 17;
+  string prod_cat_code = 18;
+  string prod_ser_code = 19;
+  string prod_color_code = 20;
+  string prod_size_code = 21;
+  optional string spu_name = 22;
+  int32 print_way = 23;
+}
+
+message ProdWorkshopPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 3;
+  optional string part_name = 4;
+  bool is_valid = 5;
+  optional string part_image = 6;
+  optional string prod = 7;
+  optional int64 parent = 8;
+  optional string prod_cat = 9;
+  optional string spu_name = 10;
+  int32 print_way = 11;
+}
+
+message ProdWorkshopRequest {
+  int32 id = 1;
+  optional string part_name = 3;
+  bool is_valid = 4;
+  optional string part_image = 5;
+  optional string prod = 6;
+  optional int64 parent = 7;
+  optional string prod_cat = 8;
+  optional string spu_name = 9;
+  int32 print_way = 10;
+}
+
+message ProdWorkshopResponse {
+  int32 id = 1;
+  optional string part_name = 2;
+  bool is_valid = 3;
+  optional string part_image = 4;
+  string create_time = 5;
+  string update_time = 6;
+  optional string prod = 7;
+  optional int64 parent = 8;
+  string sku = 9;
+  optional string prod_cat = 10;
+  string prod_brand = 11;
+  string prod_ser = 12;
+  string prod_brief = 13;
+  string prod_color = 14;
+  string prod_size = 15;
+  string prod_brand_code = 16;
+  string prod_cat_code = 17;
+  string prod_ser_code = 18;
+  string prod_color_code = 19;
+  string prod_size_code = 20;
+  optional string spu_name = 21;
+  int32 print_way = 22;
+}
+
+message ProdWorkshopRetrieveRequest {
+  int32 id = 1;
+}
+
+message ProductListResponse {
+  repeated ProductResponse results = 1;
+  int32 count = 2;
+}
+
+message ProductModelDestroyRequest {
+  string prod_code = 1;
+}
+
+message ProductModelListRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  string prod_model = 8;
+  string prod_color = 9;
+  string prod_code = 10;
+  string prod_barcode = 11;
+  optional string prod_hs_code = 12;
+  optional float prod_cost = 13;
+  optional float prod_price = 14;
+  optional float prod_length = 15;
+  optional float prod_width = 16;
+  optional float prod_height = 17;
+  optional float prod_gross_weight = 18;
+  optional string prod_code_style = 19;
+  optional string prod_description = 20;
+  optional string prod_brief = 21;
+  optional int32 renew = 22;
+  optional int32 repair = 23;
+  string filters = 24;
+  optional string prod_image = 25;
+}
+
+message ProductModelListResponse {
+  repeated ProductModelResponse results = 1;
+  int32 count = 2;
+}
+
+message ProductModelPartialUpdateRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  repeated string _partial_update_fields = 8;
+  string prod_model = 9;
+  string prod_color = 10;
+  string prod_code = 11;
+  string prod_barcode = 12;
+  optional string prod_hs_code = 13;
+  optional float prod_cost = 14;
+  optional float prod_price = 15;
+  optional float prod_length = 16;
+  optional float prod_width = 17;
+  optional float prod_height = 18;
+  optional float prod_gross_weight = 19;
+  optional string prod_code_style = 20;
+  optional string prod_description = 21;
+  optional string prod_brief = 22;
+  optional int32 renew = 23;
+  optional int32 repair = 24;
+  string filters = 25;
+  optional string prod_image = 26;
+}
+
+message ProductModelRequest {
+  string prod_brand = 1;
+  string prod_cat = 2;
+  string prod_ser = 3;
+  string prod_size = 4;
+  string prod_texture = 5;
+  string prod_lining = 6;
+  string prod_version = 7;
+  string prod_model = 8;
+  string prod_color = 9;
+  string prod_code = 10;
+  string prod_barcode = 11;
+  optional string prod_hs_code = 12;
+  optional float prod_cost = 13;
+  optional float prod_price = 14;
+  optional float prod_length = 15;
+  optional float prod_width = 16;
+  optional float prod_height = 17;
+  optional float prod_gross_weight = 18;
+  optional string prod_code_style = 19;
+  optional string prod_description = 20;
+  optional string prod_brief = 21;
+  optional int32 renew = 22;
+  optional int32 repair = 23;
+  string filters = 24;
+  optional string prod_image = 25;
+}
+
+message ProductModelResponse {
+  string spu = 1;
+  string prod_brand = 2;
+  string prod_cat = 3;
+  string prod_ser = 4;
+  string prod_size = 5;
+  string prod_texture = 6;
+  string prod_lining = 7;
+  string prod_version = 8;
+  string create_time = 9;
+  string update_time = 10;
+  string prod_model = 11;
+  string prod_color = 12;
+  string prod_code = 13;
+  string prod_barcode = 14;
+  optional string prod_hs_code = 15;
+  optional float prod_cost = 16;
+  optional float prod_price = 17;
+  optional float prod_length = 18;
+  optional float prod_width = 19;
+  optional float prod_height = 20;
+  optional float prod_gross_weight = 21;
+  optional string prod_code_style = 22;
+  optional string prod_description = 23;
+  optional string prod_brief = 24;
+  optional int32 renew = 25;
+  optional int32 repair = 26;
+  optional string prod_image = 27;
+}
+
+message ProductModelRetrieveRequest {
+  string prod_code = 1;
+}
+
+message ProductRequest {
+  int32 id = 1;
+  optional string filters = 2;
+  string prod_model = 3;
+  string prod_color = 4;
+  string prod_code = 5;
+  string prod_barcode = 6;
+  optional string prod_hs_code = 7;
+  optional float prod_cost = 8;
+  optional float prod_price = 9;
+  optional float prod_length = 10;
+  optional float prod_width = 11;
+  optional float prod_height = 12;
+  optional float prod_gross_weight = 13;
+  optional string prod_code_style = 14;
+  optional string prod_description = 15;
+  optional string prod_brief = 16;
+  bool is_valid = 17;
+  optional int32 renew = 18;
+  optional int32 repair = 19;
+  int64 prod_brand = 20;
+  int64 prod_cat = 21;
+  int64 prod_size = 22;
+  int64 prod_texture = 23;
+  int64 prod_lining = 24;
+  optional string prod_image = 25;
+}
+
+message ProductResponse {
+  int32 id = 1;
+  string prod_model = 2;
+  string prod_color = 3;
+  string prod_code = 4;
+  string prod_barcode = 5;
+  optional string prod_hs_code = 6;
+  optional float prod_cost = 7;
+  optional float prod_price = 8;
+  optional float prod_length = 9;
+  optional float prod_width = 10;
+  optional float prod_height = 11;
+  optional float prod_gross_weight = 12;
+  optional string prod_code_style = 13;
+  optional string prod_description = 14;
+  optional string prod_brief = 15;
+  bool is_valid = 16;
+  optional int32 renew = 17;
+  optional int32 repair = 18;
+  string create_time = 19;
+  string update_time = 20;
+  int64 prod_brand = 21;
+  int64 prod_cat = 22;
+  ProdSeriesResponse prod_ser = 23;
+  int64 prod_size = 24;
+  int64 prod_texture = 25;
+  int64 prod_lining = 26;
+  string prod_version = 27;
+  string prod_ver_code = 28;
+  optional string prod_image = 29;
+}
+
+message RawSkuSparePartsListResponse {
+  repeated RawSkuSparePartsResponse results = 1;
+  int32 count = 2;
+}
+
+message RawSkuSparePartsRequest {
+  string goods_no = 1;
+  string filters = 2;
+}
+
+message RawSkuSparePartsResponse {
+  string spu = 1;
+  string prod_brand = 2;
+  string prod_cat = 3;
+  string prod_ser = 4;
+  string prod_size = 5;
+  string prod_texture = 6;
+  string prod_lining = 7;
+  string prod_version = 8;
+  string create_time = 9;
+  string update_time = 10;
+  string prod_model = 11;
+  string prod_color = 12;
+  string prod_code = 13;
+  string prod_barcode = 14;
+  optional string prod_hs_code = 15;
+  optional float prod_cost = 16;
+  optional float prod_price = 17;
+  optional float prod_length = 18;
+  optional float prod_width = 19;
+  optional float prod_height = 20;
+  optional float prod_gross_weight = 21;
+  optional string prod_code_style = 22;
+  optional string prod_description = 23;
+  optional string prod_brief = 24;
+  optional int32 renew = 25;
+  optional int32 repair = 26;
+  optional string prod_image = 27;
+}
+
+message RelProdRepairsBulkCreateListRequest {
+  repeated RelProdRepairsBulkCreateRequest results = 1;
+  int32 count = 2;
+}
+
+message RelProdRepairsBulkCreateRequest {
+  int32 id = 1;
+  int32 prod_parts_id = 2;
+  int32 prod_id = 3;
+  optional int32 parts_num = 4;
+  optional string remarks = 5;
+}
+
+message RelProdRepairsBulkCreateResponse {
+}
+
+message RelProdRepairsDestroyRequest {
+  int32 id = 1;
+}
+
+message RelProdRepairsListRequest {
+  int32 id = 1;
+  int32 prod_parts_id = 2;
+  int32 prod_id = 3;
+  optional int32 parts_num = 4;
+  optional string remarks = 5;
+}
+
+message RelProdRepairsListResponse {
+  repeated RelProdRepairsResponse results = 1;
+  int32 count = 2;
+}
+
+message RelProdRepairsPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  optional int32 parts_num = 3;
+  optional string remarks = 4;
+  int32 prod_parts_id = 5;
+  int32 prod_id = 6;
+}
+
+message RelProdRepairsRequest {
+  int32 id = 1;
+  optional int32 parts_num = 2;
+  optional string remarks = 3;
+  int32 prod_parts_id = 4;
+  int32 prod_id = 5;
+}
+
+message RelProdRepairsResponse {
+  int32 id = 1;
+  optional int32 parts_num = 2;
+  optional string remarks = 3;
+  ProductResponse prod_parts = 6;
+  ProductResponse prod = 7;
+  optional string create_time = 8;
+  optional string update_time = 9;
+}
+
+message RelProdRepairsRetrieveRequest {
+  int32 id = 1;
+}
+
+message RepairPartsBulkUpdateRequest {
+  repeated int32 ids = 1;
+  string is_valid = 2;
+}
+
+message RepairPartsBulkUpdateResponse {
+}
+
+message RepairPartsCatChoiceListResponse {
+  repeated RepairPartsCatChoiceResponse results = 1;
+}
+
+message RepairPartsCatChoiceRequest {
+}
+
+message RepairPartsCatChoiceResponse {
+  string code = 1;
+  string name = 2;
+}
+
+message RepairPartsDestroyRequest {
+  int32 id = 1;
+}
+
+message RepairPartsListRequest {
+}
+
+message RepairPartsListResponse {
+  repeated RepairPartsResponse results = 1;
+}
+
+message RepairPartsPartialUpdateRequest {
+  int32 id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string prod_cat = 3;
+  optional string parts_code = 4;
+  optional string parts_name = 5;
+  optional string is_valid = 6;
+}
+
+message RepairPartsRequest {
+  int32 id = 1;
+  optional string prod_cat = 2;
+  optional string parts_code = 3;
+  optional string parts_name = 4;
+  optional string is_valid = 5;
+}
+
+message RepairPartsResponse {
+  int32 id = 1;
+  string prod_cat_name = 2;
+  optional string prod_cat = 3;
+  optional string parts_code = 4;
+  optional string parts_name = 5;
+  optional string is_valid = 7;
+  optional string create_time = 8;
+  optional string update_time = 9;
+  bool is_deletable = 10;
+}
+
+message RepairPartsRetrieveRequest {
+  int32 id = 1;
+}
+
+message ValuesListRequest {
+  string filters = 1;
+  string value_name = 2;
+}
+
+message WorkshopClubSpuValuesResponse {
+  repeated string results = 1;
+}
+
+message WorkshopColorListResponse {
+  repeated WorkshopColorResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopColorRequest {
+  string filters = 1;
+}
+
+message WorkshopColorResponse {
+  int32 id = 1;
+  optional string color_name = 2;
+  optional string color_rgb = 3;
+  bool is_valid = 4;
+  bool deletable = 5;
+}
+
+message WorkshopConfigListResponse {
+  repeated WorkshopConfigResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopConfigRequest {
+  string filters = 1;
+}
+
+message WorkshopConfigResponse {
+  int32 id = 1;
+  int32 type = 2;
+  optional string title = 3;
+  optional string content = 4;
+  optional string remark = 5;
+  string update_time = 6;
+}
+
+message WorkshopPropertiesListResponse {
+  repeated WorkshopPropertiesResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopPropertiesResponse {
+  string col = 1;
+  string code = 2;
+  string name = 3;
+}
+
+message WorkshopSpuListResponse {
+  repeated WorkshopSpuResponse results = 1;
+  int32 count = 2;
+}
+
+message WorkshopSpuResponse {
+  string col = 1;
+  string code = 2;
+  repeated WorkshopPropertiesResponse size = 3;
+  repeated WorkshopPropertiesResponse color = 4;
+  string name = 5;
+  ProdWorkshopPartResponse spu = 6;
+}
+
