@@ -1,7 +1,7 @@
 module github.com/ITITO881/go-zero-service
 
 //v0.0.0
-//rawgoodsito.proto
+//rename folder rawgoodsito to upercase
 go 1.21
 
 toolchain go1.21.4
