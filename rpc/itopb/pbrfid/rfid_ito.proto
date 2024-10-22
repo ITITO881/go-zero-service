@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 package rfid_service.rfid_ito;
-
 option go_package = "../pbrfid";
 
 import "google/protobuf/empty.proto";
@@ -332,6 +331,7 @@ message DeliverNoticeGoodsDetailsBulkCreateRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsCreateRequest {
@@ -350,6 +350,7 @@ message DeliverNoticeGoodsDetailsCreateRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsDestroyRequest {
@@ -381,6 +382,7 @@ message DeliverNoticeGoodsDetailsRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsResponse {
@@ -403,6 +405,7 @@ message DeliverNoticeGoodsDetailsResponse {
   optional int64 notice = 17;
   int32 send_num = 18;
   float send_amount = 19;
+  double share_price = 20;
 }
 
 message DeliverNoticeGoodsDetailsRetrieveRequest {
@@ -426,6 +429,7 @@ message DeliverNoticeGoodsDetailsUpdateRequest {
   optional string spec_name = 15;
   optional int64 notice = 16;
   string filters = 17;
+  double share_price = 18;
 }
 
 message DeliverNoticeListRequest {
@@ -760,6 +764,7 @@ message KeyVendorCreateRequest {
   optional string warehouse_no = 17;
   optional string warehouse_name = 18;
   string filters = 19;
+  optional string vendor_code = 20;
 }
 
 message KeyVendorDestroyRequest {
@@ -795,6 +800,7 @@ message KeyVendorResponse {
   optional string shop_name = 17;
   optional string warehouse_no = 18;
   optional string warehouse_name = 19;
+  optional string vendor_code = 20;
 }
 
 message KeyVendorRetrieveRequest {
@@ -821,6 +827,7 @@ message KeyVendorUpdateRequest {
   optional string warehouse_no = 18;
   optional string warehouse_name = 19;
   string filters = 20;
+  optional string vendor_code = 21;
 }
 
 message LabelNumberValueListResponse {

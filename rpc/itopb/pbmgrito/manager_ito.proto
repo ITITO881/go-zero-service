@@ -7,13 +7,32 @@ import "google/protobuf/empty.proto";
 
 service MgrController {
   rpc AccountDept(MgrWebLoginRequest) returns (AccountsUsersinfoResponse) {}
+  rpc AccountStaffTypeOptions(AccountStaffTypeOptionsRequest) returns (AccountStaffTypeOptionsListResponse) {}
   rpc Create(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
+  rpc CreateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
+  rpc DeleteWebRoute(google.protobuf.Empty) returns (google.protobuf.Empty) {}
   rpc Destroy(ManagerWebModelDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ManagerWebModelListRequest) returns (ManagerWebModelListResponse) {}
+  rpc ListWebRoute(WebRouteModelRequest) returns (WebRouteModelListResponse) {}
   rpc Login(MgrWebLoginRequest) returns (ManagerWebModelResponse) {}
+  rpc ManagerWebRoute(MgrManagerWebRouteRequest) returns (ManagerWebModelResponse) {}
   rpc PartialUpdate(ManagerWebModelPartialUpdateRequest) returns (ManagerWebModelResponse) {}
   rpc Retrieve(ManagerWebModelRetrieveRequest) returns (ManagerWebModelResponse) {}
   rpc Update(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
+  rpc UpdateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
+}
+
+message AccountStaffTypeOptionsListResponse {
+  repeated AccountStaffTypeOptionsResponse results = 1;
+  int32 count = 2;
+}
+
+message AccountStaffTypeOptionsRequest {
+}
+
+message AccountStaffTypeOptionsResponse {
+  int32 value = 1;
+  string label = 2;
 }
 
 message AccountsUsersinfoResponse {
@@ -51,6 +70,8 @@ message ManagerWebModelListRequest {
   repeated int32 groups = 19;
   repeated int32 user_permissions = 20;
   int32 creator = 21;
+  optional int32 staff_type = 22;
+  repeated WebRouteModelRequest web_routes = 23;
 }
 
 message ManagerWebModelListResponse {
@@ -80,6 +101,8 @@ message ManagerWebModelPartialUpdateRequest {
   repeated int32 groups = 20;
   repeated int32 user_permissions = 21;
   int32 creator = 22;
+  optional int32 staff_type = 23;
+  repeated WebRouteModelRequest web_routes = 24;
 }
 
 message ManagerWebModelRequest {
@@ -103,6 +126,8 @@ message ManagerWebModelRequest {
   repeated int32 groups = 19;
   repeated int32 user_permissions = 20;
   int32 creator = 21;
+  optional int32 staff_type = 22;
+  repeated WebRouteModelRequest web_routes = 23;
 }
 
 message ManagerWebModelResponse {
@@ -125,14 +150,71 @@ message ManagerWebModelResponse {
   string modified = 17;
   repeated int32 groups = 19;
   repeated int32 user_permissions = 20;
+  string staff_type_name = 21;
+  optional int32 staff_type = 22;
+  repeated WebRouteModelResponse web_routes = 23;
 }
 
 message ManagerWebModelRetrieveRequest {
   int32 id = 1;
 }
 
+message MgrManagerWebRouteRequest {
+  int32 manager_id = 1;
+  string action = 2;
+  repeated int32 web_routes = 3;
+}
+
 message MgrWebLoginRequest {
   string username = 1;
   string password = 2;
+}
+
+message WebRouteMetaResponse {
+  string title = 1;
+  string icon = 2;
+  bool isLink = 3;
+  bool isHide = 4;
+  bool isKeepAlive = 5;
+  bool isAffix = 6;
+  bool isFrame = 7;
+}
+
+message WebRouteModelListResponse {
+  repeated WebRouteModelResponse results = 1;
+  int32 count = 2;
+}
+
+message WebRouteModelRequest {
+  int32 id = 1;
+  int32 parent = 2;
+  string title = 3;
+  string icon = 4;
+  string link = 5;
+  bool is_hide = 6;
+  bool is_keep_alive = 7;
+  bool is_affix = 8;
+  bool is_frame = 9;
+  string name = 10;
+  string path = 11;
+  string component = 12;
+  optional string redirect = 13;
+  optional int32 menu_sort = 14;
+  bool is_active = 15;
+}
+
+message WebRouteModelResponse {
+  int32 id = 1;
+  WebRouteMetaResponse meta = 2;
+  int32 parent = 3;
+  string name = 4;
+  string path = 5;
+  string component = 6;
+  optional string redirect = 7;
+  optional int32 menu_sort = 8;
+  bool is_active = 9;
+  string created = 10;
+  string modified = 11;
+  repeated WebRouteModelResponse children = 12;
 }
 
