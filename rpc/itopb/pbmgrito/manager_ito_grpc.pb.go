@@ -44,7 +44,7 @@ type MgrControllerClient interface {
 	AccountStaffTypeOptions(ctx context.Context, in *AccountStaffTypeOptionsRequest, opts ...grpc.CallOption) (*AccountStaffTypeOptionsListResponse, error)
 	Create(ctx context.Context, in *ManagerWebModelRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error)
 	CreateWebRoute(ctx context.Context, in *WebRouteModelRequest, opts ...grpc.CallOption) (*WebRouteModelResponse, error)
-	DeleteWebRoute(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteWebRoute(ctx context.Context, in *MgrDeleteWebRouteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	Destroy(ctx context.Context, in *ManagerWebModelDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ManagerWebModelListRequest, opts ...grpc.CallOption) (*ManagerWebModelListResponse, error)
 	ListWebRoute(ctx context.Context, in *WebRouteModelRequest, opts ...grpc.CallOption) (*WebRouteModelListResponse, error)
@@ -53,7 +53,7 @@ type MgrControllerClient interface {
 	PartialUpdate(ctx context.Context, in *ManagerWebModelPartialUpdateRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error)
 	Retrieve(ctx context.Context, in *ManagerWebModelRetrieveRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error)
 	Update(ctx context.Context, in *ManagerWebModelRequest, opts ...grpc.CallOption) (*ManagerWebModelResponse, error)
-	UpdateWebRoute(ctx context.Context, in *WebRouteModelRequest, opts ...grpc.CallOption) (*WebRouteModelResponse, error)
+	UpdateWebRoute(ctx context.Context, in *PartialUpdateRequestRequest, opts ...grpc.CallOption) (*WebRouteModelResponse, error)
 }
 
 type mgrControllerClient struct {
@@ -100,7 +100,7 @@ func (c *mgrControllerClient) CreateWebRoute(ctx context.Context, in *WebRouteMo
 	return out, nil
 }
 
-func (c *mgrControllerClient) DeleteWebRoute(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *mgrControllerClient) DeleteWebRoute(ctx context.Context, in *MgrDeleteWebRouteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, MgrController_DeleteWebRoute_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -181,7 +181,7 @@ func (c *mgrControllerClient) Update(ctx context.Context, in *ManagerWebModelReq
 	return out, nil
 }
 
-func (c *mgrControllerClient) UpdateWebRoute(ctx context.Context, in *WebRouteModelRequest, opts ...grpc.CallOption) (*WebRouteModelResponse, error) {
+func (c *mgrControllerClient) UpdateWebRoute(ctx context.Context, in *PartialUpdateRequestRequest, opts ...grpc.CallOption) (*WebRouteModelResponse, error) {
 	out := new(WebRouteModelResponse)
 	err := c.cc.Invoke(ctx, MgrController_UpdateWebRoute_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -198,7 +198,7 @@ type MgrControllerServer interface {
 	AccountStaffTypeOptions(context.Context, *AccountStaffTypeOptionsRequest) (*AccountStaffTypeOptionsListResponse, error)
 	Create(context.Context, *ManagerWebModelRequest) (*ManagerWebModelResponse, error)
 	CreateWebRoute(context.Context, *WebRouteModelRequest) (*WebRouteModelResponse, error)
-	DeleteWebRoute(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
+	DeleteWebRoute(context.Context, *MgrDeleteWebRouteRequest) (*emptypb.Empty, error)
 	Destroy(context.Context, *ManagerWebModelDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ManagerWebModelListRequest) (*ManagerWebModelListResponse, error)
 	ListWebRoute(context.Context, *WebRouteModelRequest) (*WebRouteModelListResponse, error)
@@ -207,7 +207,7 @@ type MgrControllerServer interface {
 	PartialUpdate(context.Context, *ManagerWebModelPartialUpdateRequest) (*ManagerWebModelResponse, error)
 	Retrieve(context.Context, *ManagerWebModelRetrieveRequest) (*ManagerWebModelResponse, error)
 	Update(context.Context, *ManagerWebModelRequest) (*ManagerWebModelResponse, error)
-	UpdateWebRoute(context.Context, *WebRouteModelRequest) (*WebRouteModelResponse, error)
+	UpdateWebRoute(context.Context, *PartialUpdateRequestRequest) (*WebRouteModelResponse, error)
 	mustEmbedUnimplementedMgrControllerServer()
 }
 
@@ -227,7 +227,7 @@ func (UnimplementedMgrControllerServer) Create(context.Context, *ManagerWebModel
 func (UnimplementedMgrControllerServer) CreateWebRoute(context.Context, *WebRouteModelRequest) (*WebRouteModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWebRoute not implemented")
 }
-func (UnimplementedMgrControllerServer) DeleteWebRoute(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
+func (UnimplementedMgrControllerServer) DeleteWebRoute(context.Context, *MgrDeleteWebRouteRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteWebRoute not implemented")
 }
 func (UnimplementedMgrControllerServer) Destroy(context.Context, *ManagerWebModelDestroyRequest) (*emptypb.Empty, error) {
@@ -254,7 +254,7 @@ func (UnimplementedMgrControllerServer) Retrieve(context.Context, *ManagerWebMod
 func (UnimplementedMgrControllerServer) Update(context.Context, *ManagerWebModelRequest) (*ManagerWebModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedMgrControllerServer) UpdateWebRoute(context.Context, *WebRouteModelRequest) (*WebRouteModelResponse, error) {
+func (UnimplementedMgrControllerServer) UpdateWebRoute(context.Context, *PartialUpdateRequestRequest) (*WebRouteModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWebRoute not implemented")
 }
 func (UnimplementedMgrControllerServer) mustEmbedUnimplementedMgrControllerServer() {}
@@ -343,7 +343,7 @@ func _MgrController_CreateWebRoute_Handler(srv interface{}, ctx context.Context,
 }
 
 func _MgrController_DeleteWebRoute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(MgrDeleteWebRouteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -355,7 +355,7 @@ func _MgrController_DeleteWebRoute_Handler(srv interface{}, ctx context.Context,
 		FullMethod: MgrController_DeleteWebRoute_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MgrControllerServer).DeleteWebRoute(ctx, req.(*emptypb.Empty))
+		return srv.(MgrControllerServer).DeleteWebRoute(ctx, req.(*MgrDeleteWebRouteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -505,7 +505,7 @@ func _MgrController_Update_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _MgrController_UpdateWebRoute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WebRouteModelRequest)
+	in := new(PartialUpdateRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -517,7 +517,7 @@ func _MgrController_UpdateWebRoute_Handler(srv interface{}, ctx context.Context,
 		FullMethod: MgrController_UpdateWebRoute_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MgrControllerServer).UpdateWebRoute(ctx, req.(*WebRouteModelRequest))
+		return srv.(MgrControllerServer).UpdateWebRoute(ctx, req.(*PartialUpdateRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

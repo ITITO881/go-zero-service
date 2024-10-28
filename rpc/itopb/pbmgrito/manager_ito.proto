@@ -10,7 +10,7 @@ service MgrController {
   rpc AccountStaffTypeOptions(AccountStaffTypeOptionsRequest) returns (AccountStaffTypeOptionsListResponse) {}
   rpc Create(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
   rpc CreateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
-  rpc DeleteWebRoute(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc DeleteWebRoute(MgrDeleteWebRouteRequest) returns (google.protobuf.Empty) {}
   rpc Destroy(ManagerWebModelDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ManagerWebModelListRequest) returns (ManagerWebModelListResponse) {}
   rpc ListWebRoute(WebRouteModelRequest) returns (WebRouteModelListResponse) {}
@@ -19,7 +19,7 @@ service MgrController {
   rpc PartialUpdate(ManagerWebModelPartialUpdateRequest) returns (ManagerWebModelResponse) {}
   rpc Retrieve(ManagerWebModelRetrieveRequest) returns (ManagerWebModelResponse) {}
   rpc Update(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
-  rpc UpdateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
+  rpc UpdateWebRoute(PartialUpdateRequestRequest) returns (WebRouteModelResponse) {}
 }
 
 message AccountStaffTypeOptionsListResponse {
@@ -159,6 +159,10 @@ message ManagerWebModelRetrieveRequest {
   int32 id = 1;
 }
 
+message MgrDeleteWebRouteRequest {
+  int32 id = 1;
+}
+
 message MgrManagerWebRouteRequest {
   int32 manager_id = 1;
   string action = 2;
@@ -170,14 +174,35 @@ message MgrWebLoginRequest {
   string password = 2;
 }
 
+message PartialUpdateRequestRequest {
+  int32 id = 1;
+  optional int64 parent = 2;
+  string title = 3;
+  optional string icon = 4;
+  optional string link = 5;
+  bool is_hide = 6;
+  bool is_keep_alive = 7;
+  bool is_affix = 8;
+  repeated string _partial_update_fields = 10;
+  string name = 11;
+  string path = 12;
+  string component = 13;
+  optional string redirect = 14;
+  optional int32 menu_sort = 15;
+  bool is_active = 16;
+  optional string filters = 17;
+  optional int32 parent_id = 18;
+  bool is_iframe = 19;
+}
+
 message WebRouteMetaResponse {
   string title = 1;
   string icon = 2;
-  bool isLink = 3;
+  string isLink = 3;
   bool isHide = 4;
   bool isKeepAlive = 5;
   bool isAffix = 6;
-  bool isFrame = 7;
+  bool isIframe = 7;
 }
 
 message WebRouteModelListResponse {
@@ -187,26 +212,28 @@ message WebRouteModelListResponse {
 
 message WebRouteModelRequest {
   int32 id = 1;
-  int32 parent = 2;
+  optional int64 parent = 2;
   string title = 3;
-  string icon = 4;
-  string link = 5;
+  optional string icon = 4;
+  optional string link = 5;
   bool is_hide = 6;
   bool is_keep_alive = 7;
   bool is_affix = 8;
-  bool is_frame = 9;
   string name = 10;
   string path = 11;
   string component = 12;
   optional string redirect = 13;
   optional int32 menu_sort = 14;
   bool is_active = 15;
+  optional string filters = 16;
+  optional int32 parent_id = 17;
+  bool is_iframe = 18;
 }
 
 message WebRouteModelResponse {
   int32 id = 1;
   WebRouteMetaResponse meta = 2;
-  int32 parent = 3;
+  optional int64 parent = 3;
   string name = 4;
   string path = 5;
   string component = 6;
@@ -216,5 +243,6 @@ message WebRouteModelResponse {
   string created = 10;
   string modified = 11;
   repeated WebRouteModelResponse children = 12;
+  optional int32 parent_id = 13;
 }
 
