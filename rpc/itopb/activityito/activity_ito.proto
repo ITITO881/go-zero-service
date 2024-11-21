@@ -27,6 +27,11 @@ service ActivityBrandController {
   rpc CaresRecordUpdate(ActivityBrandCaresRecordUpdateRequest) returns (ActivityBrandCaresRecordResponse) {}
   rpc CaresRetrieve(ActivityBrandCaresRetrieveRequest) returns (ActivityBrandCaresResponse) {}
   rpc CaresUpdate(ActivityBrandCaresUpdateRequest) returns (ActivityBrandCaresResponse) {}
+  rpc ChannelActivityCreate(ChannelActivityRequest) returns (ChannelActivityResponse) {}
+  rpc ChannelActivityDestroy(ActivityBrandChannelActivityDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ChannelActivityList(ChannelActivityListRequest) returns (ChannelActivityListResponse) {}
+  rpc ChannelActivityRetrieve(ChannelActivityRetrieveRequest) returns (ChannelActivityResponse) {}
+  rpc ChannelActivityUpdate(ChannelActivityUpdateRequest) returns (ChannelActivityResponse) {}
   rpc Create(ActivityBrandRequest) returns (ActivityBrandResponse) {}
   rpc Destroy(ActivityBrandDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(ActivityBrandListRequest) returns (ActivityBrandListResponse) {}
@@ -208,6 +213,10 @@ message ActivityBrandCaresUpdateRequest {
   int64 activity = 8;
 }
 
+message ActivityBrandChannelActivityDestroyRequest {
+  int32 id = 1;
+}
+
 message ActivityBrandDestroyRequest {
   int32 id = 1;
 }
@@ -345,6 +354,7 @@ message ActivityBrandOptionsResponse {
   repeated LabelNumberValueResponse card_status = 3;
   repeated LabelNumberValueResponse blog_type = 4;
   repeated LabelNumberValueResponse platform = 5;
+  repeated LabelValueResponse channel_platform = 6;
 }
 
 message ActivityBrandPartialUpdateRequest {
@@ -365,6 +375,9 @@ message ActivityBrandPartialUpdateRequest {
   optional string description = 15;
   optional int32 admin_id = 16;
   optional string admin_name = 17;
+  bool is_auto_nut = 18;
+  bool is_auto_care = 19;
+  bool is_auto_approve = 20;
 }
 
 message ActivityBrandRecordDestroyRequest {
@@ -398,6 +411,8 @@ message ActivityBrandRecordRequest {
   optional string review_admin = 15;
   optional string review_desc = 16;
   optional string remark = 17;
+  optional string answer_sheet = 18;
+  optional string report = 19;
 }
 
 message ActivityBrandRecordResponse {
@@ -423,6 +438,8 @@ message ActivityBrandRecordResponse {
   optional string remark = 20;
   string create_time = 21;
   string update_time = 22;
+  optional string answer_sheet = 23;
+  optional string report = 24;
 }
 
 message ActivityBrandRecordRetrieveRequest {
@@ -448,6 +465,8 @@ message ActivityBrandRecordUpdateRequest {
   optional string review_admin = 16;
   optional string review_desc = 17;
   optional string remark = 18;
+  optional string answer_sheet = 19;
+  optional string report = 20;
 }
 
 message ActivityBrandRequest {
@@ -467,6 +486,9 @@ message ActivityBrandRequest {
   optional string description = 14;
   optional int32 admin_id = 15;
   optional string admin_name = 16;
+  bool is_auto_nut = 17;
+  bool is_auto_care = 18;
+  bool is_auto_approve = 19;
 }
 
 message ActivityBrandResponse {
@@ -489,6 +511,9 @@ message ActivityBrandResponse {
   optional string admin_name = 17;
   string create_time = 18;
   string update_time = 19;
+  bool is_auto_nut = 20;
+  bool is_auto_care = 21;
+  bool is_auto_approve = 22;
 }
 
 message ActivityBrandRetrieveRequest {
@@ -980,7 +1005,7 @@ message BlogListResponse {
 message BlogRequest {
   int32 id = 1;
   string filters = 2;
-  int32 activity_id = 3;
+  optional int32 activity_id = 3;
   int32 ctm_id = 4;
   BlogContentRequest content = 5;
   int32 blog_type = 6;
@@ -1011,7 +1036,7 @@ message BlogResponse {
   string activity_no = 2;
   string nickname = 3;
   string avatar = 4;
-  int32 activity_id = 5;
+  optional int32 activity_id = 5;
   int32 ctm_id = 6;
   string status_name = 7;
   ActivityBrandResponse activity = 8;
@@ -1049,7 +1074,7 @@ message BlogRetrieveRequest {
 message BlogUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  int32 activity_id = 3;
+  optional int32 activity_id = 3;
   int32 ctm_id = 4;
   BlogContentRequest content = 5;
   repeated string _partial_update_fields = 6;
@@ -1120,6 +1145,61 @@ message CardVoucherResponse {
   optional int32 discount_amount = 17;
   optional int32 discount = 18;
   bool is_valid = 19;
+}
+
+message ChannelActivityListRequest {
+  string filters = 1;
+}
+
+message ChannelActivityListResponse {
+  repeated ChannelActivityResponse results = 1;
+  int32 count = 2;
+}
+
+message ChannelActivityRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 activity_id = 3;
+  string channel_no = 4;
+  optional string channel_name = 5;
+  string platform_code = 6;
+  optional string platform_name = 7;
+  optional string remark = 8;
+  optional string qr_code = 10;
+  optional string page_path = 11;
+}
+
+message ChannelActivityResponse {
+  int32 id = 1;
+  ActivityBrandResponse activity = 2;
+  int32 activity_id = 3;
+  string channel_no = 4;
+  optional string channel_name = 5;
+  string platform_code = 6;
+  optional string platform_name = 7;
+  optional string remark = 8;
+  optional string qr_code = 10;
+  string create_time = 11;
+  string update_time = 12;
+  optional string page_path = 13;
+}
+
+message ChannelActivityRetrieveRequest {
+  int32 id = 1;
+}
+
+message ChannelActivityUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  int32 activity_id = 3;
+  repeated string _partial_update_fields = 4;
+  string channel_no = 5;
+  optional string channel_name = 6;
+  string platform_code = 7;
+  optional string platform_name = 8;
+  optional string remark = 9;
+  optional string qr_code = 11;
+  optional string page_path = 12;
 }
 
 message CtmResponse {

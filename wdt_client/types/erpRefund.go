@@ -3,10 +3,10 @@ package types
 // RefundQueryReq 退换单查询请求
 type (
 	RefundQueryReq struct {
-		RefundNo      string  `form:"refund_no" mapstructure:"refund_no"`
-		SrcRefundNo   string  `form:"src_refund_no" mapstructure:"src_refund_no"`
-		TradeNo       string  `form:"trade_no" mapstructure:"trade_no"`
-		Tid           string  `form:"tid" mapstructure:"tid"`
+		RefundNo      string  `form:"refund_no" mapstructure:"refund_no"`         //TK2409030030
+		SrcRefundNo   string  `form:"src_refund_no" mapstructure:"src_refund_no"` //1309675270
+		TradeNo       string  `form:"trade_no" mapstructure:"trade_no"`           //S2408310058
+		Tid           string  `form:"tid" mapstructure:"tid"`                     //296264974968
 		LogisticsNo   string  `form:"logistics_no" mapstructure:"logistics_no"`
 		ShopNos       string  `form:"shop_nos" mapstructure:"shop_nos"`
 		ShopNo        string  `form:"shop_no" mapstructure:"shop_no"`

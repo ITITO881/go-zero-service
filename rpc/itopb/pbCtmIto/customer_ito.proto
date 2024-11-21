@@ -236,24 +236,24 @@ message CtmBaseResponse {
   string gender_name = 2;
   repeated CtmAddrResponse ctm_addresses = 3;
   int32 order_count = 4;
-  string create_time = 5;
-  string update_time = 6;
-  optional string avatar = 7;
-  optional string name = 8;
-  optional string mobile = 9;
-  optional int32 gender = 10;
-  optional string birthday = 11;
-  optional string describe = 12;
-  optional string dw_memId = 13;
-  optional string platform_name = 14;
-  optional string plat_unionId = 15;
-  string mp_openId = 16;
-  optional string nickname = 17;
-  optional string channel_code = 18;
-  optional string property = 19;
-  optional string area = 20;
-  optional int32 type = 21;
-  string type_name = 22;
+  string type_name = 5;
+  string create_time = 6;
+  string update_time = 7;
+  optional string avatar = 8;
+  optional string name = 9;
+  optional string mobile = 10;
+  optional int32 gender = 11;
+  optional string birthday = 12;
+  optional string describe = 13;
+  optional string dw_memId = 14;
+  optional string platform_name = 15;
+  optional string plat_unionId = 16;
+  string mp_openId = 17;
+  optional string nickname = 18;
+  optional string channel_code = 19;
+  optional string property = 20;
+  optional string area = 21;
+  optional int32 type = 22;
 }
 
 message CtmBaseRetrieveRequest {

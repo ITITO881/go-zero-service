@@ -2998,22 +2998,26 @@ const (
 	ServiceController_Create_FullMethodName                       = "/rfid_service.rfid_ito.ServiceController/Create"
 	ServiceController_CreateGoodsDeliver_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/CreateGoodsDeliver"
 	ServiceController_CreateServiceConf_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/CreateServiceConf"
+	ServiceController_CreateServiceConfSolution_FullMethodName    = "/rfid_service.rfid_ito.ServiceController/CreateServiceConfSolution"
 	ServiceController_CreateServiceConfWarehouse_FullMethodName   = "/rfid_service.rfid_ito.ServiceController/CreateServiceConfWarehouse"
 	ServiceController_CreateServiceReason_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/CreateServiceReason"
 	ServiceController_Destroy_FullMethodName                      = "/rfid_service.rfid_ito.ServiceController/Destroy"
 	ServiceController_DestroyGoodsDeliver_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/DestroyGoodsDeliver"
 	ServiceController_DestroyServiceConf_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/DestroyServiceConf"
+	ServiceController_DestroyServiceConfSolution_FullMethodName   = "/rfid_service.rfid_ito.ServiceController/DestroyServiceConfSolution"
 	ServiceController_DestroyServiceConfWarehouse_FullMethodName  = "/rfid_service.rfid_ito.ServiceController/DestroyServiceConfWarehouse"
 	ServiceController_DestroyServiceReason_FullMethodName         = "/rfid_service.rfid_ito.ServiceController/DestroyServiceReason"
 	ServiceController_List_FullMethodName                         = "/rfid_service.rfid_ito.ServiceController/List"
 	ServiceController_ListGoodsDeliver_FullMethodName             = "/rfid_service.rfid_ito.ServiceController/ListGoodsDeliver"
 	ServiceController_ListServiceConf_FullMethodName              = "/rfid_service.rfid_ito.ServiceController/ListServiceConf"
+	ServiceController_ListServiceConfSolution_FullMethodName      = "/rfid_service.rfid_ito.ServiceController/ListServiceConfSolution"
 	ServiceController_ListServiceConfWarehouse_FullMethodName     = "/rfid_service.rfid_ito.ServiceController/ListServiceConfWarehouse"
 	ServiceController_ListServiceReason_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/ListServiceReason"
 	ServiceController_PartialUpdate_FullMethodName                = "/rfid_service.rfid_ito.ServiceController/PartialUpdate"
 	ServiceController_Retrieve_FullMethodName                     = "/rfid_service.rfid_ito.ServiceController/Retrieve"
 	ServiceController_RetrieveGoodsDeliver_FullMethodName         = "/rfid_service.rfid_ito.ServiceController/RetrieveGoodsDeliver"
 	ServiceController_RetrieveServiceConf_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceConf"
+	ServiceController_RetrieveServiceConfSolution_FullMethodName  = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceConfSolution"
 	ServiceController_RetrieveServiceConfWarehouse_FullMethodName = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceConfWarehouse"
 	ServiceController_RetrieveServiceReason_FullMethodName        = "/rfid_service.rfid_ito.ServiceController/RetrieveServiceReason"
 	ServiceController_ServiceOptions_FullMethodName               = "/rfid_service.rfid_ito.ServiceController/ServiceOptions"
@@ -3021,6 +3025,7 @@ const (
 	ServiceController_Update_FullMethodName                       = "/rfid_service.rfid_ito.ServiceController/Update"
 	ServiceController_UpdateGoodsDeliver_FullMethodName           = "/rfid_service.rfid_ito.ServiceController/UpdateGoodsDeliver"
 	ServiceController_UpdateServiceConf_FullMethodName            = "/rfid_service.rfid_ito.ServiceController/UpdateServiceConf"
+	ServiceController_UpdateServiceConfSolution_FullMethodName    = "/rfid_service.rfid_ito.ServiceController/UpdateServiceConfSolution"
 	ServiceController_UpdateServiceConfWarehouse_FullMethodName   = "/rfid_service.rfid_ito.ServiceController/UpdateServiceConfWarehouse"
 	ServiceController_UpdateServiceReason_FullMethodName          = "/rfid_service.rfid_ito.ServiceController/UpdateServiceReason"
 )
@@ -3033,22 +3038,26 @@ type ServiceControllerClient interface {
 	Create(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
 	CreateGoodsDeliver(ctx context.Context, in *CreateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
 	CreateServiceConf(ctx context.Context, in *CreateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	CreateServiceConfSolution(ctx context.Context, in *CreateServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error)
 	CreateServiceConfWarehouse(ctx context.Context, in *CreateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
 	CreateServiceReason(ctx context.Context, in *CreateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
 	Destroy(ctx context.Context, in *ServiceDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyGoodsDeliver(ctx context.Context, in *DestroyGoodsDeliverRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyServiceConf(ctx context.Context, in *DestroyServiceConfRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyServiceConfSolution(ctx context.Context, in *DestroyServiceConfSolutionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyServiceConfWarehouse(ctx context.Context, in *DestroyServiceConfWarehouseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyServiceReason(ctx context.Context, in *DestroyServiceReasonRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ServiceListRequest, opts ...grpc.CallOption) (*ServiceListResponse, error)
 	ListGoodsDeliver(ctx context.Context, in *ListGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailListResponse, error)
 	ListServiceConf(ctx context.Context, in *ListServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfListResponse, error)
+	ListServiceConfSolution(ctx context.Context, in *ListServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionListResponse, error)
 	ListServiceConfWarehouse(ctx context.Context, in *ListServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseListResponse, error)
 	ListServiceReason(ctx context.Context, in *ListServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonListResponse, error)
 	PartialUpdate(ctx context.Context, in *ServicePartialUpdateRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
 	Retrieve(ctx context.Context, in *ServiceRetrieveRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
 	RetrieveGoodsDeliver(ctx context.Context, in *RetrieveGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
 	RetrieveServiceConf(ctx context.Context, in *RetrieveServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	RetrieveServiceConfSolution(ctx context.Context, in *RetrieveServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error)
 	RetrieveServiceConfWarehouse(ctx context.Context, in *RetrieveServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
 	RetrieveServiceReason(ctx context.Context, in *RetrieveServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
 	ServiceOptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ServiceOptionsResponse, error)
@@ -3056,6 +3065,7 @@ type ServiceControllerClient interface {
 	Update(ctx context.Context, in *ServiceRequest, opts ...grpc.CallOption) (*ServiceResponse, error)
 	UpdateGoodsDeliver(ctx context.Context, in *UpdateGoodsDeliverRequest, opts ...grpc.CallOption) (*ServiceGoodsDetailResponse, error)
 	UpdateServiceConf(ctx context.Context, in *UpdateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error)
+	UpdateServiceConfSolution(ctx context.Context, in *UpdateServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error)
 	UpdateServiceConfWarehouse(ctx context.Context, in *UpdateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error)
 	UpdateServiceReason(ctx context.Context, in *UpdateServiceReasonRequest, opts ...grpc.CallOption) (*ServiceReasonResponse, error)
 }
@@ -3098,6 +3108,15 @@ func (c *serviceControllerClient) CreateGoodsDeliver(ctx context.Context, in *Cr
 func (c *serviceControllerClient) CreateServiceConf(ctx context.Context, in *CreateServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error) {
 	out := new(ServiceConfResponse)
 	err := c.cc.Invoke(ctx, ServiceController_CreateServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) CreateServiceConfSolution(ctx context.Context, in *CreateServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error) {
+	out := new(ServiceConfSolutionResponse)
+	err := c.cc.Invoke(ctx, ServiceController_CreateServiceConfSolution_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3149,6 +3168,15 @@ func (c *serviceControllerClient) DestroyServiceConf(ctx context.Context, in *De
 	return out, nil
 }
 
+func (c *serviceControllerClient) DestroyServiceConfSolution(ctx context.Context, in *DestroyServiceConfSolutionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ServiceController_DestroyServiceConfSolution_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceControllerClient) DestroyServiceConfWarehouse(ctx context.Context, in *DestroyServiceConfWarehouseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ServiceController_DestroyServiceConfWarehouse_FullMethodName, in, out, opts...)
@@ -3188,6 +3216,15 @@ func (c *serviceControllerClient) ListGoodsDeliver(ctx context.Context, in *List
 func (c *serviceControllerClient) ListServiceConf(ctx context.Context, in *ListServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfListResponse, error) {
 	out := new(ServiceConfListResponse)
 	err := c.cc.Invoke(ctx, ServiceController_ListServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) ListServiceConfSolution(ctx context.Context, in *ListServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionListResponse, error) {
+	out := new(ServiceConfSolutionListResponse)
+	err := c.cc.Invoke(ctx, ServiceController_ListServiceConfSolution_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3242,6 +3279,15 @@ func (c *serviceControllerClient) RetrieveGoodsDeliver(ctx context.Context, in *
 func (c *serviceControllerClient) RetrieveServiceConf(ctx context.Context, in *RetrieveServiceConfRequest, opts ...grpc.CallOption) (*ServiceConfResponse, error) {
 	out := new(ServiceConfResponse)
 	err := c.cc.Invoke(ctx, ServiceController_RetrieveServiceConf_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceControllerClient) RetrieveServiceConfSolution(ctx context.Context, in *RetrieveServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error) {
+	out := new(ServiceConfSolutionResponse)
+	err := c.cc.Invoke(ctx, ServiceController_RetrieveServiceConfSolution_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3311,6 +3357,15 @@ func (c *serviceControllerClient) UpdateServiceConf(ctx context.Context, in *Upd
 	return out, nil
 }
 
+func (c *serviceControllerClient) UpdateServiceConfSolution(ctx context.Context, in *UpdateServiceConfSolutionRequest, opts ...grpc.CallOption) (*ServiceConfSolutionResponse, error) {
+	out := new(ServiceConfSolutionResponse)
+	err := c.cc.Invoke(ctx, ServiceController_UpdateServiceConfSolution_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceControllerClient) UpdateServiceConfWarehouse(ctx context.Context, in *UpdateServiceConfWarehouseRequest, opts ...grpc.CallOption) (*ServiceConfWarehouseResponse, error) {
 	out := new(ServiceConfWarehouseResponse)
 	err := c.cc.Invoke(ctx, ServiceController_UpdateServiceConfWarehouse_FullMethodName, in, out, opts...)
@@ -3337,22 +3392,26 @@ type ServiceControllerServer interface {
 	Create(context.Context, *ServiceRequest) (*ServiceResponse, error)
 	CreateGoodsDeliver(context.Context, *CreateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
 	CreateServiceConf(context.Context, *CreateServiceConfRequest) (*ServiceConfResponse, error)
+	CreateServiceConfSolution(context.Context, *CreateServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error)
 	CreateServiceConfWarehouse(context.Context, *CreateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
 	CreateServiceReason(context.Context, *CreateServiceReasonRequest) (*ServiceReasonResponse, error)
 	Destroy(context.Context, *ServiceDestroyRequest) (*emptypb.Empty, error)
 	DestroyGoodsDeliver(context.Context, *DestroyGoodsDeliverRequest) (*emptypb.Empty, error)
 	DestroyServiceConf(context.Context, *DestroyServiceConfRequest) (*emptypb.Empty, error)
+	DestroyServiceConfSolution(context.Context, *DestroyServiceConfSolutionRequest) (*emptypb.Empty, error)
 	DestroyServiceConfWarehouse(context.Context, *DestroyServiceConfWarehouseRequest) (*emptypb.Empty, error)
 	DestroyServiceReason(context.Context, *DestroyServiceReasonRequest) (*emptypb.Empty, error)
 	List(context.Context, *ServiceListRequest) (*ServiceListResponse, error)
 	ListGoodsDeliver(context.Context, *ListGoodsDeliverRequest) (*ServiceGoodsDetailListResponse, error)
 	ListServiceConf(context.Context, *ListServiceConfRequest) (*ServiceConfListResponse, error)
+	ListServiceConfSolution(context.Context, *ListServiceConfSolutionRequest) (*ServiceConfSolutionListResponse, error)
 	ListServiceConfWarehouse(context.Context, *ListServiceConfWarehouseRequest) (*ServiceConfWarehouseListResponse, error)
 	ListServiceReason(context.Context, *ListServiceReasonRequest) (*ServiceReasonListResponse, error)
 	PartialUpdate(context.Context, *ServicePartialUpdateRequest) (*ServiceResponse, error)
 	Retrieve(context.Context, *ServiceRetrieveRequest) (*ServiceResponse, error)
 	RetrieveGoodsDeliver(context.Context, *RetrieveGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
 	RetrieveServiceConf(context.Context, *RetrieveServiceConfRequest) (*ServiceConfResponse, error)
+	RetrieveServiceConfSolution(context.Context, *RetrieveServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error)
 	RetrieveServiceConfWarehouse(context.Context, *RetrieveServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
 	RetrieveServiceReason(context.Context, *RetrieveServiceReasonRequest) (*ServiceReasonResponse, error)
 	ServiceOptions(context.Context, *emptypb.Empty) (*ServiceOptionsResponse, error)
@@ -3360,6 +3419,7 @@ type ServiceControllerServer interface {
 	Update(context.Context, *ServiceRequest) (*ServiceResponse, error)
 	UpdateGoodsDeliver(context.Context, *UpdateGoodsDeliverRequest) (*ServiceGoodsDetailResponse, error)
 	UpdateServiceConf(context.Context, *UpdateServiceConfRequest) (*ServiceConfResponse, error)
+	UpdateServiceConfSolution(context.Context, *UpdateServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error)
 	UpdateServiceConfWarehouse(context.Context, *UpdateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error)
 	UpdateServiceReason(context.Context, *UpdateServiceReasonRequest) (*ServiceReasonResponse, error)
 	mustEmbedUnimplementedServiceControllerServer()
@@ -3381,6 +3441,9 @@ func (UnimplementedServiceControllerServer) CreateGoodsDeliver(context.Context, 
 func (UnimplementedServiceControllerServer) CreateServiceConf(context.Context, *CreateServiceConfRequest) (*ServiceConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceConf not implemented")
 }
+func (UnimplementedServiceControllerServer) CreateServiceConfSolution(context.Context, *CreateServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceConfSolution not implemented")
+}
 func (UnimplementedServiceControllerServer) CreateServiceConfWarehouse(context.Context, *CreateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceConfWarehouse not implemented")
 }
@@ -3396,6 +3459,9 @@ func (UnimplementedServiceControllerServer) DestroyGoodsDeliver(context.Context,
 func (UnimplementedServiceControllerServer) DestroyServiceConf(context.Context, *DestroyServiceConfRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceConf not implemented")
 }
+func (UnimplementedServiceControllerServer) DestroyServiceConfSolution(context.Context, *DestroyServiceConfSolutionRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceConfSolution not implemented")
+}
 func (UnimplementedServiceControllerServer) DestroyServiceConfWarehouse(context.Context, *DestroyServiceConfWarehouseRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyServiceConfWarehouse not implemented")
 }
@@ -3410,6 +3476,9 @@ func (UnimplementedServiceControllerServer) ListGoodsDeliver(context.Context, *L
 }
 func (UnimplementedServiceControllerServer) ListServiceConf(context.Context, *ListServiceConfRequest) (*ServiceConfListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) ListServiceConfSolution(context.Context, *ListServiceConfSolutionRequest) (*ServiceConfSolutionListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListServiceConfSolution not implemented")
 }
 func (UnimplementedServiceControllerServer) ListServiceConfWarehouse(context.Context, *ListServiceConfWarehouseRequest) (*ServiceConfWarehouseListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListServiceConfWarehouse not implemented")
@@ -3428,6 +3497,9 @@ func (UnimplementedServiceControllerServer) RetrieveGoodsDeliver(context.Context
 }
 func (UnimplementedServiceControllerServer) RetrieveServiceConf(context.Context, *RetrieveServiceConfRequest) (*ServiceConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) RetrieveServiceConfSolution(context.Context, *RetrieveServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceConfSolution not implemented")
 }
 func (UnimplementedServiceControllerServer) RetrieveServiceConfWarehouse(context.Context, *RetrieveServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveServiceConfWarehouse not implemented")
@@ -3449,6 +3521,9 @@ func (UnimplementedServiceControllerServer) UpdateGoodsDeliver(context.Context, 
 }
 func (UnimplementedServiceControllerServer) UpdateServiceConf(context.Context, *UpdateServiceConfRequest) (*ServiceConfResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceConf not implemented")
+}
+func (UnimplementedServiceControllerServer) UpdateServiceConfSolution(context.Context, *UpdateServiceConfSolutionRequest) (*ServiceConfSolutionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceConfSolution not implemented")
 }
 func (UnimplementedServiceControllerServer) UpdateServiceConfWarehouse(context.Context, *UpdateServiceConfWarehouseRequest) (*ServiceConfWarehouseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceConfWarehouse not implemented")
@@ -3537,6 +3612,24 @@ func _ServiceController_CreateServiceConf_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceControllerServer).CreateServiceConf(ctx, req.(*CreateServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_CreateServiceConfSolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateServiceConfSolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).CreateServiceConfSolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_CreateServiceConfSolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).CreateServiceConfSolution(ctx, req.(*CreateServiceConfSolutionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3631,6 +3724,24 @@ func _ServiceController_DestroyServiceConf_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ServiceController_DestroyServiceConfSolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyServiceConfSolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).DestroyServiceConfSolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_DestroyServiceConfSolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).DestroyServiceConfSolution(ctx, req.(*DestroyServiceConfSolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ServiceController_DestroyServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DestroyServiceConfWarehouseRequest)
 	if err := dec(in); err != nil {
@@ -3717,6 +3828,24 @@ func _ServiceController_ListServiceConf_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceControllerServer).ListServiceConf(ctx, req.(*ListServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_ListServiceConfSolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListServiceConfSolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).ListServiceConfSolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_ListServiceConfSolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).ListServiceConfSolution(ctx, req.(*ListServiceConfSolutionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3825,6 +3954,24 @@ func _ServiceController_RetrieveServiceConf_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceControllerServer).RetrieveServiceConf(ctx, req.(*RetrieveServiceConfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceController_RetrieveServiceConfSolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RetrieveServiceConfSolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).RetrieveServiceConfSolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_RetrieveServiceConfSolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).RetrieveServiceConfSolution(ctx, req.(*RetrieveServiceConfSolutionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3955,6 +4102,24 @@ func _ServiceController_UpdateServiceConf_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ServiceController_UpdateServiceConfSolution_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateServiceConfSolutionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceControllerServer).UpdateServiceConfSolution(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceController_UpdateServiceConfSolution_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceControllerServer).UpdateServiceConfSolution(ctx, req.(*UpdateServiceConfSolutionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ServiceController_UpdateServiceConfWarehouse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateServiceConfWarehouseRequest)
 	if err := dec(in); err != nil {
@@ -4015,6 +4180,10 @@ var ServiceController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ServiceController_CreateServiceConf_Handler,
 		},
 		{
+			MethodName: "CreateServiceConfSolution",
+			Handler:    _ServiceController_CreateServiceConfSolution_Handler,
+		},
+		{
 			MethodName: "CreateServiceConfWarehouse",
 			Handler:    _ServiceController_CreateServiceConfWarehouse_Handler,
 		},
@@ -4035,6 +4204,10 @@ var ServiceController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ServiceController_DestroyServiceConf_Handler,
 		},
 		{
+			MethodName: "DestroyServiceConfSolution",
+			Handler:    _ServiceController_DestroyServiceConfSolution_Handler,
+		},
+		{
 			MethodName: "DestroyServiceConfWarehouse",
 			Handler:    _ServiceController_DestroyServiceConfWarehouse_Handler,
 		},
@@ -4053,6 +4226,10 @@ var ServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListServiceConf",
 			Handler:    _ServiceController_ListServiceConf_Handler,
+		},
+		{
+			MethodName: "ListServiceConfSolution",
+			Handler:    _ServiceController_ListServiceConfSolution_Handler,
 		},
 		{
 			MethodName: "ListServiceConfWarehouse",
@@ -4077,6 +4254,10 @@ var ServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveServiceConf",
 			Handler:    _ServiceController_RetrieveServiceConf_Handler,
+		},
+		{
+			MethodName: "RetrieveServiceConfSolution",
+			Handler:    _ServiceController_RetrieveServiceConfSolution_Handler,
 		},
 		{
 			MethodName: "RetrieveServiceConfWarehouse",
@@ -4105,6 +4286,10 @@ var ServiceController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateServiceConf",
 			Handler:    _ServiceController_UpdateServiceConf_Handler,
+		},
+		{
+			MethodName: "UpdateServiceConfSolution",
+			Handler:    _ServiceController_UpdateServiceConfSolution_Handler,
 		},
 		{
 			MethodName: "UpdateServiceConfWarehouse",

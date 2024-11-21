@@ -33,8 +33,9 @@ func (f *TradeQueryFunc) TradeQuery(data *types.TradeQueryReq) *types.TradeQuery
 		return nil
 	}
 	resp := (*result)["response"].(map[string]interface{})
-	if resp["code"].(float64) != 0 {
-		fmt.Println("查询订单管理失败 wdt.trade.query：", resp["code"], " 错误信息：", resp["message"])
+	if _, e := resp["errorcode"].(float64); e == false {
+		fmt.Printf("查询订单管理失败 wdt.trade.query：%d， 奇门错误信息：%s \n", resp["code"], resp["message"])
+		fmt.Printf("查询订单管理失败 wdt.trade.query：%d， ERP错误信息：%s \n", resp["sub_code"], resp["sub_message"])
 		return nil
 	}
 	dataList := make([]types.TradeOrder, 0)

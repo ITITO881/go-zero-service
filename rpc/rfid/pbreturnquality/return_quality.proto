@@ -1,0 +1,208 @@
+syntax = "proto3";
+
+package rfid_quality_transfer.return_quality;
+option go_package = "../pbreturnquality";
+
+import "google/protobuf/empty.proto";
+
+service GoodsQualityController {
+  rpc Create(QualityReturnGoodsModelRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc CreateQualityReturnGoods(QualityReturnGoodsCreateRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc Destroy(QualityReturnGoodsModelDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(QualityReturnGoodsModelListRequest) returns (QualityReturnGoodsModelListResponse) {}
+  rpc ListQualityReturnGoods(QualityReturnGoodsListRequest) returns (QualityReturnGoodsModelListResponse) {}
+  rpc PartialUpdate(QualityReturnGoodsModelPartialUpdateRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc Retrieve(QualityReturnGoodsModelRetrieveRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc Update(QualityReturnGoodsModelRequest) returns (QualityReturnGoodsModelResponse) {}
+  rpc UpdateQualityReturnGoods(QualityReturnGoodsUpdateRequest) returns (QualityReturnGoodsModelResponse) {}
+}
+
+message QualityReturnGoodsCreateRequest {
+  int32 id = 1;
+  string filters = 2;
+  string quality_goods = 3;
+  string quality_spec = 4;
+  string goods_name = 5;
+  string quality_epc = 6;
+  string from_warehouse_no = 7;
+  optional string from_warehouse_name = 8;
+  optional string quality_time = 9;
+  string quality_user = 10;
+  int32 quality_result = 11;
+  optional string quality_result_desc = 12;
+  optional string quality_remark = 13;
+  optional string target_warehouse_no = 14;
+  optional string target_warehouse_name = 15;
+  bool is_revoked = 16;
+  optional string revoke_time = 17;
+  bool is_aggregate = 18;
+  optional string agg_trade_no = 19;
+  optional string push_time = 20;
+  optional string push_user = 21;
+  int32 push_status = 22;
+}
+
+message QualityReturnGoodsListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string quality_goods = 3;
+  string quality_spec = 4;
+  string goods_name = 5;
+  string quality_epc = 6;
+  string from_warehouse_no = 7;
+  optional string from_warehouse_name = 8;
+  optional string quality_time = 9;
+  string quality_user = 10;
+  int32 quality_result = 11;
+  optional string quality_result_desc = 12;
+  optional string quality_remark = 13;
+  optional string target_warehouse_no = 14;
+  optional string target_warehouse_name = 15;
+  bool is_revoked = 16;
+  optional string revoke_time = 17;
+  bool is_aggregate = 18;
+  optional string agg_trade_no = 19;
+  optional string push_time = 20;
+  optional string push_user = 21;
+  int32 push_status = 22;
+}
+
+message QualityReturnGoodsModelDestroyRequest {
+  int32 id = 1;
+}
+
+message QualityReturnGoodsModelListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string quality_goods = 3;
+  string quality_spec = 4;
+  string goods_name = 5;
+  string quality_epc = 6;
+  string from_warehouse_no = 7;
+  optional string from_warehouse_name = 8;
+  optional string quality_time = 9;
+  string quality_user = 10;
+  int32 quality_result = 11;
+  optional string quality_result_desc = 12;
+  optional string quality_remark = 13;
+  optional string target_warehouse_no = 14;
+  optional string target_warehouse_name = 15;
+  bool is_revoked = 16;
+  optional string revoke_time = 17;
+  bool is_aggregate = 18;
+  optional string agg_trade_no = 19;
+  optional string push_time = 20;
+  optional string push_user = 21;
+  int32 push_status = 22;
+}
+
+message QualityReturnGoodsModelListResponse {
+  repeated QualityReturnGoodsModelResponse results = 1;
+  int32 count = 2;
+}
+
+message QualityReturnGoodsModelPartialUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string quality_goods = 4;
+  string quality_spec = 5;
+  string goods_name = 6;
+  string quality_epc = 7;
+  string from_warehouse_no = 8;
+  optional string from_warehouse_name = 9;
+  optional string quality_time = 10;
+  string quality_user = 11;
+  int32 quality_result = 12;
+  optional string quality_result_desc = 13;
+  optional string quality_remark = 14;
+  optional string target_warehouse_no = 15;
+  optional string target_warehouse_name = 16;
+  bool is_revoked = 17;
+  optional string revoke_time = 18;
+  bool is_aggregate = 19;
+  optional string agg_trade_no = 20;
+  optional string push_time = 21;
+  optional string push_user = 22;
+  int32 push_status = 23;
+}
+
+message QualityReturnGoodsModelRequest {
+  int32 id = 1;
+  string filters = 2;
+  string quality_goods = 3;
+  string quality_spec = 4;
+  string goods_name = 5;
+  string quality_epc = 6;
+  string from_warehouse_no = 7;
+  optional string from_warehouse_name = 8;
+  optional string quality_time = 9;
+  string quality_user = 10;
+  int32 quality_result = 11;
+  optional string quality_result_desc = 12;
+  optional string quality_remark = 13;
+  optional string target_warehouse_no = 14;
+  optional string target_warehouse_name = 15;
+  bool is_revoked = 16;
+  optional string revoke_time = 17;
+  bool is_aggregate = 18;
+  optional string agg_trade_no = 19;
+  optional string push_time = 20;
+  optional string push_user = 21;
+  int32 push_status = 22;
+}
+
+message QualityReturnGoodsModelResponse {
+  int32 id = 1;
+  string quality_goods = 2;
+  string quality_spec = 3;
+  string goods_name = 4;
+  string quality_epc = 5;
+  string from_warehouse_no = 6;
+  optional string from_warehouse_name = 7;
+  optional string quality_time = 8;
+  string quality_user = 9;
+  int32 quality_result = 10;
+  optional string quality_result_desc = 11;
+  optional string quality_remark = 12;
+  optional string target_warehouse_no = 13;
+  optional string target_warehouse_name = 14;
+  bool is_revoked = 15;
+  optional string revoke_time = 16;
+  bool is_aggregate = 17;
+  optional string agg_trade_no = 18;
+  optional string push_time = 19;
+  optional string push_user = 20;
+  int32 push_status = 21;
+}
+
+message QualityReturnGoodsModelRetrieveRequest {
+  int32 id = 1;
+}
+
+message QualityReturnGoodsUpdateRequest {
+  int32 id = 1;
+  string filters = 2;
+  repeated string _partial_update_fields = 3;
+  string quality_goods = 4;
+  string quality_spec = 5;
+  string goods_name = 6;
+  string quality_epc = 7;
+  string from_warehouse_no = 8;
+  optional string from_warehouse_name = 9;
+  optional string quality_time = 10;
+  string quality_user = 11;
+  int32 quality_result = 12;
+  optional string quality_result_desc = 13;
+  optional string quality_remark = 14;
+  optional string target_warehouse_no = 15;
+  optional string target_warehouse_name = 16;
+  bool is_revoked = 17;
+  optional string revoke_time = 18;
+  bool is_aggregate = 19;
+  optional string agg_trade_no = 20;
+  optional string push_time = 21;
+  optional string push_user = 22;
+  int32 push_status = 23;
+}
+

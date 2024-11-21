@@ -28,23 +28,26 @@ func (f *ApiRefundFunc) VipApiRefundQuery(data *types.VipApiRefundQueryReq) *typ
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
-	resp, err := f.qmClient.Execute(f.method, businessParams)
+	result, err := f.qmClient.Execute(f.method, businessParams)
 	if err != nil {
 		fmt.Println("请求奇门接口 wdt.vip.api.refund.query 错误：", err.Error())
 		return nil
 	}
-	if (*resp)["code"].(float64) != 0 {
-		fmt.Println("查询原始退款单失败 wdt.vip.api.refund.query：", (*resp)["code"], " 错误信息：", (*resp)["message"])
+	resp := (*result)["response"].(map[string]interface{})
+	if _, e := resp["errorcode"].(float64); e == false {
+		fmt.Printf("查询原始退款单失败 wdt.vip.api.refund.query：%d， 奇门错误信息：%s \n", resp["code"], resp["message"])
+		fmt.Printf("查询原始退款单失败 wdt.vip.api.refund.query：%d， ERP错误信息：%s \n", resp["sub_code"], resp["sub_message"])
 		return nil
 	}
+
 	dataList := make([]types.VipApiRefundTrade, 0)
-	err = mapstructure.WeakDecode((*resp)["trade_list"], &dataList)
+	err = mapstructure.WeakDecode(resp["trade_list"], &dataList)
 	if err != nil {
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
 	return &types.VipApiRefundQueryResp{
-		TotalCount: int((*resp)["total_count"].(float64)),
+		TotalCount: int(resp["total_count"].(float64)),
 		TradeList:  dataList,
 	}
 }
@@ -57,23 +60,25 @@ func (f *ApiRefundFunc) RefundQuery(data *types.RefundQueryReq) *types.RefundQue
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
-	resp, err := f.qmClient.Execute("wdt.refund.query", businessParams)
+	result, err := f.qmClient.Execute("wdt.refund.query", businessParams)
 	if err != nil {
 		fmt.Println("请求奇门接口 wdt.refund.query 错误：", err.Error())
 		return nil
 	}
-	if (*resp)["code"].(float64) != 0 {
-		fmt.Println("查询退换管理失败 wdt.vip.api.refund.query：", (*resp)["code"], " 错误信息：", (*resp)["message"])
+	resp := (*result)["response"].(map[string]interface{})
+	if _, e := resp["errorcode"].(float64); e == false {
+		fmt.Printf("查询退换管理失败 wdt.refund.query：%d， 奇门错误信息：%s \n", resp["code"], resp["message"])
+		fmt.Printf("查询退换管理失败 wdt.refund.query：%d， ERP错误信息：%s \n", resp["sub_code"], resp["sub_message"])
 		return nil
 	}
 	dataList := make([]types.RefundData, 0)
-	err = mapstructure.WeakDecode((*resp)["refunds"], &dataList)
+	err = mapstructure.WeakDecode(resp["refunds"], &dataList)
 	if err != nil {
 		fmt.Println("mapstructure.Decode error:", err)
 		return nil
 	}
 	return &types.RefundQueryResp{
-		TotalCount: int((*resp)["total_count"].(float64)),
+		TotalCount: int(resp["total_count"].(float64)),
 		Refunds:    dataList,
 	}
 }

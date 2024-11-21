@@ -15,6 +15,7 @@ type MinIOClientConf struct {
 	UploadContentType string
 	ExpireDuration    int64
 	Location          string
+	Intranet          string `json:"Intranet,optional"`
 }
 
 type RedisConf struct {

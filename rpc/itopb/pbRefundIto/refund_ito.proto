@@ -271,13 +271,16 @@ message CreateRefundInvoiceRequest {
   optional string payer_account = 11;
   optional double invoice_amount = 12;
   optional string invoice_remark = 13;
-  int32 reason_type = 14;
-  optional string invoice_no = 15;
-  optional string invoice_code = 16;
-  optional int64 ctm_order = 17;
-  optional int64 ctm_service = 18;
-  optional int64 ctm_refund = 19;
-  optional int64 parent_invoice = 20;
+  int32 invoice_status = 14;
+  optional int32 reason_type = 15;
+  optional string invoice_no = 16;
+  optional string invoice_code = 17;
+  optional string remark = 18;
+  optional string admin_name = 19;
+  optional int64 ctm_order = 20;
+  optional int64 ctm_service = 21;
+  optional int64 ctm_refund = 22;
+  optional int64 parent_invoice = 23;
 }
 
 message CreateRefundRefundRequest {
@@ -1002,13 +1005,16 @@ message RefundInvoiceChildrenResponse {
   optional string payer_account = 15;
   optional double invoice_amount = 16;
   optional string invoice_remark = 17;
-  int32 reason_type = 18;
-  optional string invoice_no = 19;
-  optional string invoice_code = 20;
-  optional int64 ctm_order = 21;
-  optional int64 ctm_service = 22;
-  optional int64 ctm_refund = 23;
-  optional int64 parent_invoice = 24;
+  int32 invoice_status = 18;
+  optional int32 reason_type = 19;
+  optional string invoice_no = 20;
+  optional string invoice_code = 21;
+  optional string remark = 22;
+  optional string admin_name = 23;
+  optional int64 ctm_order = 24;
+  optional int64 ctm_service = 25;
+  optional int64 ctm_refund = 26;
+  optional int64 parent_invoice = 27;
 }
 
 message RefundInvoiceListResponse {
@@ -1030,13 +1036,16 @@ message RefundInvoiceRequest {
   optional string payer_account = 11;
   optional double invoice_amount = 12;
   optional string invoice_remark = 13;
-  int32 reason_type = 14;
-  optional string invoice_no = 15;
-  optional string invoice_code = 16;
-  optional int64 ctm_order = 17;
-  optional int64 ctm_service = 18;
-  optional int64 ctm_refund = 19;
-  optional int64 parent_invoice = 20;
+  int32 invoice_status = 14;
+  optional int32 reason_type = 15;
+  optional string invoice_no = 16;
+  optional string invoice_code = 17;
+  optional string remark = 18;
+  optional string admin_name = 19;
+  optional int64 ctm_order = 20;
+  optional int64 ctm_service = 21;
+  optional int64 ctm_refund = 22;
+  optional int64 parent_invoice = 23;
 }
 
 message RefundInvoiceResponse {
@@ -1058,13 +1067,16 @@ message RefundInvoiceResponse {
   optional string payer_account = 16;
   optional double invoice_amount = 17;
   optional string invoice_remark = 18;
-  int32 reason_type = 19;
-  optional string invoice_no = 20;
-  optional string invoice_code = 21;
-  optional int64 ctm_order = 22;
-  optional int64 ctm_service = 23;
-  optional int64 ctm_refund = 24;
-  optional int64 parent_invoice = 25;
+  int32 invoice_status = 19;
+  optional int32 reason_type = 20;
+  optional string invoice_no = 21;
+  optional string invoice_code = 22;
+  optional string remark = 23;
+  optional string admin_name = 24;
+  optional int64 ctm_order = 25;
+  optional int64 ctm_service = 26;
+  optional int64 ctm_refund = 27;
+  optional int64 parent_invoice = 28;
 }
 
 message RefundNextRidRequest {
@@ -1407,13 +1419,16 @@ message UpdateRefundInvoiceRequest {
   optional string payer_account = 12;
   optional double invoice_amount = 13;
   optional string invoice_remark = 14;
-  int32 reason_type = 15;
-  optional string invoice_no = 16;
-  optional string invoice_code = 17;
-  optional int64 ctm_order = 18;
-  optional int64 ctm_service = 19;
-  optional int64 ctm_refund = 20;
-  optional int64 parent_invoice = 21;
+  int32 invoice_status = 15;
+  optional int32 reason_type = 16;
+  optional string invoice_no = 17;
+  optional string invoice_code = 18;
+  optional string remark = 19;
+  optional string admin_name = 20;
+  optional int64 ctm_order = 21;
+  optional int64 ctm_service = 22;
+  optional int64 ctm_refund = 23;
+  optional int64 parent_invoice = 24;
 }
 
 message UpdateRefundRefundRequest {

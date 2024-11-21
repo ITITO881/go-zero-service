@@ -20,53 +20,58 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ActivityBrandController_BlogCreate_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/BlogCreate"
-	ActivityBrandController_BlogDestroy_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/BlogDestroy"
-	ActivityBrandController_BlogInteractCreate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/BlogInteractCreate"
-	ActivityBrandController_BlogInteractDestroy_FullMethodName  = "/activity_service.activity_ito.ActivityBrandController/BlogInteractDestroy"
-	ActivityBrandController_BlogInteractList_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/BlogInteractList"
-	ActivityBrandController_BlogInteractRetrieve_FullMethodName = "/activity_service.activity_ito.ActivityBrandController/BlogInteractRetrieve"
-	ActivityBrandController_BlogInteractUpdate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/BlogInteractUpdate"
-	ActivityBrandController_BlogList_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/BlogList"
-	ActivityBrandController_BlogRetrieve_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/BlogRetrieve"
-	ActivityBrandController_BlogUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/BlogUpdate"
-	ActivityBrandController_CaresCreate_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/CaresCreate"
-	ActivityBrandController_CaresDestroy_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/CaresDestroy"
-	ActivityBrandController_CaresList_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/CaresList"
-	ActivityBrandController_CaresRecordCreate_FullMethodName    = "/activity_service.activity_ito.ActivityBrandController/CaresRecordCreate"
-	ActivityBrandController_CaresRecordDestroy_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/CaresRecordDestroy"
-	ActivityBrandController_CaresRecordList_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/CaresRecordList"
-	ActivityBrandController_CaresRecordRetrieve_FullMethodName  = "/activity_service.activity_ito.ActivityBrandController/CaresRecordRetrieve"
-	ActivityBrandController_CaresRecordUpdate_FullMethodName    = "/activity_service.activity_ito.ActivityBrandController/CaresRecordUpdate"
-	ActivityBrandController_CaresRetrieve_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/CaresRetrieve"
-	ActivityBrandController_CaresUpdate_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/CaresUpdate"
-	ActivityBrandController_Create_FullMethodName               = "/activity_service.activity_ito.ActivityBrandController/Create"
-	ActivityBrandController_Destroy_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Destroy"
-	ActivityBrandController_List_FullMethodName                 = "/activity_service.activity_ito.ActivityBrandController/List"
-	ActivityBrandController_NutCreate_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/NutCreate"
-	ActivityBrandController_NutDestroy_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/NutDestroy"
-	ActivityBrandController_NutList_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/NutList"
-	ActivityBrandController_NutRecordCreate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/NutRecordCreate"
-	ActivityBrandController_NutRecordDestroy_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/NutRecordDestroy"
-	ActivityBrandController_NutRecordList_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/NutRecordList"
-	ActivityBrandController_NutRecordRetrieve_FullMethodName    = "/activity_service.activity_ito.ActivityBrandController/NutRecordRetrieve"
-	ActivityBrandController_NutRecordUpdate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/NutRecordUpdate"
-	ActivityBrandController_NutRetrieve_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/NutRetrieve"
-	ActivityBrandController_NutUpdate_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/NutUpdate"
-	ActivityBrandController_Options_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/Options"
-	ActivityBrandController_PartialUpdate_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
-	ActivityBrandController_RecordCreate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/RecordCreate"
-	ActivityBrandController_RecordDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/RecordDestroy"
-	ActivityBrandController_RecordList_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/RecordList"
-	ActivityBrandController_RecordRetrieve_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/RecordRetrieve"
-	ActivityBrandController_RecordUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/RecordUpdate"
-	ActivityBrandController_Retrieve_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/Retrieve"
-	ActivityBrandController_Update_FullMethodName               = "/activity_service.activity_ito.ActivityBrandController/Update"
-	ActivityBrandController_UserApplyCreate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/UserApplyCreate"
-	ActivityBrandController_UserApplyDestroy_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/UserApplyDestroy"
-	ActivityBrandController_UserApplyList_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/UserApplyList"
-	ActivityBrandController_UserApplyRetrieve_FullMethodName    = "/activity_service.activity_ito.ActivityBrandController/UserApplyRetrieve"
-	ActivityBrandController_UserApplyUpdate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/UserApplyUpdate"
+	ActivityBrandController_BlogCreate_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/BlogCreate"
+	ActivityBrandController_BlogDestroy_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/BlogDestroy"
+	ActivityBrandController_BlogInteractCreate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/BlogInteractCreate"
+	ActivityBrandController_BlogInteractDestroy_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/BlogInteractDestroy"
+	ActivityBrandController_BlogInteractList_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/BlogInteractList"
+	ActivityBrandController_BlogInteractRetrieve_FullMethodName    = "/activity_service.activity_ito.ActivityBrandController/BlogInteractRetrieve"
+	ActivityBrandController_BlogInteractUpdate_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/BlogInteractUpdate"
+	ActivityBrandController_BlogList_FullMethodName                = "/activity_service.activity_ito.ActivityBrandController/BlogList"
+	ActivityBrandController_BlogRetrieve_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/BlogRetrieve"
+	ActivityBrandController_BlogUpdate_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/BlogUpdate"
+	ActivityBrandController_CaresCreate_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/CaresCreate"
+	ActivityBrandController_CaresDestroy_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/CaresDestroy"
+	ActivityBrandController_CaresList_FullMethodName               = "/activity_service.activity_ito.ActivityBrandController/CaresList"
+	ActivityBrandController_CaresRecordCreate_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/CaresRecordCreate"
+	ActivityBrandController_CaresRecordDestroy_FullMethodName      = "/activity_service.activity_ito.ActivityBrandController/CaresRecordDestroy"
+	ActivityBrandController_CaresRecordList_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/CaresRecordList"
+	ActivityBrandController_CaresRecordRetrieve_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/CaresRecordRetrieve"
+	ActivityBrandController_CaresRecordUpdate_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/CaresRecordUpdate"
+	ActivityBrandController_CaresRetrieve_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/CaresRetrieve"
+	ActivityBrandController_CaresUpdate_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/CaresUpdate"
+	ActivityBrandController_ChannelActivityCreate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/ChannelActivityCreate"
+	ActivityBrandController_ChannelActivityDestroy_FullMethodName  = "/activity_service.activity_ito.ActivityBrandController/ChannelActivityDestroy"
+	ActivityBrandController_ChannelActivityList_FullMethodName     = "/activity_service.activity_ito.ActivityBrandController/ChannelActivityList"
+	ActivityBrandController_ChannelActivityRetrieve_FullMethodName = "/activity_service.activity_ito.ActivityBrandController/ChannelActivityRetrieve"
+	ActivityBrandController_ChannelActivityUpdate_FullMethodName   = "/activity_service.activity_ito.ActivityBrandController/ChannelActivityUpdate"
+	ActivityBrandController_Create_FullMethodName                  = "/activity_service.activity_ito.ActivityBrandController/Create"
+	ActivityBrandController_Destroy_FullMethodName                 = "/activity_service.activity_ito.ActivityBrandController/Destroy"
+	ActivityBrandController_List_FullMethodName                    = "/activity_service.activity_ito.ActivityBrandController/List"
+	ActivityBrandController_NutCreate_FullMethodName               = "/activity_service.activity_ito.ActivityBrandController/NutCreate"
+	ActivityBrandController_NutDestroy_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/NutDestroy"
+	ActivityBrandController_NutList_FullMethodName                 = "/activity_service.activity_ito.ActivityBrandController/NutList"
+	ActivityBrandController_NutRecordCreate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/NutRecordCreate"
+	ActivityBrandController_NutRecordDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/NutRecordDestroy"
+	ActivityBrandController_NutRecordList_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/NutRecordList"
+	ActivityBrandController_NutRecordRetrieve_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/NutRecordRetrieve"
+	ActivityBrandController_NutRecordUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/NutRecordUpdate"
+	ActivityBrandController_NutRetrieve_FullMethodName             = "/activity_service.activity_ito.ActivityBrandController/NutRetrieve"
+	ActivityBrandController_NutUpdate_FullMethodName               = "/activity_service.activity_ito.ActivityBrandController/NutUpdate"
+	ActivityBrandController_Options_FullMethodName                 = "/activity_service.activity_ito.ActivityBrandController/Options"
+	ActivityBrandController_PartialUpdate_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/PartialUpdate"
+	ActivityBrandController_RecordCreate_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/RecordCreate"
+	ActivityBrandController_RecordDestroy_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/RecordDestroy"
+	ActivityBrandController_RecordList_FullMethodName              = "/activity_service.activity_ito.ActivityBrandController/RecordList"
+	ActivityBrandController_RecordRetrieve_FullMethodName          = "/activity_service.activity_ito.ActivityBrandController/RecordRetrieve"
+	ActivityBrandController_RecordUpdate_FullMethodName            = "/activity_service.activity_ito.ActivityBrandController/RecordUpdate"
+	ActivityBrandController_Retrieve_FullMethodName                = "/activity_service.activity_ito.ActivityBrandController/Retrieve"
+	ActivityBrandController_Update_FullMethodName                  = "/activity_service.activity_ito.ActivityBrandController/Update"
+	ActivityBrandController_UserApplyCreate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/UserApplyCreate"
+	ActivityBrandController_UserApplyDestroy_FullMethodName        = "/activity_service.activity_ito.ActivityBrandController/UserApplyDestroy"
+	ActivityBrandController_UserApplyList_FullMethodName           = "/activity_service.activity_ito.ActivityBrandController/UserApplyList"
+	ActivityBrandController_UserApplyRetrieve_FullMethodName       = "/activity_service.activity_ito.ActivityBrandController/UserApplyRetrieve"
+	ActivityBrandController_UserApplyUpdate_FullMethodName         = "/activity_service.activity_ito.ActivityBrandController/UserApplyUpdate"
 )
 
 // ActivityBrandControllerClient is the client API for ActivityBrandController service.
@@ -93,6 +98,11 @@ type ActivityBrandControllerClient interface {
 	CaresRecordUpdate(ctx context.Context, in *ActivityBrandCaresRecordUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresRecordResponse, error)
 	CaresRetrieve(ctx context.Context, in *ActivityBrandCaresRetrieveRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
 	CaresUpdate(ctx context.Context, in *ActivityBrandCaresUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error)
+	ChannelActivityCreate(ctx context.Context, in *ChannelActivityRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error)
+	ChannelActivityDestroy(ctx context.Context, in *ActivityBrandChannelActivityDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ChannelActivityList(ctx context.Context, in *ChannelActivityListRequest, opts ...grpc.CallOption) (*ChannelActivityListResponse, error)
+	ChannelActivityRetrieve(ctx context.Context, in *ChannelActivityRetrieveRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error)
+	ChannelActivityUpdate(ctx context.Context, in *ChannelActivityUpdateRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error)
 	Create(ctx context.Context, in *ActivityBrandRequest, opts ...grpc.CallOption) (*ActivityBrandResponse, error)
 	Destroy(ctx context.Context, in *ActivityBrandDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *ActivityBrandListRequest, opts ...grpc.CallOption) (*ActivityBrandListResponse, error)
@@ -304,6 +314,51 @@ func (c *activityBrandControllerClient) CaresRetrieve(ctx context.Context, in *A
 func (c *activityBrandControllerClient) CaresUpdate(ctx context.Context, in *ActivityBrandCaresUpdateRequest, opts ...grpc.CallOption) (*ActivityBrandCaresResponse, error) {
 	out := new(ActivityBrandCaresResponse)
 	err := c.cc.Invoke(ctx, ActivityBrandController_CaresUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) ChannelActivityCreate(ctx context.Context, in *ChannelActivityRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error) {
+	out := new(ChannelActivityResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_ChannelActivityCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) ChannelActivityDestroy(ctx context.Context, in *ActivityBrandChannelActivityDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ActivityBrandController_ChannelActivityDestroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) ChannelActivityList(ctx context.Context, in *ChannelActivityListRequest, opts ...grpc.CallOption) (*ChannelActivityListResponse, error) {
+	out := new(ChannelActivityListResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_ChannelActivityList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) ChannelActivityRetrieve(ctx context.Context, in *ChannelActivityRetrieveRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error) {
+	out := new(ChannelActivityResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_ChannelActivityRetrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityBrandControllerClient) ChannelActivityUpdate(ctx context.Context, in *ChannelActivityUpdateRequest, opts ...grpc.CallOption) (*ChannelActivityResponse, error) {
+	out := new(ChannelActivityResponse)
+	err := c.cc.Invoke(ctx, ActivityBrandController_ChannelActivityUpdate_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -577,6 +632,11 @@ type ActivityBrandControllerServer interface {
 	CaresRecordUpdate(context.Context, *ActivityBrandCaresRecordUpdateRequest) (*ActivityBrandCaresRecordResponse, error)
 	CaresRetrieve(context.Context, *ActivityBrandCaresRetrieveRequest) (*ActivityBrandCaresResponse, error)
 	CaresUpdate(context.Context, *ActivityBrandCaresUpdateRequest) (*ActivityBrandCaresResponse, error)
+	ChannelActivityCreate(context.Context, *ChannelActivityRequest) (*ChannelActivityResponse, error)
+	ChannelActivityDestroy(context.Context, *ActivityBrandChannelActivityDestroyRequest) (*emptypb.Empty, error)
+	ChannelActivityList(context.Context, *ChannelActivityListRequest) (*ChannelActivityListResponse, error)
+	ChannelActivityRetrieve(context.Context, *ChannelActivityRetrieveRequest) (*ChannelActivityResponse, error)
+	ChannelActivityUpdate(context.Context, *ChannelActivityUpdateRequest) (*ChannelActivityResponse, error)
 	Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error)
 	Destroy(context.Context, *ActivityBrandDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *ActivityBrandListRequest) (*ActivityBrandListResponse, error)
@@ -670,6 +730,21 @@ func (UnimplementedActivityBrandControllerServer) CaresRetrieve(context.Context,
 }
 func (UnimplementedActivityBrandControllerServer) CaresUpdate(context.Context, *ActivityBrandCaresUpdateRequest) (*ActivityBrandCaresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CaresUpdate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) ChannelActivityCreate(context.Context, *ChannelActivityRequest) (*ChannelActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelActivityCreate not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) ChannelActivityDestroy(context.Context, *ActivityBrandChannelActivityDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelActivityDestroy not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) ChannelActivityList(context.Context, *ChannelActivityListRequest) (*ChannelActivityListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelActivityList not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) ChannelActivityRetrieve(context.Context, *ChannelActivityRetrieveRequest) (*ChannelActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelActivityRetrieve not implemented")
+}
+func (UnimplementedActivityBrandControllerServer) ChannelActivityUpdate(context.Context, *ChannelActivityUpdateRequest) (*ChannelActivityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelActivityUpdate not implemented")
 }
 func (UnimplementedActivityBrandControllerServer) Create(context.Context, *ActivityBrandRequest) (*ActivityBrandResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
@@ -1122,6 +1197,96 @@ func _ActivityBrandController_CaresUpdate_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ActivityBrandControllerServer).CaresUpdate(ctx, req.(*ActivityBrandCaresUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_ChannelActivityCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelActivityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).ChannelActivityCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_ChannelActivityCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).ChannelActivityCreate(ctx, req.(*ChannelActivityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_ChannelActivityDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActivityBrandChannelActivityDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).ChannelActivityDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_ChannelActivityDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).ChannelActivityDestroy(ctx, req.(*ActivityBrandChannelActivityDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_ChannelActivityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelActivityListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).ChannelActivityList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_ChannelActivityList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).ChannelActivityList(ctx, req.(*ChannelActivityListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_ChannelActivityRetrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelActivityRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).ChannelActivityRetrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_ChannelActivityRetrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).ChannelActivityRetrieve(ctx, req.(*ChannelActivityRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityBrandController_ChannelActivityUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelActivityUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityBrandControllerServer).ChannelActivityUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityBrandController_ChannelActivityUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityBrandControllerServer).ChannelActivityUpdate(ctx, req.(*ChannelActivityUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1698,6 +1863,26 @@ var ActivityBrandController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CaresUpdate",
 			Handler:    _ActivityBrandController_CaresUpdate_Handler,
+		},
+		{
+			MethodName: "ChannelActivityCreate",
+			Handler:    _ActivityBrandController_ChannelActivityCreate_Handler,
+		},
+		{
+			MethodName: "ChannelActivityDestroy",
+			Handler:    _ActivityBrandController_ChannelActivityDestroy_Handler,
+		},
+		{
+			MethodName: "ChannelActivityList",
+			Handler:    _ActivityBrandController_ChannelActivityList_Handler,
+		},
+		{
+			MethodName: "ChannelActivityRetrieve",
+			Handler:    _ActivityBrandController_ChannelActivityRetrieve_Handler,
+		},
+		{
+			MethodName: "ChannelActivityUpdate",
+			Handler:    _ActivityBrandController_ChannelActivityUpdate_Handler,
 		},
 		{
 			MethodName: "Create",

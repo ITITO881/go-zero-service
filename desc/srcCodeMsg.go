@@ -46,6 +46,7 @@ func init() {
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_ACTIVITY] = "文件源：微信小程序，二级分类复合列表，活动页"
 	srcFlag[WEB_MP_ITO_DUAL_BAR_PROD] = "文件源：微信小程序，二级分类，产品页"
 	srcFlag[WEB_MP_ITO_DUAL_MIXIN_Nut] = "文件源：微信小程序，二级分类复合列表，坚果页"
+	srcFlag[WEB_MP_ITO_DUAL_MIXIN_RAW_PROJECT] = "文件源：微信小程序，二级分类复合列表，原生项目页"
 
 	srcFlag[WEB_MP_ITO_COUPON_CARES] = "文件源: 售后卡素材"
 	srcFlag[WEB_MP_ITO_COUPON_NUT] = "文件源: 售后卡素材"
@@ -79,6 +80,7 @@ func init() {
 	srcFlag[WX_SERVICE_SWAP_MEDIA] = "文件源：服务单，权益换新图片"
 	srcFlag[WX_SERVICE_TAILOR_MEDIA] = "文件源：服务单，产品定制图片"
 	srcFlag[WX_SERVICE_TRADE_IN_MEDIA] = "文件源：服务单，以旧换新图片"
+	srcFlag[WX_SERVICE_COMPLAIN_MEDIA] = "文件源：服务单，客诉图片"
 
 	// 8. ITO 活动相关
 	srcFlag[WX_AVTIVITY_MEDIA] = "文件源：活动，用户上传图片"

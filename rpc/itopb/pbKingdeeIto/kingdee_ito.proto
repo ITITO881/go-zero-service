@@ -20,33 +20,39 @@ service CeleryTaskController {
   rpc CreateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
   rpc CreateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
   rpc CreatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
+  rpc CreateTaskProgress(TaskProgressRequest) returns (TaskProgressResponse) {}
   rpc CreateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
   rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyTaskProgress(TaskProgressDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
   rpc ListCeleryTasks(CeleryTaskQueryOptsRequest) returns (CeleryTaskInfoListResponse) {}
   rpc ListClockedSchedule(ClockedScheduleListRequest) returns (ClockedScheduleListResponse) {}
   rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
   rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
   rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
+  rpc ListTaskProgress(TaskProgressListRequest) returns (TaskProgressListResponse) {}
   rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
   rpc PartialUpdateClockedSchedule(ClockedSchedulePartialUpdateRequest) returns (ClockedScheduleResponse) {}
   rpc PartialUpdateCrontabSchedule(CrontabSchedulePartialUpdateRequest) returns (CrontabScheduleResponse) {}
   rpc PartialUpdateIntervalSchedule(IntervalSchedulePartialUpdateRequest) returns (IntervalScheduleResponse) {}
   rpc PartialUpdatePeriodicTask(PeriodicTaskPartialUpdateRequest) returns (PeriodicTaskResponse) {}
+  rpc PartialUpdateTaskProgress(TaskProgressPartialUpdateRequest) returns (TaskProgressResponse) {}
   rpc PartialUpdateTaskResult(TaskResultPartialUpdateRequest) returns (TaskResultResponse) {}
   rpc RetrieveClockedSchedule(ClockedScheduleRetrieveRequest) returns (ClockedScheduleResponse) {}
   rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
   rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
   rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
+  rpc RetrieveTaskProgress(TaskProgressRetrieveRequest) returns (TaskProgressResponse) {}
   rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
   rpc RunCeleryTask(CeleryTaskRunOptsRequest) returns (CeleryTaskRunOptsResponse) {}
   rpc UpdateClockedSchedule(ClockedScheduleRequest) returns (ClockedScheduleResponse) {}
   rpc UpdateCrontabSchedule(CrontabScheduleRequest) returns (CrontabScheduleResponse) {}
   rpc UpdateIntervalSchedule(IntervalScheduleRequest) returns (IntervalScheduleResponse) {}
   rpc UpdatePeriodicTask(PeriodicTaskRequest) returns (PeriodicTaskResponse) {}
+  rpc UpdateTaskProgress(TaskProgressRequest) returns (TaskProgressResponse) {}
   rpc UpdateTaskResult(TaskResultRequest) returns (TaskResultResponse) {}
 }
 
@@ -54,7 +60,9 @@ service KingdeePurchaseOrderController {
   rpc BulkCreateKdPurchaseReturn(BulkCreateKdPurchaseReturnRequest) returns (BulkCreateKdPurchaseReturnResponse) {}
   rpc BulkCreateKdTransferOrder(BulkCreateKdTransferOrderRequest) returns (BulkCreateKdTransferOrderResponse) {}
   rpc BulkCreateKingdeePurchaseOrder(BulkCreateKingdeePurchaseOrderRequest) returns (BulkCreateKingdeePurchaseOrderResponse) {}
+  rpc BulkCreateKingdeePurchaseOrderSync(BulkCreateKingdeePurchaseOrderSyncRequest) returns (BulkCreateKingdeePurchaseOrderSyncResponse) {}
   rpc BulkCreateKingdeeReceiveBill(BulkCreateKingdeeReceiveBillRequest) returns (BulkCreateKingdeeReceiveBillResponse) {}
+  rpc BulkCreateKingdeeReceiveBillSync(BulkCreateKingdeeReceiveBillSyncRequest) returns (BulkCreateKingdeeReceiveBillSyncResponse) {}
   rpc Create(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
   rpc CreateKdPurchaseReturn(CreateKdPurchaseReturnRequest) returns (CreateKdPurchaseReturnResponse) {}
   rpc CreateKdTransferOrder(CreateKdTransferOrderRequest) returns (CreateKdTransferOrderResponse) {}
@@ -76,7 +84,70 @@ service KingdeePurchaseOrderController {
   rpc Update(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
 }
 
+service OtherStockinController {
+  rpc List(WdtStockinModelListRequest) returns (WdtStockinModelListResponse) {}
+  rpc TaskSigFetchStockinOrder(TaskSigFetchStockinOrderRequest) returns (TaskSigFetchStockinOrderResponse) {}
+}
+
+service OtherStockoutController {
+  rpc List(WdtStockoutModelListRequest) returns (WdtStockoutModelListResponse) {}
+  rpc TaskSigFetchStockoutOrder(TaskSigFetchStockoutOrderRequest) returns (TaskSigFetchStockoutOrderResponse) {}
+}
+
+service PurchasePlatController {
+  rpc CreateKingdeePurchaseOrder(KingdeePurchaseOrderRequest) returns (KingdeePurchaseOrderResponse) {}
+  rpc CreateKingdeePurchaseReturn(KingdeePurchaseReturnRequest) returns (KingdeePurchaseReturnResponse) {}
+  rpc CreateKingdeeReceiveBill(KingdeeReceiveBillRequest) returns (KingdeeReceiveBillResponse) {}
+  rpc CreateWdtPurchaseOrder(WdtPurchaseOrderRequest) returns (WdtPurchaseOrderResponse) {}
+  rpc CreateWdtPurchaseReturn(WdtPurchaseReturnRequest) returns (WdtPurchaseReturnResponse) {}
+  rpc CreateWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnRequest) returns (WdtStockoutPurchaseReturnResponse) {}
+  rpc CreateWdtStockinOrderPurchase(WdtStockinOrderPurchaseRequest) returns (WdtStockinOrderPurchaseResponse) {}
+  rpc CreateWdtStockoutOrderReturn(WdtStockoutOrderReturnRequest) returns (WdtStockoutOrderReturnResponse) {}
+  rpc DestroyKingdeePurchaseOrder(KingdeePurchaseOrderDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyKingdeePurchaseReturn(KingdeePurchaseReturnDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyKingdeeReceiveBill(KingdeeReceiveBillDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtPurchaseOrder(WdtPurchaseOrderDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtPurchaseReturn(WdtPurchaseReturnDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtStockinOrderPurchase(WdtStockinOrderPurchaseDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtStockoutOrderReturn(WdtStockoutOrderReturnDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ListKingdeePurchaseOrder(KingdeePurchaseOrderListRequest) returns (KingdeePurchaseOrderListResponse) {}
+  rpc ListKingdeePurchaseReturn(KingdeePurchaseReturnListRequest) returns (KingdeePurchaseReturnListResponse) {}
+  rpc ListKingdeeReceiveBill(KingdeeReceiveBillListRequest) returns (KingdeeReceiveBillListResponse) {}
+  rpc ListWdtPurchaseOrder(WdtPurchaseOrderListRequest) returns (WdtPurchaseOrderListResponse) {}
+  rpc ListWdtPurchaseReturn(WdtPurchaseReturnListRequest) returns (WdtPurchaseReturnListResponse) {}
+  rpc ListWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnListRequest) returns (WdtStockoutPurchaseReturnListResponse) {}
+  rpc ListWdtStockinOrderPurchase(WdtStockinOrderPurchaseListRequest) returns (WdtStockinOrderPurchaseListResponse) {}
+  rpc ListWdtStockoutOrderReturn(WdtStockoutOrderReturnListRequest) returns (WdtStockoutOrderReturnListResponse) {}
+  rpc PartialUpdateKingdeePurchaseOrder(KingdeePurchaseOrderPartialUpdateRequest) returns (KingdeePurchaseOrderResponse) {}
+  rpc PartialUpdateKingdeePurchaseReturn(KingdeePurchaseReturnPartialUpdateRequest) returns (KingdeePurchaseReturnResponse) {}
+  rpc PartialUpdateKingdeeReceiveBill(KingdeeReceiveBillPartialUpdateRequest) returns (KingdeeReceiveBillResponse) {}
+  rpc PartialUpdateWdtPurchaseOrder(WdtPurchaseOrderPartialUpdateRequest) returns (WdtPurchaseOrderResponse) {}
+  rpc PartialUpdateWdtPurchaseReturn(WdtPurchaseReturnPartialUpdateRequest) returns (WdtPurchaseReturnResponse) {}
+  rpc PartialUpdateWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnPartialUpdateRequest) returns (WdtStockoutPurchaseReturnResponse) {}
+  rpc PartialUpdateWdtStockinOrderPurchase(WdtStockinOrderPurchasePartialUpdateRequest) returns (WdtStockinOrderPurchaseResponse) {}
+  rpc PartialUpdateWdtStockoutOrderReturn(WdtStockoutOrderReturnPartialUpdateRequest) returns (WdtStockoutOrderReturnResponse) {}
+  rpc RetrieveKingdeePurchaseOrder(KingdeePurchaseOrderRetrieveRequest) returns (KingdeePurchaseOrderResponse) {}
+  rpc RetrieveKingdeePurchaseReturn(KingdeePurchaseReturnRetrieveRequest) returns (KingdeePurchaseReturnResponse) {}
+  rpc RetrieveKingdeeReceiveBill(KingdeeReceiveBillRetrieveRequest) returns (KingdeeReceiveBillResponse) {}
+  rpc RetrieveWdtPurchaseOrder(WdtPurchaseOrderRetrieveRequest) returns (WdtPurchaseOrderResponse) {}
+  rpc RetrieveWdtPurchaseReturn(WdtPurchaseReturnRetrieveRequest) returns (WdtPurchaseReturnResponse) {}
+  rpc RetrieveWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnRetrieveRequest) returns (WdtStockoutPurchaseReturnResponse) {}
+  rpc RetrieveWdtStockinOrderPurchase(WdtStockinOrderPurchaseRetrieveRequest) returns (WdtStockinOrderPurchaseResponse) {}
+  rpc RetrieveWdtStockoutOrderReturn(WdtStockoutOrderReturnRetrieveRequest) returns (WdtStockoutOrderReturnResponse) {}
+  rpc UpdateKingdeePurchaseOrder(KingdeePurchaseOrderRequest) returns (KingdeePurchaseOrderResponse) {}
+  rpc UpdateKingdeePurchaseReturn(KingdeePurchaseReturnRequest) returns (KingdeePurchaseReturnResponse) {}
+  rpc UpdateKingdeeReceiveBill(KingdeeReceiveBillRequest) returns (KingdeeReceiveBillResponse) {}
+  rpc UpdateWdtPurchaseOrder(WdtPurchaseOrderRequest) returns (WdtPurchaseOrderResponse) {}
+  rpc UpdateWdtPurchaseReturn(WdtPurchaseReturnRequest) returns (WdtPurchaseReturnResponse) {}
+  rpc UpdateWdtStockOutPurchaseReturn(WdtStockoutPurchaseReturnRequest) returns (WdtStockoutPurchaseReturnResponse) {}
+  rpc UpdateWdtStockinOrderPurchase(WdtStockinOrderPurchaseRequest) returns (WdtStockinOrderPurchaseResponse) {}
+  rpc UpdateWdtStockoutOrderReturn(WdtStockoutOrderReturnRequest) returns (WdtStockoutOrderReturnResponse) {}
+}
+
 service TradeAggController {
+  rpc AggTradeByMonth(AggTradeByMonthRequest) returns (AggTradeByMonthResponse) {}
+  rpc AggTradeByMonthSync(AggTradeByMonthSyncRequest) returns (AggTradeByMonthSyncResponse) {}
   rpc CountAggPushStatus(AggPushStatusCountRequest) returns (AggPushStatusCountResponse) {}
   rpc Create(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
   rpc CreateAggParamsTrade(AggParamsTradeCreateRequest) returns (AggParamsTradeResponse) {}
@@ -87,12 +158,14 @@ service TradeAggController {
   rpc CreateTaskResult(TaskResultCreateRequest) returns (TaskResultResponse) {}
   rpc Destroy(KingdeeTradeDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyAggParamsTrade(AggParamsTradeDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyAggTrade(DestroyAggTradeRequest) returns (DestroyAggTradeResponse) {}
   rpc DestroyClockedSchedule(ClockedScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyCrontabSchedule(CrontabScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyIntervalSchedule(IntervalScheduleDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyPeriodicTask(PeriodicTaskDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyTaskResult(TaskResultDestroyRequest) returns (google.protobuf.Empty) {}
   rpc FetchQimenTrade(FetchQimenTradeRequest) returns (FetchQimenTradeResponse) {}
+  rpc FetchTradeFromWdtList(FetchTradeListFromWdtRequest) returns (FetchTradeListFromWdtResponse) {}
   rpc GetKingdeeShopNoInfo(KingdeeShopNoInfoRequest) returns (KingdeeShopNoInfoResponse) {}
   rpc GetKingdeeStockNoInfo(KingdeeStockNoInfoRequest) returns (KingdeeStockNoInfoResponse) {}
   rpc List(KingdeeTradeListRequest) returns (KingdeeTradeListResponse) {}
@@ -101,9 +174,9 @@ service TradeAggController {
   rpc ListCrontabSchedule(CrontabScheduleListRequest) returns (CrontabScheduleListResponse) {}
   rpc ListIntervalSchedule(IntervalScheduleListRequest) returns (IntervalScheduleListResponse) {}
   rpc ListKingdeeSalOutStock(KingdeeSalOutStockListRequest) returns (KingdeeSalOutStockListResponse) {}
-  rpc ListMongoTrades(MongoTradesListRequest) returns (MongoTradesListResponse) {}
   rpc ListPeriodicTask(PeriodicTaskListRequest) returns (PeriodicTaskListResponse) {}
   rpc ListTaskResult(TaskResultListRequest) returns (TaskResultListResponse) {}
+  rpc ListWdtTrade(WdtTradeListRequest) returns (WdtTradeListResponse) {}
   rpc NextNoAggParamsTrade(AggParamsTradeNextNoRequest) returns (AggParamsTradeNextNoResponse) {}
   rpc PartialUpdate(KingdeeTradePartialUpdateRequest) returns (KingdeeTradeResponse) {}
   rpc PeriodAggTrade(PeriodAggTradeRequest) returns (PeriodAggTradeResponse) {}
@@ -114,15 +187,19 @@ service TradeAggController {
   rpc RetrieveCrontabSchedule(CrontabScheduleRetrieveRequest) returns (CrontabScheduleResponse) {}
   rpc RetrieveIntervalSchedule(IntervalScheduleRetrieveRequest) returns (IntervalScheduleResponse) {}
   rpc RetrieveKingdeeSalOutStock(KingdeeSalOutStockRetrieveRequest) returns (KingdeeSalOutStockResponse) {}
-  rpc RetrieveMongoTrades(MongoTradesRetrieveRequest) returns (MongoTradesResponse) {}
   rpc RetrievePeriodicTask(PeriodicTaskRetrieveRequest) returns (PeriodicTaskResponse) {}
   rpc RetrieveTaskResult(TaskResultRetrieveRequest) returns (TaskResultResponse) {}
+  rpc RetrieveWdtTrade(WdtTradeRetrieveRequest) returns (WdtTradeResponse) {}
   rpc RevokeKingdeeSalOutstock(RevokeKingdeeSalOutstockRequest) returns (RevokeKingdeeSalOutstockResponse) {}
   rpc RunPeriodAggSharedTask(RunPeriodAggSharedTaskRequest) returns (RunPeriodAggSharedTaskResponse) {}
   rpc RunPeriodPushToKingDeeSalOutStock(RunPeriodPushToKingDeeSalOutStockRequest) returns (RunPeriodPushToKingDeeSalOutStockResponse) {}
   rpc RunPeriodicTask(RunPeriodicTaskRequest) returns (RunPeriodicTaskResponse) {}
   rpc RunSliceFetchTrade(RunSharedTaskRequest) returns (RunSharedTaskResponse) {}
+  rpc ShopOptionsWdt(WdtShopListRequest) returns (WdtShopListResponse) {}
+  rpc StockOptionsWdt(WdtStockListRequest) returns (WdtStockListResponse) {}
   rpc StopPeriodicTask(StopPeriodicTaskRequest) returns (StopPeriodicTaskResponse) {}
+  rpc TaskSigAggTrade(TaskSigAggTradeRequest) returns (TaskSigAggTradeResponse) {}
+  rpc TaskSigFetchWdtTrade(TaskSigFetchWdtTradeRequest) returns (TaskSigFetchWdtTradeResponse) {}
   rpc Update(KingdeeTradeRequest) returns (KingdeeTradeResponse) {}
   rpc UpdateAggParamsTrade(AggParamsTradeUpdateRequest) returns (AggParamsTradeResponse) {}
   rpc UpdateClockedSchedule(ClockedScheduleUpdateRequest) returns (ClockedScheduleResponse) {}
@@ -130,27 +207,43 @@ service TradeAggController {
   rpc UpdateIntervalSchedule(IntervalScheduleUpdateRequest) returns (IntervalScheduleResponse) {}
   rpc UpdatePeriodicTask(PeriodicTaskUpdateRequest) returns (PeriodicTaskResponse) {}
   rpc UpdateTaskResult(TaskResultUpdateRequest) returns (TaskResultResponse) {}
+  rpc WdtOption(EmptyRequest) returns (WdtOptionResponse) {}
 }
 
 service TradeRefundAggController {
+  rpc AggTradeRefund(AggTradeRefundRequest) returns (AggTradeRefundResponse) {}
+  rpc CountAggRefundPushStatus(CountAggRefundPushStatusRequest) returns (CountAggRefundPushStatusResponse) {}
   rpc CreateKingdeeSalReturnStock(KingdeeSalReturnStockRequest) returns (KingdeeSalReturnStockResponse) {}
-  rpc CreateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
-  rpc CreateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
+  rpc CreateWdtTradeRefund(WdtTradeRefundRequest) returns (WdtTradeRefundResponse) {}
+  rpc CreateWdtTradeRefundStockin(WdtTradeRefundStockinRequest) returns (WdtTradeRefundStockinResponse) {}
+  rpc DestroyAggTradeRefund(DestroyAggTradeRefundRequest) returns (DestroyAggTradeRefundResponse) {}
   rpc DestroyKingdeeSalReturnStock(KingdeeSalReturnStockDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyTradeRefund(TradeRefundDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc DestroyTradeRefundStockin(TradeRefundStockinDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtTradeRefund(WdtTradeRefundDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyWdtTradeRefundStockin(WdtTradeRefundStockinDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc FetchRefundListFromWdt(FetchRefundListFromWdtRequest) returns (FetchRefundListFromWdtResponse) {}
+  rpc FetchTradeRefund(FetchTradeRefundRequest) returns (FetchTradeRefundResponse) {}
   rpc ListKingdeeSalReturnStock(KingdeeSalReturnStockListRequest) returns (KingdeeSalReturnStockListResponse) {}
-  rpc ListTradeRefund(TradeRefundListRequest) returns (TradeRefundListResponse) {}
-  rpc ListTradeRefundStockin(TradeRefundStockinListRequest) returns (TradeRefundStockinListResponse) {}
+  rpc ListWdtTradeRefund(WdtTradeRefundListRequest) returns (WdtTradeRefundListResponse) {}
+  rpc ListWdtTradeRefundStockin(WdtTradeRefundStockinListRequest) returns (WdtTradeRefundStockinListResponse) {}
+  rpc MatchTradeRefund(MatchTradeRefundRequest) returns (MatchTradeRefundResponse) {}
   rpc PartialUpdateKingdeeSalReturnStock(KingdeeSalReturnStockPartialUpdateRequest) returns (KingdeeSalReturnStockResponse) {}
-  rpc PartialUpdateTradeRefund(TradeRefundPartialUpdateRequest) returns (TradeRefundResponse) {}
-  rpc PartialUpdateTradeRefundStockin(TradeRefundStockinPartialUpdateRequest) returns (TradeRefundStockinResponse) {}
+  rpc PartialUpdateWdtTradeRefund(WdtTradeRefundPartialUpdateRequest) returns (WdtTradeRefundResponse) {}
+  rpc PartialUpdateWdtTradeRefundStockin(WdtTradeRefundStockinPartialUpdateRequest) returns (WdtTradeRefundStockinResponse) {}
+  rpc PushToKingDeeSalReturnStock(PushToKingDeeSalReturnStockRequest) returns (PushToKingDeeSalReturnStockResponse) {}
   rpc RetrieveKingdeeSalReturnStock(KingdeeSalReturnStockRetrieveRequest) returns (KingdeeSalReturnStockResponse) {}
-  rpc RetrieveTradeRefund(TradeRefundRetrieveRequest) returns (TradeRefundResponse) {}
-  rpc RetrieveTradeRefundStockin(TradeRefundStockinRetrieveRequest) returns (TradeRefundStockinResponse) {}
+  rpc RetrieveWdtTradeRefund(WdtTradeRefundRetrieveRequest) returns (WdtTradeRefundResponse) {}
+  rpc RetrieveWdtTradeRefundStockin(WdtTradeRefundStockinRetrieveRequest) returns (WdtTradeRefundStockinResponse) {}
+  rpc TaskSigAggTradeRefund(TaskSigAggTradeRefundRequest) returns (TaskSigAggTradeRefundResponse) {}
+  rpc TaskSigFetchTradeRefund(TaskSigFetchTradeRefundRequest) returns (TaskSigFetchTradeRefundResponse) {}
+  rpc TaskSigMatchTradeRefund(TaskSigMatchTradeRefundRequest) returns (TaskSigMatchTradeRefundResponse) {}
+  rpc TaskSigPushTradeRefund(TaskSigPushTradeRefundRequest) returns (TaskSigPushTradeRefundResponse) {}
   rpc UpdateKingdeeSalReturnStock(KingdeeSalReturnStockRequest) returns (KingdeeSalReturnStockResponse) {}
-  rpc UpdateTradeRefund(TradeRefundRequest) returns (TradeRefundResponse) {}
-  rpc UpdateTradeRefundStockin(TradeRefundStockinRequest) returns (TradeRefundStockinResponse) {}
+  rpc UpdateWdtTradeRefund(WdtTradeRefundRequest) returns (WdtTradeRefundResponse) {}
+  rpc UpdateWdtTradeRefundStockin(WdtTradeRefundStockinRequest) returns (WdtTradeRefundStockinResponse) {}
+}
+
+service TransferAggController {
+  rpc CreateTransferOrder(TransferCreateOptsRequest) returns (CreateTransferOrderResponse) {}
 }
 
 message AggParamsTradeCreateRequest {
@@ -246,6 +339,38 @@ message AggPushStatusCountResponse {
   int32 consign_failed_push = 2;
   int32 pay_wait_push = 3;
   int32 pay_failed_push = 4;
+}
+
+message AggTradeByMonthRequest {
+  string uuid = 1;
+  string config_no = 3;
+  string agg_period = 4;
+}
+
+message AggTradeByMonthResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message AggTradeByMonthSyncRequest {
+  string agg_period = 1;
+  string config_no = 2;
+}
+
+message AggTradeByMonthSyncResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message AggTradeRefundRequest {
+}
+
+message AggTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message AlipayBillAccountlogDestroyRequest {
@@ -363,12 +488,34 @@ message BulkCreateKingdeePurchaseOrderResponse {
   int32 affected = 3;
 }
 
+message BulkCreateKingdeePurchaseOrderSyncRequest {
+  string uuid = 1;
+  string purchase_list = 2;
+}
+
+message BulkCreateKingdeePurchaseOrderSyncResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 affected = 3;
+}
+
 message BulkCreateKingdeeReceiveBillRequest {
   string uuid = 1;
   string receive_bill_list = 2;
 }
 
 message BulkCreateKingdeeReceiveBillResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 affected = 3;
+}
+
+message BulkCreateKingdeeReceiveBillSyncRequest {
+  string uuid = 1;
+  string receive_bill_list = 2;
+}
+
+message BulkCreateKingdeeReceiveBillSyncResponse {
   int32 code = 1;
   string msg = 2;
   int32 affected = 3;
@@ -448,6 +595,14 @@ message ClockedScheduleUpdateRequest {
   repeated string _partial_update_fields = 3;
 }
 
+message CountAggRefundPushStatusRequest {
+}
+
+message CountAggRefundPushStatusResponse {
+  int32 consign_wait_push = 1;
+  int32 consign_failed_push = 2;
+}
+
 message CreateKdPurchaseReturnRequest {
   string uuid = 1;
   string purchase_return_list = 2;
@@ -468,6 +623,12 @@ message CreateKdTransferOrderResponse {
   int32 code = 1;
   string msg = 2;
   int32 affected = 3;
+}
+
+message CreateTransferOrderResponse {
+  int32 code = 1;
+  string msg = 2;
+  string transfer_no = 3;
 }
 
 message CrontabScheduleCreateRequest {
@@ -570,27 +731,28 @@ message CxlKdTransferOrderFromWdtResponse {
   string data = 3;
 }
 
-message FEntityResponse {
-  string FMaterialID = 1;
-  string FOwnerID = 2;
-  string FStockID = 3;
-  string FUnitID = 4;
-  optional int32 FENTRYID = 5;
-  optional string FRowType = 6;
-  optional string FOwnerTypeID = 7;
-  optional double FSALUNITQTY = 8;
-  optional double FRealQty = 9;
-  optional double FSALBASEQTY = 10;
-  optional double FPRICEBASEQTY = 11;
-  optional double FARNOTJOINQTY = 12;
-  optional double FAllAmount = 13;
-  optional int32 FDiscountRate = 14;
-  optional bool FOUTCONTROL = 15;
-  optional bool FIsOverLegalOrg = 16;
-  optional bool FCheckDelivery = 17;
-  optional bool FIsFree = 18;
-  optional string FEntrynote = 19;
-  optional int32 FEntryTaxRate = 20;
+message DestroyAggTradeRefundRequest {
+  string agg_no = 1;
+}
+
+message DestroyAggTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message DestroyAggTradeRequest {
+  string agg_no = 1;
+  int32 sal_outstock_status = 2;
+}
+
+message DestroyAggTradeResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message EmptyRequest {
 }
 
 message FetchQimenTradeRequest {
@@ -602,6 +764,38 @@ message FetchQimenTradeRequest {
 message FetchQimenTradeResponse {
   int32 code = 1;
   int32 affected = 2;
+}
+
+message FetchRefundListFromWdtRequest {
+  repeated string refund_list = 1;
+}
+
+message FetchRefundListFromWdtResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message FetchTradeListFromWdtRequest {
+  repeated string trade_list = 1;
+}
+
+message FetchTradeListFromWdtResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message FetchTradeRefundRequest {
+  optional string pre_slice_end = 1;
+  string require_start = 2;
+  optional string require_end = 3;
+}
+
+message FetchTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message IntervalScheduleCreateRequest {
@@ -668,6 +862,205 @@ message KingdeePurchaseListResponse {
   int32 count = 2;
 }
 
+message KingdeePurchaseOrderDestroyRequest {
+  string _id = 1;
+}
+
+message KingdeePurchaseOrderEntryDeliPlanResponse {
+  optional int32 DeliCommitQty = 3;
+  optional int32 DeliRemainQty = 4;
+  optional int32 PlanQty = 5;
+  optional string PlanDeliveryDate = 6;
+  optional string DeliveryDate_Plan = 7;
+  optional string SUPPLIERDELIVERYDATE = 8;
+  optional string TRLT = 9;
+  optional string PREARRIVALDATE = 10;
+  optional int32 ConfirmDeliQty = 11;
+  optional string ConfirmDeliDate = 12;
+  optional string ConfirmInfo = 13;
+  optional string ELocation = 14;
+}
+
+message KingdeePurchaseOrderFPOOrderResponse {
+  repeated KingdeePurchaseOrderEntryDeliPlanResponse FEntryDeliveryPlan = 1;
+  optional string FEntryID = 2;
+  optional string FProductType = 3;
+  optional string FMaterialId = 4;
+  optional string FBomId = 5;
+  optional string FMaterialDesc = 6;
+  optional string FAuxPropId = 7;
+  optional string FUnitId = 8;
+  optional int32 FQty = 9;
+  optional string FPriceUnitId = 10;
+  optional int32 FPriceUnitQty = 11;
+  optional int32 FPriceBaseQty = 12;
+  optional string FDeliveryDate = 13;
+  optional string FLocationId = 14;
+  optional string FLocationAddress = 15;
+  optional double FPrice = 16;
+  optional double FTaxPrice = 17;
+  optional double FEntryDiscountRate = 18;
+  optional string FTaxCombination = 19;
+  optional double FEntryTaxRate = 20;
+  optional string FRequireOrgId = 21;
+  optional string FRequireDeptId = 22;
+  optional string FReceiveOrgId = 23;
+  optional string FBranchId = 24;
+  optional string FReceiveDeptId = 25;
+  optional string FEntrySettleOrgId = 26;
+  optional bool FGiveAway = 27;
+  optional string FEntryNote = 28;
+  optional string FSupMatId = 29;
+  optional string FSupMatName = 30;
+  optional string FStockUnitID = 31;
+  optional int32 FStockQty = 32;
+  optional int32 FStockBaseQty = 33;
+  optional string FLot = 34;
+  optional string FSupplierLot = 35;
+  optional string FProcesser = 36;
+  optional bool FDeliveryControl = 37;
+  optional bool FTimeControl = 38;
+  optional int32 FDeliveryMaxQty = 39;
+  optional int32 FDeliveryMinQty = 40;
+  optional int32 FDeliveryBeforeDays = 41;
+  optional int32 FDeliveryDelayDays = 42;
+  optional string FDeliveryEarlyDate = 43;
+  optional string FDeliveryLastDate = 44;
+  optional int32 FPriceCoefficient = 45;
+  optional string FEntrySettleModeId = 46;
+  optional int32 FConsumeSumQty = 47;
+  optional string FSrcBillTypeId = 48;
+  optional string FSrcBillNo = 49;
+  optional string FContractNo = 50;
+  optional string FReqTraceNo = 51;
+  optional string FMtoNo = 52;
+  optional string FDEMANDTYPE = 53;
+  optional string FDEMANDBILLNO = 54;
+  optional int32 FDEMANDBILLENTRYSEQ = 55;
+  optional int32 FDEMANDBILLENTRYID = 56;
+  optional bool FPlanConfirm = 57;
+  optional string FSalUnitID = 58;
+  optional int32 FSalQty = 59;
+  optional int32 FSalJoinQty = 60;
+  optional int32 FBaseSalJoinQty = 61;
+  optional string FSetPriceUnitID = 62;
+  optional int32 FInventoryQty = 63;
+  optional string FChargeProjectID = 64;
+  optional string FCentSettleOrgId = 65;
+  optional string FDispSettleOrgId = 66;
+  optional int32 FGroup = 67;
+  optional string FDeliveryStockStatus = 68;
+  optional int32 FMaxPrice = 69;
+  optional int32 FMinPrice = 70;
+  optional bool FIsStock = 71;
+  optional int32 FBaseConsumeSumQty = 72;
+  optional int32 FSalBaseQty = 73;
+  optional string FSubOrgId = 74;
+  optional string FEntryPayOrgId = 75;
+  optional int32 FPriceDiscount = 76;
+  optional int32 FAllAmountExceptDisCount = 77;
+  optional string FSUBREQBILLNO = 78;
+  optional int32 FSUBREQBILLSEQ = 79;
+  optional int32 FSUBREQENTRYID = 80;
+  optional string FMaterialId_Name = 81;
+  optional string FRequireOrgId_Name = 82;
+  optional string FRequireDeptId_Name = 83;
+  optional string FReceiveOrgId_Name = 84;
+  optional string FReceiveDeptId_Name = 85;
+  optional double FReceiveQty = 86;
+  optional double FStockInQty = 87;
+  optional double FRemainReceiveQty = 88;
+  optional double FRemainStockInQty = 89;
+  optional double FMrbQty = 90;
+  optional string FPriceListEntryId = 91;
+}
+
+message KingdeePurchaseOrderListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message KingdeePurchaseOrderListResponse {
+  repeated KingdeePurchaseOrderResponse results = 1;
+  int32 count = 2;
+}
+
+message KingdeePurchaseOrderModelResponse {
+  optional string FDocumentStatus_name = 1;
+  repeated KingdeePurchaseOrderFPOOrderResponse FPOOrderEntry = 2;
+  optional string FID = 3;
+  optional string FBillTypeId = 4;
+  optional string FBusinessType = 5;
+  optional string FDocumentStatus = 6;
+  optional string FBillNo = 7;
+  string FDate = 8;
+  optional string FSupplierId = 9;
+  optional string FPurchaseOrgId = 10;
+  optional string FPurchaseDeptId = 11;
+  optional string FPurchaserGroupId = 12;
+  optional string FPurchaserId = 13;
+  optional string FProviderId = 14;
+  optional string FProviderContactId = 15;
+  optional string FProviderAddress = 16;
+  optional string FSettleId = 17;
+  optional string FChargeId = 18;
+  optional string FConfirmerId = 19;
+  optional string FConfirmDate = 20;
+  optional string FCorrespondOrgId = 21;
+  optional string FProviderContact = 22;
+  optional string FSourceBillNo = 23;
+  optional bool FIsModificationOperator = 24;
+  optional string FChangeStatus = 25;
+  optional string FACCTYPE = 26;
+  optional string FProviderEMail = 27;
+  optional string FCloseReason = 28;
+  optional bool FIsMobBill = 29;
+  optional string FSupplierId_Name = 30;
+  optional string FPurchaseOrgId_Name = 31;
+  optional string FPurchaseDeptId_Name = 32;
+  optional string FPurchaserGroupId_Name = 33;
+  optional string FPurchaserId_Name = 34;
+  optional string FProviderId_Name = 35;
+  optional string FSettleId_Name = 36;
+  optional string FChargeId_Name = 37;
+}
+
+message KingdeePurchaseOrderPartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional string FBillNo = 5;
+  optional string NeedUpDateFields = 6;
+  optional string NeedReturnFields = 7;
+  optional string sync_time = 8;
+}
+
+message KingdeePurchaseOrderRequest {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  optional string FBillNo = 4;
+  optional string NeedUpDateFields = 5;
+  optional string NeedReturnFields = 6;
+  optional string sync_time = 7;
+}
+
+message KingdeePurchaseOrderResponse {
+  optional string _id = 1;
+  optional KingdeePurchaseOrderModelResponse Model = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional string FBillNo = 5;
+  optional string NeedUpDateFields = 6;
+  optional string NeedReturnFields = 7;
+  optional string sync_time = 8;
+}
+
+message KingdeePurchaseOrderRetrieveRequest {
+  string _id = 1;
+}
+
 message KingdeePurchasePartialUpdateRequest {
   optional int32 id = 1;
   repeated string _partial_update_fields = 2;
@@ -708,6 +1101,376 @@ message KingdeePurchaseRetrieveRequest {
   int32 id = 1;
 }
 
+message KingdeePurchaseReturnDestroyRequest {
+  string _id = 1;
+}
+
+message KingdeePurchaseReturnEntryResponse {
+  optional int32 Id = 1;
+  optional string MATERIALID_Number = 2;
+  optional string MATERIALID_Name = 3;
+  double MRAPPQTY = 4;
+  double REPLENISHQTY = 5;
+  double KEAPAMTQTY = 6;
+  double MRJOINQTY = 7;
+  double MRQTY = 8;
+  double PRICE_F = 9;
+  double DISCOUNTRATE_F = 10;
+  double TAXNETPRICE_F = 11;
+  double AMOUNT_F = 12;
+  optional string ORDERNO = 13;
+  optional string UNITID_Number = 14;
+  double BASEMRJOINQTY = 15;
+  double BASERETURNQTY = 16;
+  optional string SRCBILLNO = 17;
+  optional string SRCBILLTYPEID = 18;
+  double TAXRATE = 19;
+  optional string StockId_Number = 20;
+  optional string StockId_Name = 21;
+}
+
+message KingdeePurchaseReturnListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message KingdeePurchaseReturnListResponse {
+  repeated KingdeePurchaseReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message KingdeePurchaseReturnPartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional int32 push_wdt_status = 5;
+  string FBillNo = 6;
+  optional string FSrcBillNo = 7;
+  optional string WdtPurReturnNo = 8;
+  optional string NeedUpDateFields = 9;
+  optional string NeedReturnFields = 10;
+  optional string FFormId = 12;
+  optional string DocumentStatus = 13;
+  optional string FDate = 14;
+  optional string PURCHASEORGID_Number = 15;
+  optional string PURCHASEORGID_Name = 16;
+  optional string SUPPLIERID_Number = 17;
+  optional string SUPPLIERID_Name = 18;
+  optional string FCreateDate = 19;
+  optional string FModifyDate = 20;
+  optional string APPROVEDATE = 21;
+  optional string CANCELSTATUS = 22;
+  optional string RequireOrgId_Number = 23;
+  optional string RequireOrgId_Name = 24;
+  optional string FZBStockID_Number = 25;
+  optional string FZBStockID_Name = 26;
+  optional int32 FId = 27;
+  optional int32 WPurchase_refund_status = 28;
+}
+
+message KingdeePurchaseReturnRequest {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  optional int32 push_wdt_status = 4;
+  string FBillNo = 5;
+  optional string FSrcBillNo = 6;
+  optional string WdtPurReturnNo = 7;
+  optional string NeedUpDateFields = 8;
+  optional string NeedReturnFields = 9;
+  optional string FFormId = 11;
+  optional string DocumentStatus = 12;
+  optional string FDate = 13;
+  optional string PURCHASEORGID_Number = 14;
+  optional string PURCHASEORGID_Name = 15;
+  optional string SUPPLIERID_Number = 16;
+  optional string SUPPLIERID_Name = 17;
+  optional string FCreateDate = 18;
+  optional string FModifyDate = 19;
+  optional string APPROVEDATE = 20;
+  optional string CANCELSTATUS = 21;
+  optional string RequireOrgId_Number = 22;
+  optional string RequireOrgId_Name = 23;
+  optional string FZBStockID_Number = 24;
+  optional string FZBStockID_Name = 25;
+  optional int32 FId = 26;
+  optional int32 WPurchase_refund_status = 27;
+}
+
+message KingdeePurchaseReturnResponse {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  optional int32 push_wdt_status = 4;
+  string FBillNo = 5;
+  optional string FSrcBillNo = 6;
+  optional string WdtPurReturnNo = 7;
+  optional string NeedUpDateFields = 8;
+  optional string NeedReturnFields = 9;
+  repeated KingdeePurchaseReturnEntryResponse PUR_MRAPPENTRY = 10;
+  optional string FFormId = 12;
+  optional string DocumentStatus = 13;
+  optional string FDate = 14;
+  optional string PURCHASEORGID_Number = 15;
+  optional string PURCHASEORGID_Name = 16;
+  optional string SUPPLIERID_Number = 17;
+  optional string SUPPLIERID_Name = 18;
+  optional string FCreateDate = 19;
+  optional string FModifyDate = 20;
+  optional string APPROVEDATE = 21;
+  optional string CANCELSTATUS = 22;
+  optional string RequireOrgId_Number = 23;
+  optional string RequireOrgId_Name = 24;
+  optional string FZBStockID_Number = 25;
+  optional string FZBStockID_Name = 26;
+  optional int32 FId = 27;
+  optional string push_wdt_status_name = 28;
+  optional int32 WPurchase_refund_status = 29;
+}
+
+message KingdeePurchaseReturnRetrieveRequest {
+  string _id = 1;
+}
+
+message KingdeeReceiveBillDestroyRequest {
+  string _id = 1;
+}
+
+message KingdeeReceiveBillFDetailLinkResponse {
+  optional string id = 1;
+  optional string FlowId = 2;
+  optional int32 FlowLineId = 3;
+  optional string RuleId = 4;
+  optional int32 STableId = 5;
+  optional string STableName = 6;
+  optional string SBillId = 7;
+  optional string SId = 8;
+  optional int32 BaseUnitQtyOld = 9;
+  optional int32 BaseUnitQty = 10;
+  optional int32 StockBaseQtyOld = 11;
+  optional int32 StockBaseQty = 12;
+  optional string FLnkTrackerId = 13;
+  optional string FLnkSState = 14;
+  optional double FLnkAmount = 15;
+}
+
+message KingdeeReceiveBillFDetailResponse {
+  optional string FEntryID = 1;
+  optional string FMaterialId = 2;
+  optional string FMaterialDesc = 3;
+  optional string FAssetTypeID = 4;
+  optional string FAuxPropId = 5;
+  optional string FUnitId = 6;
+  optional int32 FActReceiveQty = 7;
+  optional string FPreDeliveryDate = 8;
+  optional int32 FSUPDELQTY = 9;
+  optional string FPriceUnitId = 10;
+  optional string FStockID = 11;
+  optional string FStockLocId = 12;
+  optional string FStockStatusId = 13;
+  optional string FLot = 14;
+  optional string FRejectReason = 15;
+  optional string FProduceDate = 16;
+  optional string FDemandDeptId = 17;
+  optional string FDemanderId = 18;
+  optional bool FGiveAway = 19;
+  optional string FChargeProjectID = 20;
+  optional bool FCtrlStockInPercent = 21;
+  optional string FMtoNo = 22;
+  optional string FExtAuxUnitId = 23;
+  optional int32 FExtAuxUnitQty = 24;
+  optional string FProjectNo = 25;
+  optional int32 FCheckJoinBaseQty = 26;
+  optional int32 FReceiveBaseQty = 27;
+  optional int32 FRefuseBaseQty = 28;
+  optional int32 FSampleDamageBaseQty = 29;
+  optional int32 FCheckJoinQty = 30;
+  optional int32 FReceiveQty = 31;
+  optional int32 FRefuseQty = 32;
+  optional int32 FSampleDamageQty = 33;
+  optional bool FCheckInComing = 34;
+  optional string FDeliverySite = 35;
+  optional int32 FCardJoinQty = 36;
+  optional int32 FCardQty = 37;
+  optional int32 FCardBaseQty = 38;
+  optional int32 FCardJoinBaseQty = 39;
+  optional int32 FCheckBaseQty = 40;
+  optional int32 FCheckQty = 41;
+  optional int32 FTransferBaseQty = 42;
+  optional bool FIsReceiveUpdateStock = 43;
+  optional int32 FTransferQty = 44;
+  optional string FBomId = 45;
+  optional string FSupplierLot = 46;
+  optional string FExpiryDate = 47;
+  optional int32 FAuxUnitQty = 48;
+  optional string FDescription = 49;
+  optional int32 FStockInMaxQty = 50;
+  optional int32 FStockInMinQty = 51;
+  optional double FEntryTaxRate = 52;
+  optional string FTaxCombination = 53;
+  optional double FDiscountRate = 54;
+  optional double FPrice = 55;
+  optional double FTaxPrice = 56;
+  optional string FSrcFormId = 57;
+  optional string FSrcBillNo = 58;
+  optional int32 FProcScrapBaseQty = 59;
+  optional int32 FProcScrapQty = 60;
+  optional int32 FMtrlScrapBaseQty = 61;
+  optional int32 FMtrlScrapQty = 62;
+  optional int32 FCsnReceiveBaseQty = 63;
+  optional int32 FCsnReceiveQty = 64;
+  optional int32 FRefuseJoinBaseQty = 65;
+  optional int32 FRefuseJoinQty = 66;
+  optional int32 FCsnReceiveJoinBaseQty = 67;
+  optional int32 FCsnReceiveJoinQty = 68;
+  optional int32 FPriceBaseQty = 69;
+  optional string FSetPriceUnitID = 70;
+  optional string FStockUnitID = 71;
+  optional int32 FStockQty = 72;
+  optional int32 FStockBaseQty = 73;
+  optional int32 FActlandQty = 74;
+  optional int32 FConfirmDeliQty = 75;
+  optional string FConfirmDeliDate = 76;
+  optional string FConfirmInfo = 77;
+  optional double FPriceDiscount = 78;
+  optional double FAllAmountExceptDisCount = 79;
+  optional double FACCRATE = 80;
+  optional double FRejectsDiscountAmount = 81;
+  optional double FJoinRejectsDiscountAmount = 82;
+  optional string FSalOutStockBillNo = 83;
+  optional int32 FSalOutStockEntryId = 84;
+  optional string FSUBREQBILLNO = 85;
+  optional int32 FSUBREQBILLSEQ = 86;
+  optional int32 FSUBREQENTRYID = 87;
+  repeated KingdeeReceiveBillFDetailLinkResponse FDetailEntity_Link = 88;
+}
+
+message KingdeeReceiveBillListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message KingdeeReceiveBillListResponse {
+  repeated KingdeeReceiveBillResponse results = 1;
+  int32 count = 2;
+}
+
+message KingdeeReceiveBillModelResponse {
+  repeated KingdeeReceiveBillFDetailResponse FDetailEntity = 1;
+  optional string FID = 2;
+  optional string FBillTypeId = 3;
+  optional string FDocumentStatus = 4;
+  optional string FBusinessType = 5;
+  optional string FSrcBillNo = 6;
+  optional string FBillNo = 7;
+  optional string FDate = 8;
+  optional string FStockOrgId = 9;
+  optional string FReceiveDeptId = 10;
+  optional string FStockGroupId = 11;
+  optional string FReceiverId = 12;
+  optional string FDemandOrgId = 13;
+  optional string FCorrespondOrgId = 14;
+  optional string FPurOrgId = 15;
+  optional string FPurDeptId = 16;
+  optional string FPurGroupId = 17;
+  optional string FPurchaserId = 18;
+  optional string FSupplierId = 19;
+  optional string FNote = 20;
+  optional string FSupplyId = 21;
+  optional string FSupplyAddress = 22;
+  optional string FSettleId = 23;
+  optional string FChargeId = 24;
+  optional string FOwnerTypeIdHead = 25;
+  optional string FOwnerIdHead = 26;
+  optional string FConfirmerId = 27;
+  optional string FConfirmDate = 28;
+  optional bool FIsInsideBill = 29;
+  optional bool FIsMobile = 30;
+  optional string FScanBox = 31;
+  optional string FProviderContactId = 32;
+  optional bool FIsChangeQty = 33;
+  optional string FACCTYPE = 34;
+  optional string FSupplyEMail = 35;
+  string FDocumentStatus_name = 36;
+}
+
+message KingdeeReceiveBillPartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional int32 push_wdt_status = 5;
+  optional string FBillNo = 6;
+  optional string FSrcBillNo = 7;
+  optional string WPurchaseNo = 8;
+  optional string NeedUpDateFields = 9;
+  optional string NeedReturnFields = 10;
+  optional string sync_time = 11;
+  optional int32 WPurchase_status = 12;
+}
+
+message KingdeeReceiveBillRequest {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  optional int32 push_wdt_status = 4;
+  optional string FBillNo = 5;
+  optional string FSrcBillNo = 6;
+  optional string WPurchaseNo = 7;
+  optional string NeedUpDateFields = 8;
+  optional string NeedReturnFields = 9;
+  optional string sync_time = 10;
+  optional int32 WPurchase_status = 11;
+}
+
+message KingdeeReceiveBillResponse {
+  optional string _id = 1;
+  optional KingdeeReceiveBillModelResponse Model = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional int32 push_wdt_status = 5;
+  optional string FBillNo = 6;
+  optional string FSrcBillNo = 7;
+  optional string WPurchaseNo = 8;
+  optional string NeedUpDateFields = 9;
+  optional string NeedReturnFields = 10;
+  optional string sync_time = 11;
+  optional string push_wdt_status_name = 12;
+  optional int32 WPurchase_status = 13;
+}
+
+message KingdeeReceiveBillRetrieveRequest {
+  string _id = 1;
+}
+
+message KingdeeSalOutStockFEntityResponse {
+  string FMaterialID = 1;
+  string FOwnerID = 2;
+  string FStockID = 3;
+  string FUnitID = 4;
+  optional int32 FENTRYID = 5;
+  optional string FRowType = 6;
+  optional string FOwnerTypeID = 7;
+  optional double FSALUNITQTY = 8;
+  optional double FRealQty = 9;
+  optional double FSALBASEQTY = 10;
+  optional double FPRICEBASEQTY = 11;
+  optional double FARNOTJOINQTY = 12;
+  optional double FAllAmount = 13;
+  optional int32 FDiscountRate = 14;
+  optional bool FOUTCONTROL = 15;
+  optional bool FIsOverLegalOrg = 16;
+  optional bool FCheckDelivery = 17;
+  optional bool FIsFree = 18;
+  optional string FEntrynote = 19;
+  optional int32 FEntryTaxRate = 20;
+  optional string spec_no = 21;
+  optional string goods_name = 22;
+  optional double FAllAmountExceptDisCount = 23;
+  optional string sub_trade_no_list = 24;
+}
+
 message KingdeeSalOutStockListRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
@@ -719,8 +1482,8 @@ message KingdeeSalOutStockListResponse {
 }
 
 message KingdeeSalOutStockModelResponse {
-  optional SubHeadEntityResponse SubHeadEntity = 1;
-  repeated FEntityResponse FEntity = 2;
+  optional KingdeeSalOutStockSubHeadEntityResponse SubHeadEntity = 1;
+  repeated KingdeeSalOutStockFEntityResponse FEntity = 2;
   string FBillTypeID = 3;
   string FSaleOrgId = 4;
   string FStockOrgId = 5;
@@ -738,6 +1501,8 @@ message KingdeeSalOutStockModelResponse {
   optional string FNote = 17;
   optional string FLogisticsNos = 18;
   optional string FARStatus = 19;
+  optional string FXSBillType = 20;
+  optional string Fprop2 = 21;
 }
 
 message KingdeeSalOutStockResponse {
@@ -776,16 +1541,41 @@ message KingdeeSalOutStockResponse {
   optional double agg_receivable_amount = 33;
   optional double agg_paid_amount = 34;
   optional string agg_period = 35;
-  optional string create_time = 36;
-  optional string update_time = 37;
+  optional string kingdee_push_time = 36;
+  optional string create_time = 37;
+  optional string update_time = 38;
 }
 
 message KingdeeSalOutStockRetrieveRequest {
   string agg_no = 1;
 }
 
+message KingdeeSalOutStockSubHeadEntityResponse {
+  string FSettleCurrID = 1;
+  string FSettleOrgID = 2;
+  string FSettleTypeID = 3;
+  string FPriceListId = 4;
+  string FDiscountListId = 5;
+  optional int32 FEntryId = 6;
+  optional string FThirdBillNo = 7;
+  optional string FThirdBillId = 8;
+}
+
 message KingdeeSalReturnStockDestroyRequest {
-  string agg_no = 1;
+  int32 id = 1;
+}
+
+message KingdeeSalReturnStockEntityResponse {
+  optional string FMaterialID = 1;
+  optional string FReturnType = 4;
+  optional double FRealQty = 6;
+  optional double FTaxPrice = 12;
+  string FDeliveryDate = 15;
+  optional string FUnitID = 17;
+  optional string FOwnerTypeId = 18;
+  optional string FOwnerId = 19;
+  optional string spec_no = 20;
+  optional string goods_name = 21;
 }
 
 message KingdeeSalReturnStockListRequest {
@@ -798,91 +1588,111 @@ message KingdeeSalReturnStockListResponse {
   int32 count = 2;
 }
 
+message KingdeeSalReturnStockModelResponse {
+  string FBillNo = 1;
+  repeated KingdeeSalReturnStockEntityResponse FEntity = 2;
+  optional string FBillTypeID = 3;
+  optional string FSaleOrgId = 4;
+  optional string FStockOrgId = 5;
+  optional string FRetcustId = 7;
+  string FDate = 14;
+}
+
 message KingdeeSalReturnStockPartialUpdateRequest {
-  string agg_no = 1;
-  repeated string agg_refund_stockin_no = 2;
+  optional string agg_no = 1;
   repeated string _partial_update_fields = 3;
-  optional string NeedUpDateFields = 4;
-  optional string NeedReturnFields = 5;
-  optional string kingdee_no = 6;
-  optional int32 kingdee_push_status = 7;
-  optional string failure_reason = 8;
-  optional string cancel_reason = 9;
-  optional string agg_organize_no = 10;
-  optional string agg_organize_name = 11;
-  optional string agg_shop_no = 12;
-  optional string agg_shop_name = 13;
-  optional string agg_warehouse_no = 14;
-  optional string agg_warehouse_name = 15;
-  optional string trade_agg_no = 16;
-  optional int32 agg_refund_stockin_count = 17;
-  optional int32 agg_goods_type_count = 18;
-  optional double agg_goods_count = 19;
-  optional double agg_actual_refund_amount = 20;
-  optional double agg_total_price = 21;
-  optional double agg_goods_amount = 22;
-  optional string agg_period = 23;
-  optional string create_time = 24;
-  optional string update_time = 25;
+  optional string NeedUpDateFields = 5;
+  optional string NeedReturnFields = 6;
+  optional string failure_reason = 9;
+  optional string cancel_reason = 10;
+  optional string agg_organize_no = 12;
+  optional string agg_organize_name = 13;
+  optional string agg_shop_no = 14;
+  optional string agg_shop_name = 15;
+  optional string agg_warehouse_no = 16;
+  optional string agg_warehouse_name = 17;
+  optional int32 agg_goods_type_count = 20;
+  optional double agg_goods_count = 21;
+  optional string create_time = 26;
+  optional string update_time = 27;
+  optional string kingdee_push_time = 28;
+  optional int32 id = 29;
+  optional int32 push_kingdee_status = 30;
+  string FBillNo = 31;
+  optional string FSrcBillNo = 32;
+  optional string related_agg_no = 33;
+  optional int32 refund_type = 34;
+  optional string refund_type_name = 35;
+  optional string agg_refund_no = 36;
+  optional string agg_trade_no = 37;
+  optional int32 agg_refund_count = 38;
+  optional double agg_refund_amount = 39;
 }
 
 message KingdeeSalReturnStockRequest {
-  string agg_no = 1;
-  repeated string agg_refund_stockin_no = 2;
-  optional string NeedUpDateFields = 3;
-  optional string NeedReturnFields = 4;
-  optional string kingdee_no = 5;
-  optional int32 kingdee_push_status = 6;
-  optional string failure_reason = 7;
-  optional string cancel_reason = 8;
-  optional string agg_organize_no = 9;
-  optional string agg_organize_name = 10;
-  optional string agg_shop_no = 11;
-  optional string agg_shop_name = 12;
-  optional string agg_warehouse_no = 13;
-  optional string agg_warehouse_name = 14;
-  optional string trade_agg_no = 15;
-  optional int32 agg_refund_stockin_count = 16;
-  optional int32 agg_goods_type_count = 17;
-  optional double agg_goods_count = 18;
-  optional double agg_actual_refund_amount = 19;
-  optional double agg_total_price = 20;
-  optional double agg_goods_amount = 21;
-  optional string agg_period = 22;
-  optional string create_time = 23;
-  optional string update_time = 24;
+  optional string agg_no = 1;
+  optional string NeedUpDateFields = 4;
+  optional string NeedReturnFields = 5;
+  optional string failure_reason = 8;
+  optional string cancel_reason = 9;
+  optional string agg_organize_no = 11;
+  optional string agg_organize_name = 12;
+  optional string agg_shop_no = 13;
+  optional string agg_shop_name = 14;
+  optional string agg_warehouse_no = 15;
+  optional string agg_warehouse_name = 16;
+  optional int32 agg_goods_type_count = 19;
+  optional double agg_goods_count = 20;
+  optional string create_time = 25;
+  optional string update_time = 26;
+  optional string kingdee_push_time = 27;
+  optional int32 id = 28;
+  optional int32 push_kingdee_status = 29;
+  string FBillNo = 30;
+  optional string FSrcBillNo = 31;
+  optional string related_agg_no = 32;
+  optional int32 refund_type = 33;
+  optional string refund_type_name = 34;
+  optional string agg_refund_no = 35;
+  optional string agg_trade_no = 36;
+  optional int32 agg_refund_count = 37;
+  optional double agg_refund_amount = 38;
 }
 
 message KingdeeSalReturnStockResponse {
-  string agg_no = 1;
-  optional SalReturnStockResponse Model = 2;
-  repeated string agg_refund_stockin_no = 3;
-  optional string NeedUpDateFields = 4;
-  optional string NeedReturnFields = 5;
-  optional string kingdee_no = 6;
-  optional int32 kingdee_push_status = 7;
-  optional string failure_reason = 8;
-  optional string cancel_reason = 9;
-  optional string agg_organize_no = 10;
-  optional string agg_organize_name = 11;
-  optional string agg_shop_no = 12;
-  optional string agg_shop_name = 13;
-  optional string agg_warehouse_no = 14;
-  optional string agg_warehouse_name = 15;
-  optional string trade_agg_no = 16;
-  optional int32 agg_refund_stockin_count = 17;
-  optional int32 agg_goods_type_count = 18;
-  optional double agg_goods_count = 19;
-  optional double agg_actual_refund_amount = 20;
-  optional double agg_total_price = 21;
-  optional double agg_goods_amount = 22;
-  optional string agg_period = 23;
-  optional string create_time = 24;
-  optional string update_time = 25;
+  optional string agg_no = 1;
+  optional KingdeeSalReturnStockModelResponse Model = 2;
+  optional string NeedUpDateFields = 5;
+  optional string NeedReturnFields = 6;
+  optional string failure_reason = 9;
+  optional string cancel_reason = 10;
+  optional string agg_organize_no = 12;
+  optional string agg_organize_name = 13;
+  optional string agg_shop_no = 14;
+  optional string agg_shop_name = 15;
+  optional string agg_warehouse_no = 16;
+  optional string agg_warehouse_name = 17;
+  optional int32 agg_goods_type_count = 20;
+  optional double agg_goods_count = 21;
+  optional string create_time = 26;
+  optional string update_time = 27;
+  optional string kingdee_push_time = 28;
+  optional int32 id = 29;
+  optional int32 push_kingdee_status = 30;
+  string FBillNo = 31;
+  optional string FSrcBillNo = 32;
+  optional string related_agg_no = 33;
+  optional int32 refund_type = 34;
+  optional string refund_type_name = 35;
+  optional string agg_refund_no = 36;
+  optional string agg_trade_no = 37;
+  optional int32 agg_refund_count = 38;
+  optional double agg_refund_amount = 39;
+  optional string push_kingdee_status_name = 40;
 }
 
 message KingdeeSalReturnStockRetrieveRequest {
-  string agg_no = 1;
+  int32 id = 1;
 }
 
 message KingdeeShopNoInfoRequest {
@@ -1012,232 +1822,19 @@ message KingdeeTradeRetrieveRequest {
   int32 id = 1;
 }
 
-message MongoGoodslistResponse {
-  string poid = 1;
-  optional string modified = 2;
-  optional string created = 3;
-  optional string src_tid = 4;
-  optional int32 rec_id = 5;
-  optional string src_oid = 6;
-  optional int32 flag = 7;
-  optional int32 refund_status = 8;
-  optional string pay_id = 9;
-  optional int32 pay_status = 10;
-  optional string pay_time = 11;
-  optional int32 delivery_term = 12;
-  optional string bind_oid = 13;
-  optional int32 platform_id = 14;
-  optional string platform_goods_id = 15;
-  optional string platform_spec_id = 16;
-  optional int32 suite_id = 17;
-  optional string suite_no = 18;
-  optional string suite_name = 19;
-  optional double suite_num = 20;
-  optional double suite_amount = 21;
-  optional double suite_discount = 22;
-  optional string class_name = 23;
-  optional int32 goods_id = 24;
-  optional string goods_no = 25;
-  optional string goods_name = 26;
-  optional int32 spec_id = 27;
-  optional string spec_name = 28;
-  optional string spec_no = 29;
-  optional string spec_code = 30;
-  optional string barcode = 31;
-  optional string api_goods_name = 32;
-  optional string api_spec_name = 33;
-  optional double num = 34;
-  optional double actual_num = 35;
-  optional double price = 36;
-  optional double order_price = 37;
-  optional double share_price = 38;
-  optional double adjust = 39;
-  optional double discount = 40;
-  optional double share_amount = 41;
-  optional double share_post = 42;
-  optional double paid = 43;
-  optional int32 gift_type = 44;
-  optional int32 guarantee_mode = 45;
-  optional int32 is_print_suite = 46;
-  optional int32 is_zero_cost = 47;
-  optional int32 stock_reserved = 48;
-  optional int32 is_consigned = 49;
-  optional int32 is_received = 50;
-  optional double weight = 51;
-  optional double commission = 52;
-  optional int32 goods_type = 53;
-  optional int32 large_type = 54;
-  optional int32 invoice_type = 55;
-  optional string invoice_content = 56;
-  optional int32 from_mask = 57;
-  optional int32 cid = 58;
-  optional double tax_rate = 59;
-  optional int32 base_unit_id = 60;
-  optional string unit_name = 61;
+message LabelValueResponse {
+  string value = 1;
+  string label = 2;
 }
 
-message MongoTradesListRequest {
-  optional google.protobuf.Struct _filters = 1;
-  optional google.protobuf.Struct _pagination = 2;
+message MatchTradeRefundRequest {
+  repeated string refund_list = 1;
 }
 
-message MongoTradesListResponse {
-  repeated MongoTradesResponse results = 1;
-  int32 count = 2;
-  int32 goods_count = 3;
-  int32 goods_category_count = 4;
-  string total_amount = 5;
-}
-
-message MongoTradesResponse {
-  optional string _id = 1;
-  optional string agg_consign_status_name = 2;
-  optional string agg_pay_status_name = 3;
-  repeated MongoGoodslistResponse goods_list = 4;
-  optional string reserve = 5;
-  optional string oaid = 6;
-  optional int32 valid = 7;
-  optional int32 color_flag = 8;
-  optional string consign_time = 9;
-  optional string trade_time = 10;
-  optional string pay_time = 11;
-  optional string modified = 12;
-  optional string created = 13;
-  optional int32 version_id = 14;
-  optional int32 trade_id = 15;
-  optional string trade_no = 16;
-  optional int32 trade_from = 17;
-  optional string src_tids = 18;
-  optional int32 is_sealed = 19;
-  optional string split_from_trade_id = 20;
-  optional int32 split_package_num = 21;
-  optional string tags = 22;
-  optional int32 trade_status = 23;
-  optional int32 consign_status = 24;
-  optional int32 trade_type = 25;
-  optional int32 refund_status = 26;
-  optional int32 goods_type_count = 27;
-  optional double goods_count = 28;
-  optional string single_spec_no = 29;
-  optional double raw_goods_count = 30;
-  optional int32 raw_goods_type_count = 31;
-  optional double goods_amount = 32;
-  optional double post_amount = 33;
-  optional double other_amount = 34;
-  optional double discount = 35;
-  optional double receivable = 36;
-  optional double dap_amount = 37;
-  optional double cod_amount = 38;
-  optional double ext_cod_fee = 39;
-  optional double goods_cost = 40;
-  optional double post_cost = 41;
-  optional double paid = 42;
-  optional double profit = 43;
-  optional double tax = 44;
-  optional double tax_rate = 45;
-  optional double commission = 46;
-  optional string currency = 47;
-  optional int32 invoice_type = 48;
-  optional string invoice_title = 49;
-  optional string invoice_content = 50;
-  optional int32 invoice_id = 51;
-  optional string customer_id = 52;
-  optional int32 customer_type = 53;
-  optional string customer_name = 54;
-  optional string customer_no = 55;
-  optional string pay_account = 56;
-  optional string buyer_nick = 57;
-  optional string receiver_name = 58;
-  optional int32 receiver_province = 59;
-  optional int32 receiver_city = 60;
-  optional int32 receiver_district = 61;
-  optional string receiver_address = 62;
-  optional string receiver_mobile = 63;
-  optional string receiver_telno = 64;
-  optional string receiver_zip = 65;
-  optional string receiver_area = 66;
-  optional string receiver_ring = 67;
-  optional string receiver_dtb = 68;
-  optional int32 receiver_country = 69;
-  optional string buyer_message = 70;
-  optional string cs_remark = 71;
-  optional int32 remark_flag = 72;
-  optional string print_remark = 73;
-  optional string to_deliver_time = 74;
-  optional int32 bad_reason = 75;
-  optional int32 logistics_id = 76;
-  optional string logistics_name = 77;
-  optional string logistics_code = 78;
-  optional int32 logistics_type = 79;
-  optional string logistics_no = 80;
-  optional string pre_charge_time = 81;
-  optional int32 is_prev_notify = 82;
-  optional double volume = 83;
-  optional double weight = 84;
-  optional string logistics_template_id = 85;
-  optional string sendbill_template_id = 86;
-  optional string package_id = 87;
-  optional int32 large_type = 88;
-  optional string stockout_no = 89;
-  optional int32 salesman_id = 90;
-  optional int32 checker_id = 91;
-  optional string fullname = 92;
-  optional string checker_name = 93;
-  optional int32 fchecker_id = 94;
-  optional string fchecker_name = 95;
-  optional int32 checkouter_id = 96;
-  optional string checkouter_name = 97;
-  optional int32 platform_id = 98;
-  optional int32 shop_platform_id = 99;
-  optional int32 delivery_term = 100;
-  optional int32 freeze_reason = 101;
-  optional int32 fenxiao_type = 102;
-  optional string fenxiao_nick = 103;
-  optional int32 check_step = 104;
-  optional int32 unmerge_mask = 105;
-  optional string delay_to_time = 106;
-  optional int32 note_count = 107;
-  optional int32 buyer_message_count = 108;
-  optional int32 cs_remark_count = 109;
-  optional int32 cs_remark_change_count = 110;
-  optional double discount_change = 111;
-  optional double trade_prepay = 112;
-  optional double pi_amount = 113;
-  optional double other_cost = 114;
-  optional string sales_score = 115;
-  optional int32 gift_mask = 116;
-  optional int32 revert_reason = 117;
-  optional int32 cancel_reason = 118;
-  optional int32 is_unpayment_sms = 119;
-  optional string trade_mask = 120;
-  optional int32 flag_id = 121;
-  optional string flag_name = 122;
-  optional int32 id_card_type = 123;
-  optional string id_card = 124;
-  optional string freeze_reason_info = 125;
-  optional string fenxiao_tid = 126;
-  optional int32 shop_id = 127;
-  optional string shop_no = 128;
-  optional string shop_name = 129;
-  optional string shop_remark = 130;
-  optional int32 warehouse_id = 131;
-  optional int32 warehouse_type = 132;
-  optional string warehouse_no = 133;
-  optional int32 agg_discount = 134;
-  optional int32 adjust_discount = 135;
-  optional string collection_time = 136;
-  optional string collection_account = 137;
-  optional string collection_no = 138;
-  optional int32 collection_type = 139;
-  optional double collection_amount = 140;
-  optional int32 agg_consign_status = 141;
-  optional string consign_agg_no = 142;
-  optional int32 agg_pay_status = 143;
-  optional string pay_agg_no = 144;
-}
-
-message MongoTradesRetrieveRequest {
-  string trade_no = 1;
+message MatchTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message PeriodAggTradeRequest {
@@ -1396,6 +1993,16 @@ message PushToKingDeeSalOutStockResponse {
   int32 affected = 3;
 }
 
+message PushToKingDeeSalReturnStockRequest {
+  string agg_no_list = 1;
+}
+
+message PushToKingDeeSalReturnStockResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 affected = 3;
+}
+
 message QueryKdPurchaseNoSyncStatusRequest {
   string kd_purchase_no = 1;
 }
@@ -1519,45 +2126,6 @@ message RunSharedTaskResponse {
   int32 data = 3;
 }
 
-message SalReturnStockEntityResponse {
-  string FMaterialID = 1;
-  string FOWNERID = 2;
-  string FStockId = 3;
-  string FReturnType = 4;
-  optional string FRowType = 5;
-  int32 FRealQty = 6;
-  int32 FSalUnitQty = 7;
-  int32 FSalBaseQty = 8;
-  int32 FPriceBaseQty = 9;
-  int32 FArnotJoinQty = 10;
-  optional int32 FEntryTaxRate = 11;
-  optional double FTaxPrice = 12;
-  optional double FAllAmount = 13;
-  optional string FOWNERTYPEID = 14;
-  string FDeliveryDate = 15;
-  optional bool FIsOverLegalOrg = 16;
-  optional bool FIsReturnCheck = 17;
-}
-
-message SalReturnStockResponse {
-  string FBillNo = 1;
-  repeated SalReturnStockEntityResponse FEntity = 2;
-  string FBillTypeID = 3;
-  string FSaleOrgId = 4;
-  string FStockOrgId = 5;
-  string FOwnerIdHead = 6;
-  string FRetcustId = 7;
-  string FReceiveCustId = 8;
-  string FSettleCustId = 9;
-  string FPayCustId = 10;
-  string FZBStockID = 11;
-  string Fprop2 = 12;
-  optional int32 FID = 13;
-  string FDate = 14;
-  optional string FOwnerTypeIdHead = 15;
-  optional string FSplitBillType = 16;
-}
-
 message StopKdReceiveBillFromWdtRequest {
   string receive_bill = 1;
 }
@@ -1575,17 +2143,6 @@ message StopPeriodicTaskRequest {
 message StopPeriodicTaskResponse {
   int32 code = 1;
   string msg = 2;
-}
-
-message SubHeadEntityResponse {
-  string FSettleCurrID = 1;
-  string FSettleOrgID = 2;
-  string FSettleTypeID = 3;
-  string FPriceListId = 4;
-  string FDiscountListId = 5;
-  optional int32 FEntryId = 6;
-  optional string FThirdBillNo = 7;
-  optional string FThirdBillId = 8;
 }
 
 message SyncKdPurchaseReturnRequest {
@@ -1608,6 +2165,68 @@ message SyncKdTransferOrderResponse {
   int32 code = 1;
   string msg = 2;
   int32 affected = 3;
+}
+
+message TaskProgressDestroyRequest {
+  int32 id = 1;
+}
+
+message TaskProgressListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message TaskProgressListResponse {
+  repeated TaskProgressResponse results = 1;
+  int32 count = 2;
+}
+
+message TaskProgressPartialUpdateRequest {
+  repeated string _partial_update_fields = 2;
+  optional int32 code = 4;
+  optional int32 progress = 5;
+  optional string msg = 6;
+  optional string slice_start = 7;
+  optional string slice_end = 8;
+  optional string require_start = 9;
+  optional string require_end = 10;
+  string from_uuid = 12;
+  string task_name = 13;
+  optional int32 id = 14;
+  string user_uuid = 15;
+}
+
+message TaskProgressRequest {
+  optional int32 code = 3;
+  optional int32 progress = 4;
+  optional string msg = 5;
+  optional string slice_start = 6;
+  optional string slice_end = 7;
+  optional string require_start = 8;
+  optional string require_end = 9;
+  string from_uuid = 11;
+  string task_name = 12;
+  optional int32 id = 13;
+  string user_uuid = 14;
+}
+
+message TaskProgressResponse {
+  optional int32 code = 3;
+  optional int32 progress = 4;
+  optional string msg = 5;
+  optional string update_time = 6;
+  optional string slice_start = 7;
+  optional string slice_end = 8;
+  optional string require_start = 9;
+  optional string require_end = 10;
+  string from_uuid = 12;
+  string task_name = 13;
+  optional int32 id = 14;
+  string user_uuid = 15;
+}
+
+message TaskProgressRetrieveRequest {
+  int32 id = 1;
 }
 
 message TaskResultCreateRequest {
@@ -1704,447 +2323,2420 @@ message TaskResultUpdateRequest {
   repeated string _partial_update_fields = 12;
 }
 
-message TradeRefundDestroyRequest {
-  string refund_no = 1;
+message TaskSigAggTradeRefundRequest {
+  string uuid = 1;
 }
 
-message TradeRefundDiscountResponse {
-  int32 rec_id = 1;
-  optional int32 platform_id = 2;
-  string tid = 3;
-  string oid = 4;
-  string refund_no = 5;
-  string name = 6;
-  double amount = 7;
+message TaskSigAggTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
-message TradeRefundGoodsResponse {
-  string oid = 1;
-  optional int32 platform_id = 2;
-  string refund_no = 3;
-  optional int32 status = 4;
-  string goods_id = 5;
-  string spec_id = 6;
-  string goods_no = 7;
-  string spec_no = 8;
-  double num = 9;
-  double price = 10;
-  double total_amount = 11;
-  string remark = 12;
-  optional string modified = 13;
-  optional string created = 14;
-  string goods_name = 15;
-  string spec_name = 16;
-  optional int32 order_id = 17;
-  optional string return_time = 18;
+message TaskSigAggTradeRequest {
+  string agg_period = 1;
+  string config_no = 2;
+  string uuid = 3;
 }
 
-message TradeRefundListRequest {
+message TaskSigAggTradeResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigFetchStockinOrderRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+}
+
+message TaskSigFetchStockinOrderResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigFetchStockoutOrderRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+}
+
+message TaskSigFetchStockoutOrderResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigFetchTradeRefundRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+}
+
+message TaskSigFetchTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigFetchWdtTradeRequest {
+  string uuid = 1;
+  string require_start = 2;
+  optional string require_end = 3;
+  optional string pre_slice_end = 4;
+}
+
+message TaskSigFetchWdtTradeResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigMatchTradeRefundRequest {
+  string uuid = 1;
+  repeated string refund_list = 2;
+}
+
+message TaskSigMatchTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigPushTradeRefundRequest {
+  string uuid = 1;
+  string agg_no_list = 2;
+}
+
+message TaskSigPushTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TransferCreateOptsRequest {
+  string outer_no = 1;
+  string source_from = 2;
+  string from_warehouse_no = 3;
+  string to_warehouse_no = 4;
+  string remark = 5;
+  optional int32 transfer_type = 6;
+  optional int32 mode = 7;
+  optional int32 autocheck = 8;
+  repeated TransferCreateSKUOptsRequest skus = 9;
+}
+
+message TransferCreateSKUOptsRequest {
+  string spec_no = 1;
+  string from_position_no = 2;
+  string to_position_no = 3;
+  int32 num = 4;
+  string remark = 5;
+}
+
+message WdtOptionResponse {
+  repeated LabelValueResponse brand = 1;
+}
+
+message WdtPurchaseOrderDestroyRequest {
+  string _id = 1;
+}
+
+message WdtPurchaseOrderDetailsResponse {
+  optional string _id = 1;
+  optional int32 rec_id = 2;
+  optional int32 purchase_id = 3;
+  optional string spec_no = 4;
+  optional string brand_name = 5;
+  optional double num = 6;
+  optional double price = 7;
+  optional double discount = 8;
+  optional double tax = 9;
+  optional double tax_price = 10;
+  optional double tax_amount = 11;
+  optional double amount = 12;
+  optional double stockin_amount = 13;
+  optional double stockin_num = 14;
+  optional string prop1 = 15;
+  optional string prop2 = 16;
+  optional string remark = 17;
+  optional string modified = 18;
+  optional string provider_goods_no = 19;
+  optional string goods_no = 20;
+  optional string goods_name = 21;
+  optional string short_name = 22;
+  optional string spec_name = 23;
+  optional string spec_code = 24;
+  optional string base_unit = 25;
+  optional string purchase_unit = 26;
+  optional double arrive_num = 27;
+  optional double stopwait_num = 28;
+  optional double purchase_price = 29;
+  optional double last_price = 30;
+  optional double last_second_price = 31;
+  optional double lowest_price = 32;
+  optional double weight = 33;
+  optional double arrive_more_num = 34;
+  optional double lack_num = 35;
+  optional int32 spec_id = 36;
+  optional int32 warehouse_id = 37;
+  optional int32 tag = 38;
+  optional double num2 = 39;
+  optional double unit_ratio = 40;
+  optional int32 unit_id = 41;
+  optional int32 base_unit_id = 42;
+  optional string created = 43;
+}
+
+message WdtPurchaseOrderListRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
 }
 
-message TradeRefundListResponse {
-  repeated TradeRefundResponse results = 1;
+message WdtPurchaseOrderListResponse {
+  repeated WdtPurchaseOrderResponse results = 1;
   int32 count = 2;
 }
 
-message TradeRefundPartialUpdateRequest {
-  string refund_no = 1;
+message WdtPurchaseOrderPartialUpdateRequest {
+  optional string _id = 1;
   repeated string _partial_update_fields = 2;
-  optional int32 platform_id = 3;
-  string shop_no = 4;
-  string tid = 5;
-  optional string trade_no = 6;
-  optional string kingdee_stockout_bill_no = 7;
-  optional int32 type = 8;
+  optional int32 purchase_id = 3;
+  optional string purchase_no = 4;
+  optional string purchase_outer_no = 5;
+  optional string outer_no = 6;
+  optional string warehouse_name = 7;
+  optional string warehouse_no = 8;
   optional int32 status = 9;
-  optional int32 process_status = 10;
-  optional int32 op_constraint = 11;
-  optional int32 is_aftersale = 12;
-  optional int32 cs_status = 13;
-  optional int32 guarantee_mode = 14;
-  double refund_amount = 15;
-  double actual_refund_amount = 16;
-  string reason = 17;
-  string remark = 18;
-  optional int32 refund_mask = 19;
-  string logistics_name = 20;
-  string logistics_no = 21;
-  optional string refund_time = 22;
+  optional string provider_no = 10;
+  optional string provider_name = 11;
+  optional string contact = 12;
+  optional string telno = 13;
+  optional string purchaser_name = 14;
+  optional string receive_address = 15;
+  optional int32 logistics_type = 16;
+  optional string check_time = 17;
+  optional double goods_amount = 18;
+  optional double post_fee = 19;
+  optional double other_fee = 20;
+  optional double tax_goods_amount = 21;
+  optional string remark = 22;
   optional string modified = 23;
-  optional string created = 24;
-  optional string current_phase_timeout = 25;
-  optional int32 shop_id = 26;
-  string title = 27;
-  optional int32 is_external = 28;
-  optional int32 refund_id = 29;
-  string pay_no = 30;
+  optional string prop1 = 24;
+  optional string prop2 = 25;
+  optional string created = 26;
+  optional int32 creator_id = 27;
+  optional string creator_name = 28;
+  optional int32 warehouse_id = 29;
+  optional string api_outer_no = 30;
+  optional string wms_outer_no = 31;
+  optional int32 wms_status = 32;
+  optional string error_info = 33;
+  optional int32 purchaser_id = 34;
+  optional int32 order_type = 35;
+  optional int32 flag_id = 36;
+  optional int32 provider_id = 37;
+  optional int32 check_operator_id = 38;
+  optional int32 facheck_operator_id = 39;
+  optional string facheck_time = 40;
+  optional double goods_fee = 41;
+  optional double goods_count = 42;
+  optional double tax_fee = 43;
+  optional int32 goods_type_count = 44;
+  optional double goods_arrive_count = 45;
+  optional int32 revert_reason = 46;
+  optional int32 version_id = 47;
+  optional int32 note_count = 48;
+  optional string prop_time1 = 49;
+  optional string check_operator_name = 50;
+  optional string facheck_operator_name = 51;
+  optional string expect_arrive_time = 53;
 }
 
-message TradeRefundRequest {
-  string refund_no = 1;
-  optional int32 platform_id = 2;
-  string shop_no = 3;
-  string tid = 4;
-  optional string trade_no = 5;
-  optional string kingdee_stockout_bill_no = 6;
-  optional int32 type = 7;
+message WdtPurchaseOrderRequest {
+  optional string _id = 1;
+  optional int32 purchase_id = 2;
+  optional string purchase_no = 3;
+  optional string purchase_outer_no = 4;
+  optional string outer_no = 5;
+  optional string warehouse_name = 6;
+  optional string warehouse_no = 7;
   optional int32 status = 8;
-  optional int32 process_status = 9;
-  optional int32 op_constraint = 10;
-  optional int32 is_aftersale = 11;
-  optional int32 cs_status = 12;
-  optional int32 guarantee_mode = 13;
-  double refund_amount = 14;
-  double actual_refund_amount = 15;
-  string reason = 16;
-  string remark = 17;
-  optional int32 refund_mask = 18;
-  string logistics_name = 19;
-  string logistics_no = 20;
-  optional string refund_time = 21;
+  optional string provider_no = 9;
+  optional string provider_name = 10;
+  optional string contact = 11;
+  optional string telno = 12;
+  optional string purchaser_name = 13;
+  optional string receive_address = 14;
+  optional int32 logistics_type = 15;
+  optional string check_time = 16;
+  optional double goods_amount = 17;
+  optional double post_fee = 18;
+  optional double other_fee = 19;
+  optional double tax_goods_amount = 20;
+  optional string remark = 21;
   optional string modified = 22;
-  optional string created = 23;
-  optional string current_phase_timeout = 24;
-  optional int32 shop_id = 25;
-  string title = 26;
-  optional int32 is_external = 27;
-  optional int32 refund_id = 28;
-  string pay_no = 29;
-}
-
-message TradeRefundResponse {
-  string refund_no = 1;
-  repeated TradeRefundGoodsResponse goods_list = 2;
-  repeated TradeRefundDiscountResponse discount_list = 3;
-  optional int32 platform_id = 4;
-  string shop_no = 5;
-  string tid = 6;
-  optional string trade_no = 7;
-  optional string kingdee_stockout_bill_no = 8;
-  optional int32 type = 9;
-  optional int32 status = 10;
-  optional int32 process_status = 11;
-  optional int32 op_constraint = 12;
-  optional int32 is_aftersale = 13;
-  optional int32 cs_status = 14;
-  optional int32 guarantee_mode = 15;
-  double refund_amount = 16;
-  double actual_refund_amount = 17;
-  string reason = 18;
-  string remark = 19;
-  optional int32 refund_mask = 20;
-  string logistics_name = 21;
-  string logistics_no = 22;
-  optional string refund_time = 23;
-  optional string modified = 24;
+  optional string prop1 = 23;
+  optional string prop2 = 24;
   optional string created = 25;
-  optional string current_phase_timeout = 26;
-  optional int32 shop_id = 27;
-  string title = 28;
-  optional int32 is_external = 29;
-  optional int32 refund_id = 30;
-  string pay_no = 31;
+  optional int32 creator_id = 26;
+  optional string creator_name = 27;
+  optional int32 warehouse_id = 28;
+  optional string api_outer_no = 29;
+  optional string wms_outer_no = 30;
+  optional int32 wms_status = 31;
+  optional string error_info = 32;
+  optional int32 purchaser_id = 33;
+  optional int32 order_type = 34;
+  optional int32 flag_id = 35;
+  optional int32 provider_id = 36;
+  optional int32 check_operator_id = 37;
+  optional int32 facheck_operator_id = 38;
+  optional string facheck_time = 39;
+  optional double goods_fee = 40;
+  optional double goods_count = 41;
+  optional double tax_fee = 42;
+  optional int32 goods_type_count = 43;
+  optional double goods_arrive_count = 44;
+  optional int32 revert_reason = 45;
+  optional int32 version_id = 46;
+  optional int32 note_count = 47;
+  optional string prop_time1 = 48;
+  optional string check_operator_name = 49;
+  optional string facheck_operator_name = 50;
+  optional string expect_arrive_time = 52;
 }
 
-message TradeRefundRetrieveRequest {
-  string refund_no = 1;
+message WdtPurchaseOrderResponse {
+  optional string _id = 1;
+  optional string status_name = 2;
+  repeated WdtPurchaseOrderDetailsResponse details_list = 4;
+  optional int32 purchase_id = 5;
+  optional string purchase_no = 6;
+  optional string purchase_outer_no = 7;
+  optional string outer_no = 8;
+  optional string warehouse_name = 9;
+  optional string warehouse_no = 10;
+  optional int32 status = 11;
+  optional string provider_no = 12;
+  optional string provider_name = 13;
+  optional string contact = 14;
+  optional string telno = 15;
+  optional string purchaser_name = 16;
+  optional string receive_address = 17;
+  optional int32 logistics_type = 18;
+  optional string check_time = 19;
+  optional double goods_amount = 20;
+  optional double post_fee = 21;
+  optional double other_fee = 22;
+  optional double tax_goods_amount = 23;
+  optional string remark = 24;
+  optional string modified = 25;
+  optional string prop1 = 26;
+  optional string prop2 = 27;
+  optional string created = 28;
+  optional int32 creator_id = 29;
+  optional string creator_name = 30;
+  optional int32 warehouse_id = 31;
+  optional string api_outer_no = 32;
+  optional string wms_outer_no = 33;
+  optional int32 wms_status = 34;
+  optional string error_info = 35;
+  optional int32 purchaser_id = 36;
+  optional int32 order_type = 37;
+  optional int32 flag_id = 38;
+  optional int32 provider_id = 39;
+  optional int32 check_operator_id = 40;
+  optional int32 facheck_operator_id = 41;
+  optional string facheck_time = 42;
+  optional double goods_fee = 43;
+  optional double goods_count = 44;
+  optional double tax_fee = 45;
+  optional int32 goods_type_count = 46;
+  optional double goods_arrive_count = 47;
+  optional int32 revert_reason = 48;
+  optional int32 version_id = 49;
+  optional int32 note_count = 50;
+  optional string prop_time1 = 51;
+  optional string check_operator_name = 52;
+  optional string facheck_operator_name = 53;
+  optional string expect_arrive_time = 55;
+  optional string order_type_name = 56;
 }
 
-message TradeRefundStockinDestroyRequest {
-  int32 stockin_id = 1;
+message WdtPurchaseOrderRetrieveRequest {
+  string _id = 1;
 }
 
-message TradeRefundStockinDetailsResponse {
+message WdtPurchaseReturnDestroyRequest {
+  int32 return_id = 1;
+}
+
+message WdtPurchaseReturnDetailResponse {
   int32 rec_id = 1;
-  optional int32 stockin_id = 2;
-  optional int32 src_order_detail_id = 3;
+  int32 return_id = 2;
+  string provider_goods_no = 3;
   string spec_no = 4;
-  string suite_no = 5;
-  double goods_count = 6;
-  double discount = 7;
-  double cost_price = 8;
+  string goods_no = 5;
+  string goods_name = 6;
+  string spec_name = 7;
+  string spec_code = 8;
+  double num = 9;
+  double num2 = 10;
+  int32 unit_id = 11;
+  double unit_ratio = 12;
+  int32 base_unit_id = 13;
+  double price = 14;
+  double discount = 15;
+  double amount = 16;
+  string unit_name = 17;
+  string base_unit_name = 18;
+  optional string remark = 19;
+  double tax = 20;
+  double tax_amount = 21;
+  int32 spec_id = 22;
+  double out_num = 23;
+  double out_amount = 24;
+  double tax_price = 25;
+  string modified = 26;
+  string created = 27;
+  string brand_name = 28;
+}
+
+message WdtPurchaseReturnListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtPurchaseReturnListResponse {
+  repeated WdtPurchaseReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtPurchaseReturnLogisticsDetailResponse {
+  int32 return_id = 2;
+  string logistics_name = 3;
+  string logistics_no = 4;
+  string stockout_no = 5;
+  double weight = 6;
+  string shortname = 7;
+  string created = 8;
+  string modified = 9;
+}
+
+message WdtPurchaseReturnPartialUpdateRequest {
+  int32 return_id = 1;
+  repeated string _partial_update_fields = 2;
+  string return_no = 3;
+  string provider_name = 4;
+  int32 status = 5;
+  string warehouse_no = 6;
+  string warehouse_name = 7;
+  int32 purchaser_id = 8;
+  string purchaser_name = 9;
+  int32 logistics_type = 10;
+  double other_fee = 11;
+  double post_fee = 12;
+  double goods_fee = 13;
+  double goods_count = 14;
+  int32 goods_type_count = 15;
+  double goods_out_count = 16;
+  string remark = 17;
+  string created = 18;
+  string modified = 19;
+  string api_outer_no = 20;
+  string outer_no = 21;
+  string prop1 = 22;
+  string prop2 = 23;
+  string provider_no = 24;
+  string purchase_no = 25;
+  int32 creator_id = 26;
+  string creator_name = 27;
+  int32 type = 28;
+  int32 flag_id = 29;
+  string warehouse_id = 30;
+  int32 provider_id = 31;
+  string contact = 32;
+  string telno = 33;
+  string receive_address = 34;
+  int32 check_operator_id = 35;
+  string check_time = 36;
+  int32 note_count = 37;
+  string province = 38;
+  string city = 39;
+  string district = 40;
+  string wms_outer_no = 41;
+  int32 wms_status = 42;
+  string error_info = 43;
+  int32 version_id = 44;
+  int32 last_load_purchase_id = 45;
+  string check_operator_name = 46;
+}
+
+message WdtPurchaseReturnRequest {
+  int32 return_id = 1;
+  string return_no = 2;
+  string provider_name = 3;
+  int32 status = 4;
+  string warehouse_no = 5;
+  string warehouse_name = 6;
+  int32 purchaser_id = 7;
+  string purchaser_name = 8;
+  int32 logistics_type = 9;
+  double other_fee = 10;
+  double post_fee = 11;
+  double goods_fee = 12;
+  double goods_count = 13;
+  int32 goods_type_count = 14;
+  double goods_out_count = 15;
+  string remark = 16;
+  string created = 17;
+  string modified = 18;
+  string api_outer_no = 19;
+  string outer_no = 20;
+  string prop1 = 21;
+  string prop2 = 22;
+  string provider_no = 23;
+  string purchase_no = 24;
+  int32 creator_id = 25;
+  string creator_name = 26;
+  int32 type = 27;
+  int32 flag_id = 28;
+  string warehouse_id = 29;
+  int32 provider_id = 30;
+  string contact = 31;
+  string telno = 32;
+  string receive_address = 33;
+  int32 check_operator_id = 34;
+  string check_time = 35;
+  int32 note_count = 36;
+  string province = 37;
+  string city = 38;
+  string district = 39;
+  string wms_outer_no = 40;
+  int32 wms_status = 41;
+  string error_info = 42;
+  int32 version_id = 43;
+  int32 last_load_purchase_id = 44;
+  string check_operator_name = 45;
+}
+
+message WdtPurchaseReturnResponse {
+  int32 return_id = 1;
+  repeated WdtPurchaseReturnDetailResponse detail_list = 2;
+  repeated WdtPurchaseReturnLogisticsDetailResponse logistics_detail_list = 3;
+  string return_no = 4;
+  string provider_name = 5;
+  int32 status = 6;
+  string warehouse_no = 7;
+  string warehouse_name = 8;
+  int32 purchaser_id = 9;
+  string purchaser_name = 10;
+  int32 logistics_type = 11;
+  double other_fee = 12;
+  double post_fee = 13;
+  double goods_fee = 14;
+  double goods_count = 15;
+  int32 goods_type_count = 16;
+  double goods_out_count = 17;
+  string remark = 18;
+  string created = 19;
+  string modified = 20;
+  string api_outer_no = 21;
+  string outer_no = 22;
+  string prop1 = 23;
+  string prop2 = 24;
+  string provider_no = 25;
+  string purchase_no = 26;
+  int32 creator_id = 27;
+  string creator_name = 28;
+  int32 type = 29;
+  int32 flag_id = 30;
+  string warehouse_id = 31;
+  int32 provider_id = 32;
+  string contact = 33;
+  string telno = 34;
+  string receive_address = 35;
+  int32 check_operator_id = 36;
+  string check_time = 37;
+  int32 note_count = 38;
+  string province = 39;
+  string city = 40;
+  string district = 41;
+  string wms_outer_no = 42;
+  int32 wms_status = 43;
+  string error_info = 44;
+  int32 version_id = 45;
+  int32 last_load_purchase_id = 46;
+  string check_operator_name = 47;
+  optional string return_type = 48;
+}
+
+message WdtPurchaseReturnRetrieveRequest {
+  int32 return_id = 1;
+}
+
+message WdtShopListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtShopListResponse {
+  repeated WdtShopResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtShopResponse {
+  string shop_code = 1;
+  string shop_name = 2;
+  int32 platform_id = 3;
+}
+
+message WdtStockListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockListResponse {
+  repeated WdtStockResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockResponse {
+  string stock_code = 1;
+  string stock_name = 2;
+  int32 stock_type = 3;
+  string ext_warehouse_no = 4;
+}
+
+message WdtStockinDetailModelResponse {
+  int32 rec_id = 1;
+  int32 stockin_id = 2;
+  int32 src_order_detail_id = 3;
+  int32 src_order_type = 4;
+  int32 org_stockin_detail_id = 5;
+  int32 num = 6;
+  int32 num2 = 7;
+  int32 expect_num = 8;
+  int32 right_num = 9;
+  int32 adjust_num = 10;
+  int32 goods_count = 11;
+  optional string spec_id = 12;
+  optional string batch_id = 13;
+  optional string position_id = 14;
+  optional string unit_id = 15;
+  optional string base_unit_id = 16;
+  optional double unit_ratio = 17;
+  optional double cost_price2 = 18;
+  optional double share_post_cost = 19;
+  optional double share_post_total = 20;
+  optional string modified = 21;
+  optional string created = 22;
+  optional string spec_no = 23;
+  optional double discount = 24;
+  optional double right_price = 25;
+  optional double right_cost = 26;
+  optional double cost_price = 27;
+  optional string production_date = 28;
+  optional string validity_days = 29;
+  optional string expire_date = 30;
+  optional double src_price = 31;
+  optional double tax_price = 32;
+  optional double tax_amount = 33;
+  optional double tax = 34;
+  optional double total_cost = 35;
+  optional string remark = 36;
+  optional double adjust_price = 37;
+  optional string brand_no = 38;
+  optional string brand_name = 39;
+  optional string goods_name = 40;
+  optional string goods_no = 41;
+  optional string spec_name = 42;
+  optional string spec_code = 43;
+  optional string prop2 = 44;
+  optional string goods_unit = 45;
+  optional string batch_no = 46;
+  optional string batch_remark = 47;
+  optional string position_no = 48;
+}
+
+message WdtStockinModelListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockinModelListResponse {
+  repeated WdtStockinModelResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockinModelResponse {
+  optional string _id = 1;
+  repeated WdtStockinDetailModelResponse details_list = 2;
+  int32 stockin_id = 3;
+  int32 adjust_num = 4;
+  int32 goods_type_count = 5;
+  int32 goods_count = 6;
+  int32 wms_status = 7;
+  int32 warehouse_id = 8;
+  int32 src_order_type = 9;
+  int32 src_order_id = 10;
+  int32 reason_id = 11;
+  int32 fa_status = 12;
+  int32 logistics_id = 13;
+  int32 post_share_type = 14;
+  int32 operator_id = 15;
+  int32 note_count = 16;
+  int32 order_type = 17;
+  int32 status = 18;
+  optional string order_no = 19;
+  optional string stockin_no = 20;
+  optional string wms_result = 21;
+  optional string flag_id = 22;
+  optional string modified = 23;
+  optional string warehouse_no = 24;
+  optional string warehouse_name = 25;
+  optional string stockin_time = 26;
+  optional string created_time = 27;
+  optional string remark = 28;
+  optional string check_operator_id = 29;
+  optional string stockin_reason = 30;
+  optional string order_type_name = 31;
+  optional double goods_amount = 32;
+  optional double total_price = 33;
+  optional double discount = 34;
+  optional double tax_amount = 35;
+  optional double adjust_price = 36;
+  optional double post_fee = 37;
+  optional double other_fee = 38;
+  optional string logistics_type = 39;
+  optional string check_time = 40;
+  optional string src_order_no = 41;
+  optional string outer_no = 42;
+  optional string wms_outer_no = 43;
+  optional string logistics_no = 44;
+  optional string operator_name = 45;
+  optional double right_price = 46;
+  optional string provider_no = 47;
+  optional string provider_name = 48;
+  optional string purchase_no = 49;
+  optional string from_warehouse_no = 50;
+  optional string from_warehouse_name = 51;
+  optional string to_warehouse_no = 52;
+  optional string to_warehouse_name = 53;
+  optional string st_outer_no = 54;
+  optional string st_created = 55;
+  optional string logistics_name = 56;
+  optional string logistics_code = 57;
+}
+
+message WdtStockinOrderPurchaseDestroyRequest {
+  string _id = 1;
+}
+
+message WdtStockinOrderPurchaseDetailResponse {
+  optional int32 stockin_id = 2;
+  optional int32 rec_id = 3;
+  optional int32 src_order_detail_id = 4;
+  optional string spec_no = 5;
+  optional double goods_count = 6;
+  optional double discount = 7;
+  optional double cost_price = 8;
   optional string production_date = 9;
   optional int32 validity_days = 10;
   optional string expire_date = 11;
-  double src_price = 12;
-  double tax_price = 13;
-  double tax_amount = 14;
-  double tax = 15;
-  double total_cost = 16;
-  string remark = 17;
-  double adjust_num = 18;
-  double adjust_price = 19;
-  double right_num = 20;
-  double right_price = 21;
-  double num = 22;
-  double num2 = 23;
-  double right_cost = 24;
-  string brand_no = 25;
-  string brand_name = 26;
-  string goods_name = 27;
-  string prop1 = 28;
-  string prop2 = 29;
-  string prop3 = 30;
-  string prop4 = 31;
-  string prop5 = 32;
-  string prop6 = 33;
-  string good_prop1 = 34;
-  string good_prop2 = 35;
-  string good_prop3 = 36;
-  string good_prop4 = 37;
-  string good_prop5 = 38;
-  string good_prop6 = 39;
-  string goods_no = 40;
-  string spec_name = 41;
-  string spec_code = 42;
-  string goods_unit = 43;
-  string batch_no = 44;
-  string batch_remark = 45;
-  string position_no = 46;
-  string tid = 47;
-  string oid = 48;
-  int32 src_order_type = 49;
-  optional int32 org_stockin_detail_id = 50;
+  optional double src_price = 12;
+  optional double tax_price = 13;
+  optional double tax_amount = 14;
+  optional double tax = 15;
+  optional double total_cost = 16;
+  optional string remark = 17;
+  optional double adjust_num = 18;
+  optional double adjust_price = 19;
+  optional double right_num = 20;
+  optional double right_price = 21;
+  optional double right_cost = 22;
+  optional string brand_no = 23;
+  optional string brand_name = 24;
+  optional string goods_name = 25;
+  optional string goods_no = 26;
+  optional string spec_name = 27;
+  optional string spec_code = 28;
+  optional string prop2 = 29;
+  optional string goods_unit = 30;
+  optional string batch_no = 31;
+  optional string batch_remark = 32;
+  optional string position_no = 33;
+  optional int32 src_order_type = 34;
+  optional int32 org_stockin_detail_id = 35;
+  optional int32 spec_id = 36;
+  optional int32 batch_id = 37;
+  optional int32 position_id = 38;
+  optional double num = 39;
+  optional double num2 = 40;
+  optional int32 unit_id = 41;
+  optional int32 base_unit_id = 42;
+  optional double unit_ratio = 43;
+  optional double expect_num = 44;
+  optional double cost_price2 = 45;
+  optional double share_post_cost = 46;
+  optional double share_post_total = 47;
+  optional string modified = 48;
+  optional string src_order_type_name = 49;
+}
+
+message WdtStockinOrderPurchaseListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockinOrderPurchaseListResponse {
+  repeated WdtStockinOrderPurchaseResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockinOrderPurchasePartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional int32 push_kingdee_status = 3;
+  optional string kd_purchase_order = 4;
+  optional string kd_bill_no = 5;
+  optional string wdt_purchase_order = 6;
+  optional string stockin_no = 7;
+  optional string kd_stockin_no = 8;
+  optional int32 stockin_id = 9;
+  optional string order_no = 10;
+  optional int32 status = 11;
+  string warehouse_no = 12;
+  optional string warehouse_name = 13;
+  optional string stockin_time = 14;
+  optional string check_time = 15;
+  optional string created_time = 16;
+  optional string src_order_no = 17;
+  optional string remark = 18;
+  optional string stockin_reason = 19;
+  optional int32 order_type = 20;
+  optional string order_type_name = 21;
+  optional double goods_amount = 22;
+  optional double total_price = 23;
+  optional double discount = 24;
+  optional double tax_amount = 25;
+  optional double post_fee = 26;
+  optional double other_fee = 27;
+  optional int32 logistics_type = 28;
+  optional string logistics_code = 29;
+  optional string logistics_name = 30;
+  optional string logistics_no = 31;
+  optional string purchase_no = 32;
+  optional string provider_no = 33;
+  optional string provider_name = 34;
+  optional string outer_no = 35;
+  optional double goods_count = 36;
+  optional double adjust_num = 37;
+  optional double adjust_price = 38;
+  optional double right_nums = 39;
+  optional double right_price = 40;
+  optional string wms_outer_no = 41;
+  optional int32 wms_status = 42;
+  optional string wms_result = 43;
+  optional int32 warehouse_id = 44;
+  optional int32 src_order_type = 45;
+  optional int32 src_order_id = 46;
+  optional int32 reason_id = 47;
+  optional int32 fa_status = 48;
+  optional int32 logistics_id = 49;
+  optional int32 post_share_type = 50;
+  optional int32 operator_id = 51;
+  optional int32 check_operator_id = 52;
+  optional int32 goods_type_count = 53;
+  optional int32 note_count = 54;
+  optional int32 flag_id = 55;
+  optional string modified = 56;
+  optional string check_operator_name = 57;
+  optional string operator_name = 58;
+}
+
+message WdtStockinOrderPurchaseRequest {
+  optional string _id = 1;
+  optional int32 push_kingdee_status = 2;
+  optional string kd_purchase_order = 3;
+  optional string kd_bill_no = 4;
+  optional string wdt_purchase_order = 5;
+  optional string stockin_no = 6;
+  optional string kd_stockin_no = 7;
+  optional int32 stockin_id = 8;
+  optional string order_no = 9;
+  optional int32 status = 10;
+  string warehouse_no = 11;
+  optional string warehouse_name = 12;
+  optional string stockin_time = 13;
+  optional string check_time = 14;
+  optional string created_time = 15;
+  optional string src_order_no = 16;
+  optional string remark = 17;
+  optional string stockin_reason = 18;
+  optional int32 order_type = 19;
+  optional string order_type_name = 20;
+  optional double goods_amount = 21;
+  optional double total_price = 22;
+  optional double discount = 23;
+  optional double tax_amount = 24;
+  optional double post_fee = 25;
+  optional double other_fee = 26;
+  optional int32 logistics_type = 27;
+  optional string logistics_code = 28;
+  optional string logistics_name = 29;
+  optional string logistics_no = 30;
+  optional string purchase_no = 31;
+  optional string provider_no = 32;
+  optional string provider_name = 33;
+  optional string outer_no = 34;
+  optional double goods_count = 35;
+  optional double adjust_num = 36;
+  optional double adjust_price = 37;
+  optional double right_nums = 38;
+  optional double right_price = 39;
+  optional string wms_outer_no = 40;
+  optional int32 wms_status = 41;
+  optional string wms_result = 42;
+  optional int32 warehouse_id = 43;
+  optional int32 src_order_type = 44;
+  optional int32 src_order_id = 45;
+  optional int32 reason_id = 46;
+  optional int32 fa_status = 47;
+  optional int32 logistics_id = 48;
+  optional int32 post_share_type = 49;
+  optional int32 operator_id = 50;
+  optional int32 check_operator_id = 51;
+  optional int32 goods_type_count = 52;
+  optional int32 note_count = 53;
+  optional int32 flag_id = 54;
+  optional string modified = 55;
+  optional string check_operator_name = 56;
+  optional string operator_name = 57;
+}
+
+message WdtStockinOrderPurchaseResponse {
+  optional string _id = 1;
+  repeated WdtStockinOrderPurchaseDetailResponse details_list = 2;
+  optional int32 push_kingdee_status = 3;
+  optional string kd_purchase_order = 4;
+  optional string kd_bill_no = 5;
+  optional string wdt_purchase_order = 6;
+  optional string stockin_no = 7;
+  optional string kd_stockin_no = 8;
+  optional int32 stockin_id = 9;
+  optional string order_no = 10;
+  optional int32 status = 11;
+  string warehouse_no = 12;
+  optional string warehouse_name = 13;
+  optional string stockin_time = 14;
+  optional string check_time = 15;
+  optional string created_time = 16;
+  optional string src_order_no = 17;
+  optional string remark = 18;
+  optional string stockin_reason = 19;
+  optional int32 order_type = 20;
+  optional string order_type_name = 21;
+  optional double goods_amount = 22;
+  optional double total_price = 23;
+  optional double discount = 24;
+  optional double tax_amount = 25;
+  optional double post_fee = 26;
+  optional double other_fee = 27;
+  optional int32 logistics_type = 28;
+  optional string logistics_code = 29;
+  optional string logistics_name = 30;
+  optional string logistics_no = 31;
+  optional string purchase_no = 32;
+  optional string provider_no = 33;
+  optional string provider_name = 34;
+  optional string outer_no = 35;
+  optional double goods_count = 36;
+  optional double adjust_num = 37;
+  optional double adjust_price = 38;
+  optional double right_nums = 39;
+  optional double right_price = 40;
+  optional string wms_outer_no = 41;
+  optional int32 wms_status = 42;
+  optional string wms_result = 43;
+  optional int32 warehouse_id = 44;
+  optional int32 src_order_type = 45;
+  optional int32 src_order_id = 46;
+  optional int32 reason_id = 47;
+  optional int32 fa_status = 48;
+  optional int32 logistics_id = 49;
+  optional int32 post_share_type = 50;
+  optional int32 operator_id = 51;
+  optional int32 check_operator_id = 52;
+  optional int32 goods_type_count = 53;
+  optional int32 note_count = 54;
+  optional int32 flag_id = 55;
+  optional string modified = 56;
+  optional string check_operator_name = 57;
+  optional string operator_name = 58;
+  optional string push_kingdee_status_name = 59;
+  optional string status_name = 60;
+  optional string wms_status_name = 61;
+  optional string src_order_type_name = 62;
+}
+
+message WdtStockinOrderPurchaseRetrieveRequest {
+  string _id = 1;
+}
+
+message WdtStockoutDetailModelResponse {
+  int32 rec_id = 1;
+  repeated WdtStockoutPositionModelResponse position_list = 2;
+  int32 stockout_id = 3;
+  int32 src_order_detail_id = 4;
+  int32 goods_count = 5;
+  int32 goods_type = 6;
+  optional string spec_no = 7;
+  optional double sell_price = 8;
+  optional string brand_no = 9;
+  optional string brand_name = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  optional string spec_name = 13;
+  optional string spec_code = 14;
+  optional double cost_price = 15;
+  optional double total_amount = 16;
+  optional double weight = 17;
+  optional string remark = 18;
+  optional string goods_unit = 19;
+  optional string batch_no = 20;
+  optional string batch_remark = 21;
+  optional string expire_date = 22;
+}
+
+message WdtStockoutModelListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockoutModelListResponse {
+  repeated WdtStockoutModelResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockoutModelResponse {
+  optional string _id = 1;
+  repeated WdtStockoutDetailModelResponse details_list = 2;
+  int32 stockout_id = 3;
+  int32 status = 4;
+  int32 order_type = 5;
+  int32 goods_count = 6;
+  int32 logistics_type = 7;
+  optional string order_no = 8;
+  optional string stockout_no = 9;
+  optional string src_order_no = 10;
+  optional string warehouse_no = 11;
+  optional string consign_time = 12;
+  optional string order_type_name = 13;
+  optional string subtype = 14;
+  optional string stockout_reason = 15;
+  optional double goods_total_amount = 16;
+  optional double goods_total_cost = 17;
+  optional double post_fee = 18;
+  optional string logistics_no = 19;
+  optional double package_fee = 20;
+  optional string receiver_name = 21;
+  optional string receiver_country = 22;
+  optional string receiver_province = 23;
+  optional string receiver_city = 24;
+  optional string receiver_district = 25;
+  optional string receiver_address = 26;
+  optional string receiver_mobile = 27;
+  optional string receiver_telno = 28;
+  optional string receiver_zip = 29;
+  optional double weight = 30;
+  optional string remark = 31;
+  optional string outer_no = 32;
+  optional string operator_name = 33;
+  optional string logistics_code = 34;
+  optional string logistics_name = 35;
+  optional string modified = 36;
+  optional string stock_check_time = 37;
+}
+
+message WdtStockoutOrderReturnDestroyRequest {
+  int32 stockout_id = 1;
+}
+
+message WdtStockoutOrderReturnDetailPostionResponse {
+  int32 position_id = 1;
+  string position_no = 2;
+  double position_goods_count = 3;
+  string expire_date = 4;
+  int32 batch_id = 5;
+  string batch_no = 6;
+  string batch_remark = 7;
+  string stockin_no = 8;
+  string remark = 9;
+}
+
+message WdtStockoutOrderReturnDetailResponse {
+  int32 rec_id = 1;
+  repeated WdtStockoutOrderReturnDetailPostionResponse position_list = 2;
+  int32 stockout_id = 3;
+  string spec_no = 4;
+  double goods_count = 5;
+  double sell_price = 6;
+  string brand_no = 7;
+  string brand_name = 8;
+  string goods_name = 9;
+  string goods_no = 10;
+  string spec_name = 11;
+  string spec_code = 12;
+  double cost_price = 13;
+  double total_amount = 14;
+  double weight = 15;
+  int32 goods_type = 16;
+  string goods_unit = 17;
+  string batch_no = 18;
+  string batch_remark = 19;
+  string expire_date = 20;
+  string remark = 21;
+  int32 goods_id = 22;
+  int32 spec_id = 23;
+  int32 position_id = 24;
+  optional int32 src_order_type = 25;
+  int32 src_order_detail_id = 26;
+  int32 base_unit_id = 27;
+  int32 unit_id = 28;
+  double unit_ratio = 29;
+  double num2 = 30;
+  double num = 31;
+  double price = 32;
+  int32 batch_id = 33;
+  int32 is_examined = 34;
+  int32 is_package = 35;
+  int32 is_zero_cost = 36;
+  int32 scan_type = 37;
+  string modified = 38;
+  string created = 39;
+}
+
+message WdtStockoutOrderReturnListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockoutOrderReturnListResponse {
+  repeated WdtStockoutOrderReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockoutOrderReturnPartialUpdateRequest {
+  int32 stockout_id = 1;
+  repeated string _partial_update_fields = 2;
+  string order_no = 3;
+  string src_order_no = 4;
+  string warehouse_no = 5;
+  int32 status = 6;
+  string consign_time = 7;
+  int32 order_type = 8;
+  optional string order_type_name = 9;
+  string subtype = 10;
+  double goods_count = 11;
+  double goods_total_amount = 12;
+  double goods_total_cost = 13;
+  double post_fee = 14;
+  optional string logistics_no = 15;
+  double package_fee = 16;
+  optional string receiver_name = 17;
+  int32 receiver_country = 18;
+  int32 receiver_province = 19;
+  int32 receiver_city = 20;
+  int32 receiver_district = 21;
+  optional string receiver_address = 22;
+  optional string receiver_mobile = 23;
+  optional string receiver_telno = 24;
+  optional string receiver_zip = 25;
+  double weight = 26;
+  optional string remark = 27;
+  optional string stockout_reason = 28;
+  optional string outer_no = 29;
+  optional string operator_name = 30;
+  optional string receiver_area = 31;
+  string return_no = 32;
+  string provider_no = 33;
+  string provider_name = 34;
+  string modified = 35;
+  optional string pr_api_outer_no = 36;
+  optional string last_load_purchase_no = 37;
+  int32 picklist_print_status = 38;
+  int32 logistics_print_status = 39;
+  int32 sendbill_print_status = 40;
+  string stockout_no = 41;
+  optional int32 src_order_type = 42;
+  int32 src_order_id = 43;
+  int32 wms_status = 44;
+  optional string error_info = 45;
+  int32 warehouse_id = 46;
+  int32 customer_id = 47;
+  int32 freeze_reason = 48;
+  int32 is_allocated = 49;
+  int32 consign_status = 50;
+  int32 ebill_status = 51;
+  int32 operator_id = 52;
+  int32 goods_type_count = 53;
+  optional string md5_str = 54;
+  double raw_goods_count = 55;
+  int32 custom_type = 56;
+  optional string receiver_ring = 57;
+  optional string to_deliver_time = 58;
+  optional string pre_charge_time = 59;
+  int32 logistics_id = 60;
+  double unknown_goods_amount = 61;
+  double calc_post_cost = 62;
+  double post_cost = 63;
+  double calc_weight = 64;
+  double post_weight = 65;
+  int32 package_id = 66;
+  double package_cost = 67;
+  int32 has_invoice = 68;
+  int32 printer_id = 69;
+  int32 pick_error_count = 70;
+  int32 picker_id = 71;
+  int32 sorter_id = 72;
+  int32 examiner_id = 73;
+  int32 consigner_id = 74;
+  int32 packager_id = 75;
+  int32 pack_score = 76;
+  int32 pick_score = 77;
+  int32 checkouter_id = 78;
+  int32 watcher_id = 79;
+  optional string picklist_no = 80;
+  int32 picklist_seq = 81;
+  int32 invoice_print_status = 82;
+  int32 flag_id = 83;
+  int32 logistics_template_id = 84;
+  int32 sendbill_template_id = 85;
+  int32 pos_allocate_mode = 86;
+  int32 note_count = 87;
+  int32 reason_id = 88;
+  int32 lock_id = 89;
+  optional string reserve = 90;
+  int32 block_reason = 91;
+  optional string batch_no = 92;
+  string stock_check_time = 93;
+  optional string picker_name = 94;
+  optional string sorter_name = 95;
+  optional string examiner_name = 96;
+  optional string consigner_name = 97;
+  optional string packager_name = 98;
+  optional string checkouter_name = 99;
+  optional string watcher_name = 100;
+}
+
+message WdtStockoutOrderReturnRequest {
+  int32 stockout_id = 1;
+  string order_no = 2;
+  string src_order_no = 3;
+  string warehouse_no = 4;
+  int32 status = 5;
+  string consign_time = 6;
+  int32 order_type = 7;
+  optional string order_type_name = 8;
+  string subtype = 9;
+  double goods_count = 10;
+  double goods_total_amount = 11;
+  double goods_total_cost = 12;
+  double post_fee = 13;
+  optional string logistics_no = 14;
+  double package_fee = 15;
+  optional string receiver_name = 16;
+  int32 receiver_country = 17;
+  int32 receiver_province = 18;
+  int32 receiver_city = 19;
+  int32 receiver_district = 20;
+  optional string receiver_address = 21;
+  optional string receiver_mobile = 22;
+  optional string receiver_telno = 23;
+  optional string receiver_zip = 24;
+  double weight = 25;
+  optional string remark = 26;
+  optional string stockout_reason = 27;
+  optional string outer_no = 28;
+  optional string operator_name = 29;
+  optional string receiver_area = 30;
+  string return_no = 31;
+  string provider_no = 32;
+  string provider_name = 33;
+  string modified = 34;
+  optional string pr_api_outer_no = 35;
+  optional string last_load_purchase_no = 36;
+  int32 picklist_print_status = 37;
+  int32 logistics_print_status = 38;
+  int32 sendbill_print_status = 39;
+  string stockout_no = 40;
+  optional int32 src_order_type = 41;
+  int32 src_order_id = 42;
+  int32 wms_status = 43;
+  optional string error_info = 44;
+  int32 warehouse_id = 45;
+  int32 customer_id = 46;
+  int32 freeze_reason = 47;
+  int32 is_allocated = 48;
+  int32 consign_status = 49;
+  int32 ebill_status = 50;
+  int32 operator_id = 51;
+  int32 goods_type_count = 52;
+  optional string md5_str = 53;
+  double raw_goods_count = 54;
+  int32 custom_type = 55;
+  optional string receiver_ring = 56;
+  optional string to_deliver_time = 57;
+  optional string pre_charge_time = 58;
+  int32 logistics_id = 59;
+  double unknown_goods_amount = 60;
+  double calc_post_cost = 61;
+  double post_cost = 62;
+  double calc_weight = 63;
+  double post_weight = 64;
+  int32 package_id = 65;
+  double package_cost = 66;
+  int32 has_invoice = 67;
+  int32 printer_id = 68;
+  int32 pick_error_count = 69;
+  int32 picker_id = 70;
+  int32 sorter_id = 71;
+  int32 examiner_id = 72;
+  int32 consigner_id = 73;
+  int32 packager_id = 74;
+  int32 pack_score = 75;
+  int32 pick_score = 76;
+  int32 checkouter_id = 77;
+  int32 watcher_id = 78;
+  optional string picklist_no = 79;
+  int32 picklist_seq = 80;
+  int32 invoice_print_status = 81;
+  int32 flag_id = 82;
+  int32 logistics_template_id = 83;
+  int32 sendbill_template_id = 84;
+  int32 pos_allocate_mode = 85;
+  int32 note_count = 86;
+  int32 reason_id = 87;
+  int32 lock_id = 88;
+  optional string reserve = 89;
+  int32 block_reason = 90;
+  optional string batch_no = 91;
+  string stock_check_time = 92;
+  optional string picker_name = 93;
+  optional string sorter_name = 94;
+  optional string examiner_name = 95;
+  optional string consigner_name = 96;
+  optional string packager_name = 97;
+  optional string checkouter_name = 98;
+  optional string watcher_name = 99;
+}
+
+message WdtStockoutOrderReturnResponse {
+  int32 stockout_id = 1;
+  repeated WdtStockoutOrderReturnDetailResponse details_list = 2;
+  string order_no = 3;
+  string src_order_no = 4;
+  string warehouse_no = 5;
+  int32 status = 6;
+  string consign_time = 7;
+  int32 order_type = 8;
+  optional string order_type_name = 9;
+  string subtype = 10;
+  double goods_count = 11;
+  double goods_total_amount = 12;
+  double goods_total_cost = 13;
+  double post_fee = 14;
+  optional string logistics_no = 15;
+  double package_fee = 16;
+  optional string receiver_name = 17;
+  int32 receiver_country = 18;
+  int32 receiver_province = 19;
+  int32 receiver_city = 20;
+  int32 receiver_district = 21;
+  optional string receiver_address = 22;
+  optional string receiver_mobile = 23;
+  optional string receiver_telno = 24;
+  optional string receiver_zip = 25;
+  double weight = 26;
+  optional string remark = 27;
+  optional string stockout_reason = 28;
+  optional string outer_no = 29;
+  optional string operator_name = 30;
+  optional string receiver_area = 31;
+  string return_no = 32;
+  string provider_no = 33;
+  string provider_name = 34;
+  string modified = 35;
+  optional string pr_api_outer_no = 36;
+  optional string last_load_purchase_no = 37;
+  int32 picklist_print_status = 38;
+  int32 logistics_print_status = 39;
+  int32 sendbill_print_status = 40;
+  string stockout_no = 41;
+  optional int32 src_order_type = 42;
+  int32 src_order_id = 43;
+  int32 wms_status = 44;
+  optional string error_info = 45;
+  int32 warehouse_id = 46;
+  int32 customer_id = 47;
+  int32 freeze_reason = 48;
+  int32 is_allocated = 49;
+  int32 consign_status = 50;
+  int32 ebill_status = 51;
+  int32 operator_id = 52;
+  int32 goods_type_count = 53;
+  optional string md5_str = 54;
+  double raw_goods_count = 55;
+  int32 custom_type = 56;
+  optional string receiver_ring = 57;
+  optional string to_deliver_time = 58;
+  optional string pre_charge_time = 59;
+  int32 logistics_id = 60;
+  double unknown_goods_amount = 61;
+  double calc_post_cost = 62;
+  double post_cost = 63;
+  double calc_weight = 64;
+  double post_weight = 65;
+  int32 package_id = 66;
+  double package_cost = 67;
+  int32 has_invoice = 68;
+  int32 printer_id = 69;
+  int32 pick_error_count = 70;
+  int32 picker_id = 71;
+  int32 sorter_id = 72;
+  int32 examiner_id = 73;
+  int32 consigner_id = 74;
+  int32 packager_id = 75;
+  int32 pack_score = 76;
+  int32 pick_score = 77;
+  int32 checkouter_id = 78;
+  int32 watcher_id = 79;
+  optional string picklist_no = 80;
+  int32 picklist_seq = 81;
+  int32 invoice_print_status = 82;
+  int32 flag_id = 83;
+  int32 logistics_template_id = 84;
+  int32 sendbill_template_id = 85;
+  int32 pos_allocate_mode = 86;
+  int32 note_count = 87;
+  int32 reason_id = 88;
+  int32 lock_id = 89;
+  optional string reserve = 90;
+  int32 block_reason = 91;
+  optional string batch_no = 92;
+  string stock_check_time = 93;
+  optional string picker_name = 94;
+  optional string sorter_name = 95;
+  optional string examiner_name = 96;
+  optional string consigner_name = 97;
+  optional string packager_name = 98;
+  optional string checkouter_name = 99;
+  optional string watcher_name = 100;
+}
+
+message WdtStockoutOrderReturnRetrieveRequest {
+  int32 stockout_id = 1;
+}
+
+message WdtStockoutPositionModelResponse {
+  int32 rec_id = 1;
+  int32 position_id = 2;
+  int32 position_goods_count = 3;
+  int32 stockout_order_detail_id = 4;
+  int32 stock_spec_detail_id = 5;
+  int32 stockin_detail_id = 6;
+  int32 batch_id = 7;
+  int32 v_stock_spec_detail_id = 8;
+  optional string position_no = 9;
+  optional string batch_no = 10;
+  optional double cost_price = 11;
+  optional string modified = 12;
+  optional string expire_date = 13;
+  optional string created = 14;
+}
+
+message WdtStockoutPurchaseReturnDestroyRequest {
+  string _id = 1;
+}
+
+message WdtStockoutPurchaseReturnListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockoutPurchaseReturnListResponse {
+  repeated WdtStockoutPurchaseReturnResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockoutPurchaseReturnPartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional int32 push_kingdee_status = 3;
+  optional string kd_bill_no = 4;
+  optional string kd_purchase_return = 5;
+  optional string wdt_purchase_return = 6;
+  optional string stockout_no = 7;
+  optional string kd_stockout_no = 8;
+  optional int32 status = 9;
+}
+
+message WdtStockoutPurchaseReturnRequest {
+  optional string _id = 1;
+  optional int32 push_kingdee_status = 2;
+  optional string kd_bill_no = 3;
+  optional string kd_purchase_return = 4;
+  optional string wdt_purchase_return = 5;
+  optional string stockout_no = 6;
+  optional string kd_stockout_no = 7;
+  optional int32 status = 8;
+}
+
+message WdtStockoutPurchaseReturnResponse {
+  optional string _id = 1;
+  optional string push_kingdee_status_name = 2;
+  optional string status_name = 3;
+  optional int32 push_kingdee_status = 4;
+  optional string kd_bill_no = 5;
+  optional string kd_purchase_return = 6;
+  optional string wdt_purchase_return = 7;
+  optional string stockout_no = 8;
+  optional string kd_stockout_no = 9;
+  optional int32 status = 10;
+}
+
+message WdtStockoutPurchaseReturnRetrieveRequest {
+  string _id = 1;
+}
+
+message WdtTradeGoodslistResponse {
+  string poid = 1;
+  optional string modified = 2;
+  optional string created = 3;
+  optional string src_tid = 4;
+  optional int32 rec_id = 5;
+  optional string src_oid = 6;
+  optional int32 flag = 7;
+  optional int32 refund_status = 8;
+  optional string pay_id = 9;
+  optional int32 pay_status = 10;
+  optional string pay_time = 11;
+  optional int32 delivery_term = 12;
+  optional string bind_oid = 13;
+  optional int32 platform_id = 14;
+  optional string platform_goods_id = 15;
+  optional string platform_spec_id = 16;
+  optional int32 suite_id = 17;
+  optional string suite_no = 18;
+  optional string suite_name = 19;
+  optional double suite_num = 20;
+  optional double suite_amount = 21;
+  optional double suite_discount = 22;
+  optional string class_name = 23;
+  optional int32 goods_id = 24;
+  optional string goods_no = 25;
+  optional string goods_name = 26;
+  optional int32 spec_id = 27;
+  optional string spec_name = 28;
+  optional string spec_no = 29;
+  optional string spec_code = 30;
+  optional string barcode = 31;
+  optional string api_goods_name = 32;
+  optional string api_spec_name = 33;
+  optional double num = 34;
+  optional double actual_num = 35;
+  optional double price = 36;
+  optional double order_price = 37;
+  optional double share_price = 38;
+  optional double adjust = 39;
+  optional double discount = 40;
+  optional double share_amount = 41;
+  optional double share_post = 42;
+  optional double paid = 43;
+  optional int32 gift_type = 44;
+  optional int32 guarantee_mode = 45;
+  optional int32 is_print_suite = 46;
+  optional int32 is_zero_cost = 47;
+  optional int32 stock_reserved = 48;
+  optional int32 is_consigned = 49;
+  optional int32 is_received = 50;
+  optional double weight = 51;
+  optional double commission = 52;
+  optional int32 goods_type = 53;
+  optional int32 large_type = 54;
+  optional int32 invoice_type = 55;
+  optional string invoice_content = 56;
+  optional int32 from_mask = 57;
+  optional int32 cid = 58;
+  optional double tax_rate = 59;
+  optional int32 base_unit_id = 60;
+  optional string unit_name = 61;
+  string refund_status_name = 62;
+  string pay_status_name = 63;
+  optional string brand_no = 64;
+  optional string brand_name = 65;
+}
+
+message WdtTradeListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtTradeListResponse {
+  repeated WdtTradeResponse results = 1;
+  int32 count = 2;
+  int32 goods_count = 3;
+  int32 goods_category_count = 4;
+  string total_amount = 5;
+}
+
+message WdtTradeRefundDestroyRequest {
+  int32 refund_id = 1;
+}
+
+message WdtTradeRefundDiscountResponse {
+  int32 rec_id = 1;
+  optional int32 refund_id = 2;
+  optional int32 target_type = 3;
+  optional int32 target_id = 4;
+  optional string goods_name = 5;
+  optional string spec_name = 6;
+  optional string merchant_no = 7;
+  optional double retail_price = 8;
+  optional double num = 9;
+  optional string remark = 10;
+  optional string spec_code = 11;
+  optional string oid = 13;
+  optional string created = 14;
+  optional string modified = 15;
+  optional string barcode = 16;
+  string target_type_name = 17;
+}
+
+message WdtTradeRefundGoodsResponse {
+  optional string oid = 1;
+  optional int32 spec_id = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional double price = 10;
+  optional string remark = 12;
+  optional string modified = 13;
+  optional string created = 14;
+  optional string goods_name = 15;
+  optional string spec_name = 16;
+  optional string tid = 19;
+  optional string spec_code = 24;
+  optional string suite_no = 25;
+  optional string barcode = 27;
+  optional double discount = 31;
+  optional double cost_price = 32;
+  optional string brand_name = 47;
+  optional string position_no = 63;
+  optional int32 position_id = 64;
+  int32 order_id = 65;
+  optional int32 refund_id = 66;
+  optional int32 process_status = 68;
+  optional string sales_tid = 69;
+  optional double order_num = 70;
+  optional int32 platform_id = 71;
+  optional double original_price = 72;
+  optional double paid = 73;
+  optional double market_price = 74;
+  optional double refund_num = 75;
+  optional double refund_order_amount = 76;
+  optional double total_amount = 77;
+  optional string suite_name = 78;
+  optional double suite_num = 79;
+  optional double stockin_num = 80;
+  optional int32 is_sn_enable = 81;
+  optional int32 sales_trade_id = 82;
+  optional int32 sales_order_id = 83;
+  optional int32 goods_id = 84;
+  optional int32 suite_id = 85;
+  optional double stockin_amount = 86;
+  optional int32 edit_mask = 87;
+  optional int32 tag = 88;
+  optional string src_no = 89;
+}
+
+message WdtTradeRefundListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtTradeRefundListResponse {
+  repeated WdtTradeRefundResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtTradeRefundPartialUpdateRequest {
+  optional string refund_no = 1;
+  repeated string _partial_update_fields = 2;
+  optional int32 platform_id = 3;
+  optional string shop_no = 4;
+  optional string tid = 5;
+  optional int32 status = 9;
+  optional int32 process_status = 10;
+  optional double actual_refund_amount = 16;
+  optional string remark = 18;
+  optional string logistics_name = 20;
+  optional string logistics_no = 21;
+  optional string modified = 23;
+  optional string related_consign_agg_no = 25;
+  optional int32 related_status = 26;
+  optional int32 agg_consign_status = 27;
+  optional int32 warehouse_id = 38;
+  optional string warehouse_no = 39;
+  optional string shop_name = 41;
+  optional double goods_amount = 48;
+  optional string customer_no = 61;
+  optional string customer_name = 62;
+  optional int32 reason_id = 66;
+  optional string flag_name = 69;
+  optional string wms_outer_no = 74;
+  optional int32 wms_status = 75;
+  optional string wms_result = 76;
+  int32 refund_id = 77;
+  optional string api_outer_no = 78;
+  optional string src_no = 79;
+  optional int32 type = 80;
+  optional int32 guarantee_mode = 81;
+  optional int32 cs_status = 82;
+  optional int32 swap_trade_id = 83;
+  optional string pay_account = 84;
+  optional string pay_no = 85;
+  optional double refund_amount = 86;
+  optional double direct_refund_amount = 87;
+  optional double guarante_refund_amount = 88;
+  optional double exchange_amount = 89;
+  optional double post_amount = 90;
+  optional double other_amount = 91;
+  optional double paid = 92;
+  optional int32 sales_trade_id = 93;
+  optional string sales_tid = 94;
+  optional string buyer_nick = 95;
+  optional string receiver_name = 96;
+  optional string receiver_address = 97;
+  optional string receiver_telno = 98;
+  optional string return_name = 99;
+  optional string return_mobile = 100;
+  optional string return_telno = 101;
+  optional string return_address = 102;
+  optional string return_logistics_name = 103;
+  optional string return_logistics_no = 104;
+  optional string swap_receiver = 105;
+  optional string swap_mobile = 106;
+  optional string swap_telno = 107;
+  optional int32 swap_province = 108;
+  optional int32 swap_city = 109;
+  optional int32 swap_district = 110;
+  optional string swap_area = 111;
+  optional string swap_warehouse_no = 112;
+  optional string swap_address = 113;
+  optional string refund_time = 114;
+  optional string refund_reason = 115;
+  optional string swap_trade_no = 116;
+  optional string finish_time = 117;
+  optional string swap_zip = 118;
+  optional int32 swap_logistics_type = 119;
+  optional string swap_logistics_name = 120;
+  optional string creator_name = 121;
+  optional string error_msg = 122;
+  optional string created = 123;
+  optional string outer_no = 124;
+  optional int32 shop_id = 125;
+  optional int32 advance_status = 126;
+  optional string is_goods_received = 127;
+  optional int32 customer_id = 128;
+  optional int32 swap_warehouse_id = 129;
+  optional int32 swap_logistics_id = 130;
+  optional int32 warehouse_type = 131;
+  optional int32 from_type = 132;
+  optional double return_goods_count = 133;
+  optional int32 op_constraint = 134;
+  optional string refund_version = 135;
+  optional int32 consign_mode = 136;
+  optional string push_no = 137;
+  optional int32 logistics_style = 138;
+  optional int32 revert_reason = 139;
+  optional int32 bad_reason = 140;
+  optional int32 return_mask = 141;
+  optional bool is_trade_charged = 142;
+  optional string stockin_pre_no = 143;
+  optional string revert_reason_info = 144;
+  optional string fenxiao_nick_name = 145;
+  optional string fenxiao_refund_no = 146;
+  optional string fenxiao_tid = 147;
+  optional string agg_no = 148;
+}
+
+message WdtTradeRefundRequest {
+  optional string refund_no = 1;
+  optional int32 platform_id = 2;
+  optional string shop_no = 3;
+  optional string tid = 4;
+  optional int32 status = 8;
+  optional int32 process_status = 9;
+  optional double actual_refund_amount = 15;
+  optional string remark = 17;
+  optional string logistics_name = 19;
+  optional string logistics_no = 20;
+  optional string modified = 22;
+  optional string related_consign_agg_no = 24;
+  optional int32 related_status = 25;
+  optional int32 agg_consign_status = 26;
+  optional int32 warehouse_id = 37;
+  optional string warehouse_no = 38;
+  optional string shop_name = 40;
+  optional double goods_amount = 47;
+  optional string customer_no = 60;
+  optional string customer_name = 61;
+  optional int32 reason_id = 65;
+  optional string flag_name = 68;
+  optional string wms_outer_no = 73;
+  optional int32 wms_status = 74;
+  optional string wms_result = 75;
+  int32 refund_id = 76;
+  optional string api_outer_no = 77;
+  optional string src_no = 78;
+  optional int32 type = 79;
+  optional int32 guarantee_mode = 80;
+  optional int32 cs_status = 81;
+  optional int32 swap_trade_id = 82;
+  optional string pay_account = 83;
+  optional string pay_no = 84;
+  optional double refund_amount = 85;
+  optional double direct_refund_amount = 86;
+  optional double guarante_refund_amount = 87;
+  optional double exchange_amount = 88;
+  optional double post_amount = 89;
+  optional double other_amount = 90;
+  optional double paid = 91;
+  optional int32 sales_trade_id = 92;
+  optional string sales_tid = 93;
+  optional string buyer_nick = 94;
+  optional string receiver_name = 95;
+  optional string receiver_address = 96;
+  optional string receiver_telno = 97;
+  optional string return_name = 98;
+  optional string return_mobile = 99;
+  optional string return_telno = 100;
+  optional string return_address = 101;
+  optional string return_logistics_name = 102;
+  optional string return_logistics_no = 103;
+  optional string swap_receiver = 104;
+  optional string swap_mobile = 105;
+  optional string swap_telno = 106;
+  optional int32 swap_province = 107;
+  optional int32 swap_city = 108;
+  optional int32 swap_district = 109;
+  optional string swap_area = 110;
+  optional string swap_warehouse_no = 111;
+  optional string swap_address = 112;
+  optional string refund_time = 113;
+  optional string refund_reason = 114;
+  optional string swap_trade_no = 115;
+  optional string finish_time = 116;
+  optional string swap_zip = 117;
+  optional int32 swap_logistics_type = 118;
+  optional string swap_logistics_name = 119;
+  optional string creator_name = 120;
+  optional string error_msg = 121;
+  optional string created = 122;
+  optional string outer_no = 123;
+  optional int32 shop_id = 124;
+  optional int32 advance_status = 125;
+  optional string is_goods_received = 126;
+  optional int32 customer_id = 127;
+  optional int32 swap_warehouse_id = 128;
+  optional int32 swap_logistics_id = 129;
+  optional int32 warehouse_type = 130;
+  optional int32 from_type = 131;
+  optional double return_goods_count = 132;
+  optional int32 op_constraint = 133;
+  optional string refund_version = 134;
+  optional int32 consign_mode = 135;
+  optional string push_no = 136;
+  optional int32 logistics_style = 137;
+  optional int32 revert_reason = 138;
+  optional int32 bad_reason = 139;
+  optional int32 return_mask = 140;
+  optional bool is_trade_charged = 141;
+  optional string stockin_pre_no = 142;
+  optional string revert_reason_info = 143;
+  optional string fenxiao_nick_name = 144;
+  optional string fenxiao_refund_no = 145;
+  optional string fenxiao_tid = 146;
+  optional string agg_no = 147;
+}
+
+message WdtTradeRefundResponse {
+  optional string refund_no = 1;
+  optional int32 platform_id = 4;
+  optional string shop_no = 5;
+  optional string tid = 6;
+  optional int32 status = 10;
+  optional int32 process_status = 11;
+  optional double actual_refund_amount = 17;
+  optional string remark = 19;
+  optional string logistics_name = 21;
+  optional string logistics_no = 22;
+  optional string modified = 24;
+  optional string agg_consign_status_name = 26;
+  optional string related_status_name = 27;
+  optional string process_status_name = 28;
+  optional string status_name = 29;
+  optional string related_consign_agg_no = 32;
+  optional int32 related_status = 33;
+  optional int32 agg_consign_status = 34;
+  optional int32 warehouse_id = 45;
+  optional string warehouse_no = 46;
+  optional string shop_name = 48;
+  optional double goods_amount = 55;
+  optional string customer_no = 68;
+  optional string customer_name = 69;
+  optional int32 reason_id = 73;
+  optional string flag_name = 76;
+  optional string wms_outer_no = 81;
+  optional int32 wms_status = 82;
+  optional string wms_result = 83;
+  int32 refund_id = 84;
+  optional string platform_id_name = 85;
+  optional string type_name = 86;
+  optional string cs_status_name = 87;
+  repeated WdtTradeRefundGoodsResponse refund_order_list = 88;
+  repeated WdtTradeRefundDiscountResponse refund_out_goods_list = 89;
+  optional string api_outer_no = 90;
+  optional string src_no = 91;
+  optional int32 type = 92;
+  optional int32 guarantee_mode = 93;
+  optional int32 cs_status = 94;
+  optional int32 swap_trade_id = 95;
+  optional string pay_account = 96;
+  optional string pay_no = 97;
+  optional double refund_amount = 98;
+  optional double direct_refund_amount = 99;
+  optional double guarante_refund_amount = 100;
+  optional double exchange_amount = 101;
+  optional double post_amount = 102;
+  optional double other_amount = 103;
+  optional double paid = 104;
+  optional int32 sales_trade_id = 105;
+  optional string sales_tid = 106;
+  optional string buyer_nick = 107;
+  optional string receiver_name = 108;
+  optional string receiver_address = 109;
+  optional string receiver_telno = 110;
+  optional string return_name = 111;
+  optional string return_mobile = 112;
+  optional string return_telno = 113;
+  optional string return_address = 114;
+  optional string return_logistics_name = 115;
+  optional string return_logistics_no = 116;
+  optional string swap_receiver = 117;
+  optional string swap_mobile = 118;
+  optional string swap_telno = 119;
+  optional int32 swap_province = 120;
+  optional int32 swap_city = 121;
+  optional int32 swap_district = 122;
+  optional string swap_area = 123;
+  optional string swap_warehouse_no = 124;
+  optional string swap_address = 125;
+  optional string refund_time = 126;
+  optional string refund_reason = 127;
+  optional string swap_trade_no = 128;
+  optional string finish_time = 129;
+  optional string swap_zip = 130;
+  optional int32 swap_logistics_type = 131;
+  optional string swap_logistics_name = 132;
+  optional string creator_name = 133;
+  optional string error_msg = 134;
+  optional string created = 135;
+  optional string outer_no = 136;
+  optional int32 shop_id = 137;
+  optional int32 advance_status = 138;
+  optional string is_goods_received = 139;
+  optional int32 customer_id = 140;
+  optional int32 swap_warehouse_id = 141;
+  optional int32 swap_logistics_id = 142;
+  optional int32 warehouse_type = 143;
+  optional int32 from_type = 144;
+  optional double return_goods_count = 145;
+  optional int32 op_constraint = 146;
+  optional string refund_version = 147;
+  optional int32 consign_mode = 148;
+  optional string push_no = 149;
+  optional int32 logistics_style = 150;
+  optional int32 revert_reason = 151;
+  optional int32 bad_reason = 152;
+  optional int32 return_mask = 153;
+  optional bool is_trade_charged = 154;
+  optional string stockin_pre_no = 155;
+  optional string revert_reason_info = 156;
+  optional string fenxiao_nick_name = 157;
+  optional string fenxiao_refund_no = 158;
+  optional string fenxiao_tid = 159;
+  optional string agg_no = 160;
+  optional string guarantee_mode_name = 161;
+}
+
+message WdtTradeRefundRetrieveRequest {
+  int32 refund_id = 1;
+}
+
+message WdtTradeRefundStockinDestroyRequest {
+  int32 id = 1;
+}
+
+message WdtTradeRefundStockinDetailsResponse {
+  optional int32 rec_id = 1;
+  optional string spec_no = 4;
+  optional string suite_no = 5;
+  optional double goods_count = 6;
+  optional double discount = 7;
+  optional double cost_price = 8;
+  optional string production_date = 9;
+  optional int32 validity_days = 10;
+  optional string expire_date = 11;
+  optional double src_price = 12;
+  optional double tax_price = 13;
+  optional double tax_amount = 14;
+  optional double tax = 15;
+  optional double total_cost = 16;
+  optional string remark = 17;
+  optional double adjust_num = 18;
+  optional double adjust_price = 19;
+  optional double right_num = 20;
+  optional double right_price = 21;
+  optional double num = 22;
+  optional double num2 = 23;
+  optional double right_cost = 24;
+  optional string brand_no = 25;
+  optional string brand_name = 26;
+  optional string goods_name = 27;
+  optional string prop1 = 28;
+  optional string prop2 = 29;
+  optional string prop3 = 30;
+  optional string prop4 = 31;
+  optional string prop5 = 32;
+  optional string prop6 = 33;
+  optional string good_prop1 = 34;
+  optional string good_prop2 = 35;
+  optional string good_prop3 = 36;
+  optional string good_prop4 = 37;
+  optional string good_prop5 = 38;
+  optional string good_prop6 = 39;
+  optional string goods_no = 40;
+  optional string spec_name = 41;
+  optional string spec_code = 42;
+  optional string goods_unit = 43;
+  optional string batch_no = 44;
+  optional string batch_remark = 45;
+  optional string position_no = 46;
   optional int32 spec_id = 51;
   optional int32 batch_id = 52;
   optional int32 position_id = 53;
   optional int32 unit_id = 54;
   optional int32 base_unit_id = 55;
-  double unit_ratio = 56;
-  double expect_num = 57;
-  double cost_price2 = 58;
-  double share_post_cost = 59;
-  double share_post_total = 60;
+  optional double unit_ratio = 56;
+  optional double expect_num = 57;
+  optional double cost_price2 = 58;
+  optional double share_post_cost = 59;
+  optional double share_post_total = 60;
   optional string modified = 61;
   optional string created = 62;
-  double price = 63;
-  string barcode = 64;
+  optional double price = 63;
+  optional string barcode = 64;
 }
 
-message TradeRefundStockinListRequest {
+message WdtTradeRefundStockinListRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
 }
 
-message TradeRefundStockinListResponse {
-  repeated TradeRefundStockinResponse results = 1;
+message WdtTradeRefundStockinListResponse {
+  repeated WdtTradeRefundStockinResponse results = 1;
   int32 count = 2;
 }
 
-message TradeRefundStockinPartialUpdateRequest {
-  int32 stockin_id = 1;
+message WdtTradeRefundStockinPartialUpdateRequest {
+  optional int32 stockin_id = 1;
   repeated string _partial_update_fields = 2;
-  string order_no = 3;
-  string warehouse_no = 4;
-  string warehouse_name = 5;
-  string shop_no = 6;
-  string shop_remark = 7;
-  string src_order_no = 8;
-  int32 process_status = 9;
-  int32 status = 10;
+  optional string order_no = 3;
+  optional string warehouse_no = 4;
+  optional string warehouse_name = 5;
+  optional string shop_no = 6;
+  optional string shop_remark = 7;
+  optional string src_order_no = 8;
+  optional int32 process_status = 9;
+  optional int32 status = 10;
   optional string stockin_time = 11;
   optional string created_time = 12;
   optional string associated_time = 13;
-  string remark = 14;
-  string trade_no = 15;
-  optional string trade_agg_no = 16;
-  string trade_type = 17;
-  int32 order_type = 18;
-  string order_type_name = 19;
-  double goods_count = 20;
-  double goods_amount = 21;
-  double actual_refund_amount = 22;
-  double total_price = 23;
-  double discount = 24;
-  double tax_amount = 25;
-  double post_fee = 26;
-  double other_fee = 27;
-  double adjust_price = 28;
-  double right_price = 29;
+  optional string remark = 14;
+  optional string trade_no = 15;
+  optional string trade_type = 17;
+  optional int32 order_type = 18;
+  optional string order_type_name = 19;
+  optional double goods_count = 20;
+  optional double goods_amount = 21;
+  optional double actual_refund_amount = 22;
+  optional double total_price = 23;
+  optional double discount = 24;
+  optional double tax_amount = 25;
+  optional double post_fee = 26;
+  optional double other_fee = 27;
+  optional double adjust_price = 28;
+  optional double right_price = 29;
   optional int32 logistics_type = 30;
-  string logistics_no = 31;
-  string logistics_name = 32;
-  string logistics_code = 33;
-  string refund_no = 34;
+  optional string logistics_no = 31;
+  optional string logistics_name = 32;
+  optional string logistics_code = 33;
+  optional string refund_no = 34;
   optional string check_time = 35;
-  string customer_no = 36;
-  string customer_name = 37;
-  string nick_name = 38;
-  string shop_name = 39;
-  string fenxiao_nick = 40;
-  string fenxiao_nick_no = 41;
-  string reason = 42;
-  string stockin_reason = 43;
-  string flag_name = 44;
+  optional string customer_no = 36;
+  optional string customer_name = 37;
+  optional string nick_name = 38;
+  optional string shop_name = 39;
+  optional string fenxiao_nick = 40;
+  optional string fenxiao_nick_no = 41;
+  optional string reason = 42;
+  optional string stockin_reason = 43;
+  optional string flag_name = 44;
   optional int32 platform_id = 45;
-  string tid = 46;
-  string stockin_operator_name = 47;
-  string check_operator_name = 48;
-  string refund_remark = 49;
-  string refund_operator_name = 50;
-  string stockin_no = 51;
-  string wms_outer_no = 52;
-  int32 wms_status = 53;
-  string wms_result = 54;
+  optional string tid = 46;
+  optional string stockin_operator_name = 47;
+  optional string check_operator_name = 48;
+  optional string refund_remark = 49;
+  optional string refund_operator_name = 50;
+  optional string stockin_no = 51;
+  optional string wms_outer_no = 52;
+  optional int32 wms_status = 53;
+  optional string wms_result = 54;
   optional int32 warehouse_id = 55;
-  int32 src_order_type = 56;
+  optional int32 src_order_type = 56;
   optional int32 src_order_id = 57;
   optional int32 reason_id = 58;
-  int32 fa_status = 59;
+  optional int32 fa_status = 59;
   optional int32 logistics_id = 60;
   optional int32 post_share_type = 61;
-  string operator_id = 62;
-  string check_operator_id = 63;
+  optional string operator_id = 62;
+  optional string check_operator_id = 63;
   optional int32 goods_type_count = 64;
   double adjust_num = 65;
   optional int32 note_count = 66;
   optional int32 flag_id = 67;
   optional string modified = 68;
+  optional int32 id = 69;
 }
 
-message TradeRefundStockinRequest {
-  int32 stockin_id = 1;
-  string order_no = 2;
-  string warehouse_no = 3;
-  string warehouse_name = 4;
-  string shop_no = 5;
-  string shop_remark = 6;
-  string src_order_no = 7;
-  int32 process_status = 8;
-  int32 status = 9;
+message WdtTradeRefundStockinRequest {
+  optional int32 stockin_id = 1;
+  optional string order_no = 2;
+  optional string warehouse_no = 3;
+  optional string warehouse_name = 4;
+  optional string shop_no = 5;
+  optional string shop_remark = 6;
+  optional string src_order_no = 7;
+  optional int32 process_status = 8;
+  optional int32 status = 9;
   optional string stockin_time = 10;
   optional string created_time = 11;
   optional string associated_time = 12;
-  string remark = 13;
-  string trade_no = 14;
-  optional string trade_agg_no = 15;
-  string trade_type = 16;
-  int32 order_type = 17;
-  string order_type_name = 18;
-  double goods_count = 19;
-  double goods_amount = 20;
-  double actual_refund_amount = 21;
-  double total_price = 22;
-  double discount = 23;
-  double tax_amount = 24;
-  double post_fee = 25;
-  double other_fee = 26;
-  double adjust_price = 27;
-  double right_price = 28;
+  optional string remark = 13;
+  optional string trade_no = 14;
+  optional string trade_type = 16;
+  optional int32 order_type = 17;
+  optional string order_type_name = 18;
+  optional double goods_count = 19;
+  optional double goods_amount = 20;
+  optional double actual_refund_amount = 21;
+  optional double total_price = 22;
+  optional double discount = 23;
+  optional double tax_amount = 24;
+  optional double post_fee = 25;
+  optional double other_fee = 26;
+  optional double adjust_price = 27;
+  optional double right_price = 28;
   optional int32 logistics_type = 29;
-  string logistics_no = 30;
-  string logistics_name = 31;
-  string logistics_code = 32;
-  string refund_no = 33;
+  optional string logistics_no = 30;
+  optional string logistics_name = 31;
+  optional string logistics_code = 32;
+  optional string refund_no = 33;
   optional string check_time = 34;
-  string customer_no = 35;
-  string customer_name = 36;
-  string nick_name = 37;
-  string shop_name = 38;
-  string fenxiao_nick = 39;
-  string fenxiao_nick_no = 40;
-  string reason = 41;
-  string stockin_reason = 42;
-  string flag_name = 43;
+  optional string customer_no = 35;
+  optional string customer_name = 36;
+  optional string nick_name = 37;
+  optional string shop_name = 38;
+  optional string fenxiao_nick = 39;
+  optional string fenxiao_nick_no = 40;
+  optional string reason = 41;
+  optional string stockin_reason = 42;
+  optional string flag_name = 43;
   optional int32 platform_id = 44;
-  string tid = 45;
-  string stockin_operator_name = 46;
-  string check_operator_name = 47;
-  string refund_remark = 48;
-  string refund_operator_name = 49;
-  string stockin_no = 50;
-  string wms_outer_no = 51;
-  int32 wms_status = 52;
-  string wms_result = 53;
+  optional string tid = 45;
+  optional string stockin_operator_name = 46;
+  optional string check_operator_name = 47;
+  optional string refund_remark = 48;
+  optional string refund_operator_name = 49;
+  optional string stockin_no = 50;
+  optional string wms_outer_no = 51;
+  optional int32 wms_status = 52;
+  optional string wms_result = 53;
   optional int32 warehouse_id = 54;
-  int32 src_order_type = 55;
+  optional int32 src_order_type = 55;
   optional int32 src_order_id = 56;
   optional int32 reason_id = 57;
-  int32 fa_status = 58;
+  optional int32 fa_status = 58;
   optional int32 logistics_id = 59;
   optional int32 post_share_type = 60;
-  string operator_id = 61;
-  string check_operator_id = 62;
+  optional string operator_id = 61;
+  optional string check_operator_id = 62;
   optional int32 goods_type_count = 63;
   double adjust_num = 64;
   optional int32 note_count = 65;
   optional int32 flag_id = 66;
   optional string modified = 67;
+  optional int32 id = 68;
 }
 
-message TradeRefundStockinResponse {
-  int32 stockin_id = 1;
-  repeated TradeRefundStockinDetailsResponse details_list = 2;
-  string order_no = 3;
-  string warehouse_no = 4;
-  string warehouse_name = 5;
-  string shop_no = 6;
-  string shop_remark = 7;
-  string src_order_no = 8;
-  int32 process_status = 9;
-  int32 status = 10;
+message WdtTradeRefundStockinResponse {
+  optional int32 stockin_id = 1;
+  repeated WdtTradeRefundStockinDetailsResponse details_list = 2;
+  optional string order_no = 3;
+  optional string warehouse_no = 4;
+  optional string warehouse_name = 5;
+  optional string shop_no = 6;
+  optional string shop_remark = 7;
+  optional string src_order_no = 8;
+  optional int32 process_status = 9;
+  optional int32 status = 10;
   optional string stockin_time = 11;
   optional string created_time = 12;
   optional string associated_time = 13;
-  string remark = 14;
-  string trade_no = 15;
-  optional string trade_agg_no = 16;
-  string trade_type = 17;
-  int32 order_type = 18;
-  string order_type_name = 19;
-  double goods_count = 20;
-  double goods_amount = 21;
-  double actual_refund_amount = 22;
-  double total_price = 23;
-  double discount = 24;
-  double tax_amount = 25;
-  double post_fee = 26;
-  double other_fee = 27;
-  double adjust_price = 28;
-  double right_price = 29;
+  optional string remark = 14;
+  optional string trade_no = 15;
+  optional string trade_type = 17;
+  optional int32 order_type = 18;
+  optional string order_type_name = 19;
+  optional double goods_count = 20;
+  optional double goods_amount = 21;
+  optional double actual_refund_amount = 22;
+  optional double total_price = 23;
+  optional double discount = 24;
+  optional double tax_amount = 25;
+  optional double post_fee = 26;
+  optional double other_fee = 27;
+  optional double adjust_price = 28;
+  optional double right_price = 29;
   optional int32 logistics_type = 30;
-  string logistics_no = 31;
-  string logistics_name = 32;
-  string logistics_code = 33;
-  string refund_no = 34;
+  optional string logistics_no = 31;
+  optional string logistics_name = 32;
+  optional string logistics_code = 33;
+  optional string refund_no = 34;
   optional string check_time = 35;
-  string customer_no = 36;
-  string customer_name = 37;
-  string nick_name = 38;
-  string shop_name = 39;
-  string fenxiao_nick = 40;
-  string fenxiao_nick_no = 41;
-  string reason = 42;
-  string stockin_reason = 43;
-  string flag_name = 44;
+  optional string customer_no = 36;
+  optional string customer_name = 37;
+  optional string nick_name = 38;
+  optional string shop_name = 39;
+  optional string fenxiao_nick = 40;
+  optional string fenxiao_nick_no = 41;
+  optional string reason = 42;
+  optional string stockin_reason = 43;
+  optional string flag_name = 44;
   optional int32 platform_id = 45;
-  string tid = 46;
-  string stockin_operator_name = 47;
-  string check_operator_name = 48;
-  string refund_remark = 49;
-  string refund_operator_name = 50;
-  string stockin_no = 51;
-  string wms_outer_no = 52;
-  int32 wms_status = 53;
-  string wms_result = 54;
+  optional string tid = 46;
+  optional string stockin_operator_name = 47;
+  optional string check_operator_name = 48;
+  optional string refund_remark = 49;
+  optional string refund_operator_name = 50;
+  optional string stockin_no = 51;
+  optional string wms_outer_no = 52;
+  optional int32 wms_status = 53;
+  optional string wms_result = 54;
   optional int32 warehouse_id = 55;
-  int32 src_order_type = 56;
+  optional int32 src_order_type = 56;
   optional int32 src_order_id = 57;
   optional int32 reason_id = 58;
-  int32 fa_status = 59;
+  optional int32 fa_status = 59;
   optional int32 logistics_id = 60;
   optional int32 post_share_type = 61;
-  string operator_id = 62;
-  string check_operator_id = 63;
+  optional string operator_id = 62;
+  optional string check_operator_id = 63;
   optional int32 goods_type_count = 64;
   double adjust_num = 65;
   optional int32 note_count = 66;
   optional int32 flag_id = 67;
   optional string modified = 68;
+  optional int32 id = 69;
+  string process_status_name = 70;
+  string status_name = 71;
+  string trade_type_name = 72;
 }
 
-message TradeRefundStockinRetrieveRequest {
-  int32 stockin_id = 1;
+message WdtTradeRefundStockinRetrieveRequest {
+  int32 id = 1;
 }
+
+message WdtTradeResponse {
+  optional string _id = 1;
+  optional string agg_consign_status_name = 2;
+  optional string agg_pay_status_name = 3;
+  repeated WdtTradeGoodslistResponse goods_list = 4;
+  optional string reserve = 5;
+  optional string oaid = 6;
+  optional int32 valid = 7;
+  optional int32 color_flag = 8;
+  optional string consign_time = 9;
+  optional string trade_time = 10;
+  optional string pay_time = 11;
+  optional string modified = 12;
+  optional string created = 13;
+  optional int32 version_id = 14;
+  optional int32 trade_id = 15;
+  optional string trade_no = 16;
+  optional int32 trade_from = 17;
+  optional string src_tids = 18;
+  optional int32 is_sealed = 19;
+  optional string split_from_trade_id = 20;
+  optional int32 split_package_num = 21;
+  optional string tags = 22;
+  optional int32 trade_status = 23;
+  optional int32 consign_status = 24;
+  optional int32 trade_type = 25;
+  optional int32 refund_status = 26;
+  optional int32 goods_type_count = 27;
+  optional double goods_count = 28;
+  optional string single_spec_no = 29;
+  optional double raw_goods_count = 30;
+  optional int32 raw_goods_type_count = 31;
+  optional double goods_amount = 32;
+  optional double post_amount = 33;
+  optional double other_amount = 34;
+  optional double discount = 35;
+  optional double receivable = 36;
+  optional double dap_amount = 37;
+  optional double cod_amount = 38;
+  optional double ext_cod_fee = 39;
+  optional double goods_cost = 40;
+  optional double post_cost = 41;
+  optional double paid = 42;
+  optional double profit = 43;
+  optional double tax = 44;
+  optional double tax_rate = 45;
+  optional double commission = 46;
+  optional string currency = 47;
+  optional int32 invoice_type = 48;
+  optional string invoice_title = 49;
+  optional string invoice_content = 50;
+  optional int32 invoice_id = 51;
+  optional string customer_id = 52;
+  optional int32 customer_type = 53;
+  optional string customer_name = 54;
+  optional string customer_no = 55;
+  optional string pay_account = 56;
+  optional string buyer_nick = 57;
+  optional string receiver_name = 58;
+  optional int32 receiver_province = 59;
+  optional int32 receiver_city = 60;
+  optional int32 receiver_district = 61;
+  optional string receiver_address = 62;
+  optional string receiver_mobile = 63;
+  optional string receiver_telno = 64;
+  optional string receiver_zip = 65;
+  optional string receiver_area = 66;
+  optional string receiver_ring = 67;
+  optional string receiver_dtb = 68;
+  optional int32 receiver_country = 69;
+  optional string buyer_message = 70;
+  optional string cs_remark = 71;
+  optional int32 remark_flag = 72;
+  optional string print_remark = 73;
+  optional string to_deliver_time = 74;
+  optional int32 bad_reason = 75;
+  optional int32 logistics_id = 76;
+  optional string logistics_name = 77;
+  optional string logistics_code = 78;
+  optional int32 logistics_type = 79;
+  optional string logistics_no = 80;
+  optional string pre_charge_time = 81;
+  optional int32 is_prev_notify = 82;
+  optional double volume = 83;
+  optional double weight = 84;
+  optional string logistics_template_id = 85;
+  optional string sendbill_template_id = 86;
+  optional string package_id = 87;
+  optional int32 large_type = 88;
+  optional string stockout_no = 89;
+  optional int32 salesman_id = 90;
+  optional int32 checker_id = 91;
+  optional string fullname = 92;
+  optional string checker_name = 93;
+  optional int32 fchecker_id = 94;
+  optional string fchecker_name = 95;
+  optional int32 checkouter_id = 96;
+  optional string checkouter_name = 97;
+  optional int32 platform_id = 98;
+  optional int32 shop_platform_id = 99;
+  optional int32 delivery_term = 100;
+  optional int32 freeze_reason = 101;
+  optional int32 fenxiao_type = 102;
+  optional string fenxiao_nick = 103;
+  optional int32 check_step = 104;
+  optional int32 unmerge_mask = 105;
+  optional string delay_to_time = 106;
+  optional int32 note_count = 107;
+  optional int32 buyer_message_count = 108;
+  optional int32 cs_remark_count = 109;
+  optional int32 cs_remark_change_count = 110;
+  optional double discount_change = 111;
+  optional double trade_prepay = 112;
+  optional double pi_amount = 113;
+  optional double other_cost = 114;
+  optional string sales_score = 115;
+  optional int32 gift_mask = 116;
+  optional int32 revert_reason = 117;
+  optional int32 cancel_reason = 118;
+  optional int32 is_unpayment_sms = 119;
+  optional string trade_mask = 120;
+  optional int32 flag_id = 121;
+  optional string flag_name = 122;
+  optional int32 id_card_type = 123;
+  optional string id_card = 124;
+  optional string freeze_reason_info = 125;
+  optional string fenxiao_tid = 126;
+  optional int32 shop_id = 127;
+  optional string shop_no = 128;
+  optional string shop_name = 129;
+  optional string shop_remark = 130;
+  optional int32 warehouse_id = 131;
+  optional int32 warehouse_type = 132;
+  optional string warehouse_no = 133;
+  optional int32 agg_discount = 134;
+  optional int32 adjust_discount = 135;
+  optional string collection_time = 136;
+  optional string collection_account = 137;
+  optional string collection_no = 138;
+  optional int32 collection_type = 139;
+  optional double collection_amount = 140;
+  optional int32 agg_consign_status = 141;
+  optional string consign_agg_no = 142;
+  optional int32 agg_pay_status = 143;
+  optional string pay_agg_no = 144;
+  string trade_status_name = 145;
+  string refund_status_name = 146;
+  optional int32 channel_no = 149;
+  optional string channel_name = 150;
+}
+
+message WdtTradeRetrieveRequest {
+  string trade_no = 1;
+}
+
