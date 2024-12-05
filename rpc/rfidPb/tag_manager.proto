@@ -1,0 +1,456 @@
+syntax = "proto3";
+
+package rfid_tag_manage.tag_service;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "../rfidPb";
+
+service RfidTagIndexController {
+  rpc BulkPushReturnInspectAgg(BulkPushReturnInspectAggRequest) returns (BulkPushReturnInspectAggResponse) {}
+  rpc Create(RfidTagIndexRequest) returns (RfidTagIndexResponse) {}
+  rpc CreateRfidReasonEntities(RfidReasonEntitiesCreateRequest) returns (RfidReasonEntitiesResponse) {}
+  rpc CreateRfidReturnInspectConfig(RfidReturnInspectConfigCreateRequest) returns (RfidReturnInspectConfigResponse) {}
+  rpc CreateRfidReturnInspectEntities(RfidReturnInspectEntitiesCreateRequest) returns (RfidReturnInspectEntitiesResponse) {}
+  rpc Destroy(RfidTagIndexDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyReturnInspectAgg(DestroyReturnInspectAggRequest) returns (DestroyReturnInspectAggResponse) {}
+  rpc DestroyRfidReasonEntities(RfidReasonEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidReasonEntitiesResponse) {}
+  rpc DestroyRfidReturnInspectConfig(RfidReturnInspectConfigDestroyRequest) returns (RfidTagIndexDestroyRfidReturnInspectConfigResponse) {}
+  rpc DestroyRfidReturnInspectEntities(RfidReturnInspectEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidReturnInspectEntitiesResponse) {}
+  rpc InspectConfigOptions(InspectConfigOptionsRequest) returns (InspectConfigOptionsResponse) {}
+  rpc List(RfidTagIndexListRequest) returns (RfidTagIndexListResponse) {}
+  rpc ListRfidReasonEntities(RfidReasonEntitiesListRequest) returns (RfidReasonEntitiesListResponse) {}
+  rpc ListRfidReturnInspectAgg(RfidReturnInspectAggListRequest) returns (RfidReturnInspectAggListResponse) {}
+  rpc ListRfidReturnInspectConfig(RfidReturnInspectConfigListRequest) returns (RfidReturnInspectConfigListResponse) {}
+  rpc ListRfidReturnInspectEntities(RfidReturnInspectEntitiesListRequest) returns (RfidReturnInspectEntitiesListResponse) {}
+  rpc PartialUpdate(RfidTagIndexPartialUpdateRequest) returns (RfidTagIndexResponse) {}
+  rpc Retrieve(RfidTagIndexRetrieveRequest) returns (RfidTagIndexResponse) {}
+  rpc RetrieveReturnInspectAgg(RetrieveReturnInspectAggRequest) returns (RfidReturnInspectAggResponse) {}
+  rpc RetrieveRfidReasonEntities(RfidReasonEntitiesRetrieveRequest) returns (RfidReasonEntitiesResponse) {}
+  rpc RetrieveRfidReturnInspectConfig(RfidReturnInspectConfigRetrieveRequest) returns (RfidReturnInspectConfigResponse) {}
+  rpc RetrieveRfidReturnInspectEntities(RfidReturnInspectEntitiesRetrieveRequest) returns (RfidReturnInspectEntitiesResponse) {}
+  rpc RfidEpcSync(EpcSyncRequest) returns (EpcSyncResponse) {}
+  rpc RfidReturnInspectAggSync(RfidReturnInspectAggSyncRequest) returns (RfidReturnInspectAggSyncResponse) {}
+  rpc Update(RfidTagIndexRequest) returns (RfidTagIndexResponse) {}
+  rpc UpdateRfidReasonEntities(RfidReasonEntitiesUpdateRequest) returns (RfidReasonEntitiesResponse) {}
+  rpc UpdateRfidReturnInspectConfig(RfidReturnInspectConfigUpdateRequest) returns (RfidReturnInspectConfigResponse) {}
+  rpc UpdateRfidReturnInspectEntities(RfidReturnInspectEntitiesUpdateRequest) returns (RfidReturnInspectEntitiesResponse) {}
+}
+
+message BulkPushReturnInspectAggRequest {
+  repeated string agg_no_list = 1;
+}
+
+message BulkPushReturnInspectAggResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message DestroyReturnInspectAggRequest {
+  string agg_no = 1;
+}
+
+message DestroyReturnInspectAggResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message EpcSyncRequest {
+  repeated string epc_list = 1;
+}
+
+message EpcSyncResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message InspectConfigOptionsRequest {
+}
+
+message InspectConfigOptionsResponse {
+  repeated LabelValueResponse agg_consign_status = 1;
+  repeated LabelValueResponse quality_result = 2;
+  repeated LabelValueResponse push_wdt_status = 3;
+  repeated LabelValueResponse agg_type = 4;
+  repeated LabelValueResponse warehouse_info = 5;
+}
+
+message LabelValueResponse {
+  string value = 1;
+  string label = 2;
+}
+
+message RetrieveReturnInspectAggRequest {
+  string _id = 1;
+}
+
+message RfidReasonEntitiesChildResponse {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  int32 reason_code = 4;
+  string reason_name = 5;
+  optional bool with_remark = 6;
+  optional bool is_reserved = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+  optional int32 parent_code = 10;
+  optional bool be_cited = 11;
+}
+
+message RfidReasonEntitiesCreateRequest {
+  optional string _id = 1;
+  int32 reason_code = 2;
+  string reason_name = 3;
+  optional int32 parent_code = 4;
+  optional bool with_remark = 5;
+  optional bool is_reserved = 6;
+  optional int32 operator_id = 7;
+  optional string operator_name = 8;
+  optional bool be_cited = 9;
+}
+
+message RfidReasonEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidReasonEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidReasonEntitiesListResponse {
+  repeated RfidReasonEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidReasonEntitiesResponse {
+  optional string _id = 1;
+  optional string create_time = 2;
+  optional string update_time = 3;
+  int32 reason_code = 4;
+  string reason_name = 5;
+  optional bool with_remark = 6;
+  optional bool is_reserved = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+  repeated RfidReasonEntitiesChildResponse children_reasons = 10;
+  optional int32 parent_code = 11;
+  optional bool be_cited = 12;
+}
+
+message RfidReasonEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidReasonEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  int32 reason_code = 3;
+  string reason_name = 4;
+  optional int32 parent_code = 5;
+  optional bool with_remark = 6;
+  optional bool is_reserved = 7;
+  optional int32 operator_id = 8;
+  optional string operator_name = 9;
+  optional bool be_cited = 10;
+}
+
+message RfidReturnInspectAggEntitiesResponse {
+  optional string _id = 1;
+  optional string epc_list = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional int32 quality_result = 5;
+  optional string goods_no = 6;
+  optional string spec_no = 7;
+  optional string goods_name = 8;
+  optional int32 num = 9;
+  optional string from_warehouse_no = 10;
+  optional string from_warehouse_name = 11;
+  optional string target_warehouse_no = 12;
+  optional string target_warehouse_name = 13;
+  optional string operator_no = 14;
+  optional string operator_name = 15;
+  repeated RfidReturnInspectEntitiesResponse epc_ids = 16;
+  optional string quality_result_name = 17;
+}
+
+message RfidReturnInspectAggListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidReturnInspectAggListResponse {
+  repeated RfidReturnInspectAggResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidReturnInspectAggResponse {
+  optional string _id = 1;
+  repeated RfidReturnInspectAggEntitiesResponse agg_entities = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional string agg_no = 5;
+  optional string agg_name = 6;
+  optional int32 push_wdt_status = 7;
+  optional string wdt_transfer_no = 8;
+  optional string wdt_push_time = 9;
+  optional int32 agg_type = 10;
+  optional string from_warehouse_no = 11;
+  optional string from_warehouse_name = 12;
+  optional string target_warehouse_no = 13;
+  optional string target_warehouse_name = 14;
+  optional int32 agg_goods_type_count = 15;
+  optional double agg_goods_count = 16;
+  optional string wdt_failure_reasons = 17;
+  optional string push_wdt_status_name = 18;
+  optional string agg_type_name = 19;
+}
+
+message RfidReturnInspectAggSyncRequest {
+}
+
+message RfidReturnInspectAggSyncResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidReturnInspectConfigCreateRequest {
+  optional string _id = 1;
+  string config_no = 2;
+  string config_name = 3;
+  optional string config_remark = 4;
+  optional int32 quality_result = 5;
+  string src_warehouse_name = 6;
+  string src_warehouse_no = 7;
+  string warehouse_name = 8;
+  string warehouse_no = 9;
+  optional int32 operator_id = 10;
+  optional string operator_name = 11;
+  repeated string related_ids = 12;
+}
+
+message RfidReturnInspectConfigDestroyRequest {
+  string _id = 1;
+}
+
+message RfidReturnInspectConfigListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidReturnInspectConfigListResponse {
+  repeated RfidReturnInspectConfigResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidReturnInspectConfigResponse {
+  optional string _id = 1;
+  repeated RfidReasonEntitiesResponse inspect_reasons = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  string config_no = 5;
+  string config_name = 6;
+  optional string config_remark = 7;
+  optional int32 quality_result = 8;
+  string src_warehouse_name = 9;
+  string src_warehouse_no = 10;
+  string warehouse_name = 11;
+  string warehouse_no = 12;
+  optional int32 operator_id = 13;
+  optional string operator_name = 14;
+  optional string quality_result_name = 15;
+}
+
+message RfidReturnInspectConfigRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidReturnInspectConfigUpdateRequest {
+  optional string _id = 1;
+  string config_no = 3;
+  string config_name = 4;
+  optional string config_remark = 5;
+  optional int32 quality_result = 6;
+  string src_warehouse_name = 7;
+  string src_warehouse_no = 8;
+  string warehouse_name = 9;
+  string warehouse_no = 10;
+  optional int32 operator_id = 11;
+  optional string operator_name = 12;
+  repeated string _partial_update_fields = 13;
+  repeated string update_ids = 14;
+}
+
+message RfidReturnInspectEntitiesCreateRequest {
+  optional string _id = 1;
+  optional string inspect_time = 2;
+  optional bool is_withdraw = 3;
+  optional int32 agg_consign_status = 4;
+  optional string agg_no = 5;
+  optional string agg_name = 6;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string goods_name = 9;
+  optional string goods_epc = 10;
+  optional string goods_tid = 11;
+  optional string from_warehouse_no = 12;
+  optional string from_warehouse_name = 13;
+  optional string target_warehouse_no = 14;
+  optional string target_warehouse_name = 15;
+  optional string operator_no = 16;
+  optional string operator_name = 17;
+  optional int32 quality_result = 18;
+  optional string quality_remark = 20;
+  optional string anti_fake = 21;
+  repeated string related_ids = 22;
+}
+
+message RfidReturnInspectEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidReturnInspectEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidReturnInspectEntitiesListResponse {
+  repeated RfidReturnInspectEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidReturnInspectEntitiesResponse {
+  optional string _id = 1;
+  optional string inspect_time = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional bool is_withdraw = 5;
+  optional int32 agg_consign_status = 6;
+  optional string agg_no = 7;
+  optional string agg_name = 8;
+  optional string goods_no = 9;
+  optional string spec_no = 10;
+  optional string goods_name = 11;
+  optional string goods_epc = 12;
+  optional string goods_tid = 13;
+  optional string from_warehouse_no = 14;
+  optional string from_warehouse_name = 15;
+  optional string target_warehouse_no = 16;
+  optional string target_warehouse_name = 17;
+  optional string operator_no = 18;
+  optional string operator_name = 19;
+  optional int32 quality_result = 20;
+  optional string quality_remark = 22;
+  optional string anti_fake = 23;
+  repeated RfidReasonEntitiesResponse result_reasons = 24;
+  optional string agg_consign_status_name = 25;
+  optional string quality_result_name = 26;
+}
+
+message RfidReturnInspectEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidReturnInspectEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string inspect_time = 3;
+  optional bool is_withdraw = 4;
+  optional int32 agg_consign_status = 5;
+  optional string agg_no = 6;
+  optional string agg_name = 7;
+  optional string goods_no = 8;
+  optional string spec_no = 9;
+  optional string goods_name = 10;
+  optional string goods_epc = 11;
+  optional string goods_tid = 12;
+  optional string from_warehouse_no = 13;
+  optional string from_warehouse_name = 14;
+  optional string target_warehouse_no = 15;
+  optional string target_warehouse_name = 16;
+  optional string operator_no = 17;
+  optional string operator_name = 18;
+  optional int32 quality_result = 19;
+  optional string quality_remark = 21;
+  optional string anti_fake = 22;
+  repeated string update_ids = 23;
+}
+
+message RfidTagIndexDestroyRequest {
+  string _id = 1;
+}
+
+message RfidTagIndexDestroyRfidReasonEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidTagIndexDestroyRfidReturnInspectConfigResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidTagIndexDestroyRfidReturnInspectEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidTagIndexListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidTagIndexListResponse {
+  repeated RfidTagIndexResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidTagIndexPartialUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 3;
+  string tag_epc = 4;
+  optional int32 tag_status = 7;
+  optional int32 prod_condition = 8;
+  optional int32 stockin_counter = 9;
+  optional int32 stockout_counter = 10;
+  optional string publish_detail = 11;
+}
+
+message RfidTagIndexRequest {
+  optional string _id = 1;
+  string tag_epc = 3;
+  optional int32 tag_status = 6;
+  optional int32 prod_condition = 7;
+  optional int32 stockin_counter = 8;
+  optional int32 stockout_counter = 9;
+  optional string publish_detail = 10;
+}
+
+message RfidTagIndexResponse {
+  optional string _id = 1;
+  optional string tag_status_name = 2;
+  optional string prod_condition_name = 3;
+  repeated RfidReturnInspectEntitiesResponse return_inspect_entities = 4;
+  string tag_epc = 5;
+  optional string create_time = 6;
+  optional string update_time = 7;
+  optional int32 tag_status = 8;
+  optional int32 prod_condition = 9;
+  optional int32 stockin_counter = 10;
+  optional int32 stockout_counter = 11;
+  optional string publish_detail = 12;
+}
+
+message RfidTagIndexRetrieveRequest {
+  string _id = 1;
+}

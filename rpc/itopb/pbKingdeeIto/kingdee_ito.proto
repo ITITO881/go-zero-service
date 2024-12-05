@@ -3033,6 +3033,7 @@ message WdtStockinModelResponse {
   optional string st_created = 55;
   optional string logistics_name = 56;
   optional string logistics_code = 57;
+  int32 business_type = 58;
 }
 
 message WdtStockinOrderPurchaseDestroyRequest {

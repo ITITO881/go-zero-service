@@ -1,0 +1,149 @@
+syntax = "proto3";
+
+package rfid_service.rfid_tag_old;
+
+option go_package = "../rfid_tag_old";
+
+service ItoTagsOldController {
+  rpc EpcGenerateList(ItoTagsOldEpcGenerateListRequest) returns (EpcHistoryModelListResponse) {}
+  rpc EpcQualityList(ItoTagsOldEpcQualityListRequest) returns (EpcHistoryModelListResponse) {}
+  rpc List(ItoTagsModelListRequest) returns (ItoTagsModelListResponse) {}
+  rpc Retrieve(ItoTagsModelRetrieveRequest) returns (ItoTagsModelResponse) {}
+}
+
+message EpcHistoryModelListResponse {
+  repeated EpcHistoryModelResponse results = 1;
+  int32 count = 2;
+}
+
+message EpcHistoryModelResponse {
+  int32 id = 1;
+  string operation_type_name = 2;
+  string create_date = 3;
+  int32 deleted_state = 4;
+  optional string update_date = 5;
+  optional int32 create_userid = 6;
+  optional int32 update_userid = 7;
+  string epc = 8;
+  optional string create_user = 9;
+  optional int32 defect = 10;
+  optional string erp_order_no = 11;
+  optional string operation_date = 12;
+  optional int32 operation_type = 13;
+  optional string plat_order_no = 14;
+  optional int32 plat_type = 15;
+  optional string position_no = 16;
+  optional string record_order_no = 17;
+  optional string remark = 18;
+  optional int32 store_id = 19;
+  optional string sys_order_no = 20;
+  optional int32 sys_order_type = 21;
+  optional int32 tenant_id = 22;
+  optional string warehouse_no = 23;
+}
+
+message ItoTagsModelListRequest {
+  int32 id = 1;
+  string filters = 2;
+  string create_time = 3;
+  int32 deleted_state = 4;
+  optional string update_time = 5;
+  optional int32 create_userid = 6;
+  optional int32 update_userid = 7;
+  string epc = 8;
+  optional string qa_date = 9;
+  optional string qa_order_no = 10;
+  optional string qa_user = 11;
+  string prod_code = 12;
+  optional string tid = 13;
+  optional string afc = 14;
+  optional string batch_no = 15;
+  optional int32 defect = 16;
+  optional string delivery_order_no = 17;
+  optional int32 epc_status = 18;
+  optional string erp_stock_in_no = 19;
+  optional string erp_trade_no = 20;
+  optional string info_conf_date = 21;
+  optional string info_conf_user = 22;
+  optional string manufacture_date = 23;
+  optional string owner_no = 24;
+  optional string plat_stock_in_no = 25;
+  optional string plat_trade_no = 26;
+  optional string position_no = 27;
+  optional string reason = 28;
+  optional string receiving_order_no = 29;
+  optional string return_order_no = 30;
+  optional string sorting_order_no = 31;
+  optional int32 stock_in_type = 32;
+  optional int32 store_id = 33;
+  optional string supplier_delivery_order_no = 34;
+  optional string supplier_no = 35;
+  optional string supplier_order_no = 36;
+  optional int32 tenant_id = 37;
+  optional string trade_order_no = 38;
+  optional int32 trade_type = 39;
+  optional string warehouse_no = 40;
+  optional string prefix_url = 41;
+}
+
+message ItoTagsModelListResponse {
+  repeated ItoTagsModelResponse results = 1;
+  int32 count = 2;
+}
+
+message ItoTagsModelResponse {
+  int32 id = 1;
+  string create_time = 2;
+  int32 deleted_state = 3;
+  optional string update_time = 4;
+  optional int32 create_userid = 5;
+  optional int32 update_userid = 6;
+  string epc = 7;
+  optional string qa_date = 8;
+  optional string qa_order_no = 9;
+  optional string qa_user = 10;
+  string prod_code = 11;
+  optional string tid = 12;
+  optional string afc = 13;
+  optional string batch_no = 14;
+  optional int32 defect = 15;
+  optional string delivery_order_no = 16;
+  optional int32 epc_status = 17;
+  optional string erp_stock_in_no = 18;
+  optional string erp_trade_no = 19;
+  optional string info_conf_date = 20;
+  optional string info_conf_user = 21;
+  optional string manufacture_date = 22;
+  optional string owner_no = 23;
+  optional string plat_stock_in_no = 24;
+  optional string plat_trade_no = 25;
+  optional string position_no = 26;
+  optional string reason = 27;
+  optional string receiving_order_no = 28;
+  optional string return_order_no = 29;
+  optional string sorting_order_no = 30;
+  optional int32 stock_in_type = 31;
+  optional int32 store_id = 32;
+  optional string supplier_delivery_order_no = 33;
+  optional string supplier_no = 34;
+  optional string supplier_order_no = 35;
+  optional int32 tenant_id = 36;
+  optional string trade_order_no = 37;
+  optional int32 trade_type = 38;
+  optional string warehouse_no = 39;
+  optional string prefix_url = 40;
+  string epc_status_name = 41;
+}
+
+message ItoTagsModelRetrieveRequest {
+  int32 id = 1;
+}
+
+message ItoTagsOldEpcGenerateListRequest {
+  string epc = 1;
+}
+
+message ItoTagsOldEpcQualityListRequest {
+  string epc = 1;
+}
+

@@ -19,14 +19,18 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ItoTagsOldController_List_FullMethodName     = "/rfid_service.rfid_tag_old.ItoTagsOldController/List"
-	ItoTagsOldController_Retrieve_FullMethodName = "/rfid_service.rfid_tag_old.ItoTagsOldController/Retrieve"
+	ItoTagsOldController_EpcGenerateList_FullMethodName = "/rfid_service.rfid_tag_old.ItoTagsOldController/EpcGenerateList"
+	ItoTagsOldController_EpcQualityList_FullMethodName  = "/rfid_service.rfid_tag_old.ItoTagsOldController/EpcQualityList"
+	ItoTagsOldController_List_FullMethodName            = "/rfid_service.rfid_tag_old.ItoTagsOldController/List"
+	ItoTagsOldController_Retrieve_FullMethodName        = "/rfid_service.rfid_tag_old.ItoTagsOldController/Retrieve"
 )
 
 // ItoTagsOldControllerClient is the client API for ItoTagsOldController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ItoTagsOldControllerClient interface {
+	EpcGenerateList(ctx context.Context, in *ItoTagsOldEpcGenerateListRequest, opts ...grpc.CallOption) (*EpcHistoryModelListResponse, error)
+	EpcQualityList(ctx context.Context, in *ItoTagsOldEpcQualityListRequest, opts ...grpc.CallOption) (*EpcHistoryModelListResponse, error)
 	List(ctx context.Context, in *ItoTagsModelListRequest, opts ...grpc.CallOption) (*ItoTagsModelListResponse, error)
 	Retrieve(ctx context.Context, in *ItoTagsModelRetrieveRequest, opts ...grpc.CallOption) (*ItoTagsModelResponse, error)
 }
@@ -37,6 +41,24 @@ type itoTagsOldControllerClient struct {
 
 func NewItoTagsOldControllerClient(cc grpc.ClientConnInterface) ItoTagsOldControllerClient {
 	return &itoTagsOldControllerClient{cc}
+}
+
+func (c *itoTagsOldControllerClient) EpcGenerateList(ctx context.Context, in *ItoTagsOldEpcGenerateListRequest, opts ...grpc.CallOption) (*EpcHistoryModelListResponse, error) {
+	out := new(EpcHistoryModelListResponse)
+	err := c.cc.Invoke(ctx, ItoTagsOldController_EpcGenerateList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itoTagsOldControllerClient) EpcQualityList(ctx context.Context, in *ItoTagsOldEpcQualityListRequest, opts ...grpc.CallOption) (*EpcHistoryModelListResponse, error) {
+	out := new(EpcHistoryModelListResponse)
+	err := c.cc.Invoke(ctx, ItoTagsOldController_EpcQualityList_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *itoTagsOldControllerClient) List(ctx context.Context, in *ItoTagsModelListRequest, opts ...grpc.CallOption) (*ItoTagsModelListResponse, error) {
@@ -61,6 +83,8 @@ func (c *itoTagsOldControllerClient) Retrieve(ctx context.Context, in *ItoTagsMo
 // All implementations must embed UnimplementedItoTagsOldControllerServer
 // for forward compatibility
 type ItoTagsOldControllerServer interface {
+	EpcGenerateList(context.Context, *ItoTagsOldEpcGenerateListRequest) (*EpcHistoryModelListResponse, error)
+	EpcQualityList(context.Context, *ItoTagsOldEpcQualityListRequest) (*EpcHistoryModelListResponse, error)
 	List(context.Context, *ItoTagsModelListRequest) (*ItoTagsModelListResponse, error)
 	Retrieve(context.Context, *ItoTagsModelRetrieveRequest) (*ItoTagsModelResponse, error)
 	mustEmbedUnimplementedItoTagsOldControllerServer()
@@ -70,6 +94,12 @@ type ItoTagsOldControllerServer interface {
 type UnimplementedItoTagsOldControllerServer struct {
 }
 
+func (UnimplementedItoTagsOldControllerServer) EpcGenerateList(context.Context, *ItoTagsOldEpcGenerateListRequest) (*EpcHistoryModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EpcGenerateList not implemented")
+}
+func (UnimplementedItoTagsOldControllerServer) EpcQualityList(context.Context, *ItoTagsOldEpcQualityListRequest) (*EpcHistoryModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EpcQualityList not implemented")
+}
 func (UnimplementedItoTagsOldControllerServer) List(context.Context, *ItoTagsModelListRequest) (*ItoTagsModelListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
@@ -87,6 +117,42 @@ type UnsafeItoTagsOldControllerServer interface {
 
 func RegisterItoTagsOldControllerServer(s grpc.ServiceRegistrar, srv ItoTagsOldControllerServer) {
 	s.RegisterService(&ItoTagsOldController_ServiceDesc, srv)
+}
+
+func _ItoTagsOldController_EpcGenerateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItoTagsOldEpcGenerateListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItoTagsOldControllerServer).EpcGenerateList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItoTagsOldController_EpcGenerateList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItoTagsOldControllerServer).EpcGenerateList(ctx, req.(*ItoTagsOldEpcGenerateListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItoTagsOldController_EpcQualityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItoTagsOldEpcQualityListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItoTagsOldControllerServer).EpcQualityList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItoTagsOldController_EpcQualityList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItoTagsOldControllerServer).EpcQualityList(ctx, req.(*ItoTagsOldEpcQualityListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _ItoTagsOldController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -132,6 +198,14 @@ var ItoTagsOldController_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "rfid_service.rfid_tag_old.ItoTagsOldController",
 	HandlerType: (*ItoTagsOldControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "EpcGenerateList",
+			Handler:    _ItoTagsOldController_EpcGenerateList_Handler,
+		},
+		{
+			MethodName: "EpcQualityList",
+			Handler:    _ItoTagsOldController_EpcQualityList_Handler,
+		},
 		{
 			MethodName: "List",
 			Handler:    _ItoTagsOldController_List_Handler,
