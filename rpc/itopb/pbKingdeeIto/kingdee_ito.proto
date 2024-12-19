@@ -538,6 +538,8 @@ message AggTransferOrderResponse {
   optional string agg_stock_out_list = 29;
   optional string agg_stock_in_list = 30;
   optional string push_kd_status_name = 31;
+  int32 agg_stock_in_count = 32;
+  int32 agg_stock_out_count = 33;
 }
 
 message AggTransferStockInEntitiesEntryResponse {
@@ -1768,6 +1770,7 @@ message KingdeeReceivableResponse {
   optional string kingdee_push_time = 43;
   optional string create_time = 44;
   optional string update_time = 45;
+  optional string agg_push_status_name = 46;
 }
 
 message KingdeeReceivableSubHeadFincResponse {
@@ -2401,6 +2404,7 @@ message KingdeeStkMisDeliveryResponse {
   optional string kingdee_push_time = 38;
   optional string create_time = 39;
   optional string update_time = 40;
+  optional string agg_push_status_name = 41;
 }
 
 message KingdeeStockNoInfoRequest {
@@ -3015,6 +3019,7 @@ message SeedingKingdeeStkTransferDirectResponse {
   optional string kingdee_push_time = 43;
   optional string create_time = 44;
   optional string update_time = 45;
+  optional string agg_push_status_name = 46;
 }
 
 message StaticsResponse {
@@ -3150,6 +3155,7 @@ message SwapKingdeeSalOutStockResponse {
   optional string kingdee_push_time = 43;
   optional string create_time = 44;
   optional string update_time = 45;
+  optional string agg_push_status_name = 46;
 }
 
 message SwapKingdeeSalReturnStockEntityResponse {
@@ -3249,6 +3255,7 @@ message SwapKingdeeSalReturnStockResponse {
   optional string kingdee_push_time = 43;
   optional string create_time = 44;
   optional string update_time = 45;
+  optional string agg_push_status_name = 46;
 }
 
 message SyncKdPurchaseReturnRequest {
