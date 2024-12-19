@@ -2733,262 +2733,6 @@ var KingdeePurchaseOrderController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	OtherStockinController_List_FullMethodName                     = "/kingdee_service.kingdee_ito.OtherStockinController/List"
-	OtherStockinController_TaskSigFetchStockinOrder_FullMethodName = "/kingdee_service.kingdee_ito.OtherStockinController/TaskSigFetchStockinOrder"
-)
-
-// OtherStockinControllerClient is the client API for OtherStockinController service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OtherStockinControllerClient interface {
-	List(ctx context.Context, in *WdtStockinModelListRequest, opts ...grpc.CallOption) (*WdtStockinModelListResponse, error)
-	TaskSigFetchStockinOrder(ctx context.Context, in *TaskSigFetchStockinOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockinOrderResponse, error)
-}
-
-type otherStockinControllerClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOtherStockinControllerClient(cc grpc.ClientConnInterface) OtherStockinControllerClient {
-	return &otherStockinControllerClient{cc}
-}
-
-func (c *otherStockinControllerClient) List(ctx context.Context, in *WdtStockinModelListRequest, opts ...grpc.CallOption) (*WdtStockinModelListResponse, error) {
-	out := new(WdtStockinModelListResponse)
-	err := c.cc.Invoke(ctx, OtherStockinController_List_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *otherStockinControllerClient) TaskSigFetchStockinOrder(ctx context.Context, in *TaskSigFetchStockinOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockinOrderResponse, error) {
-	out := new(TaskSigFetchStockinOrderResponse)
-	err := c.cc.Invoke(ctx, OtherStockinController_TaskSigFetchStockinOrder_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OtherStockinControllerServer is the server API for OtherStockinController service.
-// All implementations must embed UnimplementedOtherStockinControllerServer
-// for forward compatibility
-type OtherStockinControllerServer interface {
-	List(context.Context, *WdtStockinModelListRequest) (*WdtStockinModelListResponse, error)
-	TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error)
-	mustEmbedUnimplementedOtherStockinControllerServer()
-}
-
-// UnimplementedOtherStockinControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedOtherStockinControllerServer struct {
-}
-
-func (UnimplementedOtherStockinControllerServer) List(context.Context, *WdtStockinModelListRequest) (*WdtStockinModelListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
-}
-func (UnimplementedOtherStockinControllerServer) TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchStockinOrder not implemented")
-}
-func (UnimplementedOtherStockinControllerServer) mustEmbedUnimplementedOtherStockinControllerServer() {
-}
-
-// UnsafeOtherStockinControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OtherStockinControllerServer will
-// result in compilation errors.
-type UnsafeOtherStockinControllerServer interface {
-	mustEmbedUnimplementedOtherStockinControllerServer()
-}
-
-func RegisterOtherStockinControllerServer(s grpc.ServiceRegistrar, srv OtherStockinControllerServer) {
-	s.RegisterService(&OtherStockinController_ServiceDesc, srv)
-}
-
-func _OtherStockinController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockinModelListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OtherStockinControllerServer).List(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OtherStockinController_List_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OtherStockinControllerServer).List(ctx, req.(*WdtStockinModelListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OtherStockinController_TaskSigFetchStockinOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TaskSigFetchStockinOrderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OtherStockinControllerServer).TaskSigFetchStockinOrder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OtherStockinController_TaskSigFetchStockinOrder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OtherStockinControllerServer).TaskSigFetchStockinOrder(ctx, req.(*TaskSigFetchStockinOrderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OtherStockinController_ServiceDesc is the grpc.ServiceDesc for OtherStockinController service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OtherStockinController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "kingdee_service.kingdee_ito.OtherStockinController",
-	HandlerType: (*OtherStockinControllerServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "List",
-			Handler:    _OtherStockinController_List_Handler,
-		},
-		{
-			MethodName: "TaskSigFetchStockinOrder",
-			Handler:    _OtherStockinController_TaskSigFetchStockinOrder_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "kingdee_ito.proto",
-}
-
-const (
-	OtherStockoutController_List_FullMethodName                      = "/kingdee_service.kingdee_ito.OtherStockoutController/List"
-	OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigFetchStockoutOrder"
-)
-
-// OtherStockoutControllerClient is the client API for OtherStockoutController service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OtherStockoutControllerClient interface {
-	List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error)
-	TaskSigFetchStockoutOrder(ctx context.Context, in *TaskSigFetchStockoutOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockoutOrderResponse, error)
-}
-
-type otherStockoutControllerClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOtherStockoutControllerClient(cc grpc.ClientConnInterface) OtherStockoutControllerClient {
-	return &otherStockoutControllerClient{cc}
-}
-
-func (c *otherStockoutControllerClient) List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error) {
-	out := new(WdtStockoutModelListResponse)
-	err := c.cc.Invoke(ctx, OtherStockoutController_List_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *otherStockoutControllerClient) TaskSigFetchStockoutOrder(ctx context.Context, in *TaskSigFetchStockoutOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockoutOrderResponse, error) {
-	out := new(TaskSigFetchStockoutOrderResponse)
-	err := c.cc.Invoke(ctx, OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OtherStockoutControllerServer is the server API for OtherStockoutController service.
-// All implementations must embed UnimplementedOtherStockoutControllerServer
-// for forward compatibility
-type OtherStockoutControllerServer interface {
-	List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error)
-	TaskSigFetchStockoutOrder(context.Context, *TaskSigFetchStockoutOrderRequest) (*TaskSigFetchStockoutOrderResponse, error)
-	mustEmbedUnimplementedOtherStockoutControllerServer()
-}
-
-// UnimplementedOtherStockoutControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedOtherStockoutControllerServer struct {
-}
-
-func (UnimplementedOtherStockoutControllerServer) List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
-}
-func (UnimplementedOtherStockoutControllerServer) TaskSigFetchStockoutOrder(context.Context, *TaskSigFetchStockoutOrderRequest) (*TaskSigFetchStockoutOrderResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchStockoutOrder not implemented")
-}
-func (UnimplementedOtherStockoutControllerServer) mustEmbedUnimplementedOtherStockoutControllerServer() {
-}
-
-// UnsafeOtherStockoutControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OtherStockoutControllerServer will
-// result in compilation errors.
-type UnsafeOtherStockoutControllerServer interface {
-	mustEmbedUnimplementedOtherStockoutControllerServer()
-}
-
-func RegisterOtherStockoutControllerServer(s grpc.ServiceRegistrar, srv OtherStockoutControllerServer) {
-	s.RegisterService(&OtherStockoutController_ServiceDesc, srv)
-}
-
-func _OtherStockoutController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutModelListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OtherStockoutControllerServer).List(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OtherStockoutController_List_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OtherStockoutControllerServer).List(ctx, req.(*WdtStockoutModelListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OtherStockoutController_TaskSigFetchStockoutOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TaskSigFetchStockoutOrderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OtherStockoutControllerServer).TaskSigFetchStockoutOrder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OtherStockoutControllerServer).TaskSigFetchStockoutOrder(ctx, req.(*TaskSigFetchStockoutOrderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OtherStockoutController_ServiceDesc is the grpc.ServiceDesc for OtherStockoutController service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OtherStockoutController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "kingdee_service.kingdee_ito.OtherStockoutController",
-	HandlerType: (*OtherStockoutControllerServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "List",
-			Handler:    _OtherStockoutController_List_Handler,
-		},
-		{
-			MethodName: "TaskSigFetchStockoutOrder",
-			Handler:    _OtherStockoutController_TaskSigFetchStockoutOrder_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "kingdee_ito.proto",
-}
-
-const (
 	PurchasePlatController_CreateKingdeePurchaseOrder_FullMethodName             = "/kingdee_service.kingdee_ito.PurchasePlatController/CreateKingdeePurchaseOrder"
 	PurchasePlatController_CreateKingdeePurchaseReturn_FullMethodName            = "/kingdee_service.kingdee_ito.PurchasePlatController/CreateKingdeePurchaseReturn"
 	PurchasePlatController_CreateKingdeeReceiveBill_FullMethodName               = "/kingdee_service.kingdee_ito.PurchasePlatController/CreateKingdeeReceiveBill"
@@ -3050,7 +2794,7 @@ type PurchasePlatControllerClient interface {
 	CreateWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtPurchaseReturnResponse, error)
 	CreateWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	CreateWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchaseRequest, opts ...grpc.CallOption) (*WdtStockinOrderPurchaseResponse, error)
-	CreateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error)
+	CreateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	DestroyKingdeePurchaseOrder(ctx context.Context, in *KingdeePurchaseOrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyKingdeePurchaseReturn(ctx context.Context, in *KingdeePurchaseReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyKingdeeReceiveBill(ctx context.Context, in *KingdeeReceiveBillDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -3058,7 +2802,7 @@ type PurchasePlatControllerClient interface {
 	DestroyWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchaseDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	DestroyWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ListKingdeePurchaseOrder(ctx context.Context, in *KingdeePurchaseOrderListRequest, opts ...grpc.CallOption) (*KingdeePurchaseOrderListResponse, error)
 	ListKingdeePurchaseReturn(ctx context.Context, in *KingdeePurchaseReturnListRequest, opts ...grpc.CallOption) (*KingdeePurchaseReturnListResponse, error)
 	ListKingdeeReceiveBill(ctx context.Context, in *KingdeeReceiveBillListRequest, opts ...grpc.CallOption) (*KingdeeReceiveBillListResponse, error)
@@ -3066,7 +2810,7 @@ type PurchasePlatControllerClient interface {
 	ListWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnListRequest, opts ...grpc.CallOption) (*WdtPurchaseReturnListResponse, error)
 	ListWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnListRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnListResponse, error)
 	ListWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchaseListRequest, opts ...grpc.CallOption) (*WdtStockinOrderPurchaseListResponse, error)
-	ListWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnListRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnListResponse, error)
+	ListWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnListRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnListResponse, error)
 	PartialUpdateKingdeePurchaseOrder(ctx context.Context, in *KingdeePurchaseOrderPartialUpdateRequest, opts ...grpc.CallOption) (*KingdeePurchaseOrderResponse, error)
 	PartialUpdateKingdeePurchaseReturn(ctx context.Context, in *KingdeePurchaseReturnPartialUpdateRequest, opts ...grpc.CallOption) (*KingdeePurchaseReturnResponse, error)
 	PartialUpdateKingdeeReceiveBill(ctx context.Context, in *KingdeeReceiveBillPartialUpdateRequest, opts ...grpc.CallOption) (*KingdeeReceiveBillResponse, error)
@@ -3074,7 +2818,7 @@ type PurchasePlatControllerClient interface {
 	PartialUpdateWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtPurchaseReturnResponse, error)
 	PartialUpdateWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	PartialUpdateWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchasePartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockinOrderPurchaseResponse, error)
-	PartialUpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error)
+	PartialUpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	RetrieveKingdeePurchaseOrder(ctx context.Context, in *KingdeePurchaseOrderRetrieveRequest, opts ...grpc.CallOption) (*KingdeePurchaseOrderResponse, error)
 	RetrieveKingdeePurchaseReturn(ctx context.Context, in *KingdeePurchaseReturnRetrieveRequest, opts ...grpc.CallOption) (*KingdeePurchaseReturnResponse, error)
 	RetrieveKingdeeReceiveBill(ctx context.Context, in *KingdeeReceiveBillRetrieveRequest, opts ...grpc.CallOption) (*KingdeeReceiveBillResponse, error)
@@ -3082,7 +2826,7 @@ type PurchasePlatControllerClient interface {
 	RetrieveWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtPurchaseReturnResponse, error)
 	RetrieveWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	RetrieveWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchaseRetrieveRequest, opts ...grpc.CallOption) (*WdtStockinOrderPurchaseResponse, error)
-	RetrieveWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error)
+	RetrieveWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	UpdateKingdeePurchaseOrder(ctx context.Context, in *KingdeePurchaseOrderRequest, opts ...grpc.CallOption) (*KingdeePurchaseOrderResponse, error)
 	UpdateKingdeePurchaseReturn(ctx context.Context, in *KingdeePurchaseReturnRequest, opts ...grpc.CallOption) (*KingdeePurchaseReturnResponse, error)
 	UpdateKingdeeReceiveBill(ctx context.Context, in *KingdeeReceiveBillRequest, opts ...grpc.CallOption) (*KingdeeReceiveBillResponse, error)
@@ -3090,7 +2834,7 @@ type PurchasePlatControllerClient interface {
 	UpdateWdtPurchaseReturn(ctx context.Context, in *WdtPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtPurchaseReturnResponse, error)
 	UpdateWdtStockOutPurchaseReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 	UpdateWdtStockinOrderPurchase(ctx context.Context, in *WdtStockinOrderPurchaseRequest, opts ...grpc.CallOption) (*WdtStockinOrderPurchaseResponse, error)
-	UpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error)
+	UpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error)
 }
 
 type purchasePlatControllerClient struct {
@@ -3164,8 +2908,8 @@ func (c *purchasePlatControllerClient) CreateWdtStockinOrderPurchase(ctx context
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) CreateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error) {
-	out := new(WdtStockoutOrderReturnResponse)
+func (c *purchasePlatControllerClient) CreateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error) {
+	out := new(WdtStockoutPurchaseReturnResponse)
 	err := c.cc.Invoke(ctx, PurchasePlatController_CreateWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3236,7 +2980,7 @@ func (c *purchasePlatControllerClient) DestroyWdtStockinOrderPurchase(ctx contex
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) DestroyWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *purchasePlatControllerClient) DestroyWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, PurchasePlatController_DestroyWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -3308,8 +3052,8 @@ func (c *purchasePlatControllerClient) ListWdtStockinOrderPurchase(ctx context.C
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) ListWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnListRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnListResponse, error) {
-	out := new(WdtStockoutOrderReturnListResponse)
+func (c *purchasePlatControllerClient) ListWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnListRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnListResponse, error) {
+	out := new(WdtStockoutPurchaseReturnListResponse)
 	err := c.cc.Invoke(ctx, PurchasePlatController_ListWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3380,8 +3124,8 @@ func (c *purchasePlatControllerClient) PartialUpdateWdtStockinOrderPurchase(ctx 
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) PartialUpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error) {
-	out := new(WdtStockoutOrderReturnResponse)
+func (c *purchasePlatControllerClient) PartialUpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnPartialUpdateRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error) {
+	out := new(WdtStockoutPurchaseReturnResponse)
 	err := c.cc.Invoke(ctx, PurchasePlatController_PartialUpdateWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3452,8 +3196,8 @@ func (c *purchasePlatControllerClient) RetrieveWdtStockinOrderPurchase(ctx conte
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) RetrieveWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error) {
-	out := new(WdtStockoutOrderReturnResponse)
+func (c *purchasePlatControllerClient) RetrieveWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRetrieveRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error) {
+	out := new(WdtStockoutPurchaseReturnResponse)
 	err := c.cc.Invoke(ctx, PurchasePlatController_RetrieveWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3524,8 +3268,8 @@ func (c *purchasePlatControllerClient) UpdateWdtStockinOrderPurchase(ctx context
 	return out, nil
 }
 
-func (c *purchasePlatControllerClient) UpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutOrderReturnRequest, opts ...grpc.CallOption) (*WdtStockoutOrderReturnResponse, error) {
-	out := new(WdtStockoutOrderReturnResponse)
+func (c *purchasePlatControllerClient) UpdateWdtStockoutOrderReturn(ctx context.Context, in *WdtStockoutPurchaseReturnRequest, opts ...grpc.CallOption) (*WdtStockoutPurchaseReturnResponse, error) {
+	out := new(WdtStockoutPurchaseReturnResponse)
 	err := c.cc.Invoke(ctx, PurchasePlatController_UpdateWdtStockoutOrderReturn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3544,7 +3288,7 @@ type PurchasePlatControllerServer interface {
 	CreateWdtPurchaseReturn(context.Context, *WdtPurchaseReturnRequest) (*WdtPurchaseReturnResponse, error)
 	CreateWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	CreateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRequest) (*WdtStockinOrderPurchaseResponse, error)
-	CreateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRequest) (*WdtStockoutOrderReturnResponse, error)
+	CreateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	DestroyKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderDestroyRequest) (*emptypb.Empty, error)
 	DestroyKingdeePurchaseReturn(context.Context, *KingdeePurchaseReturnDestroyRequest) (*emptypb.Empty, error)
 	DestroyKingdeeReceiveBill(context.Context, *KingdeeReceiveBillDestroyRequest) (*emptypb.Empty, error)
@@ -3552,7 +3296,7 @@ type PurchasePlatControllerServer interface {
 	DestroyWdtPurchaseReturn(context.Context, *WdtPurchaseReturnDestroyRequest) (*emptypb.Empty, error)
 	DestroyWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnDestroyRequest) (*emptypb.Empty, error)
 	DestroyWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseDestroyRequest) (*emptypb.Empty, error)
-	DestroyWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnDestroyRequest) (*emptypb.Empty, error)
+	DestroyWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnDestroyRequest) (*emptypb.Empty, error)
 	ListKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderListRequest) (*KingdeePurchaseOrderListResponse, error)
 	ListKingdeePurchaseReturn(context.Context, *KingdeePurchaseReturnListRequest) (*KingdeePurchaseReturnListResponse, error)
 	ListKingdeeReceiveBill(context.Context, *KingdeeReceiveBillListRequest) (*KingdeeReceiveBillListResponse, error)
@@ -3560,7 +3304,7 @@ type PurchasePlatControllerServer interface {
 	ListWdtPurchaseReturn(context.Context, *WdtPurchaseReturnListRequest) (*WdtPurchaseReturnListResponse, error)
 	ListWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnListRequest) (*WdtStockoutPurchaseReturnListResponse, error)
 	ListWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseListRequest) (*WdtStockinOrderPurchaseListResponse, error)
-	ListWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnListRequest) (*WdtStockoutOrderReturnListResponse, error)
+	ListWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnListRequest) (*WdtStockoutPurchaseReturnListResponse, error)
 	PartialUpdateKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderPartialUpdateRequest) (*KingdeePurchaseOrderResponse, error)
 	PartialUpdateKingdeePurchaseReturn(context.Context, *KingdeePurchaseReturnPartialUpdateRequest) (*KingdeePurchaseReturnResponse, error)
 	PartialUpdateKingdeeReceiveBill(context.Context, *KingdeeReceiveBillPartialUpdateRequest) (*KingdeeReceiveBillResponse, error)
@@ -3568,7 +3312,7 @@ type PurchasePlatControllerServer interface {
 	PartialUpdateWdtPurchaseReturn(context.Context, *WdtPurchaseReturnPartialUpdateRequest) (*WdtPurchaseReturnResponse, error)
 	PartialUpdateWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnPartialUpdateRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	PartialUpdateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchasePartialUpdateRequest) (*WdtStockinOrderPurchaseResponse, error)
-	PartialUpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnPartialUpdateRequest) (*WdtStockoutOrderReturnResponse, error)
+	PartialUpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnPartialUpdateRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	RetrieveKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderRetrieveRequest) (*KingdeePurchaseOrderResponse, error)
 	RetrieveKingdeePurchaseReturn(context.Context, *KingdeePurchaseReturnRetrieveRequest) (*KingdeePurchaseReturnResponse, error)
 	RetrieveKingdeeReceiveBill(context.Context, *KingdeeReceiveBillRetrieveRequest) (*KingdeeReceiveBillResponse, error)
@@ -3576,7 +3320,7 @@ type PurchasePlatControllerServer interface {
 	RetrieveWdtPurchaseReturn(context.Context, *WdtPurchaseReturnRetrieveRequest) (*WdtPurchaseReturnResponse, error)
 	RetrieveWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnRetrieveRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	RetrieveWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRetrieveRequest) (*WdtStockinOrderPurchaseResponse, error)
-	RetrieveWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRetrieveRequest) (*WdtStockoutOrderReturnResponse, error)
+	RetrieveWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRetrieveRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	UpdateKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderRequest) (*KingdeePurchaseOrderResponse, error)
 	UpdateKingdeePurchaseReturn(context.Context, *KingdeePurchaseReturnRequest) (*KingdeePurchaseReturnResponse, error)
 	UpdateKingdeeReceiveBill(context.Context, *KingdeeReceiveBillRequest) (*KingdeeReceiveBillResponse, error)
@@ -3584,7 +3328,7 @@ type PurchasePlatControllerServer interface {
 	UpdateWdtPurchaseReturn(context.Context, *WdtPurchaseReturnRequest) (*WdtPurchaseReturnResponse, error)
 	UpdateWdtStockOutPurchaseReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	UpdateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRequest) (*WdtStockinOrderPurchaseResponse, error)
-	UpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRequest) (*WdtStockoutOrderReturnResponse, error)
+	UpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error)
 	mustEmbedUnimplementedPurchasePlatControllerServer()
 }
 
@@ -3613,7 +3357,7 @@ func (UnimplementedPurchasePlatControllerServer) CreateWdtStockOutPurchaseReturn
 func (UnimplementedPurchasePlatControllerServer) CreateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRequest) (*WdtStockinOrderPurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) CreateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRequest) (*WdtStockoutOrderReturnResponse, error) {
+func (UnimplementedPurchasePlatControllerServer) CreateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) DestroyKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderDestroyRequest) (*emptypb.Empty, error) {
@@ -3637,7 +3381,7 @@ func (UnimplementedPurchasePlatControllerServer) DestroyWdtStockOutPurchaseRetur
 func (UnimplementedPurchasePlatControllerServer) DestroyWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) DestroyWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnDestroyRequest) (*emptypb.Empty, error) {
+func (UnimplementedPurchasePlatControllerServer) DestroyWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) ListKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderListRequest) (*KingdeePurchaseOrderListResponse, error) {
@@ -3661,7 +3405,7 @@ func (UnimplementedPurchasePlatControllerServer) ListWdtStockOutPurchaseReturn(c
 func (UnimplementedPurchasePlatControllerServer) ListWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseListRequest) (*WdtStockinOrderPurchaseListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) ListWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnListRequest) (*WdtStockoutOrderReturnListResponse, error) {
+func (UnimplementedPurchasePlatControllerServer) ListWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnListRequest) (*WdtStockoutPurchaseReturnListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) PartialUpdateKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderPartialUpdateRequest) (*KingdeePurchaseOrderResponse, error) {
@@ -3685,7 +3429,7 @@ func (UnimplementedPurchasePlatControllerServer) PartialUpdateWdtStockOutPurchas
 func (UnimplementedPurchasePlatControllerServer) PartialUpdateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchasePartialUpdateRequest) (*WdtStockinOrderPurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdateWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) PartialUpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnPartialUpdateRequest) (*WdtStockoutOrderReturnResponse, error) {
+func (UnimplementedPurchasePlatControllerServer) PartialUpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnPartialUpdateRequest) (*WdtStockoutPurchaseReturnResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdateWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) RetrieveKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderRetrieveRequest) (*KingdeePurchaseOrderResponse, error) {
@@ -3709,7 +3453,7 @@ func (UnimplementedPurchasePlatControllerServer) RetrieveWdtStockOutPurchaseRetu
 func (UnimplementedPurchasePlatControllerServer) RetrieveWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRetrieveRequest) (*WdtStockinOrderPurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) RetrieveWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRetrieveRequest) (*WdtStockoutOrderReturnResponse, error) {
+func (UnimplementedPurchasePlatControllerServer) RetrieveWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRetrieveRequest) (*WdtStockoutPurchaseReturnResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) UpdateKingdeePurchaseOrder(context.Context, *KingdeePurchaseOrderRequest) (*KingdeePurchaseOrderResponse, error) {
@@ -3733,7 +3477,7 @@ func (UnimplementedPurchasePlatControllerServer) UpdateWdtStockOutPurchaseReturn
 func (UnimplementedPurchasePlatControllerServer) UpdateWdtStockinOrderPurchase(context.Context, *WdtStockinOrderPurchaseRequest) (*WdtStockinOrderPurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWdtStockinOrderPurchase not implemented")
 }
-func (UnimplementedPurchasePlatControllerServer) UpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutOrderReturnRequest) (*WdtStockoutOrderReturnResponse, error) {
+func (UnimplementedPurchasePlatControllerServer) UpdateWdtStockoutOrderReturn(context.Context, *WdtStockoutPurchaseReturnRequest) (*WdtStockoutPurchaseReturnResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWdtStockoutOrderReturn not implemented")
 }
 func (UnimplementedPurchasePlatControllerServer) mustEmbedUnimplementedPurchasePlatControllerServer() {
@@ -3877,7 +3621,7 @@ func _PurchasePlatController_CreateWdtStockinOrderPurchase_Handler(srv interface
 }
 
 func _PurchasePlatController_CreateWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnRequest)
+	in := new(WdtStockoutPurchaseReturnRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3889,7 +3633,7 @@ func _PurchasePlatController_CreateWdtStockoutOrderReturn_Handler(srv interface{
 		FullMethod: PurchasePlatController_CreateWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).CreateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnRequest))
+		return srv.(PurchasePlatControllerServer).CreateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4021,7 +3765,7 @@ func _PurchasePlatController_DestroyWdtStockinOrderPurchase_Handler(srv interfac
 }
 
 func _PurchasePlatController_DestroyWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnDestroyRequest)
+	in := new(WdtStockoutPurchaseReturnDestroyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4033,7 +3777,7 @@ func _PurchasePlatController_DestroyWdtStockoutOrderReturn_Handler(srv interface
 		FullMethod: PurchasePlatController_DestroyWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).DestroyWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnDestroyRequest))
+		return srv.(PurchasePlatControllerServer).DestroyWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnDestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4165,7 +3909,7 @@ func _PurchasePlatController_ListWdtStockinOrderPurchase_Handler(srv interface{}
 }
 
 func _PurchasePlatController_ListWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnListRequest)
+	in := new(WdtStockoutPurchaseReturnListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4177,7 +3921,7 @@ func _PurchasePlatController_ListWdtStockoutOrderReturn_Handler(srv interface{},
 		FullMethod: PurchasePlatController_ListWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).ListWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnListRequest))
+		return srv.(PurchasePlatControllerServer).ListWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4309,7 +4053,7 @@ func _PurchasePlatController_PartialUpdateWdtStockinOrderPurchase_Handler(srv in
 }
 
 func _PurchasePlatController_PartialUpdateWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnPartialUpdateRequest)
+	in := new(WdtStockoutPurchaseReturnPartialUpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4321,7 +4065,7 @@ func _PurchasePlatController_PartialUpdateWdtStockoutOrderReturn_Handler(srv int
 		FullMethod: PurchasePlatController_PartialUpdateWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).PartialUpdateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnPartialUpdateRequest))
+		return srv.(PurchasePlatControllerServer).PartialUpdateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnPartialUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4453,7 +4197,7 @@ func _PurchasePlatController_RetrieveWdtStockinOrderPurchase_Handler(srv interfa
 }
 
 func _PurchasePlatController_RetrieveWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnRetrieveRequest)
+	in := new(WdtStockoutPurchaseReturnRetrieveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4465,7 +4209,7 @@ func _PurchasePlatController_RetrieveWdtStockoutOrderReturn_Handler(srv interfac
 		FullMethod: PurchasePlatController_RetrieveWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).RetrieveWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnRetrieveRequest))
+		return srv.(PurchasePlatControllerServer).RetrieveWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4597,7 +4341,7 @@ func _PurchasePlatController_UpdateWdtStockinOrderPurchase_Handler(srv interface
 }
 
 func _PurchasePlatController_UpdateWdtStockoutOrderReturn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WdtStockoutOrderReturnRequest)
+	in := new(WdtStockoutPurchaseReturnRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4609,7 +4353,7 @@ func _PurchasePlatController_UpdateWdtStockoutOrderReturn_Handler(srv interface{
 		FullMethod: PurchasePlatController_UpdateWdtStockoutOrderReturn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PurchasePlatControllerServer).UpdateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutOrderReturnRequest))
+		return srv.(PurchasePlatControllerServer).UpdateWdtStockoutOrderReturn(ctx, req.(*WdtStockoutPurchaseReturnRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4824,6 +4568,7 @@ const (
 	TradeAggController_CountAggPushStatus_FullMethodName                = "/kingdee_service.kingdee_ito.TradeAggController/CountAggPushStatus"
 	TradeAggController_Create_FullMethodName                            = "/kingdee_service.kingdee_ito.TradeAggController/Create"
 	TradeAggController_CreateAggParamsTrade_FullMethodName              = "/kingdee_service.kingdee_ito.TradeAggController/CreateAggParamsTrade"
+	TradeAggController_CreateChannelShopConfig_FullMethodName           = "/kingdee_service.kingdee_ito.TradeAggController/CreateChannelShopConfig"
 	TradeAggController_CreateClockedSchedule_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/CreateClockedSchedule"
 	TradeAggController_CreateCrontabSchedule_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/CreateCrontabSchedule"
 	TradeAggController_CreateIntervalSchedule_FullMethodName            = "/kingdee_service.kingdee_ito.TradeAggController/CreateIntervalSchedule"
@@ -4832,6 +4577,7 @@ const (
 	TradeAggController_Destroy_FullMethodName                           = "/kingdee_service.kingdee_ito.TradeAggController/Destroy"
 	TradeAggController_DestroyAggParamsTrade_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/DestroyAggParamsTrade"
 	TradeAggController_DestroyAggTrade_FullMethodName                   = "/kingdee_service.kingdee_ito.TradeAggController/DestroyAggTrade"
+	TradeAggController_DestroyChannelShopConfig_FullMethodName          = "/kingdee_service.kingdee_ito.TradeAggController/DestroyChannelShopConfig"
 	TradeAggController_DestroyClockedSchedule_FullMethodName            = "/kingdee_service.kingdee_ito.TradeAggController/DestroyClockedSchedule"
 	TradeAggController_DestroyCrontabSchedule_FullMethodName            = "/kingdee_service.kingdee_ito.TradeAggController/DestroyCrontabSchedule"
 	TradeAggController_DestroyIntervalSchedule_FullMethodName           = "/kingdee_service.kingdee_ito.TradeAggController/DestroyIntervalSchedule"
@@ -4841,8 +4587,10 @@ const (
 	TradeAggController_FetchTradeFromWdtList_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/FetchTradeFromWdtList"
 	TradeAggController_GetKingdeeShopNoInfo_FullMethodName              = "/kingdee_service.kingdee_ito.TradeAggController/GetKingdeeShopNoInfo"
 	TradeAggController_GetKingdeeStockNoInfo_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/GetKingdeeStockNoInfo"
+	TradeAggController_InitChannelShopConfig_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/InitChannelShopConfig"
 	TradeAggController_List_FullMethodName                              = "/kingdee_service.kingdee_ito.TradeAggController/List"
 	TradeAggController_ListAggParamsTrade_FullMethodName                = "/kingdee_service.kingdee_ito.TradeAggController/ListAggParamsTrade"
+	TradeAggController_ListChannelShopConfig_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/ListChannelShopConfig"
 	TradeAggController_ListClockedSchedule_FullMethodName               = "/kingdee_service.kingdee_ito.TradeAggController/ListClockedSchedule"
 	TradeAggController_ListCrontabSchedule_FullMethodName               = "/kingdee_service.kingdee_ito.TradeAggController/ListCrontabSchedule"
 	TradeAggController_ListIntervalSchedule_FullMethodName              = "/kingdee_service.kingdee_ito.TradeAggController/ListIntervalSchedule"
@@ -4856,6 +4604,7 @@ const (
 	TradeAggController_PushToKingDeeSalOutStock_FullMethodName          = "/kingdee_service.kingdee_ito.TradeAggController/PushToKingDeeSalOutStock"
 	TradeAggController_Retrieve_FullMethodName                          = "/kingdee_service.kingdee_ito.TradeAggController/Retrieve"
 	TradeAggController_RetrieveAggParamsTrade_FullMethodName            = "/kingdee_service.kingdee_ito.TradeAggController/RetrieveAggParamsTrade"
+	TradeAggController_RetrieveChannelShopConfig_FullMethodName         = "/kingdee_service.kingdee_ito.TradeAggController/RetrieveChannelShopConfig"
 	TradeAggController_RetrieveClockedSchedule_FullMethodName           = "/kingdee_service.kingdee_ito.TradeAggController/RetrieveClockedSchedule"
 	TradeAggController_RetrieveCrontabSchedule_FullMethodName           = "/kingdee_service.kingdee_ito.TradeAggController/RetrieveCrontabSchedule"
 	TradeAggController_RetrieveIntervalSchedule_FullMethodName          = "/kingdee_service.kingdee_ito.TradeAggController/RetrieveIntervalSchedule"
@@ -4875,6 +4624,7 @@ const (
 	TradeAggController_TaskSigFetchWdtTrade_FullMethodName              = "/kingdee_service.kingdee_ito.TradeAggController/TaskSigFetchWdtTrade"
 	TradeAggController_Update_FullMethodName                            = "/kingdee_service.kingdee_ito.TradeAggController/Update"
 	TradeAggController_UpdateAggParamsTrade_FullMethodName              = "/kingdee_service.kingdee_ito.TradeAggController/UpdateAggParamsTrade"
+	TradeAggController_UpdateChannelShopConfig_FullMethodName           = "/kingdee_service.kingdee_ito.TradeAggController/UpdateChannelShopConfig"
 	TradeAggController_UpdateClockedSchedule_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/UpdateClockedSchedule"
 	TradeAggController_UpdateCrontabSchedule_FullMethodName             = "/kingdee_service.kingdee_ito.TradeAggController/UpdateCrontabSchedule"
 	TradeAggController_UpdateIntervalSchedule_FullMethodName            = "/kingdee_service.kingdee_ito.TradeAggController/UpdateIntervalSchedule"
@@ -4892,6 +4642,7 @@ type TradeAggControllerClient interface {
 	CountAggPushStatus(ctx context.Context, in *AggPushStatusCountRequest, opts ...grpc.CallOption) (*AggPushStatusCountResponse, error)
 	Create(ctx context.Context, in *KingdeeTradeRequest, opts ...grpc.CallOption) (*KingdeeTradeResponse, error)
 	CreateAggParamsTrade(ctx context.Context, in *AggParamsTradeCreateRequest, opts ...grpc.CallOption) (*AggParamsTradeResponse, error)
+	CreateChannelShopConfig(ctx context.Context, in *ChannelShopConfigCreateRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error)
 	CreateClockedSchedule(ctx context.Context, in *ClockedScheduleCreateRequest, opts ...grpc.CallOption) (*ClockedScheduleResponse, error)
 	CreateCrontabSchedule(ctx context.Context, in *CrontabScheduleCreateRequest, opts ...grpc.CallOption) (*CrontabScheduleResponse, error)
 	CreateIntervalSchedule(ctx context.Context, in *IntervalScheduleCreateRequest, opts ...grpc.CallOption) (*IntervalScheduleResponse, error)
@@ -4900,6 +4651,7 @@ type TradeAggControllerClient interface {
 	Destroy(ctx context.Context, in *KingdeeTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyAggParamsTrade(ctx context.Context, in *AggParamsTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyAggTrade(ctx context.Context, in *DestroyAggTradeRequest, opts ...grpc.CallOption) (*DestroyAggTradeResponse, error)
+	DestroyChannelShopConfig(ctx context.Context, in *DestroyChannelShopConfigRequest, opts ...grpc.CallOption) (*DestroyChannelShopConfigResponse, error)
 	DestroyClockedSchedule(ctx context.Context, in *ClockedScheduleDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyCrontabSchedule(ctx context.Context, in *CrontabScheduleDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyIntervalSchedule(ctx context.Context, in *IntervalScheduleDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -4909,8 +4661,10 @@ type TradeAggControllerClient interface {
 	FetchTradeFromWdtList(ctx context.Context, in *FetchTradeListFromWdtRequest, opts ...grpc.CallOption) (*FetchTradeListFromWdtResponse, error)
 	GetKingdeeShopNoInfo(ctx context.Context, in *KingdeeShopNoInfoRequest, opts ...grpc.CallOption) (*KingdeeShopNoInfoResponse, error)
 	GetKingdeeStockNoInfo(ctx context.Context, in *KingdeeStockNoInfoRequest, opts ...grpc.CallOption) (*KingdeeStockNoInfoResponse, error)
+	InitChannelShopConfig(ctx context.Context, in *InitChannelShopConfigRequest, opts ...grpc.CallOption) (*InitChannelShopConfigResponse, error)
 	List(ctx context.Context, in *KingdeeTradeListRequest, opts ...grpc.CallOption) (*KingdeeTradeListResponse, error)
 	ListAggParamsTrade(ctx context.Context, in *AggParamsTradeListRequest, opts ...grpc.CallOption) (*AggParamsTradeListResponse, error)
+	ListChannelShopConfig(ctx context.Context, in *ChannelShopConfigListRequest, opts ...grpc.CallOption) (*ChannelShopConfigListResponse, error)
 	ListClockedSchedule(ctx context.Context, in *ClockedScheduleListRequest, opts ...grpc.CallOption) (*ClockedScheduleListResponse, error)
 	ListCrontabSchedule(ctx context.Context, in *CrontabScheduleListRequest, opts ...grpc.CallOption) (*CrontabScheduleListResponse, error)
 	ListIntervalSchedule(ctx context.Context, in *IntervalScheduleListRequest, opts ...grpc.CallOption) (*IntervalScheduleListResponse, error)
@@ -4924,6 +4678,7 @@ type TradeAggControllerClient interface {
 	PushToKingDeeSalOutStock(ctx context.Context, in *PushToKingDeeSalOutStockRequest, opts ...grpc.CallOption) (*PushToKingDeeSalOutStockResponse, error)
 	Retrieve(ctx context.Context, in *KingdeeTradeRetrieveRequest, opts ...grpc.CallOption) (*KingdeeTradeResponse, error)
 	RetrieveAggParamsTrade(ctx context.Context, in *AggParamsTradeRetrieveRequest, opts ...grpc.CallOption) (*AggParamsTradeResponse, error)
+	RetrieveChannelShopConfig(ctx context.Context, in *ChannelShopConfigRetrieveRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error)
 	RetrieveClockedSchedule(ctx context.Context, in *ClockedScheduleRetrieveRequest, opts ...grpc.CallOption) (*ClockedScheduleResponse, error)
 	RetrieveCrontabSchedule(ctx context.Context, in *CrontabScheduleRetrieveRequest, opts ...grpc.CallOption) (*CrontabScheduleResponse, error)
 	RetrieveIntervalSchedule(ctx context.Context, in *IntervalScheduleRetrieveRequest, opts ...grpc.CallOption) (*IntervalScheduleResponse, error)
@@ -4943,6 +4698,7 @@ type TradeAggControllerClient interface {
 	TaskSigFetchWdtTrade(ctx context.Context, in *TaskSigFetchWdtTradeRequest, opts ...grpc.CallOption) (*TaskSigFetchWdtTradeResponse, error)
 	Update(ctx context.Context, in *KingdeeTradeRequest, opts ...grpc.CallOption) (*KingdeeTradeResponse, error)
 	UpdateAggParamsTrade(ctx context.Context, in *AggParamsTradeUpdateRequest, opts ...grpc.CallOption) (*AggParamsTradeResponse, error)
+	UpdateChannelShopConfig(ctx context.Context, in *ChannelShopConfigUpdateRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error)
 	UpdateClockedSchedule(ctx context.Context, in *ClockedScheduleUpdateRequest, opts ...grpc.CallOption) (*ClockedScheduleResponse, error)
 	UpdateCrontabSchedule(ctx context.Context, in *CrontabScheduleUpdateRequest, opts ...grpc.CallOption) (*CrontabScheduleResponse, error)
 	UpdateIntervalSchedule(ctx context.Context, in *IntervalScheduleUpdateRequest, opts ...grpc.CallOption) (*IntervalScheduleResponse, error)
@@ -4998,6 +4754,15 @@ func (c *tradeAggControllerClient) Create(ctx context.Context, in *KingdeeTradeR
 func (c *tradeAggControllerClient) CreateAggParamsTrade(ctx context.Context, in *AggParamsTradeCreateRequest, opts ...grpc.CallOption) (*AggParamsTradeResponse, error) {
 	out := new(AggParamsTradeResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_CreateAggParamsTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tradeAggControllerClient) CreateChannelShopConfig(ctx context.Context, in *ChannelShopConfigCreateRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error) {
+	out := new(ChannelShopConfigResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_CreateChannelShopConfig_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5070,6 +4835,15 @@ func (c *tradeAggControllerClient) DestroyAggParamsTrade(ctx context.Context, in
 func (c *tradeAggControllerClient) DestroyAggTrade(ctx context.Context, in *DestroyAggTradeRequest, opts ...grpc.CallOption) (*DestroyAggTradeResponse, error) {
 	out := new(DestroyAggTradeResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_DestroyAggTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tradeAggControllerClient) DestroyChannelShopConfig(ctx context.Context, in *DestroyChannelShopConfigRequest, opts ...grpc.CallOption) (*DestroyChannelShopConfigResponse, error) {
+	out := new(DestroyChannelShopConfigResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_DestroyChannelShopConfig_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5157,6 +4931,15 @@ func (c *tradeAggControllerClient) GetKingdeeStockNoInfo(ctx context.Context, in
 	return out, nil
 }
 
+func (c *tradeAggControllerClient) InitChannelShopConfig(ctx context.Context, in *InitChannelShopConfigRequest, opts ...grpc.CallOption) (*InitChannelShopConfigResponse, error) {
+	out := new(InitChannelShopConfigResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_InitChannelShopConfig_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tradeAggControllerClient) List(ctx context.Context, in *KingdeeTradeListRequest, opts ...grpc.CallOption) (*KingdeeTradeListResponse, error) {
 	out := new(KingdeeTradeListResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_List_FullMethodName, in, out, opts...)
@@ -5169,6 +4952,15 @@ func (c *tradeAggControllerClient) List(ctx context.Context, in *KingdeeTradeLis
 func (c *tradeAggControllerClient) ListAggParamsTrade(ctx context.Context, in *AggParamsTradeListRequest, opts ...grpc.CallOption) (*AggParamsTradeListResponse, error) {
 	out := new(AggParamsTradeListResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_ListAggParamsTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tradeAggControllerClient) ListChannelShopConfig(ctx context.Context, in *ChannelShopConfigListRequest, opts ...grpc.CallOption) (*ChannelShopConfigListResponse, error) {
+	out := new(ChannelShopConfigListResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_ListChannelShopConfig_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5286,6 +5078,15 @@ func (c *tradeAggControllerClient) Retrieve(ctx context.Context, in *KingdeeTrad
 func (c *tradeAggControllerClient) RetrieveAggParamsTrade(ctx context.Context, in *AggParamsTradeRetrieveRequest, opts ...grpc.CallOption) (*AggParamsTradeResponse, error) {
 	out := new(AggParamsTradeResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_RetrieveAggParamsTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tradeAggControllerClient) RetrieveChannelShopConfig(ctx context.Context, in *ChannelShopConfigRetrieveRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error) {
+	out := new(ChannelShopConfigResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_RetrieveChannelShopConfig_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5463,6 +5264,15 @@ func (c *tradeAggControllerClient) UpdateAggParamsTrade(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *tradeAggControllerClient) UpdateChannelShopConfig(ctx context.Context, in *ChannelShopConfigUpdateRequest, opts ...grpc.CallOption) (*ChannelShopConfigResponse, error) {
+	out := new(ChannelShopConfigResponse)
+	err := c.cc.Invoke(ctx, TradeAggController_UpdateChannelShopConfig_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tradeAggControllerClient) UpdateClockedSchedule(ctx context.Context, in *ClockedScheduleUpdateRequest, opts ...grpc.CallOption) (*ClockedScheduleResponse, error) {
 	out := new(ClockedScheduleResponse)
 	err := c.cc.Invoke(ctx, TradeAggController_UpdateClockedSchedule_FullMethodName, in, out, opts...)
@@ -5526,6 +5336,7 @@ type TradeAggControllerServer interface {
 	CountAggPushStatus(context.Context, *AggPushStatusCountRequest) (*AggPushStatusCountResponse, error)
 	Create(context.Context, *KingdeeTradeRequest) (*KingdeeTradeResponse, error)
 	CreateAggParamsTrade(context.Context, *AggParamsTradeCreateRequest) (*AggParamsTradeResponse, error)
+	CreateChannelShopConfig(context.Context, *ChannelShopConfigCreateRequest) (*ChannelShopConfigResponse, error)
 	CreateClockedSchedule(context.Context, *ClockedScheduleCreateRequest) (*ClockedScheduleResponse, error)
 	CreateCrontabSchedule(context.Context, *CrontabScheduleCreateRequest) (*CrontabScheduleResponse, error)
 	CreateIntervalSchedule(context.Context, *IntervalScheduleCreateRequest) (*IntervalScheduleResponse, error)
@@ -5534,6 +5345,7 @@ type TradeAggControllerServer interface {
 	Destroy(context.Context, *KingdeeTradeDestroyRequest) (*emptypb.Empty, error)
 	DestroyAggParamsTrade(context.Context, *AggParamsTradeDestroyRequest) (*emptypb.Empty, error)
 	DestroyAggTrade(context.Context, *DestroyAggTradeRequest) (*DestroyAggTradeResponse, error)
+	DestroyChannelShopConfig(context.Context, *DestroyChannelShopConfigRequest) (*DestroyChannelShopConfigResponse, error)
 	DestroyClockedSchedule(context.Context, *ClockedScheduleDestroyRequest) (*emptypb.Empty, error)
 	DestroyCrontabSchedule(context.Context, *CrontabScheduleDestroyRequest) (*emptypb.Empty, error)
 	DestroyIntervalSchedule(context.Context, *IntervalScheduleDestroyRequest) (*emptypb.Empty, error)
@@ -5543,8 +5355,10 @@ type TradeAggControllerServer interface {
 	FetchTradeFromWdtList(context.Context, *FetchTradeListFromWdtRequest) (*FetchTradeListFromWdtResponse, error)
 	GetKingdeeShopNoInfo(context.Context, *KingdeeShopNoInfoRequest) (*KingdeeShopNoInfoResponse, error)
 	GetKingdeeStockNoInfo(context.Context, *KingdeeStockNoInfoRequest) (*KingdeeStockNoInfoResponse, error)
+	InitChannelShopConfig(context.Context, *InitChannelShopConfigRequest) (*InitChannelShopConfigResponse, error)
 	List(context.Context, *KingdeeTradeListRequest) (*KingdeeTradeListResponse, error)
 	ListAggParamsTrade(context.Context, *AggParamsTradeListRequest) (*AggParamsTradeListResponse, error)
+	ListChannelShopConfig(context.Context, *ChannelShopConfigListRequest) (*ChannelShopConfigListResponse, error)
 	ListClockedSchedule(context.Context, *ClockedScheduleListRequest) (*ClockedScheduleListResponse, error)
 	ListCrontabSchedule(context.Context, *CrontabScheduleListRequest) (*CrontabScheduleListResponse, error)
 	ListIntervalSchedule(context.Context, *IntervalScheduleListRequest) (*IntervalScheduleListResponse, error)
@@ -5558,6 +5372,7 @@ type TradeAggControllerServer interface {
 	PushToKingDeeSalOutStock(context.Context, *PushToKingDeeSalOutStockRequest) (*PushToKingDeeSalOutStockResponse, error)
 	Retrieve(context.Context, *KingdeeTradeRetrieveRequest) (*KingdeeTradeResponse, error)
 	RetrieveAggParamsTrade(context.Context, *AggParamsTradeRetrieveRequest) (*AggParamsTradeResponse, error)
+	RetrieveChannelShopConfig(context.Context, *ChannelShopConfigRetrieveRequest) (*ChannelShopConfigResponse, error)
 	RetrieveClockedSchedule(context.Context, *ClockedScheduleRetrieveRequest) (*ClockedScheduleResponse, error)
 	RetrieveCrontabSchedule(context.Context, *CrontabScheduleRetrieveRequest) (*CrontabScheduleResponse, error)
 	RetrieveIntervalSchedule(context.Context, *IntervalScheduleRetrieveRequest) (*IntervalScheduleResponse, error)
@@ -5577,6 +5392,7 @@ type TradeAggControllerServer interface {
 	TaskSigFetchWdtTrade(context.Context, *TaskSigFetchWdtTradeRequest) (*TaskSigFetchWdtTradeResponse, error)
 	Update(context.Context, *KingdeeTradeRequest) (*KingdeeTradeResponse, error)
 	UpdateAggParamsTrade(context.Context, *AggParamsTradeUpdateRequest) (*AggParamsTradeResponse, error)
+	UpdateChannelShopConfig(context.Context, *ChannelShopConfigUpdateRequest) (*ChannelShopConfigResponse, error)
 	UpdateClockedSchedule(context.Context, *ClockedScheduleUpdateRequest) (*ClockedScheduleResponse, error)
 	UpdateCrontabSchedule(context.Context, *CrontabScheduleUpdateRequest) (*CrontabScheduleResponse, error)
 	UpdateIntervalSchedule(context.Context, *IntervalScheduleUpdateRequest) (*IntervalScheduleResponse, error)
@@ -5605,6 +5421,9 @@ func (UnimplementedTradeAggControllerServer) Create(context.Context, *KingdeeTra
 func (UnimplementedTradeAggControllerServer) CreateAggParamsTrade(context.Context, *AggParamsTradeCreateRequest) (*AggParamsTradeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAggParamsTrade not implemented")
 }
+func (UnimplementedTradeAggControllerServer) CreateChannelShopConfig(context.Context, *ChannelShopConfigCreateRequest) (*ChannelShopConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateChannelShopConfig not implemented")
+}
 func (UnimplementedTradeAggControllerServer) CreateClockedSchedule(context.Context, *ClockedScheduleCreateRequest) (*ClockedScheduleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateClockedSchedule not implemented")
 }
@@ -5628,6 +5447,9 @@ func (UnimplementedTradeAggControllerServer) DestroyAggParamsTrade(context.Conte
 }
 func (UnimplementedTradeAggControllerServer) DestroyAggTrade(context.Context, *DestroyAggTradeRequest) (*DestroyAggTradeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggTrade not implemented")
+}
+func (UnimplementedTradeAggControllerServer) DestroyChannelShopConfig(context.Context, *DestroyChannelShopConfigRequest) (*DestroyChannelShopConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyChannelShopConfig not implemented")
 }
 func (UnimplementedTradeAggControllerServer) DestroyClockedSchedule(context.Context, *ClockedScheduleDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyClockedSchedule not implemented")
@@ -5656,11 +5478,17 @@ func (UnimplementedTradeAggControllerServer) GetKingdeeShopNoInfo(context.Contex
 func (UnimplementedTradeAggControllerServer) GetKingdeeStockNoInfo(context.Context, *KingdeeStockNoInfoRequest) (*KingdeeStockNoInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetKingdeeStockNoInfo not implemented")
 }
+func (UnimplementedTradeAggControllerServer) InitChannelShopConfig(context.Context, *InitChannelShopConfigRequest) (*InitChannelShopConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitChannelShopConfig not implemented")
+}
 func (UnimplementedTradeAggControllerServer) List(context.Context, *KingdeeTradeListRequest) (*KingdeeTradeListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
 func (UnimplementedTradeAggControllerServer) ListAggParamsTrade(context.Context, *AggParamsTradeListRequest) (*AggParamsTradeListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListAggParamsTrade not implemented")
+}
+func (UnimplementedTradeAggControllerServer) ListChannelShopConfig(context.Context, *ChannelShopConfigListRequest) (*ChannelShopConfigListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListChannelShopConfig not implemented")
 }
 func (UnimplementedTradeAggControllerServer) ListClockedSchedule(context.Context, *ClockedScheduleListRequest) (*ClockedScheduleListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListClockedSchedule not implemented")
@@ -5700,6 +5528,9 @@ func (UnimplementedTradeAggControllerServer) Retrieve(context.Context, *KingdeeT
 }
 func (UnimplementedTradeAggControllerServer) RetrieveAggParamsTrade(context.Context, *AggParamsTradeRetrieveRequest) (*AggParamsTradeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveAggParamsTrade not implemented")
+}
+func (UnimplementedTradeAggControllerServer) RetrieveChannelShopConfig(context.Context, *ChannelShopConfigRetrieveRequest) (*ChannelShopConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveChannelShopConfig not implemented")
 }
 func (UnimplementedTradeAggControllerServer) RetrieveClockedSchedule(context.Context, *ClockedScheduleRetrieveRequest) (*ClockedScheduleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveClockedSchedule not implemented")
@@ -5757,6 +5588,9 @@ func (UnimplementedTradeAggControllerServer) Update(context.Context, *KingdeeTra
 }
 func (UnimplementedTradeAggControllerServer) UpdateAggParamsTrade(context.Context, *AggParamsTradeUpdateRequest) (*AggParamsTradeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAggParamsTrade not implemented")
+}
+func (UnimplementedTradeAggControllerServer) UpdateChannelShopConfig(context.Context, *ChannelShopConfigUpdateRequest) (*ChannelShopConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateChannelShopConfig not implemented")
 }
 func (UnimplementedTradeAggControllerServer) UpdateClockedSchedule(context.Context, *ClockedScheduleUpdateRequest) (*ClockedScheduleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateClockedSchedule not implemented")
@@ -5875,6 +5709,24 @@ func _TradeAggController_CreateAggParamsTrade_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TradeAggControllerServer).CreateAggParamsTrade(ctx, req.(*AggParamsTradeCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TradeAggController_CreateChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelShopConfigCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).CreateChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_CreateChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).CreateChannelShopConfig(ctx, req.(*ChannelShopConfigCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6019,6 +5871,24 @@ func _TradeAggController_DestroyAggTrade_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TradeAggControllerServer).DestroyAggTrade(ctx, req.(*DestroyAggTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TradeAggController_DestroyChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyChannelShopConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).DestroyChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_DestroyChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).DestroyChannelShopConfig(ctx, req.(*DestroyChannelShopConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6185,6 +6055,24 @@ func _TradeAggController_GetKingdeeStockNoInfo_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TradeAggController_InitChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitChannelShopConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).InitChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_InitChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).InitChannelShopConfig(ctx, req.(*InitChannelShopConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TradeAggController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(KingdeeTradeListRequest)
 	if err := dec(in); err != nil {
@@ -6217,6 +6105,24 @@ func _TradeAggController_ListAggParamsTrade_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TradeAggControllerServer).ListAggParamsTrade(ctx, req.(*AggParamsTradeListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TradeAggController_ListChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelShopConfigListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).ListChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_ListChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).ListChannelShopConfig(ctx, req.(*ChannelShopConfigListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6451,6 +6357,24 @@ func _TradeAggController_RetrieveAggParamsTrade_Handler(srv interface{}, ctx con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TradeAggControllerServer).RetrieveAggParamsTrade(ctx, req.(*AggParamsTradeRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TradeAggController_RetrieveChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelShopConfigRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).RetrieveChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_RetrieveChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).RetrieveChannelShopConfig(ctx, req.(*ChannelShopConfigRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6797,6 +6721,24 @@ func _TradeAggController_UpdateAggParamsTrade_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TradeAggController_UpdateChannelShopConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelShopConfigUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeAggControllerServer).UpdateChannelShopConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeAggController_UpdateChannelShopConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeAggControllerServer).UpdateChannelShopConfig(ctx, req.(*ChannelShopConfigUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TradeAggController_UpdateClockedSchedule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ClockedScheduleUpdateRequest)
 	if err := dec(in); err != nil {
@@ -6933,6 +6875,10 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TradeAggController_CreateAggParamsTrade_Handler,
 		},
 		{
+			MethodName: "CreateChannelShopConfig",
+			Handler:    _TradeAggController_CreateChannelShopConfig_Handler,
+		},
+		{
 			MethodName: "CreateClockedSchedule",
 			Handler:    _TradeAggController_CreateClockedSchedule_Handler,
 		},
@@ -6963,6 +6909,10 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DestroyAggTrade",
 			Handler:    _TradeAggController_DestroyAggTrade_Handler,
+		},
+		{
+			MethodName: "DestroyChannelShopConfig",
+			Handler:    _TradeAggController_DestroyChannelShopConfig_Handler,
 		},
 		{
 			MethodName: "DestroyClockedSchedule",
@@ -7001,12 +6951,20 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TradeAggController_GetKingdeeStockNoInfo_Handler,
 		},
 		{
+			MethodName: "InitChannelShopConfig",
+			Handler:    _TradeAggController_InitChannelShopConfig_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _TradeAggController_List_Handler,
 		},
 		{
 			MethodName: "ListAggParamsTrade",
 			Handler:    _TradeAggController_ListAggParamsTrade_Handler,
+		},
+		{
+			MethodName: "ListChannelShopConfig",
+			Handler:    _TradeAggController_ListChannelShopConfig_Handler,
 		},
 		{
 			MethodName: "ListClockedSchedule",
@@ -7059,6 +7017,10 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveAggParamsTrade",
 			Handler:    _TradeAggController_RetrieveAggParamsTrade_Handler,
+		},
+		{
+			MethodName: "RetrieveChannelShopConfig",
+			Handler:    _TradeAggController_RetrieveChannelShopConfig_Handler,
 		},
 		{
 			MethodName: "RetrieveClockedSchedule",
@@ -7137,6 +7099,10 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TradeAggController_UpdateAggParamsTrade_Handler,
 		},
 		{
+			MethodName: "UpdateChannelShopConfig",
+			Handler:    _TradeAggController_UpdateChannelShopConfig_Handler,
+		},
+		{
 			MethodName: "UpdateClockedSchedule",
 			Handler:    _TradeAggController_UpdateClockedSchedule_Handler,
 		},
@@ -7168,6 +7134,7 @@ var TradeAggController_ServiceDesc = grpc.ServiceDesc{
 const (
 	TradeRefundAggController_AggTradeRefund_FullMethodName                     = "/kingdee_service.kingdee_ito.TradeRefundAggController/AggTradeRefund"
 	TradeRefundAggController_CountAggRefundPushStatus_FullMethodName           = "/kingdee_service.kingdee_ito.TradeRefundAggController/CountAggRefundPushStatus"
+	TradeRefundAggController_CountRefundStockInPushStatus_FullMethodName       = "/kingdee_service.kingdee_ito.TradeRefundAggController/CountRefundStockInPushStatus"
 	TradeRefundAggController_CreateKingdeeSalReturnStock_FullMethodName        = "/kingdee_service.kingdee_ito.TradeRefundAggController/CreateKingdeeSalReturnStock"
 	TradeRefundAggController_CreateWdtTradeRefund_FullMethodName               = "/kingdee_service.kingdee_ito.TradeRefundAggController/CreateWdtTradeRefund"
 	TradeRefundAggController_CreateWdtTradeRefundStockin_FullMethodName        = "/kingdee_service.kingdee_ito.TradeRefundAggController/CreateWdtTradeRefundStockin"
@@ -7189,6 +7156,7 @@ const (
 	TradeRefundAggController_RetrieveWdtTradeRefund_FullMethodName             = "/kingdee_service.kingdee_ito.TradeRefundAggController/RetrieveWdtTradeRefund"
 	TradeRefundAggController_RetrieveWdtTradeRefundStockin_FullMethodName      = "/kingdee_service.kingdee_ito.TradeRefundAggController/RetrieveWdtTradeRefundStockin"
 	TradeRefundAggController_TaskSigAggTradeRefund_FullMethodName              = "/kingdee_service.kingdee_ito.TradeRefundAggController/TaskSigAggTradeRefund"
+	TradeRefundAggController_TaskSigAggTradeRefundStockIn_FullMethodName       = "/kingdee_service.kingdee_ito.TradeRefundAggController/TaskSigAggTradeRefundStockIn"
 	TradeRefundAggController_TaskSigFetchTradeRefund_FullMethodName            = "/kingdee_service.kingdee_ito.TradeRefundAggController/TaskSigFetchTradeRefund"
 	TradeRefundAggController_TaskSigMatchTradeRefund_FullMethodName            = "/kingdee_service.kingdee_ito.TradeRefundAggController/TaskSigMatchTradeRefund"
 	TradeRefundAggController_TaskSigPushTradeRefund_FullMethodName             = "/kingdee_service.kingdee_ito.TradeRefundAggController/TaskSigPushTradeRefund"
@@ -7203,6 +7171,7 @@ const (
 type TradeRefundAggControllerClient interface {
 	AggTradeRefund(ctx context.Context, in *AggTradeRefundRequest, opts ...grpc.CallOption) (*AggTradeRefundResponse, error)
 	CountAggRefundPushStatus(ctx context.Context, in *CountAggRefundPushStatusRequest, opts ...grpc.CallOption) (*CountAggRefundPushStatusResponse, error)
+	CountRefundStockInPushStatus(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*CountRefundStockInPushStatusResponse, error)
 	CreateKingdeeSalReturnStock(ctx context.Context, in *KingdeeSalReturnStockRequest, opts ...grpc.CallOption) (*KingdeeSalReturnStockResponse, error)
 	CreateWdtTradeRefund(ctx context.Context, in *WdtTradeRefundRequest, opts ...grpc.CallOption) (*WdtTradeRefundResponse, error)
 	CreateWdtTradeRefundStockin(ctx context.Context, in *WdtTradeRefundStockinRequest, opts ...grpc.CallOption) (*WdtTradeRefundStockinResponse, error)
@@ -7224,6 +7193,7 @@ type TradeRefundAggControllerClient interface {
 	RetrieveWdtTradeRefund(ctx context.Context, in *WdtTradeRefundRetrieveRequest, opts ...grpc.CallOption) (*WdtTradeRefundResponse, error)
 	RetrieveWdtTradeRefundStockin(ctx context.Context, in *WdtTradeRefundStockinRetrieveRequest, opts ...grpc.CallOption) (*WdtTradeRefundStockinResponse, error)
 	TaskSigAggTradeRefund(ctx context.Context, in *TaskSigAggTradeRefundRequest, opts ...grpc.CallOption) (*TaskSigAggTradeRefundResponse, error)
+	TaskSigAggTradeRefundStockIn(ctx context.Context, in *TaskSigAggTradeRefundStockInRequest, opts ...grpc.CallOption) (*TaskSigAggTradeRefundResponse, error)
 	TaskSigFetchTradeRefund(ctx context.Context, in *TaskSigFetchTradeRefundRequest, opts ...grpc.CallOption) (*TaskSigFetchTradeRefundResponse, error)
 	TaskSigMatchTradeRefund(ctx context.Context, in *TaskSigMatchTradeRefundRequest, opts ...grpc.CallOption) (*TaskSigMatchTradeRefundResponse, error)
 	TaskSigPushTradeRefund(ctx context.Context, in *TaskSigPushTradeRefundRequest, opts ...grpc.CallOption) (*TaskSigPushTradeRefundResponse, error)
@@ -7252,6 +7222,15 @@ func (c *tradeRefundAggControllerClient) AggTradeRefund(ctx context.Context, in 
 func (c *tradeRefundAggControllerClient) CountAggRefundPushStatus(ctx context.Context, in *CountAggRefundPushStatusRequest, opts ...grpc.CallOption) (*CountAggRefundPushStatusResponse, error) {
 	out := new(CountAggRefundPushStatusResponse)
 	err := c.cc.Invoke(ctx, TradeRefundAggController_CountAggRefundPushStatus_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tradeRefundAggControllerClient) CountRefundStockInPushStatus(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*CountRefundStockInPushStatusResponse, error) {
+	out := new(CountRefundStockInPushStatusResponse)
+	err := c.cc.Invoke(ctx, TradeRefundAggController_CountRefundStockInPushStatus_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -7447,6 +7426,15 @@ func (c *tradeRefundAggControllerClient) TaskSigAggTradeRefund(ctx context.Conte
 	return out, nil
 }
 
+func (c *tradeRefundAggControllerClient) TaskSigAggTradeRefundStockIn(ctx context.Context, in *TaskSigAggTradeRefundStockInRequest, opts ...grpc.CallOption) (*TaskSigAggTradeRefundResponse, error) {
+	out := new(TaskSigAggTradeRefundResponse)
+	err := c.cc.Invoke(ctx, TradeRefundAggController_TaskSigAggTradeRefundStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tradeRefundAggControllerClient) TaskSigFetchTradeRefund(ctx context.Context, in *TaskSigFetchTradeRefundRequest, opts ...grpc.CallOption) (*TaskSigFetchTradeRefundResponse, error) {
 	out := new(TaskSigFetchTradeRefundResponse)
 	err := c.cc.Invoke(ctx, TradeRefundAggController_TaskSigFetchTradeRefund_FullMethodName, in, out, opts...)
@@ -7507,6 +7495,7 @@ func (c *tradeRefundAggControllerClient) UpdateWdtTradeRefundStockin(ctx context
 type TradeRefundAggControllerServer interface {
 	AggTradeRefund(context.Context, *AggTradeRefundRequest) (*AggTradeRefundResponse, error)
 	CountAggRefundPushStatus(context.Context, *CountAggRefundPushStatusRequest) (*CountAggRefundPushStatusResponse, error)
+	CountRefundStockInPushStatus(context.Context, *EmptyRequest) (*CountRefundStockInPushStatusResponse, error)
 	CreateKingdeeSalReturnStock(context.Context, *KingdeeSalReturnStockRequest) (*KingdeeSalReturnStockResponse, error)
 	CreateWdtTradeRefund(context.Context, *WdtTradeRefundRequest) (*WdtTradeRefundResponse, error)
 	CreateWdtTradeRefundStockin(context.Context, *WdtTradeRefundStockinRequest) (*WdtTradeRefundStockinResponse, error)
@@ -7528,6 +7517,7 @@ type TradeRefundAggControllerServer interface {
 	RetrieveWdtTradeRefund(context.Context, *WdtTradeRefundRetrieveRequest) (*WdtTradeRefundResponse, error)
 	RetrieveWdtTradeRefundStockin(context.Context, *WdtTradeRefundStockinRetrieveRequest) (*WdtTradeRefundStockinResponse, error)
 	TaskSigAggTradeRefund(context.Context, *TaskSigAggTradeRefundRequest) (*TaskSigAggTradeRefundResponse, error)
+	TaskSigAggTradeRefundStockIn(context.Context, *TaskSigAggTradeRefundStockInRequest) (*TaskSigAggTradeRefundResponse, error)
 	TaskSigFetchTradeRefund(context.Context, *TaskSigFetchTradeRefundRequest) (*TaskSigFetchTradeRefundResponse, error)
 	TaskSigMatchTradeRefund(context.Context, *TaskSigMatchTradeRefundRequest) (*TaskSigMatchTradeRefundResponse, error)
 	TaskSigPushTradeRefund(context.Context, *TaskSigPushTradeRefundRequest) (*TaskSigPushTradeRefundResponse, error)
@@ -7546,6 +7536,9 @@ func (UnimplementedTradeRefundAggControllerServer) AggTradeRefund(context.Contex
 }
 func (UnimplementedTradeRefundAggControllerServer) CountAggRefundPushStatus(context.Context, *CountAggRefundPushStatusRequest) (*CountAggRefundPushStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CountAggRefundPushStatus not implemented")
+}
+func (UnimplementedTradeRefundAggControllerServer) CountRefundStockInPushStatus(context.Context, *EmptyRequest) (*CountRefundStockInPushStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountRefundStockInPushStatus not implemented")
 }
 func (UnimplementedTradeRefundAggControllerServer) CreateKingdeeSalReturnStock(context.Context, *KingdeeSalReturnStockRequest) (*KingdeeSalReturnStockResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateKingdeeSalReturnStock not implemented")
@@ -7609,6 +7602,9 @@ func (UnimplementedTradeRefundAggControllerServer) RetrieveWdtTradeRefundStockin
 }
 func (UnimplementedTradeRefundAggControllerServer) TaskSigAggTradeRefund(context.Context, *TaskSigAggTradeRefundRequest) (*TaskSigAggTradeRefundResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggTradeRefund not implemented")
+}
+func (UnimplementedTradeRefundAggControllerServer) TaskSigAggTradeRefundStockIn(context.Context, *TaskSigAggTradeRefundStockInRequest) (*TaskSigAggTradeRefundResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggTradeRefundStockIn not implemented")
 }
 func (UnimplementedTradeRefundAggControllerServer) TaskSigFetchTradeRefund(context.Context, *TaskSigFetchTradeRefundRequest) (*TaskSigFetchTradeRefundResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchTradeRefund not implemented")
@@ -7674,6 +7670,24 @@ func _TradeRefundAggController_CountAggRefundPushStatus_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TradeRefundAggControllerServer).CountAggRefundPushStatus(ctx, req.(*CountAggRefundPushStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TradeRefundAggController_CountRefundStockInPushStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeRefundAggControllerServer).CountRefundStockInPushStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeRefundAggController_CountRefundStockInPushStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeRefundAggControllerServer).CountRefundStockInPushStatus(ctx, req.(*EmptyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8056,6 +8070,24 @@ func _TradeRefundAggController_TaskSigAggTradeRefund_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TradeRefundAggController_TaskSigAggTradeRefundStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggTradeRefundStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TradeRefundAggControllerServer).TaskSigAggTradeRefundStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TradeRefundAggController_TaskSigAggTradeRefundStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TradeRefundAggControllerServer).TaskSigAggTradeRefundStockIn(ctx, req.(*TaskSigAggTradeRefundStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TradeRefundAggController_TaskSigFetchTradeRefund_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TaskSigFetchTradeRefundRequest)
 	if err := dec(in); err != nil {
@@ -8180,6 +8212,10 @@ var TradeRefundAggController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TradeRefundAggController_CountAggRefundPushStatus_Handler,
 		},
 		{
+			MethodName: "CountRefundStockInPushStatus",
+			Handler:    _TradeRefundAggController_CountRefundStockInPushStatus_Handler,
+		},
+		{
 			MethodName: "CreateKingdeeSalReturnStock",
 			Handler:    _TradeRefundAggController_CreateKingdeeSalReturnStock_Handler,
 		},
@@ -8264,6 +8300,10 @@ var TradeRefundAggController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TradeRefundAggController_TaskSigAggTradeRefund_Handler,
 		},
 		{
+			MethodName: "TaskSigAggTradeRefundStockIn",
+			Handler:    _TradeRefundAggController_TaskSigAggTradeRefundStockIn_Handler,
+		},
+		{
 			MethodName: "TaskSigFetchTradeRefund",
 			Handler:    _TradeRefundAggController_TaskSigFetchTradeRefund_Handler,
 		},
@@ -8293,89 +8333,1622 @@ var TradeRefundAggController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TransferAggController_CreateTransferOrder_FullMethodName = "/kingdee_service.kingdee_ito.TransferAggController/CreateTransferOrder"
+	TransferController_AggTransByMonth_FullMethodName               = "/kingdee_service.kingdee_ito.TransferController/AggTransByMonth"
+	TransferController_AggTransPushStockInToKingdee_FullMethodName  = "/kingdee_service.kingdee_ito.TransferController/AggTransPushStockInToKingdee"
+	TransferController_AggTransPushStockOutToKingdee_FullMethodName = "/kingdee_service.kingdee_ito.TransferController/AggTransPushStockOutToKingdee"
+	TransferController_AggTransPushToKingdee_FullMethodName         = "/kingdee_service.kingdee_ito.TransferController/AggTransPushToKingdee"
+	TransferController_AggTransStockOutIn_FullMethodName            = "/kingdee_service.kingdee_ito.TransferController/AggTransStockOutIn"
+	TransferController_CountAggTransfer_FullMethodName              = "/kingdee_service.kingdee_ito.TransferController/CountAggTransfer"
+	TransferController_CountKingdeeTransfer_FullMethodName          = "/kingdee_service.kingdee_ito.TransferController/CountKingdeeTransfer"
+	TransferController_Create_FullMethodName                        = "/kingdee_service.kingdee_ito.TransferController/Create"
+	TransferController_CreateTransferOrder_FullMethodName           = "/kingdee_service.kingdee_ito.TransferController/CreateTransferOrder"
+	TransferController_Destroy_FullMethodName                       = "/kingdee_service.kingdee_ito.TransferController/Destroy"
+	TransferController_DestroyAggTrans_FullMethodName               = "/kingdee_service.kingdee_ito.TransferController/DestroyAggTrans"
+	TransferController_List_FullMethodName                          = "/kingdee_service.kingdee_ito.TransferController/List"
+	TransferController_ListAggTransfer_FullMethodName               = "/kingdee_service.kingdee_ito.TransferController/ListAggTransfer"
+	TransferController_ListKingdeeTransfer_FullMethodName           = "/kingdee_service.kingdee_ito.TransferController/ListKingdeeTransfer"
+	TransferController_PartialUpdate_FullMethodName                 = "/kingdee_service.kingdee_ito.TransferController/PartialUpdate"
+	TransferController_Retrieve_FullMethodName                      = "/kingdee_service.kingdee_ito.TransferController/Retrieve"
+	TransferController_TaskSigAggTransStockOutIn_FullMethodName     = "/kingdee_service.kingdee_ito.TransferController/TaskSigAggTransStockOutIn"
+	TransferController_TaskSigAggTransfer_FullMethodName            = "/kingdee_service.kingdee_ito.TransferController/TaskSigAggTransfer"
+	TransferController_TaskSigPushTransStockIn_FullMethodName       = "/kingdee_service.kingdee_ito.TransferController/TaskSigPushTransStockIn"
+	TransferController_TaskSigPushTransStockOut_FullMethodName      = "/kingdee_service.kingdee_ito.TransferController/TaskSigPushTransStockOut"
+	TransferController_TaskSigPushTransfer_FullMethodName           = "/kingdee_service.kingdee_ito.TransferController/TaskSigPushTransfer"
+	TransferController_TransferOption_FullMethodName                = "/kingdee_service.kingdee_ito.TransferController/TransferOption"
+	TransferController_Update_FullMethodName                        = "/kingdee_service.kingdee_ito.TransferController/Update"
 )
 
-// TransferAggControllerClient is the client API for TransferAggController service.
+// TransferControllerClient is the client API for TransferController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TransferAggControllerClient interface {
+type TransferControllerClient interface {
+	AggTransByMonth(ctx context.Context, in *AggTransByMonthRequest, opts ...grpc.CallOption) (*AggTransByMonthResponse, error)
+	AggTransPushStockInToKingdee(ctx context.Context, in *AggTransPushStockInToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushStockInToKingdeeResponse, error)
+	AggTransPushStockOutToKingdee(ctx context.Context, in *AggTransPushStockOutToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushStockOutToKingdeeResponse, error)
+	AggTransPushToKingdee(ctx context.Context, in *AggTransPushToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushToKingdeeResponse, error)
+	AggTransStockOutIn(ctx context.Context, in *AggTransStockOutInRequest, opts ...grpc.CallOption) (*AggTransStockOutInResponse, error)
+	CountAggTransfer(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
+	CountKingdeeTransfer(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
+	Create(ctx context.Context, in *WdtTransferOrderRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error)
 	CreateTransferOrder(ctx context.Context, in *TransferCreateOptsRequest, opts ...grpc.CallOption) (*CreateTransferOrderResponse, error)
+	Destroy(ctx context.Context, in *WdtTransferOrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyAggTrans(ctx context.Context, in *DestroyAggTransRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	List(ctx context.Context, in *WdtTransferOrderListRequest, opts ...grpc.CallOption) (*WdtTransferOrderListResponse, error)
+	ListAggTransfer(ctx context.Context, in *AggTransferListRequest, opts ...grpc.CallOption) (*AggTransferOrderListResponse, error)
+	ListKingdeeTransfer(ctx context.Context, in *KingdeeTransferListRequest, opts ...grpc.CallOption) (*KingdeeTransferOrderListResponse, error)
+	PartialUpdate(ctx context.Context, in *WdtTransferOrderPartialUpdateRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error)
+	Retrieve(ctx context.Context, in *WdtTransferOrderRetrieveRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error)
+	TaskSigAggTransStockOutIn(ctx context.Context, in *TaskSigAggTransStockOutInRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	TaskSigAggTransfer(ctx context.Context, in *TaskSigAggTransferRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	TaskSigPushTransStockIn(ctx context.Context, in *TaskSigPushTransStockInRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	TaskSigPushTransStockOut(ctx context.Context, in *TaskSigPushTransStockOutRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	TaskSigPushTransfer(ctx context.Context, in *TaskSigPushTransferRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	TransferOption(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*TransferOptionResponse, error)
+	Update(ctx context.Context, in *WdtTransferOrderRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error)
 }
 
-type transferAggControllerClient struct {
+type transferControllerClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTransferAggControllerClient(cc grpc.ClientConnInterface) TransferAggControllerClient {
-	return &transferAggControllerClient{cc}
+func NewTransferControllerClient(cc grpc.ClientConnInterface) TransferControllerClient {
+	return &transferControllerClient{cc}
 }
 
-func (c *transferAggControllerClient) CreateTransferOrder(ctx context.Context, in *TransferCreateOptsRequest, opts ...grpc.CallOption) (*CreateTransferOrderResponse, error) {
-	out := new(CreateTransferOrderResponse)
-	err := c.cc.Invoke(ctx, TransferAggController_CreateTransferOrder_FullMethodName, in, out, opts...)
+func (c *transferControllerClient) AggTransByMonth(ctx context.Context, in *AggTransByMonthRequest, opts ...grpc.CallOption) (*AggTransByMonthResponse, error) {
+	out := new(AggTransByMonthResponse)
+	err := c.cc.Invoke(ctx, TransferController_AggTransByMonth_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TransferAggControllerServer is the server API for TransferAggController service.
-// All implementations must embed UnimplementedTransferAggControllerServer
+func (c *transferControllerClient) AggTransPushStockInToKingdee(ctx context.Context, in *AggTransPushStockInToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushStockInToKingdeeResponse, error) {
+	out := new(AggTransPushStockInToKingdeeResponse)
+	err := c.cc.Invoke(ctx, TransferController_AggTransPushStockInToKingdee_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) AggTransPushStockOutToKingdee(ctx context.Context, in *AggTransPushStockOutToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushStockOutToKingdeeResponse, error) {
+	out := new(AggTransPushStockOutToKingdeeResponse)
+	err := c.cc.Invoke(ctx, TransferController_AggTransPushStockOutToKingdee_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) AggTransPushToKingdee(ctx context.Context, in *AggTransPushToKingdeeRequest, opts ...grpc.CallOption) (*AggTransPushToKingdeeResponse, error) {
+	out := new(AggTransPushToKingdeeResponse)
+	err := c.cc.Invoke(ctx, TransferController_AggTransPushToKingdee_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) AggTransStockOutIn(ctx context.Context, in *AggTransStockOutInRequest, opts ...grpc.CallOption) (*AggTransStockOutInResponse, error) {
+	out := new(AggTransStockOutInResponse)
+	err := c.cc.Invoke(ctx, TransferController_AggTransStockOutIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) CountAggTransfer(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, TransferController_CountAggTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) CountKingdeeTransfer(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, TransferController_CountKingdeeTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) Create(ctx context.Context, in *WdtTransferOrderRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error) {
+	out := new(WdtTransferOrderResponse)
+	err := c.cc.Invoke(ctx, TransferController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) CreateTransferOrder(ctx context.Context, in *TransferCreateOptsRequest, opts ...grpc.CallOption) (*CreateTransferOrderResponse, error) {
+	out := new(CreateTransferOrderResponse)
+	err := c.cc.Invoke(ctx, TransferController_CreateTransferOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) Destroy(ctx context.Context, in *WdtTransferOrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, TransferController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) DestroyAggTrans(ctx context.Context, in *DestroyAggTransRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_DestroyAggTrans_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) List(ctx context.Context, in *WdtTransferOrderListRequest, opts ...grpc.CallOption) (*WdtTransferOrderListResponse, error) {
+	out := new(WdtTransferOrderListResponse)
+	err := c.cc.Invoke(ctx, TransferController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) ListAggTransfer(ctx context.Context, in *AggTransferListRequest, opts ...grpc.CallOption) (*AggTransferOrderListResponse, error) {
+	out := new(AggTransferOrderListResponse)
+	err := c.cc.Invoke(ctx, TransferController_ListAggTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) ListKingdeeTransfer(ctx context.Context, in *KingdeeTransferListRequest, opts ...grpc.CallOption) (*KingdeeTransferOrderListResponse, error) {
+	out := new(KingdeeTransferOrderListResponse)
+	err := c.cc.Invoke(ctx, TransferController_ListKingdeeTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) PartialUpdate(ctx context.Context, in *WdtTransferOrderPartialUpdateRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error) {
+	out := new(WdtTransferOrderResponse)
+	err := c.cc.Invoke(ctx, TransferController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) Retrieve(ctx context.Context, in *WdtTransferOrderRetrieveRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error) {
+	out := new(WdtTransferOrderResponse)
+	err := c.cc.Invoke(ctx, TransferController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TaskSigAggTransStockOutIn(ctx context.Context, in *TaskSigAggTransStockOutInRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_TaskSigAggTransStockOutIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TaskSigAggTransfer(ctx context.Context, in *TaskSigAggTransferRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_TaskSigAggTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TaskSigPushTransStockIn(ctx context.Context, in *TaskSigPushTransStockInRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_TaskSigPushTransStockIn_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TaskSigPushTransStockOut(ctx context.Context, in *TaskSigPushTransStockOutRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_TaskSigPushTransStockOut_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TaskSigPushTransfer(ctx context.Context, in *TaskSigPushTransferRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, TransferController_TaskSigPushTransfer_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) TransferOption(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*TransferOptionResponse, error) {
+	out := new(TransferOptionResponse)
+	err := c.cc.Invoke(ctx, TransferController_TransferOption_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transferControllerClient) Update(ctx context.Context, in *WdtTransferOrderRequest, opts ...grpc.CallOption) (*WdtTransferOrderResponse, error) {
+	out := new(WdtTransferOrderResponse)
+	err := c.cc.Invoke(ctx, TransferController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TransferControllerServer is the server API for TransferController service.
+// All implementations must embed UnimplementedTransferControllerServer
 // for forward compatibility
-type TransferAggControllerServer interface {
+type TransferControllerServer interface {
+	AggTransByMonth(context.Context, *AggTransByMonthRequest) (*AggTransByMonthResponse, error)
+	AggTransPushStockInToKingdee(context.Context, *AggTransPushStockInToKingdeeRequest) (*AggTransPushStockInToKingdeeResponse, error)
+	AggTransPushStockOutToKingdee(context.Context, *AggTransPushStockOutToKingdeeRequest) (*AggTransPushStockOutToKingdeeResponse, error)
+	AggTransPushToKingdee(context.Context, *AggTransPushToKingdeeRequest) (*AggTransPushToKingdeeResponse, error)
+	AggTransStockOutIn(context.Context, *AggTransStockOutInRequest) (*AggTransStockOutInResponse, error)
+	CountAggTransfer(context.Context, *EmptyRequest) (*StaticsResponse, error)
+	CountKingdeeTransfer(context.Context, *EmptyRequest) (*StaticsResponse, error)
+	Create(context.Context, *WdtTransferOrderRequest) (*WdtTransferOrderResponse, error)
 	CreateTransferOrder(context.Context, *TransferCreateOptsRequest) (*CreateTransferOrderResponse, error)
-	mustEmbedUnimplementedTransferAggControllerServer()
+	Destroy(context.Context, *WdtTransferOrderDestroyRequest) (*emptypb.Empty, error)
+	DestroyAggTrans(context.Context, *DestroyAggTransRequest) (*CodeMsgResponse, error)
+	List(context.Context, *WdtTransferOrderListRequest) (*WdtTransferOrderListResponse, error)
+	ListAggTransfer(context.Context, *AggTransferListRequest) (*AggTransferOrderListResponse, error)
+	ListKingdeeTransfer(context.Context, *KingdeeTransferListRequest) (*KingdeeTransferOrderListResponse, error)
+	PartialUpdate(context.Context, *WdtTransferOrderPartialUpdateRequest) (*WdtTransferOrderResponse, error)
+	Retrieve(context.Context, *WdtTransferOrderRetrieveRequest) (*WdtTransferOrderResponse, error)
+	TaskSigAggTransStockOutIn(context.Context, *TaskSigAggTransStockOutInRequest) (*CodeMsgResponse, error)
+	TaskSigAggTransfer(context.Context, *TaskSigAggTransferRequest) (*CodeMsgResponse, error)
+	TaskSigPushTransStockIn(context.Context, *TaskSigPushTransStockInRequest) (*CodeMsgResponse, error)
+	TaskSigPushTransStockOut(context.Context, *TaskSigPushTransStockOutRequest) (*CodeMsgResponse, error)
+	TaskSigPushTransfer(context.Context, *TaskSigPushTransferRequest) (*CodeMsgResponse, error)
+	TransferOption(context.Context, *EmptyRequest) (*TransferOptionResponse, error)
+	Update(context.Context, *WdtTransferOrderRequest) (*WdtTransferOrderResponse, error)
+	mustEmbedUnimplementedTransferControllerServer()
 }
 
-// UnimplementedTransferAggControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedTransferAggControllerServer struct {
+// UnimplementedTransferControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedTransferControllerServer struct {
 }
 
-func (UnimplementedTransferAggControllerServer) CreateTransferOrder(context.Context, *TransferCreateOptsRequest) (*CreateTransferOrderResponse, error) {
+func (UnimplementedTransferControllerServer) AggTransByMonth(context.Context, *AggTransByMonthRequest) (*AggTransByMonthResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggTransByMonth not implemented")
+}
+func (UnimplementedTransferControllerServer) AggTransPushStockInToKingdee(context.Context, *AggTransPushStockInToKingdeeRequest) (*AggTransPushStockInToKingdeeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggTransPushStockInToKingdee not implemented")
+}
+func (UnimplementedTransferControllerServer) AggTransPushStockOutToKingdee(context.Context, *AggTransPushStockOutToKingdeeRequest) (*AggTransPushStockOutToKingdeeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggTransPushStockOutToKingdee not implemented")
+}
+func (UnimplementedTransferControllerServer) AggTransPushToKingdee(context.Context, *AggTransPushToKingdeeRequest) (*AggTransPushToKingdeeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggTransPushToKingdee not implemented")
+}
+func (UnimplementedTransferControllerServer) AggTransStockOutIn(context.Context, *AggTransStockOutInRequest) (*AggTransStockOutInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggTransStockOutIn not implemented")
+}
+func (UnimplementedTransferControllerServer) CountAggTransfer(context.Context, *EmptyRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountAggTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) CountKingdeeTransfer(context.Context, *EmptyRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CountKingdeeTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) Create(context.Context, *WdtTransferOrderRequest) (*WdtTransferOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedTransferControllerServer) CreateTransferOrder(context.Context, *TransferCreateOptsRequest) (*CreateTransferOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransferOrder not implemented")
 }
-func (UnimplementedTransferAggControllerServer) mustEmbedUnimplementedTransferAggControllerServer() {}
+func (UnimplementedTransferControllerServer) Destroy(context.Context, *WdtTransferOrderDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedTransferControllerServer) DestroyAggTrans(context.Context, *DestroyAggTransRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggTrans not implemented")
+}
+func (UnimplementedTransferControllerServer) List(context.Context, *WdtTransferOrderListRequest) (*WdtTransferOrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedTransferControllerServer) ListAggTransfer(context.Context, *AggTransferListRequest) (*AggTransferOrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAggTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) ListKingdeeTransfer(context.Context, *KingdeeTransferListRequest) (*KingdeeTransferOrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListKingdeeTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) PartialUpdate(context.Context, *WdtTransferOrderPartialUpdateRequest) (*WdtTransferOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedTransferControllerServer) Retrieve(context.Context, *WdtTransferOrderRetrieveRequest) (*WdtTransferOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedTransferControllerServer) TaskSigAggTransStockOutIn(context.Context, *TaskSigAggTransStockOutInRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggTransStockOutIn not implemented")
+}
+func (UnimplementedTransferControllerServer) TaskSigAggTransfer(context.Context, *TaskSigAggTransferRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) TaskSigPushTransStockIn(context.Context, *TaskSigPushTransStockInRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigPushTransStockIn not implemented")
+}
+func (UnimplementedTransferControllerServer) TaskSigPushTransStockOut(context.Context, *TaskSigPushTransStockOutRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigPushTransStockOut not implemented")
+}
+func (UnimplementedTransferControllerServer) TaskSigPushTransfer(context.Context, *TaskSigPushTransferRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigPushTransfer not implemented")
+}
+func (UnimplementedTransferControllerServer) TransferOption(context.Context, *EmptyRequest) (*TransferOptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TransferOption not implemented")
+}
+func (UnimplementedTransferControllerServer) Update(context.Context, *WdtTransferOrderRequest) (*WdtTransferOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedTransferControllerServer) mustEmbedUnimplementedTransferControllerServer() {}
 
-// UnsafeTransferAggControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TransferAggControllerServer will
+// UnsafeTransferControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TransferControllerServer will
 // result in compilation errors.
-type UnsafeTransferAggControllerServer interface {
-	mustEmbedUnimplementedTransferAggControllerServer()
+type UnsafeTransferControllerServer interface {
+	mustEmbedUnimplementedTransferControllerServer()
 }
 
-func RegisterTransferAggControllerServer(s grpc.ServiceRegistrar, srv TransferAggControllerServer) {
-	s.RegisterService(&TransferAggController_ServiceDesc, srv)
+func RegisterTransferControllerServer(s grpc.ServiceRegistrar, srv TransferControllerServer) {
+	s.RegisterService(&TransferController_ServiceDesc, srv)
 }
 
-func _TransferAggController_CreateTransferOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TransferController_AggTransByMonth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransByMonthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).AggTransByMonth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_AggTransByMonth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).AggTransByMonth(ctx, req.(*AggTransByMonthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_AggTransPushStockInToKingdee_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransPushStockInToKingdeeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).AggTransPushStockInToKingdee(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_AggTransPushStockInToKingdee_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).AggTransPushStockInToKingdee(ctx, req.(*AggTransPushStockInToKingdeeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_AggTransPushStockOutToKingdee_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransPushStockOutToKingdeeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).AggTransPushStockOutToKingdee(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_AggTransPushStockOutToKingdee_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).AggTransPushStockOutToKingdee(ctx, req.(*AggTransPushStockOutToKingdeeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_AggTransPushToKingdee_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransPushToKingdeeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).AggTransPushToKingdee(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_AggTransPushToKingdee_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).AggTransPushToKingdee(ctx, req.(*AggTransPushToKingdeeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_AggTransStockOutIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransStockOutInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).AggTransStockOutIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_AggTransStockOutIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).AggTransStockOutIn(ctx, req.(*AggTransStockOutInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_CountAggTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).CountAggTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_CountAggTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).CountAggTransfer(ctx, req.(*EmptyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_CountKingdeeTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).CountKingdeeTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_CountKingdeeTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).CountKingdeeTransfer(ctx, req.(*EmptyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).Create(ctx, req.(*WdtTransferOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_CreateTransferOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TransferCreateOptsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransferAggControllerServer).CreateTransferOrder(ctx, in)
+		return srv.(TransferControllerServer).CreateTransferOrder(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransferAggController_CreateTransferOrder_FullMethodName,
+		FullMethod: TransferController_CreateTransferOrder_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransferAggControllerServer).CreateTransferOrder(ctx, req.(*TransferCreateOptsRequest))
+		return srv.(TransferControllerServer).CreateTransferOrder(ctx, req.(*TransferCreateOptsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TransferAggController_ServiceDesc is the grpc.ServiceDesc for TransferAggController service.
+func _TransferController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).Destroy(ctx, req.(*WdtTransferOrderDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_DestroyAggTrans_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggTransRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).DestroyAggTrans(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_DestroyAggTrans_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).DestroyAggTrans(ctx, req.(*DestroyAggTransRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).List(ctx, req.(*WdtTransferOrderListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_ListAggTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggTransferListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).ListAggTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_ListAggTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).ListAggTransfer(ctx, req.(*AggTransferListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_ListKingdeeTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KingdeeTransferListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).ListKingdeeTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_ListKingdeeTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).ListKingdeeTransfer(ctx, req.(*KingdeeTransferListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).PartialUpdate(ctx, req.(*WdtTransferOrderPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).Retrieve(ctx, req.(*WdtTransferOrderRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TaskSigAggTransStockOutIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggTransStockOutInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TaskSigAggTransStockOutIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TaskSigAggTransStockOutIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TaskSigAggTransStockOutIn(ctx, req.(*TaskSigAggTransStockOutInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TaskSigAggTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggTransferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TaskSigAggTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TaskSigAggTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TaskSigAggTransfer(ctx, req.(*TaskSigAggTransferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TaskSigPushTransStockIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigPushTransStockInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TaskSigPushTransStockIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TaskSigPushTransStockIn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TaskSigPushTransStockIn(ctx, req.(*TaskSigPushTransStockInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TaskSigPushTransStockOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigPushTransStockOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TaskSigPushTransStockOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TaskSigPushTransStockOut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TaskSigPushTransStockOut(ctx, req.(*TaskSigPushTransStockOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TaskSigPushTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigPushTransferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TaskSigPushTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TaskSigPushTransfer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TaskSigPushTransfer(ctx, req.(*TaskSigPushTransferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_TransferOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).TransferOption(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_TransferOption_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).TransferOption(ctx, req.(*EmptyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransferController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtTransferOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransferControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransferController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransferControllerServer).Update(ctx, req.(*WdtTransferOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TransferController_ServiceDesc is the grpc.ServiceDesc for TransferController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TransferAggController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "kingdee_service.kingdee_ito.TransferAggController",
-	HandlerType: (*TransferAggControllerServer)(nil),
+var TransferController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "kingdee_service.kingdee_ito.TransferController",
+	HandlerType: (*TransferControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "AggTransByMonth",
+			Handler:    _TransferController_AggTransByMonth_Handler,
+		},
+		{
+			MethodName: "AggTransPushStockInToKingdee",
+			Handler:    _TransferController_AggTransPushStockInToKingdee_Handler,
+		},
+		{
+			MethodName: "AggTransPushStockOutToKingdee",
+			Handler:    _TransferController_AggTransPushStockOutToKingdee_Handler,
+		},
+		{
+			MethodName: "AggTransPushToKingdee",
+			Handler:    _TransferController_AggTransPushToKingdee_Handler,
+		},
+		{
+			MethodName: "AggTransStockOutIn",
+			Handler:    _TransferController_AggTransStockOutIn_Handler,
+		},
+		{
+			MethodName: "CountAggTransfer",
+			Handler:    _TransferController_CountAggTransfer_Handler,
+		},
+		{
+			MethodName: "CountKingdeeTransfer",
+			Handler:    _TransferController_CountKingdeeTransfer_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _TransferController_Create_Handler,
+		},
+		{
 			MethodName: "CreateTransferOrder",
-			Handler:    _TransferAggController_CreateTransferOrder_Handler,
+			Handler:    _TransferController_CreateTransferOrder_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _TransferController_Destroy_Handler,
+		},
+		{
+			MethodName: "DestroyAggTrans",
+			Handler:    _TransferController_DestroyAggTrans_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _TransferController_List_Handler,
+		},
+		{
+			MethodName: "ListAggTransfer",
+			Handler:    _TransferController_ListAggTransfer_Handler,
+		},
+		{
+			MethodName: "ListKingdeeTransfer",
+			Handler:    _TransferController_ListKingdeeTransfer_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _TransferController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _TransferController_Retrieve_Handler,
+		},
+		{
+			MethodName: "TaskSigAggTransStockOutIn",
+			Handler:    _TransferController_TaskSigAggTransStockOutIn_Handler,
+		},
+		{
+			MethodName: "TaskSigAggTransfer",
+			Handler:    _TransferController_TaskSigAggTransfer_Handler,
+		},
+		{
+			MethodName: "TaskSigPushTransStockIn",
+			Handler:    _TransferController_TaskSigPushTransStockIn_Handler,
+		},
+		{
+			MethodName: "TaskSigPushTransStockOut",
+			Handler:    _TransferController_TaskSigPushTransStockOut_Handler,
+		},
+		{
+			MethodName: "TaskSigPushTransfer",
+			Handler:    _TransferController_TaskSigPushTransfer_Handler,
+		},
+		{
+			MethodName: "TransferOption",
+			Handler:    _TransferController_TransferOption_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _TransferController_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "kingdee_ito.proto",
+}
+
+const (
+	VasOrderAggController_DestroyAggKingdeeStkMisdelivery_FullMethodName             = "/kingdee_service.kingdee_ito.VasOrderAggController/DestroyAggKingdeeStkMisdelivery"
+	VasOrderAggController_DestroyAggSeedingKingdeeTransferDirect_FullMethodName      = "/kingdee_service.kingdee_ito.VasOrderAggController/DestroyAggSeedingKingdeeTransferDirect"
+	VasOrderAggController_DestroyAggSwapKingdeeRefund_FullMethodName                 = "/kingdee_service.kingdee_ito.VasOrderAggController/DestroyAggSwapKingdeeRefund"
+	VasOrderAggController_DestroyAggSwapKingdeeSalOutStock_FullMethodName            = "/kingdee_service.kingdee_ito.VasOrderAggController/DestroyAggSwapKingdeeSalOutStock"
+	VasOrderAggController_List_FullMethodName                                        = "/kingdee_service.kingdee_ito.VasOrderAggController/List"
+	VasOrderAggController_ListRepairKingdeeStkMisDelivery_FullMethodName             = "/kingdee_service.kingdee_ito.VasOrderAggController/ListRepairKingdeeStkMisDelivery"
+	VasOrderAggController_ListSeedingKingdeeStkTransferDirect_FullMethodName         = "/kingdee_service.kingdee_ito.VasOrderAggController/ListSeedingKingdeeStkTransferDirect"
+	VasOrderAggController_ListSwapKingdeeSalOutStock_FullMethodName                  = "/kingdee_service.kingdee_ito.VasOrderAggController/ListSwapKingdeeSalOutStock"
+	VasOrderAggController_ListSwapKingdeeSalReturnStock_FullMethodName               = "/kingdee_service.kingdee_ito.VasOrderAggController/ListSwapKingdeeSalReturnStock"
+	VasOrderAggController_RunPeriodPushRepairToKingdeeMisDelivery_FullMethodName     = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushRepairToKingdeeMisDelivery"
+	VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_FullMethodName = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSeedingToKingdeeTransferDirect"
+	VasOrderAggController_RunPeriodPushSwapRefundToKingdee_FullMethodName            = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSwapRefundToKingdee"
+	VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_FullMethodName       = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSwapSalOutStockToKingdee"
+	VasOrderAggController_TaskSigAggRepairStockout_FullMethodName                    = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggRepairStockout"
+	VasOrderAggController_TaskSigAggSeedingTrade_FullMethodName                      = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSeedingTrade"
+	VasOrderAggController_TaskSigAggSwapStockin_FullMethodName                       = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSwapStockin"
+	VasOrderAggController_TaskSigAggSwapTrade_FullMethodName                         = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSwapTrade"
+	VasOrderAggController_TaskSigFetchStockinOrder_FullMethodName                    = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigFetchStockinOrder"
+)
+
+// VasOrderAggControllerClient is the client API for VasOrderAggController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VasOrderAggControllerClient interface {
+	DestroyAggKingdeeStkMisdelivery(ctx context.Context, in *DestroyAggKingdeeStkMisdeliveryRequest, opts ...grpc.CallOption) (*DestroyAggKingdeeStkMisdeliveryResponse, error)
+	DestroyAggSeedingKingdeeTransferDirect(ctx context.Context, in *DestroyAggSeedingKingdeeTransferDirectRequest, opts ...grpc.CallOption) (*DestroyAggSeedingKingdeeTransferDirectResponse, error)
+	DestroyAggSwapKingdeeRefund(ctx context.Context, in *DestroyAggSwapKingdeeRefundRequest, opts ...grpc.CallOption) (*DestroyAggSwapKingdeeRefundResponse, error)
+	DestroyAggSwapKingdeeSalOutStock(ctx context.Context, in *DestroyAggSwapKingdeeSalOutStockRequest, opts ...grpc.CallOption) (*DestroyAggSwapKingdeeSalOutStockResponse, error)
+	List(ctx context.Context, in *WdtStockinModelListRequest, opts ...grpc.CallOption) (*WdtStockinModelListResponse, error)
+	ListRepairKingdeeStkMisDelivery(ctx context.Context, in *VasOrderAggListRepairKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*KingdeeStkMisDeliveryListResponse, error)
+	ListSeedingKingdeeStkTransferDirect(ctx context.Context, in *VasOrderAggListSeedingKingdeeStkTransferDirectRequest, opts ...grpc.CallOption) (*SeedingKingdeeStkTransferDirectListResponse, error)
+	ListSwapKingdeeSalOutStock(ctx context.Context, in *VasOrderAggListSwapKingdeeSalOutStockRequest, opts ...grpc.CallOption) (*SwapKingdeeSalOutStockListResponse, error)
+	ListSwapKingdeeSalReturnStock(ctx context.Context, in *VasOrderAggListSwapKingdeeSalReturnStockRequest, opts ...grpc.CallOption) (*SwapKingdeeSalReturnStockListResponse, error)
+	RunPeriodPushRepairToKingdeeMisDelivery(ctx context.Context, in *RunPeriodPushRepairToKingdeeMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushRepairToKingdeeMisDeliveryResponse, error)
+	RunPeriodPushSeedingToKingdeeTransferDirect(ctx context.Context, in *RunPeriodPushSeedingToKingdeeTransferDirectRequest, opts ...grpc.CallOption) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error)
+	RunPeriodPushSwapRefundToKingdee(ctx context.Context, in *RunPeriodPushSwapRefundToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapRefundToKingdeeResponse, error)
+	RunPeriodPushSwapSalOutStockToKingdee(ctx context.Context, in *RunPeriodPushSwapSalOutStockToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error)
+	TaskSigAggRepairStockout(ctx context.Context, in *TaskSigAggRepairStockoutRequest, opts ...grpc.CallOption) (*TaskSigAggRepairStockoutResponse, error)
+	TaskSigAggSeedingTrade(ctx context.Context, in *TaskSigAggSeedingTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSeedingTradeResponse, error)
+	TaskSigAggSwapStockin(ctx context.Context, in *TaskSigAggSwapStockinRequest, opts ...grpc.CallOption) (*TaskSigAggSwapStockinResponse, error)
+	TaskSigAggSwapTrade(ctx context.Context, in *TaskSigAggSwapTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSwapTradeResponse, error)
+	TaskSigFetchStockinOrder(ctx context.Context, in *TaskSigFetchStockinOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockinOrderResponse, error)
+}
+
+type vasOrderAggControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVasOrderAggControllerClient(cc grpc.ClientConnInterface) VasOrderAggControllerClient {
+	return &vasOrderAggControllerClient{cc}
+}
+
+func (c *vasOrderAggControllerClient) DestroyAggKingdeeStkMisdelivery(ctx context.Context, in *DestroyAggKingdeeStkMisdeliveryRequest, opts ...grpc.CallOption) (*DestroyAggKingdeeStkMisdeliveryResponse, error) {
+	out := new(DestroyAggKingdeeStkMisdeliveryResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_DestroyAggKingdeeStkMisdelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) DestroyAggSeedingKingdeeTransferDirect(ctx context.Context, in *DestroyAggSeedingKingdeeTransferDirectRequest, opts ...grpc.CallOption) (*DestroyAggSeedingKingdeeTransferDirectResponse, error) {
+	out := new(DestroyAggSeedingKingdeeTransferDirectResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_DestroyAggSeedingKingdeeTransferDirect_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) DestroyAggSwapKingdeeRefund(ctx context.Context, in *DestroyAggSwapKingdeeRefundRequest, opts ...grpc.CallOption) (*DestroyAggSwapKingdeeRefundResponse, error) {
+	out := new(DestroyAggSwapKingdeeRefundResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_DestroyAggSwapKingdeeRefund_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) DestroyAggSwapKingdeeSalOutStock(ctx context.Context, in *DestroyAggSwapKingdeeSalOutStockRequest, opts ...grpc.CallOption) (*DestroyAggSwapKingdeeSalOutStockResponse, error) {
+	out := new(DestroyAggSwapKingdeeSalOutStockResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_DestroyAggSwapKingdeeSalOutStock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) List(ctx context.Context, in *WdtStockinModelListRequest, opts ...grpc.CallOption) (*WdtStockinModelListResponse, error) {
+	out := new(WdtStockinModelListResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) ListRepairKingdeeStkMisDelivery(ctx context.Context, in *VasOrderAggListRepairKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*KingdeeStkMisDeliveryListResponse, error) {
+	out := new(KingdeeStkMisDeliveryListResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_ListRepairKingdeeStkMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) ListSeedingKingdeeStkTransferDirect(ctx context.Context, in *VasOrderAggListSeedingKingdeeStkTransferDirectRequest, opts ...grpc.CallOption) (*SeedingKingdeeStkTransferDirectListResponse, error) {
+	out := new(SeedingKingdeeStkTransferDirectListResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_ListSeedingKingdeeStkTransferDirect_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) ListSwapKingdeeSalOutStock(ctx context.Context, in *VasOrderAggListSwapKingdeeSalOutStockRequest, opts ...grpc.CallOption) (*SwapKingdeeSalOutStockListResponse, error) {
+	out := new(SwapKingdeeSalOutStockListResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_ListSwapKingdeeSalOutStock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) ListSwapKingdeeSalReturnStock(ctx context.Context, in *VasOrderAggListSwapKingdeeSalReturnStockRequest, opts ...grpc.CallOption) (*SwapKingdeeSalReturnStockListResponse, error) {
+	out := new(SwapKingdeeSalReturnStockListResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_ListSwapKingdeeSalReturnStock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) RunPeriodPushRepairToKingdeeMisDelivery(ctx context.Context, in *RunPeriodPushRepairToKingdeeMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushRepairToKingdeeMisDeliveryResponse, error) {
+	out := new(RunPeriodPushRepairToKingdeeMisDeliveryResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_RunPeriodPushRepairToKingdeeMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) RunPeriodPushSeedingToKingdeeTransferDirect(ctx context.Context, in *RunPeriodPushSeedingToKingdeeTransferDirectRequest, opts ...grpc.CallOption) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error) {
+	out := new(RunPeriodPushSeedingToKingdeeTransferDirectResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) RunPeriodPushSwapRefundToKingdee(ctx context.Context, in *RunPeriodPushSwapRefundToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapRefundToKingdeeResponse, error) {
+	out := new(RunPeriodPushSwapRefundToKingdeeResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_RunPeriodPushSwapRefundToKingdee_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) RunPeriodPushSwapSalOutStockToKingdee(ctx context.Context, in *RunPeriodPushSwapSalOutStockToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error) {
+	out := new(RunPeriodPushSwapSalOutStockToKingdeeResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) TaskSigAggRepairStockout(ctx context.Context, in *TaskSigAggRepairStockoutRequest, opts ...grpc.CallOption) (*TaskSigAggRepairStockoutResponse, error) {
+	out := new(TaskSigAggRepairStockoutResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigAggRepairStockout_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) TaskSigAggSeedingTrade(ctx context.Context, in *TaskSigAggSeedingTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSeedingTradeResponse, error) {
+	out := new(TaskSigAggSeedingTradeResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigAggSeedingTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) TaskSigAggSwapStockin(ctx context.Context, in *TaskSigAggSwapStockinRequest, opts ...grpc.CallOption) (*TaskSigAggSwapStockinResponse, error) {
+	out := new(TaskSigAggSwapStockinResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigAggSwapStockin_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) TaskSigAggSwapTrade(ctx context.Context, in *TaskSigAggSwapTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSwapTradeResponse, error) {
+	out := new(TaskSigAggSwapTradeResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigAggSwapTrade_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) TaskSigFetchStockinOrder(ctx context.Context, in *TaskSigFetchStockinOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockinOrderResponse, error) {
+	out := new(TaskSigFetchStockinOrderResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigFetchStockinOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VasOrderAggControllerServer is the server API for VasOrderAggController service.
+// All implementations must embed UnimplementedVasOrderAggControllerServer
+// for forward compatibility
+type VasOrderAggControllerServer interface {
+	DestroyAggKingdeeStkMisdelivery(context.Context, *DestroyAggKingdeeStkMisdeliveryRequest) (*DestroyAggKingdeeStkMisdeliveryResponse, error)
+	DestroyAggSeedingKingdeeTransferDirect(context.Context, *DestroyAggSeedingKingdeeTransferDirectRequest) (*DestroyAggSeedingKingdeeTransferDirectResponse, error)
+	DestroyAggSwapKingdeeRefund(context.Context, *DestroyAggSwapKingdeeRefundRequest) (*DestroyAggSwapKingdeeRefundResponse, error)
+	DestroyAggSwapKingdeeSalOutStock(context.Context, *DestroyAggSwapKingdeeSalOutStockRequest) (*DestroyAggSwapKingdeeSalOutStockResponse, error)
+	List(context.Context, *WdtStockinModelListRequest) (*WdtStockinModelListResponse, error)
+	ListRepairKingdeeStkMisDelivery(context.Context, *VasOrderAggListRepairKingdeeStkMisDeliveryRequest) (*KingdeeStkMisDeliveryListResponse, error)
+	ListSeedingKingdeeStkTransferDirect(context.Context, *VasOrderAggListSeedingKingdeeStkTransferDirectRequest) (*SeedingKingdeeStkTransferDirectListResponse, error)
+	ListSwapKingdeeSalOutStock(context.Context, *VasOrderAggListSwapKingdeeSalOutStockRequest) (*SwapKingdeeSalOutStockListResponse, error)
+	ListSwapKingdeeSalReturnStock(context.Context, *VasOrderAggListSwapKingdeeSalReturnStockRequest) (*SwapKingdeeSalReturnStockListResponse, error)
+	RunPeriodPushRepairToKingdeeMisDelivery(context.Context, *RunPeriodPushRepairToKingdeeMisDeliveryRequest) (*RunPeriodPushRepairToKingdeeMisDeliveryResponse, error)
+	RunPeriodPushSeedingToKingdeeTransferDirect(context.Context, *RunPeriodPushSeedingToKingdeeTransferDirectRequest) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error)
+	RunPeriodPushSwapRefundToKingdee(context.Context, *RunPeriodPushSwapRefundToKingdeeRequest) (*RunPeriodPushSwapRefundToKingdeeResponse, error)
+	RunPeriodPushSwapSalOutStockToKingdee(context.Context, *RunPeriodPushSwapSalOutStockToKingdeeRequest) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error)
+	TaskSigAggRepairStockout(context.Context, *TaskSigAggRepairStockoutRequest) (*TaskSigAggRepairStockoutResponse, error)
+	TaskSigAggSeedingTrade(context.Context, *TaskSigAggSeedingTradeRequest) (*TaskSigAggSeedingTradeResponse, error)
+	TaskSigAggSwapStockin(context.Context, *TaskSigAggSwapStockinRequest) (*TaskSigAggSwapStockinResponse, error)
+	TaskSigAggSwapTrade(context.Context, *TaskSigAggSwapTradeRequest) (*TaskSigAggSwapTradeResponse, error)
+	TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error)
+	mustEmbedUnimplementedVasOrderAggControllerServer()
+}
+
+// UnimplementedVasOrderAggControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedVasOrderAggControllerServer struct {
+}
+
+func (UnimplementedVasOrderAggControllerServer) DestroyAggKingdeeStkMisdelivery(context.Context, *DestroyAggKingdeeStkMisdeliveryRequest) (*DestroyAggKingdeeStkMisdeliveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggKingdeeStkMisdelivery not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) DestroyAggSeedingKingdeeTransferDirect(context.Context, *DestroyAggSeedingKingdeeTransferDirectRequest) (*DestroyAggSeedingKingdeeTransferDirectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggSeedingKingdeeTransferDirect not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) DestroyAggSwapKingdeeRefund(context.Context, *DestroyAggSwapKingdeeRefundRequest) (*DestroyAggSwapKingdeeRefundResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggSwapKingdeeRefund not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) DestroyAggSwapKingdeeSalOutStock(context.Context, *DestroyAggSwapKingdeeSalOutStockRequest) (*DestroyAggSwapKingdeeSalOutStockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggSwapKingdeeSalOutStock not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) List(context.Context, *WdtStockinModelListRequest) (*WdtStockinModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) ListRepairKingdeeStkMisDelivery(context.Context, *VasOrderAggListRepairKingdeeStkMisDeliveryRequest) (*KingdeeStkMisDeliveryListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRepairKingdeeStkMisDelivery not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) ListSeedingKingdeeStkTransferDirect(context.Context, *VasOrderAggListSeedingKingdeeStkTransferDirectRequest) (*SeedingKingdeeStkTransferDirectListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSeedingKingdeeStkTransferDirect not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) ListSwapKingdeeSalOutStock(context.Context, *VasOrderAggListSwapKingdeeSalOutStockRequest) (*SwapKingdeeSalOutStockListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSwapKingdeeSalOutStock not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) ListSwapKingdeeSalReturnStock(context.Context, *VasOrderAggListSwapKingdeeSalReturnStockRequest) (*SwapKingdeeSalReturnStockListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListSwapKingdeeSalReturnStock not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) RunPeriodPushRepairToKingdeeMisDelivery(context.Context, *RunPeriodPushRepairToKingdeeMisDeliveryRequest) (*RunPeriodPushRepairToKingdeeMisDeliveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushRepairToKingdeeMisDelivery not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) RunPeriodPushSeedingToKingdeeTransferDirect(context.Context, *RunPeriodPushSeedingToKingdeeTransferDirectRequest) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushSeedingToKingdeeTransferDirect not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) RunPeriodPushSwapRefundToKingdee(context.Context, *RunPeriodPushSwapRefundToKingdeeRequest) (*RunPeriodPushSwapRefundToKingdeeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushSwapRefundToKingdee not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) RunPeriodPushSwapSalOutStockToKingdee(context.Context, *RunPeriodPushSwapSalOutStockToKingdeeRequest) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushSwapSalOutStockToKingdee not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) TaskSigAggRepairStockout(context.Context, *TaskSigAggRepairStockoutRequest) (*TaskSigAggRepairStockoutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggRepairStockout not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) TaskSigAggSeedingTrade(context.Context, *TaskSigAggSeedingTradeRequest) (*TaskSigAggSeedingTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggSeedingTrade not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) TaskSigAggSwapStockin(context.Context, *TaskSigAggSwapStockinRequest) (*TaskSigAggSwapStockinResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggSwapStockin not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) TaskSigAggSwapTrade(context.Context, *TaskSigAggSwapTradeRequest) (*TaskSigAggSwapTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggSwapTrade not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchStockinOrder not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) mustEmbedUnimplementedVasOrderAggControllerServer() {}
+
+// UnsafeVasOrderAggControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VasOrderAggControllerServer will
+// result in compilation errors.
+type UnsafeVasOrderAggControllerServer interface {
+	mustEmbedUnimplementedVasOrderAggControllerServer()
+}
+
+func RegisterVasOrderAggControllerServer(s grpc.ServiceRegistrar, srv VasOrderAggControllerServer) {
+	s.RegisterService(&VasOrderAggController_ServiceDesc, srv)
+}
+
+func _VasOrderAggController_DestroyAggKingdeeStkMisdelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggKingdeeStkMisdeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).DestroyAggKingdeeStkMisdelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_DestroyAggKingdeeStkMisdelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).DestroyAggKingdeeStkMisdelivery(ctx, req.(*DestroyAggKingdeeStkMisdeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_DestroyAggSeedingKingdeeTransferDirect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggSeedingKingdeeTransferDirectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).DestroyAggSeedingKingdeeTransferDirect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_DestroyAggSeedingKingdeeTransferDirect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).DestroyAggSeedingKingdeeTransferDirect(ctx, req.(*DestroyAggSeedingKingdeeTransferDirectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_DestroyAggSwapKingdeeRefund_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggSwapKingdeeRefundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).DestroyAggSwapKingdeeRefund(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_DestroyAggSwapKingdeeRefund_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).DestroyAggSwapKingdeeRefund(ctx, req.(*DestroyAggSwapKingdeeRefundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_DestroyAggSwapKingdeeSalOutStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggSwapKingdeeSalOutStockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).DestroyAggSwapKingdeeSalOutStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_DestroyAggSwapKingdeeSalOutStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).DestroyAggSwapKingdeeSalOutStock(ctx, req.(*DestroyAggSwapKingdeeSalOutStockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtStockinModelListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).List(ctx, req.(*WdtStockinModelListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_ListRepairKingdeeStkMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VasOrderAggListRepairKingdeeStkMisDeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).ListRepairKingdeeStkMisDelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_ListRepairKingdeeStkMisDelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).ListRepairKingdeeStkMisDelivery(ctx, req.(*VasOrderAggListRepairKingdeeStkMisDeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_ListSeedingKingdeeStkTransferDirect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VasOrderAggListSeedingKingdeeStkTransferDirectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).ListSeedingKingdeeStkTransferDirect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_ListSeedingKingdeeStkTransferDirect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).ListSeedingKingdeeStkTransferDirect(ctx, req.(*VasOrderAggListSeedingKingdeeStkTransferDirectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_ListSwapKingdeeSalOutStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VasOrderAggListSwapKingdeeSalOutStockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).ListSwapKingdeeSalOutStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_ListSwapKingdeeSalOutStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).ListSwapKingdeeSalOutStock(ctx, req.(*VasOrderAggListSwapKingdeeSalOutStockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_ListSwapKingdeeSalReturnStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VasOrderAggListSwapKingdeeSalReturnStockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).ListSwapKingdeeSalReturnStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_ListSwapKingdeeSalReturnStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).ListSwapKingdeeSalReturnStock(ctx, req.(*VasOrderAggListSwapKingdeeSalReturnStockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_RunPeriodPushRepairToKingdeeMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunPeriodPushRepairToKingdeeMisDeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushRepairToKingdeeMisDelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_RunPeriodPushRepairToKingdeeMisDelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushRepairToKingdeeMisDelivery(ctx, req.(*RunPeriodPushRepairToKingdeeMisDeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunPeriodPushSeedingToKingdeeTransferDirectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSeedingToKingdeeTransferDirect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSeedingToKingdeeTransferDirect(ctx, req.(*RunPeriodPushSeedingToKingdeeTransferDirectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_RunPeriodPushSwapRefundToKingdee_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunPeriodPushSwapRefundToKingdeeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSwapRefundToKingdee(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_RunPeriodPushSwapRefundToKingdee_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSwapRefundToKingdee(ctx, req.(*RunPeriodPushSwapRefundToKingdeeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunPeriodPushSwapSalOutStockToKingdeeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSwapSalOutStockToKingdee(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).RunPeriodPushSwapSalOutStockToKingdee(ctx, req.(*RunPeriodPushSwapSalOutStockToKingdeeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_TaskSigAggRepairStockout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggRepairStockoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).TaskSigAggRepairStockout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_TaskSigAggRepairStockout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).TaskSigAggRepairStockout(ctx, req.(*TaskSigAggRepairStockoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_TaskSigAggSeedingTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggSeedingTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSeedingTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_TaskSigAggSeedingTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSeedingTrade(ctx, req.(*TaskSigAggSeedingTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_TaskSigAggSwapStockin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggSwapStockinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSwapStockin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_TaskSigAggSwapStockin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSwapStockin(ctx, req.(*TaskSigAggSwapStockinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_TaskSigAggSwapTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggSwapTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSwapTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_TaskSigAggSwapTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).TaskSigAggSwapTrade(ctx, req.(*TaskSigAggSwapTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_TaskSigFetchStockinOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigFetchStockinOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).TaskSigFetchStockinOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_TaskSigFetchStockinOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).TaskSigFetchStockinOrder(ctx, req.(*TaskSigFetchStockinOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VasOrderAggController_ServiceDesc is the grpc.ServiceDesc for VasOrderAggController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VasOrderAggController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "kingdee_service.kingdee_ito.VasOrderAggController",
+	HandlerType: (*VasOrderAggControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DestroyAggKingdeeStkMisdelivery",
+			Handler:    _VasOrderAggController_DestroyAggKingdeeStkMisdelivery_Handler,
+		},
+		{
+			MethodName: "DestroyAggSeedingKingdeeTransferDirect",
+			Handler:    _VasOrderAggController_DestroyAggSeedingKingdeeTransferDirect_Handler,
+		},
+		{
+			MethodName: "DestroyAggSwapKingdeeRefund",
+			Handler:    _VasOrderAggController_DestroyAggSwapKingdeeRefund_Handler,
+		},
+		{
+			MethodName: "DestroyAggSwapKingdeeSalOutStock",
+			Handler:    _VasOrderAggController_DestroyAggSwapKingdeeSalOutStock_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _VasOrderAggController_List_Handler,
+		},
+		{
+			MethodName: "ListRepairKingdeeStkMisDelivery",
+			Handler:    _VasOrderAggController_ListRepairKingdeeStkMisDelivery_Handler,
+		},
+		{
+			MethodName: "ListSeedingKingdeeStkTransferDirect",
+			Handler:    _VasOrderAggController_ListSeedingKingdeeStkTransferDirect_Handler,
+		},
+		{
+			MethodName: "ListSwapKingdeeSalOutStock",
+			Handler:    _VasOrderAggController_ListSwapKingdeeSalOutStock_Handler,
+		},
+		{
+			MethodName: "ListSwapKingdeeSalReturnStock",
+			Handler:    _VasOrderAggController_ListSwapKingdeeSalReturnStock_Handler,
+		},
+		{
+			MethodName: "RunPeriodPushRepairToKingdeeMisDelivery",
+			Handler:    _VasOrderAggController_RunPeriodPushRepairToKingdeeMisDelivery_Handler,
+		},
+		{
+			MethodName: "RunPeriodPushSeedingToKingdeeTransferDirect",
+			Handler:    _VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_Handler,
+		},
+		{
+			MethodName: "RunPeriodPushSwapRefundToKingdee",
+			Handler:    _VasOrderAggController_RunPeriodPushSwapRefundToKingdee_Handler,
+		},
+		{
+			MethodName: "RunPeriodPushSwapSalOutStockToKingdee",
+			Handler:    _VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_Handler,
+		},
+		{
+			MethodName: "TaskSigAggRepairStockout",
+			Handler:    _VasOrderAggController_TaskSigAggRepairStockout_Handler,
+		},
+		{
+			MethodName: "TaskSigAggSeedingTrade",
+			Handler:    _VasOrderAggController_TaskSigAggSeedingTrade_Handler,
+		},
+		{
+			MethodName: "TaskSigAggSwapStockin",
+			Handler:    _VasOrderAggController_TaskSigAggSwapStockin_Handler,
+		},
+		{
+			MethodName: "TaskSigAggSwapTrade",
+			Handler:    _VasOrderAggController_TaskSigAggSwapTrade_Handler,
+		},
+		{
+			MethodName: "TaskSigFetchStockinOrder",
+			Handler:    _VasOrderAggController_TaskSigFetchStockinOrder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
