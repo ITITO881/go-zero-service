@@ -280,6 +280,10 @@ service VasOrderAggController {
   rpc RunPeriodPushSeedingToKingdeeTransferDirect(RunPeriodPushSeedingToKingdeeTransferDirectRequest) returns (RunPeriodPushSeedingToKingdeeTransferDirectResponse) {}
   rpc RunPeriodPushSwapRefundToKingdee(RunPeriodPushSwapRefundToKingdeeRequest) returns (RunPeriodPushSwapRefundToKingdeeResponse) {}
   rpc RunPeriodPushSwapSalOutStockToKingdee(RunPeriodPushSwapSalOutStockToKingdeeRequest) returns (RunPeriodPushSwapSalOutStockToKingdeeResponse) {}
+  rpc StaticsRepairKingdeeStkMisDelivery(StaticsRequest) returns (StaticsResponse) {}
+  rpc StaticsSeedingKingdeeStkTransferDirect(StaticsRequest) returns (StaticsResponse) {}
+  rpc StaticsSwapKingdeeSalOutStock(StaticsRequest) returns (StaticsResponse) {}
+  rpc StaticsSwapKingdeeSalReturnStock(StaticsRequest) returns (StaticsResponse) {}
   rpc TaskSigAggRepairStockout(TaskSigAggRepairStockoutRequest) returns (TaskSigAggRepairStockoutResponse) {}
   rpc TaskSigAggSeedingTrade(TaskSigAggSeedingTradeRequest) returns (TaskSigAggSeedingTradeResponse) {}
   rpc TaskSigAggSwapStockin(TaskSigAggSwapStockinRequest) returns (TaskSigAggSwapStockinResponse) {}
@@ -3020,6 +3024,9 @@ message SeedingKingdeeStkTransferDirectResponse {
   optional string create_time = 44;
   optional string update_time = 45;
   optional string agg_push_status_name = 46;
+}
+
+message StaticsRequest {
 }
 
 message StaticsResponse {

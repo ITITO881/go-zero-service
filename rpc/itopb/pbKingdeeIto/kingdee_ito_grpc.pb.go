@@ -9250,6 +9250,10 @@ const (
 	VasOrderAggController_RunPeriodPushSeedingToKingdeeTransferDirect_FullMethodName = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSeedingToKingdeeTransferDirect"
 	VasOrderAggController_RunPeriodPushSwapRefundToKingdee_FullMethodName            = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSwapRefundToKingdee"
 	VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_FullMethodName       = "/kingdee_service.kingdee_ito.VasOrderAggController/RunPeriodPushSwapSalOutStockToKingdee"
+	VasOrderAggController_StaticsRepairKingdeeStkMisDelivery_FullMethodName          = "/kingdee_service.kingdee_ito.VasOrderAggController/StaticsRepairKingdeeStkMisDelivery"
+	VasOrderAggController_StaticsSeedingKingdeeStkTransferDirect_FullMethodName      = "/kingdee_service.kingdee_ito.VasOrderAggController/StaticsSeedingKingdeeStkTransferDirect"
+	VasOrderAggController_StaticsSwapKingdeeSalOutStock_FullMethodName               = "/kingdee_service.kingdee_ito.VasOrderAggController/StaticsSwapKingdeeSalOutStock"
+	VasOrderAggController_StaticsSwapKingdeeSalReturnStock_FullMethodName            = "/kingdee_service.kingdee_ito.VasOrderAggController/StaticsSwapKingdeeSalReturnStock"
 	VasOrderAggController_TaskSigAggRepairStockout_FullMethodName                    = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggRepairStockout"
 	VasOrderAggController_TaskSigAggSeedingTrade_FullMethodName                      = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSeedingTrade"
 	VasOrderAggController_TaskSigAggSwapStockin_FullMethodName                       = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSwapStockin"
@@ -9274,6 +9278,10 @@ type VasOrderAggControllerClient interface {
 	RunPeriodPushSeedingToKingdeeTransferDirect(ctx context.Context, in *RunPeriodPushSeedingToKingdeeTransferDirectRequest, opts ...grpc.CallOption) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error)
 	RunPeriodPushSwapRefundToKingdee(ctx context.Context, in *RunPeriodPushSwapRefundToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapRefundToKingdeeResponse, error)
 	RunPeriodPushSwapSalOutStockToKingdee(ctx context.Context, in *RunPeriodPushSwapSalOutStockToKingdeeRequest, opts ...grpc.CallOption) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error)
+	StaticsRepairKingdeeStkMisDelivery(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
+	StaticsSeedingKingdeeStkTransferDirect(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
+	StaticsSwapKingdeeSalOutStock(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
+	StaticsSwapKingdeeSalReturnStock(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error)
 	TaskSigAggRepairStockout(ctx context.Context, in *TaskSigAggRepairStockoutRequest, opts ...grpc.CallOption) (*TaskSigAggRepairStockoutResponse, error)
 	TaskSigAggSeedingTrade(ctx context.Context, in *TaskSigAggSeedingTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSeedingTradeResponse, error)
 	TaskSigAggSwapStockin(ctx context.Context, in *TaskSigAggSwapStockinRequest, opts ...grpc.CallOption) (*TaskSigAggSwapStockinResponse, error)
@@ -9406,6 +9414,42 @@ func (c *vasOrderAggControllerClient) RunPeriodPushSwapSalOutStockToKingdee(ctx 
 	return out, nil
 }
 
+func (c *vasOrderAggControllerClient) StaticsRepairKingdeeStkMisDelivery(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_StaticsRepairKingdeeStkMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) StaticsSeedingKingdeeStkTransferDirect(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_StaticsSeedingKingdeeStkTransferDirect_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) StaticsSwapKingdeeSalOutStock(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_StaticsSwapKingdeeSalOutStock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vasOrderAggControllerClient) StaticsSwapKingdeeSalReturnStock(ctx context.Context, in *StaticsRequest, opts ...grpc.CallOption) (*StaticsResponse, error) {
+	out := new(StaticsResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_StaticsSwapKingdeeSalReturnStock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *vasOrderAggControllerClient) TaskSigAggRepairStockout(ctx context.Context, in *TaskSigAggRepairStockoutRequest, opts ...grpc.CallOption) (*TaskSigAggRepairStockoutResponse, error) {
 	out := new(TaskSigAggRepairStockoutResponse)
 	err := c.cc.Invoke(ctx, VasOrderAggController_TaskSigAggRepairStockout_FullMethodName, in, out, opts...)
@@ -9468,6 +9512,10 @@ type VasOrderAggControllerServer interface {
 	RunPeriodPushSeedingToKingdeeTransferDirect(context.Context, *RunPeriodPushSeedingToKingdeeTransferDirectRequest) (*RunPeriodPushSeedingToKingdeeTransferDirectResponse, error)
 	RunPeriodPushSwapRefundToKingdee(context.Context, *RunPeriodPushSwapRefundToKingdeeRequest) (*RunPeriodPushSwapRefundToKingdeeResponse, error)
 	RunPeriodPushSwapSalOutStockToKingdee(context.Context, *RunPeriodPushSwapSalOutStockToKingdeeRequest) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error)
+	StaticsRepairKingdeeStkMisDelivery(context.Context, *StaticsRequest) (*StaticsResponse, error)
+	StaticsSeedingKingdeeStkTransferDirect(context.Context, *StaticsRequest) (*StaticsResponse, error)
+	StaticsSwapKingdeeSalOutStock(context.Context, *StaticsRequest) (*StaticsResponse, error)
+	StaticsSwapKingdeeSalReturnStock(context.Context, *StaticsRequest) (*StaticsResponse, error)
 	TaskSigAggRepairStockout(context.Context, *TaskSigAggRepairStockoutRequest) (*TaskSigAggRepairStockoutResponse, error)
 	TaskSigAggSeedingTrade(context.Context, *TaskSigAggSeedingTradeRequest) (*TaskSigAggSeedingTradeResponse, error)
 	TaskSigAggSwapStockin(context.Context, *TaskSigAggSwapStockinRequest) (*TaskSigAggSwapStockinResponse, error)
@@ -9518,6 +9566,18 @@ func (UnimplementedVasOrderAggControllerServer) RunPeriodPushSwapRefundToKingdee
 }
 func (UnimplementedVasOrderAggControllerServer) RunPeriodPushSwapSalOutStockToKingdee(context.Context, *RunPeriodPushSwapSalOutStockToKingdeeRequest) (*RunPeriodPushSwapSalOutStockToKingdeeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushSwapSalOutStockToKingdee not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) StaticsRepairKingdeeStkMisDelivery(context.Context, *StaticsRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StaticsRepairKingdeeStkMisDelivery not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) StaticsSeedingKingdeeStkTransferDirect(context.Context, *StaticsRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StaticsSeedingKingdeeStkTransferDirect not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) StaticsSwapKingdeeSalOutStock(context.Context, *StaticsRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StaticsSwapKingdeeSalOutStock not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) StaticsSwapKingdeeSalReturnStock(context.Context, *StaticsRequest) (*StaticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StaticsSwapKingdeeSalReturnStock not implemented")
 }
 func (UnimplementedVasOrderAggControllerServer) TaskSigAggRepairStockout(context.Context, *TaskSigAggRepairStockoutRequest) (*TaskSigAggRepairStockoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggRepairStockout not implemented")
@@ -9781,6 +9841,78 @@ func _VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_Handler(srv in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _VasOrderAggController_StaticsRepairKingdeeStkMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StaticsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).StaticsRepairKingdeeStkMisDelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_StaticsRepairKingdeeStkMisDelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).StaticsRepairKingdeeStkMisDelivery(ctx, req.(*StaticsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_StaticsSeedingKingdeeStkTransferDirect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StaticsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).StaticsSeedingKingdeeStkTransferDirect(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_StaticsSeedingKingdeeStkTransferDirect_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).StaticsSeedingKingdeeStkTransferDirect(ctx, req.(*StaticsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_StaticsSwapKingdeeSalOutStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StaticsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).StaticsSwapKingdeeSalOutStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_StaticsSwapKingdeeSalOutStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).StaticsSwapKingdeeSalOutStock(ctx, req.(*StaticsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VasOrderAggController_StaticsSwapKingdeeSalReturnStock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StaticsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).StaticsSwapKingdeeSalReturnStock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_StaticsSwapKingdeeSalReturnStock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).StaticsSwapKingdeeSalReturnStock(ctx, req.(*StaticsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _VasOrderAggController_TaskSigAggRepairStockout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TaskSigAggRepairStockoutRequest)
 	if err := dec(in); err != nil {
@@ -9929,6 +10061,22 @@ var VasOrderAggController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RunPeriodPushSwapSalOutStockToKingdee",
 			Handler:    _VasOrderAggController_RunPeriodPushSwapSalOutStockToKingdee_Handler,
+		},
+		{
+			MethodName: "StaticsRepairKingdeeStkMisDelivery",
+			Handler:    _VasOrderAggController_StaticsRepairKingdeeStkMisDelivery_Handler,
+		},
+		{
+			MethodName: "StaticsSeedingKingdeeStkTransferDirect",
+			Handler:    _VasOrderAggController_StaticsSeedingKingdeeStkTransferDirect_Handler,
+		},
+		{
+			MethodName: "StaticsSwapKingdeeSalOutStock",
+			Handler:    _VasOrderAggController_StaticsSwapKingdeeSalOutStock_Handler,
+		},
+		{
+			MethodName: "StaticsSwapKingdeeSalReturnStock",
+			Handler:    _VasOrderAggController_StaticsSwapKingdeeSalReturnStock_Handler,
 		},
 		{
 			MethodName: "TaskSigAggRepairStockout",
