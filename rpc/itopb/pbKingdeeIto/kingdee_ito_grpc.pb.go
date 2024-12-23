@@ -20,274 +20,682 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	AlipayBillController_CreateAlipayBillAccountlog_FullMethodName        = "/kingdee_service.kingdee_ito.AlipayBillController/CreateAlipayBillAccountlog"
-	AlipayBillController_DestroyAlipayBillAccountlog_FullMethodName       = "/kingdee_service.kingdee_ito.AlipayBillController/DestroyAlipayBillAccountlog"
-	AlipayBillController_ListAlipayBillAccountlog_FullMethodName          = "/kingdee_service.kingdee_ito.AlipayBillController/ListAlipayBillAccountlog"
-	AlipayBillController_PartialUpdateAlipayBillAccountlog_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillController/PartialUpdateAlipayBillAccountlog"
-	AlipayBillController_RetrieveAlipayBillAccountlog_FullMethodName      = "/kingdee_service.kingdee_ito.AlipayBillController/RetrieveAlipayBillAccountlog"
-	AlipayBillController_UpdateAlipayBillAccountlog_FullMethodName        = "/kingdee_service.kingdee_ito.AlipayBillController/UpdateAlipayBillAccountlog"
+	AlipayBillAggResultController_AggAliPayBySrcTid_FullMethodName    = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/AggAliPayBySrcTid"
+	AlipayBillAggResultController_Create_FullMethodName               = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Create"
+	AlipayBillAggResultController_Destroy_FullMethodName              = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Destroy"
+	AlipayBillAggResultController_DestroyAggBillResult_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/DestroyAggBillResult"
+	AlipayBillAggResultController_FetchAlipayBillAsync_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/FetchAlipayBillAsync"
+	AlipayBillAggResultController_FetchAlipayBillTask_FullMethodName  = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/FetchAlipayBillTask"
+	AlipayBillAggResultController_FetchSrcTrade_FullMethodName        = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/FetchSrcTrade"
+	AlipayBillAggResultController_FetchSrcTradeTask_FullMethodName    = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/FetchSrcTradeTask"
+	AlipayBillAggResultController_List_FullMethodName                 = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/List"
+	AlipayBillAggResultController_ListAlipayBill_FullMethodName       = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/ListAlipayBill"
+	AlipayBillAggResultController_ListBillEntities_FullMethodName     = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/ListBillEntities"
+	AlipayBillAggResultController_PartialUpdate_FullMethodName        = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/PartialUpdate"
+	AlipayBillAggResultController_Retrieve_FullMethodName             = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Retrieve"
+	AlipayBillAggResultController_RetrieveAlipayBill_FullMethodName   = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/RetrieveAlipayBill"
+	AlipayBillAggResultController_RetrieveBillEntities_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/RetrieveBillEntities"
+	AlipayBillAggResultController_TaskSigAggAlipayBill_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/TaskSigAggAlipayBill"
+	AlipayBillAggResultController_Update_FullMethodName               = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Update"
 )
 
-// AlipayBillControllerClient is the client API for AlipayBillController service.
+// AlipayBillAggResultControllerClient is the client API for AlipayBillAggResultController service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AlipayBillControllerClient interface {
-	CreateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error)
-	DestroyAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ListAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogListRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogListResponse, error)
-	PartialUpdateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogPartialUpdateRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error)
-	RetrieveAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error)
-	UpdateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error)
+type AlipayBillAggResultControllerClient interface {
+	AggAliPayBySrcTid(ctx context.Context, in *AggAliPayBySrcTidRequest, opts ...grpc.CallOption) (*AggAliPayBySrcTidResponse, error)
+	Create(ctx context.Context, in *AlipayBillAggResultRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error)
+	Destroy(ctx context.Context, in *AlipayBillAggResultDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DestroyAggBillResult(ctx context.Context, in *DestroyAggBillResultRequest, opts ...grpc.CallOption) (*DestroyAggBillResultResponse, error)
+	FetchAlipayBillAsync(ctx context.Context, in *FetchAlipayLogAsyncRequest, opts ...grpc.CallOption) (*FetchAlipayLogAsyncResponse, error)
+	FetchAlipayBillTask(ctx context.Context, in *FetchTaskRequest, opts ...grpc.CallOption) (*FetchAlipayBillTaskResponse, error)
+	FetchSrcTrade(ctx context.Context, in *FetchSrcTradeRequest, opts ...grpc.CallOption) (*FetchSrcTradeResponse, error)
+	FetchSrcTradeTask(ctx context.Context, in *FetchTaskRequest, opts ...grpc.CallOption) (*FetchSrcTradeTaskResponse, error)
+	List(ctx context.Context, in *AlipayBillAggResultListRequest, opts ...grpc.CallOption) (*AlipayBillAggResultListResponse, error)
+	ListAlipayBill(ctx context.Context, in *AlipayBillListRequest, opts ...grpc.CallOption) (*AlipayBillListResponse, error)
+	ListBillEntities(ctx context.Context, in *AlipayBillEntitiesListRequest, opts ...grpc.CallOption) (*AlipayBillEntitiesListResponse, error)
+	PartialUpdate(ctx context.Context, in *AlipayBillAggResultPartialUpdateRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error)
+	Retrieve(ctx context.Context, in *AlipayBillAggResultRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error)
+	RetrieveAlipayBill(ctx context.Context, in *AlipayBillRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillResponse, error)
+	RetrieveBillEntities(ctx context.Context, in *BillEntitiesRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillEntitiesResponse, error)
+	TaskSigAggAlipayBill(ctx context.Context, in *TaskSigAggAlipayBillRequest, opts ...grpc.CallOption) (*TaskSigAggAlipayBillResponse, error)
+	Update(ctx context.Context, in *AlipayBillAggResultRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error)
 }
 
-type alipayBillControllerClient struct {
+type alipayBillAggResultControllerClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAlipayBillControllerClient(cc grpc.ClientConnInterface) AlipayBillControllerClient {
-	return &alipayBillControllerClient{cc}
+func NewAlipayBillAggResultControllerClient(cc grpc.ClientConnInterface) AlipayBillAggResultControllerClient {
+	return &alipayBillAggResultControllerClient{cc}
 }
 
-func (c *alipayBillControllerClient) CreateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error) {
-	out := new(AlipayBillAccountlogResponse)
-	err := c.cc.Invoke(ctx, AlipayBillController_CreateAlipayBillAccountlog_FullMethodName, in, out, opts...)
+func (c *alipayBillAggResultControllerClient) AggAliPayBySrcTid(ctx context.Context, in *AggAliPayBySrcTidRequest, opts ...grpc.CallOption) (*AggAliPayBySrcTidResponse, error) {
+	out := new(AggAliPayBySrcTidResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_AggAliPayBySrcTid_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *alipayBillControllerClient) DestroyAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *alipayBillAggResultControllerClient) Create(ctx context.Context, in *AlipayBillAggResultRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error) {
+	out := new(AlipayBillAggResultResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) Destroy(ctx context.Context, in *AlipayBillAggResultDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AlipayBillController_DestroyAlipayBillAccountlog_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_Destroy_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *alipayBillControllerClient) ListAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogListRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogListResponse, error) {
-	out := new(AlipayBillAccountlogListResponse)
-	err := c.cc.Invoke(ctx, AlipayBillController_ListAlipayBillAccountlog_FullMethodName, in, out, opts...)
+func (c *alipayBillAggResultControllerClient) DestroyAggBillResult(ctx context.Context, in *DestroyAggBillResultRequest, opts ...grpc.CallOption) (*DestroyAggBillResultResponse, error) {
+	out := new(DestroyAggBillResultResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_DestroyAggBillResult_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *alipayBillControllerClient) PartialUpdateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogPartialUpdateRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error) {
-	out := new(AlipayBillAccountlogResponse)
-	err := c.cc.Invoke(ctx, AlipayBillController_PartialUpdateAlipayBillAccountlog_FullMethodName, in, out, opts...)
+func (c *alipayBillAggResultControllerClient) FetchAlipayBillAsync(ctx context.Context, in *FetchAlipayLogAsyncRequest, opts ...grpc.CallOption) (*FetchAlipayLogAsyncResponse, error) {
+	out := new(FetchAlipayLogAsyncResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_FetchAlipayBillAsync_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *alipayBillControllerClient) RetrieveAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error) {
-	out := new(AlipayBillAccountlogResponse)
-	err := c.cc.Invoke(ctx, AlipayBillController_RetrieveAlipayBillAccountlog_FullMethodName, in, out, opts...)
+func (c *alipayBillAggResultControllerClient) FetchAlipayBillTask(ctx context.Context, in *FetchTaskRequest, opts ...grpc.CallOption) (*FetchAlipayBillTaskResponse, error) {
+	out := new(FetchAlipayBillTaskResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_FetchAlipayBillTask_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *alipayBillControllerClient) UpdateAlipayBillAccountlog(ctx context.Context, in *AlipayBillAccountlogRequest, opts ...grpc.CallOption) (*AlipayBillAccountlogResponse, error) {
-	out := new(AlipayBillAccountlogResponse)
-	err := c.cc.Invoke(ctx, AlipayBillController_UpdateAlipayBillAccountlog_FullMethodName, in, out, opts...)
+func (c *alipayBillAggResultControllerClient) FetchSrcTrade(ctx context.Context, in *FetchSrcTradeRequest, opts ...grpc.CallOption) (*FetchSrcTradeResponse, error) {
+	out := new(FetchSrcTradeResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_FetchSrcTrade_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AlipayBillControllerServer is the server API for AlipayBillController service.
-// All implementations must embed UnimplementedAlipayBillControllerServer
+func (c *alipayBillAggResultControllerClient) FetchSrcTradeTask(ctx context.Context, in *FetchTaskRequest, opts ...grpc.CallOption) (*FetchSrcTradeTaskResponse, error) {
+	out := new(FetchSrcTradeTaskResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_FetchSrcTradeTask_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) List(ctx context.Context, in *AlipayBillAggResultListRequest, opts ...grpc.CallOption) (*AlipayBillAggResultListResponse, error) {
+	out := new(AlipayBillAggResultListResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) ListAlipayBill(ctx context.Context, in *AlipayBillListRequest, opts ...grpc.CallOption) (*AlipayBillListResponse, error) {
+	out := new(AlipayBillListResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_ListAlipayBill_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) ListBillEntities(ctx context.Context, in *AlipayBillEntitiesListRequest, opts ...grpc.CallOption) (*AlipayBillEntitiesListResponse, error) {
+	out := new(AlipayBillEntitiesListResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_ListBillEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) PartialUpdate(ctx context.Context, in *AlipayBillAggResultPartialUpdateRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error) {
+	out := new(AlipayBillAggResultResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) Retrieve(ctx context.Context, in *AlipayBillAggResultRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error) {
+	out := new(AlipayBillAggResultResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) RetrieveAlipayBill(ctx context.Context, in *AlipayBillRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillResponse, error) {
+	out := new(AlipayBillResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_RetrieveAlipayBill_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) RetrieveBillEntities(ctx context.Context, in *BillEntitiesRetrieveRequest, opts ...grpc.CallOption) (*AlipayBillEntitiesResponse, error) {
+	out := new(AlipayBillEntitiesResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_RetrieveBillEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) TaskSigAggAlipayBill(ctx context.Context, in *TaskSigAggAlipayBillRequest, opts ...grpc.CallOption) (*TaskSigAggAlipayBillResponse, error) {
+	out := new(TaskSigAggAlipayBillResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_TaskSigAggAlipayBill_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) Update(ctx context.Context, in *AlipayBillAggResultRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error) {
+	out := new(AlipayBillAggResultResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AlipayBillAggResultControllerServer is the server API for AlipayBillAggResultController service.
+// All implementations must embed UnimplementedAlipayBillAggResultControllerServer
 // for forward compatibility
-type AlipayBillControllerServer interface {
-	CreateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRequest) (*AlipayBillAccountlogResponse, error)
-	DestroyAlipayBillAccountlog(context.Context, *AlipayBillAccountlogDestroyRequest) (*emptypb.Empty, error)
-	ListAlipayBillAccountlog(context.Context, *AlipayBillAccountlogListRequest) (*AlipayBillAccountlogListResponse, error)
-	PartialUpdateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogPartialUpdateRequest) (*AlipayBillAccountlogResponse, error)
-	RetrieveAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRetrieveRequest) (*AlipayBillAccountlogResponse, error)
-	UpdateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRequest) (*AlipayBillAccountlogResponse, error)
-	mustEmbedUnimplementedAlipayBillControllerServer()
+type AlipayBillAggResultControllerServer interface {
+	AggAliPayBySrcTid(context.Context, *AggAliPayBySrcTidRequest) (*AggAliPayBySrcTidResponse, error)
+	Create(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error)
+	Destroy(context.Context, *AlipayBillAggResultDestroyRequest) (*emptypb.Empty, error)
+	DestroyAggBillResult(context.Context, *DestroyAggBillResultRequest) (*DestroyAggBillResultResponse, error)
+	FetchAlipayBillAsync(context.Context, *FetchAlipayLogAsyncRequest) (*FetchAlipayLogAsyncResponse, error)
+	FetchAlipayBillTask(context.Context, *FetchTaskRequest) (*FetchAlipayBillTaskResponse, error)
+	FetchSrcTrade(context.Context, *FetchSrcTradeRequest) (*FetchSrcTradeResponse, error)
+	FetchSrcTradeTask(context.Context, *FetchTaskRequest) (*FetchSrcTradeTaskResponse, error)
+	List(context.Context, *AlipayBillAggResultListRequest) (*AlipayBillAggResultListResponse, error)
+	ListAlipayBill(context.Context, *AlipayBillListRequest) (*AlipayBillListResponse, error)
+	ListBillEntities(context.Context, *AlipayBillEntitiesListRequest) (*AlipayBillEntitiesListResponse, error)
+	PartialUpdate(context.Context, *AlipayBillAggResultPartialUpdateRequest) (*AlipayBillAggResultResponse, error)
+	Retrieve(context.Context, *AlipayBillAggResultRetrieveRequest) (*AlipayBillAggResultResponse, error)
+	RetrieveAlipayBill(context.Context, *AlipayBillRetrieveRequest) (*AlipayBillResponse, error)
+	RetrieveBillEntities(context.Context, *BillEntitiesRetrieveRequest) (*AlipayBillEntitiesResponse, error)
+	TaskSigAggAlipayBill(context.Context, *TaskSigAggAlipayBillRequest) (*TaskSigAggAlipayBillResponse, error)
+	Update(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error)
+	mustEmbedUnimplementedAlipayBillAggResultControllerServer()
 }
 
-// UnimplementedAlipayBillControllerServer must be embedded to have forward compatible implementations.
-type UnimplementedAlipayBillControllerServer struct {
+// UnimplementedAlipayBillAggResultControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedAlipayBillAggResultControllerServer struct {
 }
 
-func (UnimplementedAlipayBillControllerServer) CreateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRequest) (*AlipayBillAccountlogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) AggAliPayBySrcTid(context.Context, *AggAliPayBySrcTidRequest) (*AggAliPayBySrcTidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AggAliPayBySrcTid not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) DestroyAlipayBillAccountlog(context.Context, *AlipayBillAccountlogDestroyRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DestroyAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) Create(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) ListAlipayBillAccountlog(context.Context, *AlipayBillAccountlogListRequest) (*AlipayBillAccountlogListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) Destroy(context.Context, *AlipayBillAggResultDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) PartialUpdateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogPartialUpdateRequest) (*AlipayBillAccountlogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdateAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) DestroyAggBillResult(context.Context, *DestroyAggBillResultRequest) (*DestroyAggBillResultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggBillResult not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) RetrieveAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRetrieveRequest) (*AlipayBillAccountlogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RetrieveAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) FetchAlipayBillAsync(context.Context, *FetchAlipayLogAsyncRequest) (*FetchAlipayLogAsyncResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchAlipayBillAsync not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) UpdateAlipayBillAccountlog(context.Context, *AlipayBillAccountlogRequest) (*AlipayBillAccountlogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateAlipayBillAccountlog not implemented")
+func (UnimplementedAlipayBillAggResultControllerServer) FetchAlipayBillTask(context.Context, *FetchTaskRequest) (*FetchAlipayBillTaskResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchAlipayBillTask not implemented")
 }
-func (UnimplementedAlipayBillControllerServer) mustEmbedUnimplementedAlipayBillControllerServer() {}
+func (UnimplementedAlipayBillAggResultControllerServer) FetchSrcTrade(context.Context, *FetchSrcTradeRequest) (*FetchSrcTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchSrcTrade not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) FetchSrcTradeTask(context.Context, *FetchTaskRequest) (*FetchSrcTradeTaskResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchSrcTradeTask not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) List(context.Context, *AlipayBillAggResultListRequest) (*AlipayBillAggResultListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) ListAlipayBill(context.Context, *AlipayBillListRequest) (*AlipayBillListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAlipayBill not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) ListBillEntities(context.Context, *AlipayBillEntitiesListRequest) (*AlipayBillEntitiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListBillEntities not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) PartialUpdate(context.Context, *AlipayBillAggResultPartialUpdateRequest) (*AlipayBillAggResultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) Retrieve(context.Context, *AlipayBillAggResultRetrieveRequest) (*AlipayBillAggResultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) RetrieveAlipayBill(context.Context, *AlipayBillRetrieveRequest) (*AlipayBillResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveAlipayBill not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) RetrieveBillEntities(context.Context, *BillEntitiesRetrieveRequest) (*AlipayBillEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveBillEntities not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) TaskSigAggAlipayBill(context.Context, *TaskSigAggAlipayBillRequest) (*TaskSigAggAlipayBillResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggAlipayBill not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) Update(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) mustEmbedUnimplementedAlipayBillAggResultControllerServer() {
+}
 
-// UnsafeAlipayBillControllerServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AlipayBillControllerServer will
+// UnsafeAlipayBillAggResultControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AlipayBillAggResultControllerServer will
 // result in compilation errors.
-type UnsafeAlipayBillControllerServer interface {
-	mustEmbedUnimplementedAlipayBillControllerServer()
+type UnsafeAlipayBillAggResultControllerServer interface {
+	mustEmbedUnimplementedAlipayBillAggResultControllerServer()
 }
 
-func RegisterAlipayBillControllerServer(s grpc.ServiceRegistrar, srv AlipayBillControllerServer) {
-	s.RegisterService(&AlipayBillController_ServiceDesc, srv)
+func RegisterAlipayBillAggResultControllerServer(s grpc.ServiceRegistrar, srv AlipayBillAggResultControllerServer) {
+	s.RegisterService(&AlipayBillAggResultController_ServiceDesc, srv)
 }
 
-func _AlipayBillController_CreateAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogRequest)
+func _AlipayBillAggResultController_AggAliPayBySrcTid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AggAliPayBySrcTidRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).CreateAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).AggAliPayBySrcTid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_CreateAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_AggAliPayBySrcTid_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).CreateAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogRequest))
+		return srv.(AlipayBillAggResultControllerServer).AggAliPayBySrcTid(ctx, req.(*AggAliPayBySrcTidRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AlipayBillController_DestroyAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogDestroyRequest)
+func _AlipayBillAggResultController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).DestroyAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_DestroyAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).DestroyAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogDestroyRequest))
+		return srv.(AlipayBillAggResultControllerServer).Create(ctx, req.(*AlipayBillAggResultRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AlipayBillController_ListAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogListRequest)
+func _AlipayBillAggResultController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultDestroyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).ListAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).Destroy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_ListAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_Destroy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).ListAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogListRequest))
+		return srv.(AlipayBillAggResultControllerServer).Destroy(ctx, req.(*AlipayBillAggResultDestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AlipayBillController_PartialUpdateAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogPartialUpdateRequest)
+func _AlipayBillAggResultController_DestroyAggBillResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggBillResultRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).PartialUpdateAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).DestroyAggBillResult(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_PartialUpdateAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_DestroyAggBillResult_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).PartialUpdateAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogPartialUpdateRequest))
+		return srv.(AlipayBillAggResultControllerServer).DestroyAggBillResult(ctx, req.(*DestroyAggBillResultRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AlipayBillController_RetrieveAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogRetrieveRequest)
+func _AlipayBillAggResultController_FetchAlipayBillAsync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchAlipayLogAsyncRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).RetrieveAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).FetchAlipayBillAsync(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_RetrieveAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_FetchAlipayBillAsync_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).RetrieveAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogRetrieveRequest))
+		return srv.(AlipayBillAggResultControllerServer).FetchAlipayBillAsync(ctx, req.(*FetchAlipayLogAsyncRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AlipayBillController_UpdateAlipayBillAccountlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlipayBillAccountlogRequest)
+func _AlipayBillAggResultController_FetchAlipayBillTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlipayBillControllerServer).UpdateAlipayBillAccountlog(ctx, in)
+		return srv.(AlipayBillAggResultControllerServer).FetchAlipayBillTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AlipayBillController_UpdateAlipayBillAccountlog_FullMethodName,
+		FullMethod: AlipayBillAggResultController_FetchAlipayBillTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlipayBillControllerServer).UpdateAlipayBillAccountlog(ctx, req.(*AlipayBillAccountlogRequest))
+		return srv.(AlipayBillAggResultControllerServer).FetchAlipayBillTask(ctx, req.(*FetchTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AlipayBillController_ServiceDesc is the grpc.ServiceDesc for AlipayBillController service.
+func _AlipayBillAggResultController_FetchSrcTrade_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchSrcTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).FetchSrcTrade(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_FetchSrcTrade_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).FetchSrcTrade(ctx, req.(*FetchSrcTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_FetchSrcTradeTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FetchTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).FetchSrcTradeTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_FetchSrcTradeTask_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).FetchSrcTradeTask(ctx, req.(*FetchTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).List(ctx, req.(*AlipayBillAggResultListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_ListAlipayBill_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).ListAlipayBill(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_ListAlipayBill_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).ListAlipayBill(ctx, req.(*AlipayBillListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_ListBillEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillEntitiesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).ListBillEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_ListBillEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).ListBillEntities(ctx, req.(*AlipayBillEntitiesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).PartialUpdate(ctx, req.(*AlipayBillAggResultPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).Retrieve(ctx, req.(*AlipayBillAggResultRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_RetrieveAlipayBill_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).RetrieveAlipayBill(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_RetrieveAlipayBill_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).RetrieveAlipayBill(ctx, req.(*AlipayBillRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_RetrieveBillEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BillEntitiesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).RetrieveBillEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_RetrieveBillEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).RetrieveBillEntities(ctx, req.(*BillEntitiesRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_TaskSigAggAlipayBill_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggAlipayBillRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).TaskSigAggAlipayBill(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_TaskSigAggAlipayBill_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).TaskSigAggAlipayBill(ctx, req.(*TaskSigAggAlipayBillRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillAggResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).Update(ctx, req.(*AlipayBillAggResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AlipayBillAggResultController_ServiceDesc is the grpc.ServiceDesc for AlipayBillAggResultController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AlipayBillController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "kingdee_service.kingdee_ito.AlipayBillController",
-	HandlerType: (*AlipayBillControllerServer)(nil),
+var AlipayBillAggResultController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "kingdee_service.kingdee_ito.AlipayBillAggResultController",
+	HandlerType: (*AlipayBillAggResultControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateAlipayBillAccountlog",
-			Handler:    _AlipayBillController_CreateAlipayBillAccountlog_Handler,
+			MethodName: "AggAliPayBySrcTid",
+			Handler:    _AlipayBillAggResultController_AggAliPayBySrcTid_Handler,
 		},
 		{
-			MethodName: "DestroyAlipayBillAccountlog",
-			Handler:    _AlipayBillController_DestroyAlipayBillAccountlog_Handler,
+			MethodName: "Create",
+			Handler:    _AlipayBillAggResultController_Create_Handler,
 		},
 		{
-			MethodName: "ListAlipayBillAccountlog",
-			Handler:    _AlipayBillController_ListAlipayBillAccountlog_Handler,
+			MethodName: "Destroy",
+			Handler:    _AlipayBillAggResultController_Destroy_Handler,
 		},
 		{
-			MethodName: "PartialUpdateAlipayBillAccountlog",
-			Handler:    _AlipayBillController_PartialUpdateAlipayBillAccountlog_Handler,
+			MethodName: "DestroyAggBillResult",
+			Handler:    _AlipayBillAggResultController_DestroyAggBillResult_Handler,
 		},
 		{
-			MethodName: "RetrieveAlipayBillAccountlog",
-			Handler:    _AlipayBillController_RetrieveAlipayBillAccountlog_Handler,
+			MethodName: "FetchAlipayBillAsync",
+			Handler:    _AlipayBillAggResultController_FetchAlipayBillAsync_Handler,
 		},
 		{
-			MethodName: "UpdateAlipayBillAccountlog",
-			Handler:    _AlipayBillController_UpdateAlipayBillAccountlog_Handler,
+			MethodName: "FetchAlipayBillTask",
+			Handler:    _AlipayBillAggResultController_FetchAlipayBillTask_Handler,
+		},
+		{
+			MethodName: "FetchSrcTrade",
+			Handler:    _AlipayBillAggResultController_FetchSrcTrade_Handler,
+		},
+		{
+			MethodName: "FetchSrcTradeTask",
+			Handler:    _AlipayBillAggResultController_FetchSrcTradeTask_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _AlipayBillAggResultController_List_Handler,
+		},
+		{
+			MethodName: "ListAlipayBill",
+			Handler:    _AlipayBillAggResultController_ListAlipayBill_Handler,
+		},
+		{
+			MethodName: "ListBillEntities",
+			Handler:    _AlipayBillAggResultController_ListBillEntities_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _AlipayBillAggResultController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _AlipayBillAggResultController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RetrieveAlipayBill",
+			Handler:    _AlipayBillAggResultController_RetrieveAlipayBill_Handler,
+		},
+		{
+			MethodName: "RetrieveBillEntities",
+			Handler:    _AlipayBillAggResultController_RetrieveBillEntities_Handler,
+		},
+		{
+			MethodName: "TaskSigAggAlipayBill",
+			Handler:    _AlipayBillAggResultController_TaskSigAggAlipayBill_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _AlipayBillAggResultController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

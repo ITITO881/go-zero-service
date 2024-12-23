@@ -6,13 +6,24 @@ option go_package = "../pbKingdeeIto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 
-service AlipayBillController {
-  rpc CreateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc DestroyAlipayBillAccountlog(AlipayBillAccountlogDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc ListAlipayBillAccountlog(AlipayBillAccountlogListRequest) returns (AlipayBillAccountlogListResponse) {}
-  rpc PartialUpdateAlipayBillAccountlog(AlipayBillAccountlogPartialUpdateRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc RetrieveAlipayBillAccountlog(AlipayBillAccountlogRetrieveRequest) returns (AlipayBillAccountlogResponse) {}
-  rpc UpdateAlipayBillAccountlog(AlipayBillAccountlogRequest) returns (AlipayBillAccountlogResponse) {}
+service AlipayBillAggResultController {
+  rpc AggAliPayBySrcTid(AggAliPayBySrcTidRequest) returns (AggAliPayBySrcTidResponse) {}
+  rpc Create(AlipayBillAggResultRequest) returns (AlipayBillAggResultResponse) {}
+  rpc Destroy(AlipayBillAggResultDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc DestroyAggBillResult(DestroyAggBillResultRequest) returns (DestroyAggBillResultResponse) {}
+  rpc FetchAlipayBillAsync(FetchAlipayLogAsyncRequest) returns (FetchAlipayLogAsyncResponse) {}
+  rpc FetchAlipayBillTask(FetchTaskRequest) returns (FetchAlipayBillTaskResponse) {}
+  rpc FetchSrcTrade(FetchSrcTradeRequest) returns (FetchSrcTradeResponse) {}
+  rpc FetchSrcTradeTask(FetchTaskRequest) returns (FetchSrcTradeTaskResponse) {}
+  rpc List(AlipayBillAggResultListRequest) returns (AlipayBillAggResultListResponse) {}
+  rpc ListAlipayBill(AlipayBillListRequest) returns (AlipayBillListResponse) {}
+  rpc ListBillEntities(AlipayBillEntitiesListRequest) returns (AlipayBillEntitiesListResponse) {}
+  rpc PartialUpdate(AlipayBillAggResultPartialUpdateRequest) returns (AlipayBillAggResultResponse) {}
+  rpc Retrieve(AlipayBillAggResultRetrieveRequest) returns (AlipayBillAggResultResponse) {}
+  rpc RetrieveAlipayBill(AlipayBillRetrieveRequest) returns (AlipayBillResponse) {}
+  rpc RetrieveBillEntities(BillEntitiesRetrieveRequest) returns (AlipayBillEntitiesResponse) {}
+  rpc TaskSigAggAlipayBill(TaskSigAggAlipayBillRequest) returns (TaskSigAggAlipayBillResponse) {}
+  rpc Update(AlipayBillAggResultRequest) returns (AlipayBillAggResultResponse) {}
 }
 
 service CeleryTaskController {
@@ -289,6 +300,17 @@ service VasOrderAggController {
   rpc TaskSigAggSwapStockin(TaskSigAggSwapStockinRequest) returns (TaskSigAggSwapStockinResponse) {}
   rpc TaskSigAggSwapTrade(TaskSigAggSwapTradeRequest) returns (TaskSigAggSwapTradeResponse) {}
   rpc TaskSigFetchStockinOrder(TaskSigFetchStockinOrderRequest) returns (TaskSigFetchStockinOrderResponse) {}
+}
+
+message AggAliPayBySrcTidRequest {
+  string start_time = 1;
+  string end_time = 2;
+}
+
+message AggAliPayBySrcTidResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message AggParamsTradeCreateRequest {
@@ -666,86 +688,171 @@ message AggTransferStockOutEntitiesResponse {
   optional string push_kd_status_name = 22;
 }
 
-message AlipayBillAccountlogDestroyRequest {
-  string account_log_id = 1;
+message AliPayGoodsListResponse {
+  optional string goods_id = 2;
+  optional string goods_no = 3;
+  optional string goods_name = 4;
+  optional string spec_id = 5;
+  optional string spec_no = 6;
+  optional string spec_name = 7;
+  optional string spec_code = 8;
+  optional int32 num = 9;
+  optional double price = 10;
+  optional double adjust_amount = 11;
+  optional double discount = 12;
+  optional double share_discount = 13;
+  optional double share_amount = 14;
+  optional double share_post = 15;
+  optional double total_amount = 16;
+  optional double paid = 17;
 }
 
-message AlipayBillAccountlogListRequest {
+message AlipayBillAggEntitiesResponse {
+  repeated AliPayGoodsListResponse goods_list = 2;
+  repeated AliPayGoodsListResponse refund_list = 3;
+  optional string account_log_id = 4;
+  optional string trans_dt = 5;
+  optional string type = 6;
+  optional string direction = 7;
+  optional string biz_desc = 8;
+  optional double trans_amount = 9;
+  optional string trans_memo = 10;
+}
+
+message AlipayBillAggResultDestroyRequest {
+  string _id = 1;
+}
+
+message AlipayBillAggResultListRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
 }
 
-message AlipayBillAccountlogListResponse {
-  repeated AlipayBillAccountlogResponse results = 1;
+message AlipayBillAggResultListResponse {
+  repeated AlipayBillAggResultResponse results = 1;
   int32 count = 2;
 }
 
-message AlipayBillAccountlogPartialUpdateRequest {
-  string account_log_id = 1;
+message AlipayBillAggResultPartialUpdateRequest {
+  optional string _id = 1;
   repeated string _partial_update_fields = 2;
-  string trans_dt = 3;
-  optional google.protobuf.Struct associted_trade_ids = 4;
-  string alipay_order_no = 5;
-  string merchant_order_no = 6;
-  double trans_amount = 7;
-  double balance = 8;
-  string type = 9;
-  string other_account = 10;
+  optional int32 push_kingdee_status = 3;
+  optional string agg_no = 4;
+  optional string agg_name = 5;
+  string agg_period = 6;
+  optional string src_account_log_list = 7;
+  optional string account_log_list = 8;
+  optional string tid_list = 9;
+  optional string trans_memo_list = 10;
+  optional string type = 11;
+  string direction = 12;
+  optional string biz_desc = 13;
+  double trans_amount = 14;
+}
+
+message AlipayBillAggResultRequest {
+  optional string _id = 1;
+  optional int32 push_kingdee_status = 2;
+  optional string agg_no = 3;
+  optional string agg_name = 4;
+  string agg_period = 5;
+  optional string src_account_log_list = 6;
+  optional string account_log_list = 7;
+  optional string tid_list = 8;
+  optional string trans_memo_list = 9;
+  optional string type = 10;
   string direction = 11;
-  optional string trans_memo = 12;
-  optional string bill_source = 13;
-  optional string biz_nos = 14;
-  optional string biz_orig_no = 15;
-  optional string biz_desc = 16;
-  optional string merchant_out_refund_no = 17;
-  optional string complement_info = 18;
-  optional string store_name = 19;
+  optional string biz_desc = 12;
+  double trans_amount = 13;
 }
 
-message AlipayBillAccountlogRequest {
-  string account_log_id = 1;
-  string trans_dt = 2;
-  optional google.protobuf.Struct associted_trade_ids = 3;
-  string alipay_order_no = 4;
-  string merchant_order_no = 5;
-  double trans_amount = 6;
-  double balance = 7;
-  string type = 8;
-  string other_account = 9;
-  string direction = 10;
-  optional string trans_memo = 11;
-  optional string bill_source = 12;
-  optional string biz_nos = 13;
-  optional string biz_orig_no = 14;
-  optional string biz_desc = 15;
-  optional string merchant_out_refund_no = 16;
-  optional string complement_info = 17;
-  optional string store_name = 18;
+message AlipayBillAggResultResponse {
+  optional string _id = 1;
+  repeated AliPayGoodsListResponse goods_list = 2;
+  repeated AliPayGoodsListResponse refund_list = 3;
+  optional string push_kingdee_status_name = 4;
+  optional string create_time = 5;
+  optional string update_time = 6;
+  optional int32 push_kingdee_status = 7;
+  optional string agg_no = 8;
+  optional string agg_name = 9;
+  string agg_period = 10;
+  optional string src_account_log_list = 11;
+  optional string account_log_list = 12;
+  optional string tid_list = 13;
+  optional string trans_memo_list = 14;
+  optional string type = 15;
+  string direction = 16;
+  optional string biz_desc = 17;
+  double trans_amount = 18;
 }
 
-message AlipayBillAccountlogResponse {
-  string account_log_id = 1;
-  string trans_dt = 2;
-  optional google.protobuf.Struct associted_trade_ids = 3;
-  string alipay_order_no = 4;
-  string merchant_order_no = 5;
-  double trans_amount = 6;
-  double balance = 7;
-  string type = 8;
-  string other_account = 9;
-  string direction = 10;
-  optional string trans_memo = 11;
-  optional string bill_source = 12;
-  optional string biz_nos = 13;
-  optional string biz_orig_no = 14;
-  optional string biz_desc = 15;
-  optional string merchant_out_refund_no = 16;
-  optional string complement_info = 17;
-  optional string store_name = 18;
+message AlipayBillAggResultRetrieveRequest {
+  string _id = 1;
 }
 
-message AlipayBillAccountlogRetrieveRequest {
-  string account_log_id = 1;
+message AlipayBillEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message AlipayBillEntitiesListResponse {
+  repeated AlipayBillEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message AlipayBillEntitiesResponse {
+  optional string _id = 1;
+  optional string agg_pay_status_name = 2;
+  optional string trans_dt = 3;
+  optional int32 agg_pay_status = 4;
+  optional string type = 5;
+  optional string direction = 6;
+  optional string biz_orig_no = 7;
+  optional double trans_amount = 8;
+  optional string biz_desc = 9;
+  optional string account_log_id = 10;
+  optional string alipay_order_no = 11;
+  optional string merchant_order_no = 12;
+  optional string merchant_out_refund_no = 13;
+  optional double balance = 14;
+  optional string other_account = 15;
+  optional string bill_source = 16;
+  optional string biz_nos = 17;
+  optional string trans_memo = 18;
+  optional string complement_info = 19;
+  optional string store_name = 20;
+}
+
+message AlipayBillListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message AlipayBillListResponse {
+  repeated AlipayBillResponse results = 1;
+  int32 count = 2;
+}
+
+message AlipayBillResponse {
+  optional string _id = 1;
+  optional string agg_bill_status_name = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional string result_agg_no = 5;
+  string agg_period = 6;
+  optional int32 agg_bill_status = 7;
+  optional string account_log_list = 8;
+  optional string src_tid = 9;
+  repeated AlipayBillAggEntitiesResponse trans_list = 10;
+}
+
+message AlipayBillRetrieveRequest {
+  string _id = 1;
+}
+
+message BillEntitiesRetrieveRequest {
+  string _id = 1;
 }
 
 message BulkCreateKdPurchaseReturnRequest {
@@ -1107,6 +1214,16 @@ message CxlKdTransferOrderFromWdtResponse {
   string data = 3;
 }
 
+message DestroyAggBillResultRequest {
+  string agg_no = 1;
+}
+
+message DestroyAggBillResultResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message DestroyAggKingdeeStkMisdeliveryRequest {
   repeated string agg_no_list = 1;
   int32 agg_push_status = 2;
@@ -1194,6 +1311,21 @@ message FStaffNumberResponse {
   optional string FStaffNumber = 2;
 }
 
+message FetchAlipayBillTaskResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+message FetchAlipayLogAsyncRequest {
+  string start_time = 1;
+  string end_time = 2;
+}
+
+message FetchAlipayLogAsyncResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
 message FetchQimenTradeRequest {
   string start_time = 1;
   string end_time = 2;
@@ -1213,6 +1345,27 @@ message FetchRefundListFromWdtResponse {
   int32 code = 1;
   string msg = 2;
   string data = 3;
+}
+
+message FetchSrcTradeRequest {
+  string start_time = 1;
+  string end_time = 2;
+}
+
+message FetchSrcTradeResponse {
+  int32 code = 1;
+  int32 affected = 2;
+}
+
+message FetchSrcTradeTaskResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
+message FetchTaskRequest {
+  string start_time = 1;
+  string end_time = 2;
+  string uuid = 3;
 }
 
 message FetchTradeListFromWdtRequest {
@@ -2369,46 +2522,46 @@ message KingdeeStkMisDeliveryModelResponse {
 
 message KingdeeStkMisDeliveryResponse {
   optional string _id = 1;
-  KingdeeStkMisDeliveryModelResponse model = 2;
-  KingdeeReceivableResponse receivable = 3;
-  optional string agg_no = 4;
-  optional string agg_name = 5;
-  optional string NeedUpDateFields = 6;
-  optional string NeedReturnFields = 7;
-  optional string kingdee_no = 8;
-  optional int32 agg_push_status = 9;
-  optional string failure_reason = 10;
-  optional string cancel_reason = 11;
-  optional int32 agg_type = 12;
-  optional string agg_type_name = 13;
-  optional int32 channel_dim = 14;
-  optional string channel_dim_name = 15;
-  optional int32 time_dim = 16;
-  optional string time_dim_name = 17;
-  optional string agg_period = 18;
-  optional int32 agg_year = 19;
-  optional int32 agg_month = 20;
-  optional int32 agg_week = 21;
-  optional int32 agg_day = 22;
-  optional string agg_organize_no = 23;
-  optional string agg_organize_name = 24;
-  optional string agg_shop_no = 25;
-  optional string agg_shop_name = 26;
-  optional string agg_warehouse_no = 27;
-  optional string agg_warehouse_name = 28;
-  optional string agg_src_order = 29;
-  optional string agg_order_no = 30;
-  optional int32 agg_order_count = 31;
-  optional int32 agg_goods_type_count = 32;
-  optional int32 agg_goods_count = 33;
-  optional double agg_total_amount = 34;
-  optional double agg_discount_amount = 35;
-  optional double agg_receivable_amount = 36;
-  optional double agg_paid_amount = 37;
-  optional string kingdee_push_time = 38;
-  optional string create_time = 39;
-  optional string update_time = 40;
-  optional string agg_push_status_name = 41;
+  optional string agg_push_status_name = 2;
+  KingdeeStkMisDeliveryModelResponse model = 3;
+  KingdeeReceivableResponse receivable = 4;
+  optional string agg_no = 5;
+  optional string agg_name = 6;
+  optional string NeedUpDateFields = 7;
+  optional string NeedReturnFields = 8;
+  optional string kingdee_no = 9;
+  optional int32 agg_push_status = 10;
+  optional string failure_reason = 11;
+  optional string cancel_reason = 12;
+  optional int32 agg_type = 13;
+  optional string agg_type_name = 14;
+  optional int32 channel_dim = 15;
+  optional string channel_dim_name = 16;
+  optional int32 time_dim = 17;
+  optional string time_dim_name = 18;
+  optional string agg_period = 19;
+  optional int32 agg_year = 20;
+  optional int32 agg_month = 21;
+  optional int32 agg_week = 22;
+  optional int32 agg_day = 23;
+  optional string agg_organize_no = 24;
+  optional string agg_organize_name = 25;
+  optional string agg_shop_no = 26;
+  optional string agg_shop_name = 27;
+  optional string agg_warehouse_no = 28;
+  optional string agg_warehouse_name = 29;
+  optional string agg_src_order = 30;
+  optional string agg_order_no = 31;
+  optional int32 agg_order_count = 32;
+  optional int32 agg_goods_type_count = 33;
+  optional int32 agg_goods_count = 34;
+  optional double agg_total_amount = 35;
+  optional double agg_discount_amount = 36;
+  optional double agg_receivable_amount = 37;
+  optional double agg_paid_amount = 38;
+  optional string kingdee_push_time = 39;
+  optional string create_time = 40;
+  optional string update_time = 41;
 }
 
 message KingdeeStockNoInfoRequest {
@@ -2979,51 +3132,51 @@ message SeedingKingdeeStkTransferDirectModelResponse {
 
 message SeedingKingdeeStkTransferDirectResponse {
   optional string _id = 1;
-  SeedingKingdeeStkTransferDirectModelResponse model = 2;
-  optional string agg_no = 3;
-  optional string agg_name = 4;
-  optional string NeedUpDateFields = 5;
-  optional string NeedReturnFields = 6;
-  optional string kingdee_no = 7;
-  optional int32 agg_push_status = 8;
-  optional string failure_reason = 9;
-  optional string cancel_reason = 10;
-  optional int32 agg_type = 11;
-  optional string agg_type_name = 12;
-  optional int32 channel_code = 13;
-  optional string channel_code_name = 14;
-  optional int32 channel_dim = 15;
-  optional string channel_dim_name = 16;
-  optional int32 time_dim = 17;
-  optional string time_dim_name = 18;
-  optional string agg_period = 19;
-  optional int32 agg_year = 20;
-  optional int32 agg_month = 21;
-  optional int32 agg_week = 22;
-  optional int32 agg_day = 23;
-  optional string agg_organize_no = 24;
-  optional string agg_organize_name = 25;
-  optional string agg_shop_no = 26;
-  optional string agg_shop_name = 27;
-  optional string agg_warehouse_no = 28;
-  optional string agg_warehouse_name = 29;
-  optional string agg_service_no = 30;
-  optional string agg_src_order = 31;
-  optional string agg_order_no = 32;
-  optional int32 agg_order_count = 33;
-  optional int32 agg_goods_type_count = 34;
-  optional int32 agg_goods_count = 35;
-  optional int32 refund_type = 36;
-  optional string refund_type_name = 37;
-  optional double agg_total_amount = 38;
-  optional double agg_discount_amount = 39;
-  optional double agg_receivable_amount = 40;
-  optional double agg_paid_amount = 41;
-  optional double agg_refund_amount = 42;
-  optional string kingdee_push_time = 43;
-  optional string create_time = 44;
-  optional string update_time = 45;
-  optional string agg_push_status_name = 46;
+  optional string agg_push_status_name = 2;
+  SeedingKingdeeStkTransferDirectModelResponse model = 3;
+  optional string agg_no = 4;
+  optional string agg_name = 5;
+  optional string NeedUpDateFields = 6;
+  optional string NeedReturnFields = 7;
+  optional string kingdee_no = 8;
+  optional int32 agg_push_status = 9;
+  optional string failure_reason = 10;
+  optional string cancel_reason = 11;
+  optional int32 agg_type = 12;
+  optional string agg_type_name = 13;
+  optional int32 channel_code = 14;
+  optional string channel_code_name = 15;
+  optional int32 channel_dim = 16;
+  optional string channel_dim_name = 17;
+  optional int32 time_dim = 18;
+  optional string time_dim_name = 19;
+  optional string agg_period = 20;
+  optional int32 agg_year = 21;
+  optional int32 agg_month = 22;
+  optional int32 agg_week = 23;
+  optional int32 agg_day = 24;
+  optional string agg_organize_no = 25;
+  optional string agg_organize_name = 26;
+  optional string agg_shop_no = 27;
+  optional string agg_shop_name = 28;
+  optional string agg_warehouse_no = 29;
+  optional string agg_warehouse_name = 30;
+  optional string agg_service_no = 31;
+  optional string agg_src_order = 32;
+  optional string agg_order_no = 33;
+  optional int32 agg_order_count = 34;
+  optional int32 agg_goods_type_count = 35;
+  optional int32 agg_goods_count = 36;
+  optional int32 refund_type = 37;
+  optional string refund_type_name = 38;
+  optional double agg_total_amount = 39;
+  optional double agg_discount_amount = 40;
+  optional double agg_receivable_amount = 41;
+  optional double agg_paid_amount = 42;
+  optional double agg_refund_amount = 43;
+  optional string kingdee_push_time = 44;
+  optional string create_time = 45;
+  optional string update_time = 46;
 }
 
 message StaticsRequest {
@@ -3118,51 +3271,51 @@ message SwapKingdeeSalOutStockModelResponse {
 
 message SwapKingdeeSalOutStockResponse {
   optional string _id = 1;
-  SwapKingdeeSalOutStockModelResponse model = 2;
-  optional string agg_no = 3;
-  optional string agg_name = 4;
-  optional string NeedUpDateFields = 5;
-  optional string NeedReturnFields = 6;
-  optional string kingdee_no = 7;
-  optional int32 agg_push_status = 8;
-  optional string failure_reason = 9;
-  optional string cancel_reason = 10;
-  optional int32 agg_type = 11;
-  optional string agg_type_name = 12;
-  optional int32 channel_code = 13;
-  optional string channel_code_name = 14;
-  optional int32 channel_dim = 15;
-  optional string channel_dim_name = 16;
-  optional int32 time_dim = 17;
-  optional string time_dim_name = 18;
-  optional string agg_period = 19;
-  optional int32 agg_year = 20;
-  optional int32 agg_month = 21;
-  optional int32 agg_week = 22;
-  optional int32 agg_day = 23;
-  optional string agg_organize_no = 24;
-  optional string agg_organize_name = 25;
-  optional string agg_shop_no = 26;
-  optional string agg_shop_name = 27;
-  optional string agg_warehouse_no = 28;
-  optional string agg_warehouse_name = 29;
-  optional string agg_service_no = 30;
-  optional string agg_src_order = 31;
-  optional string agg_order_no = 32;
-  optional int32 agg_order_count = 33;
-  optional int32 agg_goods_type_count = 34;
-  optional int32 agg_goods_count = 35;
-  optional int32 refund_type = 36;
-  optional string refund_type_name = 37;
-  optional double agg_total_amount = 38;
-  optional double agg_discount_amount = 39;
-  optional double agg_receivable_amount = 40;
-  optional double agg_paid_amount = 41;
-  optional double agg_refund_amount = 42;
-  optional string kingdee_push_time = 43;
-  optional string create_time = 44;
-  optional string update_time = 45;
-  optional string agg_push_status_name = 46;
+  optional string agg_push_status_name = 2;
+  SwapKingdeeSalOutStockModelResponse model = 3;
+  optional string agg_no = 4;
+  optional string agg_name = 5;
+  optional string NeedUpDateFields = 6;
+  optional string NeedReturnFields = 7;
+  optional string kingdee_no = 8;
+  optional int32 agg_push_status = 9;
+  optional string failure_reason = 10;
+  optional string cancel_reason = 11;
+  optional int32 agg_type = 12;
+  optional string agg_type_name = 13;
+  optional int32 channel_code = 14;
+  optional string channel_code_name = 15;
+  optional int32 channel_dim = 16;
+  optional string channel_dim_name = 17;
+  optional int32 time_dim = 18;
+  optional string time_dim_name = 19;
+  optional string agg_period = 20;
+  optional int32 agg_year = 21;
+  optional int32 agg_month = 22;
+  optional int32 agg_week = 23;
+  optional int32 agg_day = 24;
+  optional string agg_organize_no = 25;
+  optional string agg_organize_name = 26;
+  optional string agg_shop_no = 27;
+  optional string agg_shop_name = 28;
+  optional string agg_warehouse_no = 29;
+  optional string agg_warehouse_name = 30;
+  optional string agg_service_no = 31;
+  optional string agg_src_order = 32;
+  optional string agg_order_no = 33;
+  optional int32 agg_order_count = 34;
+  optional int32 agg_goods_type_count = 35;
+  optional int32 agg_goods_count = 36;
+  optional int32 refund_type = 37;
+  optional string refund_type_name = 38;
+  optional double agg_total_amount = 39;
+  optional double agg_discount_amount = 40;
+  optional double agg_receivable_amount = 41;
+  optional double agg_paid_amount = 42;
+  optional double agg_refund_amount = 43;
+  optional string kingdee_push_time = 44;
+  optional string create_time = 45;
+  optional string update_time = 46;
 }
 
 message SwapKingdeeSalReturnStockEntityResponse {
@@ -3218,51 +3371,51 @@ message SwapKingdeeSalReturnStockModelResponse {
 
 message SwapKingdeeSalReturnStockResponse {
   optional string _id = 1;
-  SwapKingdeeSalReturnStockModelResponse model = 2;
-  optional string agg_no = 3;
-  optional string agg_name = 4;
-  optional string NeedUpDateFields = 5;
-  optional string NeedReturnFields = 6;
-  optional string kingdee_no = 7;
-  optional int32 agg_push_status = 8;
-  optional string failure_reason = 9;
-  optional string cancel_reason = 10;
-  optional int32 agg_type = 11;
-  optional string agg_type_name = 12;
-  optional int32 channel_code = 13;
-  optional string channel_code_name = 14;
-  optional int32 channel_dim = 15;
-  optional string channel_dim_name = 16;
-  optional int32 time_dim = 17;
-  optional string time_dim_name = 18;
-  optional string agg_period = 19;
-  optional int32 agg_year = 20;
-  optional int32 agg_month = 21;
-  optional int32 agg_week = 22;
-  optional int32 agg_day = 23;
-  optional string agg_organize_no = 24;
-  optional string agg_organize_name = 25;
-  optional string agg_shop_no = 26;
-  optional string agg_shop_name = 27;
-  optional string agg_warehouse_no = 28;
-  optional string agg_warehouse_name = 29;
-  optional string agg_service_no = 30;
-  optional string agg_src_order = 31;
-  optional string agg_order_no = 32;
-  optional int32 agg_order_count = 33;
-  optional int32 agg_goods_type_count = 34;
-  optional int32 agg_goods_count = 35;
-  optional int32 refund_type = 36;
-  optional string refund_type_name = 37;
-  optional double agg_total_amount = 38;
-  optional double agg_discount_amount = 39;
-  optional double agg_receivable_amount = 40;
-  optional double agg_paid_amount = 41;
-  optional double agg_refund_amount = 42;
-  optional string kingdee_push_time = 43;
-  optional string create_time = 44;
-  optional string update_time = 45;
-  optional string agg_push_status_name = 46;
+  optional string agg_push_status_name = 2;
+  SwapKingdeeSalReturnStockModelResponse model = 3;
+  optional string agg_no = 4;
+  optional string agg_name = 5;
+  optional string NeedUpDateFields = 6;
+  optional string NeedReturnFields = 7;
+  optional string kingdee_no = 8;
+  optional int32 agg_push_status = 9;
+  optional string failure_reason = 10;
+  optional string cancel_reason = 11;
+  optional int32 agg_type = 12;
+  optional string agg_type_name = 13;
+  optional int32 channel_code = 14;
+  optional string channel_code_name = 15;
+  optional int32 channel_dim = 16;
+  optional string channel_dim_name = 17;
+  optional int32 time_dim = 18;
+  optional string time_dim_name = 19;
+  optional string agg_period = 20;
+  optional int32 agg_year = 21;
+  optional int32 agg_month = 22;
+  optional int32 agg_week = 23;
+  optional int32 agg_day = 24;
+  optional string agg_organize_no = 25;
+  optional string agg_organize_name = 26;
+  optional string agg_shop_no = 27;
+  optional string agg_shop_name = 28;
+  optional string agg_warehouse_no = 29;
+  optional string agg_warehouse_name = 30;
+  optional string agg_service_no = 31;
+  optional string agg_src_order = 32;
+  optional string agg_order_no = 33;
+  optional int32 agg_order_count = 34;
+  optional int32 agg_goods_type_count = 35;
+  optional int32 agg_goods_count = 36;
+  optional int32 refund_type = 37;
+  optional string refund_type_name = 38;
+  optional double agg_total_amount = 39;
+  optional double agg_discount_amount = 40;
+  optional double agg_receivable_amount = 41;
+  optional double agg_paid_amount = 42;
+  optional double agg_refund_amount = 43;
+  optional string kingdee_push_time = 44;
+  optional string create_time = 45;
+  optional string update_time = 46;
 }
 
 message SyncKdPurchaseReturnRequest {
@@ -3441,6 +3594,20 @@ message TaskResultUpdateRequest {
   string content_encoding = 10;
   optional string traceback = 11;
   repeated string _partial_update_fields = 12;
+}
+
+message TaskSigAggAlipayBillRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+  string agg_period = 5;
+}
+
+message TaskSigAggAlipayBillResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message TaskSigAggRepairStockoutRequest {
