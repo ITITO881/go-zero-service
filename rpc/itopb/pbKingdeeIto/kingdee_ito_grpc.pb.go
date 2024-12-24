@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	AlipayBillAggResultController_AggAliPayBySrcTid_FullMethodName    = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/AggAliPayBySrcTid"
+	AlipayBillAggResultController_AlipayBillOptions_FullMethodName    = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/AlipayBillOptions"
 	AlipayBillAggResultController_Create_FullMethodName               = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Create"
 	AlipayBillAggResultController_Destroy_FullMethodName              = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/Destroy"
 	AlipayBillAggResultController_DestroyAggBillResult_FullMethodName = "/kingdee_service.kingdee_ito.AlipayBillAggResultController/DestroyAggBillResult"
@@ -44,6 +45,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AlipayBillAggResultControllerClient interface {
 	AggAliPayBySrcTid(ctx context.Context, in *AggAliPayBySrcTidRequest, opts ...grpc.CallOption) (*AggAliPayBySrcTidResponse, error)
+	AlipayBillOptions(ctx context.Context, in *AlipayBillOptionsRequest, opts ...grpc.CallOption) (*AlipayBillOptionsResponse, error)
 	Create(ctx context.Context, in *AlipayBillAggResultRequest, opts ...grpc.CallOption) (*AlipayBillAggResultResponse, error)
 	Destroy(ctx context.Context, in *AlipayBillAggResultDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyAggBillResult(ctx context.Context, in *DestroyAggBillResultRequest, opts ...grpc.CallOption) (*DestroyAggBillResultResponse, error)
@@ -73,6 +75,15 @@ func NewAlipayBillAggResultControllerClient(cc grpc.ClientConnInterface) AlipayB
 func (c *alipayBillAggResultControllerClient) AggAliPayBySrcTid(ctx context.Context, in *AggAliPayBySrcTidRequest, opts ...grpc.CallOption) (*AggAliPayBySrcTidResponse, error) {
 	out := new(AggAliPayBySrcTidResponse)
 	err := c.cc.Invoke(ctx, AlipayBillAggResultController_AggAliPayBySrcTid_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *alipayBillAggResultControllerClient) AlipayBillOptions(ctx context.Context, in *AlipayBillOptionsRequest, opts ...grpc.CallOption) (*AlipayBillOptionsResponse, error) {
+	out := new(AlipayBillOptionsResponse)
+	err := c.cc.Invoke(ctx, AlipayBillAggResultController_AlipayBillOptions_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -228,6 +239,7 @@ func (c *alipayBillAggResultControllerClient) Update(ctx context.Context, in *Al
 // for forward compatibility
 type AlipayBillAggResultControllerServer interface {
 	AggAliPayBySrcTid(context.Context, *AggAliPayBySrcTidRequest) (*AggAliPayBySrcTidResponse, error)
+	AlipayBillOptions(context.Context, *AlipayBillOptionsRequest) (*AlipayBillOptionsResponse, error)
 	Create(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error)
 	Destroy(context.Context, *AlipayBillAggResultDestroyRequest) (*emptypb.Empty, error)
 	DestroyAggBillResult(context.Context, *DestroyAggBillResultRequest) (*DestroyAggBillResultResponse, error)
@@ -253,6 +265,9 @@ type UnimplementedAlipayBillAggResultControllerServer struct {
 
 func (UnimplementedAlipayBillAggResultControllerServer) AggAliPayBySrcTid(context.Context, *AggAliPayBySrcTidRequest) (*AggAliPayBySrcTidResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AggAliPayBySrcTid not implemented")
+}
+func (UnimplementedAlipayBillAggResultControllerServer) AlipayBillOptions(context.Context, *AlipayBillOptionsRequest) (*AlipayBillOptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AlipayBillOptions not implemented")
 }
 func (UnimplementedAlipayBillAggResultControllerServer) Create(context.Context, *AlipayBillAggResultRequest) (*AlipayBillAggResultResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
@@ -330,6 +345,24 @@ func _AlipayBillAggResultController_AggAliPayBySrcTid_Handler(srv interface{}, c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AlipayBillAggResultControllerServer).AggAliPayBySrcTid(ctx, req.(*AggAliPayBySrcTidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AlipayBillAggResultController_AlipayBillOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlipayBillOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AlipayBillAggResultControllerServer).AlipayBillOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AlipayBillAggResultController_AlipayBillOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AlipayBillAggResultControllerServer).AlipayBillOptions(ctx, req.(*AlipayBillOptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -632,6 +665,10 @@ var AlipayBillAggResultController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AggAliPayBySrcTid",
 			Handler:    _AlipayBillAggResultController_AggAliPayBySrcTid_Handler,
+		},
+		{
+			MethodName: "AlipayBillOptions",
+			Handler:    _AlipayBillAggResultController_AlipayBillOptions_Handler,
 		},
 		{
 			MethodName: "Create",
@@ -3134,6 +3171,245 @@ var KingdeePurchaseOrderController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Update",
 			Handler:    _KingdeePurchaseOrderController_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "kingdee_ito.proto",
+}
+
+const (
+	OtherStockoutController_List_FullMethodName                                             = "/kingdee_service.kingdee_ito.OtherStockoutController/List"
+	OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_FullMethodName = "/kingdee_service.kingdee_ito.OtherStockoutController/RunPeriodPushStockOutsideToKingdeeStkMisDelivery"
+	OtherStockoutController_TaskSigAggOrderStockOutside_FullMethodName                      = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigAggOrderStockOutside"
+	OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName                        = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigFetchStockoutOrder"
+	OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_FullMethodName                 = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigFetchWdtStockOutsideOrder"
+)
+
+// OtherStockoutControllerClient is the client API for OtherStockoutController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OtherStockoutControllerClient interface {
+	List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error)
+	RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx context.Context, in *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error)
+	TaskSigAggOrderStockOutside(ctx context.Context, in *TaskSigAggOrderStockOutsideRequest, opts ...grpc.CallOption) (*TaskSigAggOrderStockOutsideResponse, error)
+	TaskSigFetchStockoutOrder(ctx context.Context, in *TaskSigFetchStockoutOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockoutOrderResponse, error)
+	TaskSigFetchWdtStockOutsideOrder(ctx context.Context, in *TaskSigFetchWdtStockOutsideOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchWdtStockOutsideOrderResponse, error)
+}
+
+type otherStockoutControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOtherStockoutControllerClient(cc grpc.ClientConnInterface) OtherStockoutControllerClient {
+	return &otherStockoutControllerClient{cc}
+}
+
+func (c *otherStockoutControllerClient) List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error) {
+	out := new(WdtStockoutModelListResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx context.Context, in *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error) {
+	out := new(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) TaskSigAggOrderStockOutside(ctx context.Context, in *TaskSigAggOrderStockOutsideRequest, opts ...grpc.CallOption) (*TaskSigAggOrderStockOutsideResponse, error) {
+	out := new(TaskSigAggOrderStockOutsideResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_TaskSigAggOrderStockOutside_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) TaskSigFetchStockoutOrder(ctx context.Context, in *TaskSigFetchStockoutOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockoutOrderResponse, error) {
+	out := new(TaskSigFetchStockoutOrderResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) TaskSigFetchWdtStockOutsideOrder(ctx context.Context, in *TaskSigFetchWdtStockOutsideOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchWdtStockOutsideOrderResponse, error) {
+	out := new(TaskSigFetchWdtStockOutsideOrderResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OtherStockoutControllerServer is the server API for OtherStockoutController service.
+// All implementations must embed UnimplementedOtherStockoutControllerServer
+// for forward compatibility
+type OtherStockoutControllerServer interface {
+	List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error)
+	RunPeriodPushStockOutsideToKingdeeStkMisDelivery(context.Context, *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error)
+	TaskSigAggOrderStockOutside(context.Context, *TaskSigAggOrderStockOutsideRequest) (*TaskSigAggOrderStockOutsideResponse, error)
+	TaskSigFetchStockoutOrder(context.Context, *TaskSigFetchStockoutOrderRequest) (*TaskSigFetchStockoutOrderResponse, error)
+	TaskSigFetchWdtStockOutsideOrder(context.Context, *TaskSigFetchWdtStockOutsideOrderRequest) (*TaskSigFetchWdtStockOutsideOrderResponse, error)
+	mustEmbedUnimplementedOtherStockoutControllerServer()
+}
+
+// UnimplementedOtherStockoutControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedOtherStockoutControllerServer struct {
+}
+
+func (UnimplementedOtherStockoutControllerServer) List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) RunPeriodPushStockOutsideToKingdeeStkMisDelivery(context.Context, *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushStockOutsideToKingdeeStkMisDelivery not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) TaskSigAggOrderStockOutside(context.Context, *TaskSigAggOrderStockOutsideRequest) (*TaskSigAggOrderStockOutsideResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggOrderStockOutside not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) TaskSigFetchStockoutOrder(context.Context, *TaskSigFetchStockoutOrderRequest) (*TaskSigFetchStockoutOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchStockoutOrder not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) TaskSigFetchWdtStockOutsideOrder(context.Context, *TaskSigFetchWdtStockOutsideOrderRequest) (*TaskSigFetchWdtStockOutsideOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchWdtStockOutsideOrder not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) mustEmbedUnimplementedOtherStockoutControllerServer() {
+}
+
+// UnsafeOtherStockoutControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OtherStockoutControllerServer will
+// result in compilation errors.
+type UnsafeOtherStockoutControllerServer interface {
+	mustEmbedUnimplementedOtherStockoutControllerServer()
+}
+
+func RegisterOtherStockoutControllerServer(s grpc.ServiceRegistrar, srv OtherStockoutControllerServer) {
+	s.RegisterService(&OtherStockoutController_ServiceDesc, srv)
+}
+
+func _OtherStockoutController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WdtStockoutModelListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).List(ctx, req.(*WdtStockoutModelListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx, req.(*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_TaskSigAggOrderStockOutside_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigAggOrderStockOutsideRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).TaskSigAggOrderStockOutside(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_TaskSigAggOrderStockOutside_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).TaskSigAggOrderStockOutside(ctx, req.(*TaskSigAggOrderStockOutsideRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_TaskSigFetchStockoutOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigFetchStockoutOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).TaskSigFetchStockoutOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).TaskSigFetchStockoutOrder(ctx, req.(*TaskSigFetchStockoutOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskSigFetchWdtStockOutsideOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).TaskSigFetchWdtStockOutsideOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).TaskSigFetchWdtStockOutsideOrder(ctx, req.(*TaskSigFetchWdtStockOutsideOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OtherStockoutController_ServiceDesc is the grpc.ServiceDesc for OtherStockoutController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OtherStockoutController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "kingdee_service.kingdee_ito.OtherStockoutController",
+	HandlerType: (*OtherStockoutControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "List",
+			Handler:    _OtherStockoutController_List_Handler,
+		},
+		{
+			MethodName: "RunPeriodPushStockOutsideToKingdeeStkMisDelivery",
+			Handler:    _OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_Handler,
+		},
+		{
+			MethodName: "TaskSigAggOrderStockOutside",
+			Handler:    _OtherStockoutController_TaskSigAggOrderStockOutside_Handler,
+		},
+		{
+			MethodName: "TaskSigFetchStockoutOrder",
+			Handler:    _OtherStockoutController_TaskSigFetchStockoutOrder_Handler,
+		},
+		{
+			MethodName: "TaskSigFetchWdtStockOutsideOrder",
+			Handler:    _OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

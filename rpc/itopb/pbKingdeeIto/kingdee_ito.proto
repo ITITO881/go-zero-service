@@ -8,6 +8,7 @@ import "google/protobuf/struct.proto";
 
 service AlipayBillAggResultController {
   rpc AggAliPayBySrcTid(AggAliPayBySrcTidRequest) returns (AggAliPayBySrcTidResponse) {}
+  rpc AlipayBillOptions(AlipayBillOptionsRequest) returns (AlipayBillOptionsResponse) {}
   rpc Create(AlipayBillAggResultRequest) returns (AlipayBillAggResultResponse) {}
   rpc Destroy(AlipayBillAggResultDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyAggBillResult(DestroyAggBillResultRequest) returns (DestroyAggBillResultResponse) {}
@@ -93,6 +94,14 @@ service KingdeePurchaseOrderController {
   rpc SyncKdPurchaseReturn(SyncKdPurchaseReturnRequest) returns (SyncKdPurchaseReturnResponse) {}
   rpc SyncKdTransferOrder(SyncKdTransferOrderRequest) returns (SyncKdTransferOrderResponse) {}
   rpc Update(KingdeePurchaseRequest) returns (KingdeePurchaseResponse) {}
+}
+
+service OtherStockoutController {
+  rpc List(WdtStockoutModelListRequest) returns (WdtStockoutModelListResponse) {}
+  rpc RunPeriodPushStockOutsideToKingdeeStkMisDelivery(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) returns (RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse) {}
+  rpc TaskSigAggOrderStockOutside(TaskSigAggOrderStockOutsideRequest) returns (TaskSigAggOrderStockOutsideResponse) {}
+  rpc TaskSigFetchStockoutOrder(TaskSigFetchStockoutOrderRequest) returns (TaskSigFetchStockoutOrderResponse) {}
+  rpc TaskSigFetchWdtStockOutsideOrder(TaskSigFetchWdtStockOutsideOrderRequest) returns (TaskSigFetchWdtStockOutsideOrderResponse) {}
 }
 
 service PurchasePlatController {
@@ -748,6 +757,7 @@ message AlipayBillAggResultPartialUpdateRequest {
   string direction = 12;
   optional string biz_desc = 13;
   double trans_amount = 14;
+  optional string push_kingdee_time = 15;
 }
 
 message AlipayBillAggResultRequest {
@@ -764,6 +774,7 @@ message AlipayBillAggResultRequest {
   string direction = 11;
   optional string biz_desc = 12;
   double trans_amount = 13;
+  optional string push_kingdee_time = 14;
 }
 
 message AlipayBillAggResultResponse {
@@ -785,6 +796,7 @@ message AlipayBillAggResultResponse {
   string direction = 16;
   optional string biz_desc = 17;
   double trans_amount = 18;
+  optional string push_kingdee_time = 19;
 }
 
 message AlipayBillAggResultRetrieveRequest {
@@ -832,6 +844,15 @@ message AlipayBillListRequest {
 message AlipayBillListResponse {
   repeated AlipayBillResponse results = 1;
   int32 count = 2;
+}
+
+message AlipayBillOptionsRequest {
+}
+
+message AlipayBillOptionsResponse {
+  repeated LabelValueResponse agg_pay_status = 1;
+  repeated LabelValueResponse agg_bill_status = 2;
+  repeated LabelValueResponse push_kingdee_status = 3;
 }
 
 message AlipayBillResponse {
@@ -2996,6 +3017,18 @@ message RunPeriodPushSeedingToKingdeeTransferDirectResponse {
   string data = 3;
 }
 
+message RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest {
+  string uuid = 1;
+  repeated string agg_no_list = 2;
+  optional string agg_task_name = 3;
+}
+
+message RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message RunPeriodPushSwapRefundToKingdeeRequest {
   string uuid = 1;
   repeated string agg_no_list = 2;
@@ -3610,6 +3643,18 @@ message TaskSigAggAlipayBillResponse {
   string data = 3;
 }
 
+message TaskSigAggOrderStockOutsideRequest {
+  string uuid = 1;
+  string agg_period = 2;
+  string config_no = 3;
+}
+
+message TaskSigAggOrderStockOutsideResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message TaskSigAggRepairStockoutRequest {
   string uuid = 1;
   string agg_period = 2;
@@ -3709,6 +3754,19 @@ message TaskSigFetchStockinOrderResponse {
   string data = 3;
 }
 
+message TaskSigFetchStockoutOrderRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+}
+
+message TaskSigFetchStockoutOrderResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message TaskSigFetchTradeRefundRequest {
   string uuid = 1;
   optional string pre_slice_end = 2;
@@ -3717,6 +3775,19 @@ message TaskSigFetchTradeRefundRequest {
 }
 
 message TaskSigFetchTradeRefundResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message TaskSigFetchWdtStockOutsideOrderRequest {
+  string uuid = 1;
+  optional string pre_slice_end = 2;
+  string require_start = 3;
+  optional string require_end = 4;
+}
+
+message TaskSigFetchWdtStockOutsideOrderResponse {
   int32 code = 1;
   string msg = 2;
   string data = 3;
@@ -4796,6 +4867,100 @@ message WdtStockinTransferOrderResponse {
   optional string wms_outer_no = 52;
   optional string logistics_no = 53;
   optional string operator_name = 54;
+}
+
+message WdtStockoutDetailModelResponse {
+  int32 rec_id = 1;
+  repeated WdtStockoutPositionModelResponse position_list = 2;
+  int32 stockout_id = 3;
+  int32 src_order_detail_id = 4;
+  int32 goods_count = 5;
+  int32 goods_type = 6;
+  optional string spec_no = 7;
+  optional double sell_price = 8;
+  optional string brand_no = 9;
+  optional string brand_name = 10;
+  optional string goods_name = 11;
+  optional string goods_no = 12;
+  optional string spec_name = 13;
+  optional string spec_code = 14;
+  optional double cost_price = 15;
+  optional double total_amount = 16;
+  optional double weight = 17;
+  optional string remark = 18;
+  optional string goods_unit = 19;
+  optional string batch_no = 20;
+  optional string batch_remark = 21;
+  optional string expire_date = 22;
+}
+
+message WdtStockoutModelListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message WdtStockoutModelListResponse {
+  repeated WdtStockoutModelResponse results = 1;
+  int32 count = 2;
+}
+
+message WdtStockoutModelResponse {
+  optional string _id = 1;
+  repeated WdtStockoutDetailModelResponse details_list = 2;
+  int32 stockout_id = 3;
+  int32 status = 4;
+  int32 order_type = 5;
+  int32 goods_count = 6;
+  int32 logistics_type = 7;
+  optional int32 agg_consign_status = 8;
+  optional string agg_no = 9;
+  optional string order_no = 10;
+  optional string stockout_no = 11;
+  optional string src_order_no = 12;
+  optional string warehouse_no = 13;
+  optional string consign_time = 14;
+  optional string order_type_name = 15;
+  optional string subtype = 16;
+  optional string stockout_reason = 17;
+  optional double goods_total_amount = 18;
+  optional double goods_total_cost = 19;
+  optional double post_fee = 20;
+  optional string logistics_no = 21;
+  optional double package_fee = 22;
+  optional string receiver_name = 23;
+  optional string receiver_country = 24;
+  optional string receiver_province = 25;
+  optional string receiver_city = 26;
+  optional string receiver_district = 27;
+  optional string receiver_address = 28;
+  optional string receiver_mobile = 29;
+  optional string receiver_telno = 30;
+  optional string receiver_zip = 31;
+  optional double weight = 32;
+  optional string remark = 33;
+  optional string outer_no = 34;
+  optional string operator_name = 35;
+  optional string logistics_code = 36;
+  optional string logistics_name = 37;
+  optional string modified = 38;
+  optional string stock_check_time = 39;
+}
+
+message WdtStockoutPositionModelResponse {
+  int32 rec_id = 1;
+  int32 position_id = 2;
+  int32 position_goods_count = 3;
+  int32 stockout_order_detail_id = 4;
+  int32 stock_spec_detail_id = 5;
+  int32 stockin_detail_id = 6;
+  int32 batch_id = 7;
+  int32 v_stock_spec_detail_id = 8;
+  optional string position_no = 9;
+  optional string batch_no = 10;
+  optional double cost_price = 11;
+  optional string modified = 12;
+  optional string expire_date = 13;
+  optional string created = 14;
 }
 
 message WdtStockoutPurchaseReturnDestroyRequest {
