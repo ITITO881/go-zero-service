@@ -3178,8 +3178,15 @@ var KingdeePurchaseOrderController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	OtherStockoutController_BulkCreateKingdeeOutStockApply_FullMethodName                   = "/kingdee_service.kingdee_ito.OtherStockoutController/BulkCreateKingdeeOutStockApply"
+	OtherStockoutController_CxlKingdeeOutStockApply_FullMethodName                          = "/kingdee_service.kingdee_ito.OtherStockoutController/CxlKingdeeOutStockApply"
+	OtherStockoutController_DestroyAggStockOutsideKingdeeStkMisdelivery_FullMethodName      = "/kingdee_service.kingdee_ito.OtherStockoutController/DestroyAggStockOutsideKingdeeStkMisdelivery"
 	OtherStockoutController_List_FullMethodName                                             = "/kingdee_service.kingdee_ito.OtherStockoutController/List"
+	OtherStockoutController_ListKingdeeOutStockApply_FullMethodName                         = "/kingdee_service.kingdee_ito.OtherStockoutController/ListKingdeeOutStockApply"
+	OtherStockoutController_OptionKingdeeOutStockApply_FullMethodName                       = "/kingdee_service.kingdee_ito.OtherStockoutController/OptionKingdeeOutStockApply"
+	OtherStockoutController_QueryKingdeeOutStockApplyStatus_FullMethodName                  = "/kingdee_service.kingdee_ito.OtherStockoutController/QueryKingdeeOutStockApplyStatus"
 	OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_FullMethodName = "/kingdee_service.kingdee_ito.OtherStockoutController/RunPeriodPushStockOutsideToKingdeeStkMisDelivery"
+	OtherStockoutController_SyncKingdeeOutStockApply_FullMethodName                         = "/kingdee_service.kingdee_ito.OtherStockoutController/SyncKingdeeOutStockApply"
 	OtherStockoutController_TaskSigAggOrderStockOutside_FullMethodName                      = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigAggOrderStockOutside"
 	OtherStockoutController_TaskSigFetchStockoutOrder_FullMethodName                        = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigFetchStockoutOrder"
 	OtherStockoutController_TaskSigFetchWdtStockOutsideOrder_FullMethodName                 = "/kingdee_service.kingdee_ito.OtherStockoutController/TaskSigFetchWdtStockOutsideOrder"
@@ -3189,8 +3196,15 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OtherStockoutControllerClient interface {
+	BulkCreateKingdeeOutStockApply(ctx context.Context, in *BulkCreateKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	CxlKingdeeOutStockApply(ctx context.Context, in *CancelKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
+	DestroyAggStockOutsideKingdeeStkMisdelivery(ctx context.Context, in *DestroyAggStockOutsideKingdeeStkMisdeliveryRequest, opts ...grpc.CallOption) (*DestroyAggStockOutsideKingdeeStkMisdeliveryResponse, error)
 	List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error)
+	ListKingdeeOutStockApply(ctx context.Context, in *KingdeeOutStockApplyListRequest, opts ...grpc.CallOption) (*KingdeeOutStockApplyListResponse, error)
+	OptionKingdeeOutStockApply(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*KingdeeOutStockApplyOptionResponse, error)
+	QueryKingdeeOutStockApplyStatus(ctx context.Context, in *QueryKingdeeOutStockApplyStatusRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
 	RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx context.Context, in *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error)
+	SyncKingdeeOutStockApply(ctx context.Context, in *SyncKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error)
 	TaskSigAggOrderStockOutside(ctx context.Context, in *TaskSigAggOrderStockOutsideRequest, opts ...grpc.CallOption) (*TaskSigAggOrderStockOutsideResponse, error)
 	TaskSigFetchStockoutOrder(ctx context.Context, in *TaskSigFetchStockoutOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockoutOrderResponse, error)
 	TaskSigFetchWdtStockOutsideOrder(ctx context.Context, in *TaskSigFetchWdtStockOutsideOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchWdtStockOutsideOrderResponse, error)
@@ -3204,6 +3218,33 @@ func NewOtherStockoutControllerClient(cc grpc.ClientConnInterface) OtherStockout
 	return &otherStockoutControllerClient{cc}
 }
 
+func (c *otherStockoutControllerClient) BulkCreateKingdeeOutStockApply(ctx context.Context, in *BulkCreateKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_BulkCreateKingdeeOutStockApply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) CxlKingdeeOutStockApply(ctx context.Context, in *CancelKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_CxlKingdeeOutStockApply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) DestroyAggStockOutsideKingdeeStkMisdelivery(ctx context.Context, in *DestroyAggStockOutsideKingdeeStkMisdeliveryRequest, opts ...grpc.CallOption) (*DestroyAggStockOutsideKingdeeStkMisdeliveryResponse, error) {
+	out := new(DestroyAggStockOutsideKingdeeStkMisdeliveryResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_DestroyAggStockOutsideKingdeeStkMisdelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *otherStockoutControllerClient) List(ctx context.Context, in *WdtStockoutModelListRequest, opts ...grpc.CallOption) (*WdtStockoutModelListResponse, error) {
 	out := new(WdtStockoutModelListResponse)
 	err := c.cc.Invoke(ctx, OtherStockoutController_List_FullMethodName, in, out, opts...)
@@ -3213,9 +3254,45 @@ func (c *otherStockoutControllerClient) List(ctx context.Context, in *WdtStockou
 	return out, nil
 }
 
+func (c *otherStockoutControllerClient) ListKingdeeOutStockApply(ctx context.Context, in *KingdeeOutStockApplyListRequest, opts ...grpc.CallOption) (*KingdeeOutStockApplyListResponse, error) {
+	out := new(KingdeeOutStockApplyListResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_ListKingdeeOutStockApply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) OptionKingdeeOutStockApply(ctx context.Context, in *EmptyRequest, opts ...grpc.CallOption) (*KingdeeOutStockApplyOptionResponse, error) {
+	out := new(KingdeeOutStockApplyOptionResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_OptionKingdeeOutStockApply_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) QueryKingdeeOutStockApplyStatus(ctx context.Context, in *QueryKingdeeOutStockApplyStatusRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_QueryKingdeeOutStockApplyStatus_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *otherStockoutControllerClient) RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx context.Context, in *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error) {
 	out := new(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse)
 	err := c.cc.Invoke(ctx, OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *otherStockoutControllerClient) SyncKingdeeOutStockApply(ctx context.Context, in *SyncKingdeeOutStockApplyRequest, opts ...grpc.CallOption) (*CodeMsgResponse, error) {
+	out := new(CodeMsgResponse)
+	err := c.cc.Invoke(ctx, OtherStockoutController_SyncKingdeeOutStockApply_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3253,8 +3330,15 @@ func (c *otherStockoutControllerClient) TaskSigFetchWdtStockOutsideOrder(ctx con
 // All implementations must embed UnimplementedOtherStockoutControllerServer
 // for forward compatibility
 type OtherStockoutControllerServer interface {
+	BulkCreateKingdeeOutStockApply(context.Context, *BulkCreateKingdeeOutStockApplyRequest) (*CodeMsgResponse, error)
+	CxlKingdeeOutStockApply(context.Context, *CancelKingdeeOutStockApplyRequest) (*CodeMsgResponse, error)
+	DestroyAggStockOutsideKingdeeStkMisdelivery(context.Context, *DestroyAggStockOutsideKingdeeStkMisdeliveryRequest) (*DestroyAggStockOutsideKingdeeStkMisdeliveryResponse, error)
 	List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error)
+	ListKingdeeOutStockApply(context.Context, *KingdeeOutStockApplyListRequest) (*KingdeeOutStockApplyListResponse, error)
+	OptionKingdeeOutStockApply(context.Context, *EmptyRequest) (*KingdeeOutStockApplyOptionResponse, error)
+	QueryKingdeeOutStockApplyStatus(context.Context, *QueryKingdeeOutStockApplyStatusRequest) (*CodeMsgResponse, error)
 	RunPeriodPushStockOutsideToKingdeeStkMisDelivery(context.Context, *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error)
+	SyncKingdeeOutStockApply(context.Context, *SyncKingdeeOutStockApplyRequest) (*CodeMsgResponse, error)
 	TaskSigAggOrderStockOutside(context.Context, *TaskSigAggOrderStockOutsideRequest) (*TaskSigAggOrderStockOutsideResponse, error)
 	TaskSigFetchStockoutOrder(context.Context, *TaskSigFetchStockoutOrderRequest) (*TaskSigFetchStockoutOrderResponse, error)
 	TaskSigFetchWdtStockOutsideOrder(context.Context, *TaskSigFetchWdtStockOutsideOrderRequest) (*TaskSigFetchWdtStockOutsideOrderResponse, error)
@@ -3265,11 +3349,32 @@ type OtherStockoutControllerServer interface {
 type UnimplementedOtherStockoutControllerServer struct {
 }
 
+func (UnimplementedOtherStockoutControllerServer) BulkCreateKingdeeOutStockApply(context.Context, *BulkCreateKingdeeOutStockApplyRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BulkCreateKingdeeOutStockApply not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) CxlKingdeeOutStockApply(context.Context, *CancelKingdeeOutStockApplyRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CxlKingdeeOutStockApply not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) DestroyAggStockOutsideKingdeeStkMisdelivery(context.Context, *DestroyAggStockOutsideKingdeeStkMisdeliveryRequest) (*DestroyAggStockOutsideKingdeeStkMisdeliveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyAggStockOutsideKingdeeStkMisdelivery not implemented")
+}
 func (UnimplementedOtherStockoutControllerServer) List(context.Context, *WdtStockoutModelListRequest) (*WdtStockoutModelListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
+func (UnimplementedOtherStockoutControllerServer) ListKingdeeOutStockApply(context.Context, *KingdeeOutStockApplyListRequest) (*KingdeeOutStockApplyListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListKingdeeOutStockApply not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) OptionKingdeeOutStockApply(context.Context, *EmptyRequest) (*KingdeeOutStockApplyOptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method OptionKingdeeOutStockApply not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) QueryKingdeeOutStockApplyStatus(context.Context, *QueryKingdeeOutStockApplyStatusRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QueryKingdeeOutStockApplyStatus not implemented")
+}
 func (UnimplementedOtherStockoutControllerServer) RunPeriodPushStockOutsideToKingdeeStkMisDelivery(context.Context, *RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) (*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunPeriodPushStockOutsideToKingdeeStkMisDelivery not implemented")
+}
+func (UnimplementedOtherStockoutControllerServer) SyncKingdeeOutStockApply(context.Context, *SyncKingdeeOutStockApplyRequest) (*CodeMsgResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncKingdeeOutStockApply not implemented")
 }
 func (UnimplementedOtherStockoutControllerServer) TaskSigAggOrderStockOutside(context.Context, *TaskSigAggOrderStockOutsideRequest) (*TaskSigAggOrderStockOutsideResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TaskSigAggOrderStockOutside not implemented")
@@ -3294,6 +3399,60 @@ func RegisterOtherStockoutControllerServer(s grpc.ServiceRegistrar, srv OtherSto
 	s.RegisterService(&OtherStockoutController_ServiceDesc, srv)
 }
 
+func _OtherStockoutController_BulkCreateKingdeeOutStockApply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkCreateKingdeeOutStockApplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).BulkCreateKingdeeOutStockApply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_BulkCreateKingdeeOutStockApply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).BulkCreateKingdeeOutStockApply(ctx, req.(*BulkCreateKingdeeOutStockApplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_CxlKingdeeOutStockApply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelKingdeeOutStockApplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).CxlKingdeeOutStockApply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_CxlKingdeeOutStockApply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).CxlKingdeeOutStockApply(ctx, req.(*CancelKingdeeOutStockApplyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_DestroyAggStockOutsideKingdeeStkMisdelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyAggStockOutsideKingdeeStkMisdeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).DestroyAggStockOutsideKingdeeStkMisdelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_DestroyAggStockOutsideKingdeeStkMisdelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).DestroyAggStockOutsideKingdeeStkMisdelivery(ctx, req.(*DestroyAggStockOutsideKingdeeStkMisdeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OtherStockoutController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WdtStockoutModelListRequest)
 	if err := dec(in); err != nil {
@@ -3312,6 +3471,60 @@ func _OtherStockoutController_List_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OtherStockoutController_ListKingdeeOutStockApply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KingdeeOutStockApplyListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).ListKingdeeOutStockApply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_ListKingdeeOutStockApply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).ListKingdeeOutStockApply(ctx, req.(*KingdeeOutStockApplyListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_OptionKingdeeOutStockApply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).OptionKingdeeOutStockApply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_OptionKingdeeOutStockApply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).OptionKingdeeOutStockApply(ctx, req.(*EmptyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_QueryKingdeeOutStockApplyStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryKingdeeOutStockApplyStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).QueryKingdeeOutStockApplyStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_QueryKingdeeOutStockApplyStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).QueryKingdeeOutStockApplyStatus(ctx, req.(*QueryKingdeeOutStockApplyStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest)
 	if err := dec(in); err != nil {
@@ -3326,6 +3539,24 @@ func _OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_H
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OtherStockoutControllerServer).RunPeriodPushStockOutsideToKingdeeStkMisDelivery(ctx, req.(*RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OtherStockoutController_SyncKingdeeOutStockApply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SyncKingdeeOutStockApplyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OtherStockoutControllerServer).SyncKingdeeOutStockApply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OtherStockoutController_SyncKingdeeOutStockApply_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OtherStockoutControllerServer).SyncKingdeeOutStockApply(ctx, req.(*SyncKingdeeOutStockApplyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3392,12 +3623,40 @@ var OtherStockoutController_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*OtherStockoutControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "BulkCreateKingdeeOutStockApply",
+			Handler:    _OtherStockoutController_BulkCreateKingdeeOutStockApply_Handler,
+		},
+		{
+			MethodName: "CxlKingdeeOutStockApply",
+			Handler:    _OtherStockoutController_CxlKingdeeOutStockApply_Handler,
+		},
+		{
+			MethodName: "DestroyAggStockOutsideKingdeeStkMisdelivery",
+			Handler:    _OtherStockoutController_DestroyAggStockOutsideKingdeeStkMisdelivery_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _OtherStockoutController_List_Handler,
 		},
 		{
+			MethodName: "ListKingdeeOutStockApply",
+			Handler:    _OtherStockoutController_ListKingdeeOutStockApply_Handler,
+		},
+		{
+			MethodName: "OptionKingdeeOutStockApply",
+			Handler:    _OtherStockoutController_OptionKingdeeOutStockApply_Handler,
+		},
+		{
+			MethodName: "QueryKingdeeOutStockApplyStatus",
+			Handler:    _OtherStockoutController_QueryKingdeeOutStockApplyStatus_Handler,
+		},
+		{
 			MethodName: "RunPeriodPushStockOutsideToKingdeeStkMisDelivery",
 			Handler:    _OtherStockoutController_RunPeriodPushStockOutsideToKingdeeStkMisDelivery_Handler,
+		},
+		{
+			MethodName: "SyncKingdeeOutStockApply",
+			Handler:    _OtherStockoutController_SyncKingdeeOutStockApply_Handler,
 		},
 		{
 			MethodName: "TaskSigAggOrderStockOutside",
@@ -9943,6 +10202,7 @@ const (
 	VasOrderAggController_TaskSigAggSwapStockin_FullMethodName                       = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSwapStockin"
 	VasOrderAggController_TaskSigAggSwapTrade_FullMethodName                         = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigAggSwapTrade"
 	VasOrderAggController_TaskSigFetchStockinOrder_FullMethodName                    = "/kingdee_service.kingdee_ito.VasOrderAggController/TaskSigFetchStockinOrder"
+	VasOrderAggController_UpdateRepairKingdeeStkMisDelivery_FullMethodName           = "/kingdee_service.kingdee_ito.VasOrderAggController/UpdateRepairKingdeeStkMisDelivery"
 )
 
 // VasOrderAggControllerClient is the client API for VasOrderAggController service.
@@ -9971,6 +10231,7 @@ type VasOrderAggControllerClient interface {
 	TaskSigAggSwapStockin(ctx context.Context, in *TaskSigAggSwapStockinRequest, opts ...grpc.CallOption) (*TaskSigAggSwapStockinResponse, error)
 	TaskSigAggSwapTrade(ctx context.Context, in *TaskSigAggSwapTradeRequest, opts ...grpc.CallOption) (*TaskSigAggSwapTradeResponse, error)
 	TaskSigFetchStockinOrder(ctx context.Context, in *TaskSigFetchStockinOrderRequest, opts ...grpc.CallOption) (*TaskSigFetchStockinOrderResponse, error)
+	UpdateRepairKingdeeStkMisDelivery(ctx context.Context, in *UpdateRepairKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*UpdateRepairKingdeeStkMisDeliveryResponse, error)
 }
 
 type vasOrderAggControllerClient struct {
@@ -10179,6 +10440,15 @@ func (c *vasOrderAggControllerClient) TaskSigFetchStockinOrder(ctx context.Conte
 	return out, nil
 }
 
+func (c *vasOrderAggControllerClient) UpdateRepairKingdeeStkMisDelivery(ctx context.Context, in *UpdateRepairKingdeeStkMisDeliveryRequest, opts ...grpc.CallOption) (*UpdateRepairKingdeeStkMisDeliveryResponse, error) {
+	out := new(UpdateRepairKingdeeStkMisDeliveryResponse)
+	err := c.cc.Invoke(ctx, VasOrderAggController_UpdateRepairKingdeeStkMisDelivery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // VasOrderAggControllerServer is the server API for VasOrderAggController service.
 // All implementations must embed UnimplementedVasOrderAggControllerServer
 // for forward compatibility
@@ -10205,6 +10475,7 @@ type VasOrderAggControllerServer interface {
 	TaskSigAggSwapStockin(context.Context, *TaskSigAggSwapStockinRequest) (*TaskSigAggSwapStockinResponse, error)
 	TaskSigAggSwapTrade(context.Context, *TaskSigAggSwapTradeRequest) (*TaskSigAggSwapTradeResponse, error)
 	TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error)
+	UpdateRepairKingdeeStkMisDelivery(context.Context, *UpdateRepairKingdeeStkMisDeliveryRequest) (*UpdateRepairKingdeeStkMisDeliveryResponse, error)
 	mustEmbedUnimplementedVasOrderAggControllerServer()
 }
 
@@ -10277,6 +10548,9 @@ func (UnimplementedVasOrderAggControllerServer) TaskSigAggSwapTrade(context.Cont
 }
 func (UnimplementedVasOrderAggControllerServer) TaskSigFetchStockinOrder(context.Context, *TaskSigFetchStockinOrderRequest) (*TaskSigFetchStockinOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TaskSigFetchStockinOrder not implemented")
+}
+func (UnimplementedVasOrderAggControllerServer) UpdateRepairKingdeeStkMisDelivery(context.Context, *UpdateRepairKingdeeStkMisDeliveryRequest) (*UpdateRepairKingdeeStkMisDeliveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRepairKingdeeStkMisDelivery not implemented")
 }
 func (UnimplementedVasOrderAggControllerServer) mustEmbedUnimplementedVasOrderAggControllerServer() {}
 
@@ -10687,6 +10961,24 @@ func _VasOrderAggController_TaskSigFetchStockinOrder_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _VasOrderAggController_UpdateRepairKingdeeStkMisDelivery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRepairKingdeeStkMisDeliveryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VasOrderAggControllerServer).UpdateRepairKingdeeStkMisDelivery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VasOrderAggController_UpdateRepairKingdeeStkMisDelivery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VasOrderAggControllerServer).UpdateRepairKingdeeStkMisDelivery(ctx, req.(*UpdateRepairKingdeeStkMisDeliveryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // VasOrderAggController_ServiceDesc is the grpc.ServiceDesc for VasOrderAggController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -10781,6 +11073,10 @@ var VasOrderAggController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TaskSigFetchStockinOrder",
 			Handler:    _VasOrderAggController_TaskSigFetchStockinOrder_Handler,
+		},
+		{
+			MethodName: "UpdateRepairKingdeeStkMisDelivery",
+			Handler:    _VasOrderAggController_UpdateRepairKingdeeStkMisDelivery_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

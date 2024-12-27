@@ -20,6 +20,134 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
+	DatastoreItoController_List_FullMethodName          = "/rfid_service.rfid_ito.DatastoreItoController/List"
+	DatastoreItoController_TransferOrder_FullMethodName = "/rfid_service.rfid_ito.DatastoreItoController/TransferOrder"
+)
+
+// DatastoreItoControllerClient is the client API for DatastoreItoController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DatastoreItoControllerClient interface {
+	List(ctx context.Context, in *ShopInfoListRequest, opts ...grpc.CallOption) (*ShopInfoListResponse, error)
+	TransferOrder(ctx context.Context, in *TransferOrderRequest, opts ...grpc.CallOption) (*TransferOrderListResponse, error)
+}
+
+type datastoreItoControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDatastoreItoControllerClient(cc grpc.ClientConnInterface) DatastoreItoControllerClient {
+	return &datastoreItoControllerClient{cc}
+}
+
+func (c *datastoreItoControllerClient) List(ctx context.Context, in *ShopInfoListRequest, opts ...grpc.CallOption) (*ShopInfoListResponse, error) {
+	out := new(ShopInfoListResponse)
+	err := c.cc.Invoke(ctx, DatastoreItoController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datastoreItoControllerClient) TransferOrder(ctx context.Context, in *TransferOrderRequest, opts ...grpc.CallOption) (*TransferOrderListResponse, error) {
+	out := new(TransferOrderListResponse)
+	err := c.cc.Invoke(ctx, DatastoreItoController_TransferOrder_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DatastoreItoControllerServer is the server API for DatastoreItoController service.
+// All implementations must embed UnimplementedDatastoreItoControllerServer
+// for forward compatibility
+type DatastoreItoControllerServer interface {
+	List(context.Context, *ShopInfoListRequest) (*ShopInfoListResponse, error)
+	TransferOrder(context.Context, *TransferOrderRequest) (*TransferOrderListResponse, error)
+	mustEmbedUnimplementedDatastoreItoControllerServer()
+}
+
+// UnimplementedDatastoreItoControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedDatastoreItoControllerServer struct {
+}
+
+func (UnimplementedDatastoreItoControllerServer) List(context.Context, *ShopInfoListRequest) (*ShopInfoListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedDatastoreItoControllerServer) TransferOrder(context.Context, *TransferOrderRequest) (*TransferOrderListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TransferOrder not implemented")
+}
+func (UnimplementedDatastoreItoControllerServer) mustEmbedUnimplementedDatastoreItoControllerServer() {
+}
+
+// UnsafeDatastoreItoControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DatastoreItoControllerServer will
+// result in compilation errors.
+type UnsafeDatastoreItoControllerServer interface {
+	mustEmbedUnimplementedDatastoreItoControllerServer()
+}
+
+func RegisterDatastoreItoControllerServer(s grpc.ServiceRegistrar, srv DatastoreItoControllerServer) {
+	s.RegisterService(&DatastoreItoController_ServiceDesc, srv)
+}
+
+func _DatastoreItoController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShopInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatastoreItoControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DatastoreItoController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatastoreItoControllerServer).List(ctx, req.(*ShopInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatastoreItoController_TransferOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransferOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatastoreItoControllerServer).TransferOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DatastoreItoController_TransferOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatastoreItoControllerServer).TransferOrder(ctx, req.(*TransferOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DatastoreItoController_ServiceDesc is the grpc.ServiceDesc for DatastoreItoController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DatastoreItoController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "rfid_service.rfid_ito.DatastoreItoController",
+	HandlerType: (*DatastoreItoControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "List",
+			Handler:    _DatastoreItoController_List_Handler,
+		},
+		{
+			MethodName: "TransferOrder",
+			Handler:    _DatastoreItoController_TransferOrder_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "rfid_ito.proto",
+}
+
+const (
 	DeliverNoticeController_BulkCreateDeliverNoticeGoodsDetails_FullMethodName  = "/rfid_service.rfid_ito.DeliverNoticeController/BulkCreateDeliverNoticeGoodsDetails"
 	DeliverNoticeController_BulkCreateSupplierTradeGoodsDetails_FullMethodName  = "/rfid_service.rfid_ito.DeliverNoticeController/BulkCreateSupplierTradeGoodsDetails"
 	DeliverNoticeController_Create_FullMethodName                               = "/rfid_service.rfid_ito.DeliverNoticeController/Create"

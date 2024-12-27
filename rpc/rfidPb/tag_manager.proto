@@ -10,32 +10,52 @@ option go_package = "../rfidPb";
 service RfidTagIndexController {
   rpc BulkPushReturnInspectAgg(BulkPushReturnInspectAggRequest) returns (BulkPushReturnInspectAggResponse) {}
   rpc Create(RfidTagIndexRequest) returns (RfidTagIndexResponse) {}
+  rpc CreateRfidPublishEntities(RfidPublishEntitiesCreateRequest) returns (RfidPublishEntitiesResponse) {}
+  rpc CreateRfidQualityEntities(RfidQualityEntitiesCreateRequest) returns (RfidQualityEntitiesResponse) {}
   rpc CreateRfidReasonEntities(RfidReasonEntitiesCreateRequest) returns (RfidReasonEntitiesResponse) {}
   rpc CreateRfidReturnInspectConfig(RfidReturnInspectConfigCreateRequest) returns (RfidReturnInspectConfigResponse) {}
   rpc CreateRfidReturnInspectEntities(RfidReturnInspectEntitiesCreateRequest) returns (RfidReturnInspectEntitiesResponse) {}
+  rpc CreateRfidStockInOutApplyEntities(RfidStockInOutApplyEntitiesCreateRequest) returns (RfidStockInOutApplyEntitiesResponse) {}
+  rpc CreateRfidStockInOutResultEntities(RfidStockInOutResultEntitiesCreateRequest) returns (RfidStockInOutResultEntitiesResponse) {}
   rpc Destroy(RfidTagIndexDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyReturnInspectAgg(DestroyReturnInspectAggRequest) returns (DestroyReturnInspectAggResponse) {}
+  rpc DestroyRfidPublishEntities(RfidPublishEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidPublishEntitiesResponse) {}
+  rpc DestroyRfidQualityEntities(RfidQualityEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidQualityEntitiesResponse) {}
   rpc DestroyRfidReasonEntities(RfidReasonEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidReasonEntitiesResponse) {}
   rpc DestroyRfidReturnInspectConfig(RfidReturnInspectConfigDestroyRequest) returns (RfidTagIndexDestroyRfidReturnInspectConfigResponse) {}
   rpc DestroyRfidReturnInspectEntities(RfidReturnInspectEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidReturnInspectEntitiesResponse) {}
+  rpc DestroyRfidStockInOutApplyEntities(RfidStockInOutApplyEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse) {}
+  rpc DestroyRfidStockInOutResultEntities(RfidStockInOutResultEntitiesDestroyRequest) returns (RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse) {}
   rpc InspectConfigOptions(InspectConfigOptionsRequest) returns (InspectConfigOptionsResponse) {}
   rpc List(RfidTagIndexListRequest) returns (RfidTagIndexListResponse) {}
+  rpc ListRfidPublishEntities(RfidPublishEntitiesListRequest) returns (RfidPublishEntitiesListResponse) {}
+  rpc ListRfidQualityEntities(RfidQualityEntitiesListRequest) returns (RfidQualityEntitiesListResponse) {}
   rpc ListRfidReasonEntities(RfidReasonEntitiesListRequest) returns (RfidReasonEntitiesListResponse) {}
   rpc ListRfidReturnInspectAgg(RfidReturnInspectAggListRequest) returns (RfidReturnInspectAggListResponse) {}
   rpc ListRfidReturnInspectConfig(RfidReturnInspectConfigListRequest) returns (RfidReturnInspectConfigListResponse) {}
   rpc ListRfidReturnInspectEntities(RfidReturnInspectEntitiesListRequest) returns (RfidReturnInspectEntitiesListResponse) {}
+  rpc ListRfidStockInOutApplyEntities(RfidStockInOutApplyEntitiesListRequest) returns (RfidStockInOutApplyEntitiesListResponse) {}
+  rpc ListRfidStockInOutResultEntities(RfidStockInOutResultEntitiesListRequest) returns (RfidStockInOutResultEntitiesListResponse) {}
   rpc PartialUpdate(RfidTagIndexPartialUpdateRequest) returns (RfidTagIndexResponse) {}
   rpc Retrieve(RfidTagIndexRetrieveRequest) returns (RfidTagIndexResponse) {}
   rpc RetrieveReturnInspectAgg(RetrieveReturnInspectAggRequest) returns (RfidReturnInspectAggResponse) {}
+  rpc RetrieveRfidPublishEntities(RfidPublishEntitiesRetrieveRequest) returns (RfidPublishEntitiesResponse) {}
+  rpc RetrieveRfidQualityEntities(RfidQualityEntitiesRetrieveRequest) returns (RfidQualityEntitiesResponse) {}
   rpc RetrieveRfidReasonEntities(RfidReasonEntitiesRetrieveRequest) returns (RfidReasonEntitiesResponse) {}
   rpc RetrieveRfidReturnInspectConfig(RfidReturnInspectConfigRetrieveRequest) returns (RfidReturnInspectConfigResponse) {}
   rpc RetrieveRfidReturnInspectEntities(RfidReturnInspectEntitiesRetrieveRequest) returns (RfidReturnInspectEntitiesResponse) {}
+  rpc RetrieveRfidStockInOutApplyEntities(RfidStockInOutApplyEntitiesRetrieveRequest) returns (RfidStockInOutApplyEntitiesResponse) {}
+  rpc RetrieveRfidStockInOutResultEntities(RfidStockInOutResultEntitiesRetrieveRequest) returns (RfidStockInOutResultEntitiesResponse) {}
   rpc RfidEpcSync(EpcSyncRequest) returns (EpcSyncResponse) {}
   rpc RfidReturnInspectAggSync(RfidReturnInspectAggSyncRequest) returns (RfidReturnInspectAggSyncResponse) {}
   rpc Update(RfidTagIndexRequest) returns (RfidTagIndexResponse) {}
+  rpc UpdateRfidPublishEntities(RfidPublishEntitiesUpdateRequest) returns (RfidPublishEntitiesResponse) {}
+  rpc UpdateRfidQualityEntities(RfidQualityEntitiesUpdateRequest) returns (RfidQualityEntitiesResponse) {}
   rpc UpdateRfidReasonEntities(RfidReasonEntitiesUpdateRequest) returns (RfidReasonEntitiesResponse) {}
   rpc UpdateRfidReturnInspectConfig(RfidReturnInspectConfigUpdateRequest) returns (RfidReturnInspectConfigResponse) {}
   rpc UpdateRfidReturnInspectEntities(RfidReturnInspectEntitiesUpdateRequest) returns (RfidReturnInspectEntitiesResponse) {}
+  rpc UpdateRfidStockInOutApplyEntities(RfidStockInOutApplyEntitiesUpdateRequest) returns (RfidStockInOutApplyEntitiesResponse) {}
+  rpc UpdateRfidStockInOutResultEntities(RfidStockInOutResultEntitiesUpdateRequest) returns (RfidStockInOutResultEntitiesResponse) {}
 }
 
 message BulkPushReturnInspectAggRequest {
@@ -77,6 +97,11 @@ message InspectConfigOptionsResponse {
   repeated LabelValueResponse push_wdt_status = 3;
   repeated LabelValueResponse agg_type = 4;
   repeated LabelValueResponse warehouse_info = 5;
+  repeated LabelValueResponse publish_type = 6;
+  repeated LabelValueResponse qa_type = 7;
+  repeated LabelValueResponse qa_result = 8;
+  repeated LabelValueResponse tag_status = 9;
+  repeated LabelValueResponse prod_condition = 10;
 }
 
 message LabelValueResponse {
@@ -86,6 +111,205 @@ message LabelValueResponse {
 
 message RetrieveReturnInspectAggRequest {
   string _id = 1;
+}
+
+message RfidPublishEntitiesCreateRequest {
+  optional string _id = 1;
+  optional bool is_destroyed = 4;
+  optional int32 publish_type = 5;
+  optional string publish_desc = 6;
+  optional string publish_remark = 7;
+  optional string limit_supplier_no = 9;
+  optional string limit_supplier_name = 10;
+  optional string limit_user_no = 12;
+  optional string limit_user_name = 13;
+  optional string limit_goods_no_list = 15;
+  optional string limit_spec_no_list = 16;
+  optional string security_code = 19;
+  optional string goods_no = 20;
+  optional string spec_no = 21;
+  optional string goods_name = 22;
+  optional string supplier_no = 23;
+  optional string supplier_name = 24;
+  optional string user_no = 25;
+  optional string user_name = 26;
+  optional int32 operator_id = 27;
+  optional string operator_name = 28;
+  optional string epc = 29;
+  optional string operation_time = 30;
+  optional string batch_no = 31;
+  optional string tid = 32;
+  optional bool limit_supplier = 33;
+  optional bool limit_user = 34;
+  optional bool limit_goods = 35;
+  optional string operator_no = 36;
+  optional string img_url = 37;
+}
+
+message RfidPublishEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidPublishEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidPublishEntitiesListResponse {
+  repeated RfidPublishEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidPublishEntitiesResponse {
+  optional string _id = 1;
+  optional string publish_type_name = 2;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional bool is_destroyed = 5;
+  optional int32 publish_type = 6;
+  optional string publish_desc = 7;
+  optional string publish_remark = 8;
+  optional string limit_supplier_no = 10;
+  optional string limit_supplier_name = 11;
+  optional string limit_user_no = 13;
+  optional string limit_user_name = 14;
+  optional string limit_goods_no_list = 16;
+  optional string limit_spec_no_list = 17;
+  optional string security_code = 20;
+  optional string goods_no = 21;
+  optional string spec_no = 22;
+  optional string goods_name = 23;
+  optional string supplier_no = 24;
+  optional string supplier_name = 25;
+  optional string user_no = 26;
+  optional string user_name = 27;
+  optional int32 operator_id = 28;
+  optional string operator_name = 29;
+  optional string epc = 30;
+  optional string operation_time = 31;
+  optional string batch_no = 32;
+  optional string tid = 33;
+  optional bool limit_supplier = 34;
+  optional bool limit_user = 35;
+  optional bool limit_goods = 36;
+  optional string operator_no = 37;
+  optional string img_url = 38;
+}
+
+message RfidPublishEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidPublishEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional bool is_destroyed = 5;
+  optional int32 publish_type = 6;
+  optional string publish_desc = 7;
+  optional string publish_remark = 8;
+  optional string limit_supplier_no = 10;
+  optional string limit_supplier_name = 11;
+  optional string limit_user_no = 13;
+  optional string limit_user_name = 14;
+  optional string limit_goods_no_list = 16;
+  optional string limit_spec_no_list = 17;
+  optional string security_code = 20;
+  optional string goods_no = 21;
+  optional string spec_no = 22;
+  optional string goods_name = 23;
+  optional string supplier_no = 24;
+  optional string supplier_name = 25;
+  optional string user_no = 26;
+  optional string user_name = 27;
+  optional int32 operator_id = 28;
+  optional string operator_name = 29;
+  optional string epc = 30;
+  optional string operation_time = 31;
+  optional string batch_no = 32;
+  optional string tid = 33;
+  optional bool limit_supplier = 34;
+  optional bool limit_user = 35;
+  optional bool limit_goods = 36;
+  optional string operator_no = 37;
+  optional string img_url = 38;
+}
+
+message RfidQualityEntitiesCreateRequest {
+  optional string _id = 1;
+  optional string goods_no = 7;
+  optional string spec_no = 8;
+  optional string goods_name = 9;
+  optional string epc = 23;
+  optional string operation_time = 24;
+  optional string tid = 25;
+  optional string security_code = 26;
+  optional int32 qa_type = 27;
+  optional int32 qa_result = 28;
+  optional string qa_result_desc = 30;
+  optional string qa_remark = 31;
+  optional int32 operator_id = 32;
+  optional string operator_no = 33;
+  optional string operator_name = 34;
+}
+
+message RfidQualityEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidQualityEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidQualityEntitiesListResponse {
+  repeated RfidQualityEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidQualityEntitiesResponse {
+  optional string _id = 1;
+  optional string create_time = 3;
+  optional string update_time = 4;
+  optional string goods_no = 9;
+  optional string spec_no = 10;
+  optional string goods_name = 11;
+  optional string epc = 23;
+  optional string operation_time = 24;
+  optional string tid = 25;
+  optional string security_code = 26;
+  optional int32 qa_type = 27;
+  optional int32 qa_result = 28;
+  optional string qa_result_desc = 30;
+  optional string qa_remark = 31;
+  optional int32 operator_id = 32;
+  optional string operator_no = 33;
+  optional string operator_name = 34;
+  optional string qa_type_name = 35;
+  optional string qa_result_name = 36;
+  optional string qa_remark_name = 37;
+}
+
+message RfidQualityEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidQualityEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string epc = 3;
+  optional string tid = 4;
+  optional string security_code = 5;
+  optional string goods_no = 6;
+  optional string spec_no = 7;
+  optional string goods_name = 8;
+  optional string operation_time = 9;
+  optional int32 qa_type = 10;
+  optional int32 qa_result = 11;
+  optional string qa_result_desc = 13;
+  optional string qa_remark = 14;
+  optional int32 operator_id = 15;
+  optional string operator_no = 16;
+  optional string operator_name = 17;
 }
 
 message RfidReasonEntitiesChildResponse {
@@ -310,6 +534,9 @@ message RfidReturnInspectEntitiesCreateRequest {
   optional string quality_remark = 20;
   optional string anti_fake = 21;
   repeated string related_ids = 22;
+  optional int32 stock_in_count = 23;
+  optional int32 stock_out_count = 24;
+  optional string uuid = 25;
 }
 
 message RfidReturnInspectEntitiesDestroyRequest {
@@ -352,6 +579,8 @@ message RfidReturnInspectEntitiesResponse {
   repeated RfidReasonEntitiesResponse result_reasons = 24;
   optional string agg_consign_status_name = 25;
   optional string quality_result_name = 26;
+  optional int32 stock_in_count = 27;
+  optional int32 stock_out_count = 28;
 }
 
 message RfidReturnInspectEntitiesRetrieveRequest {
@@ -381,10 +610,300 @@ message RfidReturnInspectEntitiesUpdateRequest {
   optional string quality_remark = 21;
   optional string anti_fake = 22;
   repeated string update_ids = 23;
+  optional int32 stock_in_count = 24;
+  optional int32 stock_out_count = 25;
+}
+
+message RfidStockInOutApplyEntitiesCreateRequest {
+  optional string _id = 1;
+  optional string apply_time = 2;
+  string apply_type = 3;
+  optional string oms_wms_related_no = 4;
+  optional string kingdee_no = 5;
+  optional string oms_no = 6;
+  optional string wms_no = 7;
+  optional string from_warehouse_no = 8;
+  optional string from_warehouse_name = 9;
+  optional string to_warehouse_no = 10;
+  optional string to_warehouse_name = 11;
+  optional string oms_out_no_list = 12;
+  optional string oms_in_no_list = 13;
+  optional string provider_no = 16;
+  optional string provider_name = 17;
+  optional string customer_no = 18;
+  optional string customer_name = 19;
+  optional string epc = 20;
+  optional string tid = 21;
+  optional string security_code = 22;
+  optional string goods_no = 23;
+  optional string spec_no = 24;
+  optional string goods_name = 25;
+  optional int32 operator_id = 26;
+  optional string operator_no = 27;
+  optional string operator_name = 28;
+  optional string src_tids = 29;
+  optional string shop_no = 30;
+  optional string shop_name = 31;
+  optional string logistics_no = 32;
+  optional string logistics_code = 33;
+  optional string logistics_name = 34;
+  optional string receiver_name = 35;
+  optional string receiver_mobile = 36;
+  optional string receiver_address = 37;
+  optional string receiver_province = 38;
+  optional string receiver_dtb = 39;
+  optional string receiver_city = 40;
+  optional string receiver_district = 41;
+  optional string result_oms_no = 42;
+  optional string result_wms_no = 43;
+  optional string src_oms_no = 44;
+  optional string src_wms_no = 45;
+  optional string return_logistics_no = 46;
+  optional string return_logistics_code = 47;
+  optional string return_logistics_name = 48;
+  optional string refund_reason = 49;
+  optional string wms_out_no_list = 50;
+  optional string wms_in_no_list = 51;
+}
+
+message RfidStockInOutApplyEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidStockInOutApplyEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidStockInOutApplyEntitiesListResponse {
+  repeated RfidStockInOutApplyEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidStockInOutApplyEntitiesResponse {
+  optional string _id = 1;
+  repeated RfidStockInOutResultEntitiesResponse result_entities = 2;
+  optional string apply_type_name = 3;
+  optional string apply_time = 4;
+  optional string create_time = 5;
+  optional string update_time = 6;
+  string apply_type = 7;
+  optional string oms_wms_related_no = 8;
+  optional string kingdee_no = 9;
+  optional string oms_no = 10;
+  optional string wms_no = 11;
+  optional string from_warehouse_no = 12;
+  optional string from_warehouse_name = 13;
+  optional string to_warehouse_no = 14;
+  optional string to_warehouse_name = 15;
+  optional string oms_out_no_list = 16;
+  optional string oms_in_no_list = 17;
+  optional string provider_no = 20;
+  optional string provider_name = 21;
+  optional string customer_no = 22;
+  optional string customer_name = 23;
+  optional string epc = 24;
+  optional string tid = 25;
+  optional string security_code = 26;
+  optional string goods_no = 27;
+  optional string spec_no = 28;
+  optional string goods_name = 29;
+  optional int32 operator_id = 30;
+  optional string operator_no = 31;
+  optional string operator_name = 32;
+  optional string src_tids = 33;
+  optional string shop_no = 34;
+  optional string shop_name = 35;
+  optional string logistics_no = 36;
+  optional string logistics_code = 37;
+  optional string logistics_name = 38;
+  optional string receiver_name = 39;
+  optional string receiver_mobile = 40;
+  optional string receiver_address = 41;
+  optional string receiver_province = 42;
+  optional string receiver_dtb = 43;
+  optional string receiver_city = 44;
+  optional string receiver_district = 45;
+  optional string result_oms_no = 46;
+  optional string result_wms_no = 47;
+  optional string src_oms_no = 48;
+  optional string src_wms_no = 49;
+  optional string return_logistics_no = 50;
+  optional string return_logistics_code = 51;
+  optional string return_logistics_name = 52;
+  optional string refund_reason = 53;
+  optional string wms_out_no_list = 54;
+  optional string wms_in_no_list = 55;
+}
+
+message RfidStockInOutApplyEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidStockInOutApplyEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string apply_time = 3;
+  string apply_type = 4;
+  optional string oms_wms_related_no = 5;
+  optional string kingdee_no = 6;
+  optional string oms_no = 7;
+  optional string wms_no = 8;
+  optional string from_warehouse_no = 9;
+  optional string from_warehouse_name = 10;
+  optional string to_warehouse_no = 11;
+  optional string to_warehouse_name = 12;
+  optional string oms_out_no_list = 13;
+  optional string oms_in_no_list = 14;
+  optional string provider_no = 17;
+  optional string provider_name = 18;
+  optional string customer_no = 19;
+  optional string customer_name = 20;
+  optional string epc = 21;
+  optional string tid = 22;
+  optional string security_code = 23;
+  optional string goods_no = 24;
+  optional string spec_no = 25;
+  optional string goods_name = 26;
+  optional int32 operator_id = 27;
+  optional string operator_no = 28;
+  optional string operator_name = 29;
+  optional string src_tids = 30;
+  optional string shop_no = 31;
+  optional string shop_name = 32;
+  optional string logistics_no = 33;
+  optional string logistics_code = 34;
+  optional string logistics_name = 35;
+  optional string receiver_name = 36;
+  optional string receiver_mobile = 37;
+  optional string receiver_address = 38;
+  optional string receiver_province = 39;
+  optional string receiver_dtb = 40;
+  optional string receiver_city = 41;
+  optional string receiver_district = 42;
+  optional string result_oms_no = 43;
+  optional string result_wms_no = 44;
+  optional string src_oms_no = 45;
+  optional string src_wms_no = 46;
+  optional string return_logistics_no = 47;
+  optional string return_logistics_code = 48;
+  optional string return_logistics_name = 49;
+  optional string refund_reason = 50;
+  optional string wms_out_no_list = 51;
+  optional string wms_in_no_list = 52;
+}
+
+message RfidStockInOutResultEntitiesCreateRequest {
+  optional string _id = 1;
+  optional string result_time = 2;
+  string stock_in_out_type = 3;
+  optional string oms_no = 5;
+  optional string wms_no = 6;
+  optional string from_warehouse_no = 7;
+  optional string from_warehouse_name = 8;
+  optional string from_position_no = 9;
+  optional string to_warehouse_no = 10;
+  optional string to_warehouse_name = 11;
+  optional string to_position_no = 12;
+  optional string epc = 13;
+  optional string tid = 14;
+  optional string security_code = 15;
+  optional string goods_no = 16;
+  optional string spec_no = 17;
+  optional string goods_name = 18;
+  optional int32 operator_id = 19;
+  optional string operator_no = 20;
+  optional string operator_name = 21;
+  optional string src_oms_no = 22;
+  optional string src_wms_no = 23;
+}
+
+message RfidStockInOutResultEntitiesDestroyRequest {
+  string _id = 1;
+}
+
+message RfidStockInOutResultEntitiesListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message RfidStockInOutResultEntitiesListResponse {
+  repeated RfidStockInOutResultEntitiesResponse results = 1;
+  int32 count = 2;
+}
+
+message RfidStockInOutResultEntitiesResponse {
+  optional string _id = 1;
+  optional string result_time = 3;
+  optional string create_time = 4;
+  optional string update_time = 5;
+  string stock_in_out_type = 6;
+  optional string oms_no = 8;
+  optional string wms_no = 9;
+  optional string from_warehouse_no = 10;
+  optional string from_warehouse_name = 11;
+  optional string from_position_no = 12;
+  optional string to_warehouse_no = 13;
+  optional string to_warehouse_name = 14;
+  optional string to_position_no = 15;
+  optional string epc = 16;
+  optional string tid = 17;
+  optional string security_code = 18;
+  optional string goods_no = 19;
+  optional string spec_no = 20;
+  optional string goods_name = 21;
+  optional int32 operator_id = 22;
+  optional string operator_no = 23;
+  optional string operator_name = 24;
+  optional string stock_in_out_type_name = 25;
+  optional string src_oms_no = 26;
+  optional string src_wms_no = 27;
+}
+
+message RfidStockInOutResultEntitiesRetrieveRequest {
+  string _id = 1;
+}
+
+message RfidStockInOutResultEntitiesUpdateRequest {
+  optional string _id = 1;
+  repeated string _partial_update_fields = 2;
+  optional string result_time = 3;
+  string stock_in_out_type = 4;
+  optional string oms_no = 6;
+  optional string wms_no = 7;
+  optional string from_warehouse_no = 8;
+  optional string from_warehouse_name = 9;
+  optional string from_position_no = 10;
+  optional string to_warehouse_no = 11;
+  optional string to_warehouse_name = 12;
+  optional string to_position_no = 13;
+  optional string epc = 14;
+  optional string tid = 15;
+  optional string security_code = 16;
+  optional string goods_no = 17;
+  optional string spec_no = 18;
+  optional string goods_name = 19;
+  optional int32 operator_id = 20;
+  optional string operator_no = 21;
+  optional string operator_name = 22;
+  optional string src_oms_no = 23;
+  optional string src_wms_no = 24;
 }
 
 message RfidTagIndexDestroyRequest {
   string _id = 1;
+}
+
+message RfidTagIndexDestroyRfidPublishEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidTagIndexDestroyRfidQualityEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
 }
 
 message RfidTagIndexDestroyRfidReasonEntitiesResponse {
@@ -405,6 +924,18 @@ message RfidTagIndexDestroyRfidReturnInspectEntitiesResponse {
   int32 count = 3;
 }
 
+message RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
+message RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse {
+  int32 code = 1;
+  string msg = 2;
+  int32 count = 3;
+}
+
 message RfidTagIndexListRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
@@ -418,22 +949,40 @@ message RfidTagIndexListResponse {
 message RfidTagIndexPartialUpdateRequest {
   optional string _id = 1;
   repeated string _partial_update_fields = 3;
-  string tag_epc = 4;
   optional int32 tag_status = 7;
   optional int32 prod_condition = 8;
-  optional int32 stockin_counter = 9;
-  optional int32 stockout_counter = 10;
-  optional string publish_detail = 11;
+  string epc = 11;
+  optional string tid = 12;
+  optional string security_code = 13;
+  optional string goods_no = 14;
+  optional string spec_no = 15;
+  optional int32 publish_count = 17;
+  optional int32 quality_count = 18;
+  optional string img_url = 20;
+  optional string manufacture_date = 21;
+  optional string goods_name = 22;
+  optional int32 return_inspect_count = 23;
+  optional int32 stock_in_count = 24;
+  optional int32 stock_out_count = 25;
 }
 
 message RfidTagIndexRequest {
   optional string _id = 1;
-  string tag_epc = 3;
   optional int32 tag_status = 6;
   optional int32 prod_condition = 7;
-  optional int32 stockin_counter = 8;
-  optional int32 stockout_counter = 9;
-  optional string publish_detail = 10;
+  string epc = 10;
+  optional string tid = 11;
+  optional string security_code = 12;
+  optional string goods_no = 13;
+  optional string spec_no = 14;
+  optional int32 publish_count = 16;
+  optional int32 quality_count = 17;
+  optional string img_url = 19;
+  optional string manufacture_date = 20;
+  optional string goods_name = 21;
+  optional int32 return_inspect_count = 22;
+  optional int32 stock_in_count = 23;
+  optional int32 stock_out_count = 24;
 }
 
 message RfidTagIndexResponse {
@@ -441,14 +990,26 @@ message RfidTagIndexResponse {
   optional string tag_status_name = 2;
   optional string prod_condition_name = 3;
   repeated RfidReturnInspectEntitiesResponse return_inspect_entities = 4;
-  string tag_epc = 5;
   optional string create_time = 6;
   optional string update_time = 7;
   optional int32 tag_status = 8;
   optional int32 prod_condition = 9;
-  optional int32 stockin_counter = 10;
-  optional int32 stockout_counter = 11;
-  optional string publish_detail = 12;
+  string epc = 13;
+  optional string tid = 14;
+  optional string security_code = 15;
+  optional string goods_no = 16;
+  optional string spec_no = 17;
+  optional int32 publish_count = 19;
+  optional int32 quality_count = 20;
+  repeated RfidPublishEntitiesResponse publish_entities = 21;
+  repeated RfidQualityEntitiesResponse quality_entities = 22;
+  optional string img_url = 24;
+  optional string manufacture_date = 25;
+  optional string goods_name = 26;
+  optional int32 return_inspect_count = 27;
+  optional int32 stock_in_count = 28;
+  optional int32 stock_out_count = 29;
+  repeated RfidStockInOutApplyEntitiesResponse stock_inout_entities = 30;
 }
 
 message RfidTagIndexRetrieveRequest {

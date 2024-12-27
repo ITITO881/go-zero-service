@@ -20,34 +20,54 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	RfidTagIndexController_BulkPushReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/BulkPushReturnInspectAgg"
-	RfidTagIndexController_Create_FullMethodName                            = "/rfid_tag_manage.tag_service.RfidTagIndexController/Create"
-	RfidTagIndexController_CreateRfidReasonEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReasonEntities"
-	RfidTagIndexController_CreateRfidReturnInspectConfig_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectConfig"
-	RfidTagIndexController_CreateRfidReturnInspectEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectEntities"
-	RfidTagIndexController_Destroy_FullMethodName                           = "/rfid_tag_manage.tag_service.RfidTagIndexController/Destroy"
-	RfidTagIndexController_DestroyReturnInspectAgg_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyReturnInspectAgg"
-	RfidTagIndexController_DestroyRfidReasonEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReasonEntities"
-	RfidTagIndexController_DestroyRfidReturnInspectConfig_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectConfig"
-	RfidTagIndexController_DestroyRfidReturnInspectEntities_FullMethodName  = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectEntities"
-	RfidTagIndexController_InspectConfigOptions_FullMethodName              = "/rfid_tag_manage.tag_service.RfidTagIndexController/InspectConfigOptions"
-	RfidTagIndexController_List_FullMethodName                              = "/rfid_tag_manage.tag_service.RfidTagIndexController/List"
-	RfidTagIndexController_ListRfidReasonEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReasonEntities"
-	RfidTagIndexController_ListRfidReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectAgg"
-	RfidTagIndexController_ListRfidReturnInspectConfig_FullMethodName       = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectConfig"
-	RfidTagIndexController_ListRfidReturnInspectEntities_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectEntities"
-	RfidTagIndexController_PartialUpdate_FullMethodName                     = "/rfid_tag_manage.tag_service.RfidTagIndexController/PartialUpdate"
-	RfidTagIndexController_Retrieve_FullMethodName                          = "/rfid_tag_manage.tag_service.RfidTagIndexController/Retrieve"
-	RfidTagIndexController_RetrieveReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveReturnInspectAgg"
-	RfidTagIndexController_RetrieveRfidReasonEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReasonEntities"
-	RfidTagIndexController_RetrieveRfidReturnInspectConfig_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectConfig"
-	RfidTagIndexController_RetrieveRfidReturnInspectEntities_FullMethodName = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectEntities"
-	RfidTagIndexController_RfidEpcSync_FullMethodName                       = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidEpcSync"
-	RfidTagIndexController_RfidReturnInspectAggSync_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidReturnInspectAggSync"
-	RfidTagIndexController_Update_FullMethodName                            = "/rfid_tag_manage.tag_service.RfidTagIndexController/Update"
-	RfidTagIndexController_UpdateRfidReasonEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReasonEntities"
-	RfidTagIndexController_UpdateRfidReturnInspectConfig_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectConfig"
-	RfidTagIndexController_UpdateRfidReturnInspectEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectEntities"
+	RfidTagIndexController_BulkPushReturnInspectAgg_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/BulkPushReturnInspectAgg"
+	RfidTagIndexController_Create_FullMethodName                               = "/rfid_tag_manage.tag_service.RfidTagIndexController/Create"
+	RfidTagIndexController_CreateRfidPublishEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidPublishEntities"
+	RfidTagIndexController_CreateRfidQualityEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidQualityEntities"
+	RfidTagIndexController_CreateRfidReasonEntities_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReasonEntities"
+	RfidTagIndexController_CreateRfidReturnInspectConfig_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectConfig"
+	RfidTagIndexController_CreateRfidReturnInspectEntities_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectEntities"
+	RfidTagIndexController_CreateRfidStockInOutApplyEntities_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidStockInOutApplyEntities"
+	RfidTagIndexController_CreateRfidStockInOutResultEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidStockInOutResultEntities"
+	RfidTagIndexController_Destroy_FullMethodName                              = "/rfid_tag_manage.tag_service.RfidTagIndexController/Destroy"
+	RfidTagIndexController_DestroyReturnInspectAgg_FullMethodName              = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyReturnInspectAgg"
+	RfidTagIndexController_DestroyRfidPublishEntities_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidPublishEntities"
+	RfidTagIndexController_DestroyRfidQualityEntities_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidQualityEntities"
+	RfidTagIndexController_DestroyRfidReasonEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReasonEntities"
+	RfidTagIndexController_DestroyRfidReturnInspectConfig_FullMethodName       = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectConfig"
+	RfidTagIndexController_DestroyRfidReturnInspectEntities_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectEntities"
+	RfidTagIndexController_DestroyRfidStockInOutApplyEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidStockInOutApplyEntities"
+	RfidTagIndexController_DestroyRfidStockInOutResultEntities_FullMethodName  = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidStockInOutResultEntities"
+	RfidTagIndexController_InspectConfigOptions_FullMethodName                 = "/rfid_tag_manage.tag_service.RfidTagIndexController/InspectConfigOptions"
+	RfidTagIndexController_List_FullMethodName                                 = "/rfid_tag_manage.tag_service.RfidTagIndexController/List"
+	RfidTagIndexController_ListRfidPublishEntities_FullMethodName              = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidPublishEntities"
+	RfidTagIndexController_ListRfidQualityEntities_FullMethodName              = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidQualityEntities"
+	RfidTagIndexController_ListRfidReasonEntities_FullMethodName               = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReasonEntities"
+	RfidTagIndexController_ListRfidReturnInspectAgg_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectAgg"
+	RfidTagIndexController_ListRfidReturnInspectConfig_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectConfig"
+	RfidTagIndexController_ListRfidReturnInspectEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectEntities"
+	RfidTagIndexController_ListRfidStockInOutApplyEntities_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidStockInOutApplyEntities"
+	RfidTagIndexController_ListRfidStockInOutResultEntities_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidStockInOutResultEntities"
+	RfidTagIndexController_PartialUpdate_FullMethodName                        = "/rfid_tag_manage.tag_service.RfidTagIndexController/PartialUpdate"
+	RfidTagIndexController_Retrieve_FullMethodName                             = "/rfid_tag_manage.tag_service.RfidTagIndexController/Retrieve"
+	RfidTagIndexController_RetrieveReturnInspectAgg_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveReturnInspectAgg"
+	RfidTagIndexController_RetrieveRfidPublishEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidPublishEntities"
+	RfidTagIndexController_RetrieveRfidQualityEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidQualityEntities"
+	RfidTagIndexController_RetrieveRfidReasonEntities_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReasonEntities"
+	RfidTagIndexController_RetrieveRfidReturnInspectConfig_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectConfig"
+	RfidTagIndexController_RetrieveRfidReturnInspectEntities_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectEntities"
+	RfidTagIndexController_RetrieveRfidStockInOutApplyEntities_FullMethodName  = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidStockInOutApplyEntities"
+	RfidTagIndexController_RetrieveRfidStockInOutResultEntities_FullMethodName = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidStockInOutResultEntities"
+	RfidTagIndexController_RfidEpcSync_FullMethodName                          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidEpcSync"
+	RfidTagIndexController_RfidReturnInspectAggSync_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidReturnInspectAggSync"
+	RfidTagIndexController_Update_FullMethodName                               = "/rfid_tag_manage.tag_service.RfidTagIndexController/Update"
+	RfidTagIndexController_UpdateRfidPublishEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidPublishEntities"
+	RfidTagIndexController_UpdateRfidQualityEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidQualityEntities"
+	RfidTagIndexController_UpdateRfidReasonEntities_FullMethodName             = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReasonEntities"
+	RfidTagIndexController_UpdateRfidReturnInspectConfig_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectConfig"
+	RfidTagIndexController_UpdateRfidReturnInspectEntities_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectEntities"
+	RfidTagIndexController_UpdateRfidStockInOutApplyEntities_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidStockInOutApplyEntities"
+	RfidTagIndexController_UpdateRfidStockInOutResultEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidStockInOutResultEntities"
 )
 
 // RfidTagIndexControllerClient is the client API for RfidTagIndexController service.
@@ -56,32 +76,52 @@ const (
 type RfidTagIndexControllerClient interface {
 	BulkPushReturnInspectAgg(ctx context.Context, in *BulkPushReturnInspectAggRequest, opts ...grpc.CallOption) (*BulkPushReturnInspectAggResponse, error)
 	Create(ctx context.Context, in *RfidTagIndexRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error)
+	CreateRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error)
+	CreateRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error)
 	CreateRfidReasonEntities(ctx context.Context, in *RfidReasonEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidReasonEntitiesResponse, error)
 	CreateRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigCreateRequest, opts ...grpc.CallOption) (*RfidReturnInspectConfigResponse, error)
 	CreateRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidReturnInspectEntitiesResponse, error)
+	CreateRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error)
+	CreateRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error)
 	Destroy(ctx context.Context, in *RfidTagIndexDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyReturnInspectAgg(ctx context.Context, in *DestroyReturnInspectAggRequest, opts ...grpc.CallOption) (*DestroyReturnInspectAggResponse, error)
+	DestroyRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidPublishEntitiesResponse, error)
+	DestroyRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidQualityEntitiesResponse, error)
 	DestroyRfidReasonEntities(ctx context.Context, in *RfidReasonEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidReasonEntitiesResponse, error)
 	DestroyRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidReturnInspectConfigResponse, error)
 	DestroyRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidReturnInspectEntitiesResponse, error)
+	DestroyRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse, error)
+	DestroyRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse, error)
 	InspectConfigOptions(ctx context.Context, in *InspectConfigOptionsRequest, opts ...grpc.CallOption) (*InspectConfigOptionsResponse, error)
 	List(ctx context.Context, in *RfidTagIndexListRequest, opts ...grpc.CallOption) (*RfidTagIndexListResponse, error)
+	ListRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesListRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesListResponse, error)
+	ListRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesListRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesListResponse, error)
 	ListRfidReasonEntities(ctx context.Context, in *RfidReasonEntitiesListRequest, opts ...grpc.CallOption) (*RfidReasonEntitiesListResponse, error)
 	ListRfidReturnInspectAgg(ctx context.Context, in *RfidReturnInspectAggListRequest, opts ...grpc.CallOption) (*RfidReturnInspectAggListResponse, error)
 	ListRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigListRequest, opts ...grpc.CallOption) (*RfidReturnInspectConfigListResponse, error)
 	ListRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesListRequest, opts ...grpc.CallOption) (*RfidReturnInspectEntitiesListResponse, error)
+	ListRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesListRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesListResponse, error)
+	ListRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesListRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesListResponse, error)
 	PartialUpdate(ctx context.Context, in *RfidTagIndexPartialUpdateRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error)
 	Retrieve(ctx context.Context, in *RfidTagIndexRetrieveRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error)
 	RetrieveReturnInspectAgg(ctx context.Context, in *RetrieveReturnInspectAggRequest, opts ...grpc.CallOption) (*RfidReturnInspectAggResponse, error)
+	RetrieveRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error)
+	RetrieveRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error)
 	RetrieveRfidReasonEntities(ctx context.Context, in *RfidReasonEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidReasonEntitiesResponse, error)
 	RetrieveRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigRetrieveRequest, opts ...grpc.CallOption) (*RfidReturnInspectConfigResponse, error)
 	RetrieveRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidReturnInspectEntitiesResponse, error)
+	RetrieveRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error)
+	RetrieveRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error)
 	RfidEpcSync(ctx context.Context, in *EpcSyncRequest, opts ...grpc.CallOption) (*EpcSyncResponse, error)
 	RfidReturnInspectAggSync(ctx context.Context, in *RfidReturnInspectAggSyncRequest, opts ...grpc.CallOption) (*RfidReturnInspectAggSyncResponse, error)
 	Update(ctx context.Context, in *RfidTagIndexRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error)
+	UpdateRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error)
+	UpdateRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error)
 	UpdateRfidReasonEntities(ctx context.Context, in *RfidReasonEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidReasonEntitiesResponse, error)
 	UpdateRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigUpdateRequest, opts ...grpc.CallOption) (*RfidReturnInspectConfigResponse, error)
 	UpdateRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidReturnInspectEntitiesResponse, error)
+	UpdateRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error)
+	UpdateRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error)
 }
 
 type rfidTagIndexControllerClient struct {
@@ -104,6 +144,24 @@ func (c *rfidTagIndexControllerClient) BulkPushReturnInspectAgg(ctx context.Cont
 func (c *rfidTagIndexControllerClient) Create(ctx context.Context, in *RfidTagIndexRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error) {
 	out := new(RfidTagIndexResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) CreateRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error) {
+	out := new(RfidPublishEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_CreateRfidPublishEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) CreateRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error) {
+	out := new(RfidQualityEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_CreateRfidQualityEntities_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -137,6 +195,24 @@ func (c *rfidTagIndexControllerClient) CreateRfidReturnInspectEntities(ctx conte
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) CreateRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error) {
+	out := new(RfidStockInOutApplyEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_CreateRfidStockInOutApplyEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) CreateRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesCreateRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error) {
+	out := new(RfidStockInOutResultEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_CreateRfidStockInOutResultEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rfidTagIndexControllerClient) Destroy(ctx context.Context, in *RfidTagIndexDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_Destroy_FullMethodName, in, out, opts...)
@@ -149,6 +225,24 @@ func (c *rfidTagIndexControllerClient) Destroy(ctx context.Context, in *RfidTagI
 func (c *rfidTagIndexControllerClient) DestroyReturnInspectAgg(ctx context.Context, in *DestroyReturnInspectAggRequest, opts ...grpc.CallOption) (*DestroyReturnInspectAggResponse, error) {
 	out := new(DestroyReturnInspectAggResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_DestroyReturnInspectAgg_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) DestroyRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidPublishEntitiesResponse, error) {
+	out := new(RfidTagIndexDestroyRfidPublishEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_DestroyRfidPublishEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) DestroyRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidQualityEntitiesResponse, error) {
+	out := new(RfidTagIndexDestroyRfidQualityEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_DestroyRfidQualityEntities_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -182,6 +276,24 @@ func (c *rfidTagIndexControllerClient) DestroyRfidReturnInspectEntities(ctx cont
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) DestroyRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse, error) {
+	out := new(RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_DestroyRfidStockInOutApplyEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) DestroyRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesDestroyRequest, opts ...grpc.CallOption) (*RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse, error) {
+	out := new(RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_DestroyRfidStockInOutResultEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rfidTagIndexControllerClient) InspectConfigOptions(ctx context.Context, in *InspectConfigOptionsRequest, opts ...grpc.CallOption) (*InspectConfigOptionsResponse, error) {
 	out := new(InspectConfigOptionsResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_InspectConfigOptions_FullMethodName, in, out, opts...)
@@ -194,6 +306,24 @@ func (c *rfidTagIndexControllerClient) InspectConfigOptions(ctx context.Context,
 func (c *rfidTagIndexControllerClient) List(ctx context.Context, in *RfidTagIndexListRequest, opts ...grpc.CallOption) (*RfidTagIndexListResponse, error) {
 	out := new(RfidTagIndexListResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) ListRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesListRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesListResponse, error) {
+	out := new(RfidPublishEntitiesListResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_ListRfidPublishEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) ListRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesListRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesListResponse, error) {
+	out := new(RfidQualityEntitiesListResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_ListRfidQualityEntities_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -236,6 +366,24 @@ func (c *rfidTagIndexControllerClient) ListRfidReturnInspectEntities(ctx context
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) ListRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesListRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesListResponse, error) {
+	out := new(RfidStockInOutApplyEntitiesListResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_ListRfidStockInOutApplyEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) ListRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesListRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesListResponse, error) {
+	out := new(RfidStockInOutResultEntitiesListResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_ListRfidStockInOutResultEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rfidTagIndexControllerClient) PartialUpdate(ctx context.Context, in *RfidTagIndexPartialUpdateRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error) {
 	out := new(RfidTagIndexResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_PartialUpdate_FullMethodName, in, out, opts...)
@@ -257,6 +405,24 @@ func (c *rfidTagIndexControllerClient) Retrieve(ctx context.Context, in *RfidTag
 func (c *rfidTagIndexControllerClient) RetrieveReturnInspectAgg(ctx context.Context, in *RetrieveReturnInspectAggRequest, opts ...grpc.CallOption) (*RfidReturnInspectAggResponse, error) {
 	out := new(RfidReturnInspectAggResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_RetrieveReturnInspectAgg_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) RetrieveRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error) {
+	out := new(RfidPublishEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_RetrieveRfidPublishEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) RetrieveRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error) {
+	out := new(RfidQualityEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_RetrieveRfidQualityEntities_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -290,6 +456,24 @@ func (c *rfidTagIndexControllerClient) RetrieveRfidReturnInspectEntities(ctx con
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) RetrieveRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error) {
+	out := new(RfidStockInOutApplyEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_RetrieveRfidStockInOutApplyEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) RetrieveRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error) {
+	out := new(RfidStockInOutResultEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_RetrieveRfidStockInOutResultEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rfidTagIndexControllerClient) RfidEpcSync(ctx context.Context, in *EpcSyncRequest, opts ...grpc.CallOption) (*EpcSyncResponse, error) {
 	out := new(EpcSyncResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_RfidEpcSync_FullMethodName, in, out, opts...)
@@ -311,6 +495,24 @@ func (c *rfidTagIndexControllerClient) RfidReturnInspectAggSync(ctx context.Cont
 func (c *rfidTagIndexControllerClient) Update(ctx context.Context, in *RfidTagIndexRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error) {
 	out := new(RfidTagIndexResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) UpdateRfidPublishEntities(ctx context.Context, in *RfidPublishEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidPublishEntitiesResponse, error) {
+	out := new(RfidPublishEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_UpdateRfidPublishEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) UpdateRfidQualityEntities(ctx context.Context, in *RfidQualityEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidQualityEntitiesResponse, error) {
+	out := new(RfidQualityEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_UpdateRfidQualityEntities_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -344,38 +546,76 @@ func (c *rfidTagIndexControllerClient) UpdateRfidReturnInspectEntities(ctx conte
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) UpdateRfidStockInOutApplyEntities(ctx context.Context, in *RfidStockInOutApplyEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidStockInOutApplyEntitiesResponse, error) {
+	out := new(RfidStockInOutApplyEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_UpdateRfidStockInOutApplyEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTagIndexControllerClient) UpdateRfidStockInOutResultEntities(ctx context.Context, in *RfidStockInOutResultEntitiesUpdateRequest, opts ...grpc.CallOption) (*RfidStockInOutResultEntitiesResponse, error) {
+	out := new(RfidStockInOutResultEntitiesResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_UpdateRfidStockInOutResultEntities_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RfidTagIndexControllerServer is the server API for RfidTagIndexController service.
 // All implementations must embed UnimplementedRfidTagIndexControllerServer
 // for forward compatibility
 type RfidTagIndexControllerServer interface {
 	BulkPushReturnInspectAgg(context.Context, *BulkPushReturnInspectAggRequest) (*BulkPushReturnInspectAggResponse, error)
 	Create(context.Context, *RfidTagIndexRequest) (*RfidTagIndexResponse, error)
+	CreateRfidPublishEntities(context.Context, *RfidPublishEntitiesCreateRequest) (*RfidPublishEntitiesResponse, error)
+	CreateRfidQualityEntities(context.Context, *RfidQualityEntitiesCreateRequest) (*RfidQualityEntitiesResponse, error)
 	CreateRfidReasonEntities(context.Context, *RfidReasonEntitiesCreateRequest) (*RfidReasonEntitiesResponse, error)
 	CreateRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigCreateRequest) (*RfidReturnInspectConfigResponse, error)
 	CreateRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesCreateRequest) (*RfidReturnInspectEntitiesResponse, error)
+	CreateRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesCreateRequest) (*RfidStockInOutApplyEntitiesResponse, error)
+	CreateRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesCreateRequest) (*RfidStockInOutResultEntitiesResponse, error)
 	Destroy(context.Context, *RfidTagIndexDestroyRequest) (*emptypb.Empty, error)
 	DestroyReturnInspectAgg(context.Context, *DestroyReturnInspectAggRequest) (*DestroyReturnInspectAggResponse, error)
+	DestroyRfidPublishEntities(context.Context, *RfidPublishEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidPublishEntitiesResponse, error)
+	DestroyRfidQualityEntities(context.Context, *RfidQualityEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidQualityEntitiesResponse, error)
 	DestroyRfidReasonEntities(context.Context, *RfidReasonEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidReasonEntitiesResponse, error)
 	DestroyRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigDestroyRequest) (*RfidTagIndexDestroyRfidReturnInspectConfigResponse, error)
 	DestroyRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidReturnInspectEntitiesResponse, error)
+	DestroyRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse, error)
+	DestroyRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse, error)
 	InspectConfigOptions(context.Context, *InspectConfigOptionsRequest) (*InspectConfigOptionsResponse, error)
 	List(context.Context, *RfidTagIndexListRequest) (*RfidTagIndexListResponse, error)
+	ListRfidPublishEntities(context.Context, *RfidPublishEntitiesListRequest) (*RfidPublishEntitiesListResponse, error)
+	ListRfidQualityEntities(context.Context, *RfidQualityEntitiesListRequest) (*RfidQualityEntitiesListResponse, error)
 	ListRfidReasonEntities(context.Context, *RfidReasonEntitiesListRequest) (*RfidReasonEntitiesListResponse, error)
 	ListRfidReturnInspectAgg(context.Context, *RfidReturnInspectAggListRequest) (*RfidReturnInspectAggListResponse, error)
 	ListRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigListRequest) (*RfidReturnInspectConfigListResponse, error)
 	ListRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesListRequest) (*RfidReturnInspectEntitiesListResponse, error)
+	ListRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesListRequest) (*RfidStockInOutApplyEntitiesListResponse, error)
+	ListRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesListRequest) (*RfidStockInOutResultEntitiesListResponse, error)
 	PartialUpdate(context.Context, *RfidTagIndexPartialUpdateRequest) (*RfidTagIndexResponse, error)
 	Retrieve(context.Context, *RfidTagIndexRetrieveRequest) (*RfidTagIndexResponse, error)
 	RetrieveReturnInspectAgg(context.Context, *RetrieveReturnInspectAggRequest) (*RfidReturnInspectAggResponse, error)
+	RetrieveRfidPublishEntities(context.Context, *RfidPublishEntitiesRetrieveRequest) (*RfidPublishEntitiesResponse, error)
+	RetrieveRfidQualityEntities(context.Context, *RfidQualityEntitiesRetrieveRequest) (*RfidQualityEntitiesResponse, error)
 	RetrieveRfidReasonEntities(context.Context, *RfidReasonEntitiesRetrieveRequest) (*RfidReasonEntitiesResponse, error)
 	RetrieveRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigRetrieveRequest) (*RfidReturnInspectConfigResponse, error)
 	RetrieveRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesRetrieveRequest) (*RfidReturnInspectEntitiesResponse, error)
+	RetrieveRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesRetrieveRequest) (*RfidStockInOutApplyEntitiesResponse, error)
+	RetrieveRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesRetrieveRequest) (*RfidStockInOutResultEntitiesResponse, error)
 	RfidEpcSync(context.Context, *EpcSyncRequest) (*EpcSyncResponse, error)
 	RfidReturnInspectAggSync(context.Context, *RfidReturnInspectAggSyncRequest) (*RfidReturnInspectAggSyncResponse, error)
 	Update(context.Context, *RfidTagIndexRequest) (*RfidTagIndexResponse, error)
+	UpdateRfidPublishEntities(context.Context, *RfidPublishEntitiesUpdateRequest) (*RfidPublishEntitiesResponse, error)
+	UpdateRfidQualityEntities(context.Context, *RfidQualityEntitiesUpdateRequest) (*RfidQualityEntitiesResponse, error)
 	UpdateRfidReasonEntities(context.Context, *RfidReasonEntitiesUpdateRequest) (*RfidReasonEntitiesResponse, error)
 	UpdateRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigUpdateRequest) (*RfidReturnInspectConfigResponse, error)
 	UpdateRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesUpdateRequest) (*RfidReturnInspectEntitiesResponse, error)
+	UpdateRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesUpdateRequest) (*RfidStockInOutApplyEntitiesResponse, error)
+	UpdateRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesUpdateRequest) (*RfidStockInOutResultEntitiesResponse, error)
 	mustEmbedUnimplementedRfidTagIndexControllerServer()
 }
 
@@ -389,6 +629,12 @@ func (UnimplementedRfidTagIndexControllerServer) BulkPushReturnInspectAgg(contex
 func (UnimplementedRfidTagIndexControllerServer) Create(context.Context, *RfidTagIndexRequest) (*RfidTagIndexResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) CreateRfidPublishEntities(context.Context, *RfidPublishEntitiesCreateRequest) (*RfidPublishEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidPublishEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) CreateRfidQualityEntities(context.Context, *RfidQualityEntitiesCreateRequest) (*RfidQualityEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidQualityEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) CreateRfidReasonEntities(context.Context, *RfidReasonEntitiesCreateRequest) (*RfidReasonEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidReasonEntities not implemented")
 }
@@ -398,11 +644,23 @@ func (UnimplementedRfidTagIndexControllerServer) CreateRfidReturnInspectConfig(c
 func (UnimplementedRfidTagIndexControllerServer) CreateRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesCreateRequest) (*RfidReturnInspectEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidReturnInspectEntities not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) CreateRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesCreateRequest) (*RfidStockInOutApplyEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidStockInOutApplyEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) CreateRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesCreateRequest) (*RfidStockInOutResultEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRfidStockInOutResultEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) Destroy(context.Context, *RfidTagIndexDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) DestroyReturnInspectAgg(context.Context, *DestroyReturnInspectAggRequest) (*DestroyReturnInspectAggResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyReturnInspectAgg not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) DestroyRfidPublishEntities(context.Context, *RfidPublishEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidPublishEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidPublishEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) DestroyRfidQualityEntities(context.Context, *RfidQualityEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidQualityEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidQualityEntities not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) DestroyRfidReasonEntities(context.Context, *RfidReasonEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidReasonEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidReasonEntities not implemented")
@@ -413,11 +671,23 @@ func (UnimplementedRfidTagIndexControllerServer) DestroyRfidReturnInspectConfig(
 func (UnimplementedRfidTagIndexControllerServer) DestroyRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidReturnInspectEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidReturnInspectEntities not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) DestroyRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidStockInOutApplyEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidStockInOutApplyEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) DestroyRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesDestroyRequest) (*RfidTagIndexDestroyRfidStockInOutResultEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DestroyRfidStockInOutResultEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) InspectConfigOptions(context.Context, *InspectConfigOptionsRequest) (*InspectConfigOptionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InspectConfigOptions not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) List(context.Context, *RfidTagIndexListRequest) (*RfidTagIndexListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) ListRfidPublishEntities(context.Context, *RfidPublishEntitiesListRequest) (*RfidPublishEntitiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRfidPublishEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) ListRfidQualityEntities(context.Context, *RfidQualityEntitiesListRequest) (*RfidQualityEntitiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRfidQualityEntities not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) ListRfidReasonEntities(context.Context, *RfidReasonEntitiesListRequest) (*RfidReasonEntitiesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRfidReasonEntities not implemented")
@@ -431,6 +701,12 @@ func (UnimplementedRfidTagIndexControllerServer) ListRfidReturnInspectConfig(con
 func (UnimplementedRfidTagIndexControllerServer) ListRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesListRequest) (*RfidReturnInspectEntitiesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRfidReturnInspectEntities not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) ListRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesListRequest) (*RfidStockInOutApplyEntitiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRfidStockInOutApplyEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) ListRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesListRequest) (*RfidStockInOutResultEntitiesListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRfidStockInOutResultEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) PartialUpdate(context.Context, *RfidTagIndexPartialUpdateRequest) (*RfidTagIndexResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
 }
@@ -439,6 +715,12 @@ func (UnimplementedRfidTagIndexControllerServer) Retrieve(context.Context, *Rfid
 }
 func (UnimplementedRfidTagIndexControllerServer) RetrieveReturnInspectAgg(context.Context, *RetrieveReturnInspectAggRequest) (*RfidReturnInspectAggResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveReturnInspectAgg not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidPublishEntities(context.Context, *RfidPublishEntitiesRetrieveRequest) (*RfidPublishEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidPublishEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidQualityEntities(context.Context, *RfidQualityEntitiesRetrieveRequest) (*RfidQualityEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidQualityEntities not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidReasonEntities(context.Context, *RfidReasonEntitiesRetrieveRequest) (*RfidReasonEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidReasonEntities not implemented")
@@ -449,6 +731,12 @@ func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidReturnInspectConfig
 func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesRetrieveRequest) (*RfidReturnInspectEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidReturnInspectEntities not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesRetrieveRequest) (*RfidStockInOutApplyEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidStockInOutApplyEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesRetrieveRequest) (*RfidStockInOutResultEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidStockInOutResultEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) RfidEpcSync(context.Context, *EpcSyncRequest) (*EpcSyncResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RfidEpcSync not implemented")
 }
@@ -458,6 +746,12 @@ func (UnimplementedRfidTagIndexControllerServer) RfidReturnInspectAggSync(contex
 func (UnimplementedRfidTagIndexControllerServer) Update(context.Context, *RfidTagIndexRequest) (*RfidTagIndexResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
+func (UnimplementedRfidTagIndexControllerServer) UpdateRfidPublishEntities(context.Context, *RfidPublishEntitiesUpdateRequest) (*RfidPublishEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidPublishEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) UpdateRfidQualityEntities(context.Context, *RfidQualityEntitiesUpdateRequest) (*RfidQualityEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidQualityEntities not implemented")
+}
 func (UnimplementedRfidTagIndexControllerServer) UpdateRfidReasonEntities(context.Context, *RfidReasonEntitiesUpdateRequest) (*RfidReasonEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidReasonEntities not implemented")
 }
@@ -466,6 +760,12 @@ func (UnimplementedRfidTagIndexControllerServer) UpdateRfidReturnInspectConfig(c
 }
 func (UnimplementedRfidTagIndexControllerServer) UpdateRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesUpdateRequest) (*RfidReturnInspectEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidReturnInspectEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) UpdateRfidStockInOutApplyEntities(context.Context, *RfidStockInOutApplyEntitiesUpdateRequest) (*RfidStockInOutApplyEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidStockInOutApplyEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) UpdateRfidStockInOutResultEntities(context.Context, *RfidStockInOutResultEntitiesUpdateRequest) (*RfidStockInOutResultEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRfidStockInOutResultEntities not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) mustEmbedUnimplementedRfidTagIndexControllerServer() {
 }
@@ -513,6 +813,42 @@ func _RfidTagIndexController_Create_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RfidTagIndexControllerServer).Create(ctx, req.(*RfidTagIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_CreateRfidPublishEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidPublishEntitiesCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).CreateRfidPublishEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_CreateRfidPublishEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).CreateRfidPublishEntities(ctx, req.(*RfidPublishEntitiesCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_CreateRfidQualityEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityEntitiesCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).CreateRfidQualityEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_CreateRfidQualityEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).CreateRfidQualityEntities(ctx, req.(*RfidQualityEntitiesCreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -571,6 +907,42 @@ func _RfidTagIndexController_CreateRfidReturnInspectEntities_Handler(srv interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_CreateRfidStockInOutApplyEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutApplyEntitiesCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).CreateRfidStockInOutApplyEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_CreateRfidStockInOutApplyEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).CreateRfidStockInOutApplyEntities(ctx, req.(*RfidStockInOutApplyEntitiesCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_CreateRfidStockInOutResultEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutResultEntitiesCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).CreateRfidStockInOutResultEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_CreateRfidStockInOutResultEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).CreateRfidStockInOutResultEntities(ctx, req.(*RfidStockInOutResultEntitiesCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RfidTagIndexController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RfidTagIndexDestroyRequest)
 	if err := dec(in); err != nil {
@@ -603,6 +975,42 @@ func _RfidTagIndexController_DestroyReturnInspectAgg_Handler(srv interface{}, ct
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RfidTagIndexControllerServer).DestroyReturnInspectAgg(ctx, req.(*DestroyReturnInspectAggRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_DestroyRfidPublishEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidPublishEntitiesDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidPublishEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_DestroyRfidPublishEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidPublishEntities(ctx, req.(*RfidPublishEntitiesDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_DestroyRfidQualityEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityEntitiesDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidQualityEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_DestroyRfidQualityEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidQualityEntities(ctx, req.(*RfidQualityEntitiesDestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -661,6 +1069,42 @@ func _RfidTagIndexController_DestroyRfidReturnInspectEntities_Handler(srv interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_DestroyRfidStockInOutApplyEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutApplyEntitiesDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidStockInOutApplyEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_DestroyRfidStockInOutApplyEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidStockInOutApplyEntities(ctx, req.(*RfidStockInOutApplyEntitiesDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_DestroyRfidStockInOutResultEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutResultEntitiesDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidStockInOutResultEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_DestroyRfidStockInOutResultEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).DestroyRfidStockInOutResultEntities(ctx, req.(*RfidStockInOutResultEntitiesDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RfidTagIndexController_InspectConfigOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(InspectConfigOptionsRequest)
 	if err := dec(in); err != nil {
@@ -693,6 +1137,42 @@ func _RfidTagIndexController_List_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RfidTagIndexControllerServer).List(ctx, req.(*RfidTagIndexListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_ListRfidPublishEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidPublishEntitiesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).ListRfidPublishEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_ListRfidPublishEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).ListRfidPublishEntities(ctx, req.(*RfidPublishEntitiesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_ListRfidQualityEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityEntitiesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).ListRfidQualityEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_ListRfidQualityEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).ListRfidQualityEntities(ctx, req.(*RfidQualityEntitiesListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -769,6 +1249,42 @@ func _RfidTagIndexController_ListRfidReturnInspectEntities_Handler(srv interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_ListRfidStockInOutApplyEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutApplyEntitiesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).ListRfidStockInOutApplyEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_ListRfidStockInOutApplyEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).ListRfidStockInOutApplyEntities(ctx, req.(*RfidStockInOutApplyEntitiesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_ListRfidStockInOutResultEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutResultEntitiesListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).ListRfidStockInOutResultEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_ListRfidStockInOutResultEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).ListRfidStockInOutResultEntities(ctx, req.(*RfidStockInOutResultEntitiesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RfidTagIndexController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RfidTagIndexPartialUpdateRequest)
 	if err := dec(in); err != nil {
@@ -819,6 +1335,42 @@ func _RfidTagIndexController_RetrieveReturnInspectAgg_Handler(srv interface{}, c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RfidTagIndexControllerServer).RetrieveReturnInspectAgg(ctx, req.(*RetrieveReturnInspectAggRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_RetrieveRfidPublishEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidPublishEntitiesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidPublishEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_RetrieveRfidPublishEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidPublishEntities(ctx, req.(*RfidPublishEntitiesRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_RetrieveRfidQualityEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityEntitiesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidQualityEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_RetrieveRfidQualityEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidQualityEntities(ctx, req.(*RfidQualityEntitiesRetrieveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -877,6 +1429,42 @@ func _RfidTagIndexController_RetrieveRfidReturnInspectEntities_Handler(srv inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_RetrieveRfidStockInOutApplyEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutApplyEntitiesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidStockInOutApplyEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_RetrieveRfidStockInOutApplyEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidStockInOutApplyEntities(ctx, req.(*RfidStockInOutApplyEntitiesRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_RetrieveRfidStockInOutResultEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutResultEntitiesRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidStockInOutResultEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_RetrieveRfidStockInOutResultEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).RetrieveRfidStockInOutResultEntities(ctx, req.(*RfidStockInOutResultEntitiesRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RfidTagIndexController_RfidEpcSync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EpcSyncRequest)
 	if err := dec(in); err != nil {
@@ -927,6 +1515,42 @@ func _RfidTagIndexController_Update_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(RfidTagIndexControllerServer).Update(ctx, req.(*RfidTagIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_UpdateRfidPublishEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidPublishEntitiesUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidPublishEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_UpdateRfidPublishEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidPublishEntities(ctx, req.(*RfidPublishEntitiesUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_UpdateRfidQualityEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidQualityEntitiesUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidQualityEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_UpdateRfidQualityEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidQualityEntities(ctx, req.(*RfidQualityEntitiesUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -985,6 +1609,42 @@ func _RfidTagIndexController_UpdateRfidReturnInspectEntities_Handler(srv interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_UpdateRfidStockInOutApplyEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutApplyEntitiesUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidStockInOutApplyEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_UpdateRfidStockInOutApplyEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidStockInOutApplyEntities(ctx, req.(*RfidStockInOutApplyEntitiesUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTagIndexController_UpdateRfidStockInOutResultEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidStockInOutResultEntitiesUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidStockInOutResultEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_UpdateRfidStockInOutResultEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).UpdateRfidStockInOutResultEntities(ctx, req.(*RfidStockInOutResultEntitiesUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RfidTagIndexController_ServiceDesc is the grpc.ServiceDesc for RfidTagIndexController service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1001,6 +1661,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_Create_Handler,
 		},
 		{
+			MethodName: "CreateRfidPublishEntities",
+			Handler:    _RfidTagIndexController_CreateRfidPublishEntities_Handler,
+		},
+		{
+			MethodName: "CreateRfidQualityEntities",
+			Handler:    _RfidTagIndexController_CreateRfidQualityEntities_Handler,
+		},
+		{
 			MethodName: "CreateRfidReasonEntities",
 			Handler:    _RfidTagIndexController_CreateRfidReasonEntities_Handler,
 		},
@@ -1013,12 +1681,28 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_CreateRfidReturnInspectEntities_Handler,
 		},
 		{
+			MethodName: "CreateRfidStockInOutApplyEntities",
+			Handler:    _RfidTagIndexController_CreateRfidStockInOutApplyEntities_Handler,
+		},
+		{
+			MethodName: "CreateRfidStockInOutResultEntities",
+			Handler:    _RfidTagIndexController_CreateRfidStockInOutResultEntities_Handler,
+		},
+		{
 			MethodName: "Destroy",
 			Handler:    _RfidTagIndexController_Destroy_Handler,
 		},
 		{
 			MethodName: "DestroyReturnInspectAgg",
 			Handler:    _RfidTagIndexController_DestroyReturnInspectAgg_Handler,
+		},
+		{
+			MethodName: "DestroyRfidPublishEntities",
+			Handler:    _RfidTagIndexController_DestroyRfidPublishEntities_Handler,
+		},
+		{
+			MethodName: "DestroyRfidQualityEntities",
+			Handler:    _RfidTagIndexController_DestroyRfidQualityEntities_Handler,
 		},
 		{
 			MethodName: "DestroyRfidReasonEntities",
@@ -1033,12 +1717,28 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_DestroyRfidReturnInspectEntities_Handler,
 		},
 		{
+			MethodName: "DestroyRfidStockInOutApplyEntities",
+			Handler:    _RfidTagIndexController_DestroyRfidStockInOutApplyEntities_Handler,
+		},
+		{
+			MethodName: "DestroyRfidStockInOutResultEntities",
+			Handler:    _RfidTagIndexController_DestroyRfidStockInOutResultEntities_Handler,
+		},
+		{
 			MethodName: "InspectConfigOptions",
 			Handler:    _RfidTagIndexController_InspectConfigOptions_Handler,
 		},
 		{
 			MethodName: "List",
 			Handler:    _RfidTagIndexController_List_Handler,
+		},
+		{
+			MethodName: "ListRfidPublishEntities",
+			Handler:    _RfidTagIndexController_ListRfidPublishEntities_Handler,
+		},
+		{
+			MethodName: "ListRfidQualityEntities",
+			Handler:    _RfidTagIndexController_ListRfidQualityEntities_Handler,
 		},
 		{
 			MethodName: "ListRfidReasonEntities",
@@ -1057,6 +1757,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_ListRfidReturnInspectEntities_Handler,
 		},
 		{
+			MethodName: "ListRfidStockInOutApplyEntities",
+			Handler:    _RfidTagIndexController_ListRfidStockInOutApplyEntities_Handler,
+		},
+		{
+			MethodName: "ListRfidStockInOutResultEntities",
+			Handler:    _RfidTagIndexController_ListRfidStockInOutResultEntities_Handler,
+		},
+		{
 			MethodName: "PartialUpdate",
 			Handler:    _RfidTagIndexController_PartialUpdate_Handler,
 		},
@@ -1067,6 +1775,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveReturnInspectAgg",
 			Handler:    _RfidTagIndexController_RetrieveReturnInspectAgg_Handler,
+		},
+		{
+			MethodName: "RetrieveRfidPublishEntities",
+			Handler:    _RfidTagIndexController_RetrieveRfidPublishEntities_Handler,
+		},
+		{
+			MethodName: "RetrieveRfidQualityEntities",
+			Handler:    _RfidTagIndexController_RetrieveRfidQualityEntities_Handler,
 		},
 		{
 			MethodName: "RetrieveRfidReasonEntities",
@@ -1081,6 +1797,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_RetrieveRfidReturnInspectEntities_Handler,
 		},
 		{
+			MethodName: "RetrieveRfidStockInOutApplyEntities",
+			Handler:    _RfidTagIndexController_RetrieveRfidStockInOutApplyEntities_Handler,
+		},
+		{
+			MethodName: "RetrieveRfidStockInOutResultEntities",
+			Handler:    _RfidTagIndexController_RetrieveRfidStockInOutResultEntities_Handler,
+		},
+		{
 			MethodName: "RfidEpcSync",
 			Handler:    _RfidTagIndexController_RfidEpcSync_Handler,
 		},
@@ -1093,6 +1817,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RfidTagIndexController_Update_Handler,
 		},
 		{
+			MethodName: "UpdateRfidPublishEntities",
+			Handler:    _RfidTagIndexController_UpdateRfidPublishEntities_Handler,
+		},
+		{
+			MethodName: "UpdateRfidQualityEntities",
+			Handler:    _RfidTagIndexController_UpdateRfidQualityEntities_Handler,
+		},
+		{
 			MethodName: "UpdateRfidReasonEntities",
 			Handler:    _RfidTagIndexController_UpdateRfidReasonEntities_Handler,
 		},
@@ -1103,6 +1835,14 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateRfidReturnInspectEntities",
 			Handler:    _RfidTagIndexController_UpdateRfidReturnInspectEntities_Handler,
+		},
+		{
+			MethodName: "UpdateRfidStockInOutApplyEntities",
+			Handler:    _RfidTagIndexController_UpdateRfidStockInOutApplyEntities_Handler,
+		},
+		{
+			MethodName: "UpdateRfidStockInOutResultEntities",
+			Handler:    _RfidTagIndexController_UpdateRfidStockInOutResultEntities_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
