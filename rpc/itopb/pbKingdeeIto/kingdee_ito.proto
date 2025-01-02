@@ -102,9 +102,11 @@ service OtherStockoutController {
   rpc DestroyAggStockOutsideKingdeeStkMisdelivery(DestroyAggStockOutsideKingdeeStkMisdeliveryRequest) returns (DestroyAggStockOutsideKingdeeStkMisdeliveryResponse) {}
   rpc List(WdtStockoutModelListRequest) returns (WdtStockoutModelListResponse) {}
   rpc ListKingdeeOutStockApply(KingdeeOutStockApplyListRequest) returns (KingdeeOutStockApplyListResponse) {}
+  rpc ListStockOutsideKingdeeStkMisDelivery(OtherStockoutListStockOutsideKingdeeStkMisDeliveryRequest) returns (StockOutsideKingdeeStkMisDeliveryListResponse) {}
   rpc OptionKingdeeOutStockApply(EmptyRequest) returns (KingdeeOutStockApplyOptionResponse) {}
   rpc QueryKingdeeOutStockApplyStatus(QueryKingdeeOutStockApplyStatusRequest) returns (CodeMsgResponse) {}
   rpc RunPeriodPushStockOutsideToKingdeeStkMisDelivery(RunPeriodPushStockOutsideToKingdeeStkMisDeliveryRequest) returns (RunPeriodPushStockOutsideToKingdeeStkMisDeliveryResponse) {}
+  rpc StaticsStockOutsideMisDelivery(StaticsRequest) returns (StaticsResponse) {}
   rpc SyncKingdeeOutStockApply(SyncKingdeeOutStockApplyRequest) returns (CodeMsgResponse) {}
   rpc TaskSigAggOrderStockOutside(TaskSigAggOrderStockOutsideRequest) returns (TaskSigAggOrderStockOutsideResponse) {}
   rpc TaskSigFetchStockoutOrder(TaskSigFetchStockoutOrderRequest) returns (TaskSigFetchStockoutOrderResponse) {}
@@ -298,23 +300,28 @@ service VasOrderAggController {
   rpc DestroyAggSeedingKingdeeTransferDirect(DestroyAggSeedingKingdeeTransferDirectRequest) returns (DestroyAggSeedingKingdeeTransferDirectResponse) {}
   rpc DestroyAggSwapKingdeeRefund(DestroyAggSwapKingdeeRefundRequest) returns (DestroyAggSwapKingdeeRefundResponse) {}
   rpc DestroyAggSwapKingdeeSalOutStock(DestroyAggSwapKingdeeSalOutStockRequest) returns (DestroyAggSwapKingdeeSalOutStockResponse) {}
+  rpc DestroyAggVasKingdeeStkMiscellaneous(DestroyAggVasKingdeeStkMiscellaneousRequest) returns (DestroyAggVasKingdeeStkMiscellaneousResponse) {}
   rpc List(WdtStockinModelListRequest) returns (WdtStockinModelListResponse) {}
   rpc ListRepairKingdeeStkMisDelivery(VasOrderAggListRepairKingdeeStkMisDeliveryRequest) returns (KingdeeStkMisDeliveryListResponse) {}
   rpc ListSeedingKingdeeStkTransferDirect(VasOrderAggListSeedingKingdeeStkTransferDirectRequest) returns (SeedingKingdeeStkTransferDirectListResponse) {}
   rpc ListSwapKingdeeSalOutStock(VasOrderAggListSwapKingdeeSalOutStockRequest) returns (SwapKingdeeSalOutStockListResponse) {}
   rpc ListSwapKingdeeSalReturnStock(VasOrderAggListSwapKingdeeSalReturnStockRequest) returns (SwapKingdeeSalReturnStockListResponse) {}
+  rpc ListVasKingdeeStkMiscellaneous(VasOrderAggListVasKingdeeStkMiscellaneousRequest) returns (KingdeeStkMiscellaneousListResponse) {}
   rpc RunPeriodPushRepairToKingdeeMisDelivery(RunPeriodPushRepairToKingdeeMisDeliveryRequest) returns (RunPeriodPushRepairToKingdeeMisDeliveryResponse) {}
   rpc RunPeriodPushSeedingToKingdeeTransferDirect(RunPeriodPushSeedingToKingdeeTransferDirectRequest) returns (RunPeriodPushSeedingToKingdeeTransferDirectResponse) {}
   rpc RunPeriodPushSwapRefundToKingdee(RunPeriodPushSwapRefundToKingdeeRequest) returns (RunPeriodPushSwapRefundToKingdeeResponse) {}
   rpc RunPeriodPushSwapSalOutStockToKingdee(RunPeriodPushSwapSalOutStockToKingdeeRequest) returns (RunPeriodPushSwapSalOutStockToKingdeeResponse) {}
+  rpc RunPeriodPushVasRefundToKingdeeMiscellaneous(RunPeriodPushVasRefundToKingdeeMiscellaneousRequest) returns (RunPeriodPushVasRefundToKingdeeMiscellaneousResponse) {}
   rpc StaticsRepairKingdeeStkMisDelivery(StaticsRequest) returns (StaticsResponse) {}
   rpc StaticsSeedingKingdeeStkTransferDirect(StaticsRequest) returns (StaticsResponse) {}
   rpc StaticsSwapKingdeeSalOutStock(StaticsRequest) returns (StaticsResponse) {}
   rpc StaticsSwapKingdeeSalReturnStock(StaticsRequest) returns (StaticsResponse) {}
+  rpc StaticsVasKingdeeStkMiscellaneous(StaticsRequest) returns (StaticsResponse) {}
   rpc TaskSigAggRepairStockout(TaskSigAggRepairStockoutRequest) returns (TaskSigAggRepairStockoutResponse) {}
   rpc TaskSigAggSeedingTrade(TaskSigAggSeedingTradeRequest) returns (TaskSigAggSeedingTradeResponse) {}
   rpc TaskSigAggSwapStockin(TaskSigAggSwapStockinRequest) returns (TaskSigAggSwapStockinResponse) {}
   rpc TaskSigAggSwapTrade(TaskSigAggSwapTradeRequest) returns (TaskSigAggSwapTradeResponse) {}
+  rpc TaskSigAggVasRefundStockin(TaskSigAggVasRefundStockinRequest) returns (TaskSigAggVasRefundStockinResponse) {}
   rpc TaskSigFetchStockinOrder(TaskSigFetchStockinOrderRequest) returns (TaskSigFetchStockinOrderResponse) {}
   rpc UpdateRepairKingdeeStkMisDelivery(UpdateRepairKingdeeStkMisDeliveryRequest) returns (UpdateRepairKingdeeStkMisDeliveryResponse) {}
 }
@@ -759,10 +766,6 @@ message AlipayBillAggResultPartialUpdateRequest {
   optional string agg_no = 4;
   optional string agg_name = 5;
   string agg_period = 6;
-  optional string src_account_log_list = 7;
-  optional string account_log_list = 8;
-  optional string tid_list = 9;
-  optional string trans_memo_list = 10;
   optional string type = 11;
   string direction = 12;
   optional string biz_desc = 13;
@@ -776,10 +779,6 @@ message AlipayBillAggResultRequest {
   optional string agg_no = 3;
   optional string agg_name = 4;
   string agg_period = 5;
-  optional string src_account_log_list = 6;
-  optional string account_log_list = 7;
-  optional string tid_list = 8;
-  optional string trans_memo_list = 9;
   optional string type = 10;
   string direction = 11;
   optional string biz_desc = 12;
@@ -798,10 +797,6 @@ message AlipayBillAggResultResponse {
   optional string agg_no = 8;
   optional string agg_name = 9;
   string agg_period = 10;
-  optional string src_account_log_list = 11;
-  optional string account_log_list = 12;
-  optional string tid_list = 13;
-  optional string trans_memo_list = 14;
   optional string type = 15;
   string direction = 16;
   optional string biz_desc = 17;
@@ -1343,6 +1338,17 @@ message DestroyAggTransRequest {
   string agg_no = 1;
 }
 
+message DestroyAggVasKingdeeStkMiscellaneousRequest {
+  repeated string agg_no_list = 1;
+  int32 agg_push_status = 2;
+}
+
+message DestroyAggVasKingdeeStkMiscellaneousResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message DestroyChannelShopConfigRequest {
   string _id = 1;
 }
@@ -1788,6 +1794,7 @@ message KingdeePurchaseOrderModelResponse {
   optional string FProviderId_Name = 35;
   optional string FSettleId_Name = 36;
   optional string FChargeId_Name = 37;
+  string FCloseStatus_name = 38;
 }
 
 message KingdeePurchaseOrderPartialUpdateRequest {
@@ -2897,6 +2904,75 @@ message KingdeeStkMisDeliveryResponse {
   optional string update_time = 41;
 }
 
+message KingdeeStkMiscellaneousListResponse {
+  repeated KingdeeStkMiscellaneousResponse results = 1;
+  int32 count = 2;
+}
+
+message KingdeeStkMiscellaneousModelResponse {
+  optional string FBillNo = 1;
+  optional KingdeeFNumberResponse FBillTypeID = 2;
+  optional KingdeeFNumberResponse FStockOrgId = 3;
+  optional KingdeeFNumberResponse FSUPPLIERID = 4;
+  optional KingdeeFNumberResponse FDEPTID = 5;
+  optional FStaffNumberResponse FACCEPTANCE = 6;
+  optional KingdeeFNumberResponse FSTOCKERID = 7;
+  optional KingdeeFNumberResponse FSTOCKERGROUPID = 8;
+  optional KingdeeFNumberResponse FOwnerIdHead = 9;
+  optional KingdeeFNumberResponse FBaseCurrId = 10;
+  optional string FNOTE = 11;
+  optional string FScanBox = 12;
+  optional string FQTBillType = 13;
+  optional string FQTRBillNo = 14;
+  repeated StkMiscellaneousModelFEntityResponse FEntity = 15;
+  optional int32 FID = 16;
+  optional string FStockDirect = 17;
+  optional string FDate = 18;
+  optional string FOwnerTypeIdHead = 19;
+}
+
+message KingdeeStkMiscellaneousResponse {
+  optional string _id = 1;
+  KingdeeStkMiscellaneousModelResponse model = 2;
+  optional string agg_no = 3;
+  optional string agg_name = 4;
+  optional string NeedUpDateFields = 5;
+  optional string NeedReturnFields = 6;
+  optional string kingdee_no = 7;
+  optional int32 agg_push_status = 8;
+  optional string failure_reason = 9;
+  optional string cancel_reason = 10;
+  optional int32 agg_type = 11;
+  optional string agg_type_name = 12;
+  optional int32 channel_dim = 13;
+  optional string channel_dim_name = 14;
+  optional int32 time_dim = 15;
+  optional string time_dim_name = 16;
+  optional string agg_period = 17;
+  optional int32 agg_year = 18;
+  optional int32 agg_month = 19;
+  optional int32 agg_week = 20;
+  optional int32 agg_day = 21;
+  optional string agg_organize_no = 22;
+  optional string agg_organize_name = 23;
+  optional string agg_shop_no = 24;
+  optional string agg_shop_name = 25;
+  optional string agg_warehouse_no = 26;
+  optional string agg_warehouse_name = 27;
+  optional string agg_src_order = 28;
+  optional string agg_order_no = 29;
+  optional int32 agg_order_count = 30;
+  optional int32 agg_goods_type_count = 31;
+  optional int32 agg_goods_count = 32;
+  optional double agg_total_amount = 33;
+  optional double agg_discount_amount = 34;
+  optional double agg_receivable_amount = 35;
+  optional double agg_paid_amount = 36;
+  optional string kingdee_push_time = 37;
+  optional string create_time = 38;
+  optional string update_time = 39;
+}
+
 message KingdeeStockNoInfoRequest {
   string stock_no = 1;
 }
@@ -3060,6 +3136,11 @@ message MatchTradeRefundResponse {
   int32 code = 1;
   string msg = 2;
   string data = 3;
+}
+
+message OtherStockoutListStockOutsideKingdeeStkMisDeliveryRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
 }
 
 message PeriodAggTradeRequest {
@@ -3381,6 +3462,18 @@ message RunPeriodPushToKingDeeSalOutStockResponse {
   string data = 3;
 }
 
+message RunPeriodPushVasRefundToKingdeeMiscellaneousRequest {
+  string uuid = 1;
+  repeated string agg_no_list = 2;
+  optional string agg_task_name = 3;
+}
+
+message RunPeriodPushVasRefundToKingdeeMiscellaneousResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
 message RunPeriodicTaskRequest {
   string uuid = 1;
   string require_start = 2;
@@ -3538,6 +3631,88 @@ message StaticsResponse {
   optional int32 consign_failed_push = 4;
   optional string total_amount = 5;
   optional int32 cancel_push = 6;
+}
+
+message StkMiscellaneousModelFEntityResponse {
+  optional string _id = 1;
+  optional int32 FEntryID = 2;
+  optional string FInStockType = 3;
+  optional KingdeeFNumberResponse FMaterialID = 4;
+  optional google.protobuf.Struct FAuxPropId = 5;
+  optional KingdeeFNumberResponse FUnitID = 6;
+  optional KingdeeFNumberResponse FStockID = 7;
+  optional google.protobuf.Struct FStockLocId = 8;
+  optional KingdeeFNumberResponse FSTOCKSTATUSID = 9;
+  optional KingdeeFNumberResponse FLOT = 10;
+  optional int32 FQty = 11;
+  optional string FEntryNote = 12;
+  optional string FSRCBILLNO = 13;
+  optional string FSRCBILLTYPEID = 14;
+  optional KingdeeFNumberResponse FBOMID = 15;
+  optional string FPRODUCEDATE = 16;
+  optional string FMTONO = 17;
+  optional KingdeeFNumberResponse FExtAuxUnitId = 18;
+  optional int32 FExtAuxUnitQty = 19;
+  optional string FProjectNo = 20;
+  optional string FOWNERTYPEID = 21;
+  optional KingdeeFNumberResponse FOWNERID = 22;
+  optional string FKEEPERTYPEID = 23;
+  optional KingdeeFNumberResponse FKEEPERID = 24;
+  optional string FInstockDate = 25;
+  optional string class_name = 26;
+  optional double subtotal_amount = 27;
+  optional double paid = 28;
+  optional string spec_no = 29;
+  optional string goods_no = 30;
+  optional string goods_name = 31;
+  optional string sub_order_no_list = 32;
+}
+
+message StockOutsideKingdeeStkMisDeliveryListResponse {
+  repeated StockOutsideKingdeeStkMisDeliveryResponse results = 1;
+  int32 count = 2;
+}
+
+message StockOutsideKingdeeStkMisDeliveryResponse {
+  optional KingdeeStkMisDeliveryModelResponse model = 1;
+  optional string agg_no = 2;
+  optional string agg_name = 3;
+  optional string NeedUpDateFields = 4;
+  optional string NeedReturnFields = 5;
+  optional string kingdee_no = 6;
+  optional int32 agg_push_status = 7;
+  optional string failure_reason = 8;
+  optional string cancel_reason = 9;
+  optional int32 agg_type = 10;
+  optional string agg_type_name = 11;
+  optional int32 channel_dim = 12;
+  optional string channel_dim_name = 13;
+  optional int32 time_dim = 14;
+  optional string time_dim_name = 15;
+  optional string agg_period = 16;
+  optional int32 agg_year = 17;
+  optional int32 agg_month = 18;
+  optional int32 agg_week = 19;
+  optional int32 agg_day = 20;
+  optional string agg_organize_no = 21;
+  optional string agg_organize_name = 22;
+  optional string agg_shop_no = 23;
+  optional string agg_shop_name = 24;
+  optional string agg_warehouse_no = 25;
+  optional string agg_warehouse_name = 26;
+  optional string agg_src_order = 27;
+  optional string agg_order_no = 28;
+  optional int32 agg_order_count = 29;
+  optional int32 agg_goods_type_count = 30;
+  optional int32 agg_goods_count = 31;
+  optional double agg_total_amount = 32;
+  optional double agg_discount_amount = 33;
+  optional double agg_receivable_amount = 34;
+  optional double agg_paid_amount = 35;
+  optional string kingdee_push_time = 36;
+  optional string create_time = 37;
+  optional string update_time = 38;
+  optional string _id = 39;
 }
 
 message StopKdReceiveBillFromWdtRequest {
@@ -3953,7 +4128,7 @@ message TaskResultUpdateRequest {
 message TaskSigAggAlipayBillRequest {
   string uuid = 1;
   optional string pre_slice_end = 2;
-  string require_start = 3;
+  optional string require_start = 3;
   optional string require_end = 4;
   string agg_period = 5;
 }
@@ -4060,6 +4235,18 @@ message TaskSigAggTransStockOutInRequest {
 message TaskSigAggTransferRequest {
   string uuid = 1;
   string agg_period = 2;
+}
+
+message TaskSigAggVasRefundStockinRequest {
+  string uuid = 1;
+  string agg_period = 2;
+  string config_no = 3;
+}
+
+message TaskSigAggVasRefundStockinResponse {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
 }
 
 message TaskSigFetchStockinOrderRequest {
@@ -4307,6 +4494,11 @@ message VasOrderAggListSwapKingdeeSalOutStockRequest {
 }
 
 message VasOrderAggListSwapKingdeeSalReturnStockRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message VasOrderAggListVasKingdeeStkMiscellaneousRequest {
   optional google.protobuf.Struct _filters = 1;
   optional google.protobuf.Struct _pagination = 2;
 }
