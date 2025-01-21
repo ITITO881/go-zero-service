@@ -731,6 +731,7 @@ message AliPayGoodsListResponse {
   optional double share_post = 15;
   optional double total_amount = 16;
   optional double paid = 17;
+  optional string oid = 18;
 }
 
 message AlipayBillAggEntitiesResponse {
@@ -771,6 +772,7 @@ message AlipayBillAggResultPartialUpdateRequest {
   optional string biz_desc = 13;
   double trans_amount = 14;
   optional string push_kingdee_time = 15;
+  optional string trans_memo_list = 16;
 }
 
 message AlipayBillAggResultRequest {
@@ -784,6 +786,7 @@ message AlipayBillAggResultRequest {
   optional string biz_desc = 12;
   double trans_amount = 13;
   optional string push_kingdee_time = 14;
+  optional string trans_memo_list = 15;
 }
 
 message AlipayBillAggResultResponse {
@@ -802,6 +805,7 @@ message AlipayBillAggResultResponse {
   optional string biz_desc = 17;
   double trans_amount = 18;
   optional string push_kingdee_time = 19;
+  optional string trans_memo_list = 20;
 }
 
 message AlipayBillAggResultRetrieveRequest {
@@ -839,6 +843,7 @@ message AlipayBillEntitiesResponse {
   optional string trans_memo = 18;
   optional string complement_info = 19;
   optional string store_name = 20;
+  optional string agg_no = 21;
 }
 
 message AlipayBillListRequest {
@@ -1795,6 +1800,7 @@ message KingdeePurchaseOrderModelResponse {
   optional string FSettleId_Name = 36;
   optional string FChargeId_Name = 37;
   string FCloseStatus_name = 38;
+  optional string FCloseStatus = 39;
 }
 
 message KingdeePurchaseOrderPartialUpdateRequest {
@@ -2971,6 +2977,7 @@ message KingdeeStkMiscellaneousResponse {
   optional string kingdee_push_time = 37;
   optional string create_time = 38;
   optional string update_time = 39;
+  optional string agg_push_status_name = 40;
 }
 
 message KingdeeStockNoInfoRequest {
@@ -3713,6 +3720,7 @@ message StockOutsideKingdeeStkMisDeliveryResponse {
   optional string create_time = 37;
   optional string update_time = 38;
   optional string _id = 39;
+  optional string agg_push_status_name = 40;
 }
 
 message StopKdReceiveBillFromWdtRequest {
@@ -5103,6 +5111,7 @@ message WdtStockinModelResponse {
   optional int32 agg_consign_status = 61;
   optional int32 channel_code = 62;
   optional string service_order_no = 63;
+  optional string agg_consign_status_name = 64;
 }
 
 message WdtStockinOrderPurchaseDestroyRequest {
@@ -5544,6 +5553,7 @@ message WdtStockoutModelResponse {
   optional string logistics_name = 37;
   optional string modified = 38;
   optional string stock_check_time = 39;
+  optional string agg_consign_status_name = 40;
 }
 
 message WdtStockoutPositionModelResponse {
