@@ -148,6 +148,7 @@ var StatHmxSalesController_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	StatItoSalesController_List_FullMethodName         = "/store_service.store_stat_ito.StatItoSalesController/List"
+	StatItoSalesController_TradeCount_FullMethodName   = "/store_service.store_stat_ito.StatItoSalesController/TradeCount"
 	StatItoSalesController_TradeDetails_FullMethodName = "/store_service.store_stat_ito.StatItoSalesController/TradeDetails"
 )
 
@@ -156,6 +157,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StatItoSalesControllerClient interface {
 	List(ctx context.Context, in *StatHmxSalesListRequest, opts ...grpc.CallOption) (*StatHmxSalesListResponse, error)
+	TradeCount(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*CustomerResponse, error)
 	TradeDetails(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*ItoTradesListResponse, error)
 }
 
@@ -176,6 +178,15 @@ func (c *statItoSalesControllerClient) List(ctx context.Context, in *StatHmxSale
 	return out, nil
 }
 
+func (c *statItoSalesControllerClient) TradeCount(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*CustomerResponse, error) {
+	out := new(CustomerResponse)
+	err := c.cc.Invoke(ctx, StatItoSalesController_TradeCount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *statItoSalesControllerClient) TradeDetails(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*ItoTradesListResponse, error) {
 	out := new(ItoTradesListResponse)
 	err := c.cc.Invoke(ctx, StatItoSalesController_TradeDetails_FullMethodName, in, out, opts...)
@@ -190,6 +201,7 @@ func (c *statItoSalesControllerClient) TradeDetails(ctx context.Context, in *Ito
 // for forward compatibility
 type StatItoSalesControllerServer interface {
 	List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error)
+	TradeCount(context.Context, *ItoTradesRequest) (*CustomerResponse, error)
 	TradeDetails(context.Context, *ItoTradesRequest) (*ItoTradesListResponse, error)
 	mustEmbedUnimplementedStatItoSalesControllerServer()
 }
@@ -200,6 +212,9 @@ type UnimplementedStatItoSalesControllerServer struct {
 
 func (UnimplementedStatItoSalesControllerServer) List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedStatItoSalesControllerServer) TradeCount(context.Context, *ItoTradesRequest) (*CustomerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TradeCount not implemented")
 }
 func (UnimplementedStatItoSalesControllerServer) TradeDetails(context.Context, *ItoTradesRequest) (*ItoTradesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TradeDetails not implemented")
@@ -236,6 +251,24 @@ func _StatItoSalesController_List_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StatItoSalesController_TradeCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItoTradesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatItoSalesControllerServer).TradeCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatItoSalesController_TradeCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatItoSalesControllerServer).TradeCount(ctx, req.(*ItoTradesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _StatItoSalesController_TradeDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ItoTradesRequest)
 	if err := dec(in); err != nil {
@@ -264,6 +297,10 @@ var StatItoSalesController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _StatItoSalesController_List_Handler,
+		},
+		{
+			MethodName: "TradeCount",
+			Handler:    _StatItoSalesController_TradeCount_Handler,
 		},
 		{
 			MethodName: "TradeDetails",

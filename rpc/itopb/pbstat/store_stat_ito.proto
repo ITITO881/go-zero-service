@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package store_service.store_stat_ito;
 
+import "google/protobuf/struct.proto";
+
 option go_package = "../pbstat";
 
 service StatHmxSalesController {
@@ -11,7 +13,13 @@ service StatHmxSalesController {
 
 service StatItoSalesController {
   rpc List(StatHmxSalesListRequest) returns (StatHmxSalesListResponse) {}
+  rpc TradeCount(ItoTradesRequest) returns (CustomerResponse) {}
   rpc TradeDetails(ItoTradesRequest) returns (ItoTradesListResponse) {}
+}
+
+message CustomerResponse {
+  repeated google.protobuf.Struct results = 1;
+  int32 count = 2;
 }
 
 message ItoTradeDetailsResponse {

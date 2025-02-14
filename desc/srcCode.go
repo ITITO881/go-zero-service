@@ -118,3 +118,6 @@ const (
 const (
 	WX_AVTIVITY_MEDIA int64 = 102010
 )
+
+// SOP服务相关
+const SOP_TM_MKT int64 = 300001

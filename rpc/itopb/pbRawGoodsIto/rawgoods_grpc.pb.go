@@ -460,15 +460,14 @@ var ProdRepairsController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProdRepairsRelationController_BulkCreate_FullMethodName        = "/product_service.prod_ito.ProdRepairsRelationController/BulkCreate"
-	ProdRepairsRelationController_Create_FullMethodName            = "/product_service.prod_ito.ProdRepairsRelationController/Create"
-	ProdRepairsRelationController_Destroy_FullMethodName           = "/product_service.prod_ito.ProdRepairsRelationController/Destroy"
-	ProdRepairsRelationController_GetProdCode_FullMethodName       = "/product_service.prod_ito.ProdRepairsRelationController/GetProdCode"
-	ProdRepairsRelationController_List_FullMethodName              = "/product_service.prod_ito.ProdRepairsRelationController/List"
-	ProdRepairsRelationController_PartialUpdate_FullMethodName     = "/product_service.prod_ito.ProdRepairsRelationController/PartialUpdate"
-	ProdRepairsRelationController_ProdSeriesRepairs_FullMethodName = "/product_service.prod_ito.ProdRepairsRelationController/ProdSeriesRepairs"
-	ProdRepairsRelationController_Retrieve_FullMethodName          = "/product_service.prod_ito.ProdRepairsRelationController/Retrieve"
-	ProdRepairsRelationController_Update_FullMethodName            = "/product_service.prod_ito.ProdRepairsRelationController/Update"
+	ProdRepairsRelationController_BulkCreate_FullMethodName    = "/product_service.prod_ito.ProdRepairsRelationController/BulkCreate"
+	ProdRepairsRelationController_Create_FullMethodName        = "/product_service.prod_ito.ProdRepairsRelationController/Create"
+	ProdRepairsRelationController_Destroy_FullMethodName       = "/product_service.prod_ito.ProdRepairsRelationController/Destroy"
+	ProdRepairsRelationController_GetProdCode_FullMethodName   = "/product_service.prod_ito.ProdRepairsRelationController/GetProdCode"
+	ProdRepairsRelationController_List_FullMethodName          = "/product_service.prod_ito.ProdRepairsRelationController/List"
+	ProdRepairsRelationController_PartialUpdate_FullMethodName = "/product_service.prod_ito.ProdRepairsRelationController/PartialUpdate"
+	ProdRepairsRelationController_Retrieve_FullMethodName      = "/product_service.prod_ito.ProdRepairsRelationController/Retrieve"
+	ProdRepairsRelationController_Update_FullMethodName        = "/product_service.prod_ito.ProdRepairsRelationController/Update"
 )
 
 // ProdRepairsRelationControllerClient is the client API for ProdRepairsRelationController service.
@@ -481,7 +480,6 @@ type ProdRepairsRelationControllerClient interface {
 	GetProdCode(ctx context.Context, in *ProductRequest, opts ...grpc.CallOption) (*ProductListResponse, error)
 	List(ctx context.Context, in *RelProdRepairsListRequest, opts ...grpc.CallOption) (*RelProdRepairsListResponse, error)
 	PartialUpdate(ctx context.Context, in *RelProdRepairsPartialUpdateRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
-	ProdSeriesRepairs(ctx context.Context, in *ProdSeriesRepairsRequest, opts ...grpc.CallOption) (*ProdSeriesRepairsListResponse, error)
 	Retrieve(ctx context.Context, in *RelProdRepairsRetrieveRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
 	Update(ctx context.Context, in *RelProdRepairsRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error)
 }
@@ -548,15 +546,6 @@ func (c *prodRepairsRelationControllerClient) PartialUpdate(ctx context.Context,
 	return out, nil
 }
 
-func (c *prodRepairsRelationControllerClient) ProdSeriesRepairs(ctx context.Context, in *ProdSeriesRepairsRequest, opts ...grpc.CallOption) (*ProdSeriesRepairsListResponse, error) {
-	out := new(ProdSeriesRepairsListResponse)
-	err := c.cc.Invoke(ctx, ProdRepairsRelationController_ProdSeriesRepairs_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *prodRepairsRelationControllerClient) Retrieve(ctx context.Context, in *RelProdRepairsRetrieveRequest, opts ...grpc.CallOption) (*RelProdRepairsResponse, error) {
 	out := new(RelProdRepairsResponse)
 	err := c.cc.Invoke(ctx, ProdRepairsRelationController_Retrieve_FullMethodName, in, out, opts...)
@@ -585,7 +574,6 @@ type ProdRepairsRelationControllerServer interface {
 	GetProdCode(context.Context, *ProductRequest) (*ProductListResponse, error)
 	List(context.Context, *RelProdRepairsListRequest) (*RelProdRepairsListResponse, error)
 	PartialUpdate(context.Context, *RelProdRepairsPartialUpdateRequest) (*RelProdRepairsResponse, error)
-	ProdSeriesRepairs(context.Context, *ProdSeriesRepairsRequest) (*ProdSeriesRepairsListResponse, error)
 	Retrieve(context.Context, *RelProdRepairsRetrieveRequest) (*RelProdRepairsResponse, error)
 	Update(context.Context, *RelProdRepairsRequest) (*RelProdRepairsResponse, error)
 	mustEmbedUnimplementedProdRepairsRelationControllerServer()
@@ -612,9 +600,6 @@ func (UnimplementedProdRepairsRelationControllerServer) List(context.Context, *R
 }
 func (UnimplementedProdRepairsRelationControllerServer) PartialUpdate(context.Context, *RelProdRepairsPartialUpdateRequest) (*RelProdRepairsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
-}
-func (UnimplementedProdRepairsRelationControllerServer) ProdSeriesRepairs(context.Context, *ProdSeriesRepairsRequest) (*ProdSeriesRepairsListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProdSeriesRepairs not implemented")
 }
 func (UnimplementedProdRepairsRelationControllerServer) Retrieve(context.Context, *RelProdRepairsRetrieveRequest) (*RelProdRepairsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
@@ -744,24 +729,6 @@ func _ProdRepairsRelationController_PartialUpdate_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProdRepairsRelationController_ProdSeriesRepairs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProdSeriesRepairsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProdRepairsRelationControllerServer).ProdSeriesRepairs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProdRepairsRelationController_ProdSeriesRepairs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProdRepairsRelationControllerServer).ProdSeriesRepairs(ctx, req.(*ProdSeriesRepairsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ProdRepairsRelationController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RelProdRepairsRetrieveRequest)
 	if err := dec(in); err != nil {
@@ -828,10 +795,6 @@ var ProdRepairsRelationController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PartialUpdate",
 			Handler:    _ProdRepairsRelationController_PartialUpdate_Handler,
-		},
-		{
-			MethodName: "ProdSeriesRepairs",
-			Handler:    _ProdRepairsRelationController_ProdSeriesRepairs_Handler,
 		},
 		{
 			MethodName: "Retrieve",

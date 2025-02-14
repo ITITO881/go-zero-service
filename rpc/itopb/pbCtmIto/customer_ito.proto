@@ -436,6 +436,7 @@ message CtmProductCreateRequest {
   optional string origin_ac_code = 11;
   optional string origin_prod_code = 12;
   int64 ctm = 13;
+  optional string remark = 14;
 }
 
 message CtmProductListRequest {
@@ -464,6 +465,7 @@ message CtmProductResponse {
   string create_time = 14;
   string update_time = 15;
   int64 ctm = 16;
+  optional string remark = 17;
 }
 
 message CtmProductRetrieveRequest {
@@ -485,6 +487,7 @@ message CtmProductUpdateRequest {
   optional string origin_ac_code = 12;
   optional string origin_prod_code = 13;
   int64 ctm = 14;
+  optional string remark = 15;
 }
 
 message CtmUpdateSpuSnapShotRequest {

@@ -84,6 +84,9 @@ func init() {
 
 	// 8. ITO 活动相关
 	srcFlag[WX_AVTIVITY_MEDIA] = "文件源：活动，用户上传图片"
+
+	// 9. SOP 服务相关
+	srcFlag[SOP_TM_MKT] = "文件源：SOP，运营计划"
 }
 
 func MapSrcFlag(src int64) (string, error) {
