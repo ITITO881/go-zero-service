@@ -35,6 +35,7 @@ service DeliverNoticeController {
   rpc DestroyVendorOperator(VendorOperatorDestroyRequest) returns (google.protobuf.Empty) {}
   rpc List(DeliverNoticeListRequest) returns (DeliverNoticeListResponse) {}
   rpc ListCtmVendorAddr(CtmVendorAddrListRequest) returns (CtmVendorAddrListResponse) {}
+  rpc ListDeliverNoticeEpcScanStorage(DeliverNoticeEpcScanStorageListRequest) returns (DeliverNoticeEpcScanStorageListResponse) {}
   rpc ListDeliverNoticeGoodsDetails(DeliverNoticeGoodsDetailsListRequest) returns (DeliverNoticeGoodsDetailsListResponse) {}
   rpc ListKeyCtm(KeyCtmListRequest) returns (KeyCtmListResponse) {}
   rpc ListKeyVendor(KeyVendorListRequest) returns (KeyVendorListResponse) {}
@@ -55,6 +56,7 @@ service DeliverNoticeController {
   rpc RetrieveSupplierTradeGoodsDetails(SupplierTradeGoodsDetailsRetrieveRequest) returns (SupplierTradeGoodsDetailsResponse) {}
   rpc RetrieveSupplierTradeStockOutDetails(SupplierTradeStockOutDetailsRetrieveRequest) returns (SupplierTradeStockOutDetailsResponse) {}
   rpc RetrieveVendorOperator(VendorOperatorRetrieveRequest) returns (VendorOperatorResponse) {}
+  rpc SaveDeliverNoticeEpcScanStorage(DeliverNoticeEpcScanStorageRequest) returns (DeliverNoticeEpcScanStorageResponse) {}
   rpc ShopOptionsWdt(WdtShopListRequest) returns (WdtShopListResponse) {}
   rpc StockOptionsWdt(WdtStockListRequest) returns (WdtStockListResponse) {}
   rpc SupplierTradeNextTid(SupplierTradeNextTidRequest) returns (NoticeNextDidResponse) {}
@@ -174,27 +176,27 @@ message CreateServiceConfRequest {
   int32 id = 1;
   string filters = 2;
   string plat_name = 3;
-  int32 trade_type = 4;
-  int32 type = 5;
-  optional string conf_name = 6;
+  optional string conf_name = 4;
+  int32 trade_type = 5;
+  int32 type = 6;
 }
 
 message CreateServiceConfSolutionRequest {
   int32 id = 1;
-  int32 type = 2;
-  optional int32 employee = 3;
-  optional int32 shop_no = 4;
-  optional int32 shop_name = 5;
-  optional int32 warehouse_no = 6;
-  optional int32 warehouse_name = 7;
-  optional int32 warehouse_in_no = 8;
-  optional int32 warehouse_in_name = 9;
-  bool complain_pay_detail = 10;
-  bool complain_invoice = 11;
-  bool complain_stock_in = 12;
-  bool complain_stock_out = 13;
-  bool complain_refund = 14;
-  string filters = 15;
+  string filters = 2;
+  int32 type = 3;
+  optional int32 employee = 4;
+  optional int32 shop_no = 5;
+  optional int32 shop_name = 6;
+  optional int32 warehouse_no = 7;
+  optional int32 warehouse_name = 8;
+  optional int32 warehouse_in_no = 9;
+  optional int32 warehouse_in_name = 10;
+  bool complain_pay_detail = 11;
+  bool complain_invoice = 12;
+  bool complain_stock_in = 13;
+  bool complain_stock_out = 14;
+  bool complain_refund = 15;
 }
 
 message CreateServiceConfWarehouseRequest {
@@ -313,6 +315,33 @@ message DeliverNoticeDestroyRequest {
   int32 id = 1;
 }
 
+message DeliverNoticeEpcScanStorageListRequest {
+  string filters = 1;
+}
+
+message DeliverNoticeEpcScanStorageListResponse {
+  repeated DeliverNoticeEpcScanStorageResponse results = 1;
+  int32 count = 2;
+}
+
+message DeliverNoticeEpcScanStorageRequest {
+  int32 id = 1;
+  string web_data = 2;
+  bool is_submit = 3;
+  bool is_valid = 4;
+  optional int64 notice = 5;
+}
+
+message DeliverNoticeEpcScanStorageResponse {
+  int32 id = 1;
+  string create_time = 2;
+  string update_time = 3;
+  string web_data = 4;
+  bool is_submit = 5;
+  bool is_valid = 6;
+  optional int64 notice = 7;
+}
+
 message DeliverNoticeGoodsDetailsBulkCreateListRequest {
   repeated DeliverNoticeGoodsDetailsBulkCreateRequest results = 1;
   int32 count = 2;
@@ -334,6 +363,7 @@ message DeliverNoticeGoodsDetailsBulkCreateRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsCreateRequest {
@@ -352,6 +382,7 @@ message DeliverNoticeGoodsDetailsCreateRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsDestroyRequest {
@@ -383,6 +414,7 @@ message DeliverNoticeGoodsDetailsRequest {
   optional string spec_name = 14;
   optional int64 notice = 15;
   string filters = 16;
+  double share_price = 17;
 }
 
 message DeliverNoticeGoodsDetailsResponse {
@@ -405,6 +437,7 @@ message DeliverNoticeGoodsDetailsResponse {
   optional int64 notice = 17;
   int32 send_num = 18;
   float send_amount = 19;
+  double share_price = 20;
 }
 
 message DeliverNoticeGoodsDetailsRetrieveRequest {
@@ -428,6 +461,7 @@ message DeliverNoticeGoodsDetailsUpdateRequest {
   optional string spec_name = 15;
   optional int64 notice = 16;
   string filters = 17;
+  double share_price = 18;
 }
 
 message DeliverNoticeListRequest {
@@ -640,6 +674,7 @@ message DeliverNoticeResponse {
   string vendor_name = 52;
   string ctm_name = 53;
   optional int32 can_split = 54;
+  repeated DeliverNoticeEpcScanStorageResponse epc_storage = 55;
 }
 
 message DeliverNoticeRetrieveRequest {
@@ -766,6 +801,7 @@ message KeyVendorCreateRequest {
   optional string warehouse_no = 17;
   optional string warehouse_name = 18;
   string filters = 19;
+  optional string vendor_code = 20;
 }
 
 message KeyVendorDestroyRequest {
@@ -801,6 +837,7 @@ message KeyVendorResponse {
   optional string shop_name = 17;
   optional string warehouse_no = 18;
   optional string warehouse_name = 19;
+  optional string vendor_code = 20;
 }
 
 message KeyVendorRetrieveRequest {
@@ -827,6 +864,7 @@ message KeyVendorUpdateRequest {
   optional string warehouse_no = 18;
   optional string warehouse_name = 19;
   string filters = 20;
+  optional string vendor_code = 21;
 }
 
 message LabelNumberValueListResponse {
@@ -848,9 +886,9 @@ message ListServiceConfRequest {
   int32 id = 1;
   string filters = 2;
   string plat_name = 3;
-  int32 trade_type = 4;
-  int32 type = 5;
-  optional string conf_name = 6;
+  optional string conf_name = 4;
+  int32 trade_type = 5;
+  int32 type = 6;
 }
 
 message ListServiceConfSolutionRequest {
@@ -927,14 +965,14 @@ message ObjectComplainRequest {
   optional string oms_order = 12;
   optional string platform_refund = 13;
   optional string oms_refund = 14;
-  optional string parts_code = 15;
-  optional string parts_name = 16;
-  optional string complain_reasons = 17;
-  optional string complain_desc = 18;
-  optional string media_path = 19;
-  optional int64 service = 20;
-  optional string oms_purchase = 21;
-  optional string complain_reasons_code = 22;
+  optional string oms_purchase = 15;
+  optional string parts_code = 16;
+  optional string parts_name = 17;
+  optional string complain_reasons_code = 18;
+  optional string complain_reasons = 19;
+  optional string complain_desc = 20;
+  optional string media_path = 21;
+  optional int64 service = 22;
 }
 
 message ObjectComplainResponse {
@@ -953,14 +991,14 @@ message ObjectComplainResponse {
   optional string oms_order = 13;
   optional string platform_refund = 14;
   optional string oms_refund = 15;
-  optional string parts_code = 16;
-  optional string parts_name = 17;
-  optional string complain_reasons = 18;
-  optional string complain_desc = 19;
-  optional string media_path = 20;
-  optional int64 service = 21;
-  optional string oms_purchase = 22;
-  optional string complain_reasons_code = 23;
+  optional string oms_purchase = 16;
+  optional string parts_code = 17;
+  optional string parts_name = 18;
+  optional string complain_reasons_code = 19;
+  optional string complain_reasons = 20;
+  optional string complain_desc = 21;
+  optional string media_path = 22;
+  optional int64 service = 23;
 }
 
 message PurchaseDetailResponse {
@@ -1125,27 +1163,27 @@ message RetrieveServiceConfRequest {
   int32 id = 1;
   string filters = 2;
   string plat_name = 3;
-  int32 trade_type = 4;
-  int32 type = 5;
-  optional string conf_name = 6;
+  optional string conf_name = 4;
+  int32 trade_type = 5;
+  int32 type = 6;
 }
 
 message RetrieveServiceConfSolutionRequest {
   int32 id = 1;
-  int32 type = 2;
-  optional int32 employee = 3;
-  optional int32 shop_no = 4;
-  optional int32 shop_name = 5;
-  optional int32 warehouse_no = 6;
-  optional int32 warehouse_name = 7;
-  optional int32 warehouse_in_no = 8;
-  optional int32 warehouse_in_name = 9;
-  bool complain_pay_detail = 10;
-  bool complain_invoice = 11;
-  bool complain_stock_in = 12;
-  bool complain_stock_out = 13;
-  bool complain_refund = 14;
-  string filters = 15;
+  string filters = 2;
+  int32 type = 3;
+  optional int32 employee = 4;
+  optional int32 shop_no = 5;
+  optional int32 shop_name = 6;
+  optional int32 warehouse_no = 7;
+  optional int32 warehouse_name = 8;
+  optional int32 warehouse_in_no = 9;
+  optional int32 warehouse_in_name = 10;
+  bool complain_pay_detail = 11;
+  bool complain_invoice = 12;
+  bool complain_stock_in = 13;
+  bool complain_stock_out = 14;
+  bool complain_refund = 15;
 }
 
 message RetrieveServiceConfWarehouseRequest {
@@ -1188,15 +1226,15 @@ message ServiceConfListResponse {
 
 message ServiceConfResponse {
   int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  string plat_name = 4;
-  int32 trade_type = 5;
-  int32 type = 6;
-  repeated ServiceConfWarehouseResponse warehouse = 7;
+  string trade_type_name = 2;
+  string type_name = 3;
+  repeated ServiceConfWarehouseResponse warehouse = 4;
+  string create_time = 5;
+  string update_time = 6;
+  string plat_name = 7;
   optional string conf_name = 8;
-  string trade_type_name = 9;
-  string type_name = 10;
+  int32 trade_type = 9;
+  int32 type = 10;
 }
 
 message ServiceConfSolutionListResponse {
@@ -1221,7 +1259,6 @@ message ServiceConfSolutionResponse {
   bool complain_stock_in = 14;
   bool complain_stock_out = 15;
   bool complain_refund = 16;
-  string type_name = 17;
 }
 
 message ServiceConfWarehouseListResponse {
@@ -1322,83 +1359,63 @@ message ServiceGoodsDetailResponse {
 message ServiceListRequest {
   int32 id = 1;
   string filters = 2;
-  optional string create_name = 3;
-  optional int32 create_type = 4;
-  optional string approve_time = 5;
-  optional string approve_name = 6;
-  optional string approve_reasons = 7;
-  optional string reject_reasons = 8;
-  optional string cancel_reasons = 9;
-  string sid = 10;
-  optional int32 trade_type = 11;
-  optional int32 type = 12;
-  optional int32 service_status = 13;
-  optional int32 trade_status = 14;
-  optional int32 pay_status = 15;
-  optional string pay_time = 16;
-  optional int32 delivery_term = 17;
-  optional string buyer_nick = 18;
-  optional string buyer_mobile = 19;
-  optional string buyer_message = 20;
-  optional string buyer_label = 21;
-  optional int32 buyer_source = 22;
-  optional string seller_name = 23;
-  optional string seller_memo = 24;
-  optional string shop_no = 25;
-  optional string shop_name = 26;
-  optional string warehouse_no = 27;
-  optional string warehouse_name = 28;
-  optional string receiver_name = 29;
-  optional string receiver_province = 30;
-  optional string receiver_city = 31;
-  optional string receiver_district = 32;
-  optional string receiver_address = 33;
-  optional string receiver_mobile = 34;
-  optional double post_amount = 35;
-  optional double other_amount = 36;
-  optional double ext_cod_fee = 37;
-  optional double paid = 38;
-  optional double cod_amount = 39;
-  optional double receivable = 40;
-  optional double discount = 41;
-  optional int32 invoice_status = 42;
-  optional string logistics_in_name = 43;
-  optional string logistics_in_code = 44;
-  optional string logistics_in_no = 45;
-  optional string warehouse_in_no = 46;
-  optional string warehouse_in_name = 47;
-  optional string outer_no = 48;
-  repeated ServiceGoodsDetailRequest swap_goods_details = 50;
-  repeated ServicePayDetailRequest pay_details = 51;
-  repeated ServiceStockOutRequest stock_out_details = 52;
-  ObjectComplainRequest complain_content = 53;
-  optional int32 record_type = 54;
-  optional int32 judgement = 55;
-  repeated ServiceLogRequest service_logs = 56;
-  repeated ServiceSolutionRequest service_solutions = 57;
+  ObjectComplainRequest complain_content = 3;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 4;
+  repeated ServicePayDetailRequest pay_details = 5;
+  repeated ServiceStockOutRequest stock_out_details = 6;
+  optional string create_name = 7;
+  optional int32 create_type = 8;
+  optional string approve_time = 9;
+  optional string approve_name = 10;
+  optional string approve_reasons = 11;
+  optional string reject_reasons = 12;
+  optional string cancel_reasons = 13;
+  string sid = 14;
+  optional int32 trade_type = 15;
+  optional int32 type = 16;
+  optional int32 record_type = 17;
+  optional int32 judgement = 18;
+  optional int32 service_status = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  optional string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  optional string buyer_label = 27;
+  optional int32 buyer_source = 28;
+  optional string seller_name = 29;
+  optional string seller_memo = 30;
+  optional string shop_no = 31;
+  optional string shop_name = 32;
+  optional string warehouse_no = 33;
+  optional string warehouse_name = 34;
+  optional string receiver_name = 35;
+  optional string receiver_province = 36;
+  optional string receiver_city = 37;
+  optional string receiver_district = 38;
+  optional string receiver_address = 39;
+  optional string receiver_mobile = 40;
+  optional double post_amount = 41;
+  optional double other_amount = 42;
+  optional double ext_cod_fee = 43;
+  optional double paid = 44;
+  optional double cod_amount = 45;
+  optional double receivable = 46;
+  optional double discount = 47;
+  optional int32 invoice_status = 48;
+  optional string logistics_in_name = 49;
+  optional string logistics_in_code = 50;
+  optional string logistics_in_no = 51;
+  optional string warehouse_in_no = 52;
+  optional string warehouse_in_name = 53;
+  optional string outer_no = 54;
 }
 
 message ServiceListResponse {
   repeated ServiceResponse results = 1;
   int32 count = 2;
-}
-
-message ServiceLogRequest {
-  int32 id = 1;
-  optional int32 operator_id = 2;
-  optional string operator_name = 3;
-  optional string action_message = 4;
-  optional int64 service = 5;
-}
-
-message ServiceLogResponse {
-  int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  optional int32 operator_id = 4;
-  optional string operator_name = 5;
-  optional string action_message = 6;
-  optional int64 service = 7;
 }
 
 message ServiceOptionsResponse {
@@ -1412,68 +1429,64 @@ message ServiceOptionsResponse {
   repeated LabelNumberValueResponse record_type = 8;
   repeated LabelNumberValueResponse buyer_source = 9;
   repeated LabelNumberValueResponse judgement = 10;
-  repeated LabelNumberValueResponse solution_tick = 11;
-  repeated LabelNumberValueResponse solution_agree_status = 12;
 }
 
 message ServicePartialUpdateRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 3;
-  optional string create_name = 4;
-  optional int32 create_type = 5;
-  optional string approve_time = 6;
-  optional string approve_name = 7;
-  optional string approve_reasons = 8;
-  optional string reject_reasons = 9;
-  optional string cancel_reasons = 10;
-  string sid = 11;
-  optional int32 trade_type = 12;
-  optional int32 type = 13;
-  optional int32 service_status = 14;
-  optional int32 trade_status = 15;
-  optional int32 pay_status = 16;
-  optional string pay_time = 17;
-  optional int32 delivery_term = 18;
-  optional string buyer_nick = 19;
-  optional string buyer_mobile = 20;
-  optional string buyer_message = 21;
-  optional string buyer_label = 22;
-  optional int32 buyer_source = 23;
-  optional string seller_name = 24;
-  optional string seller_memo = 25;
-  optional string shop_no = 26;
-  optional string shop_name = 27;
-  optional string warehouse_no = 28;
-  optional string warehouse_name = 29;
-  optional string receiver_name = 30;
-  optional string receiver_province = 31;
-  optional string receiver_city = 32;
-  optional string receiver_district = 33;
-  optional string receiver_address = 34;
-  optional string receiver_mobile = 35;
-  optional double post_amount = 36;
-  optional double other_amount = 37;
-  optional double ext_cod_fee = 38;
-  optional double paid = 39;
-  optional double cod_amount = 40;
-  optional double receivable = 41;
-  optional double discount = 42;
-  optional int32 invoice_status = 43;
-  optional string logistics_in_name = 44;
-  optional string logistics_in_code = 45;
-  optional string logistics_in_no = 46;
-  optional string warehouse_in_no = 47;
-  optional string warehouse_in_name = 48;
-  optional string outer_no = 49;
-  repeated ServiceGoodsDetailRequest swap_goods_details = 51;
-  repeated ServicePayDetailRequest pay_details = 52;
-  repeated ServiceStockOutRequest stock_out_details = 53;
-  ObjectComplainRequest complain_content = 54;
-  optional int32 record_type = 55;
-  optional int32 judgement = 56;
-  repeated ServiceLogRequest service_logs = 57;
-  repeated ServiceSolutionRequest service_solutions = 58;
+  ObjectComplainRequest complain_content = 3;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 4;
+  repeated ServicePayDetailRequest pay_details = 5;
+  repeated ServiceStockOutRequest stock_out_details = 6;
+  repeated string _partial_update_fields = 7;
+  optional string create_name = 8;
+  optional int32 create_type = 9;
+  optional string approve_time = 10;
+  optional string approve_name = 11;
+  optional string approve_reasons = 12;
+  optional string reject_reasons = 13;
+  optional string cancel_reasons = 14;
+  string sid = 15;
+  optional int32 trade_type = 16;
+  optional int32 type = 17;
+  optional int32 record_type = 18;
+  optional int32 judgement = 19;
+  optional int32 service_status = 20;
+  optional int32 trade_status = 21;
+  optional int32 pay_status = 22;
+  optional string pay_time = 23;
+  optional int32 delivery_term = 24;
+  optional string buyer_nick = 25;
+  optional string buyer_mobile = 26;
+  optional string buyer_message = 27;
+  optional string buyer_label = 28;
+  optional int32 buyer_source = 29;
+  optional string seller_name = 30;
+  optional string seller_memo = 31;
+  optional string shop_no = 32;
+  optional string shop_name = 33;
+  optional string warehouse_no = 34;
+  optional string warehouse_name = 35;
+  optional string receiver_name = 36;
+  optional string receiver_province = 37;
+  optional string receiver_city = 38;
+  optional string receiver_district = 39;
+  optional string receiver_address = 40;
+  optional string receiver_mobile = 41;
+  optional double post_amount = 42;
+  optional double other_amount = 43;
+  optional double ext_cod_fee = 44;
+  optional double paid = 45;
+  optional double cod_amount = 46;
+  optional double receivable = 47;
+  optional double discount = 48;
+  optional int32 invoice_status = 49;
+  optional string logistics_in_name = 50;
+  optional string logistics_in_code = 51;
+  optional string logistics_in_no = 52;
+  optional string warehouse_in_no = 53;
+  optional string warehouse_in_name = 54;
+  optional string outer_no = 55;
 }
 
 message ServicePayDetailRequest {
@@ -1570,77 +1583,75 @@ message ServiceReasonListResponse {
 
 message ServiceReasonResponse {
   int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  int32 trade_type = 4;
-  optional int32 reason_type = 5;
-  int32 reason_code = 6;
-  string reason_name = 7;
-  optional string reason_desc = 8;
-  optional bool with_remark = 9;
-  bool is_valid = 10;
-  optional bool is_reserved = 11;
-  optional int64 parent = 12;
-  repeated ServiceReasonChildrenResponse children = 13;
+  repeated ServiceReasonChildrenResponse children = 2;
+  string create_time = 3;
+  string update_time = 4;
+  int32 trade_type = 5;
+  optional int32 reason_type = 6;
+  int32 reason_code = 7;
+  string reason_name = 8;
+  optional string reason_desc = 9;
+  optional bool with_remark = 10;
+  bool is_valid = 11;
+  optional bool is_reserved = 12;
+  optional int64 parent = 13;
 }
 
 message ServiceRequest {
   int32 id = 1;
   string filters = 2;
-  optional string create_name = 3;
-  optional int32 create_type = 4;
-  optional string approve_time = 5;
-  optional string approve_name = 6;
-  optional string approve_reasons = 7;
-  optional string reject_reasons = 8;
-  optional string cancel_reasons = 9;
-  string sid = 10;
-  optional int32 trade_type = 11;
-  optional int32 type = 12;
-  optional int32 service_status = 13;
-  optional int32 trade_status = 14;
-  optional int32 pay_status = 15;
-  optional string pay_time = 16;
-  optional int32 delivery_term = 17;
-  optional string buyer_nick = 18;
-  optional string buyer_mobile = 19;
-  optional string buyer_message = 20;
-  optional string buyer_label = 21;
-  optional int32 buyer_source = 22;
-  optional string seller_name = 23;
-  optional string seller_memo = 24;
-  optional string shop_no = 25;
-  optional string shop_name = 26;
-  optional string warehouse_no = 27;
-  optional string warehouse_name = 28;
-  optional string receiver_name = 29;
-  optional string receiver_province = 30;
-  optional string receiver_city = 31;
-  optional string receiver_district = 32;
-  optional string receiver_address = 33;
-  optional string receiver_mobile = 34;
-  optional double post_amount = 35;
-  optional double other_amount = 36;
-  optional double ext_cod_fee = 37;
-  optional double paid = 38;
-  optional double cod_amount = 39;
-  optional double receivable = 40;
-  optional double discount = 41;
-  optional int32 invoice_status = 42;
-  optional string logistics_in_name = 43;
-  optional string logistics_in_code = 44;
-  optional string logistics_in_no = 45;
-  optional string warehouse_in_no = 46;
-  optional string warehouse_in_name = 47;
-  optional string outer_no = 48;
-  repeated ServiceGoodsDetailRequest swap_goods_details = 50;
-  repeated ServicePayDetailRequest pay_details = 51;
-  repeated ServiceStockOutRequest stock_out_details = 52;
-  ObjectComplainRequest complain_content = 53;
-  optional int32 record_type = 54;
-  optional int32 judgement = 55;
-  repeated ServiceLogRequest service_logs = 56;
-  repeated ServiceSolutionRequest service_solutions = 57;
+  ObjectComplainRequest complain_content = 3;
+  repeated ServiceGoodsDetailRequest swap_goods_details = 4;
+  repeated ServicePayDetailRequest pay_details = 5;
+  repeated ServiceStockOutRequest stock_out_details = 6;
+  optional string create_name = 7;
+  optional int32 create_type = 8;
+  optional string approve_time = 9;
+  optional string approve_name = 10;
+  optional string approve_reasons = 11;
+  optional string reject_reasons = 12;
+  optional string cancel_reasons = 13;
+  string sid = 14;
+  optional int32 trade_type = 15;
+  optional int32 type = 16;
+  optional int32 record_type = 17;
+  optional int32 judgement = 18;
+  optional int32 service_status = 19;
+  optional int32 trade_status = 20;
+  optional int32 pay_status = 21;
+  optional string pay_time = 22;
+  optional int32 delivery_term = 23;
+  optional string buyer_nick = 24;
+  optional string buyer_mobile = 25;
+  optional string buyer_message = 26;
+  optional string buyer_label = 27;
+  optional int32 buyer_source = 28;
+  optional string seller_name = 29;
+  optional string seller_memo = 30;
+  optional string shop_no = 31;
+  optional string shop_name = 32;
+  optional string warehouse_no = 33;
+  optional string warehouse_name = 34;
+  optional string receiver_name = 35;
+  optional string receiver_province = 36;
+  optional string receiver_city = 37;
+  optional string receiver_district = 38;
+  optional string receiver_address = 39;
+  optional string receiver_mobile = 40;
+  optional double post_amount = 41;
+  optional double other_amount = 42;
+  optional double ext_cod_fee = 43;
+  optional double paid = 44;
+  optional double cod_amount = 45;
+  optional double receivable = 46;
+  optional double discount = 47;
+  optional int32 invoice_status = 48;
+  optional string logistics_in_name = 49;
+  optional string logistics_in_code = 50;
+  optional string logistics_in_no = 51;
+  optional string warehouse_in_no = 52;
+  optional string warehouse_in_name = 53;
+  optional string outer_no = 54;
 }
 
 message ServiceResponse {
@@ -1653,94 +1664,67 @@ message ServiceResponse {
   string pay_status_name = 7;
   string delivery_term_name = 8;
   string invoice_status_name = 9;
-  string create_time = 10;
-  string update_time = 11;
-  optional string create_name = 12;
-  optional int32 create_type = 13;
-  optional string approve_time = 14;
-  optional string approve_name = 15;
-  optional string approve_reasons = 16;
-  optional string reject_reasons = 17;
-  optional string cancel_reasons = 18;
-  string sid = 19;
-  optional int32 trade_type = 20;
-  optional int32 type = 21;
-  optional int32 service_status = 22;
-  optional int32 trade_status = 23;
-  optional int32 pay_status = 24;
-  optional string pay_time = 25;
-  optional int32 delivery_term = 26;
-  optional string buyer_nick = 27;
-  optional string buyer_mobile = 28;
-  optional string buyer_message = 29;
-  optional string buyer_label = 30;
-  optional int32 buyer_source = 31;
-  optional string seller_name = 32;
-  optional string seller_memo = 33;
-  optional string shop_no = 34;
-  optional string shop_name = 35;
-  optional string warehouse_no = 36;
-  optional string warehouse_name = 37;
-  optional string receiver_name = 38;
-  optional string receiver_province = 39;
-  optional string receiver_city = 40;
-  optional string receiver_district = 41;
-  optional string receiver_address = 42;
-  optional string receiver_mobile = 43;
-  optional double post_amount = 44;
-  optional double other_amount = 45;
-  optional double ext_cod_fee = 46;
-  optional double paid = 47;
-  optional double cod_amount = 48;
-  optional double receivable = 49;
-  optional double discount = 50;
-  optional int32 invoice_status = 51;
-  optional string logistics_in_name = 52;
-  optional string logistics_in_code = 53;
-  optional string logistics_in_no = 54;
-  optional string warehouse_in_no = 55;
-  optional string warehouse_in_name = 56;
-  optional string outer_no = 57;
-  repeated ServiceGoodsDetailResponse swap_goods_details = 59;
-  repeated ServicePayDetailResponse pay_details = 60;
-  repeated ServiceStockOutResponse stock_out_details = 61;
-  ObjectComplainResponse complain_content = 62;
-  optional int32 record_type = 63;
-  string record_type_name = 64;
-  string buyer_source_name = 65;
-  string judgement_name = 66;
-  optional int32 judgement = 67;
-  repeated ServiceLogResponse service_logs = 68;
-  repeated ServiceSolutionResponse service_solutions = 69;
+  string record_type_name = 10;
+  string buyer_source_name = 11;
+  string judgement_name = 12;
+  ObjectComplainResponse complain_content = 13;
+  repeated ServiceGoodsDetailResponse swap_goods_details = 14;
+  repeated ServicePayDetailResponse pay_details = 15;
+  repeated ServiceStockOutResponse stock_out_details = 16;
+  string create_time = 17;
+  string update_time = 18;
+  optional string create_name = 19;
+  optional int32 create_type = 20;
+  optional string approve_time = 21;
+  optional string approve_name = 22;
+  optional string approve_reasons = 23;
+  optional string reject_reasons = 24;
+  optional string cancel_reasons = 25;
+  string sid = 26;
+  optional int32 trade_type = 27;
+  optional int32 type = 28;
+  optional int32 record_type = 29;
+  optional int32 judgement = 30;
+  optional int32 service_status = 31;
+  optional int32 trade_status = 32;
+  optional int32 pay_status = 33;
+  optional string pay_time = 34;
+  optional int32 delivery_term = 35;
+  optional string buyer_nick = 36;
+  optional string buyer_mobile = 37;
+  optional string buyer_message = 38;
+  optional string buyer_label = 39;
+  optional int32 buyer_source = 40;
+  optional string seller_name = 41;
+  optional string seller_memo = 42;
+  optional string shop_no = 43;
+  optional string shop_name = 44;
+  optional string warehouse_no = 45;
+  optional string warehouse_name = 46;
+  optional string receiver_name = 47;
+  optional string receiver_province = 48;
+  optional string receiver_city = 49;
+  optional string receiver_district = 50;
+  optional string receiver_address = 51;
+  optional string receiver_mobile = 52;
+  optional double post_amount = 53;
+  optional double other_amount = 54;
+  optional double ext_cod_fee = 55;
+  optional double paid = 56;
+  optional double cod_amount = 57;
+  optional double receivable = 58;
+  optional double discount = 59;
+  optional int32 invoice_status = 60;
+  optional string logistics_in_name = 61;
+  optional string logistics_in_code = 62;
+  optional string logistics_in_no = 63;
+  optional string warehouse_in_no = 64;
+  optional string warehouse_in_name = 65;
+  optional string outer_no = 66;
 }
 
 message ServiceRetrieveRequest {
   int32 id = 1;
-}
-
-message ServiceSolutionRequest {
-  int32 id = 1;
-  int32 agree_status = 2;
-  int32 type = 3;
-  optional string content = 4;
-  optional string remark = 5;
-  optional string admin_name = 6;
-  optional int64 service = 7;
-  int64 config = 8;
-}
-
-message ServiceSolutionResponse {
-  int32 id = 1;
-  string create_time = 2;
-  string update_time = 3;
-  int32 agree_status = 4;
-  int32 type = 5;
-  optional string content = 6;
-  optional string remark = 7;
-  optional string admin_name = 8;
-  optional int64 service = 9;
-  int64 config = 10;
-  string agree_status_name = 11;
 }
 
 message ServiceStockOutRequest {
@@ -2319,6 +2303,7 @@ message TransferOrderResponse {
 message UpdateGoodsDeliverRequest {
   int32 id = 1;
   string filters = 2;
+  ObjectComplainRequest complain_content = 3;
   repeated ServiceGoodsDetailRequest swap_goods_details = 4;
   repeated ServicePayDetailRequest pay_details = 5;
   repeated ServiceStockOutRequest stock_out_details = 6;
@@ -2333,47 +2318,44 @@ message UpdateGoodsDeliverRequest {
   string sid = 15;
   optional int32 trade_type = 16;
   optional int32 type = 17;
-  optional int32 service_status = 18;
-  optional int32 trade_status = 19;
-  optional int32 pay_status = 20;
-  optional string pay_time = 21;
-  optional int32 delivery_term = 22;
-  optional string buyer_nick = 23;
-  optional string buyer_mobile = 24;
-  optional string buyer_message = 25;
-  optional string buyer_label = 26;
-  optional int32 buyer_source = 27;
-  optional string seller_name = 28;
-  optional string seller_memo = 29;
-  optional string shop_no = 30;
-  optional string shop_name = 31;
-  optional string warehouse_no = 32;
-  optional string warehouse_name = 33;
-  optional string receiver_name = 34;
-  optional string receiver_province = 35;
-  optional string receiver_city = 36;
-  optional string receiver_district = 37;
-  optional string receiver_address = 38;
-  optional string receiver_mobile = 39;
-  optional double post_amount = 40;
-  optional double other_amount = 41;
-  optional double ext_cod_fee = 42;
-  optional double paid = 43;
-  optional double cod_amount = 44;
-  optional double receivable = 45;
-  optional double discount = 46;
-  optional int32 invoice_status = 47;
-  optional string logistics_in_name = 48;
-  optional string logistics_in_code = 49;
-  optional string logistics_in_no = 50;
-  optional string warehouse_in_no = 51;
-  optional string warehouse_in_name = 52;
-  optional string outer_no = 53;
-  ObjectComplainRequest complain_content = 54;
-  optional int32 record_type = 55;
-  optional int32 judgement = 56;
-  repeated ServiceLogRequest service_logs = 57;
-  repeated ServiceSolutionRequest service_solutions = 58;
+  optional int32 record_type = 18;
+  optional int32 judgement = 19;
+  optional int32 service_status = 20;
+  optional int32 trade_status = 21;
+  optional int32 pay_status = 22;
+  optional string pay_time = 23;
+  optional int32 delivery_term = 24;
+  optional string buyer_nick = 25;
+  optional string buyer_mobile = 26;
+  optional string buyer_message = 27;
+  optional string buyer_label = 28;
+  optional int32 buyer_source = 29;
+  optional string seller_name = 30;
+  optional string seller_memo = 31;
+  optional string shop_no = 32;
+  optional string shop_name = 33;
+  optional string warehouse_no = 34;
+  optional string warehouse_name = 35;
+  optional string receiver_name = 36;
+  optional string receiver_province = 37;
+  optional string receiver_city = 38;
+  optional string receiver_district = 39;
+  optional string receiver_address = 40;
+  optional string receiver_mobile = 41;
+  optional double post_amount = 42;
+  optional double other_amount = 43;
+  optional double ext_cod_fee = 44;
+  optional double paid = 45;
+  optional double cod_amount = 46;
+  optional double receivable = 47;
+  optional double discount = 48;
+  optional int32 invoice_status = 49;
+  optional string logistics_in_name = 50;
+  optional string logistics_in_code = 51;
+  optional string logistics_in_no = 52;
+  optional string warehouse_in_no = 53;
+  optional string warehouse_in_name = 54;
+  optional string outer_no = 55;
 }
 
 message UpdateServiceConfRequest {
@@ -2381,28 +2363,28 @@ message UpdateServiceConfRequest {
   string filters = 2;
   repeated string _partial_update_fields = 3;
   string plat_name = 4;
-  int32 trade_type = 5;
-  int32 type = 6;
-  optional string conf_name = 7;
+  optional string conf_name = 5;
+  int32 trade_type = 6;
+  int32 type = 7;
 }
 
 message UpdateServiceConfSolutionRequest {
   int32 id = 1;
   string filters = 2;
-  repeated string _partial_update_fields = 9;
-  int32 type = 19;
-  optional int32 shop_no = 34;
-  optional int32 shop_name = 35;
-  optional int32 warehouse_no = 36;
-  optional int32 warehouse_name = 37;
-  optional int32 warehouse_in_no = 55;
-  optional int32 warehouse_in_name = 56;
-  optional int32 employee = 57;
-  bool complain_pay_detail = 58;
-  bool complain_invoice = 59;
-  bool complain_stock_in = 60;
-  bool complain_stock_out = 61;
-  bool complain_refund = 62;
+  repeated string _partial_update_fields = 3;
+  int32 type = 4;
+  optional int32 employee = 5;
+  optional int32 shop_no = 6;
+  optional int32 shop_name = 7;
+  optional int32 warehouse_no = 8;
+  optional int32 warehouse_name = 9;
+  optional int32 warehouse_in_no = 10;
+  optional int32 warehouse_in_name = 11;
+  bool complain_pay_detail = 12;
+  bool complain_invoice = 13;
+  bool complain_stock_in = 14;
+  bool complain_stock_out = 15;
+  bool complain_refund = 16;
 }
 
 message UpdateServiceConfWarehouseRequest {

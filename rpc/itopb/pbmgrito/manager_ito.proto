@@ -6,243 +6,247 @@ option go_package = "../pbmgrito";
 import "google/protobuf/empty.proto";
 
 service MgrController {
-  rpc AccountDept(MgrWebLoginRequest) returns (AccountsUsersinfoResponse) {}
-  rpc AccountStaffTypeOptions(AccountStaffTypeOptionsRequest) returns (AccountStaffTypeOptionsListResponse) {}
-  rpc Create(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
-  rpc CreateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
-  rpc DeleteWebRoute(MgrDeleteWebRouteRequest) returns (google.protobuf.Empty) {}
-  rpc Destroy(ManagerWebModelDestroyRequest) returns (google.protobuf.Empty) {}
-  rpc List(ManagerWebModelListRequest) returns (ManagerWebModelListResponse) {}
-  rpc ListWebRoute(WebRouteModelRequest) returns (WebRouteModelListResponse) {}
-  rpc Login(MgrWebLoginRequest) returns (ManagerWebModelResponse) {}
-  rpc ManagerWebRoute(MgrManagerWebRouteRequest) returns (ManagerWebModelResponse) {}
-  rpc PartialUpdate(ManagerWebModelPartialUpdateRequest) returns (ManagerWebModelResponse) {}
-  rpc Retrieve(ManagerWebModelRetrieveRequest) returns (ManagerWebModelResponse) {}
-  rpc Update(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
-  rpc UpdateWebRoute(PartialUpdateRequestRequest) returns (WebRouteModelResponse) {}
+    rpc AccountDept(MgrWebLoginRequest) returns (AccountsUsersinfoResponse) {}
+    rpc AccountStaffTypeOptions(AccountStaffTypeOptionsRequest) returns (AccountStaffTypeOptionsListResponse) {}
+    rpc Create(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
+    rpc CreateWebRoute(WebRouteModelRequest) returns (WebRouteModelResponse) {}
+    rpc DeleteWebRoute(MgrDeleteWebRouteRequest) returns (google.protobuf.Empty) {}
+    rpc Destroy(ManagerWebModelDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc List(ManagerWebModelListRequest) returns (ManagerWebModelListResponse) {}
+    rpc ListWebRoute(WebRouteModelRequest) returns (WebRouteModelListResponse) {}
+    rpc Login(MgrWebLoginRequest) returns (ManagerWebModelResponse) {}
+    rpc ManagerWebRoute(MgrManagerWebRouteRequest) returns (ManagerWebModelResponse) {}
+    rpc PartialUpdate(ManagerWebModelPartialUpdateRequest) returns (ManagerWebModelResponse) {}
+    rpc Retrieve(ManagerWebModelRetrieveRequest) returns (ManagerWebModelResponse) {}
+    rpc Update(ManagerWebModelRequest) returns (ManagerWebModelResponse) {}
+    rpc UpdateWebRoute(PartialUpdateRequestRequest) returns (WebRouteModelResponse) {}
 }
 
 message AccountStaffTypeOptionsListResponse {
-  repeated AccountStaffTypeOptionsResponse results = 1;
-  int32 count = 2;
+    repeated AccountStaffTypeOptionsResponse results = 1;
+    int32 count = 2;
 }
 
 message AccountStaffTypeOptionsRequest {
 }
 
 message AccountStaffTypeOptionsResponse {
-  int32 value = 1;
-  string label = 2;
+    int32 value = 1;
+    string label = 2;
 }
 
 message AccountsUsersinfoResponse {
-  string username = 6;
-  repeated DepartmentResponse dept = 7;
+    string username = 6;
+    repeated DepartmentResponse dept = 7;
 }
 
 message DepartmentResponse {
-  string code = 1;
-  string name = 2;
+    string code = 1;
+    string name = 2;
 }
 
 message ManagerWebModelDestroyRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message ManagerWebModelListRequest {
-  int32 id = 1;
-  string password = 2;
-  string filters = 3;
-  string date_joined = 4;
-  optional string last_login = 5;
-  bool is_superuser = 6;
-  string username = 7;
-  string first_name = 8;
-  string last_name = 9;
-  string email = 10;
-  bool is_staff = 11;
-  bool is_active = 12;
-  string nickname = 13;
-  string mobile_phone = 14;
-  optional string describe = 15;
-  optional string user_avatar = 16;
-  optional string expiration_time = 17;
-  repeated int32 groups = 19;
-  repeated int32 user_permissions = 20;
-  int32 creator = 21;
-  optional int32 staff_type = 22;
-  repeated WebRouteModelRequest web_routes = 23;
+    int32 id = 1;
+    string password = 2;
+    string filters = 3;
+    string date_joined = 4;
+    optional string last_login = 5;
+    bool is_superuser = 6;
+    string username = 7;
+    string first_name = 8;
+    string last_name = 9;
+    string email = 10;
+    bool is_staff = 11;
+    bool is_active = 12;
+    string nickname = 13;
+    string mobile_phone = 14;
+    optional string describe = 15;
+    optional string user_avatar = 16;
+    optional string expiration_time = 17;
+    repeated int32 groups = 19;
+    repeated int32 user_permissions = 20;
+    int32 creator = 21;
+    optional int32 staff_type = 22;
+    string web_name = 23;
 }
 
 message ManagerWebModelListResponse {
-  repeated ManagerWebModelResponse results = 1;
-  int32 count = 2;
+    repeated ManagerWebModelResponse results = 1;
+    int32 count = 2;
 }
 
 message ManagerWebModelPartialUpdateRequest {
-  int32 id = 1;
-  string password = 2;
-  string filters = 3;
-  string date_joined = 4;
-  repeated string _partial_update_fields = 5;
-  optional string last_login = 6;
-  bool is_superuser = 7;
-  string username = 8;
-  string first_name = 9;
-  string last_name = 10;
-  string email = 11;
-  bool is_staff = 12;
-  bool is_active = 13;
-  string nickname = 14;
-  string mobile_phone = 15;
-  optional string describe = 16;
-  optional string user_avatar = 17;
-  optional string expiration_time = 18;
-  repeated int32 groups = 20;
-  repeated int32 user_permissions = 21;
-  int32 creator = 22;
-  optional int32 staff_type = 23;
-  repeated WebRouteModelRequest web_routes = 24;
+    int32 id = 1;
+    string password = 2;
+    string filters = 3;
+    string date_joined = 4;
+    repeated string _partial_update_fields = 5;
+    optional string last_login = 6;
+    bool is_superuser = 7;
+    string username = 8;
+    string first_name = 9;
+    string last_name = 10;
+    string email = 11;
+    bool is_staff = 12;
+    bool is_active = 13;
+    string nickname = 14;
+    string mobile_phone = 15;
+    optional string describe = 16;
+    optional string user_avatar = 17;
+    optional string expiration_time = 18;
+    repeated int32 groups = 20;
+    repeated int32 user_permissions = 21;
+    int32 creator = 22;
+    optional int32 staff_type = 23;
+    string web_name = 24;
 }
 
 message ManagerWebModelRequest {
-  int32 id = 1;
-  string password = 2;
-  string filters = 3;
-  string date_joined = 4;
-  optional string last_login = 5;
-  bool is_superuser = 6;
-  string username = 7;
-  string first_name = 8;
-  string last_name = 9;
-  string email = 10;
-  bool is_staff = 11;
-  bool is_active = 12;
-  string nickname = 13;
-  string mobile_phone = 14;
-  optional string describe = 15;
-  optional string user_avatar = 16;
-  optional string expiration_time = 17;
-  repeated int32 groups = 19;
-  repeated int32 user_permissions = 20;
-  int32 creator = 21;
-  optional int32 staff_type = 22;
-  repeated WebRouteModelRequest web_routes = 23;
+    int32 id = 1;
+    string password = 2;
+    string filters = 3;
+    string date_joined = 4;
+    optional string last_login = 5;
+    bool is_superuser = 6;
+    string username = 7;
+    string first_name = 8;
+    string last_name = 9;
+    string email = 10;
+    bool is_staff = 11;
+    bool is_active = 12;
+    string nickname = 13;
+    string mobile_phone = 14;
+    optional string describe = 15;
+    optional string user_avatar = 16;
+    optional string expiration_time = 17;
+    repeated int32 groups = 19;
+    repeated int32 user_permissions = 20;
+    int32 creator = 21;
+    optional int32 staff_type = 22;
+    string web_name = 23;
 }
 
 message ManagerWebModelResponse {
-  int32 id = 1;
-  string date_joined = 2;
-  optional string last_login = 3;
-  bool is_superuser = 4;
-  string username = 5;
-  string first_name = 6;
-  string last_name = 7;
-  string email = 8;
-  bool is_staff = 9;
-  bool is_active = 10;
-  string nickname = 11;
-  string mobile_phone = 12;
-  optional string describe = 13;
-  optional string user_avatar = 14;
-  optional string expiration_time = 15;
-  string created = 16;
-  string modified = 17;
-  repeated int32 groups = 19;
-  repeated int32 user_permissions = 20;
-  string staff_type_name = 21;
-  optional int32 staff_type = 22;
-  repeated WebRouteModelResponse web_routes = 23;
+    int32 id = 1;
+    string date_joined = 2;
+    optional string last_login = 3;
+    bool is_superuser = 4;
+    string username = 5;
+    string first_name = 6;
+    string last_name = 7;
+    string email = 8;
+    bool is_staff = 9;
+    bool is_active = 10;
+    string nickname = 11;
+    string mobile_phone = 12;
+    optional string describe = 13;
+    optional string user_avatar = 14;
+    optional string expiration_time = 15;
+    string created = 16;
+    string modified = 17;
+    repeated int32 groups = 19;
+    repeated int32 user_permissions = 20;
+    string staff_type_name = 21;
+    optional int32 staff_type = 22;
+    repeated WebRouteModelResponse web_routes = 23;
 }
 
 message ManagerWebModelRetrieveRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message MgrDeleteWebRouteRequest {
-  int32 id = 1;
+    int32 id = 1;
 }
 
 message MgrManagerWebRouteRequest {
-  int32 manager_id = 1;
-  string action = 2;
-  repeated int32 web_routes = 3;
+    int32 manager_id = 1;
+    string action = 2;
+    repeated int32 web_routes = 3;
 }
 
 message MgrWebLoginRequest {
-  string username = 1;
-  string password = 2;
+    string username = 1;
+    string password = 2;
+    string web_name = 3;
 }
 
 message PartialUpdateRequestRequest {
-  int32 id = 1;
-  optional int64 parent = 2;
-  string title = 3;
-  optional string icon = 4;
-  optional string link = 5;
-  bool is_hide = 6;
-  bool is_keep_alive = 7;
-  bool is_affix = 8;
-  repeated string _partial_update_fields = 10;
-  string name = 11;
-  string path = 12;
-  string component = 13;
-  optional string redirect = 14;
-  optional int32 menu_sort = 15;
-  bool is_active = 16;
-  optional string filters = 17;
-  optional int32 parent_id = 18;
-  bool is_iframe = 19;
+    int32 id = 1;
+    optional int64 parent = 2;
+    string title = 3;
+    optional string icon = 4;
+    optional string link = 5;
+    bool is_hide = 6;
+    bool is_keep_alive = 7;
+    bool is_affix = 8;
+    repeated string _partial_update_fields = 10;
+    string name = 11;
+    string path = 12;
+    string component = 13;
+    optional string redirect = 14;
+    optional int32 menu_sort = 15;
+    bool is_active = 16;
+    optional string filters = 17;
+    optional int32 parent_id = 18;
+    bool is_iframe = 19;
+    optional string web_name = 20;
 }
 
 message WebRouteMetaResponse {
-  string title = 1;
-  string icon = 2;
-  string isLink = 3;
-  bool isHide = 4;
-  bool isKeepAlive = 5;
-  bool isAffix = 6;
-  bool isIframe = 7;
+    string title = 1;
+    string icon = 2;
+    string isLink = 3;
+    bool isHide = 4;
+    bool isKeepAlive = 5;
+    bool isAffix = 6;
+    bool isIframe = 7;
 }
 
 message WebRouteModelListResponse {
-  repeated WebRouteModelResponse results = 1;
-  int32 count = 2;
+    repeated WebRouteModelResponse results = 1;
+    int32 count = 2;
 }
 
 message WebRouteModelRequest {
-  int32 id = 1;
-  optional int64 parent = 2;
-  string title = 3;
-  optional string icon = 4;
-  optional string link = 5;
-  bool is_hide = 6;
-  bool is_keep_alive = 7;
-  bool is_affix = 8;
-  string name = 10;
-  string path = 11;
-  string component = 12;
-  optional string redirect = 13;
-  optional int32 menu_sort = 14;
-  bool is_active = 15;
-  optional string filters = 16;
-  optional int32 parent_id = 17;
-  bool is_iframe = 18;
+    int32 id = 1;
+    optional int64 parent = 2;
+    string title = 3;
+    optional string icon = 4;
+    optional string link = 5;
+    bool is_hide = 6;
+    bool is_keep_alive = 7;
+    bool is_affix = 8;
+    string name = 10;
+    string path = 11;
+    string component = 12;
+    optional string redirect = 13;
+    optional int32 menu_sort = 14;
+    bool is_active = 15;
+    optional string filters = 16;
+    optional int32 parent_id = 17;
+    bool is_iframe = 18;
+    optional string web_name = 19;
 }
 
 message WebRouteModelResponse {
-  int32 id = 1;
-  WebRouteMetaResponse meta = 2;
-  optional int64 parent = 3;
-  string name = 4;
-  string path = 5;
-  string component = 6;
-  optional string redirect = 7;
-  optional int32 menu_sort = 8;
-  bool is_active = 9;
-  string created = 10;
-  string modified = 11;
-  repeated WebRouteModelResponse children = 12;
-  optional int32 parent_id = 13;
+    int32 id = 1;
+    WebRouteMetaResponse meta = 2;
+    optional int64 parent = 3;
+    string name = 4;
+    string path = 5;
+    string component = 6;
+    optional string redirect = 7;
+    optional int32 menu_sort = 8;
+    bool is_active = 9;
+    string created = 10;
+    string modified = 11;
+    repeated WebRouteModelResponse children = 12;
+    optional int32 parent_id = 13;
+    optional string web_name = 14;
 }
 

@@ -4,8 +4,6 @@ module github.com/ITITO881/go-zero-service
 //rename folder rawgoodsito to upercase
 go 1.21
 
-toolchain go1.21.4
-
 require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/zeromicro/go-zero v1.7.0

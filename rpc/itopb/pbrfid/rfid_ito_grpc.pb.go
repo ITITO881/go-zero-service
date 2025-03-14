@@ -171,6 +171,7 @@ const (
 	DeliverNoticeController_DestroyVendorOperator_FullMethodName                = "/rfid_service.rfid_ito.DeliverNoticeController/DestroyVendorOperator"
 	DeliverNoticeController_List_FullMethodName                                 = "/rfid_service.rfid_ito.DeliverNoticeController/List"
 	DeliverNoticeController_ListCtmVendorAddr_FullMethodName                    = "/rfid_service.rfid_ito.DeliverNoticeController/ListCtmVendorAddr"
+	DeliverNoticeController_ListDeliverNoticeEpcScanStorage_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/ListDeliverNoticeEpcScanStorage"
 	DeliverNoticeController_ListDeliverNoticeGoodsDetails_FullMethodName        = "/rfid_service.rfid_ito.DeliverNoticeController/ListDeliverNoticeGoodsDetails"
 	DeliverNoticeController_ListKeyCtm_FullMethodName                           = "/rfid_service.rfid_ito.DeliverNoticeController/ListKeyCtm"
 	DeliverNoticeController_ListKeyVendor_FullMethodName                        = "/rfid_service.rfid_ito.DeliverNoticeController/ListKeyVendor"
@@ -191,6 +192,7 @@ const (
 	DeliverNoticeController_RetrieveSupplierTradeGoodsDetails_FullMethodName    = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeGoodsDetails"
 	DeliverNoticeController_RetrieveSupplierTradeStockOutDetails_FullMethodName = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveSupplierTradeStockOutDetails"
 	DeliverNoticeController_RetrieveVendorOperator_FullMethodName               = "/rfid_service.rfid_ito.DeliverNoticeController/RetrieveVendorOperator"
+	DeliverNoticeController_SaveDeliverNoticeEpcScanStorage_FullMethodName      = "/rfid_service.rfid_ito.DeliverNoticeController/SaveDeliverNoticeEpcScanStorage"
 	DeliverNoticeController_ShopOptionsWdt_FullMethodName                       = "/rfid_service.rfid_ito.DeliverNoticeController/ShopOptionsWdt"
 	DeliverNoticeController_StockOptionsWdt_FullMethodName                      = "/rfid_service.rfid_ito.DeliverNoticeController/StockOptionsWdt"
 	DeliverNoticeController_SupplierTradeNextTid_FullMethodName                 = "/rfid_service.rfid_ito.DeliverNoticeController/SupplierTradeNextTid"
@@ -233,6 +235,7 @@ type DeliverNoticeControllerClient interface {
 	DestroyVendorOperator(ctx context.Context, in *VendorOperatorDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *DeliverNoticeListRequest, opts ...grpc.CallOption) (*DeliverNoticeListResponse, error)
 	ListCtmVendorAddr(ctx context.Context, in *CtmVendorAddrListRequest, opts ...grpc.CallOption) (*CtmVendorAddrListResponse, error)
+	ListDeliverNoticeEpcScanStorage(ctx context.Context, in *DeliverNoticeEpcScanStorageListRequest, opts ...grpc.CallOption) (*DeliverNoticeEpcScanStorageListResponse, error)
 	ListDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error)
 	ListKeyCtm(ctx context.Context, in *KeyCtmListRequest, opts ...grpc.CallOption) (*KeyCtmListResponse, error)
 	ListKeyVendor(ctx context.Context, in *KeyVendorListRequest, opts ...grpc.CallOption) (*KeyVendorListResponse, error)
@@ -253,6 +256,7 @@ type DeliverNoticeControllerClient interface {
 	RetrieveSupplierTradeGoodsDetails(ctx context.Context, in *SupplierTradeGoodsDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeGoodsDetailsResponse, error)
 	RetrieveSupplierTradeStockOutDetails(ctx context.Context, in *SupplierTradeStockOutDetailsRetrieveRequest, opts ...grpc.CallOption) (*SupplierTradeStockOutDetailsResponse, error)
 	RetrieveVendorOperator(ctx context.Context, in *VendorOperatorRetrieveRequest, opts ...grpc.CallOption) (*VendorOperatorResponse, error)
+	SaveDeliverNoticeEpcScanStorage(ctx context.Context, in *DeliverNoticeEpcScanStorageRequest, opts ...grpc.CallOption) (*DeliverNoticeEpcScanStorageResponse, error)
 	ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error)
 	StockOptionsWdt(ctx context.Context, in *WdtStockListRequest, opts ...grpc.CallOption) (*WdtStockListResponse, error)
 	SupplierTradeNextTid(ctx context.Context, in *SupplierTradeNextTidRequest, opts ...grpc.CallOption) (*NoticeNextDidResponse, error)
@@ -483,6 +487,15 @@ func (c *deliverNoticeControllerClient) ListCtmVendorAddr(ctx context.Context, i
 	return out, nil
 }
 
+func (c *deliverNoticeControllerClient) ListDeliverNoticeEpcScanStorage(ctx context.Context, in *DeliverNoticeEpcScanStorageListRequest, opts ...grpc.CallOption) (*DeliverNoticeEpcScanStorageListResponse, error) {
+	out := new(DeliverNoticeEpcScanStorageListResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_ListDeliverNoticeEpcScanStorage_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *deliverNoticeControllerClient) ListDeliverNoticeGoodsDetails(ctx context.Context, in *DeliverNoticeGoodsDetailsListRequest, opts ...grpc.CallOption) (*DeliverNoticeGoodsDetailsListResponse, error) {
 	out := new(DeliverNoticeGoodsDetailsListResponse)
 	err := c.cc.Invoke(ctx, DeliverNoticeController_ListDeliverNoticeGoodsDetails_FullMethodName, in, out, opts...)
@@ -663,6 +676,15 @@ func (c *deliverNoticeControllerClient) RetrieveVendorOperator(ctx context.Conte
 	return out, nil
 }
 
+func (c *deliverNoticeControllerClient) SaveDeliverNoticeEpcScanStorage(ctx context.Context, in *DeliverNoticeEpcScanStorageRequest, opts ...grpc.CallOption) (*DeliverNoticeEpcScanStorageResponse, error) {
+	out := new(DeliverNoticeEpcScanStorageResponse)
+	err := c.cc.Invoke(ctx, DeliverNoticeController_SaveDeliverNoticeEpcScanStorage_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *deliverNoticeControllerClient) ShopOptionsWdt(ctx context.Context, in *WdtShopListRequest, opts ...grpc.CallOption) (*WdtShopListResponse, error) {
 	out := new(WdtShopListResponse)
 	err := c.cc.Invoke(ctx, DeliverNoticeController_ShopOptionsWdt_FullMethodName, in, out, opts...)
@@ -807,6 +829,7 @@ type DeliverNoticeControllerServer interface {
 	DestroyVendorOperator(context.Context, *VendorOperatorDestroyRequest) (*emptypb.Empty, error)
 	List(context.Context, *DeliverNoticeListRequest) (*DeliverNoticeListResponse, error)
 	ListCtmVendorAddr(context.Context, *CtmVendorAddrListRequest) (*CtmVendorAddrListResponse, error)
+	ListDeliverNoticeEpcScanStorage(context.Context, *DeliverNoticeEpcScanStorageListRequest) (*DeliverNoticeEpcScanStorageListResponse, error)
 	ListDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsListRequest) (*DeliverNoticeGoodsDetailsListResponse, error)
 	ListKeyCtm(context.Context, *KeyCtmListRequest) (*KeyCtmListResponse, error)
 	ListKeyVendor(context.Context, *KeyVendorListRequest) (*KeyVendorListResponse, error)
@@ -827,6 +850,7 @@ type DeliverNoticeControllerServer interface {
 	RetrieveSupplierTradeGoodsDetails(context.Context, *SupplierTradeGoodsDetailsRetrieveRequest) (*SupplierTradeGoodsDetailsResponse, error)
 	RetrieveSupplierTradeStockOutDetails(context.Context, *SupplierTradeStockOutDetailsRetrieveRequest) (*SupplierTradeStockOutDetailsResponse, error)
 	RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error)
+	SaveDeliverNoticeEpcScanStorage(context.Context, *DeliverNoticeEpcScanStorageRequest) (*DeliverNoticeEpcScanStorageResponse, error)
 	ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error)
 	StockOptionsWdt(context.Context, *WdtStockListRequest) (*WdtStockListResponse, error)
 	SupplierTradeNextTid(context.Context, *SupplierTradeNextTidRequest) (*NoticeNextDidResponse, error)
@@ -916,6 +940,9 @@ func (UnimplementedDeliverNoticeControllerServer) List(context.Context, *Deliver
 func (UnimplementedDeliverNoticeControllerServer) ListCtmVendorAddr(context.Context, *CtmVendorAddrListRequest) (*CtmVendorAddrListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCtmVendorAddr not implemented")
 }
+func (UnimplementedDeliverNoticeControllerServer) ListDeliverNoticeEpcScanStorage(context.Context, *DeliverNoticeEpcScanStorageListRequest) (*DeliverNoticeEpcScanStorageListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDeliverNoticeEpcScanStorage not implemented")
+}
 func (UnimplementedDeliverNoticeControllerServer) ListDeliverNoticeGoodsDetails(context.Context, *DeliverNoticeGoodsDetailsListRequest) (*DeliverNoticeGoodsDetailsListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListDeliverNoticeGoodsDetails not implemented")
 }
@@ -975,6 +1002,9 @@ func (UnimplementedDeliverNoticeControllerServer) RetrieveSupplierTradeStockOutD
 }
 func (UnimplementedDeliverNoticeControllerServer) RetrieveVendorOperator(context.Context, *VendorOperatorRetrieveRequest) (*VendorOperatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveVendorOperator not implemented")
+}
+func (UnimplementedDeliverNoticeControllerServer) SaveDeliverNoticeEpcScanStorage(context.Context, *DeliverNoticeEpcScanStorageRequest) (*DeliverNoticeEpcScanStorageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SaveDeliverNoticeEpcScanStorage not implemented")
 }
 func (UnimplementedDeliverNoticeControllerServer) ShopOptionsWdt(context.Context, *WdtShopListRequest) (*WdtShopListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ShopOptionsWdt not implemented")
@@ -1443,6 +1473,24 @@ func _DeliverNoticeController_ListCtmVendorAddr_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DeliverNoticeController_ListDeliverNoticeEpcScanStorage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeEpcScanStorageListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).ListDeliverNoticeEpcScanStorage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_ListDeliverNoticeEpcScanStorage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).ListDeliverNoticeEpcScanStorage(ctx, req.(*DeliverNoticeEpcScanStorageListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DeliverNoticeController_ListDeliverNoticeGoodsDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeliverNoticeGoodsDetailsListRequest)
 	if err := dec(in); err != nil {
@@ -1803,6 +1851,24 @@ func _DeliverNoticeController_RetrieveVendorOperator_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DeliverNoticeController_SaveDeliverNoticeEpcScanStorage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeliverNoticeEpcScanStorageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeliverNoticeControllerServer).SaveDeliverNoticeEpcScanStorage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeliverNoticeController_SaveDeliverNoticeEpcScanStorage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeliverNoticeControllerServer).SaveDeliverNoticeEpcScanStorage(ctx, req.(*DeliverNoticeEpcScanStorageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _DeliverNoticeController_ShopOptionsWdt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WdtShopListRequest)
 	if err := dec(in); err != nil {
@@ -2137,6 +2203,10 @@ var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DeliverNoticeController_ListCtmVendorAddr_Handler,
 		},
 		{
+			MethodName: "ListDeliverNoticeEpcScanStorage",
+			Handler:    _DeliverNoticeController_ListDeliverNoticeEpcScanStorage_Handler,
+		},
+		{
 			MethodName: "ListDeliverNoticeGoodsDetails",
 			Handler:    _DeliverNoticeController_ListDeliverNoticeGoodsDetails_Handler,
 		},
@@ -2215,6 +2285,10 @@ var DeliverNoticeController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveVendorOperator",
 			Handler:    _DeliverNoticeController_RetrieveVendorOperator_Handler,
+		},
+		{
+			MethodName: "SaveDeliverNoticeEpcScanStorage",
+			Handler:    _DeliverNoticeController_SaveDeliverNoticeEpcScanStorage_Handler,
 		},
 		{
 			MethodName: "ShopOptionsWdt",
