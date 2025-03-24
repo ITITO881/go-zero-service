@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package statistic_service.statistic_mongo;
+option go_package = "../statisticPb";
+
+service StatisticController {
+  rpc List(StatisticListRequest) returns (StatisticListResponse) {}
+  rpc Statistic(StatisticFilterRequest) returns (StatisticFacetResponse) {}
+}
+
+message ChannelRequest {
+  optional string bu_no = 1;
+  repeated string shop_list = 2;
+}
+
+message StatisticCategoryResponse {
+  optional int32 goods_num = 1;
+  optional double total_amount = 2;
+  optional double stockout_amount = 3;
+  optional double post_amount = 4;
+  optional double refund_amount = 5;
+  optional double refund_goods_amount = 6;
+  optional double exchange_goods_amount = 7;
+  optional string agg_period = 8;
+  optional string category = 9;
+}
+
+message StatisticFacetResponse {
+  repeated StatisticCategoryResponse categoryByPeriod = 1;
+  repeated StatisticCategoryResponse categoryByClass = 2;
+  repeated StatisticCategoryResponse categoryBySeries = 3;
+  repeated StatisticCategoryResponse categoryBySize = 4;
+  repeated StatisticCategoryResponse categoryByColor = 5;
+  repeated StatisticResponse categorySummary = 6;
+}
+
+message StatisticFilterRequest {
+  string date_start = 1;
+  string date_end = 2;
+  string statistic_mode = 3;
+  string statistic_type = 4;
+  repeated string shop_list = 5;
+  repeated ChannelRequest channel = 6;
+  optional string prod_brand = 7;
+  repeated string prod_cat = 8;
+  repeated string prod_series = 9;
+  repeated string prod_size = 10;
+  repeated string prod_color = 11;
+}
+
+message StatisticListRequest {
+}
+
+message StatisticListResponse {
+  repeated StatisticResponse results = 1;
+  int32 count = 2;
+}
+
+message StatisticResponse {
+  optional int32 goods_num = 1;
+  optional double total_amount = 2;
+  optional double stockout_amount = 3;
+  optional double post_amount = 4;
+  optional double refund_amount = 5;
+  optional double refund_goods_amount = 6;
+  optional double exchange_goods_amount = 7;
+}
+
