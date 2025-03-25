@@ -147,9 +147,10 @@ var StatHmxSalesController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	StatItoSalesController_List_FullMethodName         = "/store_service.store_stat_ito.StatItoSalesController/List"
-	StatItoSalesController_TradeCount_FullMethodName   = "/store_service.store_stat_ito.StatItoSalesController/TradeCount"
-	StatItoSalesController_TradeDetails_FullMethodName = "/store_service.store_stat_ito.StatItoSalesController/TradeDetails"
+	StatItoSalesController_List_FullMethodName          = "/store_service.store_stat_ito.StatItoSalesController/List"
+	StatItoSalesController_SyncStatistic_FullMethodName = "/store_service.store_stat_ito.StatItoSalesController/SyncStatistic"
+	StatItoSalesController_TradeCount_FullMethodName    = "/store_service.store_stat_ito.StatItoSalesController/TradeCount"
+	StatItoSalesController_TradeDetails_FullMethodName  = "/store_service.store_stat_ito.StatItoSalesController/TradeDetails"
 )
 
 // StatItoSalesControllerClient is the client API for StatItoSalesController service.
@@ -157,6 +158,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StatItoSalesControllerClient interface {
 	List(ctx context.Context, in *StatHmxSalesListRequest, opts ...grpc.CallOption) (*StatHmxSalesListResponse, error)
+	SyncStatistic(ctx context.Context, in *SyncStatisticRequest, opts ...grpc.CallOption) (*SyncStatisticResponse, error)
 	TradeCount(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*CustomerResponse, error)
 	TradeDetails(ctx context.Context, in *ItoTradesRequest, opts ...grpc.CallOption) (*ItoTradesListResponse, error)
 }
@@ -172,6 +174,15 @@ func NewStatItoSalesControllerClient(cc grpc.ClientConnInterface) StatItoSalesCo
 func (c *statItoSalesControllerClient) List(ctx context.Context, in *StatHmxSalesListRequest, opts ...grpc.CallOption) (*StatHmxSalesListResponse, error) {
 	out := new(StatHmxSalesListResponse)
 	err := c.cc.Invoke(ctx, StatItoSalesController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *statItoSalesControllerClient) SyncStatistic(ctx context.Context, in *SyncStatisticRequest, opts ...grpc.CallOption) (*SyncStatisticResponse, error) {
+	out := new(SyncStatisticResponse)
+	err := c.cc.Invoke(ctx, StatItoSalesController_SyncStatistic_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -201,6 +212,7 @@ func (c *statItoSalesControllerClient) TradeDetails(ctx context.Context, in *Ito
 // for forward compatibility
 type StatItoSalesControllerServer interface {
 	List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error)
+	SyncStatistic(context.Context, *SyncStatisticRequest) (*SyncStatisticResponse, error)
 	TradeCount(context.Context, *ItoTradesRequest) (*CustomerResponse, error)
 	TradeDetails(context.Context, *ItoTradesRequest) (*ItoTradesListResponse, error)
 	mustEmbedUnimplementedStatItoSalesControllerServer()
@@ -212,6 +224,9 @@ type UnimplementedStatItoSalesControllerServer struct {
 
 func (UnimplementedStatItoSalesControllerServer) List(context.Context, *StatHmxSalesListRequest) (*StatHmxSalesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedStatItoSalesControllerServer) SyncStatistic(context.Context, *SyncStatisticRequest) (*SyncStatisticResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncStatistic not implemented")
 }
 func (UnimplementedStatItoSalesControllerServer) TradeCount(context.Context, *ItoTradesRequest) (*CustomerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TradeCount not implemented")
@@ -247,6 +262,24 @@ func _StatItoSalesController_List_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(StatItoSalesControllerServer).List(ctx, req.(*StatHmxSalesListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StatItoSalesController_SyncStatistic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SyncStatisticRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatItoSalesControllerServer).SyncStatistic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatItoSalesController_SyncStatistic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatItoSalesControllerServer).SyncStatistic(ctx, req.(*SyncStatisticRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -297,6 +330,10 @@ var StatItoSalesController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _StatItoSalesController_List_Handler,
+		},
+		{
+			MethodName: "SyncStatistic",
+			Handler:    _StatItoSalesController_SyncStatistic_Handler,
 		},
 		{
 			MethodName: "TradeCount",

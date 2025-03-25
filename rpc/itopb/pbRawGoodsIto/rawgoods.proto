@@ -38,6 +38,7 @@ service ProductController {
   rpc List(ProductModelListRequest) returns (ProductModelListResponse) {}
   rpc PartialUpdate(ProductModelPartialUpdateRequest) returns (ProductModelResponse) {}
   rpc Retrieve(ProductModelRetrieveRequest) returns (ProductModelResponse) {}
+  rpc SyncProdToMongo(SyncProdRequest) returns (SyncProdResponse) {}
   rpc Update(ProductModelRequest) returns (ProductModelResponse) {}
 }
 
@@ -89,14 +90,13 @@ message ClubProductRequest {
   optional string size = 8;
   optional string stripe = 9;
   optional string head_img = 10;
-  bool bindable = 12;
-  bool customizable = 13;
   optional string renew_time_unit = 16;
   optional string repair_time_unit = 17;
   optional int32 sort = 18;
   int64 spu = 19;
   string prod = 20;
   repeated int64 workshop_color = 21;
+  bool is_valid = 22;
 }
 
 message ClubProductResponse {
@@ -128,6 +128,7 @@ message ClubProductResponse {
   repeated WorkshopColorResponse workshop_colors = 27;
   int32 print_way = 28;
   string sku = 29;
+  bool is_valid = 30;
 }
 
 message ClubProductRetrieveRequest {
@@ -151,8 +152,6 @@ message ClubProductSpuRequest {
   string spu_name = 5;
   optional string alias = 6;
   bool is_valid = 7;
-  bool bindable = 8;
-  bool customizable = 9;
   int32 sort = 10;
   int32 print_way = 11;
 }
@@ -169,8 +168,6 @@ message ClubProductSpuResponse {
   string spu_name = 9;
   optional string alias = 10;
   bool is_valid = 11;
-  bool bindable = 12;
-  bool customizable = 13;
   int32 sort = 14;
   string create_time = 15;
   string update_time = 16;
@@ -187,8 +184,6 @@ message ClubProductSpuUpdateRequest {
   string spu_name = 6;
   optional string alias = 7;
   bool is_valid = 8;
-  bool bindable = 9;
-  bool customizable = 10;
   int32 sort = 11;
   int32 print_way = 12;
 }
@@ -202,14 +197,13 @@ message ClubProductUpdateRequest {
   optional string size = 9;
   optional string stripe = 10;
   optional string head_img = 11;
-  bool bindable = 13;
-  bool customizable = 14;
   optional string renew_time_unit = 17;
   optional string repair_time_unit = 18;
   optional int32 sort = 19;
   int64 spu = 20;
   string prod = 21;
   repeated int64 workshop_color = 22;
+  bool is_valid = 23;
 }
 
 message ClubWorkshopDestroyRequest {
@@ -453,6 +447,8 @@ message ProductModelListRequest {
   optional int32 repair = 23;
   string filters = 24;
   optional string prod_image = 25;
+  bool bindable = 26;
+  bool customizable = 27;
 }
 
 message ProductModelListResponse {
@@ -487,6 +483,8 @@ message ProductModelPartialUpdateRequest {
   optional int32 repair = 24;
   string filters = 25;
   optional string prod_image = 26;
+  bool bindable = 27;
+  bool customizable = 28;
 }
 
 message ProductModelRequest {
@@ -515,6 +513,8 @@ message ProductModelRequest {
   optional int32 repair = 23;
   string filters = 24;
   optional string prod_image = 25;
+  bool bindable = 26;
+  bool customizable = 27;
 }
 
 message ProductModelResponse {
@@ -545,6 +545,8 @@ message ProductModelResponse {
   optional int32 renew = 25;
   optional int32 repair = 26;
   optional string prod_image = 27;
+  bool bindable = 28;
+  bool customizable = 29;
 }
 
 message ProductModelRetrieveRequest {
@@ -577,6 +579,8 @@ message ProductRequest {
   int64 prod_texture = 23;
   int64 prod_lining = 24;
   optional string prod_image = 25;
+  bool bindable = 26;
+  bool customizable = 27;
 }
 
 message ProductResponse {
@@ -609,6 +613,8 @@ message ProductResponse {
   string prod_version = 27;
   string prod_ver_code = 28;
   optional string prod_image = 29;
+  bool bindable = 30;
+  bool customizable = 31;
 }
 
 message RawSkuSparePartsListResponse {
@@ -649,6 +655,8 @@ message RawSkuSparePartsResponse {
   optional int32 renew = 25;
   optional int32 repair = 26;
   optional string prod_image = 27;
+  bool bindable = 28;
+  bool customizable = 29;
 }
 
 message RelProdRepairsBulkCreateListRequest {
@@ -779,6 +787,18 @@ message RepairPartsRetrieveRequest {
   int32 id = 1;
 }
 
+message SyncProdRequest {
+  optional string start_date = 1;
+  optional string end_date = 2;
+  int32 prod_brand = 3;
+  optional string mongo_db_name = 4;
+}
+
+message SyncProdResponse {
+  int32 code = 1;
+  string msg = 2;
+}
+
 message ValuesListRequest {
   string filters = 1;
   string value_name = 2;
@@ -847,4 +867,3 @@ message WorkshopSpuResponse {
   string name = 5;
   ProdWorkshopPartResponse spu = 6;
 }
-

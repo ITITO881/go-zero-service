@@ -810,12 +810,13 @@ var ProdRepairsRelationController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProductController_Create_FullMethodName        = "/product_service.prod_ito.ProductController/Create"
-	ProductController_Destroy_FullMethodName       = "/product_service.prod_ito.ProductController/Destroy"
-	ProductController_List_FullMethodName          = "/product_service.prod_ito.ProductController/List"
-	ProductController_PartialUpdate_FullMethodName = "/product_service.prod_ito.ProductController/PartialUpdate"
-	ProductController_Retrieve_FullMethodName      = "/product_service.prod_ito.ProductController/Retrieve"
-	ProductController_Update_FullMethodName        = "/product_service.prod_ito.ProductController/Update"
+	ProductController_Create_FullMethodName          = "/product_service.prod_ito.ProductController/Create"
+	ProductController_Destroy_FullMethodName         = "/product_service.prod_ito.ProductController/Destroy"
+	ProductController_List_FullMethodName            = "/product_service.prod_ito.ProductController/List"
+	ProductController_PartialUpdate_FullMethodName   = "/product_service.prod_ito.ProductController/PartialUpdate"
+	ProductController_Retrieve_FullMethodName        = "/product_service.prod_ito.ProductController/Retrieve"
+	ProductController_SyncProdToMongo_FullMethodName = "/product_service.prod_ito.ProductController/SyncProdToMongo"
+	ProductController_Update_FullMethodName          = "/product_service.prod_ito.ProductController/Update"
 )
 
 // ProductControllerClient is the client API for ProductController service.
@@ -827,6 +828,7 @@ type ProductControllerClient interface {
 	List(ctx context.Context, in *ProductModelListRequest, opts ...grpc.CallOption) (*ProductModelListResponse, error)
 	PartialUpdate(ctx context.Context, in *ProductModelPartialUpdateRequest, opts ...grpc.CallOption) (*ProductModelResponse, error)
 	Retrieve(ctx context.Context, in *ProductModelRetrieveRequest, opts ...grpc.CallOption) (*ProductModelResponse, error)
+	SyncProdToMongo(ctx context.Context, in *SyncProdRequest, opts ...grpc.CallOption) (*SyncProdResponse, error)
 	Update(ctx context.Context, in *ProductModelRequest, opts ...grpc.CallOption) (*ProductModelResponse, error)
 }
 
@@ -883,6 +885,15 @@ func (c *productControllerClient) Retrieve(ctx context.Context, in *ProductModel
 	return out, nil
 }
 
+func (c *productControllerClient) SyncProdToMongo(ctx context.Context, in *SyncProdRequest, opts ...grpc.CallOption) (*SyncProdResponse, error) {
+	out := new(SyncProdResponse)
+	err := c.cc.Invoke(ctx, ProductController_SyncProdToMongo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *productControllerClient) Update(ctx context.Context, in *ProductModelRequest, opts ...grpc.CallOption) (*ProductModelResponse, error) {
 	out := new(ProductModelResponse)
 	err := c.cc.Invoke(ctx, ProductController_Update_FullMethodName, in, out, opts...)
@@ -901,6 +912,7 @@ type ProductControllerServer interface {
 	List(context.Context, *ProductModelListRequest) (*ProductModelListResponse, error)
 	PartialUpdate(context.Context, *ProductModelPartialUpdateRequest) (*ProductModelResponse, error)
 	Retrieve(context.Context, *ProductModelRetrieveRequest) (*ProductModelResponse, error)
+	SyncProdToMongo(context.Context, *SyncProdRequest) (*SyncProdResponse, error)
 	Update(context.Context, *ProductModelRequest) (*ProductModelResponse, error)
 	mustEmbedUnimplementedProductControllerServer()
 }
@@ -923,6 +935,9 @@ func (UnimplementedProductControllerServer) PartialUpdate(context.Context, *Prod
 }
 func (UnimplementedProductControllerServer) Retrieve(context.Context, *ProductModelRetrieveRequest) (*ProductModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedProductControllerServer) SyncProdToMongo(context.Context, *SyncProdRequest) (*SyncProdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncProdToMongo not implemented")
 }
 func (UnimplementedProductControllerServer) Update(context.Context, *ProductModelRequest) (*ProductModelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
@@ -1030,6 +1045,24 @@ func _ProductController_Retrieve_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProductController_SyncProdToMongo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SyncProdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProductControllerServer).SyncProdToMongo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProductController_SyncProdToMongo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProductControllerServer).SyncProdToMongo(ctx, req.(*SyncProdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProductController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProductModelRequest)
 	if err := dec(in); err != nil {
@@ -1074,6 +1107,10 @@ var ProductController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Retrieve",
 			Handler:    _ProductController_Retrieve_Handler,
+		},
+		{
+			MethodName: "SyncProdToMongo",
+			Handler:    _ProductController_SyncProdToMongo_Handler,
 		},
 		{
 			MethodName: "Update",

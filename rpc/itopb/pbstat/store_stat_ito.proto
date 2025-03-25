@@ -13,6 +13,7 @@ service StatHmxSalesController {
 
 service StatItoSalesController {
   rpc List(StatHmxSalesListRequest) returns (StatHmxSalesListResponse) {}
+  rpc SyncStatistic(SyncStatisticRequest) returns (SyncStatisticResponse) {}
   rpc TradeCount(ItoTradesRequest) returns (CustomerResponse) {}
   rpc TradeDetails(ItoTradesRequest) returns (ItoTradesListResponse) {}
 }
@@ -270,6 +271,17 @@ message StoreTradesResponse {
   string trade_date = 6;
   string store_no = 7;
   string store_name = 8;
+}
+
+message SyncStatisticRequest {
+  string start_date = 1;
+  string end_date = 2;
+  string statistic_type = 3;
+}
+
+message SyncStatisticResponse {
+  int32 code = 1;
+  string msg = 2;
 }
 
 message TradeDetailsResponse {
