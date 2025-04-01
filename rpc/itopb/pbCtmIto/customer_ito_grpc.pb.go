@@ -55,6 +55,7 @@ const (
 	CtmItoController_RetrieveCtmWalletRecord_FullMethodName = "/customer_service.customer_ito.CtmItoController/RetrieveCtmWalletRecord"
 	CtmItoController_Update_FullMethodName                  = "/customer_service.customer_ito.CtmItoController/Update"
 	CtmItoController_UpdateAddr_FullMethodName              = "/customer_service.customer_ito.CtmItoController/UpdateAddr"
+	CtmItoController_UpdateByIdCtmProduct_FullMethodName    = "/customer_service.customer_ito.CtmItoController/UpdateByIdCtmProduct"
 	CtmItoController_UpdateCart_FullMethodName              = "/customer_service.customer_ito.CtmItoController/UpdateCart"
 	CtmItoController_UpdateCtmCardCares_FullMethodName      = "/customer_service.customer_ito.CtmItoController/UpdateCtmCardCares"
 	CtmItoController_UpdateCtmProduct_FullMethodName        = "/customer_service.customer_ito.CtmItoController/UpdateCtmProduct"
@@ -102,6 +103,7 @@ type CtmItoControllerClient interface {
 	RetrieveCtmWalletRecord(ctx context.Context, in *RetrieveCtmWalletRecordRequest, opts ...grpc.CallOption) (*CtmWalletRecordResponse, error)
 	Update(ctx context.Context, in *CtmBaseRequest, opts ...grpc.CallOption) (*CtmBaseResponse, error)
 	UpdateAddr(ctx context.Context, in *CtmAddrUpdateRequest, opts ...grpc.CallOption) (*CtmAddrResponse, error)
+	UpdateByIdCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
 	UpdateCart(ctx context.Context, in *CtmCartUpdateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error)
 	UpdateCtmCardCares(ctx context.Context, in *CtmCardCaresUpdateRequest, opts ...grpc.CallOption) (*CtmCardCaresResponse, error)
 	UpdateCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error)
@@ -433,6 +435,15 @@ func (c *ctmItoControllerClient) UpdateAddr(ctx context.Context, in *CtmAddrUpda
 	return out, nil
 }
 
+func (c *ctmItoControllerClient) UpdateByIdCtmProduct(ctx context.Context, in *CtmProductUpdateRequest, opts ...grpc.CallOption) (*CtmProductResponse, error) {
+	out := new(CtmProductResponse)
+	err := c.cc.Invoke(ctx, CtmItoController_UpdateByIdCtmProduct_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ctmItoControllerClient) UpdateCart(ctx context.Context, in *CtmCartUpdateRequest, opts ...grpc.CallOption) (*CtmCartResponse, error) {
 	out := new(CtmCartResponse)
 	err := c.cc.Invoke(ctx, CtmItoController_UpdateCart_FullMethodName, in, out, opts...)
@@ -526,6 +537,7 @@ type CtmItoControllerServer interface {
 	RetrieveCtmWalletRecord(context.Context, *RetrieveCtmWalletRecordRequest) (*CtmWalletRecordResponse, error)
 	Update(context.Context, *CtmBaseRequest) (*CtmBaseResponse, error)
 	UpdateAddr(context.Context, *CtmAddrUpdateRequest) (*CtmAddrResponse, error)
+	UpdateByIdCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error)
 	UpdateCart(context.Context, *CtmCartUpdateRequest) (*CtmCartResponse, error)
 	UpdateCtmCardCares(context.Context, *CtmCardCaresUpdateRequest) (*CtmCardCaresResponse, error)
 	UpdateCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error)
@@ -643,6 +655,9 @@ func (UnimplementedCtmItoControllerServer) Update(context.Context, *CtmBaseReque
 }
 func (UnimplementedCtmItoControllerServer) UpdateAddr(context.Context, *CtmAddrUpdateRequest) (*CtmAddrResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAddr not implemented")
+}
+func (UnimplementedCtmItoControllerServer) UpdateByIdCtmProduct(context.Context, *CtmProductUpdateRequest) (*CtmProductResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateByIdCtmProduct not implemented")
 }
 func (UnimplementedCtmItoControllerServer) UpdateCart(context.Context, *CtmCartUpdateRequest) (*CtmCartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCart not implemented")
@@ -1305,6 +1320,24 @@ func _CtmItoController_UpdateAddr_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CtmItoController_UpdateByIdCtmProduct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CtmProductUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CtmItoControllerServer).UpdateByIdCtmProduct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CtmItoController_UpdateByIdCtmProduct_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CtmItoControllerServer).UpdateByIdCtmProduct(ctx, req.(*CtmProductUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CtmItoController_UpdateCart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CtmCartUpdateRequest)
 	if err := dec(in); err != nil {
@@ -1559,6 +1592,10 @@ var CtmItoController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateAddr",
 			Handler:    _CtmItoController_UpdateAddr_Handler,
+		},
+		{
+			MethodName: "UpdateByIdCtmProduct",
+			Handler:    _CtmItoController_UpdateByIdCtmProduct_Handler,
 		},
 		{
 			MethodName: "UpdateCart",

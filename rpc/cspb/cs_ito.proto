@@ -1,0 +1,162 @@
+syntax = "proto3";
+
+package ito_cs_py.cs_ito;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+
+option go_package = "../cspb";
+
+service CsMainController {
+  rpc BatchUpdateConfigColumn(ConfigColumnBatchUpdateListRequest) returns (CodeMsgResponse) {}
+  rpc Create(ConfigColumnRequest) returns (ConfigColumnResponse) {}
+  rpc Destroy(ConfigColumnDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc List(ConfigColumnListRequest) returns (ConfigColumnListResponse) {}
+  rpc OptionConfigColumn(EmptyRequest) returns (OptionConfigColumnResponse) {}
+  rpc PartialUpdate(ConfigColumnPartialUpdateRequest) returns (ConfigColumnResponse) {}
+  rpc Retrieve(ConfigColumnRetrieveRequest) returns (ConfigColumnResponse) {}
+  rpc SyncConfigColumn(SyncConfigColumnRequest) returns (CodeMsgResponse) {}
+  rpc Update(ConfigColumnRequest) returns (ConfigColumnResponse) {}
+}
+
+message CodeMsgResponse {
+  int32 code = 1;
+  string msg = 2;
+  optional string data = 3;
+  optional int32 count = 4;
+}
+
+message ConfigColumnBatchUpdateListRequest {
+  repeated ConfigColumnBatchUpdateRequest results = 1;
+  int32 count = 2;
+}
+
+message ConfigColumnBatchUpdateRequest {
+  optional string field_name = 12;
+  repeated ConfigColumnOptionRequest options = 13;
+  repeated ConfigColumnRelationOptionRequest relation_options = 14;
+  optional int32 project_id = 15;
+  optional string project_name = 16;
+  optional int32 column_id = 17;
+  optional string column_type = 18;
+  optional string name = 19;
+  optional string type = 20;
+  optional int32 behavior_type = 21;
+  optional bool is_inside = 22;
+  optional string mp_field_name = 23;
+  optional bool is_active = 24;
+  repeated ConfigColumnBatchUpdateRequest son_column_bos = 25;
+}
+
+message ConfigColumnDestroyRequest {
+  string id = 1;
+}
+
+message ConfigColumnListRequest {
+  optional google.protobuf.Struct _filters = 1;
+  optional google.protobuf.Struct _pagination = 2;
+}
+
+message ConfigColumnListResponse {
+  repeated ConfigColumnResponse results = 1;
+  int32 count = 2;
+}
+
+message ConfigColumnOptionRequest {
+  optional int32 id = 1;
+  optional string title = 2;
+}
+
+message ConfigColumnOptionResponse {
+  optional int32 id = 1;
+  optional string title = 2;
+}
+
+message ConfigColumnPartialUpdateRequest {
+  repeated ConfigColumnOptionRequest options = 3;
+  repeated ConfigColumnRelationOptionRequest relation_options = 4;
+  repeated string _partial_update_fields = 5;
+  optional int32 project_id = 6;
+  optional string project_name = 7;
+  optional int32 column_id = 8;
+  optional string column_type = 9;
+  optional string name = 10;
+  optional string type = 11;
+  optional int32 behavior_type = 12;
+  optional bool is_inside = 13;
+  optional string field_name = 14;
+  optional string mp_field_name = 15;
+  optional bool is_active = 16;
+  repeated ConfigColumnRequest son_column_bos = 17;
+}
+
+message ConfigColumnRelationOptionRequest {
+  optional int32 id = 1;
+  optional string title = 2;
+  optional int32 parent_id = 3;
+}
+
+message ConfigColumnRelationOptionResponse {
+  optional int32 id = 1;
+  optional string title = 2;
+  optional int32 parent_id = 3;
+  repeated ConfigColumnRelationOptionResponse child = 4;
+}
+
+message ConfigColumnRequest {
+  repeated ConfigColumnOptionRequest options = 3;
+  repeated ConfigColumnRelationOptionRequest relation_options = 4;
+  optional int32 project_id = 5;
+  optional string project_name = 6;
+  optional int32 column_id = 7;
+  optional string column_type = 8;
+  optional string name = 9;
+  optional string type = 10;
+  optional int32 behavior_type = 11;
+  optional bool is_inside = 12;
+  optional string field_name = 13;
+  optional string mp_field_name = 14;
+  optional bool is_active = 15;
+  repeated ConfigColumnRequest son_column_bos = 16;
+}
+
+message ConfigColumnResponse {
+  repeated ConfigColumnOptionResponse options = 2;
+  repeated ConfigColumnRelationOptionResponse relation_options = 3;
+  optional int32 project_id = 4;
+  optional string project_name = 5;
+  optional int32 column_id = 6;
+  optional string column_type = 7;
+  optional string name = 8;
+  optional string type = 9;
+  optional int32 behavior_type = 10;
+  repeated ConfigColumnResponse son_column_bos = 11;
+  optional bool is_inside = 12;
+  optional string field_name = 13;
+  optional string update_time = 14;
+  optional string mp_field_name = 15;
+  optional bool is_active = 16;
+  optional string id = 17;
+}
+
+message ConfigColumnRetrieveRequest {
+  string id = 1;
+}
+
+message EmptyRequest {
+}
+
+message LabelNumberValueResponse {
+  int32 value = 1;
+  optional string label = 2;
+  optional int32 count = 3;
+}
+
+message OptionConfigColumnResponse {
+  repeated LabelNumberValueResponse project_info = 1;
+}
+
+message SyncConfigColumnRequest {
+  repeated int32 project_id = 1;
+}
+

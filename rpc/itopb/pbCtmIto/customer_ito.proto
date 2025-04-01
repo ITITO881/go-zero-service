@@ -42,6 +42,7 @@ service CtmItoController {
   rpc RetrieveCtmWalletRecord(RetrieveCtmWalletRecordRequest) returns (CtmWalletRecordResponse) {}
   rpc Update(CtmBaseRequest) returns (CtmBaseResponse) {}
   rpc UpdateAddr(CtmAddrUpdateRequest) returns (CtmAddrResponse) {}
+  rpc UpdateByIdCtmProduct(CtmProductUpdateRequest) returns (CtmProductResponse) {}
   rpc UpdateCart(CtmCartUpdateRequest) returns (CtmCartResponse) {}
   rpc UpdateCtmCardCares(CtmCardCaresUpdateRequest) returns (CtmCardCaresResponse) {}
   rpc UpdateCtmProduct(CtmProductUpdateRequest) returns (CtmProductResponse) {}
@@ -486,8 +487,8 @@ message CtmProductUpdateRequest {
   optional string password = 11;
   optional string origin_ac_code = 12;
   optional string origin_prod_code = 13;
-  int64 ctm = 14;
-  optional string remark = 15;
+  optional string remark = 14;
+  int64 ctm = 15;
 }
 
 message CtmUpdateSpuSnapShotRequest {

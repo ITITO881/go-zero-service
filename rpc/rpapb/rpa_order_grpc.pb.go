@@ -28,12 +28,14 @@ const (
 	OrderController_Destroy_FullMethodName           = "/rpa_service.rpa_order.OrderController/Destroy"
 	OrderController_DestroyConfig_FullMethodName     = "/rpa_service.rpa_order.OrderController/DestroyConfig"
 	OrderController_DestroyConfigSku_FullMethodName  = "/rpa_service.rpa_order.OrderController/DestroyConfigSku"
+	OrderController_ExecuteCmd_FullMethodName        = "/rpa_service.rpa_order.OrderController/ExecuteCmd"
 	OrderController_List_FullMethodName              = "/rpa_service.rpa_order.OrderController/List"
 	OrderController_ListConfig_FullMethodName        = "/rpa_service.rpa_order.OrderController/ListConfig"
 	OrderController_ListConfigSku_FullMethodName     = "/rpa_service.rpa_order.OrderController/ListConfigSku"
 	OrderController_ListRefund_FullMethodName        = "/rpa_service.rpa_order.OrderController/ListRefund"
 	OrderController_Options_FullMethodName           = "/rpa_service.rpa_order.OrderController/Options"
 	OrderController_PartialUpdate_FullMethodName     = "/rpa_service.rpa_order.OrderController/PartialUpdate"
+	OrderController_PushRefund_FullMethodName        = "/rpa_service.rpa_order.OrderController/PushRefund"
 	OrderController_Retrieve_FullMethodName          = "/rpa_service.rpa_order.OrderController/Retrieve"
 	OrderController_RetrieveRefund_FullMethodName    = "/rpa_service.rpa_order.OrderController/RetrieveRefund"
 	OrderController_StatusCount_FullMethodName       = "/rpa_service.rpa_order.OrderController/StatusCount"
@@ -57,12 +59,14 @@ type OrderControllerClient interface {
 	Destroy(ctx context.Context, in *OrderDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyConfig(ctx context.Context, in *ConfigDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DestroyConfigSku(ctx context.Context, in *ConfigSkuDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ExecuteCmd(ctx context.Context, in *CmdTradeRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	List(ctx context.Context, in *OrderListRequest, opts ...grpc.CallOption) (*OrderListResponse, error)
 	ListConfig(ctx context.Context, in *ConfigListRequest, opts ...grpc.CallOption) (*ConfigListResponse, error)
 	ListConfigSku(ctx context.Context, in *ConfigSkuListRequest, opts ...grpc.CallOption) (*ConfigSkuListResponse, error)
 	ListRefund(ctx context.Context, in *RefundListRequest, opts ...grpc.CallOption) (*RefundListResponse, error)
 	Options(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OptionsResponse, error)
 	PartialUpdate(ctx context.Context, in *OrderPartialUpdateRequest, opts ...grpc.CallOption) (*OrderResponse, error)
+	PushRefund(ctx context.Context, in *RefundUpdateRequest, opts ...grpc.CallOption) (*RefundResponse, error)
 	Retrieve(ctx context.Context, in *OrderRetrieveRequest, opts ...grpc.CallOption) (*OrderResponse, error)
 	RetrieveRefund(ctx context.Context, in *RefundRetrieveRequest, opts ...grpc.CallOption) (*RefundResponse, error)
 	StatusCount(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*LabelNumberValueListResponse, error)
@@ -154,6 +158,15 @@ func (c *orderControllerClient) DestroyConfigSku(ctx context.Context, in *Config
 	return out, nil
 }
 
+func (c *orderControllerClient) ExecuteCmd(ctx context.Context, in *CmdTradeRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, OrderController_ExecuteCmd_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *orderControllerClient) List(ctx context.Context, in *OrderListRequest, opts ...grpc.CallOption) (*OrderListResponse, error) {
 	out := new(OrderListResponse)
 	err := c.cc.Invoke(ctx, OrderController_List_FullMethodName, in, out, opts...)
@@ -202,6 +215,15 @@ func (c *orderControllerClient) Options(ctx context.Context, in *emptypb.Empty, 
 func (c *orderControllerClient) PartialUpdate(ctx context.Context, in *OrderPartialUpdateRequest, opts ...grpc.CallOption) (*OrderResponse, error) {
 	out := new(OrderResponse)
 	err := c.cc.Invoke(ctx, OrderController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *orderControllerClient) PushRefund(ctx context.Context, in *RefundUpdateRequest, opts ...grpc.CallOption) (*RefundResponse, error) {
+	out := new(RefundResponse)
+	err := c.cc.Invoke(ctx, OrderController_PushRefund_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -301,12 +323,14 @@ type OrderControllerServer interface {
 	Destroy(context.Context, *OrderDestroyRequest) (*emptypb.Empty, error)
 	DestroyConfig(context.Context, *ConfigDestroyRequest) (*emptypb.Empty, error)
 	DestroyConfigSku(context.Context, *ConfigSkuDestroyRequest) (*emptypb.Empty, error)
+	ExecuteCmd(context.Context, *CmdTradeRequest) (*emptypb.Empty, error)
 	List(context.Context, *OrderListRequest) (*OrderListResponse, error)
 	ListConfig(context.Context, *ConfigListRequest) (*ConfigListResponse, error)
 	ListConfigSku(context.Context, *ConfigSkuListRequest) (*ConfigSkuListResponse, error)
 	ListRefund(context.Context, *RefundListRequest) (*RefundListResponse, error)
 	Options(context.Context, *emptypb.Empty) (*OptionsResponse, error)
 	PartialUpdate(context.Context, *OrderPartialUpdateRequest) (*OrderResponse, error)
+	PushRefund(context.Context, *RefundUpdateRequest) (*RefundResponse, error)
 	Retrieve(context.Context, *OrderRetrieveRequest) (*OrderResponse, error)
 	RetrieveRefund(context.Context, *RefundRetrieveRequest) (*RefundResponse, error)
 	StatusCount(context.Context, *emptypb.Empty) (*LabelNumberValueListResponse, error)
@@ -347,6 +371,9 @@ func (UnimplementedOrderControllerServer) DestroyConfig(context.Context, *Config
 func (UnimplementedOrderControllerServer) DestroyConfigSku(context.Context, *ConfigSkuDestroyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyConfigSku not implemented")
 }
+func (UnimplementedOrderControllerServer) ExecuteCmd(context.Context, *CmdTradeRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExecuteCmd not implemented")
+}
 func (UnimplementedOrderControllerServer) List(context.Context, *OrderListRequest) (*OrderListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
@@ -364,6 +391,9 @@ func (UnimplementedOrderControllerServer) Options(context.Context, *emptypb.Empt
 }
 func (UnimplementedOrderControllerServer) PartialUpdate(context.Context, *OrderPartialUpdateRequest) (*OrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedOrderControllerServer) PushRefund(context.Context, *RefundUpdateRequest) (*RefundResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PushRefund not implemented")
 }
 func (UnimplementedOrderControllerServer) Retrieve(context.Context, *OrderRetrieveRequest) (*OrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
@@ -549,6 +579,24 @@ func _OrderController_DestroyConfigSku_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrderController_ExecuteCmd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CmdTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrderControllerServer).ExecuteCmd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OrderController_ExecuteCmd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrderControllerServer).ExecuteCmd(ctx, req.(*CmdTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrderController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrderListRequest)
 	if err := dec(in); err != nil {
@@ -653,6 +701,24 @@ func _OrderController_PartialUpdate_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrderControllerServer).PartialUpdate(ctx, req.(*OrderPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrderController_PushRefund_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefundUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrderControllerServer).PushRefund(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OrderController_PushRefund_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrderControllerServer).PushRefund(ctx, req.(*RefundUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -859,6 +925,10 @@ var OrderController_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrderController_DestroyConfigSku_Handler,
 		},
 		{
+			MethodName: "ExecuteCmd",
+			Handler:    _OrderController_ExecuteCmd_Handler,
+		},
+		{
 			MethodName: "List",
 			Handler:    _OrderController_List_Handler,
 		},
@@ -881,6 +951,10 @@ var OrderController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PartialUpdate",
 			Handler:    _OrderController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "PushRefund",
+			Handler:    _OrderController_PushRefund_Handler,
 		},
 		{
 			MethodName: "Retrieve",

@@ -7,7 +7,6 @@ import "google/protobuf/struct.proto";
 
 option go_package = "../rpapb";
 
-
 service OrderController {
   rpc Create(OrderRequest) returns (OrderResponse) {}
   rpc CreateConfig(ConfigRequest) returns (ConfigResponse) {}
@@ -17,12 +16,14 @@ service OrderController {
   rpc Destroy(OrderDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyConfig(ConfigDestroyRequest) returns (google.protobuf.Empty) {}
   rpc DestroyConfigSku(ConfigSkuDestroyRequest) returns (google.protobuf.Empty) {}
+  rpc ExecuteCmd(CmdTradeRequest) returns (google.protobuf.Empty) {}
   rpc List(OrderListRequest) returns (OrderListResponse) {}
   rpc ListConfig(ConfigListRequest) returns (ConfigListResponse) {}
   rpc ListConfigSku(ConfigSkuListRequest) returns (ConfigSkuListResponse) {}
   rpc ListRefund(RefundListRequest) returns (RefundListResponse) {}
   rpc Options(google.protobuf.Empty) returns (OptionsResponse) {}
   rpc PartialUpdate(OrderPartialUpdateRequest) returns (OrderResponse) {}
+  rpc PushRefund(RefundUpdateRequest) returns (RefundResponse) {}
   rpc Retrieve(OrderRetrieveRequest) returns (OrderResponse) {}
   rpc RetrieveRefund(RefundRetrieveRequest) returns (RefundResponse) {}
   rpc StatusCount(google.protobuf.Empty) returns (LabelNumberValueListResponse) {}
@@ -32,6 +33,12 @@ service OrderController {
   rpc UpdateConfigSku(ConfigSkuUpdateRequest) returns (ConfigSkuResponse) {}
   rpc UpdateOrderDetail(OrderDetailUpdateRequest) returns (OrderDetailResponse) {}
   rpc UpdateRefund(RefundUpdateRequest) returns (RefundResponse) {}
+}
+
+message CmdTradeRequest {
+  string target_uuid = 1;
+  int32 wid = 2;
+  int32 platform_type = 3;
 }
 
 message ConfigDestroyRequest {
@@ -420,6 +427,8 @@ message ProdCodeResponse {
   optional int32 repair = 19;
   string create_time = 20;
   string update_time = 21;
+  bool bindable = 22;
+  bool customizable = 23;
 }
 
 message RefundDetailRequest {
