@@ -20,18 +20,18 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	RfidPurchaseController_Create_FullMethodName                     = "/rfid_tag_manage.tag_service.RfidPurchaseController/Create"
-	RfidPurchaseController_Destroy_FullMethodName                    = "/rfid_tag_manage.tag_service.RfidPurchaseController/Destroy"
-	RfidPurchaseController_List_FullMethodName                       = "/rfid_tag_manage.tag_service.RfidPurchaseController/List"
-	RfidPurchaseController_PartialUpdate_FullMethodName              = "/rfid_tag_manage.tag_service.RfidPurchaseController/PartialUpdate"
-	RfidPurchaseController_Retrieve_FullMethodName                   = "/rfid_tag_manage.tag_service.RfidPurchaseController/Retrieve"
-	RfidPurchaseController_RfidPurchaseOutScanQuery_FullMethodName   = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseOutScanQuery"
-	RfidPurchaseController_RfidPurchaseOutScanRetreat_FullMethodName = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseOutScanRetreat"
-	RfidPurchaseController_RfidPurchaseOutScanSave_FullMethodName    = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseOutScanSave"
-	RfidPurchaseController_RfidPurchaseScanQuery_FullMethodName      = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseScanQuery"
-	RfidPurchaseController_RfidPurchaseScanRetreat_FullMethodName    = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseScanRetreat"
-	RfidPurchaseController_RfidPurchaseScanSave_FullMethodName       = "/rfid_tag_manage.tag_service.RfidPurchaseController/RfidPurchaseScanSave"
-	RfidPurchaseController_Update_FullMethodName                     = "/rfid_tag_manage.tag_service.RfidPurchaseController/Update"
+	RfidPurchaseController_Create_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidPurchaseController/Create"
+	RfidPurchaseController_Destroy_FullMethodName                    = "/ito_rfid_mongo.tag_service.RfidPurchaseController/Destroy"
+	RfidPurchaseController_List_FullMethodName                       = "/ito_rfid_mongo.tag_service.RfidPurchaseController/List"
+	RfidPurchaseController_PartialUpdate_FullMethodName              = "/ito_rfid_mongo.tag_service.RfidPurchaseController/PartialUpdate"
+	RfidPurchaseController_Retrieve_FullMethodName                   = "/ito_rfid_mongo.tag_service.RfidPurchaseController/Retrieve"
+	RfidPurchaseController_RfidPurchaseOutScanQuery_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseOutScanQuery"
+	RfidPurchaseController_RfidPurchaseOutScanRetreat_FullMethodName = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseOutScanRetreat"
+	RfidPurchaseController_RfidPurchaseOutScanSave_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseOutScanSave"
+	RfidPurchaseController_RfidPurchaseScanQuery_FullMethodName      = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseScanQuery"
+	RfidPurchaseController_RfidPurchaseScanRetreat_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseScanRetreat"
+	RfidPurchaseController_RfidPurchaseScanSave_FullMethodName       = "/ito_rfid_mongo.tag_service.RfidPurchaseController/RfidPurchaseScanSave"
+	RfidPurchaseController_Update_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidPurchaseController/Update"
 )
 
 // RfidPurchaseControllerClient is the client API for RfidPurchaseController service.
@@ -461,7 +461,7 @@ func _RfidPurchaseController_Update_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var RfidPurchaseController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rfid_tag_manage.tag_service.RfidPurchaseController",
+	ServiceName: "ito_rfid_mongo.tag_service.RfidPurchaseController",
 	HandlerType: (*RfidPurchaseControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -518,49 +518,49 @@ var RfidPurchaseController_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	RfidTagIndexController_BulkPushReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/BulkPushReturnInspectAgg"
-	RfidTagIndexController_Create_FullMethodName                            = "/rfid_tag_manage.tag_service.RfidTagIndexController/Create"
-	RfidTagIndexController_CreateRfidPublishEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidPublishEntities"
-	RfidTagIndexController_CreateRfidQualityEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidQualityEntities"
-	RfidTagIndexController_CreateRfidReasonEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReasonEntities"
-	RfidTagIndexController_CreateRfidReturnInspectConfig_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectConfig"
-	RfidTagIndexController_CreateRfidReturnInspectEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidReturnInspectEntities"
-	RfidTagIndexController_CreateRfidStockInOutEntities_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/CreateRfidStockInOutEntities"
-	RfidTagIndexController_Destroy_FullMethodName                           = "/rfid_tag_manage.tag_service.RfidTagIndexController/Destroy"
-	RfidTagIndexController_DestroyReturnInspectAgg_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyReturnInspectAgg"
-	RfidTagIndexController_DestroyRfidPublishEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidPublishEntities"
-	RfidTagIndexController_DestroyRfidQualityEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidQualityEntities"
-	RfidTagIndexController_DestroyRfidReasonEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReasonEntities"
-	RfidTagIndexController_DestroyRfidReturnInspectConfig_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectConfig"
-	RfidTagIndexController_DestroyRfidReturnInspectEntities_FullMethodName  = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidReturnInspectEntities"
-	RfidTagIndexController_DestroyRfidStockInOutEntities_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/DestroyRfidStockInOutEntities"
-	RfidTagIndexController_InspectConfigOptions_FullMethodName              = "/rfid_tag_manage.tag_service.RfidTagIndexController/InspectConfigOptions"
-	RfidTagIndexController_List_FullMethodName                              = "/rfid_tag_manage.tag_service.RfidTagIndexController/List"
-	RfidTagIndexController_ListRfidPublishEntities_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidPublishEntities"
-	RfidTagIndexController_ListRfidQualityEntities_FullMethodName           = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidQualityEntities"
-	RfidTagIndexController_ListRfidReasonEntities_FullMethodName            = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReasonEntities"
-	RfidTagIndexController_ListRfidReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectAgg"
-	RfidTagIndexController_ListRfidReturnInspectConfig_FullMethodName       = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectConfig"
-	RfidTagIndexController_ListRfidReturnInspectEntities_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidReturnInspectEntities"
-	RfidTagIndexController_ListRfidStockInOutEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/ListRfidStockInOutEntities"
-	RfidTagIndexController_PartialUpdate_FullMethodName                     = "/rfid_tag_manage.tag_service.RfidTagIndexController/PartialUpdate"
-	RfidTagIndexController_Retrieve_FullMethodName                          = "/rfid_tag_manage.tag_service.RfidTagIndexController/Retrieve"
-	RfidTagIndexController_RetrieveReturnInspectAgg_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveReturnInspectAgg"
-	RfidTagIndexController_RetrieveRfidPublishEntities_FullMethodName       = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidPublishEntities"
-	RfidTagIndexController_RetrieveRfidQualityEntities_FullMethodName       = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidQualityEntities"
-	RfidTagIndexController_RetrieveRfidReasonEntities_FullMethodName        = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReasonEntities"
-	RfidTagIndexController_RetrieveRfidReturnInspectConfig_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectConfig"
-	RfidTagIndexController_RetrieveRfidReturnInspectEntities_FullMethodName = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectEntities"
-	RfidTagIndexController_RetrieveRfidStockInOutEntities_FullMethodName    = "/rfid_tag_manage.tag_service.RfidTagIndexController/RetrieveRfidStockInOutEntities"
-	RfidTagIndexController_RfidEpcSync_FullMethodName                       = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidEpcSync"
-	RfidTagIndexController_RfidReturnInspectAggSync_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/RfidReturnInspectAggSync"
-	RfidTagIndexController_Update_FullMethodName                            = "/rfid_tag_manage.tag_service.RfidTagIndexController/Update"
-	RfidTagIndexController_UpdateRfidPublishEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidPublishEntities"
-	RfidTagIndexController_UpdateRfidQualityEntities_FullMethodName         = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidQualityEntities"
-	RfidTagIndexController_UpdateRfidReasonEntities_FullMethodName          = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReasonEntities"
-	RfidTagIndexController_UpdateRfidReturnInspectConfig_FullMethodName     = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectConfig"
-	RfidTagIndexController_UpdateRfidReturnInspectEntities_FullMethodName   = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidReturnInspectEntities"
-	RfidTagIndexController_UpdateRfidStockInOutEntities_FullMethodName      = "/rfid_tag_manage.tag_service.RfidTagIndexController/UpdateRfidStockInOutEntities"
+	RfidTagIndexController_BulkPushReturnInspectAgg_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/BulkPushReturnInspectAgg"
+	RfidTagIndexController_Create_FullMethodName                            = "/ito_rfid_mongo.tag_service.RfidTagIndexController/Create"
+	RfidTagIndexController_CreateRfidPublishEntities_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidPublishEntities"
+	RfidTagIndexController_CreateRfidQualityEntities_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidQualityEntities"
+	RfidTagIndexController_CreateRfidReasonEntities_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidReasonEntities"
+	RfidTagIndexController_CreateRfidReturnInspectConfig_FullMethodName     = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidReturnInspectConfig"
+	RfidTagIndexController_CreateRfidReturnInspectEntities_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidReturnInspectEntities"
+	RfidTagIndexController_CreateRfidStockInOutEntities_FullMethodName      = "/ito_rfid_mongo.tag_service.RfidTagIndexController/CreateRfidStockInOutEntities"
+	RfidTagIndexController_Destroy_FullMethodName                           = "/ito_rfid_mongo.tag_service.RfidTagIndexController/Destroy"
+	RfidTagIndexController_DestroyReturnInspectAgg_FullMethodName           = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyReturnInspectAgg"
+	RfidTagIndexController_DestroyRfidPublishEntities_FullMethodName        = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidPublishEntities"
+	RfidTagIndexController_DestroyRfidQualityEntities_FullMethodName        = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidQualityEntities"
+	RfidTagIndexController_DestroyRfidReasonEntities_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidReasonEntities"
+	RfidTagIndexController_DestroyRfidReturnInspectConfig_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidReturnInspectConfig"
+	RfidTagIndexController_DestroyRfidReturnInspectEntities_FullMethodName  = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidReturnInspectEntities"
+	RfidTagIndexController_DestroyRfidStockInOutEntities_FullMethodName     = "/ito_rfid_mongo.tag_service.RfidTagIndexController/DestroyRfidStockInOutEntities"
+	RfidTagIndexController_InspectConfigOptions_FullMethodName              = "/ito_rfid_mongo.tag_service.RfidTagIndexController/InspectConfigOptions"
+	RfidTagIndexController_List_FullMethodName                              = "/ito_rfid_mongo.tag_service.RfidTagIndexController/List"
+	RfidTagIndexController_ListRfidPublishEntities_FullMethodName           = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidPublishEntities"
+	RfidTagIndexController_ListRfidQualityEntities_FullMethodName           = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidQualityEntities"
+	RfidTagIndexController_ListRfidReasonEntities_FullMethodName            = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidReasonEntities"
+	RfidTagIndexController_ListRfidReturnInspectAgg_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidReturnInspectAgg"
+	RfidTagIndexController_ListRfidReturnInspectConfig_FullMethodName       = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidReturnInspectConfig"
+	RfidTagIndexController_ListRfidReturnInspectEntities_FullMethodName     = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidReturnInspectEntities"
+	RfidTagIndexController_ListRfidStockInOutEntities_FullMethodName        = "/ito_rfid_mongo.tag_service.RfidTagIndexController/ListRfidStockInOutEntities"
+	RfidTagIndexController_PartialUpdate_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidTagIndexController/PartialUpdate"
+	RfidTagIndexController_Retrieve_FullMethodName                          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/Retrieve"
+	RfidTagIndexController_RetrieveReturnInspectAgg_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveReturnInspectAgg"
+	RfidTagIndexController_RetrieveRfidPublishEntities_FullMethodName       = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidPublishEntities"
+	RfidTagIndexController_RetrieveRfidQualityEntities_FullMethodName       = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidQualityEntities"
+	RfidTagIndexController_RetrieveRfidReasonEntities_FullMethodName        = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidReasonEntities"
+	RfidTagIndexController_RetrieveRfidReturnInspectConfig_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectConfig"
+	RfidTagIndexController_RetrieveRfidReturnInspectEntities_FullMethodName = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectEntities"
+	RfidTagIndexController_RetrieveRfidStockInOutEntities_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidStockInOutEntities"
+	RfidTagIndexController_RfidEpcSync_FullMethodName                       = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RfidEpcSync"
+	RfidTagIndexController_RfidReturnInspectAggSync_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RfidReturnInspectAggSync"
+	RfidTagIndexController_Update_FullMethodName                            = "/ito_rfid_mongo.tag_service.RfidTagIndexController/Update"
+	RfidTagIndexController_UpdateRfidPublishEntities_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidPublishEntities"
+	RfidTagIndexController_UpdateRfidQualityEntities_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidQualityEntities"
+	RfidTagIndexController_UpdateRfidReasonEntities_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidReasonEntities"
+	RfidTagIndexController_UpdateRfidReturnInspectConfig_FullMethodName     = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidReturnInspectConfig"
+	RfidTagIndexController_UpdateRfidReturnInspectEntities_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidReturnInspectEntities"
+	RfidTagIndexController_UpdateRfidStockInOutEntities_FullMethodName      = "/ito_rfid_mongo.tag_service.RfidTagIndexController/UpdateRfidStockInOutEntities"
 )
 
 // RfidTagIndexControllerClient is the client API for RfidTagIndexController service.
@@ -1982,7 +1982,7 @@ func _RfidTagIndexController_UpdateRfidStockInOutEntities_Handler(srv interface{
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rfid_tag_manage.tag_service.RfidTagIndexController",
+	ServiceName: "ito_rfid_mongo.tag_service.RfidTagIndexController",
 	HandlerType: (*RfidTagIndexControllerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -2156,6 +2156,503 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateRfidStockInOutEntities",
 			Handler:    _RfidTagIndexController_UpdateRfidStockInOutEntities_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "tag_service.proto",
+}
+
+const (
+	RfidTradeController_Create_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidTradeController/Create"
+	RfidTradeController_Destroy_FullMethodName                    = "/ito_rfid_mongo.tag_service.RfidTradeController/Destroy"
+	RfidTradeController_List_FullMethodName                       = "/ito_rfid_mongo.tag_service.RfidTradeController/List"
+	RfidTradeController_PartialUpdate_FullMethodName              = "/ito_rfid_mongo.tag_service.RfidTradeController/PartialUpdate"
+	RfidTradeController_Retrieve_FullMethodName                   = "/ito_rfid_mongo.tag_service.RfidTradeController/Retrieve"
+	RfidTradeController_RfidTradeReturnScanQuery_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeReturnScanQuery"
+	RfidTradeController_RfidTradeReturnScanRetreat_FullMethodName = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeReturnScanRetreat"
+	RfidTradeController_RfidTradeReturnScanSave_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeReturnScanSave"
+	RfidTradeController_RfidTradeScanQuery_FullMethodName         = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeScanQuery"
+	RfidTradeController_RfidTradeScanRetreat_FullMethodName       = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeScanRetreat"
+	RfidTradeController_RfidTradeScanSave_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTradeController/RfidTradeScanSave"
+	RfidTradeController_Update_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidTradeController/Update"
+)
+
+// RfidTradeControllerClient is the client API for RfidTradeController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RfidTradeControllerClient interface {
+	Create(ctx context.Context, in *RfidTradeRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error)
+	Destroy(ctx context.Context, in *RfidTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *RfidTradeListRequest, opts ...grpc.CallOption) (*RfidTradeListResponse, error)
+	PartialUpdate(ctx context.Context, in *RfidTradePartialUpdateRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error)
+	Retrieve(ctx context.Context, in *RfidTradeRetrieveRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error)
+	RfidTradeReturnScanQuery(ctx context.Context, in *RfidTradeReturnScanQueryRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanQueryResponse, error)
+	RfidTradeReturnScanRetreat(ctx context.Context, in *RfidTradeReturnScanRetreatRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanRetreatResponse, error)
+	RfidTradeReturnScanSave(ctx context.Context, in *RfidTradeReturnScanSaveRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanSaveResponse, error)
+	RfidTradeScanQuery(ctx context.Context, in *RfidTradeScanQueryRequest, opts ...grpc.CallOption) (*RfidTradeScanQueryResponse, error)
+	RfidTradeScanRetreat(ctx context.Context, in *RfidTradeScanRetreatRequest, opts ...grpc.CallOption) (*RfidTradeScanRetreatResponse, error)
+	RfidTradeScanSave(ctx context.Context, in *RfidTradeScanSaveRequest, opts ...grpc.CallOption) (*RfidTradeScanSaveResponse, error)
+	Update(ctx context.Context, in *RfidTradeRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error)
+}
+
+type rfidTradeControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRfidTradeControllerClient(cc grpc.ClientConnInterface) RfidTradeControllerClient {
+	return &rfidTradeControllerClient{cc}
+}
+
+func (c *rfidTradeControllerClient) Create(ctx context.Context, in *RfidTradeRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error) {
+	out := new(RfidTradeResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) Destroy(ctx context.Context, in *RfidTradeDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, RfidTradeController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) List(ctx context.Context, in *RfidTradeListRequest, opts ...grpc.CallOption) (*RfidTradeListResponse, error) {
+	out := new(RfidTradeListResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) PartialUpdate(ctx context.Context, in *RfidTradePartialUpdateRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error) {
+	out := new(RfidTradeResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) Retrieve(ctx context.Context, in *RfidTradeRetrieveRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error) {
+	out := new(RfidTradeResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeReturnScanQuery(ctx context.Context, in *RfidTradeReturnScanQueryRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanQueryResponse, error) {
+	out := new(RfidTradeReturnScanQueryResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeReturnScanQuery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeReturnScanRetreat(ctx context.Context, in *RfidTradeReturnScanRetreatRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanRetreatResponse, error) {
+	out := new(RfidTradeReturnScanRetreatResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeReturnScanRetreat_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeReturnScanSave(ctx context.Context, in *RfidTradeReturnScanSaveRequest, opts ...grpc.CallOption) (*RfidTradeReturnScanSaveResponse, error) {
+	out := new(RfidTradeReturnScanSaveResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeReturnScanSave_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeScanQuery(ctx context.Context, in *RfidTradeScanQueryRequest, opts ...grpc.CallOption) (*RfidTradeScanQueryResponse, error) {
+	out := new(RfidTradeScanQueryResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeScanQuery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeScanRetreat(ctx context.Context, in *RfidTradeScanRetreatRequest, opts ...grpc.CallOption) (*RfidTradeScanRetreatResponse, error) {
+	out := new(RfidTradeScanRetreatResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeScanRetreat_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) RfidTradeScanSave(ctx context.Context, in *RfidTradeScanSaveRequest, opts ...grpc.CallOption) (*RfidTradeScanSaveResponse, error) {
+	out := new(RfidTradeScanSaveResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_RfidTradeScanSave_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTradeControllerClient) Update(ctx context.Context, in *RfidTradeRequest, opts ...grpc.CallOption) (*RfidTradeResponse, error) {
+	out := new(RfidTradeResponse)
+	err := c.cc.Invoke(ctx, RfidTradeController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RfidTradeControllerServer is the server API for RfidTradeController service.
+// All implementations must embed UnimplementedRfidTradeControllerServer
+// for forward compatibility
+type RfidTradeControllerServer interface {
+	Create(context.Context, *RfidTradeRequest) (*RfidTradeResponse, error)
+	Destroy(context.Context, *RfidTradeDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *RfidTradeListRequest) (*RfidTradeListResponse, error)
+	PartialUpdate(context.Context, *RfidTradePartialUpdateRequest) (*RfidTradeResponse, error)
+	Retrieve(context.Context, *RfidTradeRetrieveRequest) (*RfidTradeResponse, error)
+	RfidTradeReturnScanQuery(context.Context, *RfidTradeReturnScanQueryRequest) (*RfidTradeReturnScanQueryResponse, error)
+	RfidTradeReturnScanRetreat(context.Context, *RfidTradeReturnScanRetreatRequest) (*RfidTradeReturnScanRetreatResponse, error)
+	RfidTradeReturnScanSave(context.Context, *RfidTradeReturnScanSaveRequest) (*RfidTradeReturnScanSaveResponse, error)
+	RfidTradeScanQuery(context.Context, *RfidTradeScanQueryRequest) (*RfidTradeScanQueryResponse, error)
+	RfidTradeScanRetreat(context.Context, *RfidTradeScanRetreatRequest) (*RfidTradeScanRetreatResponse, error)
+	RfidTradeScanSave(context.Context, *RfidTradeScanSaveRequest) (*RfidTradeScanSaveResponse, error)
+	Update(context.Context, *RfidTradeRequest) (*RfidTradeResponse, error)
+	mustEmbedUnimplementedRfidTradeControllerServer()
+}
+
+// UnimplementedRfidTradeControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedRfidTradeControllerServer struct {
+}
+
+func (UnimplementedRfidTradeControllerServer) Create(context.Context, *RfidTradeRequest) (*RfidTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) Destroy(context.Context, *RfidTradeDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) List(context.Context, *RfidTradeListRequest) (*RfidTradeListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) PartialUpdate(context.Context, *RfidTradePartialUpdateRequest) (*RfidTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) Retrieve(context.Context, *RfidTradeRetrieveRequest) (*RfidTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeReturnScanQuery(context.Context, *RfidTradeReturnScanQueryRequest) (*RfidTradeReturnScanQueryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeReturnScanQuery not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeReturnScanRetreat(context.Context, *RfidTradeReturnScanRetreatRequest) (*RfidTradeReturnScanRetreatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeReturnScanRetreat not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeReturnScanSave(context.Context, *RfidTradeReturnScanSaveRequest) (*RfidTradeReturnScanSaveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeReturnScanSave not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeScanQuery(context.Context, *RfidTradeScanQueryRequest) (*RfidTradeScanQueryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeScanQuery not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeScanRetreat(context.Context, *RfidTradeScanRetreatRequest) (*RfidTradeScanRetreatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeScanRetreat not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) RfidTradeScanSave(context.Context, *RfidTradeScanSaveRequest) (*RfidTradeScanSaveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTradeScanSave not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) Update(context.Context, *RfidTradeRequest) (*RfidTradeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedRfidTradeControllerServer) mustEmbedUnimplementedRfidTradeControllerServer() {}
+
+// UnsafeRfidTradeControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RfidTradeControllerServer will
+// result in compilation errors.
+type UnsafeRfidTradeControllerServer interface {
+	mustEmbedUnimplementedRfidTradeControllerServer()
+}
+
+func RegisterRfidTradeControllerServer(s grpc.ServiceRegistrar, srv RfidTradeControllerServer) {
+	s.RegisterService(&RfidTradeController_ServiceDesc, srv)
+}
+
+func _RfidTradeController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).Create(ctx, req.(*RfidTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).Destroy(ctx, req.(*RfidTradeDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).List(ctx, req.(*RfidTradeListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradePartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).PartialUpdate(ctx, req.(*RfidTradePartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).Retrieve(ctx, req.(*RfidTradeRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeReturnScanQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeReturnScanQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeReturnScanQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanQuery(ctx, req.(*RfidTradeReturnScanQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeReturnScanRetreat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeReturnScanRetreatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanRetreat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeReturnScanRetreat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanRetreat(ctx, req.(*RfidTradeReturnScanRetreatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeReturnScanSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeReturnScanSaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanSave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeReturnScanSave_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeReturnScanSave(ctx, req.(*RfidTradeReturnScanSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeScanQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeScanQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeScanQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeScanQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeScanQuery(ctx, req.(*RfidTradeScanQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeScanRetreat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeScanRetreatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeScanRetreat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeScanRetreat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeScanRetreat(ctx, req.(*RfidTradeScanRetreatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_RfidTradeScanSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeScanSaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).RfidTradeScanSave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_RfidTradeScanSave_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).RfidTradeScanSave(ctx, req.(*RfidTradeScanSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTradeController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTradeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTradeControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTradeController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTradeControllerServer).Update(ctx, req.(*RfidTradeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RfidTradeController_ServiceDesc is the grpc.ServiceDesc for RfidTradeController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RfidTradeController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ito_rfid_mongo.tag_service.RfidTradeController",
+	HandlerType: (*RfidTradeControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _RfidTradeController_Create_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _RfidTradeController_Destroy_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _RfidTradeController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _RfidTradeController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _RfidTradeController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RfidTradeReturnScanQuery",
+			Handler:    _RfidTradeController_RfidTradeReturnScanQuery_Handler,
+		},
+		{
+			MethodName: "RfidTradeReturnScanRetreat",
+			Handler:    _RfidTradeController_RfidTradeReturnScanRetreat_Handler,
+		},
+		{
+			MethodName: "RfidTradeReturnScanSave",
+			Handler:    _RfidTradeController_RfidTradeReturnScanSave_Handler,
+		},
+		{
+			MethodName: "RfidTradeScanQuery",
+			Handler:    _RfidTradeController_RfidTradeScanQuery_Handler,
+		},
+		{
+			MethodName: "RfidTradeScanRetreat",
+			Handler:    _RfidTradeController_RfidTradeScanRetreat_Handler,
+		},
+		{
+			MethodName: "RfidTradeScanSave",
+			Handler:    _RfidTradeController_RfidTradeScanSave_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _RfidTradeController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

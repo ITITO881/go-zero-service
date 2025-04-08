@@ -130,10 +130,3 @@ func (b *Buffer) append(s string) *Buffer {
 	b.WriteString(s)
 	return b
 }
-
-// ReqStructToRpcReq 结构体适配
-func ReqStructToRpcReq(rawStruct interface{}, tarStruct interface{}) (err error) {
-	reqJson, err := json.Marshal(rawStruct)
-	err = json.Unmarshal(reqJson, tarStruct)
-	return
-}
