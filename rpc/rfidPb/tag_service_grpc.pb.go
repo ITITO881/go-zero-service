@@ -552,6 +552,7 @@ const (
 	RfidTagIndexController_RetrieveRfidReturnInspectConfig_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectConfig"
 	RfidTagIndexController_RetrieveRfidReturnInspectEntities_FullMethodName = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidReturnInspectEntities"
 	RfidTagIndexController_RetrieveRfidStockInOutEntities_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RetrieveRfidStockInOutEntities"
+	RfidTagIndexController_RfidEpcCheckOptionsQuery_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RfidEpcCheckOptionsQuery"
 	RfidTagIndexController_RfidEpcSync_FullMethodName                       = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RfidEpcSync"
 	RfidTagIndexController_RfidReturnInspectAggSync_FullMethodName          = "/ito_rfid_mongo.tag_service.RfidTagIndexController/RfidReturnInspectAggSync"
 	RfidTagIndexController_Update_FullMethodName                            = "/ito_rfid_mongo.tag_service.RfidTagIndexController/Update"
@@ -601,6 +602,7 @@ type RfidTagIndexControllerClient interface {
 	RetrieveRfidReturnInspectConfig(ctx context.Context, in *RfidReturnInspectConfigRetrieveRequest, opts ...grpc.CallOption) (*RfidReturnInspectConfigResponse, error)
 	RetrieveRfidReturnInspectEntities(ctx context.Context, in *RfidReturnInspectEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidReturnInspectEntitiesResponse, error)
 	RetrieveRfidStockInOutEntities(ctx context.Context, in *RfidStockInOutEntitiesRetrieveRequest, opts ...grpc.CallOption) (*RfidStockInOutEntitiesResponse, error)
+	RfidEpcCheckOptionsQuery(ctx context.Context, in *RfidTagIndexRfidEpcCheckOptionsQueryRequest, opts ...grpc.CallOption) (*RfidEpcCheckResponse, error)
 	RfidEpcSync(ctx context.Context, in *EpcSyncRequest, opts ...grpc.CallOption) (*EpcSyncResponse, error)
 	RfidReturnInspectAggSync(ctx context.Context, in *RfidReturnInspectAggSyncRequest, opts ...grpc.CallOption) (*RfidReturnInspectAggSyncResponse, error)
 	Update(ctx context.Context, in *RfidTagIndexRequest, opts ...grpc.CallOption) (*RfidTagIndexResponse, error)
@@ -926,6 +928,15 @@ func (c *rfidTagIndexControllerClient) RetrieveRfidStockInOutEntities(ctx contex
 	return out, nil
 }
 
+func (c *rfidTagIndexControllerClient) RfidEpcCheckOptionsQuery(ctx context.Context, in *RfidTagIndexRfidEpcCheckOptionsQueryRequest, opts ...grpc.CallOption) (*RfidEpcCheckResponse, error) {
+	out := new(RfidEpcCheckResponse)
+	err := c.cc.Invoke(ctx, RfidTagIndexController_RfidEpcCheckOptionsQuery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *rfidTagIndexControllerClient) RfidEpcSync(ctx context.Context, in *EpcSyncRequest, opts ...grpc.CallOption) (*EpcSyncResponse, error) {
 	out := new(EpcSyncResponse)
 	err := c.cc.Invoke(ctx, RfidTagIndexController_RfidEpcSync_FullMethodName, in, out, opts...)
@@ -1045,6 +1056,7 @@ type RfidTagIndexControllerServer interface {
 	RetrieveRfidReturnInspectConfig(context.Context, *RfidReturnInspectConfigRetrieveRequest) (*RfidReturnInspectConfigResponse, error)
 	RetrieveRfidReturnInspectEntities(context.Context, *RfidReturnInspectEntitiesRetrieveRequest) (*RfidReturnInspectEntitiesResponse, error)
 	RetrieveRfidStockInOutEntities(context.Context, *RfidStockInOutEntitiesRetrieveRequest) (*RfidStockInOutEntitiesResponse, error)
+	RfidEpcCheckOptionsQuery(context.Context, *RfidTagIndexRfidEpcCheckOptionsQueryRequest) (*RfidEpcCheckResponse, error)
 	RfidEpcSync(context.Context, *EpcSyncRequest) (*EpcSyncResponse, error)
 	RfidReturnInspectAggSync(context.Context, *RfidReturnInspectAggSyncRequest) (*RfidReturnInspectAggSyncResponse, error)
 	Update(context.Context, *RfidTagIndexRequest) (*RfidTagIndexResponse, error)
@@ -1162,6 +1174,9 @@ func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidReturnInspectEntiti
 }
 func (UnimplementedRfidTagIndexControllerServer) RetrieveRfidStockInOutEntities(context.Context, *RfidStockInOutEntitiesRetrieveRequest) (*RfidStockInOutEntitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RetrieveRfidStockInOutEntities not implemented")
+}
+func (UnimplementedRfidTagIndexControllerServer) RfidEpcCheckOptionsQuery(context.Context, *RfidTagIndexRfidEpcCheckOptionsQueryRequest) (*RfidEpcCheckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidEpcCheckOptionsQuery not implemented")
 }
 func (UnimplementedRfidTagIndexControllerServer) RfidEpcSync(context.Context, *EpcSyncRequest) (*EpcSyncResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RfidEpcSync not implemented")
@@ -1816,6 +1831,24 @@ func _RfidTagIndexController_RetrieveRfidStockInOutEntities_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RfidTagIndexController_RfidEpcCheckOptionsQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTagIndexRfidEpcCheckOptionsQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTagIndexControllerServer).RfidEpcCheckOptionsQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTagIndexController_RfidEpcCheckOptionsQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTagIndexControllerServer).RfidEpcCheckOptionsQuery(ctx, req.(*RfidTagIndexRfidEpcCheckOptionsQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RfidTagIndexController_RfidEpcSync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EpcSyncRequest)
 	if err := dec(in); err != nil {
@@ -2120,6 +2153,10 @@ var RfidTagIndexController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RetrieveRfidStockInOutEntities",
 			Handler:    _RfidTagIndexController_RetrieveRfidStockInOutEntities_Handler,
+		},
+		{
+			MethodName: "RfidEpcCheckOptionsQuery",
+			Handler:    _RfidTagIndexController_RfidEpcCheckOptionsQuery_Handler,
 		},
 		{
 			MethodName: "RfidEpcSync",
@@ -2653,6 +2690,504 @@ var RfidTradeController_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Update",
 			Handler:    _RfidTradeController_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "tag_service.proto",
+}
+
+const (
+	RfidTransferController_Create_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidTransferController/Create"
+	RfidTransferController_Destroy_FullMethodName                    = "/ito_rfid_mongo.tag_service.RfidTransferController/Destroy"
+	RfidTransferController_List_FullMethodName                       = "/ito_rfid_mongo.tag_service.RfidTransferController/List"
+	RfidTransferController_PartialUpdate_FullMethodName              = "/ito_rfid_mongo.tag_service.RfidTransferController/PartialUpdate"
+	RfidTransferController_Retrieve_FullMethodName                   = "/ito_rfid_mongo.tag_service.RfidTransferController/Retrieve"
+	RfidTransferController_RfidTransferInScanQuery_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferInScanQuery"
+	RfidTransferController_RfidTransferInScanRetreat_FullMethodName  = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferInScanRetreat"
+	RfidTransferController_RfidTransferInScanSave_FullMethodName     = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferInScanSave"
+	RfidTransferController_RfidTransferOutScanQuery_FullMethodName   = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferOutScanQuery"
+	RfidTransferController_RfidTransferOutScanRetreat_FullMethodName = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferOutScanRetreat"
+	RfidTransferController_RfidTransferOutScanSave_FullMethodName    = "/ito_rfid_mongo.tag_service.RfidTransferController/RfidTransferOutScanSave"
+	RfidTransferController_Update_FullMethodName                     = "/ito_rfid_mongo.tag_service.RfidTransferController/Update"
+)
+
+// RfidTransferControllerClient is the client API for RfidTransferController service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RfidTransferControllerClient interface {
+	Create(ctx context.Context, in *RfidTransferOutRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error)
+	Destroy(ctx context.Context, in *RfidTransferOutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	List(ctx context.Context, in *RfidTransferOutListRequest, opts ...grpc.CallOption) (*RfidTransferOutListResponse, error)
+	PartialUpdate(ctx context.Context, in *RfidTransferOutPartialUpdateRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error)
+	Retrieve(ctx context.Context, in *RfidTransferOutRetrieveRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error)
+	RfidTransferInScanQuery(ctx context.Context, in *RfidTransferStockInScanQueryRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanQueryResponse, error)
+	RfidTransferInScanRetreat(ctx context.Context, in *RfidTransferStockInScanRetreatRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanRetreatResponse, error)
+	RfidTransferInScanSave(ctx context.Context, in *RfidTransferStockInScanSaveRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanSaveResponse, error)
+	RfidTransferOutScanQuery(ctx context.Context, in *RfidTransferStockOutScanQueryRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanQueryResponse, error)
+	RfidTransferOutScanRetreat(ctx context.Context, in *RfidTransferStockOutScanRetreatRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanRetreatResponse, error)
+	RfidTransferOutScanSave(ctx context.Context, in *RfidTransferStockOutScanSaveRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanSaveResponse, error)
+	Update(ctx context.Context, in *RfidTransferOutRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error)
+}
+
+type rfidTransferControllerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRfidTransferControllerClient(cc grpc.ClientConnInterface) RfidTransferControllerClient {
+	return &rfidTransferControllerClient{cc}
+}
+
+func (c *rfidTransferControllerClient) Create(ctx context.Context, in *RfidTransferOutRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error) {
+	out := new(RfidTransferOutResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_Create_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) Destroy(ctx context.Context, in *RfidTransferOutDestroyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, RfidTransferController_Destroy_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) List(ctx context.Context, in *RfidTransferOutListRequest, opts ...grpc.CallOption) (*RfidTransferOutListResponse, error) {
+	out := new(RfidTransferOutListResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_List_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) PartialUpdate(ctx context.Context, in *RfidTransferOutPartialUpdateRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error) {
+	out := new(RfidTransferOutResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_PartialUpdate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) Retrieve(ctx context.Context, in *RfidTransferOutRetrieveRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error) {
+	out := new(RfidTransferOutResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_Retrieve_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferInScanQuery(ctx context.Context, in *RfidTransferStockInScanQueryRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanQueryResponse, error) {
+	out := new(RfidTransferStockInScanQueryResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferInScanQuery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferInScanRetreat(ctx context.Context, in *RfidTransferStockInScanRetreatRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanRetreatResponse, error) {
+	out := new(RfidTransferStockInScanRetreatResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferInScanRetreat_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferInScanSave(ctx context.Context, in *RfidTransferStockInScanSaveRequest, opts ...grpc.CallOption) (*RfidTransferStockInScanSaveResponse, error) {
+	out := new(RfidTransferStockInScanSaveResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferInScanSave_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferOutScanQuery(ctx context.Context, in *RfidTransferStockOutScanQueryRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanQueryResponse, error) {
+	out := new(RfidTransferStockOutScanQueryResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferOutScanQuery_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferOutScanRetreat(ctx context.Context, in *RfidTransferStockOutScanRetreatRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanRetreatResponse, error) {
+	out := new(RfidTransferStockOutScanRetreatResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferOutScanRetreat_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) RfidTransferOutScanSave(ctx context.Context, in *RfidTransferStockOutScanSaveRequest, opts ...grpc.CallOption) (*RfidTransferStockOutScanSaveResponse, error) {
+	out := new(RfidTransferStockOutScanSaveResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_RfidTransferOutScanSave_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rfidTransferControllerClient) Update(ctx context.Context, in *RfidTransferOutRequest, opts ...grpc.CallOption) (*RfidTransferOutResponse, error) {
+	out := new(RfidTransferOutResponse)
+	err := c.cc.Invoke(ctx, RfidTransferController_Update_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RfidTransferControllerServer is the server API for RfidTransferController service.
+// All implementations must embed UnimplementedRfidTransferControllerServer
+// for forward compatibility
+type RfidTransferControllerServer interface {
+	Create(context.Context, *RfidTransferOutRequest) (*RfidTransferOutResponse, error)
+	Destroy(context.Context, *RfidTransferOutDestroyRequest) (*emptypb.Empty, error)
+	List(context.Context, *RfidTransferOutListRequest) (*RfidTransferOutListResponse, error)
+	PartialUpdate(context.Context, *RfidTransferOutPartialUpdateRequest) (*RfidTransferOutResponse, error)
+	Retrieve(context.Context, *RfidTransferOutRetrieveRequest) (*RfidTransferOutResponse, error)
+	RfidTransferInScanQuery(context.Context, *RfidTransferStockInScanQueryRequest) (*RfidTransferStockInScanQueryResponse, error)
+	RfidTransferInScanRetreat(context.Context, *RfidTransferStockInScanRetreatRequest) (*RfidTransferStockInScanRetreatResponse, error)
+	RfidTransferInScanSave(context.Context, *RfidTransferStockInScanSaveRequest) (*RfidTransferStockInScanSaveResponse, error)
+	RfidTransferOutScanQuery(context.Context, *RfidTransferStockOutScanQueryRequest) (*RfidTransferStockOutScanQueryResponse, error)
+	RfidTransferOutScanRetreat(context.Context, *RfidTransferStockOutScanRetreatRequest) (*RfidTransferStockOutScanRetreatResponse, error)
+	RfidTransferOutScanSave(context.Context, *RfidTransferStockOutScanSaveRequest) (*RfidTransferStockOutScanSaveResponse, error)
+	Update(context.Context, *RfidTransferOutRequest) (*RfidTransferOutResponse, error)
+	mustEmbedUnimplementedRfidTransferControllerServer()
+}
+
+// UnimplementedRfidTransferControllerServer must be embedded to have forward compatible implementations.
+type UnimplementedRfidTransferControllerServer struct {
+}
+
+func (UnimplementedRfidTransferControllerServer) Create(context.Context, *RfidTransferOutRequest) (*RfidTransferOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) Destroy(context.Context, *RfidTransferOutDestroyRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) List(context.Context, *RfidTransferOutListRequest) (*RfidTransferOutListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) PartialUpdate(context.Context, *RfidTransferOutPartialUpdateRequest) (*RfidTransferOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialUpdate not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) Retrieve(context.Context, *RfidTransferOutRetrieveRequest) (*RfidTransferOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Retrieve not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferInScanQuery(context.Context, *RfidTransferStockInScanQueryRequest) (*RfidTransferStockInScanQueryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferInScanQuery not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferInScanRetreat(context.Context, *RfidTransferStockInScanRetreatRequest) (*RfidTransferStockInScanRetreatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferInScanRetreat not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferInScanSave(context.Context, *RfidTransferStockInScanSaveRequest) (*RfidTransferStockInScanSaveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferInScanSave not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferOutScanQuery(context.Context, *RfidTransferStockOutScanQueryRequest) (*RfidTransferStockOutScanQueryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferOutScanQuery not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferOutScanRetreat(context.Context, *RfidTransferStockOutScanRetreatRequest) (*RfidTransferStockOutScanRetreatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferOutScanRetreat not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) RfidTransferOutScanSave(context.Context, *RfidTransferStockOutScanSaveRequest) (*RfidTransferStockOutScanSaveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RfidTransferOutScanSave not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) Update(context.Context, *RfidTransferOutRequest) (*RfidTransferOutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedRfidTransferControllerServer) mustEmbedUnimplementedRfidTransferControllerServer() {
+}
+
+// UnsafeRfidTransferControllerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RfidTransferControllerServer will
+// result in compilation errors.
+type UnsafeRfidTransferControllerServer interface {
+	mustEmbedUnimplementedRfidTransferControllerServer()
+}
+
+func RegisterRfidTransferControllerServer(s grpc.ServiceRegistrar, srv RfidTransferControllerServer) {
+	s.RegisterService(&RfidTransferController_ServiceDesc, srv)
+}
+
+func _RfidTransferController_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).Create(ctx, req.(*RfidTransferOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).Destroy(ctx, req.(*RfidTransferOutDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_List_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).List(ctx, req.(*RfidTransferOutListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_PartialUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutPartialUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).PartialUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_PartialUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).PartialUpdate(ctx, req.(*RfidTransferOutPartialUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_Retrieve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutRetrieveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).Retrieve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_Retrieve_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).Retrieve(ctx, req.(*RfidTransferOutRetrieveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferInScanQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockInScanQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferInScanQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanQuery(ctx, req.(*RfidTransferStockInScanQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferInScanRetreat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockInScanRetreatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanRetreat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferInScanRetreat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanRetreat(ctx, req.(*RfidTransferStockInScanRetreatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferInScanSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockInScanSaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanSave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferInScanSave_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferInScanSave(ctx, req.(*RfidTransferStockInScanSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferOutScanQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockOutScanQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferOutScanQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanQuery(ctx, req.(*RfidTransferStockOutScanQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferOutScanRetreat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockOutScanRetreatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanRetreat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferOutScanRetreat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanRetreat(ctx, req.(*RfidTransferStockOutScanRetreatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_RfidTransferOutScanSave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferStockOutScanSaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanSave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_RfidTransferOutScanSave_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).RfidTransferOutScanSave(ctx, req.(*RfidTransferStockOutScanSaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RfidTransferController_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RfidTransferOutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RfidTransferControllerServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RfidTransferController_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RfidTransferControllerServer).Update(ctx, req.(*RfidTransferOutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RfidTransferController_ServiceDesc is the grpc.ServiceDesc for RfidTransferController service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RfidTransferController_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ito_rfid_mongo.tag_service.RfidTransferController",
+	HandlerType: (*RfidTransferControllerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _RfidTransferController_Create_Handler,
+		},
+		{
+			MethodName: "Destroy",
+			Handler:    _RfidTransferController_Destroy_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _RfidTransferController_List_Handler,
+		},
+		{
+			MethodName: "PartialUpdate",
+			Handler:    _RfidTransferController_PartialUpdate_Handler,
+		},
+		{
+			MethodName: "Retrieve",
+			Handler:    _RfidTransferController_Retrieve_Handler,
+		},
+		{
+			MethodName: "RfidTransferInScanQuery",
+			Handler:    _RfidTransferController_RfidTransferInScanQuery_Handler,
+		},
+		{
+			MethodName: "RfidTransferInScanRetreat",
+			Handler:    _RfidTransferController_RfidTransferInScanRetreat_Handler,
+		},
+		{
+			MethodName: "RfidTransferInScanSave",
+			Handler:    _RfidTransferController_RfidTransferInScanSave_Handler,
+		},
+		{
+			MethodName: "RfidTransferOutScanQuery",
+			Handler:    _RfidTransferController_RfidTransferOutScanQuery_Handler,
+		},
+		{
+			MethodName: "RfidTransferOutScanRetreat",
+			Handler:    _RfidTransferController_RfidTransferOutScanRetreat_Handler,
+		},
+		{
+			MethodName: "RfidTransferOutScanSave",
+			Handler:    _RfidTransferController_RfidTransferOutScanSave_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _RfidTransferController_Update_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
